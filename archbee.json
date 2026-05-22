@@ -1,0 +1,107 @@
+{
+  "docsPath": "docs/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "categoryName": "Home",
+        "isCategory": false,
+        "path": "targeted-messaging-implementation-guide-or-document-version-20.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Copyright",
+        "isCategory": false,
+        "path": "copyright.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Product Overview",
+        "isCategory": false,
+        "path": "product-overview.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Integration and Production",
+        "isCategory": false,
+        "path": "integration-and-production.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Process Overview",
+        "isCategory": false,
+        "path": "process-overview.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Submission File and Field Details",
+        "isCategory": false,
+        "path": "submission-file-and-field-details.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Delivery Report File and Field Details",
+        "isCategory": false,
+        "path": "delivery-report-file-and-field-details.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Standard Targeted Messaging File Schema",
+        "isCategory": false,
+        "path": "standard-targeted-messaging-file-schema.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Immunization Notifications File Schema",
+        "isCategory": false,
+        "path": "immunization-notifications-file-schema.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Targeted Message Output Examples",
+        "isCategory": false,
+        "path": "appendix-a-targeted-message-output-examples.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Immunization Message Output Examples",
+        "isCategory": false,
+        "path": "appendix-b-immunization-message-output-examples.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Document Change Log",
+        "isCategory": false,
+        "path": "appendix-c-document-change-log.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "default-csh.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "your-search-for-returned-results.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "default.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "summary.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
+      }
+    ]
+  },
+  "shadowDocs": []
+}

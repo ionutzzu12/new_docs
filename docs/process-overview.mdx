@@ -1,0 +1,308 @@
+---
+title: Process Overview
+docTags: 
+createdAt: Thu May 21 2026 11:57:42 GMT+0300 (Eastern European Summer Time)
+updatedAt: Thu May 21 2026 11:59:12 GMT+0300 (Eastern European Summer Time)
+---
+
+This section seeks to provide customers with an understanding of the steps and timing associated with Targeted Messaging’s processing of files that delivers communications to providers. While some elements will vary according to the type of message and file implemented, the general process remains consistent.
+
+## Workflow
+
+Below is an end-to-end process diagram showing the interactions between the customer, Surescripts, and providers for Targeted Messaging communications. See [Appendix A](appendix-a-targeted-message-output-examples.mdx) for examples of output displays for Targeted Messages from provider EHRs.
+
+<Image src="../../Resources/Images/DirectProviderNotifications/MED_PNL_FlowDiagram.png" position="flex-start" size="40" initialPath="../../Resources/Images/DirectProviderNotifications/MED_PNL_FlowDiagram.png" githubPath="Content/Resources/Images/DirectProviderNotifications/MED_PNL_FlowDiagram.png" width="606" height="281" darkWidth="606" darkHeight="281"></Image>
+
+This process workflow is repeated for each file that Customer submits via :Link[Secure SFTP]{label="Secure SFTP" overridedLabel="Secure SFTP" spaceId docId="i1bFxOzgCz8hL3T-pXffV" version="v2" docAnchorId="#Secure" loadingMethod="dynamic" newTab="false" githubPath="IntegrationAndProduction.htm#Secure" href="integration-and-production.mdx"}. Specific steps taken will vary by customer implementation and file contents.
+
+## Processing Sequence
+
+<table isTableHeaderOn="true" columnWidths="77,584">
+  <tr>
+    <td>
+      Step
+    </td>
+    <td>
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+      **File upload validation:**
+      Surescripts will validate each file when it is first uploaded to ensure it meets the minimum criteria to be processed.
+      Validations practices include:
+      - Ensure file extension/type aligns with available processing formats.
+      - Confirm file name aligns with naming convention.
+      - Check fields in the header row to ensure the file can be processed.
+      Errors found as part of the upload validation will not result in a Delivery Report but can be viewed in the File Load tool of the Workbench environment.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2
+    </td>
+    <td>
+      **Data validation**:
+      The processing system checks that:
+      - File is complete relative to the header and trailer sections’ requirements.
+      - Header values align with expected/valid values for the given customer.
+      - Field content is valid against schema requirements.
+      The process then confirms that mandatory elements are present and conditional requirements have been met. Fatal errors, such as field content validation errors, will result in a Delivery Report file where the records in error will be flagged, as described in the Delivery Report section.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3
+    </td>
+    <td>
+      **Message delivery**:
+      Targeted Messaging reviews validated file rows to group records into possible messages and determine which delivery route(s), and to which endpoint(s), a given message may take. Although each message will only be delivered to one destination, multiple destinations may be attempted during processing.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3a
+    </td>
+    <td>
+      **Electronic Messages:**
+      Messages are converted to a Direct Standard-compliant message and sent to the destination provider’s electronic system. Surescripts will wait up to one hour to receive a delivery receipt for messages before attempting an alternative delivery method.
+      **Note:** If a provider has more than one Direct address available Targeted Messaging will attempt delivery to the address that is the next best match until all addresses are attempted or a system accepts the message.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3b
+    </td>
+    <td>
+      **Fax messages**:
+      Messages are formatted using a template defined during the implementation process and sent to the fax number included in the Customer’s file.
+      **Note**: Customers are responsible for verifying all fax numbers before including them in the file to ensure faxes are only sent to PHI-secure fax numbers.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3c
+    </td>
+    <td>
+      **Mail messages**:
+      Similar to fax messages, messages are formatted using a template defined during the implementation process. Mail templates can vary from fax templates but often include the same content and format with different cover pages. The indication of successful mail messages is the handoff to a secure print/mail vendor designated by Surescripts. Ultimate delivery of the mail message will vary and relies on the United States Postal Service (USPS).
+      **Note**: Mailing addresses will only be used if the included address is valid according to the Coding Accuracy Support System (CASS).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      4
+    </td>
+    <td>
+      **Delivery report creation**:
+      Once all messages have been processed, the system creates a delivery report and sends it to the Customer via SFTP. The delivery report contains the processing outcome of each record, and may also include the following items:
+      - Delivery method of each record(s): electronic, fax or mail.
+      - Corresponding message ID of delivered messages.
+      - Outcome of address validation for mail delivery.
+      - Other processing errors, when applicable.
+      For details on what types of errors and content to expect in the delivery report file, see [Delivery Report File and Field Details](delivery-report-file-and-field-details.mdx).
+    </td>
+  </tr>
+</table>
+
+## Timing
+
+<hint type="info">
+  **Note:&#x20;**&#x54;he timing information provided in this section reflects typical processing behavior and does not constitute a **Service-Level Agreement (SLA)**. Actual processing times may vary based on system load, file size, and message composition.
+</hint>
+
+Targeted Messaging is available to accept and process customer files daily via SFTP connection. Upon receiving and validating the file, Surescripts initiates delivery of all included Targeted Messages.
+
+Typically, after files are processed, a Delivery Report file is sent within six hours. This estimate may be extended depending on several factors, however. To help maintain efficient processing, customers should consolidate their messages into as few files per day as technically possible, as only one file per customer will be processed at a time.
+
+Due to the response times allotted for provider systems to accept electronic messages, most files require at least 75 minutes to finish processing. After file processing is complete, Surescripts then sends the Delivery Report file via SFTP.
+
+While electronic and fax messages are delivered to the indicated endpoint (Direct address or Fax number) at the time the Delivery Report file is published, mail messages indicate only the handoff to a secure printing and mailing facility. Printed mail delivery times depend on the printing lead time and the United States Postal Service (USPS).
+
+### **Processing Consideration**
+
+Targeted Messaging can process a large amount of messages in a short amount of time. As additional files are submitted, processing time increases regardless of their message count.
+
+<table isTableHeaderOn="true" columnWidths="661">
+  <tr>
+    <td>
+      For example, sending 100,000 messages in one file would complete processing in much less time than using three different files to send only 300 messages.
+    </td>
+  </tr>
+</table>
+
+## Determining Delivery Route
+
+Message routing rules rely heavily on demographic information provided in the file, as each delivery method requires a minimum set of information. The table below specifies the elements that must be present to enable each delivery method. To achieve the best possible outcome, customers are encouraged to include as much information as possible about the intended recipient.
+
+<hint type="info">
+  **Note:&#x20;**&#x46;or best results with electronic messaging, Surescripts recommends including the street address of the provider’s practice. However, if it is possible that the message will be delivered through Mail, the given address must be the address to which you want the letter sent.
+</hint>
+
+<table isTableHeaderOn="true" columnWidths="165,165,165,166">
+  <tr>
+    <td>
+      Recipient Demographic Information
+    </td>
+    <td>
+      Electronic
+    </td>
+    <td>
+      Fax
+    </td>
+    <td>
+      Mail
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Provider NPI
+    </td>
+    <td>
+      Required
+    </td>
+    <td>
+      Recommended
+    </td>
+    <td>
+      Recommended
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Provider Last Name
+    </td>
+    <td>
+      Optional
+    </td>
+    <td>
+      Recommended
+    </td>
+    <td>
+      Required
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Address Line 1
+    </td>
+    <td>
+      Recommended
+    </td>
+    <td>
+      Optional
+    </td>
+    <td>
+      Required
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ZIP Code
+    </td>
+    <td>
+      Recommended
+    </td>
+    <td>
+      Optional
+    </td>
+    <td>
+      Required
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Fax Number
+    </td>
+    <td>
+      Optional
+    </td>
+    <td>
+      Required
+    </td>
+    <td>
+      Optional
+    </td>
+  </tr>
+  <tr>
+    <td>
+      City
+    </td>
+    <td>
+      Optional
+    </td>
+    <td>
+      Optional
+    </td>
+    <td>
+      Required
+    </td>
+  </tr>
+  <tr>
+    <td>
+      State
+    </td>
+    <td>
+      Optional
+    </td>
+    <td>
+      Optional
+    </td>
+    <td>
+      Required
+    </td>
+  </tr>
+</table>
+
+## Identifying Recipient Electronic Address
+
+Targeted Messaging prioritizes electronic delivery to ensure that the most secure and efficient method is used for all communications. The directory address for providers may not always match the address provided in the submitted file. To account for this, Surescripts will match the electronic address with providers using the following priority order:
+
+1. **Provider NPI** + **Address Line 1** + **ZIP Code**
+2. **Provider NPI** + **ZIP Code**
+3. **Provider NPI**
+
+## Combining Records to Form Messages
+
+Targeted Messaging combines multiple records to the same provider into a single outbound message in order to reduce provider burden and increase delivery efficiency. The rules for combining records differ depending on whether the file is a **Standard Targeted Messaging** file or an **Immunization Notification** file.
+
+### Standard Targeted Messaging Files
+
+Standard Targeted Messaging files allow multiple recommendations to be merged into a single message when the records have identical information in certain fields.
+
+**Criteria for Combining Records (Standard Targeted Messaging):**
+
+- Patient ID
+- Patient Name
+- Provider NPI
+- Provider Name
+- Provider Demographics
+- Template ID
+- Short recommendation
+
+<hint type="info">
+  **Note:&#x20;**&#x46;or **fax** and **mail** delivery, message templates limit the number of supporting evidence rows that can be included in a single message. If the file includes more supporting evidence rows than the template allows, only the allowed number are included in the message. Any extra rows are left out and listed in the Delivery Report.
+</hint>
+
+### Immunization Notification Files
+
+Immunization notification files allow multiple recommendations to be merged into a single message when the records have identical information in certain fields.
+
+**Criteria for Combining Records (Immunization Notifications):**
+
+- Patient ID
+- Patient Name
+- Provider NPI
+- Provider Name
+- Provider Demographics
+- Template ID
+- Care Location
+- Administration Date
+
+<hint type="info">
+  **Note:&#x20;**&#x46;or Immunization Notification files delivered via **fax** or **mail**, up to *three immunizations per page* may be included. Additional immunizations for the same patient generate additional pages but remain grouped into the same outbound notification as long as they meet the specified criteria.
+</hint>
+

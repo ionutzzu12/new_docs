@@ -1,0 +1,261 @@
+---
+title: Delivery Report File and Field Details
+docTags: 
+createdAt: Thu May 21 2026 11:57:42 GMT+0300 (Eastern European Summer Time)
+updatedAt: Thu May 21 2026 12:00:02 GMT+0300 (Eastern European Summer Time)
+---
+
+A Targeted Messaging Delivery Report is sent to the customer after the submitted file has been processed and the Targeted Messages have been sent. This file contains the records from the Targeted Messaging file with additional columns that indicate:
+
+- Delivery method of each record(s): electronic, fax or mail.
+- Corresponding message ID of delivered messages.
+- Outcome of address validation for mail delivery.
+- Other processing errors, when applicable.
+
+The Targeted Messaging Delivery Report will be written to the customer’s FTP account in a folder named **from\_surescripts** or other appropriate folder per the customer’s FTP setup.
+
+## File Name and Format
+
+The Targeted Messaging Delivery Report file name will be based on the original Targeted Messaging file name appended with a period (“**.**”), followed by a unique processing id, and then **.rsp**. This single file will then be added to a compressed archive file. The name of the archive file will be the Delivery Report file name appended with **.gz**.
+
+Example:
+
+**Original File Name**: PNLAcme2025122101.txt
+
+**Delivery Report File Name**: PNLAcme2025122101.1235413425555.rsp
+
+**Compressed Delivery Report File Name**: PNLAcme2025122101.1235413425555.rsp.gz
+
+<hint type="info">
+  **Note:&#x20;**&#x45;ach field in the Targeted Messaging Delivery Report is delimited by the pipe (**|**) character. Each line in the file is separated using the line feed (**LF**) character.
+</hint>
+
+## Field Codes and Descriptions
+
+Throughout the Targeted Messaging Delivery Report there are some fields with coding information made available for additional processing and reconciliation by the system which generated the original submission file. These fields should be evaluated upon receipt, to determine whether additional follow-up is needed or if the outreach made by Targeted Messaging was sufficient for Customers’ needs.
+
+### Load Status
+
+The Load Status – **Field 14 in headers** – indicates the overall file loading and processing outcome. This is different from the individual record status and errors.
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      01
+    </td>
+    <td>
+      The file was loaded and processed. No errors were encountered during processing.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      02
+    </td>
+    <td>
+      The file was loaded and processed. Errors were encountered during processing. Individual records should be reviewed for outcome and to determine further need for processing by the Customer
+    </td>
+  </tr>
+  <tr>
+    <td>
+      03
+    </td>
+    <td>
+      The file contained errors and was unable to complete loading. Individual records will not be included in this Delivery Report file.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      04
+    </td>
+    <td>
+      An error occurred during processing, unrelated to the structure of the file. The file can be resubmitted. Contact Surescripts Customer Support if the issue persists.
+    </td>
+  </tr>
+</table>
+
+### Delivery Method
+
+The Delivery Method – **Field 2 in records** – indicates if, and how, a message was delivered. There are five different codes that may appear, depending on the implementation and information included in the submission file.
+
+**Successful Delivery:**
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      E
+    </td>
+    <td>
+      This code indicates that the message was delivered electronically using Direct messaging.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      F
+    </td>
+    <td>
+      This code indicates that the message was delivered to the fax number indicated in Field 3 – Delivery Fax Number. The fax will be a PDF of the fax version of the template indicated in the original submission file.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      P
+    </td>
+    <td>
+      This code indicates that the message was delivered to the mailing address indicated in fields 4-8. The printed letter will be a PDF of the mail version of the template indicated in the original submission file.
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note:&#x20;**&#x53;uccessful message delivery does not preclude errors occurring for a given record. Delivery status is indicative of the overall message, which may include multiple records. Refer to :Link[Combining Records to Form Messages]{label="Combining Records to Form Messages" overridedLabel="Combining Records to Form Messages" spaceId docId="dXGaanulFncUz0bMbZ8At" version="v2" docAnchorId="#Combinin" loadingMethod="dynamic" newTab="false" githubPath="ProcessOverview.htm#Combinin" href="process-overview.mdx"} for more information about how records are grouped into messages.
+</hint>
+
+**Failed Delivery:**
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      N
+    </td>
+    <td>
+      This code indicates that the message was created, but no successful delivery was recorded. See the **Error Code and Error Description** fields in the Delivery Report for more information.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      X
+    </td>
+    <td>
+      This code indicates that the record could not be formed into a message for delivery. See the **Error Code and Error Description** fields in the Delivery Report for more information.
+    </td>
+  </tr>
+</table>
+
+### Address Processing Summary
+
+The Address Processing Summary – **Field 9 in records** – reflects the outcome of the address normalization and validation process that occurred. For a list of possible outcomes, refer to the table found here: [MelissaData - Address Errors](https://docs.melissa.com/cloud-api/property/result-codes.html#address-error).
+
+### Error Codes and Descriptions
+
+During the validation and processing of a Targeted Messaging file, there are opportunities for a wide variety of errors to occur. The tables below explain what error codes and descriptions may appear in the Delivery Report file, as well as where in the processing the error can occur. Please note that **PNL** refers to standard Targeted Messaging.
+
+**File and Record Validation Level Errors:**
+
+<table isTableHeaderOn="true" columnWidths="220,220,221">
+  <tr>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+    <td>
+      Explanation
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2001
+    </td>
+    <td>
+      Mandatory PNL field is not present or is invalid.
+    </td>
+    <td>
+      A field required by the file schema was not provided in the submission file.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2003
+    </td>
+    <td>
+      PNL template not found.
+    </td>
+    <td>
+      The template file was not found for a given message. Recheck the spelling of the template or contact your implementation specialist.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3001
+    </td>
+    <td>
+      PNL could not be delivered by electronic transmission, fax, or postal mail. The primary care provider address is not deliverable.
+    </td>
+    <td>
+      The record was formed into a message, but that message couldn’t be delivered.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3002
+    </td>
+    <td>
+      Max rows on template exceeded. Row not delivered.
+    </td>
+    <td>
+      The message was sent but this record was not included in the supporting evidence due to space limitations found on the template used. Ensure that the supporting evidence included in files aligns with template limits established during implementation.
+      **Note**: This error is only applicable for fax and mail messages.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      9000
+    </td>
+    <td>
+      An unexpected processing exception occurred.
+    </td>
+    <td>
+      The system encountered an unexpected problem during processing of the record.
+      **Note**: If an error rate of more than 10% occurs, all records that didn’t encounter a more specific error will receive this error.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      9001
+    </td>
+    <td>
+      Error sending PNL message.
+    </td>
+    <td>
+      A message was formed and delivery was attempted. However, the message was ultimately unable to be delivered. This could be due to EHR systems rejecting the message, invalid/undeliverable fax numbers or an invalid mailing address.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      9002
+    </td>
+    <td>
+      System timed out when sending PNL Message.
+    </td>
+    <td>
+      The message was sent electronically but an acceptance message was not received from the destination EHR system.
+      **Note**: This error will only occur if the system could not attempt sending the messaging using a different method.
+    </td>
+  </tr>
+</table>
+

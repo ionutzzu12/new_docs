@@ -1,0 +1,1940 @@
+---
+title: Standard Targeted Messaging File Schema
+docTags: 
+createdAt: Thu May 21 2026 11:57:42 GMT+0300 (Eastern European Summer Time)
+updatedAt: Thu May 21 2026 12:00:07 GMT+0300 (Eastern European Summer Time)
+---
+
+This section details the requirements for the standard Targeted Messaging file format. This format allows for dynamic communications from senders to providers and is commonly used for outreaches such as closing gaps in care, alerting prescribers to medication and formulary changes, and recommending patient care changes. This format supports grouping multiple records of supporting evidence into a table to add clarity to messages.
+
+## Customer-Submitted File Information
+
+This section details the file format which customers will use to submit standard Targeted Messaging files.
+
+### Header Information
+
+This section specifies and describes the different header fields included in the Targeted Messaging file, which Surescripts uses to populate the message that will be sent to a member's provider.
+
+<table isTableHeaderOn="true" columnWidths="132,132,132,132,133">
+  <tr>
+    <td>
+      Field #
+    </td>
+    <td>
+      Field Name
+    </td>
+    <td>
+      Data Type
+    </td>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+      Record Type
+    </td>
+    <td>
+      an3
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Identifies record type.
+      Value: HDR
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2
+    </td>
+    <td>
+      Version/Release
+      Number
+    </td>
+    <td>
+      an6
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Version Number of this specification.
+      Value: MED001
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3
+    </td>
+    <td>
+      Sender ID
+    </td>
+    <td>
+      an3..30
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      ID as assigned by Surescripts identifying customer sending the file.
+      Examples: P0100000000001, T0100000000001
+    </td>
+  </tr>
+  <tr>
+    <td>
+      4
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+      not used 
+    </td>
+    <td>
+      Empty element that must be included.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5
+    </td>
+    <td>
+      Receiver ID
+    </td>
+    <td>
+      an1..30
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      ID identifying the receiver of the file.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      6
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+      not used 
+    </td>
+    <td>
+      Empty element that must be included.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      7
+    </td>
+    <td>
+      Transmission Control Number
+    </td>
+    <td>
+      an1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Unique identifier defined by the sender.
+      **Note:** The sender shall ensure that the combination of the **Sender ID** and the **Transmission Control Number** remains unique for a minimum period of 18 months.
+      Example: 0000001000
+    </td>
+  </tr>
+  <tr>
+    <td>
+      8
+    </td>
+    <td>
+      Transmission Date
+    </td>
+    <td>
+      dt8
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Date transaction was created (D8 – CCYYMMDD).
+      Example: 20251201
+    </td>
+  </tr>
+  <tr>
+    <td>
+      9
+    </td>
+    <td>
+      Transmission Time
+    </td>
+    <td>
+      tm8
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Time transaction was created (HHMMSSDD).
+      Example: 12200101
+    </td>
+  </tr>
+  <tr>
+    <td>
+      10
+    </td>
+    <td>
+      Transmission File Type
+    </td>
+    <td>
+      an1..3
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Identifier telling the type of transaction.
+      Value: PNL
+    </td>
+  </tr>
+  <tr>
+    <td>
+      11
+    </td>
+    <td>
+      Transmission Action
+    </td>
+    <td>
+      an1
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      This is included to be consistent with other types of Surescripts files.
+      Value: A
+    </td>
+  </tr>
+  <tr>
+    <td>
+      12
+    </td>
+    <td>
+      Extract Date
+    </td>
+    <td>
+      dt8
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Date that file was created formatted as CCYYMMDD.
+      Example: 20251201
+    </td>
+  </tr>
+  <tr>
+    <td>
+      13
+    </td>
+    <td>
+      File Type
+    </td>
+    <td>
+      an1
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Indicates if the file is meant for processing in either the testing or production environment.
+      - **T**=Test
+      - **P**=Production
+    </td>
+  </tr>
+  <tr>
+    <td>
+      14
+    </td>
+    <td>
+      Context Code
+    </td>
+    <td>
+      an..64
+    </td>
+    <td>
+      optional 
+    </td>
+    <td>
+      Code used to indicate the intended purpose of the message, allowing provider vendor systems to optimize the workflows and routing of messages. See Section 4.6 for more information.
+      Default: 61357-0
+    </td>
+  </tr>
+</table>
+
+### Record Information
+
+This section specifies and describes the Targeted Messaging file’s different record fields, which Surescripts will validate and use to populate the unique messages that will be sent to the targeted provider.
+
+Records that do not meet the base validations are not processed further and are included in the Targeted Messaging Delivery Report File with an applicable error code.
+
+<hint type="info">
+  **Note:&#x20;**&#x56;alidation does not test data types, valid value rules or formats. All elements are treated as plain text during validation.
+</hint>
+
+<table isTableHeaderOn="true" columnWidths="132,132,132,132,133">
+  <tr>
+    <td>
+      Field #
+    </td>
+    <td>
+      Field Name
+    </td>
+    <td>
+      Data Type
+    </td>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+      Record Type
+    </td>
+    <td>
+      an3
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Identifies the record type.
+      Value: PNL
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2
+    </td>
+    <td>
+      Record Sequence Number
+    </td>
+    <td>
+      n1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Unique number for each record in the file.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3
+    </td>
+    <td>
+      Source System ID
+    </td>
+    <td>
+      an1..70
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      The Assigning Authority ID (OID) of the targeted message sender. See :Link[Assigning Authority ID Usage]{label="Assigning Authority ID Usage" overridedLabel="Assigning Authority ID Usage" spaceId docId="qE0ey6n5UygY31Km7LnYJ" version="v2" docAnchorId="#Assignin" loadingMethod="dynamic" newTab="false" githubPath="FileAndFileDetails.htm#Assignin" href="submission-file-and-field-details.mdx"} for more information about populating this field.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      4
+    </td>
+    <td>
+      Template ID
+    </td>
+    <td>
+      an1..20
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Identifier used to specify the Targeted Message template to be used for a given message. Available codes are assigned to the customer during implementation.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5
+    </td>
+    <td>
+      Clinical Rule Date
+    </td>
+    <td>
+      dt8
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Date the data was entered/captured formatted as CCYYMMDD.
+      Example: 20251201
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Recipient/Target Provider Details
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      6
+    </td>
+    <td>
+      NPI
+    </td>
+    <td>
+      n10
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      NPI of the member’s provider.
+      **Note**: Required for electronic delivery.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      7
+    </td>
+    <td>
+      First Name
+    </td>
+    <td>
+      an1..30
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      First name of the member’s provider.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      8
+    </td>
+    <td>
+      Last Name
+    </td>
+    <td>
+      an1..50
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Last name of the member’s provider.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      9
+    </td>
+    <td>
+      Address, line 1
+    </td>
+    <td>
+      an1..120
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Street information in mailing address of member’s provider
+      **Note**: Required for electronic and postal mail delivery.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      10
+    </td>
+    <td>
+      Address, line 2
+    </td>
+    <td>
+      an1..120
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Space for additional street information in mailing address of member’s provider.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      11
+    </td>
+    <td>
+      City
+    </td>
+    <td>
+      an1..50
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      City in mailing address of member’s provider.
+      **Note**: Required for postal mail delivery.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      12
+    </td>
+    <td>
+      State
+    </td>
+    <td>
+      an2
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      USPS state abbreviation for mailing address of member’s provider.
+      **Note**: Required for postal mail delivery.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      13
+    </td>
+    <td>
+      ZIP Code
+    </td>
+    <td>
+      n 5/9
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      ZIP Code in mailing address of member’s provider. Use the format 99999 or 999999999.
+      **Note**: Required for electronic and postal mail delivery.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      14
+    </td>
+    <td>
+      Phone Number
+    </td>
+    <td>
+      n10
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Contact telephone number for the provider receiving the notification.
+      **Note**: Do not include dashes (-) or parentheses.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      15
+    </td>
+    <td>
+      Fax Number
+    </td>
+    <td>
+      n10
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Fax number for provider to receive confidential patient information.
+      **Note**: Sender must verify this as a PHI-secure fax number.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Patient/Member Details
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      16
+    </td>
+    <td>
+      First Name
+    </td>
+    <td>
+      an1..30
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Member’s first name.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      17
+    </td>
+    <td>
+      Last Name
+    </td>
+    <td>
+      an1..50
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Member’s last name.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      18
+    </td>
+    <td>
+      Address, line 1
+    </td>
+    <td>
+      an1..120
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Street information in member’s mailing address.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      19
+    </td>
+    <td>
+      Address, line 2
+    </td>
+    <td>
+      an1..120
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Additional street information in member’s mailing address.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      20
+    </td>
+    <td>
+      City
+    </td>
+    <td>
+      an1..50
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Member’s city mailing address.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      21
+    </td>
+    <td>
+      State
+    </td>
+    <td>
+      an2
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      State in member’s mailing address.
+      **Note**: Use USPS state abbreviation.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      22
+    </td>
+    <td>
+      Zip Code
+    </td>
+    <td>
+      n 5/9
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      ZIP Code in member’s mailing address. Use the format 99999 or 999999999.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      23
+    </td>
+    <td>
+      Phone Number
+    </td>
+    <td>
+      n10
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Member’s contact phone number.
+      **Note**: Do not include dashes (-) or parentheses.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      24
+    </td>
+    <td>
+      Gender
+    </td>
+    <td>
+      an1
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Member’s administrative gender code. Values:
+      - **F** = Female
+      - **M** = Male
+      - **U** = Unknown/Other
+    </td>
+  </tr>
+  <tr>
+    <td>
+      25
+    </td>
+    <td>
+      Member ID
+    </td>
+    <td>
+      an1..15
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Sender’s internal identifier for the member.
+      **Note**: To ensure accuracy in patient matching, the Patient ID value should be consistent with the Patient ID value shared in other Surescripts products.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      26
+    </td>
+    <td>
+      Date of Birth
+    </td>
+    <td>
+      dt8
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Member’s date of birth formatted as CCYYMMDD.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Supporting Evidence Details
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      27
+    </td>
+    <td>
+      Fill Date
+    </td>
+    <td>
+      dt8
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Date the prescription was filled.
+      **Note**: use format CCYYMMDD.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      28
+    </td>
+    <td>
+      Medication Label Name
+    </td>
+    <td>
+      an1..256
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Medication name, strength, and units of measure.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      29
+    </td>
+    <td>
+      Quantity
+    </td>
+    <td>
+      an1..20
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Medication quantity being dispensed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      30
+    </td>
+    <td>
+      Day's Supply
+    </td>
+    <td>
+      n1..3
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Day’s supply of the medication for the patient.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      31
+    </td>
+    <td>
+      Prescriber of Record First Name
+    </td>
+    <td>
+      an1..30
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      First name of medication prescriber.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      32
+    </td>
+    <td>
+      Prescriber of Record Last Name
+    </td>
+    <td>
+      an1..50
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Last name of medication prescriber.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      33
+    </td>
+    <td>
+      Prescriber of Record Phone Number
+    </td>
+    <td>
+      n10
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Contact telephone number for medication prescriber.
+      **Note**: Do not include dashes (-) or parentheses.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      34
+    </td>
+    <td>
+      Pharmacy Name
+    </td>
+    <td>
+      an1..120
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Dispensing pharmacy name.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      35
+    </td>
+    <td>
+      Pharmacy Phone
+    </td>
+    <td>
+      n10
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Contact telephone number for dispensing pharmacy.
+      **Note**: Do not include dashes (-) or parentheses.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      36
+    </td>
+    <td>
+      Mutually defined
+    </td>
+    <td>
+      an1..35
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      This is a non-required placeholder reserved for user-specific elements.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      37
+    </td>
+    <td>
+      Plan Name
+    </td>
+    <td>
+      an1..35
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Member’s insurance plan name.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Recommendation Details
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      38
+    </td>
+    <td>
+      Short Recommendation
+    </td>
+    <td>
+      an1..128
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Short description of the recommendation being notified.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      39
+    </td>
+    <td>
+      Recommendation Action
+    </td>
+    <td>
+      an1..35
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Suggested actions for provider to take against the recommendation.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      40
+    </td>
+    <td>
+      Recommendation Context
+    </td>
+    <td>
+      an1..1024
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Extended description of the recommendation being sent.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      41
+    </td>
+    <td>
+      Supplemental Privacy
+    </td>
+    <td>
+      an1..512
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      A space for additional information on the recommendation being sent.
+      **Note**: This field is often used as a second paragraph for Recommendation Context.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Electronic Message Customizations
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      42
+    </td>
+    <td>
+      Context Code Override
+    </td>
+    <td>
+      an0..64
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Replaces the **Context Code** assigned in the header or the default (**61357-0**) with a record-specific value.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      43
+    </td>
+    <td>
+      Subject Override
+    </td>
+    <td>
+      an0..256
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Replaces the default message subject line text with a record-specific value.
+      Default: Healthcare Recommendation
+    </td>
+  </tr>
+  <tr>
+    <td>
+      44
+    </td>
+    <td>
+      Message Override
+    </td>
+    <td>
+      an0..1024
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Replaces the default message body text with a record specific value.
+      Default: A recent review of pharmacy claims has identified the following drug therapy opportunities for your patient. Please see attachment for details.
+    </td>
+  </tr>
+</table>
+
+### Trailer Information   
+
+<table isTableHeaderOn="true" columnWidths="132,132,132,132,133">
+  <tr>
+    <td>
+      Field #
+    </td>
+    <td>
+      Field Name
+    </td>
+    <td>
+      Data Type
+    </td>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+      Record Type
+    </td>
+    <td>
+      an3
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Identifies record type.
+      Value: TRL
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2
+    </td>
+    <td>
+      Total Records
+    </td>
+    <td>
+      n1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Total number of Detail Records.
+    </td>
+  </tr>
+</table>
+
+## Targeted Message Delivery Report
+
+A delivery report is provided for all files that were partially or successfully loaded. The file contains the processing outcome of both the file as well as the individual records included.
+
+### Header Information  
+
+<table isTableHeaderOn="true" columnWidths="132,132,132,132,133">
+  <tr>
+    <td>
+      Field #
+    </td>
+    <td>
+      Field Name
+    </td>
+    <td>
+      Data Type
+    </td>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+      Record Type
+    </td>
+    <td>
+      an3
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Identifies the record type.
+      Value: SHD
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2
+    </td>
+    <td>
+      Version / Release Number
+    </td>
+    <td>
+      an1..3
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Version number of this specification.
+      Value: MED001
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3
+    </td>
+    <td>
+      Sender ID
+    </td>
+    <td>
+      an3..30
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      ID for Surescripts as the creator of the file.
+      Value: S00000000000001
+    </td>
+  </tr>
+  <tr>
+    <td>
+      4
+    </td>
+    <td>
+      Recipient ID
+    </td>
+    <td>
+      an3..30
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      ID assigned by Surescripts, which matches the Sender ID value in the submitted file.
+      Examples: P0100000000001, T0100000000001
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5
+    </td>
+    <td>
+      Recipient Participant Password
+    </td>
+    <td>
+      an10
+    </td>
+    <td>
+      not used 
+    </td>
+    <td>
+      Empty element.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      6
+    </td>
+    <td>
+      Transmission Control Number
+    </td>
+    <td>
+      an1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Unique identifier generated by Surescripts for a specific delivery report.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      7
+    </td>
+    <td>
+      Transmission Date
+    </td>
+    <td>
+      dt8
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Date transmission was created formatted as CCYYMMDD.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      8
+    </td>
+    <td>
+      Transmission Time
+    </td>
+    <td>
+      tm8
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Time transmission was created formatted as HHMMSSDD.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      9
+    </td>
+    <td>
+      Transmission File Type
+    </td>
+    <td>
+      an1..3
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Identifier for the type of file.
+      Value: IMR
+    </td>
+  </tr>
+  <tr>
+    <td>
+      10
+    </td>
+    <td>
+      Transmission Number - Originating
+    </td>
+    <td>
+      an1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Number of the original transmission.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      11
+    </td>
+    <td>
+      Transaction Date - Originating
+    </td>
+    <td>
+      dt8
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Submitted file’s Transmission Date value.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      12
+    </td>
+    <td>
+      Transmission Time - Originating
+    </td>
+    <td>
+      tm8
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Submitted file’s Transmission Time value.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      13
+    </td>
+    <td>
+      File Type
+    </td>
+    <td>
+      an1
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Indicates if the file was processed in either the testing or production environment.
+      Value: **T** = Test or **P** = Production
+    </td>
+  </tr>
+  <tr>
+    <td>
+      14
+    </td>
+    <td>
+      Load Status
+    </td>
+    <td>
+      an2
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Code explaining loading status of the original file.
+    </td>
+  </tr>
+</table>
+
+### Record Information
+
+<table isTableHeaderOn="true" columnWidths="132,132,132,132,133">
+  <tr>
+    <td>
+      Field #
+    </td>
+    <td>
+      Field Name
+    </td>
+    <td>
+      Data Type
+    </td>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+      Response Record Type
+    </td>
+    <td>
+      an3
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Identifies the record type.
+      Value: SDT
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2
+    </td>
+    <td>
+      Targeted MessagingDelivery Method
+    </td>
+    <td>
+      an1
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      The method that was used to successfully deliver the Targeted Message. See :Link[Delivery Method]{label="Delivery Method" overridedLabel="Delivery Method" spaceId docId="15ui6CEmx5OkzzL6fU7kB" version="v2" docAnchorId="#Delivery" loadingMethod="dynamic" newTab="false" githubPath="ReportFileAndFieldDetails.htm#Delivery" href="delivery-report-file-and-field-details.mdx"} for possible codes.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3
+    </td>
+    <td>
+      Targeted MessagingFax Number
+    </td>
+    <td>
+      n10
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      The fax number that was used for fax delivery of the Targeted Message.
+      This field is populated when fax is the delivery method.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Provider Address Standardization Outcome
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      4
+    </td>
+    <td>
+      Address, line 1
+    </td>
+    <td>
+      an1..120
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Standardized version of submitted provider’s address, line 1 value, to be used when mail delivery is attempted.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5
+    </td>
+    <td>
+      Address, line 2
+    </td>
+    <td>
+      an1..120
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Standardized version of submitted provider’s address line 2 value, to be used when mail delivery is attempted.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      6
+    </td>
+    <td>
+      City
+    </td>
+    <td>
+      an1..35
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Standardized version of submitted provider’s City value, to be used when mail delivery is attempted.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      7
+    </td>
+    <td>
+      State
+    </td>
+    <td>
+      an2
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Standardized version of submitted provider’s State value, to be used when mail delivery is attempted.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      8
+    </td>
+    <td>
+      ZIP Code
+    </td>
+    <td>
+      n 5/9
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Standardized version of submitted provider’s ZIP Code value, to be used when mail delivery is attempted.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      9
+    </td>
+    <td>
+      Provider Address Processing Summary
+    </td>
+    <td>
+      an1..200
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Summary text describing the processing outcome of submitted provider’s address demographics.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      10
+    </td>
+    <td>
+      Provider Address Deliverable
+    </td>
+    <td>
+      an1
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Indicates whether the provider mailing address in this record was determined to be deliverable during processing.
+      Value: **Y** = Deliverable or **N** = Undeliverable
+      **Note**: If no address is provided in the original file, the field will be blank.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Message Tracking and Outcome Information
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      11
+    </td>
+    <td>
+      Targeted Message ID
+    </td>
+    <td>
+      an1..40
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      A unique identifier for the outreach/message, after records grouping was completed. All records that were identified for part of a single outreach will have the same value. See :Link[Combining Records to Form Messages]{label="Combining Records to Form Messages" overridedLabel="Combining Records to Form Messages" spaceId docId="dXGaanulFncUz0bMbZ8At" version="v2" docAnchorId="#Combinin" loadingMethod="dynamic" newTab="false" githubPath="ProcessOverview.htm#Combinin" href="process-overview.mdx"} for more information about records grouping is performed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      12
+    </td>
+    <td>
+      Message ID
+    </td>
+    <td>
+      an1..40
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      ID for the message transaction used to deliver the Targeted Message. All Targeted Message records included in the same delivery message will have the same value. See :Link[Combining Records to Form Messages]{label="Combining Records to Form Messages" overridedLabel="Combining Records to Form Messages" spaceId docId="dXGaanulFncUz0bMbZ8At" version="v2" docAnchorId="#Combinin" loadingMethod="dynamic" newTab="false" githubPath="ProcessOverview.htm#Combinin" href="process-overview.mdx"} for more information about how messages are grouped for delivery to providers.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      13
+    </td>
+    <td>
+      Batch ID
+    </td>
+    <td>
+      an10
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      This is the first 10 digits of the Targeted Message ID but can be used as an additional unique identifier as needed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      14
+    </td>
+    <td>
+      Error Code
+    </td>
+    <td>
+      an4
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Code identifying an error encountered during processing that prevented delivery of a record to the provider. See Section 5.2.4 for more information about error codes and descriptions.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      15
+    </td>
+    <td>
+      Error Description
+    </td>
+    <td>
+      an1..200
+    </td>
+    <td>
+      conditional 
+    </td>
+    <td>
+      Text description of the error code specified in Field 14, if applicable.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      16+
+    </td>
+    <td>
+      Echo of the fields provided in the submission file up to, but not including, the electronic customization fields: 42, 43, and 44.
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
+
+### Trailer Information
+
+<table isTableHeaderOn="true" columnWidths="132,132,132,132,133">
+  <tr>
+    <td>
+      Field #
+    </td>
+    <td>
+      Field Name
+    </td>
+    <td>
+      Data Type
+    </td>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1
+    </td>
+    <td>
+      Record Type
+    </td>
+    <td>
+      an3
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Identifies record type.
+      Value: STR
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2
+    </td>
+    <td>
+      Total Delivered Electronically
+    </td>
+    <td>
+      n1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Total number of rows in the Targeted Messaging file delivered electronically.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3
+    </td>
+    <td>
+      Total Delivered Fax
+    </td>
+    <td>
+      n1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Total number of rows in the Targeted Messaging file delivered by fax.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      4
+    </td>
+    <td>
+      Total Delivered Mail
+    </td>
+    <td>
+      n1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Total number of rows in the Targeted Messaging file delivered by postal mail.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5
+    </td>
+    <td>
+      Total Not Delivered
+    </td>
+    <td>
+      n1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      Total number of rows in the Targeted Messaging file not delivered.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      6
+    </td>
+    <td>
+      Total Rows in Error
+    </td>
+    <td>
+      n1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      This represents the total rows in the Targeted Messaging file that resulted in errors.
+      **Note**: Records not processed due to insufficient provider information are not included in this number.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      7
+    </td>
+    <td>
+      Total Records Received
+    </td>
+    <td>
+      n1..10
+    </td>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      The total number of records received in the Targeted Messaging file.
+    </td>
+  </tr>
+</table>
+

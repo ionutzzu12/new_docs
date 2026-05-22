@@ -1,0 +1,95 @@
+---
+title: Integration and Production
+docTags: 
+createdAt: Thu May 21 2026 11:57:42 GMT+0300 (Eastern European Summer Time)
+updatedAt: Thu May 21 2026 12:21:18 GMT+0300 (Eastern European Summer Time)
+---
+
+The following section defines related technical and support elements needed to achieve certification for moving the product into production, along with our Integration and Compliance processes.
+
+## Integration Process
+
+When a customer begins integrating a Surescripts product into their application(s), they will be provided access to all the Surescripts documentation pertaining to the product being implemented. In addition, customers will be provided access to the staging environment to design, develop and test the product integration within their application.
+
+<hint type="info">
+  **Note:&#x20;**&#x54;he time frame of the project can vary depending on the customer's resource allocation for the project.
+</hint>
+
+**Meeting Requirements**
+
+During Integration, customers will ensure their system has met all product requirements. The message validation testing will focus on message format, application workflow and display in accordance with Surescripts documentation. Upon successful completion of message validation and, when applicable, other pre-production network requirements (e.g., Identity Proofing, Attestations, DEA audit), customers will be enabled in production.
+
+For requirements, consider the following:
+
+- To ensure high-quality transactions, Surescripts applies additional business rules above and beyond the schema defined requirements that will cause a message to be successful or rejected.
+- Surescripts test cases do not cover all possible scenarios in production. Customers are responsible for testing any other applicable scenarios specific to their production environment.
+- In accordance with the customer’s legal agreement with Surescripts, each customer is responsible for ensuring compliance with all applicable laws including, but not limited to, local and state laws/regulations where doing business.
+
+## Transition to Production
+
+Once message validation testing is complete and the contract is approved, the customer is ready to move into production. Surescripts will configure the production connection and ensure successful operations with the customer.
+
+Before moving to production, Surescripts Account Management will collaborate with the customer and internal Surescripts teams to review the following items:
+
+- **Production support contacts**
+  To be captured in an Escalation Matrix—a tool that specifies how Surescripts should contact customers for support needs, including case routing and escalation paths.
+- **Support process and training**
+- **Support availability**
+
+<hint type="info">
+  **Note:&#x20;**&#x54;he Escalation Matrix for use by Surescripts customers can be found in the *Network Operations Guide*.
+</hint>
+
+## Compliance
+
+Surescripts goal is efficiency and consistency across the network so all customers can meet the highest measures of patient safety, end-to-end reliability, and quality. To ensure that customers comply with and adhere to the approved certification requirements, Surescripts:
+
+- Monitors customers in production to ensure all network customers remain in compliance with certification requirements and contractual terms.
+- Initiates a remediation process for identified compliance issues.
+
+To ensure network and patient safety, customer agrees to notify Surescripts of any modifications through use of the Surescripts recertification form. Upon receipt of this form, changes will be reviewed, and a determination made as to what (if any) level of certification may be required before being placed into production.
+
+When changes are made to a customer’s implementation, the customer should advise their account manager. The customer will be given a recertification guide to provide details regarding the changes made. Upon receipt of the completed document, the details will be reviewed, and a determination will be made as to what (if any) level of recertification is necessary.
+
+As a reminder, Surescripts conducts certification with customers to ensure the application adheres to network requirements. Surescripts will enforce mandatory fields as required by the Standards body and Surescripts guide requirements. To maximize interoperability, customers are recommended to support optional fields that have been created to address gaps in discrete data needs and the many solutions that are in place for the benefit of the receiver. Surescripts encourages, but does not guarantee, the use of optional discrete fields to support end user workflows.
+
+This guide is intended for certification on our network only and is not intended to ensure compliance with state and federal law. In accordance with the customer’s legal agreement with Surescripts, each customer is responsible for conducting its own due diligence to ensure compliance with all applicable laws and requirements, including, but not limited to, local and state laws and regulations in which the customer’s application is deployed and used.
+
+## Secure FTP
+
+This product uses SFTP to transfer files between Customer and Surescripts. Refer to the Surescripts-supplied *Connectivity and Authentication Guide* for details on these requirements.
+
+**SFTP Locations:**
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Incoming Files (To Surescripts)
+    </td>
+    <td>
+      /to\_surescripts (Permission: Upload)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Outgoing Files (From Surescripts)
+    </td>
+    <td>
+      /from\_surescripts (Permissions: Download, Delete)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      History
+    </td>
+    <td>
+      /history (Permissions: View-Only)
+    </td>
+  </tr>
+</table>
+
+**File Transfer Tips:**
+
+- Customers will post files to the **/to\_surescripts** folder.
+- Customers have **View-Only** rights on the /history folder. This folder contains a copy of client files. The Surescripts system will automatically delete files older than 14 days.
+- Customers have **Download** and **Delete** rights on the **/from\_surescripts** folder. This folder contains the Surescripts Delivery Report files. Customers may delete these files directly, while the Surescripts system will automatically delete files older than 14 days.

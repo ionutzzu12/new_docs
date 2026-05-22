@@ -1,0 +1,155 @@
+{
+  "docsPath": "docs/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "categoryName": "About",
+        "isCategory": false,
+        "path": "myapp-about.md",
+        "children": []
+      },
+      {
+        "categoryName": "Swagger API Petstore 2.0",
+        "isCategory": true,
+        "path": "myapp-petstore-2.0.yaml",
+        "children": []
+      },
+      {
+        "categoryName": "Syntax",
+        "isCategory": true,
+        "children": [
+          {
+            "categoryName": "Headings",
+            "isCategory": false,
+            "path": "myapp-syntax/headings.md",
+            "children": []
+          },
+          {
+            "categoryName": "Links",
+            "isCategory": false,
+            "path": "myapp-syntax/links.md",
+            "children": []
+          },
+          {
+            "categoryName": "Images",
+            "isCategory": false,
+            "path": "myapp-syntax/images.md",
+            "children": []
+          },
+          {
+            "categoryName": "Lists",
+            "isCategory": false,
+            "path": "myapp-syntax/lists.md",
+            "children": [
+              {
+                "categoryName": "Lists 1",
+                "isCategory": false,
+                "path": "myapp-syntax/lists-1.md",
+                "children": []
+              },
+              {
+                "categoryName": "Lists 2",
+                "isCategory": false,
+                "path": "myapp-syntax/lists-1.md",
+                "children": [
+                  {
+                    "categoryName": "Lists 2",
+                    "isCategory": false,
+                    "path": "myapp-syntax/lists-1.md",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "categoryName": "Tables",
+            "isCategory": false,
+            "path": "myapp-syntax/tables.md",
+            "children": []
+          },
+          {
+            "categoryName": "Code editor",
+            "isCategory": false,
+            "path": "myapp-syntax/code-editor.md",
+            "children": []
+          },
+          {
+            "categoryName": "item separator list",
+            "isCategory": false,
+            "path": "myapp-syntax/an-item.md",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Directives in page",
+        "isCategory": true,
+        "children": [
+          {
+            "categoryName": "links",
+            "isCategory": false,
+            "path": "myapp-directives/links.md",
+            "children": []
+          },
+          {
+            "categoryName": "emoji",
+            "isCategory": false,
+            "path": "myapp-directives/emoji.md",
+            "children": []
+          },
+          {
+            "categoryName": "hints",
+            "isCategory": false,
+            "path": "myapp-directives/hints.md",
+            "children": []
+          },
+          {
+            "categoryName": "link-arrays",
+            "isCategory": false,
+            "path": "myapp-directives/link-arrays.md",
+            "children": []
+          },
+          {
+            "categoryName": "tabs",
+            "isCategory": false,
+            "path": "myapp-directives/tabs.md",
+            "children": []
+          },
+          {
+            "categoryName": "code-editor-tabs",
+            "isCategory": false,
+            "path": "myapp-directives/code-editor-tabs.md",
+            "children": []
+          },
+          {
+            "categoryName": "code-drawers",
+            "isCategory": false,
+            "path": "myapp-directives/code-drawer.md",
+            "children": []
+          },
+          {
+            "categoryName": "embeds",
+            "isCategory": false,
+            "path": "myapp-directives/embeds.md",
+            "children": []
+          },
+          {
+            "categoryName": "changelogs",
+            "isCategory": false,
+            "path": "myapp-directives/changelog.md",
+            "children": []
+          },
+          {
+            "categoryName": "partial",
+            "isCategory": false,
+            "path": "myapp-directives/partial.md",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "shadowDocs": []
+}

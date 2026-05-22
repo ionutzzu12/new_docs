@@ -1,0 +1,427 @@
+---
+title: Submission File and Field Details
+docTags: 
+createdAt: Thu May 21 2026 11:57:42 GMT+0300 (Eastern European Summer Time)
+updatedAt: Thu May 21 2026 12:00:00 GMT+0300 (Eastern European Summer Time)
+---
+
+This section details the shared requirements for all Targeted Messaging file formats.
+
+## Field Schema Requirement Designation
+
+Throughout this guide, fields are designated as either mandatory, conditional, optional, or not used. This provides a uniform way to distinguish which fields the system requires, expects, or simply recommends for most workflows.
+
+<table isTableHeaderOn="true" columnWidths="127,534">
+  <tr>
+    <td>
+      Code
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      mandatory 
+    </td>
+    <td>
+      The element must always be populated. If missing in the header or trailer the file will fail. If missing in a record, the record will fail. If 10% or more of the records in a file fail, the file will stop processing.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      conditional 
+    </td>
+    <td>
+      This element must be populated when the given conditions are met.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      optional 
+    </td>
+    <td>
+      For the best outcome of messages Surescripts recommends populating the element, but does not place any conditional or mandatory validation on it.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      not used 
+    </td>
+    <td>
+      Not used in this product but is included since it’s used in other similar Surescripts products. (Often indicates a mandatory blank space.)
+    </td>
+  </tr>
+</table>
+
+## Character Types and Formats
+
+See the [American Standard Code for Information Interchange (ASCII)](http://www.asciitable.com/) for a list of valid code representations for accepted character types. Use of characters outside these types will be rejected, which may cause records or entire files to fail.
+
+Alphanumeric data must only contain ASCII characters with decimal values of 32 through 126, excluding the delimiter characters listed in the Delimiter Characters section.
+
+Numeric data must be composed of the integers 0-9.
+
+**The field schemas use the following character type notations:**
+
+<table isTableHeaderOn="true" columnWidths="152,509">
+  <tr>
+    <td>
+      Character Type
+    </td>
+    <td>
+      Notation
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Alphanumeric
+    </td>
+    <td>
+      an
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Date
+    </td>
+    <td>
+      dt
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Numeric
+    </td>
+    <td>
+      n
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Time
+    </td>
+    <td>
+      tm
+    </td>
+  </tr>
+</table>
+
+**Date Formats:**
+
+<table isTableHeaderOn="true" columnWidths="154,507">
+  <tr>
+    <td>
+      Notation
+    </td>
+    <td>
+      Meaning
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CC
+    </td>
+    <td>
+      Two-digit century, such as 19 in the year 1999
+    </td>
+  </tr>
+  <tr>
+    <td>
+      YY
+    </td>
+    <td>
+      Two-digit year, such as 99 in the year 1999
+    </td>
+  </tr>
+  <tr>
+    <td>
+      MM
+    </td>
+    <td>
+      Two-digit month (01=January, etc.)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DD
+    </td>
+    <td>
+      Day of the month (01-31)
+    </td>
+  </tr>
+</table>
+
+**Time Formats:**
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Notation
+    </td>
+    <td>
+      Meaning
+    </td>
+  </tr>
+  <tr>
+    <td>
+      HH
+    </td>
+    <td>
+      Two digits of hour (00-23)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      MM
+    </td>
+    <td>
+      Two digits of minute (00-59)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SS
+    </td>
+    <td>
+      Two digits of second (00-59)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DD
+    </td>
+    <td>
+      Two digits of decimal seconds (00-99)
+    </td>
+  </tr>
+</table>
+
+## Delimiter Characters
+
+The following table contains delimiter characters used in inbound and outbound files. Unique fields must be separated using the pipe (|) character only. Unique records (rows) within the file must be separated by using either the line feed (LF) or both carriage return (CR) and LF characters together.
+
+<table isTableHeaderOn="true" columnWidths="138,260.907029478458,262.092970521542">
+  <tr>
+    <td>
+      Character
+    </td>
+    <td>
+      Description
+    </td>
+    <td>
+      ASCII Hexadecimal Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      |
+    </td>
+    <td>
+      Pipe
+    </td>
+    <td>
+      0x7c
+    </td>
+  </tr>
+  <tr>
+    <td>
+      LF
+    </td>
+    <td>
+      Line Feed
+    </td>
+    <td>
+      0x0a
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CR
+    </td>
+    <td>
+      Carriage Return
+    </td>
+    <td>
+      0x0d
+    </td>
+  </tr>
+</table>
+
+Although the following characters are considered delimiter characters, they must **not** be used within submitted files. Inclusion of any of these characters will be read as field delimiters and cause records containing these characters to be flagged as an error:
+
+<table isTableHeaderOn="true" columnWidths="125,267.3922902494331,268.6077097505669">
+  <tr>
+    <td>
+      Character
+    </td>
+    <td>
+      Description
+    </td>
+    <td>
+      ASCII Hexadecimal Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \*
+    </td>
+    <td>
+      Asterisk
+    </td>
+    <td>
+      0x2a
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \\
+    </td>
+    <td>
+      Backslash
+    </td>
+    <td>
+      0x5c
+    </td>
+  </tr>
+  <tr>
+    <td>
+      :
+    </td>
+    <td>
+      Colon
+    </td>
+    <td>
+      0x3a
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \~
+    </td>
+    <td>
+      Tilde
+    </td>
+    <td>
+      0x7e
+    </td>
+  </tr>
+</table>
+
+## File Naming and Formats
+
+To ensure proper file processing, as well as our ability to properly support customers with processed files, there are a few key rules that must be followed. Review the table below for more information:
+
+<table isTableHeaderOn="true" columnWidths="157,504">
+  <tr>
+    <td>
+      Rules
+    </td>
+    <td>
+      Instructions
+    </td>
+  </tr>
+  <tr>
+    <td>
+      File Naming Convention
+    </td>
+    <td>
+      The naming convention for Targeted Messaging batch files is **PNLCustomerName*****CCYYMMDDXX*** where **CCYYMMDD** is the file transmission date and **XX** is a unique sequence for that day. Surescripts provides the **CustomerName** portion, which will consist of 3-14 letters unique to the Customer. Notice that Standard files begin with **PNL**, while Immunization files begin with **IMM**.
+      Standard Targeted Messaging file name example:
+      **PNLAcme2025120101.txt**
+      Immunization notification file name example:
+      **IMMAcme2025120101.txt**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      File Compression Methods (optional)
+    </td>
+    <td>
+      Prior to transmitting them to Surescripts, we recommend using standard file compression methods. The supported compression protocols are **gzip**, **bzip2**, and **zip**.
+      Each compressed file must contain only one Targeted Messaging file and the compressed archive file must have the same name as the Targeted Messaging file it contains, appended with the corresponding compression method file extension.
+      For example, a file named **PNLAcme2025120101.txt**, compressed using **gzip** would be transmitted in a file named **PNLAcme2025120101.txt.gz**.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Transmitting files to Surescripts
+    </td>
+    <td>
+      Deliver the file to Surescripts using FTP and place in the **/to\_surescripts** folder or other appropriate location per the customer’s FTP setup.
+    </td>
+  </tr>
+</table>
+
+## Assigning Authority ID Usage
+
+An Assigning Authority ID, commonly known as an OID or Home Community ID, is a globally unique ID that systems use to represent themselves as well as to recognize each other in the secure exchange of clinical information. The Assigning Authority ID is a critical component to allowing EHR systems to accurately match patients. If an EHR is unable to match a message to a patient in their system, the message is most likely to be rejected.
+
+For Targeted Messaging messages to be processed successfully into EHR systems, each customer will need to use a unique Assigning Authority ID. In the file schemas in Section 6 and 7, the Assigning Authority ID is denoted as:
+
+- Source System ID (for Standard files)
+- Patient Issuer ID (for Immunization files)
+
+Surescripts strongly encourages customers to use their sending organizations’ existing OID when populating these fields. If sending on behalf of downstream customers, the OID should be that of the organization who assigned the associated unique patient ID.
+
+If the sender does not have an OID, Surescripts recommends registering for one through [HL7](https://www.hl7.org/oid/index.cfm) or another available OID registry. If for some reason one cannot be obtained, work with your implementation specialist to proceed.
+
+## Context Codes in Messaging
+
+This section describes context codes that are supported for standard Targeted Messaging files. Use of context codes is considered best practice to enable EHRs to more accurately route messages within their systems.
+
+<hint type="info">
+  **Note:&#x20;**&#x49;n addition to the codes listed below, the codes from the [HL7 FHIR R4 Document Type Codes Value Set](http://hl7.org/fhir/R4/valueset-c80-doc-typecodes.html) may also be used.
+</hint>
+
+<table isTableHeaderOn="true" columnWidths="141,520">
+  <tr>
+    <td>
+      Context Code
+    </td>
+    <td>
+      Explanation
+    </td>
+  </tr>
+  <tr>
+    <td>
+      61357-0
+    </td>
+    <td>
+      Medication Pharmaceutical (advice.brief Document). Default for **MEDS**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      52034-6
+    </td>
+    <td>
+      Payer Letter
+    </td>
+  </tr>
+  <tr>
+    <td>
+      95411-5
+    </td>
+    <td>
+      SARS Coronavirus 2 Ab.neut
+    </td>
+  </tr>
+  <tr>
+    <td>
+      34133-9
+    </td>
+    <td>
+      General Communication
+    </td>
+  </tr>
+  <tr>
+    <td>
+      75468-9
+    </td>
+    <td>
+      Medication Adherence
+    </td>
+  </tr>
+</table>
+

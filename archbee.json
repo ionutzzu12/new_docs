@@ -4,6 +4,10 @@
     "assets": "assets/",
     "docsTree": [
       {
+        "path": "diV8NEuV3CXl9lTNrKsOx.mdx",
+        "children": []
+      },
+      {
         "categoryName": "Home",
         "isCategory": false,
         "path": "targeted-messaging-implementation-guide-or-document-version-20.mdx",

@@ -222,6 +222,12 @@
         "isCategory": false,
         "path": "your-search-for-returned-results.mdx",
         "children": []
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
       }
     ]
   },

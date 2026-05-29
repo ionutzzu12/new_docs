@@ -1,0 +1,43 @@
+---
+title: Key concepts
+docTags: 
+createdAt: Fri May 29 2026 15:37:46 GMT+0300 (Eastern European Summer Time)
+---
+
+This topic explains some of the key \{\{Primary.Product-Neurons-iPaaS}} concepts which will help you understand how to build integrations.
+
+<hint type="success">
+  Check out [Workato Academy](https://academy.workato.com/) for trainings. We encourage you to take up the Automation Pro Certificate training for better understanding of the \{\{Primary.Product-Neurons-iPaaS}} offering. You can also refer to [Workato documentation](https://docs.workato.com/) for more information.
+</hint>
+
+## Connector
+
+Connector enables securing access to one or more instances of the business application. Each connector encapsulates the following:
+
+- **Authentication Method** - the authentication method used to access third-party applications.
+- **Triggers** - the conditions that trigger the integration workflow.
+- **Actions** - the actions that are performed in the application.
+
+## Connection
+
+Connection enables establishing a communication channel to a specific instance of an application, so that integration workflows can be executed for that instance. The information required to establish a connection is determined by the connector. Usually it requires a URL to identify the instance, and authentication information such as API Key.
+
+Connections can be in Connected or Disconnected Status.
+
+## Project
+
+Project is a repository that stores recipes, connections, and sub-folders. It is helpful to organize projects by use case, department, process, or any other way that can be categorized and distinguished easily.
+
+## Recipe
+
+Recipe is the workflow design. It defines how the workflow is triggered and what actions are performed in the integrated application when triggered.
+
+Recipe can be in Active or Inactive Status.
+
+## Datapills
+
+Datapills enable you to create custom workflows tailored to your business needs. The following datapills can be used in a recipe:
+
+- Data from the application that is provided by the connector.
+- Information from the Lookup Table.
+- Project Properties.

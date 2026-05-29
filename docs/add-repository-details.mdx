@@ -1,0 +1,22 @@
+---
+title: Add repository details
+slug: add-repository-details
+docTags: 
+createdAt: Fri May 29 2026 15:37:46 GMT+0300 (Eastern European Summer Time)
+---
+
+Repository details is required when ITSM-GitHub integration is set and you want the issue/job in GitHub repository to be created through the recipe.
+
+If an incident is escalated in ITSM, a job is created in GitHub. The repository jobs should be created in depends on the details setup in the **Lookup Tables** and the repository name used in the **Summary** of the incident.
+
+For example, if the incident should trigger a job in **Dev** repository in GitHub, and the incident is about emails not working, then the **Summary** of incident should be - Dev\_Emails not working. The **Dev\_** in the **Summary** is what created the job in the **Dev** repository in GitHub.
+
+**Adding repository details in Lookup Tables:**
+
+1. Log in to Neurons for ITSM as an Administrator.
+2. Open the Configuration console.
+3. Select **Extend** >**&#x20;iPaaS Integration** > **Tools** > **LookupTables**.
+4. Click **New Table**.
+5. Select either **Import CSV** to import details through a CSV file or **Add entries manually** to add details manually.
+6. If adding manually, give a contextual name for the repo in the first column and the repository details in the second column.
+7. Save and exit once done.

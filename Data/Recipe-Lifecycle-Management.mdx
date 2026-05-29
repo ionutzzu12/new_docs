@@ -1,0 +1,48 @@
+---
+title: Recipe Lifecycle Management
+docTags: 
+createdAt: Fri May 29 2026 15:37:46 GMT+0300 (Eastern European Summer Time)
+---
+
+Recipe Lifecycle Management lets you plan, test, and then deploy your integrations for a seamless experience. It also enables teams to collaborate and contribute to the recipe development.
+
+The process of Recipe Lifecycle Management involves moving recipes as packages from a development/testing environment to a production environment which enables moving only tested and stable recipes for integration into production. Packages can be imported and exported which contains recipes, lookup tables, templates, and more.
+
+## Recipe Lifecycle Management Process
+
+1. **Export** - Create a Manifest --> Choose the Asset to include in the Manifest --> Export the Package.
+2. **Import** - Import Package --> Review Package --> select or clear Assets, Projects, Lookup tables to be included --> Complete the import.
+
+### Export a Package
+
+1. Log in to Neurons for ITSM as an Administrator.
+2. Open the Configuration console, select **Tools** > **Recipe Lifecycle Management** > **Export**.
+3. Select **New Manifest**.
+4. Enter required details in the wizard.
+5. Click **Next** > **Create a Manifest**.
+
+<Paragraph indent="1">
+  The Manifest is created which can now be exported as a package.
+</Paragraph>
+
+6. Click **Build and export package**.
+
+<Paragraph indent="1">
+  The package is downloaded on your local device in a zip format.
+</Paragraph>
+
+<Image src="images/ExportPackage.png" position="flex-start" size="40" indent="1" initialPath="images/ExportPackage.png" githubPath="images/ExportPackage.png"></Image>
+
+### Import a Package
+
+1. From the Configuration console, select **Tools** > **Recipe Lifecycle Management** > **Import**.
+2. Select **Import package to a new folder**.
+3. Import the zip file.
+4. Review the package content - select or clear the assets, projects, connections, lookup tables to be included in the import.
+5. Import package.
+
+<Paragraph indent="1">
+  The package is successfully imported.
+</Paragraph>
+
+<Image src="images/ImportPackage.png" position="flex-start" size="40" indent="1" initialPath="images/ImportPackage.png" githubPath="images/ImportPackage.png"></Image>

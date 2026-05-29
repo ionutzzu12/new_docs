@@ -1,0 +1,73 @@
+{
+  "docsPath": "docs/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "categoryName": "Overview",
+        "isCategory": false,
+        "path": "Data/LandingPage.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Key concepts",
+        "isCategory": false,
+        "path": "Data/Key-Concepts.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Getting started",
+        "isCategory": false,
+        "path": "Data/Getting-Started.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Working with Projects",
+        "isCategory": false,
+        "path": "Data/Working-with-Projects-iPaaS.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Pre-built Recipes",
+        "isCategory": false,
+        "path": "Data/Pre-built-Recipes.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Recipe Lifecycle Management",
+        "isCategory": false,
+        "path": "Data/Recipe-Lifecycle-Management.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "On-prem Agent",
+        "isCategory": false,
+        "path": "Data/On-Prem-Agent.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Limitations",
+        "isCategory": false,
+        "path": "Data/Limitations.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Troubleshooting",
+        "isCategory": false,
+        "path": "Data/Troubleshooting.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "add-repository-details.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "your-search-for-returned-results.mdx",
+        "children": []
+      }
+    ]
+  },
+  "shadowDocs": []
+}

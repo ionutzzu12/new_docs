@@ -1,0 +1,37 @@
+{
+  "Primary.Company": {
+    "contentVariableId": "w0pgzqFbi_FGW0AJHU5Lt",
+    "name": "Primary.Company",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Product-Neurons-iPaaS": {
+    "contentVariableId": "mVVn9x9XINpWXO2eZpMJ4",
+    "name": "Primary.Product-Neurons-iPaaS",
+    "content": "Neurons iPaaS",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.TitleLine-Neurons-iPaaS": {
+    "contentVariableId": "5DjN20fHGUArQun7aZrRL",
+    "name": "Primary.TitleLine-Neurons-iPaaS",
+    "content": "Neurons iPaaS",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Year-2025": {
+    "contentVariableId": "7kFTcbwu8QU4hVG7jC9d3",
+    "name": "Primary.Year-2025",
+    "content": "2025",
+    "type": "variable",
+    "scope": "global"
+  },
+  "L10n.CompanyLegal": {
+    "contentVariableId": "Fd8QmbZqmanvID9Jy0ABn",
+    "name": "L10n.CompanyLegal",
+    "content": "Ivanti, Inc",
+    "type": "variable",
+    "scope": "global"
+  }
+}

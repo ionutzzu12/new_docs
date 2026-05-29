@@ -1,0 +1,121 @@
+{
+  "Primary.Product": {
+    "contentVariableId": "iYNNqYltyzHbnhw9xeB8C",
+    "name": "Primary.Product",
+    "content": "Neurons for ITSM",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Service_Catalog": {
+    "contentVariableId": "2Kkm8g-wzb-IT8yp9wmr4",
+    "name": "FRS_VARS_Self.Service_Catalog",
+    "content": "Service Catalog",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Neurons_ITSM_-_Administrator": {
+    "contentVariableId": "8Se_QK6N__TevDtxkMwyS",
+    "name": "FRS_VARS_Self.Neurons_ITSM_-_Administrator",
+    "content": "Administrator",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Self_Service_Mobile_portal": {
+    "contentVariableId": "kUBNe06tcrZuchpTbutRY",
+    "name": "FRS_VARS_Self.Self_Service_Mobile_portal",
+    "content": "Self Service Mobile",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Company": {
+    "contentVariableId": "w0pgzqFbi_FGW0AJHU5Lt",
+    "name": "Primary.Company",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Neurons_for_Facilities": {
+    "contentVariableId": "B4yEFkiy3AlJsg_0iR-0p",
+    "name": "FRS_VARS_Self.Neurons_for_Facilities",
+    "content": "Neurons for Facilities",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Neurons_for_GRC": {
+    "contentVariableId": "-BxtXMb7j2dqMsd8LrQrB",
+    "name": "FRS_VARS_Self.Neurons_for_GRC",
+    "content": "Neurons for GRC",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Self_Service_Portal": {
+    "contentVariableId": "ddEWhhcMQjGpz_TVr39wV",
+    "name": "FRS_VARS_Self.Self_Service_Portal",
+    "content": "Self Service",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Version": {
+    "contentVariableId": "yKlkTsVUutJqLmT9sYhK7",
+    "name": "Primary.Version",
+    "content": "2026.1",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.AutoDate": {
+    "contentVariableId": "Yg7FluSvm2mFvvw9Ws0PF",
+    "name": "FRS_VARS_Self.AutoDate",
+    "content": "April 29, 2026",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.TitleLine": {
+    "contentVariableId": "T6m5WgGKlQY6kZUMIaTgm",
+    "name": "Primary.TitleLine",
+    "content": "Neurons for ITSM - Self Service Help",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Year": {
+    "contentVariableId": "eMe5jT2ojMDKYxsrhLyAf",
+    "name": "Primary.Year",
+    "content": "2026",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Self-L10n.CompanyLegal": {
+    "contentVariableId": "7wU_mpYj57rjeizjqyZQd",
+    "name": "Self-L10n.CompanyLegal",
+    "content": "Ivanti, Inc",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.My_Items": {
+    "contentVariableId": "RBRgOKY9k2BdkF4uw9peu",
+    "name": "FRS_VARS_Self.My_Items",
+    "content": "My Items",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Request_Offering": {
+    "contentVariableId": "dTbKOnmrrr7fuEZNNGA74",
+    "name": "FRS_VARS_Self.Request_Offering",
+    "content": "Request Offering",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Neurons_ITSM_-_Self_Service_User": {
+    "contentVariableId": "n83YPPfRZT6Li6884IhCN",
+    "name": "FRS_VARS_Self.Neurons_ITSM_-_Self_Service_User",
+    "content": "Self Service",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Service_Requests": {
+    "contentVariableId": "5IZhsXBsVR-kDo5p5BzxK",
+    "name": "FRS_VARS_Self.Service_Requests",
+    "content": "Service Requests",
+    "type": "variable",
+    "scope": "global"
+  }
+}

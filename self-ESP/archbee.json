@@ -203,6 +203,12 @@
         "isCategory": false,
         "path": "su-busqueda-de-ha-generado-resultados.mdx",
         "children": []
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
       }
     ]
   },

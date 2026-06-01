@@ -1,0 +1,13 @@
+{
+  "$schema": "https://api.archbee.com/git-config-schema",
+  "docsPath": "./ENU",
+  "structure": {
+    "assets": "assets",
+    "docsTree": []
+  },
+  "sites": [
+    {"docsPath": "./IMPORT"},
+    {"docsPath": "./self-ESP"},
+    {"docsPath": "./self-FRA"}
+  ]
+}

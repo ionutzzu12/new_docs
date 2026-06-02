@@ -4,133 +4,190 @@
     "assets": "assets/",
     "docsTree": [
       {
-        "categoryName": "BASIC",
-        "isCategory": true,
+        "path": "alertas.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "¿Cómo?",
+        "isCategory": false,
+        "path": "self-ESP/Content/Self-Service/Self-Service-How-do-I.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Uso de los espacios de trabajo",
+        "isCategory": false,
+        "path": "self-ESP/Content/Self-Service/Using-the-Workspaces.mdx",
         "children": [
           {
-            "path": "BASIC/heading-expandable-blocks.mdx",
+            "categoryName": "Mis elementos",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/my-items.mdx",
             "children": []
           },
           {
-            "path": "BASIC/checklist-list-blocks.mdx",
+            "categoryName": "Solicitudes de servicio e incidencias",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/service-requests-and-incidents.mdx",
             "children": []
           },
           {
-            "path": "BASIC/table-divider-blocks.mdx",
+            "categoryName": "Centro de conocimiento",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/knowledge-center.mdx",
             "children": []
           },
           {
-            "path": "BASIC/buttons-callouts-blocks.mdx",
+            "categoryName": "Anuncios, Preguntas y respuestas frecuentes y Alertas",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/announcements-FAQs-and-alerts.mdx",
             "children": []
           },
           {
-            "path": "BASIC/vertical-split-blocks.mdx",
+            "categoryName": "Mensajes de Panel social",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/social-board-messages.mdx",
             "children": []
           },
           {
-            "path": "BASIC/link-grid-block.mdx",
+            "categoryName": "Chat Zone",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/chat-zone.mdx",
             "children": []
           },
           {
-            "path": "BASIC/workflow-tabs-blocks.mdx",
+            "categoryName": "Trabajar con los Favoritos",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Working-with-Favorite.mdx",
             "children": []
           }
         ]
       },
       {
-        "categoryName": "MEDIA",
-        "isCategory": true,
+        "categoryName": "Ivanti Neurons for Facilities: usuario de Self Service",
+        "isCategory": false,
+        "path": "self-ESP/Content/Self-Service/Neurons-for-Facitities-Self-Service-User.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Ivanti Neurons for GRC: usuario de Self Service",
+        "isCategory": false,
+        "path": "self-ESP/Content/Self-Service/Neurons-for-GRC-Self-Service-User.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Página de bienvenida de Enterprise Self Service",
+        "isCategory": false,
+        "path": "self-ESP/Content/Self-Service/Enterprise-Self-Service-Welcome-Page.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Portal de Self Service Mobile",
+        "isCategory": false,
+        "path": "self-ESP/Content/Self-Service/self-service-mobile.mdx",
         "children": [
           {
-            "path": "MEDIA/file-block.mdx",
+            "categoryName": "Notifica incidentes y enviar solicitudes",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Reporting-incidents-and-submitting-requests-SSM.mdx",
             "children": []
           },
           {
-            "path": "MEDIA/images-embeds-blocks.mdx",
-            "children": []
-          },
-          {
-            "path": "MEDIA/map-block.mdx",
+            "categoryName": "Base de conocimiento",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Knowledge-base-SSM.mdx",
             "children": []
           }
         ]
       },
       {
-        "categoryName": "DEVELOPER",
-        "isCategory": true,
+        "categoryName": "Portal de gestión de Self Service versión 3",
+        "isCategory": false,
+        "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/Self Service Management Portal.mdx",
         "children": [
           {
-            "path": "DEVELOPER/api-endpoint-block.mdx",
+            "categoryName": "Inicie sesión en el portal de administración de Self Service",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/Logging into Self Service Management Portal.mdx",
             "children": []
           },
           {
-            "path": "DEVELOPER/swagger-block.mdx",
+            "categoryName": "Navegar por Self Service Management Portal",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/Navigating the Self Service Management Portal.mdx",
             "children": []
           },
           {
-            "path": "DEVELOPER/scalar-block.mdx",
+            "categoryName": "Service Catalog",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/Service Catalog.mdx",
+            "children": [
+              {
+                "categoryName": "Ofertas exteriores",
+                "isCategory": false,
+                "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/External Offerings.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "Mis elementos",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/My Items.mdx",
             "children": []
           },
           {
-            "path": "DEVELOPER/graphql-block.mdx",
+            "categoryName": "Anuncios",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/Announcements.mdx",
             "children": []
           },
           {
-            "path": "DEVELOPER/code-drawer-block.mdx",
+            "categoryName": "Conocimiento",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/Knowledge.mdx",
             "children": []
           },
           {
-            "path": "DEVELOPER/code-editor-block.mdx",
+            "categoryName": "Alertas",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/Alerts.mdx",
             "children": []
           },
           {
-            "path": "DEVELOPER/tex-mermaid-blocks.mdx",
+            "categoryName": "Hablar con Atención al cliente",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Chat-with-Support-SSM.mdx",
             "children": []
           },
           {
-            "path": "DEVELOPER/changelog-block.mdx",
+            "categoryName": "PREGUNTAS FRECUENTES",
+            "isCategory": false,
+            "path": "self-ESP/Content/Self-Service/Self Service Management Portal 3.0/FAQ.mdx",
             "children": []
           }
         ]
       },
       {
-        "categoryName": "OTHERS",
-        "isCategory": true,
-        "children": [
-          {
-            "path": "OTHERS/links.mdx",
-            "children": []
-          },
-          {
-            "path": "OTHERS/content-snippets.mdx",
-            "children": []
-          },
-          {
-            "children": [],
-            "isLink": true,
-            "linkTitle": "External Link - Filled - Custom Icon",
-            "linkHref": "www.archbee.com",
-            "linkOpensInNewTab": false
-          },
-          {
-            "children": [],
-            "isLink": true,
-            "linkTitle": "External Link - Filled - Simple",
-            "linkHref": "www.archbee.com",
-            "linkOpensInNewTab": true
-          },
-          {
-            "children": [],
-            "isLink": true,
-            "linkTitle": "Untitled",
-            "linkHref": ""
-          },
-          {
-            "path": "OTHERS/hidden-document.mdx",
-            "children": [],
-            "isHidden": true
-          }
-        ]
+        "categoryName": "Mediante el Bot de service manager de Ivanti",
+        "isCategory": false,
+        "path": "self-ESP/Content/Self-Service/Using-MS-Teams-Bot.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Más información",
+        "isCategory": false,
+        "path": "self-ESP/Content/More-Information.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "self-ESP/expanding-text-aka-togglers-and-dropdowns.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "self-ESP/su-busqueda-de-ha-generado-resultados.mdx",
+        "children": []
       },
       {
         "categoryName": "Shadow Docs",

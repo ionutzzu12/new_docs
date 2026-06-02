@@ -111,20 +111,6 @@
     "type": "variable",
     "scope": "global"
   },
-  "L10n.Home-Inicio": {
-    "contentVariableId": "J-ay116CP60lFqwdNr6wh",
-    "name": "L10n.Home-Inicio",
-    "content": "Inicio",
-    "type": "variable",
-    "scope": "global"
-  },
-  "FRS_VARS.My_Items-Mis-elementos": {
-    "contentVariableId": "xYZnMhtbAQ2X9rG-WJ54c",
-    "name": "FRS_VARS.My_Items-Mis-elementos",
-    "content": "Mis elementos",
-    "type": "variable",
-    "scope": "global"
-  },
   "FRS_VARS.Knowledge-Conocimiento": {
     "contentVariableId": "fFTEtienJ5bVfydYpm-uK",
     "name": "FRS_VARS.Knowledge-Conocimiento",

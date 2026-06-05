@@ -1,0 +1,32 @@
+{
+  "docsPath": "docs/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "path": "docs1/lFl5vQQMgJpp9OiQ7qH-w.mdx",
+        "children": []
+      },
+      {
+        "path": "docs1/archbee-doc-oLUYIj9eomJ0EBhSHxtbA.mdx",
+        "children": []
+      },
+      {
+        "path": "docs1/archbee-doc-njG9s-frCbrs28oXeZqrD.mdx",
+        "children": [
+          {
+            "path": "docs1/Untitled/archbee-doc-mEzPep0G2EthgPCuw1IlZ.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
+      }
+    ]
+  },
+  "shadowDocs": []
+}

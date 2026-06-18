@@ -1,0 +1,45 @@
+---
+title: PREV (Previous) Event
+slug: prev-previous-event
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:40 GMT+0200 (Eastern European Standard Time)
+---
+
+The \{\{Events.8PREV}} event records that an animal is pregnant from a **previous** or unknown breeding. You can also use a \{\{Events.8PREV}} event when you need to set the \{\{masterVAS-Terminology.s-ire}} of conception at the same time you are updating an animal's record to show that she is pregnant. Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Event Guidelines
+
+  Use the mobile app or the web version of \{\{masterVAS-Products.Pulse-only}} to enter events! Tap \{\{Mobile-UI.EventsFeature}} in the [mobile app](<../../../../../../VAS Platform Help - Table of Contents/mobile-apps.mdx>) to get started, or see :Link[Add Events]{label="Add Events" overridedLabel="Add Events" spaceId docId="sp1fQUQTHg-WLIRXAer4X" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" githubPath="Events.htm#Add" href="Events.htm#Add"} to learn more about adding events from web. \{\{masterVAS-Products.Pulse-only}} supports adding events that have occurred within the last year.
+
+  When you add a \{\{Events.8PREV}} event, you must define a new \{\{CDAT}} and provide \{\{masterVAS-Terminology.s-ire}} information. Note that the sire field cannot be defined until after you define the new CDAT. Follow the guidelines below when working with the \{\{Events.5BRED}} event: 
+
+  1. Tap the **Add Animal** button at the top left of the \{\{Events.8PREV}} event screen, and choose an animal to add to this event.The app will only allow you to add female animals, and it will warn you if you attempt to add an animal that is already pregnant.
+  2. Tap the CDAT field to select the animal's conception date.The app opens a new screen that shows the animal's **Current&#x20;**\{\{DCC}} at the top, with options to select a new CDAT. The Current DCC displays as 0 (zero) because this animal's record currently has no indication that she has been bred or is pregnant.
+  3. Select one of the following options for a new CDAT:\* **Choose New DCC:&#x20;**&#x54;his option allows you to enter the CDAT manually, based on the animal's DCC. The app displays a pop-up window where you can enter the animal's actual DCC and then tap **OK** to confirm it. The app will only accept a value that meets the configured minimum and maximum DCC limits in \{\{DC-UI.DC-ProdNameShort}}. The app will then automatically calculate the new CDAT based on the new DCC value. For instance, if \{\{today}}'s date is \{\{masterVAS.month10}} 8 and you enter 30 for the new DCC, the app displays a CDAT of \{\{masterVAS.month09}} 9.
+     - **Choose from a Previous Breeding:&#x20;**&#x49;f there are any previous breedings associated with this animal, the app will display them as options for the CDAT. For previous breedings, the \{\{masterVAS-Terminology.s-ire}}\{\{ID}} is also provided.
+  4. Tap the back arrow at the top left of the screen to return to the \{\{Events.8PREV}} event.The app displays the new date you selected in the CDAT field, and if you selected the CDAT from a previous breeding, the \{\{masterVAS-Terminology.s-ire}} ID from that breeding is displayed in the \{\{masterVAS-Terminology.s-ire}} field. The \{\{masterVAS-Terminology.s-ire}} ID cannot be edited in this case because it is associated with the previous breeding.
+  5. If you entered the CDAT manually, you can now manually define the \{\{masterVAS-Terminology.s-ire}} of conception. Tap the \{\{masterVAS-Terminology.s-ire}} field to search for a \{\{masterVAS-Terminology.s-ire}} or manually enter its ID.:::ExpandableHeading
+
+  ### Tell me more about selecting a sire!
+
+  <Paragraph indent="1">
+    When you search for a \{\{masterVAS-Terminology.s-ire}}, the app only locates matches within your \{\{masterVAS-Terminology.h-erd}}. Once you choose a \{\{masterVAS-Terminology.s-ire}}, the event's \{\{masterVAS-Terminology.S-ire-}} field (\{\{SIRC}}, \{\{LSIR}}, SIRE, etc.) displays the \{\{masterVAS-Terminology.s-ire}} ID (\{\{SID}}).
+    If the \{\{masterVAS-Terminology.s-ire}} you need to use is not shown in the search results, you can enter its ID manually. Type the service \{\{masterVAS-Terminology.s-ire}} ID in the search bar, and the app displays an option to add that animal. The app allows you to enter numbers, letters, and symbols, and it will display the exact ID you enter for the \{\{masterVAS-Terminology.s-ire}}.
+    You can also type a description such as **Pool** to indicate that the animal was bred from a \{\{masterVAS-Terminology.s-ire}} pool.
+    \:::
+  </Paragraph>
+
+  6. Once the Animal ID, new CDAT, and \{\{masterVAS-Terminology.s-ire}} ID have been defined for an animal, you can define any other optional details and then process her changes for this \{\{Events.8PREV}} event.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Process Changes
+
+  When you add events from web or the mobile app, your updates are sent to \{\{masterVAS-Products.Pulse-only}} and then on to \{\{DC-UI.DC-ProductName}} for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}} (\{\{Mobile-UI.ConnectionRequired}}).
+
+  When the updates are received, the following changes are made: 
+
+  - Records a \{\{Events.8PREV}} event with the \{\{EDAY}} as the date the \{\{Events.8PREV}} event was completed in the mobile app.
+  - Changes the animal's \{\{RPRO}} status to pregnant, and records the CDAT and \{\{masterVAS-Terminology.s-ire}} that were defined in the event.
+</ExpandableHeading>

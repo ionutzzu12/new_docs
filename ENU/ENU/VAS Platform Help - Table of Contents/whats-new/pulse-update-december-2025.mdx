@@ -1,0 +1,33 @@
+---
+title: PULSE Update - December 2025
+slug: pulse-update-december-2025
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:50 GMT+0200 (Eastern European Standard Time)
+---
+
+NEW FEATURE\{\{Insights.HerdSights}} bring you custom insights!
+
+\{\{masterVAS.CompanyName-short}} is thrilled to introduce \{\{Insights.HerdSights}}, our latest insights tool that allows you to build custom views of your herd's data. We know that managing a dairy means tracking countless details—herd health, reproduction, feed efficiency, costs. Instead of creating your own spreadsheets or other tools to track these numbers, you can now use \{\{Insights.HerdSights}}\{\{Insights.KPIViews-only}} and \{\{Insights.KPIDashboards-lower-only}} as your new hub for all \{\{masterVAS-Terminology.d-airy}} data and specific \{\{Insights.KPIs}}. Spend less time building reports and manually tracking data so you can spend more time managing your herd. See [HerdSights](<../../../VAS Platform Help - Table of Contents/Features/Insights/herdsights.mdx>) to learn more!
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/rZnJXpzzhSJWUXxBTc_5L_25-oct-herdsights.png" size="62" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/25-oct-herdsights.png" githubPath="Content/Resources/Images/Platform/release-notes/25-oct-herdsights.png" position="flex-start" showCaption="false"></Image>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/oaIp-IKJxhyi-cod4s2x7_25-dec-milk-mydc.png" size="60" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/25-dec-milk-mydc.png" githubPath="Content/Resources/Images/Platform/release-notes/25-dec-milk-mydc.png" position="flex-start" showCaption="false"></Image>
+
+ENHANCEMENT`MyDC ONLY` Add milk weights for unidentified animals to the correct date. \{\{masterVAS-Products.MyDC-short}}\{\{masterVAS-Terminology.d-airies}} with \{\{Partners.parlor}} integrations now show milk weights for the correct date when an animal is not identified in the parlor. This improvement helps capture accurate milk weight data for animals that are later identified.
+
+## Other Improvements & Bug Fixes 
+
+- Embryo import improvement: \{\{masterVAS-Products.Pulse-only}} now allows for the import of embryos with the same straw number if the embryos have different fertilization dates.
+- Embryo transfers for heifers: \{\{masterVAS-Products.Pulse-only}} now supports adding an embryo transfer to heifers after a recorded \{\{Events.12ABORT}} event and keeps the lactation number at 0.
+- Sire validation fix: If a sire name exceeds the 16-character limit when adding a \{\{Events.3000TRANSFER}} event, \{\{masterVAS-Products.Pulse-only}} now displays an error.
+- Embryo import date fixes: Resolved an issue where fertilization or transferred dates were being removed or imported incorrectly.
+- Embryo print/export fix: Your data is no longer truncated when printing and exporting embryo inventory, transferred, and results tabs.
+- \{\{masterVAS-Products.ParlorBoss}} edit option: You can now adjust your parlor details in ParlorBoss using the Edit Parlor option. 
+- LastTreatmentDate fix: Resolved an issue that caused the Last Treatment Date to show the wrong date following daylight savings time adjustments.
+
+## `MyDC ONLY` Bug Fixes
+
+- \{\{Events.12ABORT}} batch entry fix: Batch entry for \{\{Events.12ABORT}} events now works as expected when selecting to continue the current lactation.
+- Breeding sire fix: \{\{masterVAS-Products.Pulse-only}} no longer prompts for a breeding sire \{\{ID}} when adding animals that are not \{\{Events.5BRED}} or \{\{Events.6PREG}}.
+- Dairy Protocols translation fix: The Dairy Protocols page now displays as expected in languages other than English.
+- \{\{Partners.NedapNow-platform}} milk weights fix: Milk weights from \{\{Partners.NedapNow-platform}} are now being received and shown in \{\{masterVAS-Products.Pulse-only}} as expected.

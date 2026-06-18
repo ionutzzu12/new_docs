@@ -1,0 +1,63 @@
+---
+title: Cows: 21-day Pregnancy Risk
+slug: cows-21-day-pregnancy-risk
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### How do I add a widget to my Dashboard or Overview Page?
+
+  To add this widget to your Dashboard or \{\{masterVAS-Terminology.O-verview-}} page, check the box for it under the \{\{masterVAS-Terminology.H-erd-}} category in the [Page Customization](../customize-dashboards.mdx) options.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/TuIJmnysRkH8gPLF6ZKTr_herd-widgets.png" size="43" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/herd-widgets.png" githubPath="Content/Resources/Images/Platform/dashboard/herd-widgets.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### What permissions do I need to view this widget?
+
+  To view this widget on a Dashboard or \{\{masterVAS-Terminology.O-verview-}} Page, your user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+The \{\{Widgets.Cows:21-dayPregRisk}} widget charts the insemination risk, pregnancy risk, and confidence interval (CI) for recent 21‑day intervals. This widget reflects data only for cows; there is another widget that shows [this data for heifers](heifers-21-day-pregnancy-risk.mdx).
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Gy1r875UQynOUImo6m3iQ_preg-risk-cows-expanded.png" size="45" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/preg-risk-cows-expanded.png" githubPath="Content/Resources/Images/Platform/dashboard/preg-risk-cows-expanded.png" position="flex-start" showCaption="false"></Image>
+
+Follow these guidelines when reviewing the data in this widget:
+
+- The dates displayed beneath each bar in the chart represent the start date for each 21‑day interval.
+- The dark blue bar represents the insemination risk.
+- The green bar represents the pregnancy risk.
+- The gray "wick" represents a 95% Pregnancy Risk (PR) Confidence Interval (CI), meaning that based on this data, you can be 95% confident that the results will fall within this range. For instance, if the wick reflects a 95% CI of 19-26, it means that you can be 95% confident in a resulting pregnancy rate of 19%-26%.
+- Click the **View Data Table** link at the bottom right of the chart to view the specific data that builds the chart:\* DATE: Start date of each 21‑day interval.
+  - 95% CI: The lower and upper confidence limits (CLs). For example, a 95% CI of **19‑26** indicates that 19% is the lower CL and 26% is the upper CL.
+  - BR ELIG: The number of animals entering the 21-day interval that are eligible to be inseminated.
+  - BRED: The number of animals actually inseminated.
+  - PCT: The percent of animals detected in heat (calculated by BRED / BR ELIG).
+  - PG ELIG: The number of animals entering the 21-day interval that are eligible to become pregnant.:::ExpandableHeading
+
+### Tell me more about BR ELIG and PR ELIG!
+
+<Paragraph indent="2">
+  Animals that were present for at least half of the 21-day cycle (11 days) are considered bred eligible. Bred eligible animals are then considered \{\{preg}} eligible following the 21-day cycle as long as the breeding result is not set or remains unknown. If a bred animal is culled from the \{\{masterVAS-Terminology.h-erd}} during the preg eligible period, she is included in the bred eligible total but not in the preg eligible total. Therefore, the preg eligible total is always the same as or less than the bred eligible total.
+  \:::
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  PREG: Number of pregnancies.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  PCT: Percent of pregnancies (calculated by PREG / BR ELIG).
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  ABORTS: The animals that were confirmed pregnant but later lost the pregnancy.
+</Paragraph>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Dashboard](../DashboardsOverview.htm)
+  - [Customize Dashboards](../customize-dashboards.mdx)
+</ExpandableHeading>

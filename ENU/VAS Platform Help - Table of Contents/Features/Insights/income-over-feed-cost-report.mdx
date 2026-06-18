@@ -1,0 +1,85 @@
+---
+title: Income Over Feed Cost Report
+slug: income-over-feed-cost-report
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:44 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Click here for a video tutorial on this feature!
+
+  <embed url="https://player.vimeo.com/video/1115553803">
+
+  </embed>
+</ExpandableHeading>
+
+\{\{Commands.UserActions}} the \{\{FeedComp.FeedCompReportNames}}\{\{Controls.ControlTypes}} to see profit or loss per animal per day ($/head/day). This helps you spot costly pens, confirm ration changes with your nutritionist, and adjust milk price assumptions.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/jnByzdiCYy5cJEWClagSe_fcp-reports-iofc.png" size="72" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/web/fcp-reports-iofc.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/web/fcp-reports-iofc.png" position="flex-start" showCaption="false"></Image>
+
+<WorkflowBlock>
+  <WorkflowBlockItem>
+    Milk Weight Source: Choose Daily Milkings, Test Day Data, or Manual for the source of milk weights for the \{\{FeedComp.FeedCompIOFC-short}} calculation. If necessary, click the link to manually enter bulk milk weight data in \{\{masterVAS-Products.Pulse-only}}[Insights Settings](../../Insights/InsightsSettings.htm).:::ExpandableHeading
+
+    ### Click here to learn more about Milk Weight data
+
+    - Daily Milkings: Choose this data source to use the milking data from \{\{masterVAS-Products.DC305-simple}}. Your \{\{Partners.parlor}} must be equipped with milk meters or other hardware for daily milking data to be available.
+    - \{\{masterVAS-Terminology.T-est-Day-}} Data: Choose this source if you'd like to use the values from your milk testing partner. See [Testdays](../../DairyComp/Testdays/DC-TestDays.htm) to learn more about \{\{masterVAS-Products.Pulse-only}}\{\{masterVAS-Terminology.t-est-day}} details.
+    - Manual Weight: If your \{\{masterVAS-Terminology.d-airy}} does not have daily milk weights or \{\{masterVAS-Terminology.t-est-day}} data available, or if you prefer to enter your bulk tank weights manually, use the \{\{masterVAS-Products.Pulse-only}}[Insights Settings](../../Insights/InsightsSettings.htm) to enter your milk weights.
+      \:::
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    Data from: Identifies the date the report is based on.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    Income Over Feed Cost: The current average income (or loss if negative) of feeding each animal in the \{\{masterVAS-Terminology.h-erd}} per day. This value includes feeding non-milking animals, such as calves, bulls, and heifers. The calculation for this value is (:Link[Milk Price]{label="Milk Price" overridedLabel="Milk Price" spaceId docId="K77SQAyesiT4G_MfVPVsv" version="v2" docAnchorId="#price" loadingMethod="dynamic" newTab="false" githubPath="../../Insights/InsightsSettings.htm#price" href="../../Insights/InsightsSettings.htm#price"} \* Daily Milk Production) - Feed Cost, per animal.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    <hint type="info">
+      **TIP:&#x20;**&#x46;or the most up-to-date \{\{FeedComp.FeedCompIOFC-short}} value, enter your latest :Link[Milk Price]{label="Milk Price" overridedLabel="Milk Price" spaceId docId="K77SQAyesiT4G_MfVPVsv" version="v2" docAnchorId="#price" loadingMethod="dynamic" newTab="false" githubPath="../../Insights/InsightsSettings.htm#price" href="../../Insights/InsightsSettings.htm#price"} before running this report. \{\{masterVAS-Products.Pulse-only}} will update the price for the \{\{FeedComp.FeedCompIOFC-short}} calculation in the next data refresh, which occurs every 24 hours.
+      To view the current milk price being used for the \{\{FeedComp.FeedCompIOFC-short}} calculation, hover over the info icon next to the \{\{FeedComp.FeedCompIOFC-short}} value:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/LfOQCXuzCXjYeddZv3glz_blue-i30x30.png" alt caption size="10"}::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/mK9zib6Y7qXYjwx6J-70V_fcp-reports-iofc-hover-tip.png" alt caption size="29"}
+    </hint>
+
+    By \{\{Pen}} Type: Quickly view the cost of feeding animals by \{\{masterVAS-Terminology.p-en}} type. This is helpful because feed rations and vary based on animal status, \{\{age}}, and sex. Filter to \{\{masterVAS-Terminology.p-ens}} with unexpectedly low \{\{FeedComp.FeedCompIOFC-short}} and compare to similar \{\{masterVAS-Terminology.p-en}} types. Investigate rations and ingredient costs with your vet and nutritionist.:::ExpandableHeading
+
+    ### How are pens with multiple types included in the calculations?
+
+    \{\{masterVAS-Terminology.P-ens-}} with multiple types are counted under the highest priority type to avoid double-counting.\{\{masterVAS-Terminology.P-en-}} type priorities are as follows:
+
+    1. Milking
+    2. Bullpen
+    3. \{\{AI}}
+    4. Dry
+    5. Hospital
+    6. Calf
+    7. Heifer
+    8. User
+
+    For example, if a \{\{masterVAS-Terminology.p-en}} is both an AI and Heifer \{\{masterVAS-Terminology.p-en}}, it will be included in the AI \{\{masterVAS-Terminology.p-en}} type calculation.
+    \:::
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    By Pen: Use the \{\{masterVAS-Terminology.P-en-}} and \{\{masterVAS-Terminology.P-en-}}**&#x20;Type** drop-downs to limit the report to specific \{\{masterVAS-Terminology.p-ens}}.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    \{\{FeedComp.FeedCompIOFC-short}} by Pen: View feed cost and milk production details in a table format:\* IOFC: Daily income for the pen. This calculation is based on the current Milk Price setting, Daily Milk Production, and \{\{masterVAS-Terminology.p-en}} Feed Cost data from \{\{masterVAS-Products.FeedComp}}. Non-milking \{\{masterVAS-Terminology.p-ens}} have a negative value.
+
+    - Daily Milk Production: Volume of milk produced by the pen per day. The source for this data is controlled by the :Link[Milk Weight Source]{label="Milk Weight Source" overridedLabel="Milk Weight Source" spaceId docId="PLJ_MjgZ7i2z-J5HAcxqq" version="v2" docAnchorId="#source" loadingMethod="dynamic" newTab="false" href="income-over-feed-cost-report.mdx"} option at the top of the report.
+
+    <hint type="info" indent="2">
+      **TIP:&#x20;**&#x46;or the most accurate \{\{FeedComp.FeedCompIOFC-short}} value, use your \{\{masterVAS-Terminology.h-erd}}'s daily milk values or \{\{masterVAS-Terminology.t-est-day}} data as the basis for this report.
+    </hint>
+
+    <Paragraph indent="1">
+      Revenue: Income from milk production for the pen. This calculation is based on the current :Link[Milk Price]{label="Milk Price" overridedLabel="Milk Price" spaceId docId="K77SQAyesiT4G_MfVPVsv" version="v2" docAnchorId="#price" loadingMethod="dynamic" newTab="false" githubPath="../../Insights/InsightsSettings.htm#price" href="../../Insights/InsightsSettings.htm#price"} setting and Daily Milk Production. Non-milking \{\{masterVAS-Terminology.p-ens}} have $0 revenue.
+    </Paragraph>
+
+    - Daily Feed Cost: Cost of feed for the \{\{masterVAS-Terminology.p-en}} from \{\{masterVAS-Products.FeedComp}}, which is based on the :Link[Actual Load Amounts]{label="Actual Load Amounts" overridedLabel="Actual Load Amounts" spaceId docId="d3RdNSQfqdWmCWum10l6J" version="v2" docAnchorId="#actual" loadingMethod="dynamic" newTab="false" githubPath="FCP-Reports-FeedHistory.htm#actual" href="FCP-Reports-FeedHistory.htm#actual"} and \{\{FeedComp.FeedCompIngredient-singular}} costs for completed \{\{FeedComp.FeedCompFeedings}}. See [Feed History Report](FCP-Reports-FeedHistory.htm) to learn more.
+    - Feeding Count: Total number of animals being fed in the pen.
+  </WorkflowBlockItem>
+</WorkflowBlock>

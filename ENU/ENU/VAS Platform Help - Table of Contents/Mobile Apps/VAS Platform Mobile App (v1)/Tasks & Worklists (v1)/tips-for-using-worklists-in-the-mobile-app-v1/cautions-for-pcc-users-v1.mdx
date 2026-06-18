@@ -1,0 +1,34 @@
+---
+title:   Cautions for PCC users (v1)
+slug: cautions-for-pcc-users-v1
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:38 GMT+0200 (Eastern European Standard Time)
+---
+
+The following cautions are especially important for customers who are familiar with or are currently using the \{\{General.CompanyName-short}}\{\{PCC}} product:
+
+- \{\{Buttons-UI.DC-WorklistsONLY}} were the first \{\{masterVAS-Products.Pulse-only}} feature that was able to **send&#x20;*****and*****&#x20;receive** data back and forth between \{\{masterVAS-Products.Pulse-only}} and \{\{DC-UI.DC-ProductName}}, and also from \{\{Partners.PartnersRef}}. While we have designed this 2‑way data flow to work as smoothly as possible, we encourage you to contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) if you encounter any problems when processing \{\{Worklists.worklistCommonUse}} updates.
+- \{\{masterVAS-Products.Pulse-only}}**does not** yet support multiple commands in a \{\{Worklists.ToDoUI-Web}} list. Each \{\{Worklists.ToDoCommonUse}} should contain only one command that must be completed for all animals on the list. For example, create one list for animals that need to be milked, create a separate list for animals that need to go to dry, create a separate list for animals that require a \{\{masterVAS-Terminology.p-en}} move, etc.).
+- To view \{\{Worklists.worklistCommonUse}}s in \{\{masterVAS-Products.Pulse-only}}, they must first be sent from \{\{DC-UI.DC-ProductName}} to \{\{masterVAS-Products.Pulse-only}} using the \K switch. See [Send Worklists from DC305 to PULSE (DC Unlimited only)](../../Features/DairyComp/ReportsWorklists/SendListsToPlatform.htm) to learn more about sending \{\{Worklists.worklistCommonUse}}s to \{\{masterVAS-Products.Pulse-only}}.
+- \{\{masterVAS-Products.Pulse-only}}\{\{Worklists.HospitalListSingular}} items are included in the \{\{Worklists.HospitalListSingular}} command and not controlled by \{\{masterVAS-Products.DC305-short}} Server \{\{masterVAS-Terminology.C-onfiguration-}} settings (as they are for PCC \{\{Worklists.HospitalListUI-Web}}). See :Link[Create Hospital Lists]{label="Create Hospital Lists" overridedLabel="Create Hospital Lists" spaceId docId="gzjKU5spZ_kAQIZnEFZCz" version="v2" docAnchorId="#important" loadingMethod="dynamic" newTab="false" githubPath="../../Features/DairyComp/ReportsWorklists/CreateHospLists.htm#important" href="../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Learn More about Hospital Lists/create-hospital-lists.mdx"} to learn more.
+- \{\{masterVAS-Products.Pulse-only}}\{\{Worklists.HospitalListUI-Web}} event shortcuts are customizable. This differs from PCC, where all events are included and cannot be changed.::::hint\{type="warning"}
+  **IMPORTANT:&#x20;**&#x55;se caution when scheduling follow‑up routines for \{\{DC-UI.DC-ProdNameShort}} to run after a list is processed (i.e., \{\{Worklists.PostProcess}} lists), especially if **all** animals on the list must be processed **before** kicking off the next routine. \{\{DC-UI.DC-ProdNameShort}}**&#x20;does&#x20;****not****&#x20;wait for the entire list to be&#x20;**\{\{Worklists.DoneUI}}**.** It will kick off the follow‑up routines for each animal **as** it receives notification from the mobile app that the animal is \{\{Worklists.DoneUI}}.:::ExpandableHeading\{customAnchorSlug="video"}
+
+### Click here for video tutorials on this feature!
+
+<Paragraph indent="1">
+  For more information on how to use \{\{masterVAS-Terminology.OnDone}} and \{\{masterVAS-Terminology.PostProcess}} routines in \{\{masterVAS-Products.DC305-short}}, check out the following videos on the \{\{masterVAS.CompanyName-short}} website:
+</Paragraph>
+
+<embed url="https://player.vimeo.com/video/274759138" indent="2">
+
+</embed>
+
+<embed url="https://player.vimeo.com/video/305782522" indent="2">
+
+</embed>
+
+<Paragraph indent="1">
+  \:::
+  \::::
+</Paragraph>

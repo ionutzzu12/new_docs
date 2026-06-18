@@ -1,0 +1,33 @@
+---
+title: Process Event Lists
+slug: process-event-lists
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+\{\{Worklists.EventListUI-Web}} are a type of \{\{Worklists.worklistCommonUse}} that allow you to add events to animals on the list and then mark the animals as \{\{Worklists.DoneUI}}. These actionable lists simplify and speed up event entry tasks and help to keep your animal records current.
+
+Follow the steps below to continue:
+
+1. On the **TODO** page, you can add an event to one or more animals. Select one or more animals that need the event, and then click **Add Event** in the upper right corner.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/dP8PpOnkhlRpp6lLkfKte_worklists-multi-addevent-events.png" alt caption size="85"}
+2. The system displays a side panel, where you can select the event you want to add from the **New Event** drop-down list.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/YSse6M1U7VSPZXrU2Y0xk_addeventsidepanel.png" size="47" isUploading="false" initialPath="../../../../Resources/Images/Platform/cowcards/AddEventSidePanel.png" githubPath="Content/Resources/Images/Platform/cowcards/AddEventSidePanel.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  To learn more about adding event details, see :Link[Add Events]{label="Add Events" overridedLabel="Add Events" spaceId docId="sp1fQUQTHg-WLIRXAer4X" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" githubPath="../../Events/Events.htm#Add" href="../../Events/Events.htm#Add"}.
+  If an animal on the **DONE** page is not fully processed and its status is still \{\{Worklists.Received}}, you can move the animal back to the **TODO** page. To move the animal back, click the **UNDO** button.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/DOwgqNY-QIR3c8KsZ5eGR_worklists-undo-todo-events.png" size="96" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/worklists-undo-todo-events.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/worklists-undo-todo-events.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  When you are ready to save your event details, select **Save and Mark as Done**. The system will move the selected animals to the **DONE** page.
+</Paragraph>
+
+<ExpandableHeading>
+  ### What happens when I Process Changes?
+
+  - When you process changes, it completes all animals that are marked as \{\{Worklists.DoneUI}} and are in the status \{\{Worklists.Received}}. The animals' status changes to PROCESSED, and the updates are sent from \{\{masterVAS-Products.Pulse-only}} to mobile devices, as well as \{\{DC-UI.DC-ProdNameShort}} (for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}).
+  - For \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}: When \{\{DC-UI.DC-ProdNameShort}} receives notification that one or more animals on a list is \{\{Worklists.DoneUI}}, it kicks off any corresponding \{\{Worklists.OnDone}} or \{\{Worklists.PostProcess}} routine(s) for those animals.
+</ExpandableHeading>

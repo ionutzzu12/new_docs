@@ -1,0 +1,75 @@
+---
+title: Cow Event Analysis
+slug: cow-event-analysis
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:46 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  To use this feature, your \{\{General.ProductName}} user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+Cow \{\{Insights.EventAnalysis}} graphs allow you to focus on individual events for specific lactations or days in milk, and are an invaluable resource for tracking and investigating your \{\{masterVAS-Terminology.h-erd}}'s unique health profile in greater detail. The graphs are located on the [Cows](cows.mdx) page, below the main trends graph.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/sLSXqrsNjLyXPYxDawIY7_health-summaries-event-analysis.png" size="59" isUploading="false" initialPath="../../../../Resources/Images/Platform/reports/health-summaries-event-analysis.png" githubPath="Content/Resources/Images/Platform/reports/health-summaries-event-analysis.png" position="flex-start" showCaption="false"></Image>
+
+Follow the guidelines below when working with \{\{Insights.EventAnalysis}} graphs.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/a4fK_pz9sSsC7ftudH4xc_event-analysis.png" size="44" isUploading="false" initialPath="../../../../Resources/Images/Platform/insights/event-analysis.png" githubPath="Content/Resources/Images/Platform/insights/event-analysis.png" position="flex-start" showCaption="false"></Image>
+
+<hint type="info">
+  **NOTE:&#x20;**&#x54;his example above shows a MAST event, but the same guidelines apply to all events.
+</hint>
+
+1. Benchmark assigned: Based on your [customization settings](CustomizeHealthVAL.htm), your cows are compared to \{\{masterVAS-Terminology.h-erds}} of similar locale and size. The blue bar identifies the benchmark details.
+2. Event line: Use the solid colored line
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ipJU-60afy1_N9z8pqh9H_event-name.png" size="10" caption="event name and line" alt="event name and line" isUploading="false" initialPath="../../../../Resources/Images/Platform/insights/event-name.png" githubPath="Content/Resources/Images/Platform/insights/event-name.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+<Paragraph indent="1">
+  to view total cases and percentage (%) of affected cows by month. The light blue bar indicates the total number of cows, and hovering over the graph provides details by month.:::hint\{type="info"}
+  **NOTE:&#x20;**&#x46;or quick association, the \{\{Insights.HealthSummaries}} line color matches the color currently defined for the event. See :Link[Edit Event Definitions]{label="Edit Event Definitions" overridedLabel="Edit Event Definitions" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#Edit" loadingMethod="dynamic" newTab="false" githubPath="../../DairyComp/Settings/DC-EventDefinitions.htm#Edit" href="../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"} for more information.
+  \:::
+</Paragraph>
+
+3. \{\{masterVAS-Terminology.H-erd-}} Event Trend: Use the gray dotted line
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/hBXRs3qG2D-ZutVbG8yOM_event-name-trend.png" size="10" caption="herd event trend line" alt="herd event trend line" isUploading="false" initialPath="../../../../Resources/Images/Platform/insights/event-name-trend.png" githubPath="Content/Resources/Images/Platform/insights/event-name-trend.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+<Paragraph indent="1">
+  to follow the trend curve for your \{\{masterVAS-Terminology.h-erd}}.
+</Paragraph>
+
+4. Event Bench: If benchmark data exists, you can compare your \{\{masterVAS-Terminology.h-erd}} trend curve to the benchmark curve
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/r7vM_lYS-jl_cSUMdm9br_event-bench.png" size="10" caption="event benchmark line" alt="event benchmark line" isUploading="false" initialPath="../../../../Resources/Images/Platform/insights/event-bench.png" githubPath="Content/Resources/Images/Platform/insights/event-bench.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+<Paragraph indent="1">
+  . If benchmark data is not available for your location and \{\{masterVAS-Terminology.h-erd}} size, a
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/8TfJBcOz4f_DrHCY-0Oon_benchmark-not-available.png" size="10" caption="Benchmark Not Available" alt="Benchmark Not Available" isUploading="false" initialPath="../../../../Resources/Images/Platform/insights/benchmark-not-available.png" githubPath="Content/Resources/Images/Platform/insights/benchmark-not-available.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+<Paragraph indent="1">
+   message displays below the graph.
+</Paragraph>
+
+5. Click **Occurrence** to view the reference data in occurrence percentages and include threshold values on the graph, or click **Count** to view the reference data in total counts.
+6. Threshold: The red dashed line
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/w0rPGvJHFy-t4OWetQBte_threshold.png" size="10" caption="threshold line" alt="threshold line" isUploading="false" initialPath="../../../../Resources/Images/Platform/insights/threshold.png" githubPath="Content/Resources/Images/Platform/insights/threshold.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+<Paragraph indent="1">
+  indicates your threshold for this event. You can set custom thresholds in [Event Definitions](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>).
+</Paragraph>
+
+7. Hover over a bar on the graph to view additional data.
+8. If the graph includes data for the current month, the bar is shaded to indicate that data for the month is incomplete.
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Event Definitions](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>)
+</ExpandableHeading>

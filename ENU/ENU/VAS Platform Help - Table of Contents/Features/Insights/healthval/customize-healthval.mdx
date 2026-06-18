@@ -1,0 +1,75 @@
+---
+title: Customize HealthVAL
+slug: customize-healthval
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:46 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  To use this feature, your \{\{General.ProductName}} user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+\{\{Commands.Click}} the **Customize** button on the \{\{Insights.HealthSummaries}} page to access event and benchmarking options.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/GTdzL8y4CGL1Ma-QmG0EZ_health-summaries-customize-main.png" size="77" isUploading="false" initialPath="../../../../Resources/Images/Platform/reports/health-summaries-customize-main.png" githubPath="Content/Resources/Images/Platform/reports/health-summaries-customize-main.png" position="flex-start" showCaption="false"></Image>
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Set Cow and Heifer Events
+
+  \{\{Commands.Click}} the **Cow Events** or **Heifer Events** tab to set which diagnoses (events) to include in your Health Trend \{\{Insights.HealthSummaries-common}} and to edit event settings.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RRGJSxgawRJwQ3TLzLPuM_health-summaries-customize.png" size="80" isUploading="false" initialPath="../../../../Resources/Images/Platform/reports/health-summaries-customize.png" githubPath="Content/Resources/Images/Platform/reports/health-summaries-customize.png" position="flex-start" showCaption="false"></Image>
+
+  - Check the boxes for all events to include in your Cow or Heifer \{\{Insights.HealthSummaries-common}}.:::hint\{type="info"}
+    **NOTE:&#x20;**&#x43;ow events with a benchmark icon :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/1WStvylB3AVIVpGv50gzk_benchmark-icon37x30.png" alt caption size="10"} have benchmark data available for comparison and further analysis. Benchmarks are not available for heifer events.
+    \:::
+  - To edit event settings, \{\{Commands.click}} the **Edit Event** option for that event. Then, use the side panel to adjust the settings as needed.
+
+  <ExpandableHeading>
+    ### Tips for Customizing Events
+
+    - Use colors to quickly identify event data in your \{\{Insights.HealthSummaries-common}}. Set the event color using the Color options::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/NFxzAWcotv0knfz4ckfFb_eventcolors.png" alt caption size="44"}
+    - Set the Total Loss per Event ($) values for each event carefully, as that value is used to calculate each animals' \{\{Health Index}} and cost data presented in your [Health Index Analysis](HealthIndex.htm) summary. Enter a total value that reflects your loss in revenue \{\{due}} to milk withholding, \{\{protocol}} treatment/testing costs, and vet bills and staff wages incurred for a single event.
+    - You can set the Threshold (%) for each event manually. The Threshold value is the expected or average occurrence of an event for your \{\{masterVAS-Terminology.h-erd}}. This value is included in your [Cow Event Analysis](../HealthVAL/view-healthval-reports/cow-event-analysis.mdx) graphs as a red dashed line: 
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/w0rPGvJHFy-t4OWetQBte_threshold.png" size="10" caption="threshold line" alt="threshold line" isUploading="false" initialPath="../../../../Resources/Images/Platform/insights/threshold.png" githubPath="Content/Resources/Images/Platform/insights/threshold.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+    <Paragraph indent="1">
+      .
+    </Paragraph>
+
+    See :Link[Edit Event Definitions]{label="Edit Event Definitions" overridedLabel="Edit Event Definitions" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#Edit" loadingMethod="dynamic" newTab="false" githubPath="../../DairyComp/Settings/DC-EventDefinitions.htm#Edit" href="../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"} for more information.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Benchmark Settings
+
+  \{\{Commands.Click}} the **Benchmark Settings** tab to set your location, \{\{masterVAS-Terminology.h-erd}} size range, and breed to compare your \{\{masterVAS-Terminology.h-erd}} to similar \{\{masterVAS-Terminology.h-erds}}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/SkTNqEqGH9g3GCVidTL-5_health-summaries-customize-benchmark-settings.png" size="46" isUploading="false" initialPath="../../../../Resources/Images/Platform/reports/health-summaries-customize-benchmark-settings.png" githubPath="Content/Resources/Images/Platform/reports/health-summaries-customize-benchmark-settings.png" position="flex-start" showCaption="false"></Image>
+
+  \{\{masterVAS-Products.Pulse-only}} collects health event data from other \{\{masterVAS-Terminology.h-erds}} that fit the parameters of the benchmark settings, then calculates the average of the collected data to set benchmark values. The benchmark values are then used for cow summaries, making it easier to see if your \{\{masterVAS-Terminology.h-erd}} has cow health trends that deviate from the benchmark data:
+
+  - Select your Country, State, \{\{masterVAS-Terminology.H-erd-}} Size Range, and Breed. When viewing your summaries, cow graphs with a benchmark specify the number of \{\{masterVAS-Terminology.d-airies}} included in the benchmark basis below the graph.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/GHuKz78ClnJT7m2V6O6gc_benchmark-data-example.png" alt caption size="50"}:::ExpandableHeading
+
+  ### Is my data secure?
+
+  <Paragraph indent="1">
+    \{\{General.CompanyName-short}} is dedicated to protecting the privacy of your data. \{\{masterVAS-Products.Pulse-only}} health event data is compiled, aggregated, and anonymized to remove any identifiable producer or \{\{masterVAS-Terminology.d-airy}} information. Additionally, benchmarks are only included in \{\{Insights.HealthSummaries}} when data for 25 or more \{\{masterVAS-Terminology.d-airies}} is available for a specific health event. Monthly benchmarks for health events are recalculated and updated on a weekly basis.
+    See our [Privacy Policy](https://vas.com/privacy-policy/) to learn more about how \{\{General.CompanyName-short}} protects your data.
+    \:::
+  </Paragraph>
+
+  - Set your \{\{Health Index Threshold}}. This value controls which animals are included in your [Health Index Analysis](HealthIndex.htm) summary. Only animals with an index above this value are included for analysis.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Event Definitions](<../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>)
+</ExpandableHeading>

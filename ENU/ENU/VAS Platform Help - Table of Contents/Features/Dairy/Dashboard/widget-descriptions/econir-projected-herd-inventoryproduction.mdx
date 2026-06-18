@@ -1,0 +1,184 @@
+---
+title: ECON\IR - Projected Herd Inventory/Production
+slug: econir-projected-herd-inventoryproduction
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### How do I add a widget to my Dashboard or Overview Page?
+
+  To add this widget to your Dashboard or \{\{masterVAS-Terminology.O-verview-}} page, check the box for it under the \{\{masterVAS-Terminology.H-erd-}} category in the [Page Customization](<../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Dashboard/customize-dashboards.mdx>) options.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/TuIJmnysRkH8gPLF6ZKTr_herd-widgets.png" size="43" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/herd-widgets.png" githubPath="Content/Resources/Images/Platform/dashboard/herd-widgets.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+The \{\{Widgets.Econ-IR}} widget provides forecasts that help you plan any \{\{masterVAS-Terminology.h-erd}} adjustments you might need to make in the current and upcoming months. The data in this widget is based on milking, dry, and known pregnant animals in the \{\{masterVAS-Terminology.c-owfile}}. As shown in the example below, it displays three month's worth of \{\{masterVAS-Terminology.h-erd}}/inventory projections on the left side and projected milk production for those same three months on the right side. The first month is the current one, followed by projections for the next two.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/C9T21pDQ06XBh3HcB2r15_econ-ir.png" size="70" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir.png" position="flex-start" showCaption="false"></Image>
+
+<ExpandableHeading>
+  ## Compare to the DairyComp version of the ECON\IR Report
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/lW5H4FBbMKLpLiyUMj1O4_econ-ir-dairycomp-illustrated.jpg" size="77" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/econ-ir-dairycomp-illustrated.jpg" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/econ-ir-dairycomp-illustrated.jpg" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Understanding the Monthly Herd Forecasts
+
+  The ECON\IR widget displays \{\{masterVAS-Terminology.h-erd}} forecasts for the current month plus the next two and can be viewed in each monthly forecast.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/sMq8JLn7XRk19GUIO0vow_econ-ir-1-month-illustrated.png" size="15" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir-1-month-illustrated.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir-1-month-illustrated.png" position="flex-start" showCaption="false"></Image>
+
+  1. MILKING vs DRY: This section gives a quick view of your \{\{masterVAS-Terminology.h-erd}}'s percent in milk. The example here shows the month of SEP 2018, in which there are **3234 milking** and **559 dry** cows in the \{\{masterVAS-Terminology.h-erd}}, for a **total of 3793**. The bar graph helps visualize the percent in milk, with the dark blue portion showing milking animals (**85.3%**) and the green portion showing dry animals (**14.7%**).:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/F-azmD2PDnOk5GYmU-Qqf_milkvsdry.png" alt caption size="10"}:::ExpandableHeading
+
+  ### How is this data calculated?
+
+  <Paragraph listStyleType="disc" indent="2">
+    The number of milking animals comes from the \{\{DC-UI.DC-ProdNameShort}} count for the total of all milking animals (`LACT Lactation number>0 DDAT Dry date=0)`.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nMjwGNg1r8HlTjp263q_k_count-milking.jpg" alt caption size="18"}
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    The number of dry animals comes from the \{\{DC-UI.DC-ProdNameShort}} count for the total of all dry animals (`LACT>0 DDAT>0)`.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/NpViJILE-82gAQnwDaqJu_count-dry.jpg" alt caption size="18"}
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    The **85.3%** of milking animals is based on the number of milking animals divided by the total (3234/3793).
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    The same goes for the dry percentage, with 14.7% of dry animals being based on the number of dry animals divided by the total (559/3793).
+    \:::
+  </Paragraph>
+
+  2. TO FRESHEN: This section gives a quick check on \{\{due}} dates, showing how many cows and heifers are predicted to calf in the corresponding month. The total number to \{\{masterVAS-Terminology.f-reshen}} is **255** in the example here, and below that, the specific number of cows (**163**) and heifers (**92**) that are expected to \{\{masterVAS-Terminology.f-reshen}} is displayed.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ubR9q8c1ZsYa2reusRxgk_to-freshen.png" alt caption size="10"}:::ExpandableHeading
+
+  ### How is this data calculated?
+
+  <Paragraph indent="1">
+    The number of animals to \{\{masterVAS-Terminology.f-reshen}} is calculated based on \{\{DC-UI.DC-ProdNameShort}} expected due dates. This number includes all forecasted due dates for the month, as well as overdue cows and heifers from the previous months. So while this number attempts to be as accurate as possible, be aware that the forecasts for the next couple of months may vary once you reach the end of the current month and the actual and overdue calving numbers carry forward.
+    :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/QlMXm5kKmzhI7fAQgeZnj_count-to-freshen.jpg" alt caption size="23"}
+    \:::
+  </Paragraph>
+
+  3. TO DRY: This section shows how many animals are expected to go dry for the month (**144** in the example here). This number also includes animals that were due to go dry in the past month but haven't yet.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/EotkkvdDHH6VOrPT9oSQw_to-dry.png" alt caption size="10"}:::ExpandableHeading
+
+  ### How is this data calculated?
+
+  <Paragraph indent="1">
+    The number of expected dry animals comes from the \{\{DC-UI.DC-ProdNameShort}} "Due Dry" report. The example below shows the expected dry animals from 9/1/18–9/31/18. Note that the report also lists Animal \{\{ID}} #1988, with an expected dry date of 8/31/18. This animal \{\{did}} not go dry on the date expected; therefore, she is carried over into the dry count for \{\{masterVAS.month09}}. So while this number attempts to be as accurate as possible, be aware that the forecasts for the next couple of months may vary once you reach the end of the current month and the actual and overdue dry results carry forward.
+    :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Ik7aX_naXmts9fWIpP0KS_due-dry.jpg" alt caption size="58"}
+    \:::
+  </Paragraph>
+
+  4. TO CULL: This section displays the **estimated** number of animals that will leave the \{\{masterVAS-Terminology.h-erd}} (sold, died, etc.) for the given month. The percentages used in these calculations are taken from the last time the ECON\IR report was run in \{\{DC-UI.DC-ProdNameShort}}.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/2rNvMMpuh-MmMaYcYHPTH_to-cull.png" alt caption size="10"}The total number to cull is displayed as **90** in the example here and is then broken down between lactation groups 2 and above (LACT>1) and the first lactation group (LACT=1). This is illustrated as follows in the example above:\* A 35% cull rate is applied for LACT>1, which indicates **67** animals to cull from the first lactation group.
+     - A 25% cull rate is applied for LACT=1, which indicates **23** animals to cull from the first lactation group.
+     - This equals **90** total animals to cull from all lactation groups.:::ExpandableHeading
+
+  ### How is this data calculated?
+
+  <Paragraph indent="1">
+    When running the ECON\IR report in \{\{DC-UI.DC-ProdNameShort}}, you are prompted to enter cull rates for LACT>1 and LACT=0. The cull estimates here in \{\{masterVAS-Products.Pulse-only}} widget are then based on those constant culling rates that were defined in \{\{DC-UI.DC-ProdNameShort}} for lact>1 and lact=1 (see example below). To calculate the number of animals to cull, this report applies the cull rates to the number of \{\{masterVAS-Terminology.f-resh-cow}} animals in LACT>1 and LACT=0.
+    :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ofhS7sbh8ilbyt99Q5erj_cull-rates-illustrated.png" alt caption size="42"}
+    \:::
+  </Paragraph>
+
+  5. ESTIMATED LIVE FEMALES BORN: This number shows estimated females born alive, and one qualification to keep in mind about "live females" is that they are 100% Dairy breed. This estimate allows you to anticipate a *realistic* number of live females born in the month. In the example above, the estimated number of **153** females that will be born alive is based on a **45%** live female birth rate. The percentage used in this calculation is taken from the last time the ECON\IR report was run in \{\{DC-UI.DC-ProdNameShort}}.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/otSV9R2Prv0Ep5GycsQJJ_est-females-born.png" alt caption size="10"}:::ExpandableHeading
+
+  ### How is this data calculated?
+
+  <Paragraph indent="1">
+    When any user runs the ECON\IR report in \{\{masterVAS-Products.DC305-simple}}, they are prompted to enter a Live Female Percentage. The percentage that was entered the last time the report was generated in \{\{DC-UI.DC-ProdNameShort}} is then used in \{\{masterVAS-Products.Pulse-only}} ECON\IR report to estimate the number of live females that will be born.
+    This report is not the same as checking EVENTS\3 in \{\{DC-UI.DC-ProdNameShort}}. That report shows your *actual historical* numbers — how many \{\{masterVAS-Terminology.f-reshenings}}, how many calves born, how many were male, how many were female, etc. — and should not be used as a forecasting tool. As a *planning tool*, it's safer to use a conservative Live Female Percentage that will not skew your estimate too high or too low.
+    Along the same lines, please be aware that when identifying the \{\{masterVAS-Terminology.s-ire}} of conception, \{\{DC-UI.DC-ProdNameShort}} makes use of \{\{NAAB}} codes to determine the breed of the bull. **For the purpose of this calculation, it is important to note that if your&#x20;**\{\{masterVAS-Terminology.d-airy}}**&#x20;uses other names for your bulls rather than using NAAB codes,&#x20;**\{\{DC-UI.DC-ProdNameShort}}**will consider them to be conventional bulls, with a 50/50 likelihood of the calf being female.** This would have no effect on the calculation if, for instance, the bull is a Holstein; the 45% rate would still be realistic. However, if a named bull is an Angus, \{\{masterVAS-Products.DC305-simple}} will still apply your defined Live Female Percentage, even though you know that the likelihood of a female birth is 0%.
+    The following examples illustrate how \{\{masterVAS-Products.DC305-simple}} reaches the estimate above of **153** live females born.
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/O9ROkgrYyfwHFmT5nMAc0_naab-example1.png" size="26" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/naab-example1.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/naab-example1.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Vd777USvb_tXxk2_H_ptK_naab-example2.png" size="23" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/naab-example2.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/naab-example2.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/54DIv-w2pE3ENa_uErEoN_naab-example3.png" size="21" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/naab-example3.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/naab-example3.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/UYhARft8oKPqof5FJm4xL_naab-example4.png" size="24" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/naab-example4.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/naab-example4.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <ExpandableHeading indent="2">
+    ### Sample DC305 queries for estimating Live Females Born
+
+    The following examples illustrate sample queries you can run in \{\{DC-UI.DC-ProdNameShort}} to manually estimate Live Females Born:
+
+    **EVENTS\3 FOR %190.56.7=U** or **EVENTS\3 FOR %190.**\{\{PSIRC}}**.7=U**
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/bitpiGtepJnkOia1n75At_females-born-example1.png" size="40" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/females-born-example1.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/females-born-example1.png" position="flex-start" showCaption="false"></Image>
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/NUOk2r8EJVEhn3UnNxmfk_females-born-example2.png" size="23" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/females-born-example2.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/females-born-example2.png" position="flex-start" showCaption="false"></Image>
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yc6mt7uTboLIuD2m8IRTL_females-born-example3.png" size="39" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/females-born-example3.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/females-born-example3.png" position="flex-start" showCaption="false"></Image>
+
+    <ExpandableHeading>
+      ### Tips for forecasting females born alive by looking at their Sires listed as SIRC
+
+      NAAB codes are the only way to be accurate when forecasting live females born. If the code is **U** (Conventional), then ECON\IR will use your user‑defined value for Live Female Percent, in this example 45%.
+      \:::
+    </ExpandableHeading>
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Understanding the Estimated Milk Production
+
+  The Estimated Milk Production in \{\{masterVAS-Products.Pulse-only}} ECON\IR widget is based upon \{\{DC-UI.DC-ProdNameShort}}'s ability to project milk production for each animal and simulate the entire lactation. This allows it to pull the expected weight based on each distinct month.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/X2hgZKa89WyMjZ-I2nTAx_milk-prod-illustrated.png" size="54" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/milk-prod-illustrated.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/milk-prod-illustrated.png" position="flex-start" showCaption="false"></Image>
+
+  The example below explains the Estimated Milk Production data that is shown in the ECON\IR widget.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/X3HHbuDCYe52427EbUtVA_est-milk-production.png" size="25" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/econ-ir/est-milk-production.png" githubPath="Content/Resources/Images/Platform/dashboard/econ-ir/est-milk-production.png" position="flex-start" showCaption="false"></Image>
+
+  1. PER DAY PER COW: This column shows the forecasted average pounds of milk generated in one day by each animal.:::ExpandableHeading
+
+  ### How is this data calculated?
+
+  <Paragraph indent="1">
+    This data is mapped from the Milk column of the \{\{DC-UI.DC-ProdNameShort}} ECON\IR report. It is calculated by taking the total number of animals in lactation and divides it by the number of days in the corresponding month.
+    :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ppA2IoQ6tn-ft5CZjMZTH_milk-prod-per-cow.png" alt caption size="20"}
+    \:::
+  </Paragraph>
+
+  2. PER DAY: This column shows the forecasted total pounds of milk for all animals for the whole month.:::ExpandableHeading
+
+  ### How is this data calculated?
+
+  <Paragraph indent="1">
+    This data is mapped from the last column of the \{\{DC-UI.DC-ProdNameShort}} ECON\IR report. It is calculated by taking the total number of animals in lactation and divides it by the number of days in the corresponding month.
+    :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/05piSxRP9xsQ4BNw4QZg1_milk-prod-total.png" alt caption size="23"}
+    \:::
+  </Paragraph>
+
+  3. Milk Production Chart: The bar chart provides a visual representation of your forecasted milk production for 3 months. You can easily toggle the data in the chart by clicking the options under the References menu to the right of the chart.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ltYesh2C2xiTYVJ92xivf_milk-prod-chart-options.png" alt caption size="26"}:::ExpandableHeading
+
+  ### How is this data calculated?
+
+  <Paragraph indent="1">
+    This data is mapped directly from the average daily and total monthly forecasts. the last column of the \{\{DC-UI.DC-ProdNameShort}} ECON\IR report. It is calculated by taking the total number of animals in lactation and divides it by the number of days in the corresponding month.
+    \:::
+  </Paragraph>
+
+  4. Toggle Chart Data: On the right side of the chart, click the options under the References menu to toggle the data displayed in the chart:\* **Per Day Per Cow:** Chart shows projected daily milk per animal.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/p1Db97pz1Ky54DFi-PHNi_milk-prod-chart-options-daily.png" alt caption size="32"}
+     - **Per Day:** Chart shows projected total milk for each month.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/gtsQki9m7Y3c7tWIMtMqQ_milk-prod-chart-options-total.png" alt caption size="33"}
+</ExpandableHeading>
+
+<hint type="warning">
+  **IMPORTANT:**
+
+  - It's important to note that this report presents a snapshot at the current point in time. You will find that the numbers are updated with the passing of each day, as more actual \{\{masterVAS-Terminology.h-erd}} activity is recorded.
+  - The projections in this report are based entirely upon the inventory and pregnancy information that is in your \{\{DC-UI.DC-ProductName}}\{\{masterVAS-Terminology.c-owfile}}, including heifers. Therefore, if heifers are not in the \{\{masterVAS-Terminology.c-owfile}} or their pregnancy status is not declared, the report will not be accurate.
+  - When cross‑checking data in \{\{DC-UI.DC-ProductName}}, it's important to use a "System Date" as the last day the \{\{masterVAS-Terminology.c-owfile}} was updated. This ensures that the ECON\IR report always runs from the last time information was put into the \{\{masterVAS-Terminology.c-owfile}}. If you apply a "Set Day" in the past date or future, the report results will not be accurate.
+</hint>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Dashboard](../DashboardsOverview.htm)
+  - [Customize Dashboards](<../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Dashboard/customize-dashboards.mdx>)
+</ExpandableHeading>

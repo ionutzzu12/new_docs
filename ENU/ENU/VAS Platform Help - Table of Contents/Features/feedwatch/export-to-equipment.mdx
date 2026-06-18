@@ -1,0 +1,44 @@
+---
+title: Export to Equipment
+slug: export-to-equipment
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:46 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x54;o use this feature, your \{\{masterVAS-Terminology.d-airy}} must integrate \{\{Buttons-UI.FeaturesMain}} with the \{\{General.ProductName}}.The edit options for this feature are available in \{\{masterVAS-Products.FeedWatchOnPremise}} desktop application version 9.2.10 or greater. If necessary, contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) to complete the integration or upgrade to the latest version of \{\{masterVAS-Products.FeedWatchOnPremise}}.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  To use this feature, your \{\{General.ProductName}} user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+The \{\{Buttons-UI.FC-ExporttoEquip}} feature allows you to quickly send any feed changes to \{\{masterVAS-Products.FeedWatchOnPremise}} and out to your equipment. This includes any adjustments to recipes, ingredients, or \{\{DM%}} completed in \{\{masterVAS-Products.FeedWatchOnPremise}} or \{\{masterVAS-Products.Pulse-only}}.
+
+To access this option, select the **Integration Status** button and view the \{\{masterVAS-Products.FeedWatchPlatform}} tab.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/OWpb3POHxMtI0_lXOKZS5_fwp-export-to-equipment.png" size="24" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/fwp-export-to-equipment.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/fwp-export-to-equipment.png" position="flex-start" showCaption="false"></Image>
+
+Select **Send Export** to export your feed changes to \{\{masterVAS-Products.FeedWatchOnPremise}} and equipment. The button changes briefly to a
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/SysUWkBTSP7bZyaIafJO3_export-check-save201x29.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/export-check-save_201x29.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/export-check-save_201x29.png" position="flex-start" showCaption="false"></Image>
+
+to indicate that the export was completed.
+
+<hint type="info">
+  **NOTE:&#x20;**&#x49;f multiple exports are requested, they go out to \{\{masterVAS-Products.FeedWatchOnPremise}} and the equipment in the order in which they were sent. For instance, if you select **Send Export** and then complete a DM% change and select **Send Export** a second time, the first request is sent, and then is cleared and replaced with the latest export. Only one request to export exists in the queue at a time.
+</hint>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Recipe Details and Adjustments](<../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/Recipes/recipe-details-and-adjustments.mdx>)
+  - [Location DM% Adjustments](location-dmpercent-adjustments.mdx)
+  - [Bunk Scoring](<../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/bunk-scoring.mdx>)
+</ExpandableHeading>

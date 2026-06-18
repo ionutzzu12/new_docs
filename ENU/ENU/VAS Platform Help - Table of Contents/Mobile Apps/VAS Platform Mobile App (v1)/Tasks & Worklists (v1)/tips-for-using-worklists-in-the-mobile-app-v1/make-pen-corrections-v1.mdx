@@ -1,0 +1,65 @@
+---
+title:   Make Pen Corrections (v1)
+slug: make-pen-corrections-v1
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:38 GMT+0200 (Eastern European Standard Time)
+---
+
+Sometimes animals accidentally end up in the wrong \{\{masterVAS-Terminology.p-en}}, and other times, animals are correctly placed into a new \{\{masterVAS-Terminology.p-en}} but their CowCard has not yet been updated to track the \{\{masterVAS-Terminology.p-en}} move. For these reasons, \{\{masterVAS-Products.Pulse-only}} mobile app allows you to conveniently make \{\{masterVAS-Terminology.p-en}} corrections when processing animals in a \{\{Worklists.worklistCommonUse}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/9GzteSmHwihd-N1eH4fI7_pen-corrections-main.png" size="50" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/worklists/pen-corrections-main.png" githubPath="Content/Resources/Images/Platform/mobile-app/worklists/pen-corrections-main.png" position="flex-start" showCaption="false"></Image>
+
+Before making a \{\{masterVAS-Terminology.p-en}} correction, it's important to understand the difference between an animal's **assigned**\{\{masterVAS-Terminology.p-en}} and its **selected**\{\{masterVAS-Terminology.p-en}}:
+
+- **Assigned&#x20;**\{\{masterVAS-Terminology.P-en-}}**:** The animal's current \{\{masterVAS-Terminology.p-en}} assignment on its CowCard.
+- **Selected&#x20;**\{\{masterVAS-Terminology.P-en-}}**:** The \{\{masterVAS-Terminology.p-en}} where the animal is physically located at this time.
+
+When you scan an animal or perform a search in a \{\{Worklists.worklistCommonUse}}, the app checks the animal's **assigned**\{\{masterVAS-Terminology.p-en}} number against the \{\{masterVAS-Terminology.p-en}} you are currently processing for the list (i.e., the **selected**\{\{masterVAS-Terminology.p-en}}). If an animal's assigned \{\{masterVAS-Terminology.p-en}} number does not match the \{\{masterVAS-Terminology.p-en}} where the animal is physically located, the app plays an audible cue for "Wrong \{\{masterVAS-Terminology.P-en-}}" and prompts you to choose one of the following \{\{masterVAS-Terminology.p-en}} correction options:
+
+<ExpandableHeading>
+  ## Keep Animal in Assigned Pen
+
+  Choose this option if the animal has somehow ended up in the wrong \{\{masterVAS-Terminology.p-en}} and should physically be placed back in the assigned \{\{masterVAS-Terminology.p-en}} on its CowCard.
+
+  If you choose this option for an animal that **is needed** in a simple \{\{Worklists.ToDoCommonUse}}, the app:
+
+  1. Removes the animal from the \{\{masterVAS-Terminology.p-en}} list you are currently processing in your \{\{Worklists.worklistCommonUse}}.
+  2. Sets the animal to done under its correct \{\{masterVAS-Terminology.p-en}} number in the\{\{Worklists.worklistCommonUse}}.
+
+  If you choose this option for an animal that **is needed** in a \{\{Worklists.VetListCommonUse}}:
+
+  1. The app moves the animal to its assigned \{\{masterVAS-Terminology.p-en}} number when you set it to done.
+  2. Note that the app does not automatically set the animal to done because it allows you to still select additional \{\{Mobile-UI.EventsTab}} or save the animal as queued in case you need to take further action before setting the animal to done.
+  3. If you save the animal as queued, you must set the animal to done before leaving the \{\{masterVAS-Terminology.p-en}}. If you attempt to leave the \{\{masterVAS-Terminology.p-en}} while one or more queued animals are assigned to a different \{\{masterVAS-Terminology.p-en}}, a warning message displays stating "Queued animals not in the \{\{masterVAS-Terminology.p-en}} will be lost." You can then choose to leave the \{\{masterVAS-Terminology.p-en}} (in which case any queued animals assigned to a different \{\{masterVAS-Terminology.p-en}} are removed from the queued section of the selected \{\{masterVAS-Terminology.p-en}}), or you can remain working in the \{\{masterVAS-Terminology.p-en}} and set those queued animals to done.
+  4. When you set the animal to done, it is no longer listed under the current \{\{masterVAS-Terminology.p-en}} in your \{\{Worklists.VetListCommonUse}}. It is moved to the assigned \{\{masterVAS-Terminology.p-en}} number for this \{\{Worklists.VetListCommonUse}} under the **DONE** tab.
+
+  If you choose this option for an animal that **is not needed** in this list (i.e., you hear the "not needed" cue), the app takes no action because the animal has simply ended up in the wrong \{\{masterVAS-Terminology.p-en}}. Because it is not needed in your current \{\{Worklists.worklistCommonUse}}, the animal just needs to be physically moved back to its assigned \{\{masterVAS-Terminology.p-en}}, and no changes are required for the \{\{Worklists.worklistCommonUse}} nor for the animal's \{\{masterVAS-Terminology.p-en}} assignment in its CowCard.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Move Animal to Selected Pen
+
+  Choose this option if the animal is physically located in the correct \{\{masterVAS-Terminology.p-en}} and its CowCard needs to be updated to show the correct assigned \{\{masterVAS-Terminology.p-en}}.
+
+  If you choose this option for an animal that **is needed** in a simple \{\{Worklists.ToDoCommonUse}}, the app:
+
+  1. Processes a Move event for the animal, which updates the animal's \{\{masterVAS-Terminology.p-en}} number in its CowCard.
+  2. Sets the animal to done in the selected \{\{masterVAS-Terminology.p-en}} you are currently processing for the \{\{Worklists.worklistCommonUse}}.
+
+  If you choose this option for an animal that **is needed** in a \{\{Worklists.VetListCommonUse}}:
+
+  1. The app moves the animal to its selected \{\{masterVAS-Terminology.p-en}} number when you set it to done.
+  2. Note that the app does not automatically set the animal to done because it allows you to still select additional \{\{Mobile-UI.EventsTab}} or save the animal as queued in case you need to take further action before setting the animal to done.
+  3. If you save the animal as queued, you must set the animal to done before leaving the \{\{masterVAS-Terminology.p-en}}. If you attempt to leave the \{\{masterVAS-Terminology.p-en}} while one or more queued animals are assigned to a different \{\{masterVAS-Terminology.p-en}}, a warning message displays stating "Queued animals not in the \{\{masterVAS-Terminology.p-en}} will be lost." You can then choose to leave the \{\{masterVAS-Terminology.p-en}} (in which case any queued animals assigned to a different \{\{masterVAS-Terminology.p-en}} are removed from the queued section of the selected \{\{masterVAS-Terminology.p-en}}), or you can remain working in the \{\{masterVAS-Terminology.p-en}} and set those queued animals to done.
+  4. When you set the animal to done, the app formally moves it to the current \{\{masterVAS-Terminology.p-en}} number.
+
+  If you choose this option for an animal that **is not needed** in this list (i.e., you hear the "not needed" cue), the app logs a Move event for the animal, which instructs \{\{masterVAS-Products.Pulse-only}} and \{\{DC-UI.DC-ProductName}} to update the \{\{masterVAS-Terminology.p-en}} number on the animal's CowCard. The app makes no changes to the \{\{Worklists.worklistCommonUse}} because the animal is not needed for it.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Don't Check Pens
+
+  Choose this option if you do not want the app to continue prompting you for \{\{masterVAS-Terminology.p-en}} corrections. When you choose this option, the app will no longer warn you when you scan an animal that is not assigned to the \{\{masterVAS-Terminology.p-en}} you are currently processing.
+
+  Anytime you navigate away back to the main \{\{Worklists.worklistCommonUse}} and then select another \{\{masterVAS-Terminology.p-en}} to begin processing, the \{\{masterVAS-Terminology.p-en}} correction prompt will start back up again. So if you have stopped the prompt for \{\{masterVAS-Terminology.p-en}} corrections and want to start receiving them again for the \{\{masterVAS-Terminology.p-en}} you are processing, simply return to the main \{\{Worklists.worklistCommonUse}} and reselect the \{\{masterVAS-Terminology.p-en}} to begin working on it again.
+</ExpandableHeading>

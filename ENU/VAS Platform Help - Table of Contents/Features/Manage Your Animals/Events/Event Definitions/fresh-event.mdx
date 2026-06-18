@@ -1,0 +1,110 @@
+---
+title: FRESH Event
+slug: fresh-event
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:40 GMT+0200 (Eastern European Standard Time)
+---
+
+The \{\{Events.1FRESH}} event records that an animal gave birth to one or more calves and started a new lactation. Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Event Guidelines
+
+  Use the mobile app or the web version of \{\{masterVAS-Products.Pulse-only}} to enter events! Tap \{\{Mobile-UI.EventsFeature}} in the [mobile app](../../../../mobile-apps.mdx) to get started, or see :Link[Add Events]{label="Add Events" overridedLabel="Add Events" spaceId docId="sp1fQUQTHg-WLIRXAer4X" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" githubPath="Events.htm#Add" href="Events.htm#Add"} to learn more about adding events from web. \{\{masterVAS-Products.Pulse-only}} supports adding events that have occurred within the last year.
+
+  When you add a \{\{Events.1FRESH}} event, the system limits animals to those that are pregnant. It will not allow you to add \{\{Events.1FRESH}} events to the following animals:
+
+  - An animal that is not pregnant.
+  - A male animal.
+  - A pregnant animal whose \{\{DCC}} is less than or greater than the configured minimum and maximum limits for a \{\{Events.1FRESH}} event in \{\{DC-UI.DC-ProdNameShort}}. If you receive an error message about the DCC, consider entering a [PREV](PrevEvent.htm) event instead of the \{\{Events.1FRESH}} event.
+
+  Likewise, the system will display a warning before allowing you to add an animal that meets any of the other conditions listed below. The app will **not** restrict you from adding these animals; it simply warns you of their status so that you can determine whether to continue:
+
+  - The animal has a \{\{DIM}} value between 1 and the configured maximum DIM limit in \{\{DC-UI.DC-ProdNameShort}} for a \{\{Events.1FRESH}} event.
+  - The animal has been dry for less than the configured minimum number of days in \{\{DC-UI.DC-ProdNameShort}} for a \{\{Events.1FRESH}} event (important for drug warnings).
+  - The animal is less than the configured minimum \{\{age}} in \{\{DC-UI.DC-ProdNameShort}} for a \{\{Events.1FRESH}} event.
+
+  Expand the topics below to learn more about \{\{Mobile-UI.EventTypes}} event details:
+
+  <ExpandableHeading>
+    ### Height
+
+    The animal's height (in the units set in your [PULSE User Account](../Config/EditUserAcct.htm)). To enable Height for this event, select the event from [Event Definitions](<../../../DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>) and expand :Link[Optional Details]{label="Optional Details" overridedLabel="Optional Details" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#optional" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-EventDefinitions.htm#optional" href="../../../DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"}.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Weight
+
+    The animal's weight (in the units set in your [PULSE User Account](../Config/EditUserAcct.htm)). To enable Weight for this event, select the event from [Event Definitions](<../../../DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>) and expand :Link[Optional Details]{label="Optional Details" overridedLabel="Optional Details" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#optional" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-EventDefinitions.htm#optional" href="../../../DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"}.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### BCS value
+
+    Body condition score, which is used to evaluate an animal's energy balance based on being extremely thin (1.00) or having excessive fat deposits (5.00). The value can be a whole number or decimal, and you can include additional notes using the \{\{REM}} field for the event (up to 16 alpha-numeric characters). To enable \{\{Events.19BCS}} value for this event, select the event from [Event Definitions](<../../../DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>) and expand :Link[Optional Details]{label="Optional Details" overridedLabel="Optional Details" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#optional" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-EventDefinitions.htm#optional" href="../../../DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"}.
+  </ExpandableHeading>
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x57;hen including height, weight, or \{\{Events.19BCS}} value for \{\{Events.1FRESH}} events: Enter the \{\{Events.19BCS}} for the \{\{masterVAS-Terminology.d-am}}, not the calf. Enter the total weight and height of the \{\{masterVAS-Terminology.d-am}} and calf.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Defining Calf Details
+
+  You can define details for up to 3 calves that were born during a \{\{Events.1FRESH}} event and, if necessary, enter additional details for each new calf, such as calf \{\{ID}}, barn name, vaccination date, and any other information required in the event command.
+
+  Expand the sections below to learn more:
+
+  <ExpandableHeading>
+    ### Define Calf Gender and Status
+
+    If you know the calf's **Gender** and **Status**, then you can select the appropriate options for both:
+
+    - You must define **both** options so that the app can determine whether to prompt you for additional calf details.
+    - If you are **not** prompted for more calf details after choosing the gender and status, you can tap the green **Done** button at the top right of the screen to save your updates and return to the \{\{Events.1FRESH}} event. If you **are** prompted for additional calf details, see :Link[Enter Additional Calf Details]{label="Enter Additional Calf Details" overridedLabel="Enter Additional Calf Details" spaceId docId="y345XcwDHrs1L-5exMrvq" version="v2" docAnchorId="#Enter" loadingMethod="dynamic" newTab="false" href="fresh-event.mdx"} below.
+    - The app displays your gender and status selections for the respective calf. Note that if you choose a status of **Alive and Sold**, the app displays **Sold**.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Enter Additional Calf Details
+
+    If you choose **Alive** for the Status, the app requires you to define calf details to add this new animal to the \{\{masterVAS-Terminology.h-erd}}:
+
+    - For each additional calf detail, the app adds a new field below the Status field.
+    - At a minimum, a new **Calf ID** is required, but other details, such as \{\{masterVAS-Terminology.p-en}} number, vaccination date, ear tag, etc., may be required based on the event command.
+    - When you finish entering all of the required calf details, you can tap the green **Done** button at the top right of the screen to save your updates and return to the \{\{Events.1FRESH}} event. The calf ID you entered is displayed for the calf.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Calf Gender and Status Are Unknown
+
+    You can select the **Unknown** option if you do not know the calf's gender and status. If you select this option, it hides all other selections, and no further input is required. You can tap the green **Done** button at the top right of the screen to save your selection and return to the \{\{Events.1FRESH}} event.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Ease
+
+    This field indicates the \{\{ease}} of birth. Choose an option from 1–5, with 1 being the easiest and 5 being the most difficult.
+  </ExpandableHeading>
+
+  <hint type="info">
+    **TIP:&#x20;**\{\{Did}} you know you can automatically prompt for specific calf items to add while entering a \{\{Events.1FRESH}} event? For example, maybe you’d like your technician to record the breed of the newborn calf. To prompt for this automatically when entering calf details for a \{\{Events.1FRESH}} event, add the \{\{CBRD}} item to the **Items to be Prompted for New Calves** section of the :Link[Lactation Configuration]{label="Lactation Configuration" overridedLabel="Lactation Configuration" spaceId docId="BaymhC1urQ-Ad5ucqIccd" version="v2" docAnchorId="#new-calves-items" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-LactConfiguration.htm#new-calves-items" href="../DairyComp/Settings/DC-LactConfiguration.htm#new-calves-items"} screen in \{\{masterVAS-Products.Pulse-only}}.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Process Changes
+
+  When you add events from web or the mobile app, your updates are sent to \{\{masterVAS-Products.Pulse-only}} and then on to \{\{DC-UI.DC-ProductName}} for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}} (\{\{Mobile-UI.ConnectionRequired}}).
+
+  \{\{masterVAS-Products.Pulse-only}} (and \{\{DC-UI.DC-ProductName}} for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}) then process the following changes for each animal in the event:
+
+  - Archives the \{\{masterVAS-Terminology.d-am}}'s current lactation record.
+  - Begins a new lactation cycle for the \{\{masterVAS-Terminology.d-am}} and creates a new lactation record for her (\{\{LACT}}+1).
+  - Records the \{\{Events.1FRESH}} event on the \{\{masterVAS-Terminology.d-am}}'s new lactation record, with the \{\{EDAY}} as the date the event was completed in the mobile app.
+  - Completes automatic item updates on the \{\{masterVAS-Terminology.d-am}}'s new lactation record, based on the :Link[Lactation Configuration]{label="Lactation Configuration" overridedLabel="Lactation Configuration" spaceId docId="BaymhC1urQ-Ad5ucqIccd" version="v2" docAnchorId="#reset" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-LactConfiguration.htm#reset" href="../DairyComp/Settings/DC-LactConfiguration.htm#reset"} settings in \{\{masterVAS-Products.Pulse-only}}, or the information in \{\{masterVAS-Products.DC305-short}} (\{\{Alter}} > \{\{Events.1FRESH}} table) for \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}}.
+  - Creates 0, 1, 2, or 3 calf records, depending on the details provided for each calf. No records are added for calves that are dead or sold.
+  - Copies the \{\{masterVAS-Terminology.d-am}}'s stored items to each calf, based on the :Link[Lactation Configuration]{label="Lactation Configuration" overridedLabel="Lactation Configuration" spaceId docId="BaymhC1urQ-Ad5ucqIccd" version="v2" docAnchorId="#copy-calf" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-LactConfiguration.htm#copy-calf" href="../DairyComp/Settings/DC-LactConfiguration.htm#copy-calf"} settings in \{\{masterVAS-Products.Pulse-only}}, or the information in \{\{masterVAS-Products.DC305-short}} (Alter > \{\{Events.1FRESH}} table) for \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}}.
+  - Completes automatic item updates on each calf record.
+</ExpandableHeading>

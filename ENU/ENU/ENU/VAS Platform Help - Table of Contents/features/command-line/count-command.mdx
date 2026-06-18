@@ -1,0 +1,51 @@
+---
+title: COUNT Command
+slug: count-command
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+The COUNT command calculates the total number of animals that match certain items and conditions. It offers a quick and easy way to get a total number of animals meeting specific criteria.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/kT35DiVjkC8HsVDm44cYB_command-results-page3.png" size="45" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/command-results-page3.png" githubPath="Content/Resources/Images/Platform/cmdline/command-results-page3.png" position="flex-start" showCaption="false"></Image>
+
+See the following COUNT examples:
+
+<ExpandableHeading>
+  ### Determine the total number of animals due to be dried off for a specific pen
+
+  COUNT FOR LACT>0 DCC>220 DDAT=0 PEN=1
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/xemYw6ssb3VsdmMawbvG5_count-example1n.png" size="49" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/COUNT-example1n.png" githubPath="Content/Resources/Images/Platform/cmdline/COUNT-example1n.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Check the total number of animals in the hospital pen (pen 12)
+
+  COUNT FOR PEN=12
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/LyQJva4jNM-Y62k7lMzfK_count-example2n.png" size="49" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/COUNT-example2n.png" githubPath="Content/Resources/Images/Platform/cmdline/COUNT-example2n.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Identify the number of animals with an active milk withhold
+
+  COUNT FOR MKDAT>TODAY
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/F_dddUiH4EHrga49yY6FZ_count-example3n.png" size="49" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/COUNT-example3n.png" githubPath="Content/Resources/Images/Platform/cmdline/COUNT-example3n.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Check the total number of animals in their first lactation for specific pens
+
+  COUNT FOR (PEN=1 LACT=1) (PEN=2 LACT=1)
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/_bKeQCdqccwoofAUnasYz_count-example4n.png" size="49" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/COUNT-example4n.png" githubPath="Content/Resources/Images/Platform/cmdline/COUNT-example4n.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Command Reference Guide](<../../../../../VAS Platform Help - Table of Contents/Features/Command Line/command-reference-guide.mdx>)
+  - [../DairyComp/ReportsWorklists/ReportWorklistResults.htm](<../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>)[Reports/Worklists Results](<../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>)
+</ExpandableHeading>

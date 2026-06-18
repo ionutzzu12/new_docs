@@ -1,0 +1,47 @@
+---
+title: Activate All4hooves Integration
+slug: activate-all4hooves-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](../../Platform/Features/Config/UserMgmtRoles/ManageRoles.htm) for more information.
+</ExpandableHeading>
+
+Follow these steps to send \{\{Partners.All4Hooves}}\{\{lame}} and \{\{trim}} events to your animals' CowCards in \{\{masterVAS-Products.Pulse-only}}, and to \{\{DC-UI.DC-ProdNameShort}} for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}: 
+
+<ExpandableHeading>
+  ## Step 1: Connect Integration in PULSE
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners&#x20;**>**&#xA0;Integrations Gallery&#x20;**>**&#xA0;**\{\{Partners.PartnerName}}.
+  2. \{\{Commands.Click}}**See Details** or **See Requirements** on the \{\{Partners.PartnerName}}integration card.
+  3. Follow the Connection Instructions on the right side of the page to establish the connection:1) \{\{Commands.Click}}**Select&#x20;**\{\{masterVAS-Terminology.P-ens-}} to choose \{\{masterVAS-Terminology.p-ens}} that use this product. Enter the \{\{masterVAS-Terminology.p-en}} numbers and select the correct \{\{masterVAS-Terminology.p-ens}} from the results list, which lists the \{\{masterVAS-Terminology.p-ens}} in ascending order.
+     2\) Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+     3\) \{\{Commands.Click}}**Save**.
+     4\) If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your \{\{Partners.PartnerName}} representative to connect the integration from their system. If requested, provide your \{\{masterVAS-Terminology.D-airy-}} \{\{Id}} and Herdcode listed on the \{\{Partners.PartnerName}} Integration Gallery details page.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Map Standard Events (DairyComp Unlimited Users Only)
+
+  1. Go to \{\{masterVAS-Products.DC305-simple}} > Settings > [Event Definitions](<../../../DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>) in \{\{masterVAS-Products.Pulse-only}}.
+  2. Find the event your \{\{masterVAS-Terminology.d-airy}} uses to record lameness and \{\{Commands.click}} the event.
+  3. Map the event to the Standard LAME Event and \{\{Commands.click}}**Save**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/WWlAhnhBwHpbelRBRytVo_select-lame-event-def.png" alt caption size="46"}
+  4. Find the event your \{\{masterVAS-Terminology.d-airy}} uses to record hoof trims and \{\{Commands.click}} the event.
+  5. Map the event to the Standard TRIM Event and \{\{Commands.click}}**Save**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/WfkDV9uah3wSPzCTPwmIG_select-trim-event-def.png" alt caption size="46"}
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your \{\{masterVAS-Terminology.d-airy}} has not yet created lameness or hoof trim events in \{\{DC-UI.DC-ProdNameShort}}, you can create them in User Defined Events (\{\{ALTER}}\9). If you do not see LAME or TRIM as options in the Standard Event drop-down in the \{\{masterVAS-Products.Pulse-only}}, contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) for help with troubleshooting your events.
+  </hint>
+</ExpandableHeading>
+
+<hint type="info">
+  **NOTE:&#x20;**&#x4C;ame and trim events will begin to populate in \{\{masterVAS-Products.Pulse-only}} (and \{\{DC-UI.DC-ProdNameShort}} for \{\{masterVAS-Products.DCUnlimited}} \{\{masterVAS-Terminology.d-airies}}), and are updated after each visit from your hoof trimmer.
+</hint>

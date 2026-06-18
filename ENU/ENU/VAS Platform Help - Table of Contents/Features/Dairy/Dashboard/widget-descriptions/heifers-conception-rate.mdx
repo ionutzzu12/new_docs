@@ -1,0 +1,50 @@
+---
+title: Heifers: Conception Rate
+slug: heifers-conception-rate
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### How do I add a widget to my Dashboard or Overview Page?
+
+  To add this widget to your Dashboard or \{\{masterVAS-Terminology.O-verview-}} page, check the box for it under the \{\{masterVAS-Terminology.H-erd-}} category in the [Page Customization](<../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Dashboard/customize-dashboards.mdx>) options.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/TuIJmnysRkH8gPLF6ZKTr_herd-widgets.png" size="43" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/herd-widgets.png" githubPath="Content/Resources/Images/Platform/dashboard/herd-widgets.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### What permissions do I need to view this widget?
+
+  To view this widget on a Dashboard or \{\{masterVAS-Terminology.O-verview-}} Page, your user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+The \{\{Widgets.ConceptionRate}} widget charts the conception rate of heifers per BRED event for the past 120 days. This widget reflects data only for heifers; there is another widget that shows [this data for cows](<../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Dashboard/Widget Descriptions/cows-conception-rate.mdx>).
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/WFwpeCHbT0oEOtmbmjTQF_concept-rate-heifers-expanded.png" size="55" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/concept-rate-heifers-expanded.png" githubPath="Content/Resources/Images/Platform/dashboard/concept-rate-heifers-expanded.png" position="flex-start" showCaption="false"></Image>
+
+Follow these guidelines when reviewing the data in this widget:
+
+- The **Bred Number** under each bar indicates the BRED event. (The total number of inseminations in the BRED event is displayed in the data table below the chart.)
+- The green bar represents the conception risk percentage.
+- A tan bar indicates that unknown outcomes are still pending, so the conception rate calculation is incomplete. Pending results can mean animals were missed on exam day, or that an exam day is very near. A tan bar will become green or purple when the pending results are received.
+- If the bar is purple, it indicates that the BRED event includes rebreeds.
+- If the bar is red, it warns that the BRED event contains multiple opens.
+- The black "wick" represents a 95% confidence indicator (CI) for the \{\{Insights.InsightDataType}} shown by the yellow bar. For instance, if the wick reflects a 95% CI of 42-53, you can be 95% confident in a \{\{Insights.InsightDataType}} between 42%-53%.
+- Click the **SHOW MORE INFO** link at the bottom right of the chart to view the specific data that builds the chart:\* BRED NUMBER: The number of the BRED event.
+  - 95% CI: The lower and upper confidence limits (CLs) for the conception rate. For example, a 95% CI of **42‑53** indicates that 42% is the lower CL and 53% is the upper CL.s
+  - %CONC: The conception rate, or the rate from breedings with known outcomes of either pregnant or open.
+  - \#\{\{PREG}}: The number of inseminations with a known outcome of pregnant.
+  - \#OPEN: The number of inseminations with a known outcome of open.
+  - OTHER: The number of inseminations with unknown outcomes or that occurred within 2 days of another insemination.
+  - ABORT: The animals that were confirmed pregnant but later lost the pregnancy.
+  - TOTAL: The total number of inseminations (Preg+Open+Unknown) for the BRED event.
+  - %TOT: The percent of total inseminations for the BRED event.
+  - SPC: The number of services per conception (SPC). This number is the inverse of conception rate and is frequently used as an indicator of fertility.
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Dashboard](../DashboardsOverview.htm)
+  - [Customize Dashboards](<../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Dashboard/customize-dashboards.mdx>)
+</ExpandableHeading>

@@ -1,0 +1,105 @@
+---
+title: Integration Status
+slug: integration-status
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### How do I check the connection status between DairyComp and PULSE in DairyComp 305?
+
+  In \{\{masterVAS-Products.DC305-short}}, you can check the connection status by clicking the **Connection Status** tab at the bottom of the \{\{masterVAS-Products.DC305-simple}} screen. To learn more, see [Connection Status](https://dc-help.vas.com/default.htm#cshid=1089)\{\{masterVAS-Phrases.RefsToOtherHelpProjects}}.
+</ExpandableHeading>
+
+Quickly check the connection status between \{\{masterVAS-Products.Pulse-only}} and all of your on-premise applications, like \{\{masterVAS-Products.DC305-simple}}, on the **Integration Status**\{\{Buttons-UI.FeatureType}}. Click the Integration Status button
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nHviUQ4UNFXoCWfz19dFl_int-status-red.png" size="10" isUploading="false" initialPath="../../../Resources/Images/icons/int-status-red.png" githubPath="Content/Resources/Images/icons/int-status-red.png" position="flex-start" showCaption="false"></Image>
+
+at the upper right side to open the page. The button looks different depending upon the integration status:
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/MBcAE-H43mZLgp1kLX9a4_intstatusicon-nav.png" size="54" isUploading="false" initialPath="../../../Resources/Images/Platform/intstatusicon-nav.png" githubPath="Content/Resources/Images/Platform/intstatusicon-nav.png" position="flex-start" showCaption="false"></Image>
+
+- A white button indicates that the connection between \{\{masterVAS-Products.Pulse-only}} and all on-premise apps is working correctly, and no action is required.
+- A red button indicates that the connection between \{\{masterVAS-Products.Pulse-only}} and at least one of your on-premise apps is not working correctly, and your action is required.
+- You will not see a button if \{\{masterVAS-Products.Pulse-only}} is not connected to any \{\{masterVAS-Products.OnPremise-lower}} apps.
+
+This page contains a card for each of your integrated, \{\{masterVAS-Products.OnPremise-lower}} products, letting you quickly see if they are properly communicating and syncing data with \{\{masterVAS-Products.Pulse-only}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/4x2UvSt_wIlCJPq1F9EDS_intstatuspage.png" size="81" isUploading="false" initialPath="../../../Resources/Images/Platform/intstatuspage.png" githubPath="Content/Resources/Images/Platform/intstatuspage.png" position="flex-start" showCaption="false"></Image>
+
+You can also access the Integrations Status page directly from the :Link[Dairy menu]{label="Dairy menu" overridedLabel="Dairy menu" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-Dairy" loadingMethod="dynamic" newTab="false" githubPath="../../NavPlatform/Menu.htm#Menu-Dairy" href="../../../ENU/VAS Platform Help - Table of Contents/navigate-pulse/menu-options.mdx"}.
+
+<ExpandableHeading>
+  ## Integration Status Details
+
+  There are numerous indicators that help you identify the health of the connection between your \{\{masterVAS-Products.OnPremise-lower}} apps and \{\{masterVAS-Products.Pulse-only}}:
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/db3GNvJOLFVGtNxuUnxV3_int-status-card.png" size="28" isUploading="false" initialPath="../../../Resources/Images/Platform/features-icons-examples/int-status-card.png" githubPath="Content/Resources/Images/Platform/features-icons-examples/int-status-card.png" position="flex-start" showCaption="false"></Image>
+
+  1. Data Sync Status: \{\{masterVAS-Products.Pulse-only}} indicates whether your data has been processed and received from your \{\{masterVAS-Products.OnPremise-lower}} app. This status is only visible if your \{\{masterVAS-Products.OnPremise-lower}} app sends or receives data from \{\{masterVAS-Products.Pulse-only}}.\* :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/LbX2kP0sPouCSqvpsuk3U_sync26x25.png" alt caption size="10"}
+     A green icon indicates that your data has been processed on \{\{masterVAS-Products.Pulse-only}} and \{\{masterVAS-Products.Pulse-only}} has not received any more changes from your \{\{masterVAS-Products.OnPremise-lower}} app. For \{\{masterVAS-Products.DC305-simple}} users, use [Connection Status](https://dc-help.vas.com/default.htm#cshid=1089) to make sure that your data is being sent to \{\{masterVAS-Products.Pulse-only}}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/pBgMoxqxWSQkKR-_NTwKT_sync-error26x25.png" size="10" isUploading="false" initialPath="../../../Resources/Images/icons/sync-error_26x25.png" githubPath="Content/Resources/Images/icons/sync-error_26x25.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+  <Paragraph indent="2">
+    A red icon can indicate that \{\{masterVAS-Products.Pulse-only}} received incomplete data from your \{\{masterVAS-Products.OnPremise-lower}} app or your data has not been received or processed for at least 24 hours. This is a critical error that requires **immediate attention** to ensure that all animal information, \{\{worklist}} details, and event data continue to sync correctly with the \{\{masterVAS-Products.Pulse-only}} and your \{\{masterVAS-Products.OnPremise-lower}} app.
+  </Paragraph>
+
+  2. Communication Status: \{\{masterVAS-Products.Pulse-only}} checks the connection (or "heartbeat") between your \{\{masterVAS-Products.OnPremise-lower}} app and \{\{masterVAS-Products.Pulse-only}} every 10 minutes.\* :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/NgdFYyHAdbUlYbtbxpHF4_heartbeat-healthy32x29.png" alt caption size="10"}
+     A green icon indicates that your \{\{masterVAS-Products.OnPremise-lower}} app is communicating with \{\{masterVAS-Products.Pulse-only}}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Ldzy_Eo9jg1ka1mXEtcr8_heartbeat-not-healthy.png" size="10" isUploading="false" initialPath="../../../Resources/Images/icons/heartbeat-not-healthy.png" githubPath="Content/Resources/Images/icons/heartbeat-not-healthy.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+  <Paragraph indent="2">
+    A red icon indicates that your integration is not communicating with \{\{masterVAS-Products.Pulse-only}}.
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RfdU1OYyQjRzuiugWK3TL_gray-info.png" size="10" isUploading="false" initialPath="../../../Resources/Images/icons/gray-info.png" githubPath="Content/Resources/Images/icons/gray-info.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    Last Data Sync: See when \{\{masterVAS-Products.Pulse-only}} last received and processed data from your \{\{masterVAS-Products.OnPremise-lower}} app.
+  </Paragraph>
+
+  If any of your indicators are red, follow the steps in :Link[Troubleshooting Guidelines]{label="Troubleshooting Guidelines" overridedLabel="Troubleshooting Guidelines" spaceId docId="Fd8QuwzdEFx_q7JKcYm7K" version="v2" docAnchorId="#Troubleshooting" loadingMethod="dynamic" newTab="false" href="integration-status.mdx"} to correct the errors.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Troubleshooting Guidelines
+
+  Follow the steps below to troubleshoot any communication or data sync errors. After you resolve your issue, it may take a few minutes for the Communication Status to change to a healthy heartbeat and it may take longer for data to synchronize:
+
+  - Check your internet connection. Verify that the on-premise computer has an active internet connection. If necessary, restart your modem, router, or other equipment, and ensure your internet provider is not experiencing an outage. The Communication Status may take a few minutes to change to a healthy heartbeat.
+  - Restart your on-premise computer. Contact your manager or office staff to verify that the \{\{masterVAS-Products.OnPremise-lower}} app is running normally. If it is not, restart your on-premise computer.
+  - Make sure that you have the latest version of your \{\{masterVAS-Products.OnPremise-lower}} applications. If \{\{masterVAS-Products.Pulse-only}} detects that your \{\{masterVAS-Products.OnPremise-lower}} software is out of date, the system will display caution and warning messages to inform you that an \{\{masterVAS-Products.OnPremise-lower}} software update is either recommended or required; older versions of some apps may stop syncing data. See :Link[Update Your VAS Software]{label="Update Your VAS Software" overridedLabel="Update Your VAS Software" spaceId docId="Fd8QuwzdEFx_q7JKcYm7K" version="v2" docAnchorId="#Update" loadingMethod="dynamic" newTab="false" href="integration-status.mdx"} to learn more about updating your out-of-date software. See :Link[Offline DairyComp Integration]{label="Offline DairyComp Integration" overridedLabel="Offline DairyComp Integration" spaceId docId="Fd8QuwzdEFx_q7JKcYm7K" version="v2" docAnchorId="#offline" loadingMethod="dynamic" newTab="false" href="integration-status.mdx"} for actions to take when your \{\{masterVAS-Products.DC305-short}} connection is suspended or reloading.\* Orange caution messages indicate that even though your \{\{masterVAS-Products.OnPremise-lower}} software is still compatible with \{\{masterVAS-Products.Pulse-only}}, but it should be updated to support recent \{\{masterVAS-Products.Pulse-only}} feature updates.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yEBh09r8o8JImewJ0fFeu_zone-caution.png" alt caption size="88"}
+    - Red warning messages indicate that your \{\{masterVAS-Products.OnPremise-lower}} software is too out-of -date to synchronize properly with \{\{masterVAS-Products.Pulse-only}}. In this case, \{\{masterVAS-Products.Pulse-only}} ceases to synchronize your data until you update to a supported version of the \{\{masterVAS-Products.OnPremise-lower}} software for the respective \{\{zone}}.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/9Ruwfhue3YvimuhwK6pv5_zone-warning.png" alt caption size="88"}
+
+  If the errors continue, [Contact Us](../../GetStarted/ContactUs.htm).
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Offline DC305 Integration (DairyComp Unlimited Dairies Only)
+
+  If your \{\{masterVAS-Products.DC305-short}} connection goes down, \{\{masterVAS-Products.Pulse-only}} warns you and specifies the actions you need to take. This ensures you don't inadvertently edit outdated animal records and keeps your \{\{masterVAS-Products.Pulse-only}} data current. \{\{masterVAS-Products.Pulse-only}} detects three different offline modes to safeguard your \{\{masterVAS-Terminology.h-erd}} data: 
+
+  - Obsolete integration: Your \{\{masterVAS-Products.OnPremise-lower}}\{\{masterVAS-Products.DC305-short}} software is too out-of-date to synchronize properly. Your herd data in \{\{masterVAS-Products.Pulse-only}} and mobile app features will remain read-only until you update \{\{masterVAS-Products.DC305-short}}. See [Update DC305 to the Latest Release](https://dc-help.vas.com/default.htm#cshid=1009) in the \{\{masterVAS-Products.DC305-short}}\{\{masterVAS-Terminology.h-elp}} for detailed instructions.
+  - Suspended integration: Your connection to \{\{masterVAS-Products.DC305-short}} has been down for more than 60 days. \{\{masterVAS-Products.Pulse-only}} and mobile app features will remain read-only until the connection is re-established. [Contact Us](../../GetStarted/ContactUs.htm) to reload your \{\{masterVAS-Terminology.d-airy}} from \{\{masterVAS-Products.DC305-short}}.
+  - Reloading integration::Variable\{key="masterVAS.CompanyName-short" type="variable"} Support is reloading your \{\{masterVAS-Terminology.d-airy}}. \{\{masterVAS-Products.Pulse-only}} and mobile app features will remain read-only until the reload completes. This may take up to an hour, depending on the size of your \{\{masterVAS-Terminology.c-owfile}} and current server traffic.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Update Your VAS Software
+
+  \{\{masterVAS-Products.DC305-simple}}: To update your \{\{masterVAS-Products.DC305-short}} software, follow the steps in [Update DC305 to the Latest Release](https://dc-help.vas.com/default.htm#cshid=1009) in the \{\{masterVAS-Products.DC305-short}}\{\{masterVAS-Terminology.h-elp}}.
+
+  \{\{masterVAS-Products.FeedWatchOnPremise}}: To update your \{\{masterVAS-Products.FeedWatchOnPremise}} software, contact \{\{masterVAS-Products.FeedWatchOnPremise}} support at [fwsupport@vas.com](mailto\:fwsupport@vas.com) or \{\{masterVAS.PhoneNumber-TollFree}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Request Export to Equipment (FeedWatch Only)
+
+  Click the **Send Export** button to send changes you've made in \{\{masterVAS-Products.FeedWatchPlatform}} (such as an ingredient \{\{dry matter}} percentage (\{\{DM%}}) adjustment) to the feeders immediately.
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x43;hanges made in \{\{masterVAS-Products.FeedWatchPlatform}} are automatically sent to the \{\{masterVAS-Products.FeedWatchOnPremise}} computer. In order for those changes to be sent from the computer to the feeders immediately (so they can used for feeding), you need to click Send Export.
+  </hint>
+</ExpandableHeading>

@@ -1,0 +1,82 @@
+---
+title: View DONE Worklists
+slug: view-done-worklists
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+The \{\{Worklists.DoneUI}} page contains different content for \{\{Worklists.ToDoCommonUse}}s, \{\{Worklists.VetListCommonUse}}s, and \{\{Worklists.HospListCommonUse}}s.
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Show me the DONE page for to-do lists
+
+  The \{\{Worklists.DoneUI}} page for \{\{Worklists.ToDoCommonUse}}s is shown below and includes the following details.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/52oCJtQwlT6X3vwi9Vwny_worklist-details-done-3.png" size="74" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/worklist-details-done-3.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/worklist-details-done-3.png" position="flex-start" showCaption="false"></Image>
+
+  - **METHOD:&#x20;**&#x49;dentifies the method the technician used to set the animal to DONE in the mobile app:
+    - **Tapped:&#x20;**&#x54;he technician tapped **Mark Done** in the mobile \{\{Worklists.worklistCommonUse}} to set the animal to DONE.
+    - **Scanned:&#x20;**&#x54;he technician scanned the animal's \{\{masterVAS-Terminology.radiofrequencyID-short}} tag to set it to DONE in the mobile \{\{Worklists.worklistCommonUse}}. See [Work with RFID Scanners (v1)](../../../MobileApp/Scanners/RFIDScanners.htm) or [RFID Scanners (v2)](../../../DC-Mobile/Scanners/Scanners.htm) for help using a scanner with the mobile app.
+      **DONE BY:&#x20;**&#x49;dentifies the technician who completed the action.
+    - \{\{Worklists.Received}}**:&#x20;**&#x49;f an animal's status is \{\{Worklists.Received}}, it means that either you or another \{\{masterVAS-Products.Pulse-only}} user has set it to \{\{Worklists.DoneUI}} in this list but no one has processed that change yet. An animal in this status can be undone and sent back to the \{\{Worklists.ToDoUI-Mob}} tab. As a visual cue, animals in this state are displayed with a pale blue bar to the right (see example below).
+    - \{\{Worklists.Processing}}**:&#x20;**&#x49;f an animal's status is \{\{Worklists.Processing}}, either you or another \{\{masterVAS-Products.Pulse-only}} user has set it to \{\{Worklists.DoneUI}} and then tapped the \{\{Worklists.ProcessChanges}} button to send the updates back to on‑premise. As a visual cue, animals in this state are displayed with a light blue bar to the right (see example below).
+    - \{\{Worklists.Processed}}**:&#x20;**&#x49;f an animal's status is \{\{Worklists.Processed}}, it means that the animal was set to \{\{Worklists.DoneUI}}, the \{\{Worklists.ProcessChanges}} button was used to send the update back to on‑premise, and the on‑premise product has processed the change and updated the animal's record. As a visual cue, animals in this state are displayed with a green bar to the right (see example below).
+    - \{\{Worklists.WaitingToConnect}}**:** The app displays this message if you mark an animal as \{\{Worklists.DoneUI}} while your device is offline.
+    - \{\{Worklists.SystemFailed}}**:&#x20;**&#x49;f you see an error symbol
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/1HAIqIpO3ZXx1f4stMsTt_error-fail24x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/error-fail_24x25.png" githubPath="Content/Resources/Images/icons/error-fail_24x25.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+  <Paragraph indent="2">
+    and the message System Failed, it means that the update was not processed successfully when the **Process Changes** button was tapped. This type of processing failure can occur for several reasons, including communication errors between the mobile app and on‑premise product, or when you or another \{\{masterVAS-Products.Pulse-only}} user attempts to process an animal that has already been \{\{Worklists.Processed}}.
+  </Paragraph>
+
+  <Paragraph indent="1">
+    **DONE TIME:&#xA0;**&#x54;he date/time the status was updated.
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Show me the DONE page for vet lists
+
+  The \{\{Worklists.DoneUI}} page for \{\{Worklists.VetListCommonUse}}s is shown below and includes information based on the command run to generate the list. The veterinary code (\{\{VETC}}), or the reason for the veterinary examination, and any events added are always included.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/akZb7bw636M9p14VutkHz_vetlists-details-done.png" size="51" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/VetLists-details-done.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/VetLists-details-done.png" position="flex-start" showCaption="false"></Image>
+
+  To quickly view a summary of an animal, click anywhere on its row *except on the animal&#x20;*\{\{ID}} to bring up a side panel with animal details.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Wa2O6z1Mm0REB7KWkVmeL_vetlistssidepanel.png" size="47" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/VetListsSidePanel.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/VetListsSidePanel.png" position="flex-start" showCaption="false"></Image>
+
+  The side panel allows you to quickly view an \{\{masterVAS-Terminology.o-verview}} of key information about the animal without leaving the \{\{Worklists.worklistCommonUse}}:
+
+  - Basic [CowCard](../../CowCards/ViewCowCard-CC.htm) information appears near the top of the panel (animal status, lactation number, \{\{age}}, etc.).
+  - Click the **Go To CowCard** link to view the animal's full CowCard.
+  - Indicators for milk withhold and meat withhold appear at the top of the side panel. Mouse over these indicators to view their status.
+  - The **Added Events** section displays the events that have been added to the animal from the \{\{Worklists.VetListCommonUse}}.
+  - The **More Details** section displays additional \{\{Worklists.VetListCommonUse}} information: Method, Responsible, and Done Time.
+
+  In the side panel, you can use the left and right arrow keys on your keyboard to step through side panels for the next/previous \{\{Side-Panels.PanelContent}} in the list. To close the side panel, click the **X** button in the top-right corner or press the **Esc** key.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Show me the DONE page for hospital lists
+
+  The \{\{Worklists.DoneUI}} page for \{\{Worklists.HospListCommonUse}}s is shown below and includes information about the animals in the list, including their ID, \{\{masterVAS-Terminology.p-en}} number, and status.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Cvqv41fOOhAhHGAxkenR__hosplists-details.png" size="51" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/HospLists-details.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/HospLists-details.png" position="flex-start" showCaption="false"></Image>
+
+  To quickly view a summary of an animal, click anywhere on its row *except on the animal ID* to bring up a side panel with details.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/fT5lRNbKLkPxGBQ8c0xek_hosplistssidepanel.png" size="45" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/HospListsSidePanel.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/HospListsSidePanel.png" position="flex-start" showCaption="false"></Image>
+
+  The side panel provides you an \{\{masterVAS-Terminology.o-verview}} of key information about the animal without leaving the \{\{Worklists.worklistCommonUse}}:
+
+  - Basic [CowCard](../../CowCards/ViewCowCard-CC.htm) information appears near the top of the panel (animal status, lactation number, age, etc.).
+  - Click the **Go To CowCard** link to view the animal's full CowCard.
+  - Indicators for milk withhold and meat withhold appear at the top of the side panel. Mouse over these indicators to view their status.
+  - The **Added Events** section displays the events that have been added to the animal from the \{\{Worklists.VetListCommonUse}}.
+  - The **More Details** section displays additional \{\{Worklists.HospListCommonUse}} information: Method, Responsible, and Done Time.
+
+  In the side panel, you can use the left and right arrow keys on your keyboard to step through side panels for the next/previous \{\{Side-Panels.PanelContent}} in the list. To close the side panel, click the **X** button in the top-right corner or press the **Esc** key.
+</ExpandableHeading>

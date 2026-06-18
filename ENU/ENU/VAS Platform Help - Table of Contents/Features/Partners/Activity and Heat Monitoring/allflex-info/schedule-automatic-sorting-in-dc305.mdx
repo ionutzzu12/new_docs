@@ -1,0 +1,90 @@
+---
+title: Schedule Automatic Sorting in DC305
+slug: schedule-automatic-sorting-in-dc305
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:46 GMT+0200 (Eastern European Standard Time)
+---
+
+<hint type="info">
+  **NOTE:&#x20;**&#x54;his option currently requires a \{\{DC-UI.DC-ProductName}} integration with the \{\{masterVAS-Products.Pulse-only}}. At this time, it is only available to \{\{masterVAS-Products.DCUnlimited}} customers.
+</hint>
+
+<ExpandableHeading>
+  ### Required Setup
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x54;he current \{\{General.ProductName}} release only supports the \{\{Partners.Allflex}} integration for U.S. customers using Heatime systems. Additionally, users must have \{\{Partners.Allflex}} sorting gates in order to use the sorting features and LED activity transponders in order to use the LED sorting features. \{\{General.CompanyName-short}} plans to support additional \{\{Partners.Allflex}} products in future releases.
+  </hint>
+</ExpandableHeading>
+
+\{\{General.DCUnlimited-short}} customers can easily schedule when animals are sorted, how often they're sorted, and which group of animals is sorted. After you activate the Allflex integration in the \{\{General.ProductName}}, follow the instructions below to create and schedule the sort assignments in \{\{masterVAS-Products.DC305-long}}. The sort assignments you define are instantly sent to the \{\{General.ProductName}}, where the information is shared with \{\{Partners.Allflex}} and your animals' sensors.
+
+Follow these steps to start scheduling your sort assignments:
+
+<ExpandableHeading>
+  ## Step 1: Create a New Sort Code
+
+  First, you need to define which animals in the \{\{masterVAS-Terminology.h-erd}} need to be sorted. Follow these steps to create a new sort code:
+
+  1. In \{\{DC-UI.DC-ProdNameShort}}, enter `ALTER Command entered to "alter" content or settings in DairyComp. Example: ALTER\7\3` on the command line to open your list of existing commands.
+  2. In the upper left corner, click **Add \[Ins]**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/c8dHzogXtaq0sjI4thEl__allflex-schedule-sort.png" alt caption size="67"}
+  3. Enter the new command details (see example above)::::::WorkflowBlock
+
+  <WorkflowBlockItem>
+    **Abbreviation:** Enter an abbreviation for the sort code.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    For example, if you only want to sort your dry animals, you could enter `DRYCUT`.
+
+    **Content:** Enter the command for the sort code.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    In this example, you could enter `CUT=1 for DCC Days carrying calf/pregnant>240 LACT Lactation number>0` to sort out the dry animals in your \{\{masterVAS-Terminology.h-erd}}. Specifically, this command tells the system to sort animals (**CUT=1**) that have carried its calf for more than 240 days (**DCC>240**) and have had at least one lactation (**LACT>0**).
+
+    <hint type="info">
+      **NOTE:&#x20;**&#x49;f you use a different user-defined item that is not named `CUT`, replace `CUT` with your customized abbreviation.
+    </hint>
+
+    Visit the [DC305 Online Help](https://dc-help.vas.com/ReferenceGuide/CommandLine/UsingCmdLine.htm) for detailed instructions on creating commands!
+
+    **Title (Optional):** Enter a description if you want.
+  </WorkflowBlockItem>
+
+  <Paragraph indent="1">
+    \:::::
+  </Paragraph>
+
+  4. Click **OK** to save the new command.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Create a New Clear Code
+
+  Before you can schedule when your \{\{masterVAS-Terminology.h-erd}} should be sorted, you need to remove existing sort assignment tasks from the schedule. Use the following instructions to create a new clear code that you can enter to clear out pre-existing sorting tasks:
+
+  1. In \{\{DC-UI.DC-ProdNameShort}}, enter `ALTER\3` on the command line to open your list of existing commands.
+  2. In the upper left corner, click **Add \[Ins]**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/aug4NO8GcT3F_jzzfwBB1_allflex-schedule-clear.png" alt caption size="67"}
+  3. Enter the new command details (see example above):1) **Abbreviation:** Enter an abbreviation for the clearing task, such as `CLRCUT`.
+     2\) **Content:** Enter `CUT=0 FOR CUT>0`, which tells the system to clear any existing sort code tasks.
+     3\) Visit the [DC305 Online Help](https://dc-help.vas.com/ReferenceGuide/CommandLine/UsingCmdLine.htm) for detailed instructions on creating commands!
+     **Title (Optional):** Enter a description if you want.
+  4. Click **OK** to save the new command.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 3: Add Tasks to the Task Scheduler
+
+  After creating a new sort code and a new clear code, you can now schedule when your animals are sorted:
+
+  1. Enter `ALTER\6 `on the command line to open the Task Scheduler window, which displays a list of all scheduled tasks.
+  2. In the upper left corner, click **Add \[Ins]**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Ep2BUBAwotsA1vBVUG-Dd_allflex-schedule-info.png" alt caption size="56"}
+  3. In the pop-up window, define the following information (see example above):\* **Next Date&#x20;**&#x61;n&#x64;**&#x20;Next Time:** Enter the date and time the task should start to run. We recommend setting the time to 30 minutes before the first shift starts to ensure that all sorting assignments are synced between \{\{DC-UI.DC-ProductName}}, \{\{General.ProductName}}, and the \{\{Partners.Allflex}} sensors.
+     - **Last Date (Optional):** Enter the date when you want the sorting task to stop.
+     - **Interval Unit&#x20;**&#x61;n&#x64;**&#x20;Interval:** Select the interval type from the drop-down list (hours, days, or months) and enter the interval amount.
+     - **Command to Run**: Enter the clear code you created in :Link[Step 2]{label="Step 2" overridedLabel="Step 2" spaceId docId="0qsIo-HnxVzNO70lonKaa" version="v2" docAnchorId="#Step2" loadingMethod="dynamic" newTab="false" href="schedule-automatic-sorting-in-dc305.mdx"}, then the sort code you created in :Link[Step 1]{label="Step 1" overridedLabel="Step 1" spaceId docId="0qsIo-HnxVzNO70lonKaa" version="v2" docAnchorId="#Step1" loadingMethod="dynamic" newTab="false" href="schedule-automatic-sorting-in-dc305.mdx"}, separated by an exclamation point. For example, if your clear code is `CLRCUT `and your sort code is `DRYCUT`, enter `CLRCUT!DRYCUT`.
+  4. Click **OK** in the upper right corner to save the new task.
+  5. The clearing and sorting tasks will now run on the Next Date and Next Time that you specified above.
+     Click **Exit** in the bottom left corner of the Task Scheduler window to close it.
+</ExpandableHeading>

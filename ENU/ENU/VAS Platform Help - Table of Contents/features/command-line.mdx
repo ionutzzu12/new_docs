@@ -1,0 +1,264 @@
+---
+title: Command Line
+slug: command-line
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x54;his feature is not available in all markets and regions.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Can't find this feature? Make sure it's included in your subscription!
+
+  This feature/option is available only for \{\{masterVAS-Products.DCU-users-short}}. \{\{masterVAS-Products.DCP-users-short}} will not see it in \{\{masterVAS-Products.Pulse-only}}.
+
+  Click [here](../../GetStarted/KnowYourPulse.htm) to learn more about the different versions of \{\{masterVAS-Products.Pulse-only}}.
+</ExpandableHeading>
+
+The Command Line brings the power of \{\{masterVAS-Products.DC305-simple}} into \{\{masterVAS-Products.Pulse-only}}, allowing you to generate many of the same reports you're able to view in \{\{masterVAS-Products.DC305-simple}}. \{\{masterVAS-Products.Pulse-only}} Command Line currently supports the [LIST (SHOW)](ListCmd.htm), [SUM](<../../../VAS Platform Help - Table of Contents/Features/Command Line/sum-command.mdx>), [COUNT,](CountCmd.htm) and [ENTER](EnterCmd.htm) commands. You can find this feature on the [main menu bar](../navigate-pulse/menu-options.mdx), or by selecting **F9** from your keyboard.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/JLRlU2Pz8o0UM22mKgCjX_intro-cmdline.png" size="42" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/intro-cmdline.png" githubPath="Content/Resources/Images/Platform/cmdline/intro-cmdline.png" position="flex-start" showCaption="false"></Image>
+
+A typical command consists of the 5 parts defined below.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/W03olE_3DYY8OXy3IoB3w_cmdline-syntax-example-new.png" size="52" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/cmdline-syntax-example-new.png" githubPath="Content/Resources/Images/Platform/cmdline/cmdline-syntax-example-new.png" position="flex-start" showCaption="false"></Image>
+
+<ExpandableHeading indent="2">
+  ## Command Word: Start by typing a command word. Click here to learn more!
+
+  The command word controls the type of report you run. The following commands are supported in \{\{masterVAS-Products.Pulse-only}}:
+
+  - LIST or SHOW: Generates a listing of animals with certain items and conditions. In \{\{masterVAS-Products.Pulse-only}} command line, LIST and SHOW are interchangeable commands. In \{\{masterVAS-Products.DC305-simple}}, the LIST command may be used to print the report, while SHOW displays the report on the screen. See [LIST (SHOW) Command](ListCmd.htm) for helpful sample commands!
+  - SUM: Generates averages for specific items or animals within certain groups and presents the details in a table or graph. See [SUM Command](<../../../VAS Platform Help - Table of Contents/Features/Command Line/sum-command.mdx>) for helpful sample commands!
+  - COUNT: Calculates the total number of animals that match certain items and conditions. See [COUNT Command](CountCmd.htm) for helpful sample commands!
+  - ENTER: An ENTER command changes stored item values for multiple animals at once if the animals match certain conditions. \{\{masterVAS-Products.Pulse-only}} then generates a report listing all the updated item values. See [ENTER Command](EnterCmd.htm) for more information.
+</ExpandableHeading>
+
+<ExpandableHeading indent="2">
+  ## Switches: (Optional) Use one or more switches to affect or limit which data is included in your report. Click here to learn more!
+
+  In \{\{masterVAS-Products.Pulse-only}} command line, any switches must immediately follow the command word. The following switches are currently supported in the specified command(s): 
+
+  | Switch | Definition                                                                                                                                                                                     | Command(s)          | Example                                                                                                                                                        |
+  | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | \B     | Includes results for both live and dead animals. Without the switch, command results include live animals only.                                                                                | COUNTLIST (SHOW)SUM | LIST \B ID LACT DIM RPRO ARDAT FOR FDAT>-7 BY  LACTCapture live and dead animal data for recently \{\{masterVAS-Terminology.f-reshened}} animals by lactation. |
+  | \D     | Limits results to dead cows only.                                                                                                                                                              | COUNTLIST (SHOW)SUM | COUNT \D FOR LACT=1 ARDAT>-90Capture total number of dead animals in their first lactation in the last 90 days.                                                |
+  | \S     | Sets the \{\{standard deviation}} calculation to use sample values. Without the switch, \{\{masterVAS-Products.Pulse-only}} calculates population standard deviation.                          | SUM                 | SUM \S MILK PCTF PCTS LGSCC BY lact FOR LACT>0Analyze sample standard deviation data for milk composition and quality by lactation.                            |
+  | \Z     | Includes zero values in averages and standard deviation calculations. Without the switch, average, standard deviation, \{\{mode}}, and \{\{median}} calculations include non-zero values only. | SUM                 | SUM \Z TKET BY LCTGP FOR FDAT>-365Analyze the number of times \{\{ketosis}} was diagnosed by lactation group for all animals that calved in the last year.     |
+</ExpandableHeading>
+
+<ExpandableHeading indent="2">
+  ## Items: Type the items you want to include in your report. Items define the data you want to see in your report. Click here to learn more!
+
+  Follow these guidelines for items in your command:
+
+  - The ID item is included in LIST reports by default, so including it is optional.
+  - Insert a space between items.
+
+  <ExpandableHeading>
+    ### Show me some examples!
+
+    In the command example above, the items are ID, PEN, LACT, DIM, DCC, and MILK:
+
+    `LIST \Z ID PEN LACT DIM DCC MILK`` FOR LACT>0 DCC>220 DDAT=0 BY PEN`
+
+    This tells the report to include columns for the animal ID, \{\{masterVAS-Terminology.p-en}} number (PEN), lactation number (LACT), days in milk (DIM), days carried calf (DCC), and milking weights (MILK).
+
+    Here are a few examples of items you can use:
+
+    | Item | Description                                    |
+    | ---- | ---------------------------------------------- |
+    | ID   | The animal's ID number.                        |
+    | PEN  | The animal's current PEN number.               |
+    | LACT | The animal's current lactation number.         |
+    | DIM  | The animal's current days in milk.             |
+    | MILK | Pounds of milk the animal last produced.       |
+    | RPRO | The animal's current reproductive code.        |
+    | DCC  | How many days the animal has carried its calf. |
+    | DSLH | How many days since the animal's last heat.    |
+
+    <hint type="info">
+      **TIP:&#x20;**&#x54;o see all available items for your \{\{masterVAS-Terminology.d-airy}}, go to your [Item Definitions](../DairyComp/Settings/DC-ItemDefinitions.htm).
+    </hint>
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading indent="2">
+  ## Conditions: (Optional) Type any conditions you want to include in your report. Conditions limit your report to specific data. Click here to learn more!
+
+  When you want to define one or more conditions, insert the word FOR and follow it with conditions to customize (i.e., filter) your report results, such as FOR PEN=4.
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x4C;IST (SHOW) commands require that the FOR keyword is typed before the BY or DOWNBY keyword. SUM commands require that the FOR keyword is typed after the BY or DOWNBY keyword.
+  </hint>
+
+  <ExpandableHeading>
+    ### Show me some examples!
+
+    In the command example above, the condition includes the word FOR, followed by 3 different conditions to customize the report results — one for lactation number (LACT), one for days carried calf (DCC), and one for dry date (DDAT):
+
+    - `LIST \Z ID PEN LACT DIM DCC MILK FOR LACT>0 DCC>220 DDAT=0 BY PEN`Adding these conditions to your command will narrow your report down to the following results:\* LACT>0 tells the report to include only animals with a lactation number of 1 or higher.
+      - DCC>220 tells the report to include only animals who have carried their calf for more than 220 days.
+      - DDAT=0 tells the report to include only animals that are currently milking (i.e., a \{\{masterVAS-Terminology.f-resh-cow}} date exists, but \{\{DDAT}}=0 means no dry date exists).
+
+    A SUM command requires that the FOR condition is typed after the sort word DOWNBY:
+
+    - `SUM DOWNBY AGE FOR LACT=0`This tells the report to only include heifers, or animals that have not yet had a lactation cycle (LACT=0).
+  </ExpandableHeading>
+
+  When entering a condition, you can choose from the following operators:
+
+  | Operator | Definition for numeric and date values | Definition for string values |
+  | -------- | -------------------------------------- | ---------------------------- |
+  | =        | equal to                               | equal to                     |
+  | \<>      | not equal to                           | not equal to                 |
+  | >        | greater than                           | contains                     |
+  | >=       | greater than or equal to               | -                            |
+  | \<       | less than                              | does not contain             |
+  | \<=      | less than or equal to                  | -                            |
+</ExpandableHeading>
+
+<ExpandableHeading indent="2">
+  ## Sort: (Optional) Use sort words (BY and DOWNBY) and criteria in LIST and SUM commands to sort how your results are listed. Click here to learn more!
+
+  The sort options are simple. You can use either BY or DOWNBY:
+
+  - Use BY to sort lowest to highest.
+  - Use DOWNBY to sort highest to lowest.
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x4C;IST (SHOW) commands require that the FOR keyword is typed before the BY or DOWNBY keyword. SUM commands require that the FOR keyword is typed after the BY or DOWNBY keyword.
+  </hint>
+
+  <ExpandableHeading>
+    ### Show me some examples!
+
+    The LIST command example above includes the sort word BY, followed by the column that will be sorted (PEN):
+
+    - `LIST \Z ID PEN LACT DIM DCC MILK FOR LACT>0 DCC>220 DDAT=0 BY PEN`This tells the report to sort the list by the PEN column. It puts the lowest \{\{masterVAS-Terminology.p-en}} number at the top and the highest \{\{masterVAS-Terminology.p-en}} number at the bottom. If you used DOWNBYPEN instead, it would sort the highest \{\{masterVAS-Terminology.p-en}} number at the top and the lowest \{\{masterVAS-Terminology.p-en}} number at the bottom.
+
+    A SUM command requires that the sort word DOWNBY is typed before the FOR condition:
+
+    - `SUM DOWNBY AGE FOR LACT=0`This tells the report to sort the list by the AGE column. It puts the highest age group at the top and the lowest age at the bottom. If you used BYAGE instead, it would sort the youngest group at the top and the oldest group at the bottom.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Errors
+
+  If you enter an incorrect command, or one that doesn't follow the expected syntax, the \{\{General.ProductName-short}} provides a descriptive error message and highlights the area of the command that is in error.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RHy2SHWcWejNoRh8BtDog_cmdline-error.png" size="52" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/cmdline-error.png" githubPath="Content/Resources/Images/Platform/cmdline/cmdline-error.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Results
+
+  The \{\{Buttons-UI.DC-Reports}}**&#x20;Results** page displays the results of your executed command.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/CzRbh-CaY8gFhqpGQxTye_report-results-command.png" size="58" isUploading="false" initialPath="../../../Resources/Images/Platform/dairycomp/Reports/report-results-command.png" githubPath="Content/Resources/Images/Platform/dairycomp/Reports/report-results-command.png" position="flex-start" showCaption="false"></Image>
+
+  You can choose to Print or Export your results. See [../DairyComp/ReportsWorklists/ReportWorklistResults.htm](<../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>)[Reports/Worklists Results](<../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>) to learn more!
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## History
+
+  \{\{masterVAS-Products.Pulse-only}} saves recent commands run to the **Report History** page.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/G4M6OrbGX2dpHz4pPljd9_command-manage-saved.png" size="57" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/command-manage-saved.png" githubPath="Content/Resources/Images/Platform/cmdline/command-manage-saved.png" position="flex-start" showCaption="false"></Image>
+
+  See [Report History](../DairyComp/ReportsWorklists/DC-ReportsHistory.htm) to learn more!
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Save Commands
+
+  \{\{Commands.Click}} the **Edit** button on the \{\{masterVAS-Terminology.D-airy-}} \{\{Buttons-UI.DC-Reports}} page to add your command to your \{\{masterVAS-Terminology.D-airy-}} Reports.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/_bV-QtZxYZsiZndDCZ0MQ_command-results-save2.png" size="58" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/command-results-save2.png" githubPath="Content/Resources/Images/Platform/cmdline/command-results-save2.png" position="flex-start" showCaption="false"></Image>
+
+  See [Dairy Reports/Worklists](../DairyComp/ReportsWorklists/ManageReportsWorklists.htm) to learn more!
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Cautions for DairyComp 305 Users
+
+  The following cautions are especially important if you are familiar with \{\{masterVAS-Products.DC305-simple}}'s command line feature: 
+
+  <ExpandableHeading>
+    ### Additional item numbers
+
+    \{\{masterVAS-Products.Pulse-only}} uses existing \{\{DC-UI.DC-ProductName}} standard item numbers, as well as an expanded set of pre-defined standard items (2000+). See [DairyComp Standard Items](ListItems.htm) for more information.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Commands
+
+    \{\{masterVAS-Products.Pulse-only}} command line supportsCOUNT, ENTER, LIST, and SUM.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Date format
+
+    \{\{masterVAS-Products.Pulse-only}} interprets the order of month and day based on your [User Profile](../Config/EditUserAcct.htm)**Date format** setting.
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ez6lT8cXqmcKohjP9m9ET_user-profile-date-format.png" size="20" isUploading="false" initialPath="../../../Resources/Images/Platform/users-roles/user-profile-date-format.png" githubPath="Content/Resources/Images/Platform/users-roles/user-profile-date-format.png" position="flex-start" showCaption="false"></Image>
+
+    The year may be two or four digits, and month and day may be one or two digits. Use a forward slash (/) or period (.) to separate year, month, and day. Dates may be specified in any of the following formats: 
+
+    | - yyyy/mm/dd or yyyy.mm.dd |
+    | -------------------------- |
+
+    - mm/dd/yy or mm.dd.yy
+    - mm/dd/yyyy or mm.dd.yyyy
+    - dd/mm/yy or dd.mm.yy
+    - mm/dd or dd/mm (assumes the current year) | \* yyyy/m/d or yyyy.m.d
+    - m/d/yy or m.d.yy
+    - m/d/yyyy or m.d.yyyy
+    - d/m/yy or d.m.yy
+    - m/d or d/m (assumes the current year) |
+
+    For instance, \{\{masterVAS.month09}} 17, 2019, can be formatted as:
+
+    - 2019/09/17, 9.17.19, 9/17/19, or 9/17 if your date format is set to Month/Day/Year
+    - 2019/17/09, 17.9.19, 17/9/19, or 17/9 if your date format is set to Day/Month/Year
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Double quotes
+
+    Double quotes (") are required to identify a string in the command line. For instance, CODA="TEST".
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Sort and condition keyword order
+
+    Sort and condition keywords (BY, DOWNBY, FOR) must follow a prescribed order in LIST (SHOW) and SUM commands.
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x4C;IST (SHOW) commands require that the FOR keyword is typed before the BY or DOWNBY keyword. SUM commands require that the FOR keyword is typed after the BY or DOWNBY keyword.
+    </hint>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Switches
+
+    In \{\{masterVAS-Products.Pulse-only}} command line, any switches must immediately follow the command word. The following switches are currently supported in the specified command(s): 
+
+    | Switch | Definition                                                                                                                                                                         | Command(s)          | Example                                                                                                                                                        |
+    | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | \B     | Includes results for both live and dead animals. Without the switch, command results include live animals only.                                                                    | COUNTLIST (SHOW)SUM | LIST \B ID LACT DIM RPRO ARDAT FOR FDAT>-7 BY  LACTCapture live and dead animal data for recently \{\{masterVAS-Terminology.f-reshened}} animals by lactation. |
+    | \D     | Limits results to dead cows only.                                                                                                                                                  | COUNTLIST (SHOW)SUM | COUNT \D FOR LACT=1 ARDAT>-90Capture total number of dead animals in their first lactation in the last 90 days.                                                |
+    | \S     | Sets the standard deviation calculation to use sample values. Without the switch, \{\{masterVAS-Products.Pulse-only}} calculates population standard deviation.                    | SUM                 | SUM \S MILK PCTF PCTS LGSCC BY lact FOR LACT>0Analyze sample standard deviation data for milk composition and quality by lactation.                            |
+    | \Z     | Includes zero values in averages and standard deviation calculations. Without the switch, average, standard deviation, mode, and median calculations include non-zero values only. | SUM                 | SUM \Z TKET BY LCTGP FOR FDAT>-365Analyze the number of times ketosis was diagnosed by lactation group for all animals that calved in the last year.           |
+  </ExpandableHeading>
+</ExpandableHeading>

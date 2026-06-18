@@ -1,0 +1,112 @@
+---
+title: Tips for Embryo Transfers in PULSE
+slug: tips-for-embryo-transfers-in-pulse
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:43 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ## Before You Add Embryos to Inventory
+
+  Prior to entering your embryos to inventory, be sure to have all required details. Verify that the lab report or other listing that accompanied the delivery of your embryos is handy and available for reference. Note that the following details are required to add embryos to inventory:
+
+  - \{\{masterVAS-Terminology.S-ire-}}\{\{NAAB}} code or \{\{ISO}}\{\{ID}}
+  - Donor ID, Name, or ISO ID
+  - Fertilization Date
+  - Frozen Date (for frozen embryos)
+
+  In addition to the required items, other information that is useful when preparing to add embryos includes: 
+
+  - Embryo breed
+  - Straw or Mating details
+  - Embryo counts
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Save Time by Importing Embryos in Batch!
+
+  Use the :Link[Import Embryos in Batch]{label="Import Embryos in Batch" overridedLabel="Import Embryos in Batch" spaceId docId="2xvgnC4YJ3R3jlH2DvE81" version="v2" docAnchorId="#Batch" loadingMethod="dynamic" newTab="false" githubPath="EmbryoAdd.htm#Batch" href="EmbryoAdd.htm#Batch"} option to add multiple embryos as once! Add embryo details using the template and then import your list to quickly add as many embryos as you'd like.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Automatically Add Transfer Events to Recipient Animals
+
+  If you are adding embryo details after transfers are completed, include the recipient animal and transfer details in the template file while importing embryos using the :Link[Import Embryos in Batch]{label="Import Embryos in Batch" overridedLabel="Import Embryos in Batch" spaceId docId="2xvgnC4YJ3R3jlH2DvE81" version="v2" docAnchorId="#Batch" loadingMethod="dynamic" newTab="false" githubPath="EmbryoAdd.htm#Batch" href="EmbryoAdd.htm#Batch"} process. After the import, the embryo is added directly to the [Transferred Embryos](EmbryoTransferred.htm) tab. \{\{masterVAS-Products.Pulse-only}} also automatically adds a TRANSFER event to the recipient's \{\{masterVAS-Terminology.cowcard}} for the Transferred Date you specified. See :Link[Import Transferred Embryos]{label="Import Transferred Embryos" overridedLabel="Import Transferred Embryos" spaceId docId="2xvgnC4YJ3R3jlH2DvE81" version="v2" docAnchorId="#Transferred" loadingMethod="dynamic" newTab="false" githubPath="EmbryoAdd.htm#Transferred" href="EmbryoAdd.htm#Transferred"} to learn more!
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Embryo Requirements for Transfer
+
+  \{\{masterVAS-Products.Pulse-only}} limits the transfer of embryos to those with the highest potential for success. Embryos must meet the following requirements to qualify for transfer: 
+
+  - Embryo transfers are typically done with 4 to 8-day-old embryos. In \{\{masterVAS-Products.Pulse-only}}, you can only enter data for embryos that are less than 12 days old (\{\{EAGE}} \< 12). As noted in :Link[Enter Completed Transfers as Soon as Possible!]{label="Enter Completed Transfers as Soon as Possible!" overridedLabel="Enter Completed Transfers as Soon as Possible!" spaceId docId="ML5l3xpCqnu1Y8s6zR7u_" version="v2" docAnchorId="#dataentry" loadingMethod="dynamic" newTab="false" href="tips-for-embryo-transfers-in-pulse.mdx"}, you must be prompt with your data entry to capture embryo transfers in \{\{masterVAS-Products.Pulse-only}}.
+  - Must be Grade 1 - 3: \* **1** Good
+    - **2** Fair
+    - **3** Poor
+  - Must be Stage 4 -9: \* **4** Morula
+    - **5** Early Blastocyst
+    - **6** Blastocyst
+    - **7** Expanded Blastocyst
+    - **8** Hatched Blastocyst
+    - **9** Expanded and Hatched Blastocyst
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Enter Completed Transfers as Soon as Possible!
+
+  Be sure to enter embryo transfers as soon as possible to avoid the 12-day embryo \{\{age}} restriction (EAGE \< 12). See :Link[Embryo Requirements for Transfer]{label="Embryo Requirements for Transfer" overridedLabel="Embryo Requirements for Transfer" spaceId docId="ML5l3xpCqnu1Y8s6zR7u_" version="v2" docAnchorId="#requirements" loadingMethod="dynamic" newTab="false" href="tips-for-embryo-transfers-in-pulse.mdx"} for other embryo requirements.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Embryo and Transfer Event Sanity Checks
+
+  \{\{masterVAS-Products.Pulse-only}} completes a variety of checks to keep your embryo transfer data as accurate as possible. The following sanity checks are done throughout the process: 
+
+  - If an animal was \{\{Events.5BRED}} within 10 days, \{\{Events.3000TRANSFER}} events cannot be added and \{\{masterVAS-Products.Pulse-only}} flags the animal in an error message: :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/O71bkyOM_ZuViXbsXWyjd_embryo-error-bred.png" alt caption size="23"}Be sure to check that the recipient animal is correct when you see the \{\{Events.5BRED}} error message.
+  - If an animal is pregnant, the \{\{Events.3000TRANSFER}} event cannot be deleted. If you made an error, first delete the reproduction event (\{\{Events.5BRED}}, \{\{Events.8PREV}}, \{\{Events.6PREG}}, \{\{Events.7OPEN}}, \{\{Events.12ABORT}}, \{\{Events.1FRESH}}, \{\{Events.14SOLD}}, or \{\{Events.15DIED}}), and then delete the \{\{Events.3000TRANSFER}} event.
+  - \{\{masterVAS-Products.Pulse-only}} warns you if you attempt to add a second \{\{Events.3000TRANSFER}} event to the same animal within 7 days.
+  - Transferred embryos default to an unsuccessful status if results are not added within 280 days.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Embryo Transfer Results
+
+  After the embryo transfer is completed and processed from either web or mobile, the embryo moves from [Embryo Inventory](EmbryoInventory.htm) to the [Transferred Embryos](EmbryoTransferred.htm) tab. Then, when the recipient animal is checked and confirmed \{\{Events.6PREG}}, \{\{Events.7OPEN}}, \{\{Events.12ABORT}}, \{\{Events.1FRESH}}, \{\{Events.14SOLD}}, or \{\{Events.15DIED}}, the embryo moves to the [Embryo Results](EmbryoResults.htm) tab.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Embryo Transfers in DC305 (for DC Unlimited dairies)
+
+  When \{\{DC-UI.DC-ProdNameShort}} receives a completed \{\{Mobile-UI.EventTypes}} event from \{\{masterVAS-Products.Pulse-only}}, it processes the following changes:
+
+  - Records a \{\{Mobile-UI.EventNameBRED}} event and updates the \{\{RPRO}} status for all completed animals in the \{\{Mobile-UI.EventTypes}}event.:::ExpandableHeading
+
+  ### Click here to learn more about the BRED date and Embryo Age!
+
+  <Paragraph listStyleType="disc" indent="2">
+    If the Embryo Age is defined in the \{\{Mobile-UI.EventTypes}} event, then the BRED event is back-dated based on the Age entered. For example, if the embryo is 7 days old and \{\{today}} is 8/21/19, then \{\{masterVAS-Products.Pulse-only}} TRANSFER event is recorded as 8/21/19, and \{\{DC-UI.DC-ProdNameShort}} will receive a BRED event dated 8/14/19.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/gUyMJI8QsoUfJQA6tTXBx_example-et-bred-trans.png" alt caption}
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    If the Embryo Age is **not** defined in the \{\{Mobile-UI.EventTypes}} event, then the date of the transfer is used for the BRED date.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/lG56YRGFX71hLBMczr9Dw_example-et-trans-only.png" alt caption size="64"}
+    \:::
+  </Paragraph>
+
+  - Assigns the embryo an ID, which is auto-created from the data entered in \{\{masterVAS-Products.Pulse-only}} TRANSFER event. This ID stays with the embryo for the entire duration of the pregnancy.
+  - Records the embryo's \{\{masterVAS-Terminology.s-ire}} ID as the \{\{SIRC}}.
+  - Clears the recipient's \{\{ETDAM}} (donor female) value once the embryo is transferred to the recipient female.
+  - If \{\{DC-UI.DC-ProdNameShort}} receives an embryo transfer event for a **pregnant** animal, it updates the animal's record to show a status of \{\{Vet Code 6 = ABT?}}.
+  - When \{\{DC-UI.DC-ProdNameShort}} later receives a \{\{Events.1FRESH}} event for the recipient female, then the embryo transfer is marked as "successful."
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Learn more about fresh embryos
+
+  Embryos retrieved from donors using an \{\{embryo flush}} or those gathered in a vial from an \{\{IVF}} procedure are considered to be "\{\{masterVAS-Terminology.f-resh}}", as they are transferred to a recipient animal shortly after retrieval and are not frozen or otherwise preserved.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Learn more about frozen embryos
+
+  Embryos retrieved from donors or an IVF procedure are analyzed for viability, and those rated as :Link[grade]{label="grade" overridedLabel="grade" spaceId docId="ML5l3xpCqnu1Y8s6zR7u_" version="v2" docAnchorId="#grade" loadingMethod="dynamic" newTab="false" href="tips-for-embryo-transfers-in-pulse.mdx"} 1 or 2 are considered suitable for freezing. Embryos are handled carefully by certified technicians to ensure they are properly labeled and frozen to maintain viability and to correctly identify embryo parentage details. Once frozen, the embryos remain stored in a liquid nitrogen tank until ready to be thawed and transferred into a recipient animal.
+</ExpandableHeading>

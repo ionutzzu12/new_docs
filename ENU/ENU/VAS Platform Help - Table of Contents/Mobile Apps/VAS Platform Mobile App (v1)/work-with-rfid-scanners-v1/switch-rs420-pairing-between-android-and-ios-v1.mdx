@@ -1,0 +1,66 @@
+---
+title:   Switch RS420 Pairing Between Android and iOS (v1)
+slug: switch-rs420-pairing-between-android-and-ios-v1
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:39 GMT+0200 (Eastern European Standard Time)
+---
+
+If your \{\{masterVAS-Terminology.d-airy}} uses only \{\{MorphHelp.AppleOS-TM}} devices, or a variety of \{\{MorphHelp.AndroidOS-TM}} and \{\{MorphHelp.AppleOS-TM}} equipment, you must update the wand \{\{masterVAS-Terminology.c-onfiguration}} to pair it with \{\{MorphHelp.AppleOS-TM}} devices. You will then also need to update the \{\{masterVAS-Terminology.c-onfiguration}} again if you want to switch back to pairing it with \{\{MorphHelp.AndroidOS-TM}} devices. Follow the instructions below to pair the \{\{MorphHelp.RS420short}} with an \{\{MorphHelp.AppleOS-TM}} device and then (if necessary) switch it back to an \{\{MorphHelp.AndroidOS-TM}} device.
+
+<ExpandableHeading>
+  ### Pair RS420 with an iOS Device
+
+  To reconfigure the \{\{MorphHelp.RS420short}} scanner to be used with \{\{MorphHelp.AppleOS-TM}} devices, you'll first need to see if Menu Access is enabled. If it is not, use the AllFlex \{\{EID}} Tag Manager client to change the wand Menu Access setting. Then, proceed to setting the scanner to be discoverable for connection.
+
+  Test for Menu Access on the \{\{MorphHelp.RS420short}} & Change if Needed
+
+  1. Press and hold the top (black) button on the scanner for 3 seconds to test for Menu Access.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/jZEzTKENtmqfE158wSclv_allfelx-rs420scanner.png" alt caption size="22"}\* If nothing happens, continue to :Link[step 2]{label="step 2" overridedLabel="step 2" spaceId docId="o6kxUGvCtMo6byxZTdmqe" version="v2" docAnchorId="#Step2" loadingMethod="dynamic" newTab="false" href="switch-rs420-pairing-between-android-and-ios-v1.mdx"}.
+     - Or, jump to :Link[Manually Connect the RS420 to an iOS Device]{label="Manually Connect the RS420 to an iOS Device" overridedLabel="Manually Connect the RS420 to an iOS Device" spaceId docId="o6kxUGvCtMo6byxZTdmqe" version="v2" docAnchorId="#ConnectiOS" loadingMethod="dynamic" newTab="false" href="switch-rs420-pairing-between-android-and-ios-v1.mdx"} if the Menu displays.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/tbFfvmyEjc4kUoF_2dOrz_allflex-scanner-menuonly.png" alt caption size="10"}
+  2. Start with the scanner disconnected from your computer. If the scanner has an active Bluetooth connection, verify that the scanner displays an S next to the Bluetooth symbol
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/HVjMQ2Fu0yqJqUhEBnxGe_bluetooth-symbol-s-android30x28.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/bluetooth-symbol-S-android_30x28.png" githubPath="Content/Resources/Images/Platform/mobile-app/bluetooth-symbol-S-android_30x28.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to indicate it is paired as a Slave. This is the required setting for \{\{MorphHelp.AndroidOS-TM}} devices.
+  </Paragraph>
+
+  3. Open the **AllFlex EID Tag Manager** client. If necessary, download it from the [Allflex website](http://www.allflexusa.com/support/downloads/).
+  4. Connect the scanner to your computer via USB, a serial port, or Bluetooth. The client notifies you when a connection is established. For options on setting your connection, \{\{Commands.click}} the Connect button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/HnMNvZzhzmZqNzeBNucuD_allflex-connect-button.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/Allflex-connect-button.png" githubPath="Content/Resources/Images/Platform/mobile-app/Allflex-connect-button.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    .
+  </Paragraph>
+
+  5. \{\{Commands.Click}}**Tools > Reader Config > Menu Access** and change the setting to **Enabled**.
+  6. \{\{Commands.Click}}**Apply Settings**.
+  7. Disconnect the scanner from the computer.
+
+  Manually Connect the \{\{MorphHelp.RS420short}} to an \{\{MorphHelp.AppleOS-TM}} Device
+
+  1. Press and hold the top (black) button on the scanner for 3 seconds to access the menu.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/jZEzTKENtmqfE158wSclv_allfelx-rs420scanner.png" alt caption size="22"}
+  2. Use the bottom (green) button to arrow down to **Bluetooth settings**::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/DSst1GGfcmXpUsJfevMtg_allflex-scanner-menu.png" alt caption size="10"}Press the top button to select the option.
+  3. From the Bluetooth settings, choose **iPhone discoverable**::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/fgQw50lftaoppRoH-a8Gp_allflex-scanner-bluetooth-menu.png" alt caption size="10"}
+  4. The scanner discovers the \{\{MorphHelp.AppleOS-TM}} device, and displays its name and the option to connect. Select **Yes**.
+  5. From the \{\{MorphHelp.AppleOS-TM}} device, view the Bluetooth settings to see available devices. The scanner displays as \{\{MorphHelp.RS420short}}\_\<serial number>. The scanner's serial number is located on the back of the scanner on the Allflex decal.
+  6. Tap the correct scanner. If prompted for a password, use **1234** or **0000**.
+  7. The scanner displays a message to confirm the connection. Verify the connection on the \{\{MorphHelp.AppleOS-TM}} device.
+  8. Once the scanner and \{\{MorphHelp.AppleOS-TM}} device are connected, the scanner displays an M next to the Bluetooth symbol
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/9YA2JP1INxZ6rbqFQM8jc_bluetooth-symbol-m-ios32x28.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/bluetooth-symbol-M-iOS_32x28.png" githubPath="Content/Resources/Images/Platform/mobile-app/bluetooth-symbol-M-iOS_32x28.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to indicate it is paired as Master.
+  </Paragraph>
+
+  You should now be able to use the \{\{MorphHelp.RS420short}} as a scanner with \{\{masterVAS-Products.Pulse-only}} mobile app on your \{\{MorphHelp.AppleOS-TM}} device.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Pair RS420 with an Android Device
+
+  If you have reconfigured a scanner for use with an \{\{MorphHelp.AppleOS-TM}} device and want to return it to \{\{MorphHelp.AndroidOS-TM}} setup, you'll need to reconnect it to your \{\{MorphHelp.AndroidOS-TM}} device. See [Use a Scanner with Android Devices (v1)](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/VAS Platform Mobile App (v1)/Work with RFID Scanners (v1)/use-a-scanner-with-android-devices-v1.mdx>) for details.
+</ExpandableHeading>
+
+To avoid having to reconfigure the \{\{MorphHelp.RS420short}} when switching between device types, consider maintaining dedicated scanners for \{\{MorphHelp.AndroidOS-TM}} and \{\{MorphHelp.AppleOS-TM}} devices. Or, you may choose to purchase an additional, lower-cost scanner for use with the less common device type.

@@ -1,0 +1,281 @@
+---
+title:   Weighbacks
+slug: d2HW-weighbacks
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:40 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  - This feature is only available when you’re using this device for feeding. If you change your mind about using a device for feeding, :Link[log out of the app]{label="log out of the app" overridedLabel="log out of the app" spaceId docId="sK8Esbx0pVQzqZ5wDAiMP" version="v2" docAnchorId="#logout" loadingMethod="dynamic" newTab="false" githubPath="FCM-UserAccount.htm#logout" href="../../../../../VAS Platform Help - Table of Contents/Mobile Apps/FeedComp App/account-settings.mdx"} and select **Yes** or **No** when asked if the device will be used for feeding.
+  - Before you can begin using \{\{masterVAS-Products.FeedComp}} to feed at your \{\{masterVAS-Terminology.d-airy}}, you must complete the required setup. See [Before You Begin: Required Setup](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/FeedComp App/before-you-begin-required-setup.mdx>) to learn more about the required setup order.
+  - Devices used for feeding must be connected to a scale. See [Scales](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/FeedComp App/scales.mdx>) to learn more about connecting to your scale.
+</ExpandableHeading>
+
+\{\{FeedComp.FeedCompFeed}} left over from a prior feeding is called a "\{\{FeedComp.FeedCompWeighback-lower}}" in \{\{masterVAS-Products.FeedComp}}. \{\{FeedComp.FeedCompWeighbacks}} may also be called "refusals" or "cleanups." \{\{masterVAS-Products.FeedComp}} allows you to capture \{\{FeedComp.FeedCompWeighbacks-lower}} so that the leftover feed can be fed to animals in other \{\{masterVAS-Terminology.p-ens}} or locations, included as a \{\{FeedComp.FeedCompFillerLoad-lower}} in a recipe, or sold off farm. You can manage \{\{masterVAS-Products.AllProductNames}}\{\{FeedComp.FeedCompFeatures-Lower}} on the \{\{FeedComp.FeedCompButtons}}\{\{General.UI-gui}}.
+
+\{\{FeedComp.FeedCompWeighbacks}} help you reduce waste by adding leftover feed to existing recipes, and are typically picked up the morning after the scheduled feeding. When you create a \{\{FeedComp.FeedCompWeighback-lower}} from one of yesterday’s scheduled feedings, \{\{masterVAS-Products.FeedComp}} automatically recalculates the \{\{dry matter}} intake and updates the :Link[DM Intake Report]{label="DM Intake Report" overridedLabel="DM Intake Report" spaceId docId="EgGjILyt4px-Lp9R18n71" version="v2" docAnchorId="#dmintake" loadingMethod="dynamic" newTab="false" githubPath="FCM-Reports.htm#dmintake" href="FCM-Reports.htm#dmintake"}. For example, if you pick up 200 pounds of unused feed from a \{\{masterVAS-Terminology.p-en}}, the dry matter intake for that \{\{masterVAS-Terminology.p-en}} is readjusted to subtract 200 pounds from the prior day’s feeding, which helps reduce costs and keep your ingredient amounts more precise.
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Filler Load
+
+  A \{\{FeedComp.FeedCompFillerLoad-lower}} is type of \{\{FeedComp.FeedCompWeighback-lower}} collection that reuses leftover feed from the previous day and adds it into a scheduled feeding for the current day. A predetermined \{\{recipe}} with a \{\{FeedComp.FeedCompWeighback-lower}} as the first ingredient must be active in a scheduled feeding for it to populate in the \{\{FeedComp.FeedCompFillerLoad-lower}} feeding flow. A \{\{FeedComp.FeedCompWeighback-lower}} for the day is loaded first during this flow, and the following ingredient amounts are recalculated based on dry matter targets.
+
+  A \{\{FeedComp.FeedCompFillerLoad-lower}} will only allow scheduled feeding drops. Users may pick up a \{\{FeedComp.FeedCompWeighback-lower}} from locations or \{\{masterVAS-Terminology.p-ens}}. Dry matter intake amounts will auto adjust for the previous day based on collected \{\{FeedComp.FeedCompWeighback-lower}} if collecting from individual \{\{masterVAS-Terminology.p-ens}}.
+
+  1. Tap `Add Weighback` at the bottom of the screen.
+  2. \{\{Commands.UserActions}}**+ Add&#x20;**\{\{FeedComp.FeedCompFeatures-Upper}} under
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/OZkR9wnGPXOOnFLXYxKa2_ingredients20x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ingredients_20x25.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ingredients_20x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{FeedComp.FeedCompIngredient-singular}}.
+  </Paragraph>
+
+  3. Select each ingredient you want to \{\{Commands.UserActions}} to the \{\{FeedComp.FeedCompFeatures-Lower}}.:::hint\{type="info"}
+     **TIP:&#x20;**&#x4F;nly \{\{FeedComp.FeedCompWeighback-lower}} ingredients are available for selection. See :Link[Create New Ingredient]{label="Create New Ingredient" overridedLabel="Create New Ingredient" spaceId docId="gSxIDSwxFHSGq07jw2Vek" version="v2" docAnchorId="#add" loadingMethod="dynamic" newTab="false" githubPath="FCM-Ingredients.htm#add" href="../make-adjustments/gSxI-ingredients.mdx"} to learn how to create a \{\{FeedComp.FeedCompWeighback-lower}} ingredient.
+     \:::
+  4. \{\{Commands.UserActions}}`Add` at the bottom of the screen.
+  5. \{\{Commands.UserActions}}**+ Add&#x20;**\{\{FeedComp.FeedCompFeatures-Upper}} under **Pick Up**.
+  6. \{\{Commands.UserActions}} one or more \{\{FeedComp.FeedCompFeatures-Lower}}, \{\{Commands.UserActions}}`Add` at the bottom of the screen.:::hint\{type="info"}
+     **NOTE:&#x20;**&#x49;f a \{\{FeedComp.FeedCompWeighback-lower}} is picked up from a random location (not a \{\{masterVAS-Terminology.p-en}}), dry matter will not be recalculated since dry matter intake is not known for locations (only for \{\{masterVAS-Terminology.p-ens}}).
+     \:::
+  7. \{\{Commands.UserActions}} the \{\{FeedComp.FeedCompFeatures-Upper}}\{\{Controls.ControlTypes}}.
+  8. \{\{Commands.UserActions}}**+ Add&#x20;**\{\{FeedComp.FeedCompFeatures-Upper}} under **Feedings**.
+  9. Select the feeding that will use the \{\{FeedComp.FeedCompWeighback-lower}}, \{\{Commands.UserActions}}`Add` at the bottom of the screen.
+
+  <ExpandableHeading indent="2">
+    ### Load the Ingredients for the Mix
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;f you want to use both a feeding device and a loading device to monitor and manage loads, [enable Loader View on a loading device](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/FeedComp App/Feed/loader-view.mdx>). \{\{FeedComp.FeedCompLoaderView}} allows you to connect your loading device to your feeding device, so any operations on your feeding device are mirrored on your loading device. When \{\{FeedComp.FeedCompLoaderView}} is enabled on a loading device, you can advance or pause feedings and view real-time feeding details while loading is in progress.
+    </hint>
+
+    Follow the steps below to load a mix:
+
+    1. \{\{Commands.UserActions}}`Save and Start Loading` at the bottom of the screen. If multiple \{\{masterVAS-Terminology.p-ens}} and/or \{\{FeedComp.FeedCompFeatures-Lower}} were selected for this \{\{FeedComp.FeedCompWeighback-lower}}, you can **Skip**
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IzrfYhKPrPXiVhyQiaj3t_skip.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/skip.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/skip.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      or **Ignore**
+    </Paragraph>
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ysFN9mpiOJfa3nzZCfAst_ignore.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ignore.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ignore.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      \{\{FeedComp.FeedCompWeighback-lower}} ingredients when you \{\{Commands.UserActions}}. :Link[Click here to learn more]{label="Click here to learn more" overridedLabel="Click here to learn more" spaceId docId="d2HWr0rpbBTW5tg47euCM" version="v2" docAnchorId="#skipignore" loadingMethod="dynamic" newTab="false" href="d2HW-weighbacks.mdx"}.
+    </Paragraph>
+
+    2. Pick up the \{\{FeedComp.FeedCompWeighback-lower}} at the selected pick-up location(s). As you load the \{\{FeedComp.FeedCompWeighback-lower}}, the scale weighs the load and \{\{masterVAS-Products.FeedComp}} calculates the remaining capacity of the \{\{mixer}}.
+    3. Load the remaining ingredients for the recipe. If you ignore an ingredient, its amount is recorded as 0.
+    4. Proceed to :Link[Drop the Mix at the Locations]{label="Drop the Mix at the Locations" overridedLabel="Drop the Mix at the Locations" spaceId docId="d2HWr0rpbBTW5tg47euCM" version="v2" docAnchorId="#dropmix" loadingMethod="dynamic" newTab="false" href="d2HW-weighbacks.mdx"}.
+  </ExpandableHeading>
+
+  <ExpandableHeading indent="2">
+    ### Drop the Mix at the Locations
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;f you have enabled [Loader View](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/FeedComp App/Feed/loader-view.mdx>) on a loading device, the loading device is automatically disconnected from your device once all of the :Link[ingredients are loaded]{label="ingredients are loaded" overridedLabel="ingredients are loaded" spaceId docId="wNiKGL-uRhT810QXhF33p" version="v2" docAnchorId="#load" loadingMethod="dynamic" newTab="false" githubPath="FCM-LoaderView.htm#load" href="../../../../../VAS Platform Help - Table of Contents/Mobile Apps/FeedComp App/Feed/loader-view.mdx"}.
+    </hint>
+
+    Follow the steps below to complete the \{\{FeedComp.FeedCompFeatures-Lower}}:
+
+    1. Once you load all of the ingredients, tap `Start Dropping` at the bottom of the screen. If multiple \{\{FeedComp.FeedCompFeatures-Lower}} were selected for this \{\{FeedComp.FeedCompWeighback-lower}}, you can **Skip**
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IzrfYhKPrPXiVhyQiaj3t_skip.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/skip.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/skip.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      or **Ignore**
+    </Paragraph>
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ysFN9mpiOJfa3nzZCfAst_ignore.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ignore.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ignore.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      \{\{FeedComp.FeedCompFeatures-Lower}} when you \{\{Commands.UserActions}}. :Link[Click here to learn more]{label="Click here to learn more" overridedLabel="Click here to learn more" spaceId docId="d2HWr0rpbBTW5tg47euCM" version="v2" docAnchorId="#skipignore" loadingMethod="dynamic" newTab="false" href="d2HW-weighbacks.mdx"}.
+    </Paragraph>
+
+    2. Drop the load(s) at the selected \{\{FeedComp.FeedCompFeatures-Lower}}(s).
+    3. Once you have dropped the load(s) at the selected \{\{FeedComp.FeedCompFeatures-Lower}}(s), tap `Continue` at the bottom of the screen. \{\{masterVAS-Products.FeedComp}} compiles and presents your \{\{FeedComp.FeedCompWeighback-lower}} summary.
+    4. \{\{Commands.UserActions}}`View Report Card` at the bottom of the screen to view additional details for the \{\{FeedComp.FeedCompWeighback-lower}}.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Weighback-Only Pick Up
+
+  A \{\{FeedComp.FeedCompPickUp-lower}} is a type of \{\{FeedComp.FeedCompWeighback-lower}} flow that gathers leftover feed from the previous day without adding it into a recipe. This type of collection method allows users to record individual \{\{masterVAS-Terminology.p-en}} or overall weights. The \{\{FeedComp.FeedCompWeighback-lower}} can then be dropped to other \{\{masterVAS-Terminology.p-ens}}/locations as needed.
+
+  1. Tap `Add Weighback` at the bottom of the screen.
+  2. \{\{Commands.UserActions}}**+ Add&#x20;**\{\{FeedComp.FeedCompFeatures-Upper}} under
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/OZkR9wnGPXOOnFLXYxKa2_ingredients20x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ingredients_20x25.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ingredients_20x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{FeedComp.FeedCompIngredient-singular}}.
+  </Paragraph>
+
+  3. Select each ingredient you want to \{\{Commands.UserActions}} to the \{\{FeedComp.FeedCompFeatures-Lower}}.:::hint\{type="info"}
+     **TIP:&#x20;**&#x4F;nly \{\{FeedComp.FeedCompWeighback-lower}} ingredients are available for selection. See :Link[Create New Ingredient]{label="Create New Ingredient" overridedLabel="Create New Ingredient" spaceId docId="gSxIDSwxFHSGq07jw2Vek" version="v2" docAnchorId="#add" loadingMethod="dynamic" newTab="false" githubPath="FCM-Ingredients.htm#add" href="../make-adjustments/gSxI-ingredients.mdx"} to learn how to create a \{\{FeedComp.FeedCompWeighback-lower}} ingredient.
+     \:::
+  4. \{\{Commands.UserActions}}`Add` at the bottom of the screen.
+  5. \{\{Commands.UserActions}}**+ Add&#x20;**\{\{FeedComp.FeedCompFeatures-Upper}} under **Pick Up**.
+  6. \{\{Commands.UserActions}} one or more \{\{FeedComp.FeedCompFeatures-Lower}} where the ingredients will be picked up, \{\{Commands.UserActions}}`Add` at the bottom of the screen.
+  7. \{\{Commands.UserActions}}**+ Add&#x20;**\{\{FeedComp.FeedCompFeatures-Upper}} under **Drop(s)**.
+  8. \{\{Commands.UserActions}} one or more \{\{FeedComp.FeedCompFeatures-Lower}}, \{\{Commands.UserActions}}`Add` at the bottom of the screen.
+
+  <ExpandableHeading indent="2">
+    ### Load the Ingredients for the Mix
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;f you want to use both a feeding device and a loading device to monitor and manage loads, [enable Loader View on a loading device](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/FeedComp App/Feed/loader-view.mdx>). \{\{FeedComp.FeedCompLoaderView}} allows you to connect your loading device to your feeding device, so any operations on your feeding device are mirrored on your loading device. When \{\{FeedComp.FeedCompLoaderView}} is enabled on a loading device, you can advance or pause feedings and view real-time feeding details while loading is in progress.
+    </hint>
+
+    Follow the steps below to load a mix:
+
+    1. \{\{Commands.UserActions}}`Save and Start Loading` at the bottom of the screen. If multiple \{\{masterVAS-Terminology.p-ens}} and/or \{\{FeedComp.FeedCompFeatures-Lower}} were selected for this \{\{FeedComp.FeedCompWeighback-lower}}, you can **Skip**
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IzrfYhKPrPXiVhyQiaj3t_skip.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/skip.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/skip.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      or **Ignore**
+    </Paragraph>
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ysFN9mpiOJfa3nzZCfAst_ignore.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ignore.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ignore.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      \{\{FeedComp.FeedCompWeighback-lower}} ingredients when you \{\{Commands.UserActions}}. :Link[Click here to learn more]{label="Click here to learn more" overridedLabel="Click here to learn more" spaceId docId="d2HWr0rpbBTW5tg47euCM" version="v2" docAnchorId="#skipignore" loadingMethod="dynamic" newTab="false" href="d2HW-weighbacks.mdx"}.
+    </Paragraph>
+
+    2. Pick up the \{\{FeedComp.FeedCompWeighback-lower}} at the selected pick-up location(s). As you load the \{\{FeedComp.FeedCompWeighback-lower}}, the scale weighs the load and \{\{masterVAS-Products.FeedComp}} calculates the remaining capacity of the mixer.
+    3. Proceed to :Link[Drop the Mix at the Locations]{label="Drop the Mix at the Locations" overridedLabel="Drop the Mix at the Locations" spaceId docId="d2HWr0rpbBTW5tg47euCM" version="v2" docAnchorId="#dropmix" loadingMethod="dynamic" newTab="false" href="d2HW-weighbacks.mdx"}.
+  </ExpandableHeading>
+
+  <ExpandableHeading indent="2">
+    ### Drop the Mix at the Locations
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;f you have enabled [Loader View](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/FeedComp App/Feed/loader-view.mdx>) on a loading device, the loading device is automatically disconnected from your device once all of the :Link[ingredients are loaded]{label="ingredients are loaded" overridedLabel="ingredients are loaded" spaceId docId="wNiKGL-uRhT810QXhF33p" version="v2" docAnchorId="#load" loadingMethod="dynamic" newTab="false" githubPath="FCM-LoaderView.htm#load" href="../../../../../VAS Platform Help - Table of Contents/Mobile Apps/FeedComp App/Feed/loader-view.mdx"}.
+    </hint>
+
+    Follow the steps below to complete the \{\{FeedComp.FeedCompFeatures-Lower}}:
+
+    1. Once you load all of the ingredients, tap `Start Dropping` at the bottom of the screen. If multiple \{\{FeedComp.FeedCompFeatures-Lower}} were selected for this \{\{FeedComp.FeedCompWeighback-lower}}, you can **Skip**
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IzrfYhKPrPXiVhyQiaj3t_skip.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/skip.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/skip.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      or **Ignore**
+    </Paragraph>
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ysFN9mpiOJfa3nzZCfAst_ignore.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ignore.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ignore.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      \{\{FeedComp.FeedCompFeatures-Lower}} when you \{\{Commands.UserActions}}. :Link[Click here to learn more]{label="Click here to learn more" overridedLabel="Click here to learn more" spaceId docId="d2HWr0rpbBTW5tg47euCM" version="v2" docAnchorId="#skipignore" loadingMethod="dynamic" newTab="false" href="d2HW-weighbacks.mdx"}.
+    </Paragraph>
+
+    2. Drop the load(s) at the selected \{\{FeedComp.FeedCompFeatures-Lower}}(s).
+    3. Once you have dropped the load(s) at the selected \{\{FeedComp.FeedCompFeatures-Lower}}(s), tap `Continue` at the bottom of the screen. \{\{masterVAS-Products.FeedComp}} compiles and presents your \{\{FeedComp.FeedCompWeighback-lower}} summary.
+    4. \{\{Commands.UserActions}}`View Report Card` at the bottom of the screen to view additional details for the \{\{FeedComp.FeedCompWeighback-lower}}.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Skip  or Ignore  during Weighbacks
+
+  \{\{masterVAS-Products.FeedComp}} allows you to skip or ignore \{\{FeedComp.FeedCompWeighback-lower}} ingredients when loading them into a mixer, and you can also skip or ignore \{\{masterVAS-Terminology.p-ens}} and locations when loading \{\{FeedComp.FeedCompWeighback-lower}} ingredients or dropping the \{\{FeedComp.FeedCompWeighback-lower}} mix at \{\{masterVAS-Terminology.p-ens}} or locations.
+
+  If multiple \{\{masterVAS-Terminology.p-ens}} and/or locations were selected for this \{\{FeedComp.FeedCompWeighback-lower}}, the following options are available when you're loading and dropping the \{\{FeedComp.FeedCompWeighback-lower}}:
+
+  - Tap **Ignore**
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ysFN9mpiOJfa3nzZCfAst_ignore.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ignore.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ignore.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to *ignore* the ingredient, \{\{masterVAS-Terminology.p-en}}, or location. When you ignore an ingredient, \{\{masterVAS-Terminology.p-en}}, or location, it is skipped and removed from the current order entirely.
+  </Paragraph>
+
+  - Tap the arrow
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/4NxPRGVN9Gv39NUY804wq_drop25x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/drop_25x25.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/drop_25x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to advance to the next ingredient, \{\{masterVAS-Terminology.p-en}}, or location.
+  </Paragraph>
+
+  - Tap **Skip**
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IzrfYhKPrPXiVhyQiaj3t_skip.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/skip.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/skip.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to *skip* the ingredient, \{\{masterVAS-Terminology.p-en}}, or location. When you skip an ingredient, \{\{masterVAS-Terminology.p-en}}, or location, it is temporarily skipped and moved to the end of the order so you can return to it later.
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Abort a Weighback in Progress
+
+  Once the loading or dropping process is started for a \{\{FeedComp.FeedCompFeatures-Lower}}, you can \{\{Commands.UserActions}}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ysFN9mpiOJfa3nzZCfAst_ignore.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ignore.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ignore.png" position="flex-start" showCaption="false"></Image>
+
+  Abort at the top middle of the \{\{General.UI-gui}} to abort the \{\{FeedComp.FeedCompFeatures-Lower}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## View Past Weighbacks
+
+  Once a \{\{FeedComp.FeedCompWeighback-lower}} is completed, you can tap the \{\{FeedComp.FeedCompWeighback-lower}} icon
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/mz6KHDsHIRYaZJ6RHkXiV_weighbacks25x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/weighbacks_25x25.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/weighbacks_25x25.png" position="flex-start" showCaption="false"></Image>
+
+  to view its report card.
+
+  <hint type="info">
+    **TIP:&#x20;**&#x44;on't see the \{\{FeedComp.FeedCompFeatures-Lower}}? Be sure to select the correct **Pick up Date** at the top of the screen.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Restart Incomplete Weighback
+
+  If a \{\{FeedComp.FeedCompWeighback-lower}} was started but not completed, you can resume it whenever you’re ready. Incomplete \{\{FeedComp.FeedCompWeighbacks-lower}} are identified with an orange \{\{FeedComp.FeedCompWeighback-lower}} icon
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/t2wvxmfF90aVGE2pWmAr6_weighbacksorange25x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/weighbacks_orange_25x25.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/weighbacks_orange_25x25.png" position="flex-start" showCaption="false"></Image>
+
+  .
+
+  1. \{\{Commands.Click}} the \{\{FeedComp.FeedCompFeatures-Lower}} to \{\{Commands.UserActions}}.:::hint\{type="info"}
+     **TIP:&#x20;**&#x44;on't see the \{\{FeedComp.FeedCompFeatures-Lower}}? Be sure to select the correct **Pick up Date** at the top of the screen.
+     \:::
+  2. \{\{Commands.UserActions}} the \{\{FeedComp.FeedCompFeatures-Upper}}\{\{Controls.ControlTypes}}.
+  3. \{\{Commands.UserActions}}`+Add Feeding` at the bottom of the screen.
+  4. \{\{Commands.UserActions}}`Add` at the bottom of the screen.
+  5. \{\{Commands.UserActions}}`Save and Start Loading` at the bottom of the screen.
+  6. The steps to continue the \{\{FeedComp.FeedCompWeighback-lower}} process differ slightly based on the \{\{FeedComp.FeedCompWeighback-lower}} type. Click the links below to see the remaining steps for each type:\* :Link[Filler Loads]{label="Filler Loads" overridedLabel="Filler Loads" spaceId docId="d2HWr0rpbBTW5tg47euCM" version="v2" docAnchorId="#fillerloadsteps" loadingMethod="dynamic" newTab="false" href="d2HW-weighbacks.mdx"}
+     - :Link[Weighback-Only Pick Ups]{label="Weighback-Only Pick Ups" overridedLabel="Weighback-Only Pick Ups" spaceId docId="d2HWr0rpbBTW5tg47euCM" version="v2" docAnchorId="#wbonlysteps" loadingMethod="dynamic" newTab="false" href="d2HW-weighbacks.mdx"}
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Delete Weighback
+
+  1. \{\{Commands.Click}} the \{\{FeedComp.FeedCompFeatures-Lower}} to \{\{Commands.UserActions}}.
+  2. Tap \{\{Commands.UserActions}}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/iwsAIyw7fB_8JLA7ywTjM_deactivate.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/deactivate.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/deactivate.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    at the top right of the screen.
+  </Paragraph>
+
+  <hint type="info">
+    **TIP:&#x20;**&#x44;on't see the \{\{FeedComp.FeedCompFeatures-Lower}}? Be sure to select the correct **Pick up Date** at the top of the screen.
+  </hint>
+</ExpandableHeading>
+
+<hint type="info">
+  **TIP:&#x20;**&#x59;ou're currently viewing \{\{masterVAS-Terminology.h-elp}} for \{\{FeedComp.FeedCompFeatures-Lower}} in the \{\{masterVAS-Products.AllProductNames}} mobile app. [Click here to see online help for weighbacks in FeedComp on PULSE.](<../../../../../VAS Platform Help - Table of Contents/Features/FeedComp on PULSE/weighbacks.mdx>)
+</hint>

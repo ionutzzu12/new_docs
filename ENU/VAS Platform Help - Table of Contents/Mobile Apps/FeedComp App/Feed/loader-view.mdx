@@ -1,0 +1,136 @@
+---
+title:   Loader View
+slug: loader-view
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:40 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  - This feature is only available when you’re using this device for feeding. If you change your mind about using a device for feeding, :Link[log out of the app]{label="log out of the app" overridedLabel="log out of the app" spaceId docId="sK8Esbx0pVQzqZ5wDAiMP" version="v2" docAnchorId="#logout" loadingMethod="dynamic" newTab="false" githubPath="FCM-UserAccount.htm#logout" href="../account-settings.mdx"} and select **Yes** or **No** when asked if the device will be used for feeding.
+  - Before you can begin using \{\{masterVAS-Products.FeedComp}} to feed at your \{\{masterVAS-Terminology.d-airy}}, you must complete the required setup. See [Before You Begin: Required Setup](../before-you-begin-required-setup.mdx) to learn more about the required setup order.
+  - Devices used for feeding must be connected to a scale. See [Scales](../scales.mdx) to learn more about connecting to your scale.
+  - Bluetooth must be enabled on both loading and feeding devices.
+</ExpandableHeading>
+
+Use \{\{FeedComp.FeedCompLoaderView}} to monitor and manage loads from a loader device. \{\{FeedComp.FeedCompLoaderView}} allows you to connect your loading device to your feeding device, so any operations on your feeding device are mirrored on your loading device. When \{\{FeedComp.FeedCompLoaderView}} is enabled on a loading device, you can advance or pause feedings and view real-time feeding details while loading is in progress.
+
+<hint type="info">
+  **TIP:&#x20;**&#x54;o use this feature, Bluetooth must be enabled on both loading and feeding devices.
+</hint>
+
+Expand and follow the steps in the sections below to enable and start using \{\{FeedComp.FeedCompLoaderView}}:
+
+<ExpandableHeading>
+  ## Add Loader Equipment to FeedComp
+
+  Before you can use \{\{FeedComp.FeedCompLoaderView}}, add loader equipment to the \{\{FeedComp.FeedCompEquipment}} list in \{\{masterVAS-Products.FeedComp}} if you have not already done so:
+
+  1. Go to the \{\{FeedComp.FeedCompAdjustments}} screen.
+  2. Tap `Create Equipment` at the bottom of the screen.
+  3. Enter the loader name.
+  4. Select **Loader** as the equipment type.
+  5. Tap **Save** at the bottom of the screen.
+
+  After you finish adding loader equipment to \{\{masterVAS-Products.FeedComp}}, :Link[connect the loader equipment to FeedComp]{label="connect the loader equipment to FeedComp" overridedLabel="connect the loader equipment to FeedComp" spaceId docId="wNiKGL-uRhT810QXhF33p" version="v2" docAnchorId="#connectequip" loadingMethod="dynamic" newTab="false" href="loader-view.mdx"}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Connect Loader Equipment to FeedComp
+
+  After you :Link[add loader equipment]{label="add loader equipment" overridedLabel="add loader equipment" spaceId docId="wNiKGL-uRhT810QXhF33p" version="v2" docAnchorId="#addequip" loadingMethod="dynamic" newTab="false" href="loader-view.mdx"} to the Equipment list, connect the loader equipment to \{\{masterVAS-Products.FeedComp}}:
+
+  1. Go to :Link[Account   Settings > Settings]{label="Account   Settings > Settings" overridedLabel="Account   Settings > Settings" spaceId docId="sK8Esbx0pVQzqZ5wDAiMP" version="v2" docAnchorId="#equipment" loadingMethod="dynamic" newTab="false" githubPath="FCM-UserAccount.htm#equipment" href="../account-settings.mdx"}.
+  2. Select the loader equipment.
+  3. Save your selection and exit **Settings**.
+
+  After you finish connecting loader equipment, you can now :Link[connect the loading device to the feeding device]{label="connect the loading device to the feeding device" overridedLabel="connect the loading device to the feeding device" spaceId docId="wNiKGL-uRhT810QXhF33p" version="v2" docAnchorId="#connect" loadingMethod="dynamic" newTab="false" href="loader-view.mdx"} and start using \{\{FeedComp.FeedCompLoaderView}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Connect a Loading Device to a Feeding Device
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**
+
+    \{\{FeedComp.FeedCompLoaderView}}
+
+    will not work if you do not complete the following requirements:
+
+    - Loader equipment must be \[added]\(#addequip) and :Link[connected]{label="connected" overridedLabel="connected" spaceId docId="wNiKGL-uRhT810QXhF33p" version="v2" docAnchorId="#connectequip" loadingMethod="dynamic" newTab="false" href="loader-view.mdx"} to \{\{masterVAS-Products.FeedComp}}.
+    - The feeding device must be connected to a scale.
+    - A feeding must be started on the feeding device.
+  </hint>
+
+  After you complete the requirements above, follow the steps below to enable \{\{FeedComp.FeedCompLoaderView}}, so you can connect your loading device to your feeding device:
+
+  1. Tap \{\{FeedComp.FeedCompFeed}} at the bottom of the screen.
+  2. Tap \{\{FeedComp.FeedCompLoaderView}}.
+  3. Tap `Connect Now` at the bottom of the screen.
+  4. Select the system you're connecting to: \{\{masterVAS-Terminology.AppleOS-TM}} or \{\{masterVAS-Terminology.AndroidOS}}.
+  5. Select the feeding device, and then tap `Connect` at the bottom of the screen.
+  6. After your device is successfully connected to the feeding device, tap `Continue` at the bottom of the screen.
+
+  After establishing the connection, you can view and manage :Link[loading processes from your loading device.]{label="loading processes from your loading device." overridedLabel="loading processes from your loading device." spaceId docId="wNiKGL-uRhT810QXhF33p" version="v2" docAnchorId="#load" loadingMethod="dynamic" newTab="false" href="loader-view.mdx"}
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Load Ingredients into the Mixer
+
+  After you enable \{\{FeedComp.FeedCompLoaderView}}, monitor and manage loading from your loading device:
+
+  1. Load the first ingredient for the mix. As you load ingredients, the scale weighs the load and \{\{masterVAS-Products.FeedComp}} calculates the percentage complete. You can **Skip**
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IzrfYhKPrPXiVhyQiaj3t_skip.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/skip.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/skip.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    or **Ignore**
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ysFN9mpiOJfa3nzZCfAst_ignore.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ignore.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ignore.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{FeedComp.FeedCompFeatures-Lower}} if needed. :Link[Click here to learn more about skip and ignore features.]{label="Click here to learn more about skip and ignore features." overridedLabel="Click here to learn more about skip and ignore features." spaceId docId="MRjA0M2P6Qw2XWBHnNeMC" version="v2" docAnchorId="#skipignore" loadingMethod="dynamic" newTab="false" githubPath="FCM-Feedings.htm#skipignore" href="feed-using-the-feeding-schedule.mdx"}If the weight of an ingredient detected by the scale drops below the threshold set for the \{\{mixer}} while mixing a \{\{recipe}}, \{\{masterVAS-Products.FeedComp}} displays an alert that requires attention before adding the next ingredient to the mixer. To set the threshold, see :Link[Create New Equipment]{label="Create New Equipment" overridedLabel="Create New Equipment" spaceId docId="Cnu7I-io2eG6p0QCdnFbU" version="v2" docAnchorId="#add" loadingMethod="dynamic" newTab="false" githubPath="FCM-Equipment.htm#add" href="FCM-Equipment.htm#add"} and :Link[Edit Equipment]{label="Edit Equipment" overridedLabel="Edit Equipment" spaceId docId="Cnu7I-io2eG6p0QCdnFbU" version="v2" docAnchorId="#edit" loadingMethod="dynamic" newTab="false" githubPath="FCM-Equipment.htm#edit" href="FCM-Equipment.htm#edit"}. Tap **Acknowledge** to confirm and record the ingredient's actual amount and continue mixing. Acknowledged ingredients are identified with an **ACK** icon
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/eUW2klD5aP3fRm5qOuRB1_ack.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ACK.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ACK.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    on the :Link[Feeding History Report]{label="Feeding History Report" overridedLabel="Feeding History Report" spaceId docId="EgGjILyt4px-Lp9R18n71" version="v2" docAnchorId="#feed" loadingMethod="dynamic" newTab="false" githubPath="FCM-Reports.htm#feed" href="FCM-Reports.htm#feed"}.
+  </Paragraph>
+
+  2. If a timer was set for the ingredient, wait for the timer to complete. Or, tap **Advance this Ingredient&#x20;**
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/MveYx1b0Mi9wCPaQwIfQj_advance.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/advance.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/advance.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to move to the next step in the recipe.
+  </Paragraph>
+
+  3. If a time delay was set between ingredients, \{\{masterVAS-Products.FeedComp}} displays a countdown in the middle of the screen for the allotted time. You can tap **Skip** to immediately move to the next ingredient in the recipe.
+
+  Once all of the ingredients are added and the progress bar reaches 100%, \{\{masterVAS-Products.FeedComp}} automatically disconnects your device from the feeding device and returns you to the \{\{Mobile-UI.Feature-Names}}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ApX9YReosbNzjwCLhZ9Rx_homeicon30x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/home_icon_30x25.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/home_icon_30x25.png" position="flex-start" showCaption="false"></Image>
+
+  screen. The feeding technician can now drop the mix at the necessary locations.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Abort a Feeding in Progress
+
+  Once the loading process is started for a \{\{FeedComp.FeedCompFeatures-Lower}}, you can \{\{Commands.UserActions}}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ysFN9mpiOJfa3nzZCfAst_ignore.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/ignore.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/ignore.png" position="flex-start" showCaption="false"></Image>
+
+  Abort at the top middle of the \{\{General.UI-gui}} to abort the \{\{FeedComp.FeedCompFeatures-Lower}}. Feedings started but not completed are identified with an **Aborted** icon
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ABT3jhhTePhTA8sl_-kA0_aborted-feeding28x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/aborted-feeding_28x25.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/aborted-feeding_28x25.png" position="flex-start" showCaption="false"></Image>
+
+  on the :Link[Feeding History report]{label="Feeding History report" overridedLabel="Feeding History report" spaceId docId="EgGjILyt4px-Lp9R18n71" version="v2" docAnchorId="#status" loadingMethod="dynamic" newTab="false" githubPath="FCM-Reports.htm#status" href="FCM-Reports.htm#status"}.
+</ExpandableHeading>
+
+<hint type="info">
+  **TIP:&#x20;**&#x59;ou're currently viewing \{\{masterVAS-Terminology.h-elp}} for \{\{FeedComp.FeedCompFeatures-Lower}} in the \{\{masterVAS-Products.AllProductNames}} mobile app. [Click here to see online help for feedings in FeedComp on PULSE.](../web/FCP-Feedings.htm)
+</hint>

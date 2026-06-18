@@ -1,0 +1,52 @@
+---
+title: Activate Zoetis Data Integration
+slug: activate-zoetis-data-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](../../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](../../../Platform/Features/Config/UserMgmtRoles/ManageRoles.htm) for more information.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 1: Connect Integration in PULSE
+
+  Follow these steps to activate the \{\{Partners.ZoetisDairy}} in \{\{masterVAS-Products.Pulse-only}}:
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners&#x20;**>**&#xA0;Integrations Gallery&#x20;**>**&#xA0;**\{\{Partners.PartnerName}}.
+  2. \{\{Commands.Click}}**See Details** or **See Requirements** on the \{\{Partners.PartnerName}} card.
+  3. Follow the Connection Instructions on the right side of the page to establish the connection:1) Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+     2\) \{\{Commands.Click}}**Save**.
+     3\) If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Map Standard Items and Events (DairyComp Unlimited Users Only)
+
+  To enable the integration, user-defined items or events must be mapped to a standard item or event. Follow these steps to configure and map the required items and events:
+
+  <WorkflowBlock>
+    <WorkflowBlockItem>
+      In \{\{masterVAS-Products.Pulse-only}}, navigate to the \{\{masterVAS-Products.DC-Platform}} > **Settings** page and select [Item Definitions](../../../Platform/Features/DairyComp/Settings/DC-ItemDefinitions.htm)or [Event Definitions](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>) from the list on the left side.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Find the user-defined item or event , then \{\{Commands.click}} the item or event to edit its details in a side panel.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      In the **Standard Item**or **Standard Event**field, select the standard item or standard event equivalent for your user-defined item or event. For example, you can map the user-defined event your \{\{masterVAS-Terminology.d-airy}} uses to record lameness to the standard \{\{LAME}} event.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/WWlAhnhBwHpbelRBRytVo_select-lame-event-def.png" alt caption size="46"}
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      <hint type="info">
+        **NOTE:&#x20;**&#x54;he system disables the field if the item or the event is already mapped.
+      </hint>
+
+      \{\{Commands.Click}}**Save**.
+    </WorkflowBlockItem>
+  </WorkflowBlock>
+</ExpandableHeading>

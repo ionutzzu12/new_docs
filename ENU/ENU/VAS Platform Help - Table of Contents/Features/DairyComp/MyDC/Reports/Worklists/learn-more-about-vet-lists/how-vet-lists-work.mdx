@@ -1,0 +1,40 @@
+---
+title: How Vet Lists Work
+slug: how-vet-lists-work
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+Use \{\{masterVAS-Products.Pulse-only}} or \{\{DC-UI.DC-ProdNameShort}} to create your \{\{Worklists.VetListCommonUse}}s with a special VETLIST command. For \{\{DC-UI.DC-ProdNameShort}} lists, adding the \K switch to the commands sends them to \{\{masterVAS-Products.Pulse-only}}. The flexibility of the system allows you to schedule the \{\{Worklists.VetListCommonUse}}s to generate on days the veterinarian is scheduled to visit, or to generate and send them on an as-needed basis.
+
+You can then process your lists in the mobile app and [monitor them in the web version of PULSE](<../../../../../../../../VAS Platform Help - Table of Contents/Mobile Apps/VAS Platform Mobile App (v1)/Tasks & Worklists (v1)/view-animal-status-in-the-mobile-app-v1.mdx>). See the topics below to learn more:
+
+- [Complete Tasks (v1)](<../../../../../../../../VAS Platform Help - Table of Contents/Mobile Apps/VAS Platform Mobile App (v1)/Tasks & Worklists (v1)/complete-tasks-v1.mdx>)
+- [Complete Tasks (v2)](<../../../../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/complete-tasks-v2.mdx>)
+
+Deciding which animals need to be presented to the veterinarian on \{\{masterVAS-Terminology.h-erd}} check day can be a laborious task, particularly in large \{\{masterVAS-Terminology.h-erds}}. Animals need to be grouped and examined for a variety of reasons — post calving checks, pregnancy checks, problem animals, and other reasons.
+
+For these reasons, \{\{General.CompanyName-short}} has designed a unique setup of veterinary parameters in our \{\{DC-UI.DC-ProdNameShort}}\{\{Worklists.VetListUI-Web}} feature so that you can decide which animals need to be checked and when, saving valuable time as well as increasing efficiency on the \{\{masterVAS-Terminology.d-airy}}. The \{\{Worklists.VetListCommonUse}} is a special form of [worklist](../../../MobileApp/Worklists/MobLists.htm) that is generated in \{\{DC-UI.DC-ProdNameShort}} and synced to \{\{masterVAS-Products.Pulse-only}}, where you can then process it in the mobile app. See [Complete Tasks (v1)](<../../../../../../../../VAS Platform Help - Table of Contents/Mobile Apps/VAS Platform Mobile App (v1)/Tasks & Worklists (v1)/complete-tasks-v1.mdx>) or [Complete Tasks (v2)](<../../../../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/complete-tasks-v2.mdx>) for more information.
+
+\{\{DC-UI.DC-ProdNameShort}} creates \{\{Worklists.VetListCommonUse}}s by going through the \{\{masterVAS-Terminology.c-owfile}}, checking each animal record with the \{\{Mobile-UI.VetCodeSingular}} conditions, and determining if that animal needs to be seen by the veterinarian. A list of animals is then established with a specific veterinary code and descriptive reason (\{\{VETC}}) for veterinary examination.
+
+Using a "veterinary code table" as a guide, \{\{DC-UI.DC-ProdNameShort}} searches through the \{\{masterVAS-Terminology.c-owfile}} to determine if any of the veterinary codes should be put in the animal's record for an examination. The \{\{DC-UI.VetListCommand}} command sets a code based on the conditions of each \{\{Mobile-UI.VetCodeSingular}}. For example, veterinary code FRSH will be set for all animals whose \{\{RPRO}} code (\{\{RC}}) is 2 (\{\{Events.1FRESH}}) and \{\{DIM}} is greater than 25. Similarly, \{\{PREG}} will be for animals whose \{\{RC=4}} (BRED) and \{\{DSLH}} is greater than 40. See [Vetcodes](../Settings/DC-VetCodes.htm) for more information on the standard \{\{DC-UI.DC-ProdNameShort}}\{\{Mobile-UI.VetCodeSingular}}s.
+
+<hint type="info">
+  **NOTE:&#x20;**
+
+  See the additional notes below about veterinary codes and how they are set in order within the table:
+
+  1. It is important to remember that the \:Variable\{key="DC-UI.VetListCommand" type="variable"} command sets and resets veterinary codes. An exception is \{\{VC}}=1, which manually flags an animal for a veterinary check and is not reset.
+  2. The \{\{DC-UI.VetListCommand}} command sets veterinary codes by first looking at the animal's record and seeing if a veterinary code exists. If there is no veterinary code present, the program examines the items in the animal's record to see if they meet any of the conditions in the veterinary code table (such as days in milk and \{\{RC=2}} or \{\{Events.1FRESH}}), or in the command abbreviation (such as \{\{PEN}}=2-4).
+  3. Three events can set veterinary codes directly; these are CHECK, which sets the veterinary code to 1 (CHCK), and either HEAT or BRED when they occur on a pregnant animal, which sets the code to 6 (\{\{ABT?}}).
+  4. The veterinary code is set to the first one that meets the criteria in the numbered veterinary code table.
+</hint>
+
+To the first point, extraneous veterinary codes will produce errors in the \{\{Worklists.VetListCommonUse}} if they are left uncorrected. This can happen if animals are missed or the \{\{DC-UI.VetListCommand}} command is mistakenly run. It may become necessary to clear veterinary codes by entering VC=0 FOR VC>1 VC\<>6 and other useful criteria for animals containing unwanted codes.
+
+Basically, veterinary codes are left alone if they already exist. They will be in an animal's record if they were set by the events CHECK, BRED, or HEAT or if they are left there as rechecks or missed animals from the previous veterinary examination. If no code is present, the \{\{DC-UI.VetListCommand}} command looks at the animal's record to try to meet the criteria set in the veterinary code table.
+
+<hint type="warning">
+  **IMPORTANT:&#x20;**&#x4F;nly one veterinary code can be assigned to each animal, and this is done on a "first come, first served" basis. Either the code already exists or, using the veterinary code table, the first criteria met will determine the code for the animal. For example, let's say an animal has been bred 43 days ago and has a heat interval of 8 days. The veterinary code 3 (PREG) will be set in her record since PREG is above CYST in the veterinary code table.
+</hint>

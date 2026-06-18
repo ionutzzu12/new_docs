@@ -1,0 +1,57 @@
+---
+title: Step 2: OvSynch Enrollment & Scheduling
+slug: step-2-ovsynch-enrollment-and-scheduling
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+\{\{masterVAS-Terminology.ovsynch}} enrollment can be handled manually or automatically depending on how your \{\{masterVAS-Terminology.d-airy}} prefers to manage the associated treatments and tasks: 
+
+- Manual enrollment offers more control and allows you to select specific animals to enroll in a \{\{protocol}}.
+- Automatic enrollment streamlines the process and eliminates the selection process for enrolling animals. Animals that meet your defined criteria are automatically enrolled according to the schedule you set.
+
+<hint type="info">
+  **NOTE:&#x20;**&#x54;he most efficient way to enroll or schedule animals for \{\{masterVAS-Terminology.ovsynch}} protocols is from your :Link[Dairy Protocols]{label="Dairy Protocols" overridedLabel="Dairy Protocols" spaceId docId="sSzi86fL-qtVukJuHAfoS" version="v2" docAnchorId="#DairyProtocols" loadingMethod="dynamic" newTab="false" href="step-2-ovsynch-enrollment-and-scheduling.mdx"} page. However, if one or more animals were missed on the day of enrollment, you can also use the :Link[Animals List]{label="Animals List" overridedLabel="Animals List" spaceId docId="sSzi86fL-qtVukJuHAfoS" version="v2" docAnchorId="#AnimalList" loadingMethod="dynamic" newTab="false" href="step-2-ovsynch-enrollment-and-scheduling.mdx"} to add an \{\{masterVAS-Terminology.ovsynch}} event and manually set the enrollment date.
+</hint>
+
+<ExpandableHeading>
+  ## Schedule Automatic Enrollment
+
+  1. On the \{\{masterVAS-Terminology.D-airy-}}**&#x20;Protocols** page, click the **Enroll Animals** button for the protocol you'd like to use.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/9rVVnd2Mv2cxTRwqKnoMz_enrollment-dairyprotocols.png" alt caption size="74"}The protocol side panel opens and allows you to set your options.Use the following guidelines to schedule the enrollment\:If any animals currently qualify for enrollment, they are shown in the side panel.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/iX-lkZhLbUPEGu6bnljAN_scheduled-enrollment2.png" alt caption size="54"}:::hint\{type="info"}
+     **NOTE:&#x20;**&#x59;our \{\{masterVAS-Terminology.h-erd}} is evaluated at the date and time you select to start the enrollment, so animals that currently qualify may change before the scheduled enrollment occurs. For instance, you may have no animals that meet the enrollment criteria \{\{today}}, but then have several animals qualify by the date and time of the next scheduled enrollment.
+
+  <ExpandableHeading indent="2">
+    ### Click here to see what else you can do when scheduling animals!
+
+    - Click the **>** to view an animal's \{\{masterVAS-Terminology.cowcard}}.
+    - View your scheduled \{\{masterVAS-Terminology.ovsynch}} protocol enrollments in a calendar format, select \{\{masterVAS-Terminology.D-airy-}}**&#x20;>&#xA0;**\{\{Protocols.ProcessScheduler}} from the Menu bar.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/cb47u8OxPZK3fukWuvCTr_process-scheduler-example.png" alt caption size="66"}See [Process Scheduler](<../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/process-scheduler.mdx>) to learn more about scheduled processes for your \{\{masterVAS-Terminology.d-airy}}.
+      \:::
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Manually Enroll from Dairy Protocols
+
+  1. On the \{\{masterVAS-Terminology.D-airy-}}**&#x20;Protocols** page, click the **Enroll Animals** button for the protocol you'd like to use.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/9rVVnd2Mv2cxTRwqKnoMz_enrollment-dairyprotocols.png" alt caption size="74"}The protocol side panel is displayed with all qualifying animals, including a total count of animals that qualify.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/KSuQcY36wd3hTKvwq61VI_enrollment-sidepanel.png" alt caption size="60"}
+  2. Select the day and time to start the protocol.
+  3. Check the top box to include all qualifying animals, or check the boxes for individual animals to include.
+  4. Click **Enroll Now** if you set the protocol to start today, or **Enroll** if the protocol is set to begin on a future date.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Manually Enroll from Animals List
+
+  1. Check the boxes for animals to enroll and click **Add Event**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Ewf60pzMcmJT7kYZXHSJ3_enrollment-animalslist.png" alt caption size="84"}
+  2. Select the **OVSYNCH** event, event date (\{\{EDAY}}) and **Protocol**.After you select a protocol, the calendar populates with the tasks associated with the protocol.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/rHQqSQSmp2LiQTZ5X3acR_enrollment-animalslist-eventsidepanel.png" alt caption size="40"}
+  3. Click **Save**.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## What happens after animals are enrolled?
+
+  - An \{\{masterVAS-Terminology.ovsynch}} event is added to the animal's \{\{masterVAS-Terminology.cowcard}}. If the animal was manually enrolled, the event date is set to today or the date you selected. If the protocol is scheduled to automatically enroll animals, the event date is for the next scheduled enrollment.
+  - If the manually enrolled protocol is scheduled to start today and has tasks on day 1, the animal is added to today's Open Tasks list. Scheduled enrollment tasks are added to Open Tasks on the day of the first treatment.
+  - The \{\{Protocols.Protocol-common}} enrollment is added to the [Change Log](<../../../../../../../../VAS Platform Help - Table of Contents/Features/Manage Your Animals/change-log.mdx>).
+</ExpandableHeading>
+
+Proceed to [Step 3: Complete OvSynch Tasks](step-3-complete-ovsynch-tasks.mdx) after your animals are enrolled.

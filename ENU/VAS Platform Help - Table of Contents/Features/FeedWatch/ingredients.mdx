@@ -1,0 +1,76 @@
+---
+title: Ingredients
+slug: ingredients
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:45 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x54;o use this feature, your \{\{masterVAS-Terminology.d-airy}} must integrate \{\{Buttons-UI.FeaturesMain}} with the \{\{General.ProductName}}.The edit options for this feature are available in \{\{masterVAS-Products.FeedWatchOnPremise}} desktop application version 9.2.10 or greater. If necessary, contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) to complete the integration or upgrade to the latest version of \{\{masterVAS-Products.FeedWatchOnPremise}}.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x4F;nly users who are assigned to a Role with **Feed&#x20;**\{\{masterVAS-Terminology.R-ead-}} permissions can use this feature. See [Edit Dairy User Permissions](../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](../Config/UserMgmtRoles/ManageRoles.htm) for more information.
+  </hint>
+</ExpandableHeading>
+
+You can manage \{\{masterVAS-Products.AllProductNames}}\{\{FeedComp.FeedCompFeatures-Lower}} on the \{\{FeedComp.FeedCompButtons}}\{\{General.UI-gui}}. The page lists all ingredients in use at your \{\{masterVAS-Terminology.d-airy}} in a card format.
+
+You can find this feature under the :Link[Menu Options]{label="Menu Options" overridedLabel="Menu Options" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-FeedWatchOnPremise" loadingMethod="dynamic" newTab="false" githubPath="../../NavPlatform/Menu.htm#Menu-FeedWatchOnPremise" href="../../NavPlatform/Menu.htm#Menu-FeedWatchOnPremise"}.
+
+Each ingredient card on the page shows the color-coded ingredient type, current amount available, cost per ton, recipes using the ingredient, and locations containing the ingredient. Warning indicators also are displayed when inventory is running low. If there are too many ingredients to fit on one page, use the page links at the bottom right of the page to view more ingredient cards.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/TQc45tBE3ywVviS8b3Uwh_ingredient-page-illustrated.png" size="71" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/ingredient-page-illustrated.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/ingredient-page-illustrated.png" position="flex-start" showCaption="false"></Image>
+
+You can use the **Filter** option at the top right of the screen to narrow down the list of ingredients by Type, In \{\{Recipe}}, Premix, and/or Location.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/_X3v3_JWttOkl0ikXOcGW_ingredient-filters.png" size="45" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/ingredient-filters.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/ingredient-filters.png" position="flex-start" showCaption="false"></Image>
+
+Follow the guidelines below when viewing the ingredient cards:
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/KPqo14jjcWR-VaXHzdElm_ing-card-zoomed.png" size="34" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/ing-card-zoomed.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/ing-card-zoomed.png" position="flex-start" showCaption="false"></Image>
+
+1. Ingredient Name: Ingredient name as defined in \{\{masterVAS-Products.FeedWatchOnPremise}}.
+2. Current On‑Hand \{\{AF}}: Amount that is currently available on‑hand as‑fed (AF).
+3. Estimated Days Remaining: Estimated days remaining before the ingredient runs out.This information is based on the amount available and the amount planned for use per day. It is displayed only for ingredients that are being tracked in\{\{masterVAS-Products.FeedWatchOnPremise}}. The colors indicate:\* **Red:&#x20;**&#x30; to 5 days left.
+   - **Yellow:&#x20;**&#x36; to 10 days left.
+   - **Green:&#x20;**&#x31;1 or more days left.
+4. Ingredient Type: The ingredient type is shown in a color‑coded label. The predefined types are Forage, Protein, Concentrate, Additive, Mineral, and Premix. Any type that does not belong to one of these categories is displayed with the color‑coded label for Other ingredient types (for example, Grain, Hi-Fiber, Fat, etc.).
+5. Location: Location(s) where the ingredient is stored, including indicators that show whether the ingredient is being tracked
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/qYCXu2fAwsXPXbOY7ZEUI_ingredient-tracked24x23.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/ingredient-tracked_24x23.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/ingredient-tracked_24x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  and/or is used in a recipe 
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/vT2LoLNw2hZy1RnC-gp9B_ingredient-used-in-recipe22x22.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/ingredient-used-in-recipe_22x22.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/ingredient-used-in-recipe_22x22.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  .
+</Paragraph>
+
+6. DM%: \{\{Dry Matter}} (DM) percentage. If the ingredient is stored in multiple locations, values are displayed for each separate location.
+7. AF \{\{Cost/Ton}}: As‑fed cost per ton. If the ingredient is stored in multiple locations, values are displayed for each separate location.
+8. Details: Click the Details link at the top right of an ingredient card to view more ingredient details, including:\* AF projections for 30, 60, 90, and 120 days.
+   - Recipes in which the ingredient is used, as well as recipe details such as the DM and AF quantity of the ingredient, the \{\{masterVAS-Terminology.p-ens}} fed, number of animals fed by each related recipe, and the daily AF usage of the ingredient, which shows the real AF amount used to feed all \{\{masterVAS-Terminology.p-ens}} that use the related recipe.
+   - Details for each location that holds this ingredient.
+   - **Last Inventory Movements** list, which shows the dates, types, amounts, and the running total each time this ingredient was last moved. The list displays the 10 most recent results.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nOju6nXBGF7G2WCByJwBo_ingredient-details.png" alt caption size="82"}
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Recipes List](FeedWatchPlatform-RecipesList.htm)
+  - [Recipe Details and Adjustments](FeedWatchPlatform-RecipeDetails.htm)
+  - [Inventory & Projections](FeedWatchPlatform-InvProj.htm)
+  - [Location DM% Adjustments](FeedWatchPlatform-DMPrcntAdj.htm)
+  - [Bunk Scoring](FeedWatchPlatform-BunkScoring.htm)
+  - [Export to Equipment](FeedWatchPlatform-ExporttoEquip.htm)
+</ExpandableHeading>

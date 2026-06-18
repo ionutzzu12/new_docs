@@ -1,0 +1,101 @@
+---
+title: Cubex Premise & Medicine Mapping
+slug: cubex-premise-and-medicine-mapping
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:43 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x46;or the \{\{Buttons-UI.Dashboard}} to display \{\{Partners.Cubex}} data, your \{\{masterVAS-Terminology.d-airy}} must first activate the integration. See [Activate Cubex Integration](activate-cubex-integration.mdx) to learn more.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature.
+
+  See the topics below to learn more:
+
+  - [Know Your VAS PULSE Version](../../Platform/GetStarted/KnowYourPulse.htm)
+  - [Edit Dairy User Permissions](../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm)
+  - [Manage Dairy Roles](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>)
+</ExpandableHeading>
+
+<hint type="info">
+  **NOTE:&#x20;**&#x54;he \{\{masterVAS-Products.DC305-simple}} \{\{Buttons-UI.FeaturesTertiary}} page only includes content for \{\{masterVAS-Terminology.d-airies}} with an active \{\{Partners.Cubex}} \{\{masterVAS-Products.Pulse-only}} integration.
+</hint>
+
+For new \{\{Partners.Cubex}} integrations, \{\{masterVAS-Products.Pulse-only}} imports medicine details from \{\{Partners.Cubex}} and attempts to match each drug with its \{\{MorphHelp.CowCare}} equivalent based on the \{\{NADA}} identification number. In cases where the drugs cannot be automatically matched based on the NADA, you must complete a task to "map" (i.e., associate) medicines available in \{\{MorphHelp.CowCare}} to drugs available in \{\{Partners.Cubex}} inventory.
+
+You can find this feature under the :Link[DairyComp/MyDC menu]{label="DairyComp/MyDC menu" overridedLabel="DairyComp/MyDC menu" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../Platform/NavPlatform/Menu.htm#Menu-DairyComp" href="../../../../navigate-pulse/menu-options.mdx"} > :Link[Settings]{label="Settings" overridedLabel="Settings" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../Platform/NavPlatform/Menu.htm#Menu-DairyComp" href="../../../../navigate-pulse/menu-options.mdx"} option on the \{\{Buttons-UI.FeaturesSecondary}} tab.
+
+If your \{\{masterVAS-Terminology.d-airy}} installs more than one \{\{Partners.Cubex}} instance, you must first map each Premise to a database before you can proceed to mapping medicine names.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/PcBFE_xpPaQ4QsSwKT3jk_cubex-med-map-main.png" size="70" isUploading="false" initialPath="../../Resources/Images/Partners/cubex/cubex-med-map-main.png" githubPath="Content/Resources/Images/Partners/cubex/cubex-med-map-main.png" position="flex-start" showCaption="false"></Image>
+
+<ExpandableHeading>
+  ## Cubex Premise Mapping (for multi-site installations only)
+
+  If your \{\{masterVAS-Terminology.d-airy}} has multiple sites with \{\{Partners.Cubex}} installed, complete the Premise Mapping process to map each site to its \{\{Partners.Cubex}} database.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RClUYNdm7tmMUtulMCewx_cubex-prem-map.png" size="56" isUploading="false" initialPath="../../Resources/Images/Partners/cubex/cubex-prem-map.png" githubPath="Content/Resources/Images/Partners/cubex/cubex-prem-map.png" position="flex-start" showCaption="false"></Image>
+
+  1. Start typing the \{\{Partners.Cubex}} Database Name in the search field.
+  2. Choose the \{\{Partners.Cubex}} database from the results and \{\{Commands.click}} the checkmark button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nJBBbxo7mmWpH0H5ttrvd_check-blue28x28.png" size="10" isUploading="false" initialPath="../../Resources/Images/icons/check-blue_28x28.png" githubPath="Content/Resources/Images/icons/check-blue_28x28.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to save the mapping.
+  </Paragraph>
+
+  3. If you make a mistake, \{\{Commands.click}}**Unmap** and remap the premise to the correct \{\{Partners.Cubex}} database.
+  4. \{\{Commands.Click}} the edit icon
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/20w3oFrBKpIW6wkTrooop_edit-icon.png" size="10" caption="edit icon" alt="edit icon" isUploading="false" initialPath="../../Resources/Images/Platform/edit-icon.png" githubPath="Content/Resources/Images/Platform/edit-icon.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to assign a more common name (Premise Alias) to the site.
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Medicine Mapping
+
+  Use the **Filter By** option to quickly find drugs by Name or NADA number, or \{\{Commands.click}} on the \{\{MorphHelp.CowCare}} Medicine Name column to reverse the sort order. Then, complete the mapping process for each Unmapped Medicine.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/H_a-kkBNwcb0j1TY1SFy__cubex-med-map.png" size="76" isUploading="false" initialPath="../../Resources/Images/Partners/cubex/cubex-med-map.png" githubPath="Content/Resources/Images/Partners/cubex/cubex-med-map.png" position="flex-start" showCaption="false"></Image>
+
+  1. To map a \{\{MorphHelp.CowCare}} medicine, check **Show only unmapped** to see unmapped medicines.
+  2. Start typing the \{\{Partners.Cubex}} drug name in the search field. Choose the equivalent \{\{Partners.Cubex}} drug(s) from the results and \{\{Commands.click}} the checkmark button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/3Q-rE3-ZR_VIVdTyOpFCe_check-blue25x25.png" size="10" caption="checkmark button" alt="checkmark button" isUploading="false" initialPath="../../Resources/Images/icons/check-blue_25x25.png" githubPath="Content/Resources/Images/icons/check-blue_25x25.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to save the mapping. A green check and success message displays with the number of medicines mapped: 
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/sXqwbfq0JNd8i2F9PM_Ct_map-green-check-message147x25.png" size="10" caption="green check" alt="green check" isUploading="false" initialPath="../../Resources/Images/Partners/cubex/map-green-check-message_147x25.png" githubPath="Content/Resources/Images/Partners/cubex/map-green-check-message_147x25.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    .
+  </Paragraph>
+
+  3. To map multiple \{\{MorphHelp.CowCare}} medicines to a \{\{Partners.Cubex}} medicine, check the boxes to the left of the medicine name in the search results and \{\{Commands.click}}**Save**.
+  4. If you make a mistake, \{\{Commands.click}}**Unmap** and remap the medicine to the correct \{\{Partners.Cubex}} drug. Note that the Unmap option is not available for drugs that were automatically matched.
+
+  As new medicines are added to \{\{MorphHelp.CowCare}}, the \{\{Widgets.Cubex}} widget informs you that additional mappings are needed, and you can return to this Medicine Mapping page to complete them.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/DPj0aJCdF76uwzs2nYhd3_cubex-unmapped-mssg-on-widget.png" size="48" isUploading="false" initialPath="../../Resources/Images/Partners/cubex/cubex-unmapped-mssg-on-widget.png" githubPath="Content/Resources/Images/Partners/cubex/cubex-unmapped-mssg-on-widget.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Micro Technologies Cubex Inventory Widget Details](cubex-widget.htm)
+  - Cubex Premise & Medicine Mapping
+</ExpandableHeading>

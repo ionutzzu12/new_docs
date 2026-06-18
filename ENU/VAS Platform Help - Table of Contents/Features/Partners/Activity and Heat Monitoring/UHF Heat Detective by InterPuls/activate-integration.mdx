@@ -1,0 +1,108 @@
+---
+title: Activate Integration
+slug: activate-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:47 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+Follow these steps to integrate the partner system with \{\{General.CompanyName-short}} and allow health and reproduction data and alerts to display in \{\{masterVAS-Products.Pulse-only}}:
+
+<ExpandableHeading>
+  ## Step 1: Nedap-Bi Setup
+
+  Prior to activating your integration, you must first establish a sync with your on-premise equipment and create a Nedap-Bi account. Contact your partner system representative and request the following: 
+
+  - A scheduled sync with Nedap-Bi. This will allow \{\{General.CompanyName-short}} to pull refreshed data into \{\{masterVAS-Products.Pulse-only}}.
+  - Assistance with creating a Nedap-Bi account. Be sure to note your credentials, as you will need them when connecting the integration in :Link[Step 4]{label="Step 4" overridedLabel="Step 4" spaceId docId="WGTKjCeVTG2lx_IcSFZOM" version="v2" docAnchorId="#step4" loadingMethod="dynamic" newTab="false" href="activate-integration.mdx"}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Configure Items in DairyComp 305 (DairyComp Unlimited Users Only)
+
+  To receive animal alerts in \{\{DC-UI.DC-ProductName}} and \{\{masterVAS-Products.Pulse-only}}, you must first create and configure several items as follows:
+
+  1. In \{\{DC-UI.DC-ProdNameShort}}, access Item Definitions (\{\{ALTER}}\2) and create or modify the required items to store alerts. Expand :Link[Required Items]{label="Required Items" overridedLabel="Required Items" spaceId docId="WGTKjCeVTG2lx_IcSFZOM" version="v2" docAnchorId="#Items" loadingMethod="dynamic" newTab="false" href="activate-integration.mdx"} below to learn more about each item.
+  2. In \{\{DC-UI.DC-ProductName}}, enter `PLATFORM` in the command line.
+  3. Click the **Pulse Items** tab and expand \{\{Partners.Nedap-parent}}.
+  4. If necessary, map or add an item. Expand :Link[Required Items]{label="Required Items" overridedLabel="Required Items" spaceId docId="WGTKjCeVTG2lx_IcSFZOM" version="v2" docAnchorId="#Items" loadingMethod="dynamic" newTab="false" href="activate-integration.mdx"} below to learn more about each item:1) **Map Existing Item:** To map an item to an existing \{\{masterVAS-Products.DC305-short}} item, double-click the item. Select the existing \{\{masterVAS-Products.DC305-short}} item, then click **OK** to confirm your selection.
+     2\) **Add New Item:** To create a new item, check the box for that item. Click **Create (1) Items**, then click **Yes** to confirm your selection.
+  5. \{\{Commands.Click}}**OK** to save your changes.
+
+  <ExpandableHeading>
+    ### Required Items
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;tem names can be customized and may differ from those suggested by \{\{General.CompanyName-short}}. If you choose to customize your item names, be sure to use the correct names for any reports or worklists you create.
+    </hint>
+
+    | Item Description                                                                                                                                                                                                                                                                 | \{\{masterVAS-Products.DC305-short}} Suggested Item | \{\{masterVAS-Products.Pulse-only}} Standard Item |
+    | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- |
+    | \{\{Partners.Nedap-parent}} First Transponder                                                                                                                                                                                                                                    | RESP1 or VATAG                                      | NDPRS1                                            |
+    | Second Transponder                                                                                                                                                                                                                                                               | RESP2                                               | NDPRS2                                            |
+    | Urgent Attention Alert Date                                                                                                                                                                                                                                                      | URDAT                                               | NDPURGD                                           |
+    | Urgent Attention Alert Time                                                                                                                                                                                                                                                      | URTIM                                               | NDPURGT                                           |
+    | Health Attention Alert Date                                                                                                                                                                                                                                                      | DXDAT                                               | NDPHEALTHD                                        |
+    | Health Attention Alert Time                                                                                                                                                                                                                                                      | DXTIM                                               | NDPHEALTHT                                        |
+    | Heat Alert Date                                                                                                                                                                                                                                                                  | ACDAT                                               | NDPHEATD                                          |
+    | Heat Alert Time                                                                                                                                                                                                                                                                  | ACTIM                                               | NDPHEATT                                          |
+    | Heat Suspicious Alert Date                                                                                                                                                                                                                                                       | HSDAT                                               | NDPSUSPHD                                         |
+    | Heat Suspicious Alert Time                                                                                                                                                                                                                                                       | HSTIM                                               | NDPSUSPHT                                         |
+    | Heat Attention Flag                                                                                                                                                                                                                                                              | HTFLG                                               | NDPHTFLG                                          |
+    | Health Attention Flag                                                                                                                                                                                                                                                            | HLFLG                                               | NDPHLFLG                                          |
+    | Urgent Health Attention Flag                                                                                                                                                                                                                                                     | URFLG                                               | NDPURFLG                                          |
+    | Suspicious Heat Attention Flag                                                                                                                                                                                                                                                   | SUFLG                                               | NDPSUFLG                                          |
+    | Inactive/Reduced Activity Flag                                                                                                                                                                                                                                                   | ITFLG                                               | NDPITFLG                                          |
+    | :::hint\{type="info"}                                                                                                                                                                                                                                                            |                                                     |                                                   |
+    | **NOTE:&#x20;**&#x49;n \{\{masterVAS-Products.DC305-short}}, the animal's flag value indicates if the animal requires attention. If the animal has a flag value of 0, the animal does not require attention. If the animal has a flag value of 1, the animal requires attention. |                                                     |                                                   |
+    | :::                                                                                                                                                                                                                                                                              |                                                     |                                                   |
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 3: Configure Worklist Commands in DairyComp 305 (DairyComp Unlimited Users Only)
+
+  Follow these steps to generate partner worklists using the new items and send them to \{\{masterVAS-Products.Pulse-only}}.
+
+  1. In \{\{DC-UI.DC-ProdNameShort}}, access Command Abbreviations (ALTER\3) and create or modify the required \{\{worklist}} commands. Expand :Link[Worklist Commands]{label="Worklist Commands" overridedLabel="Worklist Commands" spaceId docId="WGTKjCeVTG2lx_IcSFZOM" version="v2" docAnchorId="#Commands" loadingMethod="dynamic" newTab="false" href="activate-integration.mdx"} below to learn more about each required worklist.
+  2. Alert items automatically push to \{\{masterVAS-Products.Pulse-only}}. No additional commands are needed to send the alerts or lists to \{\{masterVAS-Products.Pulse-only}}.
+     If present, delete the MILK\VHU1 command from Command Abbreviations (ALTER\3). This command was used to import alert items to the on-premise integration and is no longer needed.
+
+  <ExpandableHeading>
+    ### Worklist Commands
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;f you are not using the suggested item names from :Link[Required Items]{label="Required Items" overridedLabel="Required Items" spaceId docId="WGTKjCeVTG2lx_IcSFZOM" version="v2" docAnchorId="#Items" loadingMethod="dynamic" newTab="false" href="activate-integration.mdx"}, be sure to correctly define worklists using your custom item names.
+    </hint>
+
+    | Abbreviation | Command                                                                     | Title                   |
+    | ------------ | --------------------------------------------------------------------------- | ----------------------- |
+    | NEDAPHD      | SHOW ID PEN DIM DSLH RPRO ACDAT ACTIM HTFLG FOR HTFLG=1 BY PEN              | Heat Detection Alerts   |
+    | NEDAPDX      | SHOW ID PEN DIM DSLH RPRO DXDAT DXTIM HLFLG FOR HLFLG=1 BY PEN              | Health Attention Alerts |
+    | NEDAPUR      | SHOW ID PEN DIM DSLH RPRO EVT EDAY REM URDAT URTIM URFLG FOR URFLG=1 BY PEN | Urgent Attention Alerts |
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 4: Connect Integration in PULSE
+
+  Before you can activate your integration, you must first have the Nedap-Bi credentials you established as part of :Link[Step 1]{label="Step 1" overridedLabel="Step 1" spaceId docId="WGTKjCeVTG2lx_IcSFZOM" version="v2" docAnchorId="#step1" loadingMethod="dynamic" newTab="false" href="activate-integration.mdx"}, as well as all required equipment installed on-site. Follow these steps to establish the connection to the partner system:
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners&#x20;**>**&#xA0;Integrations Gallery&#x20;**>**&#xA0;**\{\{Partners.PartnerName}}.
+  2. \{\{Commands.Click}}**See Details** or **See Requirements** on the \{\{Partners.PartnerName}}integration card.
+  3. Follow the Connection Instructions on the right side of the page to establish the connection:1) \{\{Commands.Click}}**Add New Alias**, then complete the following fields:\* **Alias:** Enter your \{\{masterVAS-Terminology.D-airy-}} Name. If you have multiple \{\{masterVAS-Terminology.d-airies}}, we recommend you use different names for each alias.
+     2\) \{\{Commands.Click}}**Authorize integration**, then complete the following steps on the \{\{Partners.PartnerName}} website that automatically opens.
+     3\) \{\{Commands.Click}}**Select&#x20;**\{\{masterVAS-Terminology.P-ens-}} to choose \{\{masterVAS-Terminology.p-ens}} that use this product. Enter the \{\{masterVAS-Terminology.p-en}} numbers and select the correct \{\{masterVAS-Terminology.p-ens}} from the results list, which lists the \{\{masterVAS-Terminology.p-ens}} in ascending order.
+     4\) Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+     5\) \{\{Commands.Click}}**Save**.
+     6\) If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your \{\{Partners.PartnerName}} representative to connect the integration from their system.
+  </hint>
+</ExpandableHeading>

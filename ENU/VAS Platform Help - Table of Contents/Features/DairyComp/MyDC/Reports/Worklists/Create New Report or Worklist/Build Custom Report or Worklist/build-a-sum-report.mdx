@@ -1,0 +1,26 @@
+---
+title: Build a SUM Report
+slug: build-a-sum-report
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+A SUM report generates averages for specific items or animals within certain groups and presents details in a table or graph
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/T9pG17ilHJ5t57YpT_6a7_cmdbuilder-sum-example.png" size="60" isUploading="false" initialPath="../../../../Resources/Images/Platform/cmdline/cmdbuilder-SUM-example.png" githubPath="Content/Resources/Images/Platform/cmdline/cmdbuilder-SUM-example.png" position="flex-start" showCaption="false"></Image>
+
+Follow the steps below to continue:
+
+1. Use the search field at the top of the items list to find items by name or description. For example, searching for "\{\{masterVAS-Terminology.s-ire}}" finds all associated items in your \{\{masterVAS-Terminology.d-airy}}: \{\{LSIR}}, MGSIR, \{\{PSIRC}}, \{\{SIR1}}, etc. See the :Link[Build a LIST Report]{label="Build a LIST Report" overridedLabel="Build a LIST Report" spaceId docId="oLlIinXuAY9Ihk4j1mYmL" version="v2" docAnchorId="#SM-1" loadingMethod="dynamic" newTab="false" githubPath="BuildListReport.htm#SM-1" href="BuildListReport.htm#SM-1"} topic to learn more about using search.
+2. To build your report, drag and drop items from the items list onto the **Report Output** area. Reorder the columns by dragging and dropping the item names
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/lFWM3M7d9I3Oxkmc0JjJJ_cmdbuilder-edit-item58x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/cmdline/cmdbuilder-edit-item_58x25.png" githubPath="Content/Resources/Images/Platform/cmdline/cmdbuilder-edit-item_58x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  or click the **x** next to an item name to delete it. See the :Link[Build a LIST Report]{label="Build a LIST Report" overridedLabel="Build a LIST Report" spaceId docId="oLlIinXuAY9Ihk4j1mYmL" version="v2" docAnchorId="#SM-2" loadingMethod="dynamic" newTab="false" githubPath="BuildListReport.htm#SM-2" href="BuildListReport.htm#SM-2"} topic to learn more about reordering and deleting columns.The SUM report automatically adds "AVG" to the item name when an item is dragged and dropped from the items list into the column header on the right side of the **Report Output** area.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/MNUnn7WB1APjqTr4T39ZQ_cmdbuilder-sum-avg.png" alt caption size="28"}The SUM report also allows you to control how some animals are grouped by dragging and dropping items from the items list into a row beneath the **BY** column on the left side of the **Report Output** area. The first item dropped will become the first grouping on the report.For example, if you drag and drop the \{\{PEN}} item and then drag and drop the \{\{LACT}} item beneath it, an animal grouping is created by \{\{masterVAS-Terminology.p-en}} and then by lactation.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/qWwxahBmO3fmSnDnvvnrG_cmdbuilder-sum-group-by.png" alt caption size="40"}When the report is run, the results are grouped first by \{\{masterVAS-Terminology.p-en}} and then by lactation.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/QO8SJ1OcmseCwikUN5UBP_cmdbuilder-sum-group-by-results.png" alt caption size="12"}
+</Paragraph>
+
+3. To set filters, drag and drop items from the items list into the **Filters** area, and then choose an **Operator** from the drop-down and set a **Value** for the operator. See the :Link[Build a LIST Report]{label="Build a LIST Report" overridedLabel="Build a LIST Report" spaceId docId="oLlIinXuAY9Ihk4j1mYmL" version="v2" docAnchorId="#SM-3" loadingMethod="dynamic" newTab="false" githubPath="BuildListReport.htm#SM-3" href="BuildListReport.htm#SM-3"} topic to learn more about using filters.
+4. In the **Switches** area, select to include alive, dead, or all animals in your report.The SUM report also allows you to control how some calculations are handled by checking one or both of the following boxes:\* Include zero values in averages and \{\{standard deviation}} calculations. Without the switch, average, standard deviation, \{\{mode}}, and \{\{median}}\{\{masterVAS-Products.Pulse-only}} calculations include non-zero values only.
+   - Use sample values for standard deviation calculation. Without the switch, \{\{masterVAS-Products.Pulse-only}} calculates population standard deviation.
+5. Click **Save and Execute** to build your report and display the results of the report on the [ReportWorklistResults.htm](../see-reportsworklists-results.mdx)[Reports/Worklists Results](../see-reportsworklists-results.mdx) page.\{\{masterVAS-Products.DCU-users-short}} can also preview the command as the report is being built.

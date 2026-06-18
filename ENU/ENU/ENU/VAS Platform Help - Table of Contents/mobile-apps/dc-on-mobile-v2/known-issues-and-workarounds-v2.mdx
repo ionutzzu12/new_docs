@@ -1,0 +1,91 @@
+---
+title:   Known Issues and Workarounds (v2)
+slug: known-issues-and-workarounds-v2
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:39 GMT+0200 (Eastern European Standard Time)
+---
+
+While our \{\{masterVAS-Products.DConMobile}}\{\{Mobile-UI.MobileAppVersion2}} mobile app contains many new features and enhancements, it does not yet support all of the features available in the \{\{masterVAS-Products.VASPlatformMobile}}\{\{Mobile-UI.MobileAppVersion1}} mobile app. We are also updating \{\{masterVAS-Products.Pulse-only}} to support \{\{masterVAS-Products.DConMobile}}\{\{Mobile-UI.MobileAppVersion2}}. As a result, some \{\{masterVAS-Products.Pulse-only}} feature updates may not be applicable to or supported by \{\{masterVAS-Products.VASPlatformMobile}}\{\{Mobile-UI.MobileAppVersion1}}. To take advantage of these new features, \{\{masterVAS.CompanyName-short}} recommends upgrading to \{\{masterVAS-Products.DConMobile}}, which you can download from the app store on your mobile device. For more information about the mobile apps \{\{masterVAS.CompanyName-short}} currently offers, see [Mobile Apps](<../../../../../VAS Platform Help - Table of Contents/mobile-apps.mdx>).
+
+Known issues and workarounds for the \{\{masterVAS-Products.DConMobile}}\{\{Mobile-UI.MobileAppVersion2}} mobile app include:
+
+-  Known Issue  The following known issues related to the new :Link[copy event data from the last animal]{label="copy event data from the last animal" overridedLabel="copy event data from the last animal" spaceId docId="UmDpVAyy7XoDbtadlf8Vx" version="v2" docAnchorId="#copyeventdata" loadingMethod="dynamic" newTab="false" githubPath="../ReleaseNotes/DCM2/DCM2WhatsNew.htm#copyeventdata" href="../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/whats-new-in-dc-on-mobile.mdx"} enhancement exist in this version of the app:\* When copying event data to additional animals, unchecking a copy data box, and saving changes, the unchecked copy data box may remain checked. This is cosmetic only, as the unchecked data will actually not be copied to the next animal if you continue.
+  - When copying \{\{Protocols.Protocol-common}} event data to additional animals and deleting an animal from the event, the copy icon
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yODnFO0JKxaXU-lSd6hQC_green-settings25x25.png" size="10" isUploading="false" initialPath="../../Resources/Images/icons/green-settings_25x25.png" githubPath="Content/Resources/Images/icons/green-settings_25x25.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+<Paragraph indent="2">
+  at the top right of the \{\{Mobile-UI.EventsTab}} screen may remain enabled unexpectedly.
+</Paragraph>
+
+-  Known Issue  If you tap animals in grid \{\{mode}} too quickly, the next animal selected may not open. Wait until the previously selected animal closes before selecting the next animal.
+-  Known Issue  If your iOS device is on operating system version 26.0, you may see a "No permission granted" message when connecting a scanner (even if you have allowed the app to use Bluetooth). You can disregard this message. Devices on other iOS versions are not affected. See :Link[Troubleshoot Scanner Connections]{label="Troubleshoot Scanner Connections" overridedLabel="Troubleshoot Scanner Connections" spaceId docId="lH2VzcmuBAva0fceRHljE" version="v2" docAnchorId="#troublesheet-scanner" loadingMethod="dynamic" newTab="false" githubPath="Scanners/Scanners.htm#troublesheet-scanner" href="Scanners/Scanners.htm#troublesheet-scanner"} for help connecting your scanner.
+-  Known Issue  When selecting to **Undo** a task on ToDo \{\{worklist}}, the task closes rather than leaving it open with the option to Mark as Done.
+-  Known Issue  The \{\{masterVAS-Terminology.BLElong}} connection is not supported on \{\{masterVAS-Terminology.radiofrequencyID-short}} scanners in this release. Connect your devices with Bluetooth Classic until we are able to resolve this issue, but please note that \{\{MorphHelp.AppleOS-TM}} devices only support \{\{masterVAS-Terminology.BLEshort}} connections on some scanners. See :Link[Tips for Using Bluetooth Low Energy (BLE)]{label="Tips for Using Bluetooth Low Energy (BLE)" overridedLabel="Tips for Using Bluetooth Low Energy (BLE)" spaceId docId="lH2VzcmuBAva0fceRHljE" version="v2" docAnchorId="#BLE-support" loadingMethod="dynamic" newTab="false" githubPath="Scanners/Scanners.htm#BLE-support" href="Scanners/Scanners.htm#BLE-support"} to learn more.
+-  Known Issue  You may notice slower \{\{masterVAS-Terminology.radiofrequencyID-short}} scanning speeds in this release, which we're working to resolve as soon as possible.
+-  Known Issue  Events with incomplete information may be sent to \{\{General.ProductName-short}} when you tap `Process All Changes` at the top of a \{\{Worklists.worklistCommonUse}}. \{\{General.CompanyName-short}} is working to resolve this issue in a future release, but we recommend always completing all required information when entering events.
+- Workaround If you enter an event on a \{\{Worklists.VetListCommonUse}}, undo it, and then attempt to add another event, the vet list changes cannot be processed and sent to \{\{masterVAS-Products.Pulse-only}}. To avoid this issue, use one of the following workarounds:\* Use the \{\{Mobile-UI.EventsTab}} screen to enter the events in the \{\{masterVAS-Products.DConMobile}}\{\{Mobile-UI.MobileAppVersion2}} app. See :Link[Events]{label="Events" overridedLabel="Events" spaceId docId="sp1fQUQTHg-WLIRXAer4X" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" githubPath="../Features/Events/Events.htm#Add" href="../Features/Events/Events.htm#Add"} to learn how.
+  - Manually add the event directly in \{\{masterVAS-Products.Pulse-only}}. See [Enter Events (v2)](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/enter-events-v2.mdx>) to learn how.
+  - Use the \{\{masterVAS-Products.VASPlatformMobile}}\{\{Mobile-UI.MobileAppVersion1}} mobile app to enter \{\{Worklists.VetListCommonUse}} events until a hotfix is released for the \{\{masterVAS-Products.DConMobile}}\{\{Mobile-UI.MobileAppVersion2}} app. See :Link[Create a New Event or Edit an Existing One]{label="Create a New Event or Edit an Existing One" overridedLabel="Create a New Event or Edit an Existing One" spaceId docId="aEhwxYbuecaFP9Ctr3Y5S" version="v2" docAnchorId="#CreateEvent" loadingMethod="dynamic" newTab="false" githubPath="../Features/Events/TipsEventEntry.htm#CreateEvent" href="../Features/Events/TipsEventEntry.htm#CreateEvent"} to learn how.
+- Workaround In [Events](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/enter-events-v2.mdx>) or [Tasks](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/complete-tasks-v2.mdx>), the \{\{masterVAS-Terminology.radiofrequencyID-short}}**&#x20;Scanner** toggle may be on when your \{\{masterVAS-Terminology.radiofrequencyID-short}} scanner is **not** actually connected. Close and reopen the app, and then reconnect to the \{\{masterVAS-Terminology.radiofrequencyID-short}} scanner to resolve the issue. See :Link[Connect Your RFID Scanner]{label="Connect Your RFID Scanner" overridedLabel="Connect Your RFID Scanner" spaceId docId="kPckWd4UgcZEB5AhgNeS2" version="v2" docAnchorId="#connect-scanners" loadingMethod="dynamic" newTab="false" githubPath="MobAppMore.htm#connect-scanners" href="../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/more-menu-v2.mdx"} to learn how.
+-  Known Issue  When you open a newly added \{\{Worklists.worklistCommonUse}} for the first time, the app might crash. The app will not crash the next time you open the \{\{Worklists.worklistCommonUse}}.
+-  Known Issue `MyDC ONLY` When you process \{\{Protocols.OpenTasks}} in Online Mode, the app indicates how many animals need to be processed. However, when you process \{\{Protocols.OpenTasks}} in Offline Mode, the indicator may not be displayed even if animals need to be processed.
+- Workaround If you work with multiple users and/or \{\{masterVAS-Terminology.d-airies}} on the same device, the app may show data for the previously viewed user or \{\{masterVAS-Terminology.d-airy}}. As a general rule, \{\{masterVAS.CompanyName-short}} recommends always refreshing herd data after switching to a different user or \{\{masterVAS-Terminology.d-airy}}. See :Link[Refresh Herd Data in Online Mode]{label="Refresh Herd Data in Online Mode" overridedLabel="Refresh Herd Data in Online Mode" spaceId docId="kPckWd4UgcZEB5AhgNeS2" version="v2" docAnchorId="#refresh-herd-data" loadingMethod="dynamic" newTab="false" githubPath="MobAppMore.htm#refresh-herd-data" href="../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/more-menu-v2.mdx"} to learn how.
+- Workaround If you turn on **Airplane Mode** on your \{\{MorphHelp.AppleOS-TM}} device, Bluetooth is turned off automatically. You can turn Bluetooth back on in settings, and it will stay on until you turn it off or toggle Airplane Mode off and on again.
+- Workaround If you complete a \{\{masterVAS-Terminology.p-en}} correction for an animal, the app updates \{\{today}}'s open \{\{Worklists.worklistCommonUse}}s and changes the \{\{masterVAS-Terminology.p-en}} information for the animal to the corrected \{\{masterVAS-Terminology.p-en}}. The correction won't apply to yesterday's or older \{\{Worklists.worklistCommonUse}}s, so you need to refresh your \{\{Worklists.worklistCommonUse}}s to see the updates. See :Link[Refresh Herd Data in Online Mode]{label="Refresh Herd Data in Online Mode" overridedLabel="Refresh Herd Data in Online Mode" spaceId docId="kPckWd4UgcZEB5AhgNeS2" version="v2" docAnchorId="#refresh-herd-data" loadingMethod="dynamic" newTab="false" githubPath="MobAppMore.htm#refresh-herd-data" href="../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/more-menu-v2.mdx"} to learn how.
+
+<ExpandableHeading>
+  ### Click here for a list of archived known issues for DC on Mobile!
+
+  - Workaround When adding events from the \{\{masterVAS-Terminology.cowcard}} or from \{\{Buttons-UI.DC-WorklistsONLY}}, \{\{masterVAS-Terminology.p-ens}} may not be filtered to show only the \{\{masterVAS-Terminology.p-ens}} defined for the event. \{\{masterVAS-Terminology.P-ens-}} are filtered properly when adding events on the [Events](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/enter-events-v2.mdx>) tab.
+  -  Known Issue  When you select all \{\{masterVAS-Terminology.p-ens}}, search for an animal, and **Complete** or **Skip** a task in \{\{Protocols.OpenTasks}}, a sound may play more than once and the
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IUdUHrxYCH9pUFs1RJogo_done-tab25x25.png" size="10" caption="Done tab icon" alt="Done tab icon" isUploading="false" initialPath="../../Resources/Images/icons/done-tab_25x25.png" githubPath="Content/Resources/Images/icons/done-tab_25x25.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    **Done** tab may display.
+  </Paragraph>
+
+  -  Known Issue  When you **Undo** an animal on the
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IUdUHrxYCH9pUFs1RJogo_done-tab25x25.png" size="10" caption="Done tab icon" alt="Done tab icon" isUploading="false" initialPath="../../Resources/Images/icons/done-tab_25x25.png" githubPath="Content/Resources/Images/icons/done-tab_25x25.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    **Done** tab in Offline Mode, return to the
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/pQtsSFeYgL0PXvUfz6EHq_todo-tab25x25.png" size="10" caption="To Do tab icon" alt="To Do tab icon" isUploading="false" initialPath="../../Resources/Images/icons/todo-tab_25x25.png" githubPath="Content/Resources/Images/icons/todo-tab_25x25.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    **&#x20;To Do** tab for the \{\{Worklists.worklistCommonUse}}, add an event, and tap **Mark as Done**, the button may not change to **Undo**. When this occurs, do not tap **Mark as Done** again, as the animal was actually marked as done and moved to the
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IUdUHrxYCH9pUFs1RJogo_done-tab25x25.png" size="10" caption="Done tab icon" alt="Done tab icon" isUploading="false" initialPath="../../Resources/Images/icons/done-tab_25x25.png" githubPath="Content/Resources/Images/icons/done-tab_25x25.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    **Done** tab. Tapping the button again will cause an error to display.
+  </Paragraph>
+
+  - Workaround If you tap
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/J5yIzJVbebUpxHLSOrrrA_refresh-green-on-pale-green20x25.png" size="10" caption="Refresh Lists button" alt="Refresh Lists button" isUploading="false" initialPath="../../Resources/Images/icons/refresh-green-on-pale-green_20x25.png" githubPath="Content/Resources/Images/icons/refresh-green-on-pale-green_20x25.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    Refresh Lists at the top of the [Tasks](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/complete-tasks-v2.mdx>) screen and navigate away from the screen before all \{\{Worklists.worklistCommonUse}}s finish downloading, the refresh may fail. Close and reopen the app, and then refresh your \{\{Worklists.worklistCommonUse}}s again to resolve the issue.
+  </Paragraph>
+
+  -  Known Issue  The date range filter was removed from the [Transaction Log](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/transaction-log-v2.mdx>) screen and will return a future release.
+  -  Known Issue \{\{masterVAS-Terminology.P-en-}} validation changes made in offline mode are not shown in the \{\{Mobile-UI.TransactionLog}} until you are back online and your changes sync to \{\{masterVAS-Products.Pulse-only}}.
+  - Workaround On \{\{masterVAS-Terminology.AppleOS-TM}} devices, an unsuccessful pairing error may occur when you attempt connection to an \{\{masterVAS-Terminology.radiofrequencyID-short}} scanner after switching \{\{masterVAS-Terminology.d-airies}}. Close and reopen the app to resolve the issue.
+  -  Known Issue  If you delete an event and then add a new event for an animal, the deleted event is still displayed on the
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IUdUHrxYCH9pUFs1RJogo_done-tab25x25.png" size="10" caption="Done tab icon" alt="Done tab icon" isUploading="false" initialPath="../../Resources/Images/icons/done-tab_25x25.png" githubPath="Content/Resources/Images/icons/done-tab_25x25.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    **Done** tab for the \{\{Worklists.worklistCommonUse}} even though it was deleted. When you send your \{\{Worklists.worklistCommonUse}} data, the deleted event will not be sent to \{\{masterVAS-Products.Pulse-only}}.
+  </Paragraph>
+
+  -  Known Issue  When you pick an event from a \{\{Worklists.worklistCommonUse}} on an \{\{MorphHelp.AppleOS-TM}} device, harmless duplicate event warnings may be displayed.
+</ExpandableHeading>
+
+To see known issues and workarounds for the \{\{masterVAS-Products.VASPlatformMobile}}\{\{Mobile-UI.MobileAppVersion1}} mobile app, see [Known Issues and Workarounds (v1)](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/VAS Platform Mobile App (v1)/Tips for Using the Mobile App (v1)/known-issues-and-workarounds-v1.mdx>).

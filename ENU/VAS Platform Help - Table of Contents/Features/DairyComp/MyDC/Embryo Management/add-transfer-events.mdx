@@ -1,0 +1,172 @@
+---
+title: Add TRANSFER Events
+slug: add-transfer-events
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:43 GMT+0200 (Eastern European Standard Time)
+---
+
+The \{\{Events.3000TRANSFER}} event is a \{\{masterVAS-Products.Pulse-only}}-only event added to recipient animals for embryo transfers. \{\{masterVAS-Products.Pulse-only}} allows you to manage your embryo inventory and enter \{\{Events.3000TRANSFER}} events in web or the mobile app.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/20d97cskKkArUzuOeu35D_embryo-module-diagram.png" size="64" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/embryo/embryo-module-diagram.png" githubPath="Content/Resources/Images/Platform/dairycomp/embryo/embryo-module-diagram.png" position="flex-start" showCaption="false"></Image>
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Add a TRANSFER Event
+
+  You can add a \{\{Events.3000TRANSFER}} event from the mobile app or web in two different ways: 
+
+  <ExpandableHeading>
+    ### Transfer an Embryo from Inventory
+
+    From web, select an embryo from the Inventory tab to open its side panel. Then use the **Transfer Embryo** shortcut to add a \{\{Events.3000TRANSFER}} event.
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ApZHZW17tMZsjfMzyAIEy_side-panel-transfer.png" size="39" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/embryo/side-panel-transfer.png" githubPath="Content/Resources/Images/Platform/dairycomp/embryo/side-panel-transfer.png" position="flex-start" showCaption="false"></Image>
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;f the embryo does not meet the requirements for transfer, the option is not available from the side panel. See :Link[Embryo Requirements for Transfer]{label="Embryo Requirements for Transfer" overridedLabel="Embryo Requirements for Transfer" spaceId docId="ML5l3xpCqnu1Y8s6zR7u_" version="v2" docAnchorId="#requirements" loadingMethod="dynamic" newTab="false" githubPath="EmbryoTips.htm#requirements" href="tips-for-embryo-transfers-in-pulse.mdx"} to learn more.
+    </hint>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Add a TRANSFER Event to the Recipient Animal
+
+    From the recipient animal's \{\{masterVAS-Terminology.cowcard}} or the mobile app, add a \{\{Events.3000TRANSFER}} event for the recipient animal. Add the required embryo details to save the event.
+
+    <hint type="info">
+      **TIP:&#x20;**\{\{masterVAS-Products.Pulse-only}} makes it easy to find or add your embryo in the side panel from web or in the mobile app! Search for an embryo, choose an embryo from inventory, or add a new embryo. When adding \{\{Events.3000TRANSFER}} events from web, you can also filter or sort your embryos.
+    </hint>
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## TRANSFER Event Details
+
+  Expand the topics below to learn more about \{\{Mobile-UI.EventTypes}} event details:
+
+  <ExpandableHeading>
+    ### Donor
+
+    The female who provided the embryo or \{\{oocyte}} (sometimes referred to as the donor dam). When you search for a donor female, the app only locates matching females within your \{\{masterVAS-Terminology.h-erd}}. The search retains your history so that you can easily select the same donor female(s) again. Once you choose the donor female, the Donor field displays its \{\{ID}}.
+
+    If you do not find this embryo's donor female in your search, you can enter it manually (see instructions below).
+
+    <ExpandableHeading>
+      ### Enter a Donor Female's ID Manually
+
+      If the donor female you need to choose is not shown in the search results, you can enter its ID manually. Type the exact ID in the search bar, and you have the option to add it anyway. The app will display the exact ID you enter for the donor female.
+
+      <hint type="info">
+        **TIP:&#x20;**&#x49;n the mobile app, the selected identifier determines which keyboard layout is presented when entering the donor. If you need to enter letters and numbers, you may need to change the selected identifier to change the keyboard.
+      </hint>
+    </ExpandableHeading>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Breeding Code
+
+    The breeding code for the selected recipient female. Tap this field to select from a list of available breeding codes.
+
+    <ExpandableHeading>
+      ### How do I edit the breeding codes in this list?
+
+      If you have the required permissions, you can view or edit the [Breeding Codes](../Settings/DC-BreedCodes.htm) in \{\{masterVAS-Products.Pulse-only}} or the Breeding Code Table in \{\{DC-UI.DC-ProdNameShort}} for \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}}. These breeding codes are used mainly for extra information regarding the breeding, such as a standing heat, prostaglandin usage, embryo transfer, etc., with a specific veterinary application.
+    </ExpandableHeading>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Embryo Details
+
+    - \{\{masterVAS-Terminology.S-ire-}}: The bull whose semen was used to fertilize the donor's egg to produce the embryo. If this column shows **Pool**, it means that an oocyte was fertilized by \{\{IVF}} from a pool containing the semen of multiple sires.
+    - Donor: TThe female who provided the embryo or oocyte (sometimes referred to as the donor dam).
+    - Embryo Breed: The embryo breed. Select from the standard list of \{\{NAAB}} breeds.
+    - Fertilization Date: Date the donor egg was fertilized using the \{\{masterVAS-Terminology.s-ire}} semen.
+    - Recovery Type: The recovery type used:\* **Flush** is used for embryos
+      - **IVF** for in vitro fertilization (\{\{oocytes}})
+      - **Other** for neither of the above
+    - Tank: The liquid nitrogen storage tank containing the cane with the embryo's straw.
+    - Incubator: The warming unit containing the embryo's straw or mating.
+    - Cane: The container holding the embryo's straw.
+    - Mating: A description of the embryo mating details, such as \{\{masterVAS-Terminology.s-ire}}, donor, and fertilization date. May contain multiple embryos.
+    - Straw number: Number of the straw holding the embryo. Canes contain multiple straws and each straw holds a single embryo.
+    - Stage: The stage at which the embryo was harvested:\* **1** Unfertilized
+      - **2** Simple Celled
+      - **3** Early Morula
+      - **4** Morula
+      - **5** Early Blastocyst
+      - **6** Blastocyst
+      - **7** Expanded Blastocyst
+      - **8** Hatched Blastocyst
+      - **9** Expanded and Hatched Blastocyst
+    - Grade: The quality of the embryo:\* **1** Good
+      - **2** Fair
+      - **3** Poor
+      - **4** Dead (or Degenerating)
+    - Lab ID: Identifier for the lab from which the embryo was purchased.
+    - Lab Embryo ID: Identifier for the embryo from the lab. This value differs from the \{\{masterVAS-Products.Pulse-only}} Embryo ID.
+    - Embryo Owner: Name or company that owns the embryo.
+    - Frozen Date: Date the embryo was frozen.
+    - Freeze Method: The method used to freeze the embryo:  \* **Direct Transfer (DT)** is the process of using high levels of cryoprotectant to quickly cool an embryo to freezing. A common cryoprotectant used for this process is ethylene glycol.
+      - **Slow** is the process of using low levels of cryoprotectant and a programmable freezing machine to slowly lower the temperature of the embryo to freezing.
+    - Recipient: The animal that received the embryo transfer. Including the Recipient and Transfer details automatically adds a \{\{Events.3000TRANSFER}} event to the recipient animal. See :Link[Import Transferred Embryos]{label="Import Transferred Embryos" overridedLabel="Import Transferred Embryos" spaceId docId="XJegbRym-LE6Ib8mveuPk" version="v2" docAnchorId="#Transferred" loadingMethod="dynamic" newTab="false" href="add-transfer-events.mdx"} for more information.
+    - Transferred \{\{Tech}}: The embryo technician who completed the transfer.
+    - Transferred Date: Date the embryo was transferred to the recipient.
+    - Breeding Code: The code associated with the breeding activity. Check your \{\{masterVAS-Terminology.d-airy}}'s [Breeding Codes](../Settings/DC-BreedCodes.htm) for more details on each code.
+  </ExpandableHeading>
+
+  See [Tips for Embryo Transfers in PULSE](tips-for-embryo-transfers-in-pulse.mdx) for more help with the \{\{Events.3000TRANSFER}} event. After your \{\{Events.3000TRANSFER}} events are added, use the [Transferred](EmbryoTransferred.htm) and [Results](EmbryoResults.htm) tabs from web to review progress and track outcomes.
+
+  <ExpandableHeading>
+    ### Click here to learn about embryo and TRANSFER event sanity checks!
+
+    \{\{masterVAS-Products.Pulse-only}} completes a variety of checks to keep your embryo transfer data as accurate as possible. The following sanity checks are done throughout the process: 
+
+    - If an animal was \{\{Events.5BRED}} within 10 days, \{\{Events.3000TRANSFER}} events cannot be added and \{\{masterVAS-Products.Pulse-only}} flags the animal in an error message: :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/O71bkyOM_ZuViXbsXWyjd_embryo-error-bred.png" alt caption size="23"}Be sure to check that the recipient animal is correct when you see the \{\{Events.5BRED}} error message.
+    - If an animal is pregnant, the \{\{Events.3000TRANSFER}} event cannot be deleted. If you made an error, first delete the reproduction event (\{\{Events.5BRED}}, \{\{Events.8PREV}}, \{\{Events.6PREG}}, \{\{Events.7OPEN}}, \{\{Events.12ABORT}}, \{\{Events.1FRESH}}, \{\{Events.14SOLD}}, or \{\{Events.15DIED}}), and then delete the \{\{Events.3000TRANSFER}} event.
+    - \{\{masterVAS-Products.Pulse-only}} warns you if you attempt to add a second \{\{Events.3000TRANSFER}} event to the same animal within 7 days.
+    - Transferred embryos default to an unsuccessful status if results are not added within 280 days.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Process Changes
+
+  When you add events from web or the mobile app, your updates are sent to \{\{masterVAS-Products.Pulse-only}} and then on to \{\{DC-UI.DC-ProductName}} for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}} (\{\{Mobile-UI.ConnectionRequired}}).
+
+  When the \{\{General.ProductName-short}} receives the completed \{\{Mobile-UI.EventTypes}} event from the mobile app, it makes the following updates:
+
+  - Records \{\{PlatformContentSnippets.A-An}}\{\{Events.EventName}} event and sets the \{\{EDAY}} to the date the event was completed or diagnosed.
+  - If an embryo from inventory was used for the transfer, moves the embryo from [Embryo Inventory](EmbryoInventory.htm) to the [Transferred Embryos](EmbryoTransferred.htm) tab.
+  - Adds the event details for any new embryos to the [Transferred Embryos](EmbryoTransferred.htm) tab.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Embryo Transfer Results
+
+  After the embryo transfer is completed and processed from either web or mobile, the embryo moves from [Embryo Inventory](EmbryoInventory.htm) to the [Transferred Embryos](EmbryoTransferred.htm) tab. Then, when the recipient animal is checked and confirmed \{\{Events.6PREG}}, \{\{Events.7OPEN}}, \{\{Events.12ABORT}}, \{\{Events.1FRESH}}, \{\{Events.14SOLD}}, or \{\{Events.15DIED}}, the embryo moves to the [Embryo Results](EmbryoResults.htm) tab.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Embryo Transfers in DC305 (for DC Unlimited dairies)
+
+  When \{\{DC-UI.DC-ProdNameShort}} receives a completed \{\{Mobile-UI.EventTypes}} event from \{\{masterVAS-Products.Pulse-only}}, it processes the following changes:
+
+  - Records a \{\{Mobile-UI.EventNameBRED}} event and updates the \{\{RPRO}} status for all completed animals in the \{\{Mobile-UI.EventTypes}}event.:::ExpandableHeading
+
+  ### Click here to learn more about the BRED date and Embryo Age!
+
+  <Paragraph listStyleType="disc" indent="2">
+    If the Embryo \{\{Age}} is defined in the \{\{Mobile-UI.EventTypes}} event, then the BRED event is back-dated based on the Age entered. For example, if the embryo is 7 days old and \{\{today}} is 8/21/19, then \{\{masterVAS-Products.Pulse-only}} TRANSFER event is recorded as 8/21/19, and \{\{DC-UI.DC-ProdNameShort}} will receive a BRED event dated 8/14/19.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/gUyMJI8QsoUfJQA6tTXBx_example-et-bred-trans.png" alt caption}
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    If the Embryo Age is **not** defined in the \{\{Mobile-UI.EventTypes}} event, then the date of the transfer is used for the BRED date.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/lG56YRGFX71hLBMczr9Dw_example-et-trans-only.png" alt caption size="64"}
+    \:::
+  </Paragraph>
+
+  - Assigns the embryo an ID, which is auto-created from the data entered in \{\{masterVAS-Products.Pulse-only}} TRANSFER event. This ID stays with the embryo for the entire duration of the pregnancy.
+  - Records the embryo's \{\{masterVAS-Terminology.s-ire}} ID as the \{\{SIRC}}.
+  - Clears the recipient's \{\{ETDAM}} (donor female) value once the embryo is transferred to the recipient female.
+  - If \{\{DC-UI.DC-ProdNameShort}} receives an embryo transfer event for a **pregnant** animal, it updates the animal's record to show a status of \{\{Vet Code 6 = ABT?}}.
+  - When \{\{DC-UI.DC-ProdNameShort}} later receives a \{\{Events.1FRESH}} event for the recipient female, then the embryo transfer is marked as "successful."
+</ExpandableHeading>

@@ -1,0 +1,43 @@
+---
+title: CALFVACC Event
+slug: calfvacc-event
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:40 GMT+0200 (Eastern European Standard Time)
+---
+
+The \{\{Events.17CALFVACC}} event records a calf's brucellosis vaccination and is often used to assign a tag number to a calf. Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Event Guidelines
+
+  Use the mobile app or the web version of \{\{masterVAS-Products.Pulse-only}} to enter events! Tap \{\{Mobile-UI.EventsFeature}} in the [mobile app](<../../../../../../VAS Platform Help - Table of Contents/mobile-apps.mdx>) to get started, or see :Link[Add Events]{label="Add Events" overridedLabel="Add Events" spaceId docId="sp1fQUQTHg-WLIRXAer4X" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" githubPath="Events.htm#Add" href="Events.htm#Add"} to learn more about adding events from web. \{\{masterVAS-Products.Pulse-only}} supports adding events that have occurred within the last year.
+
+  Expand the topic below to learn more about \{\{Mobile-UI.EventTypes}} event details:
+
+  <ExpandableHeading>
+    ### MTAG
+
+    Use the \{\{MTAG}} field to enter the calf's tag number. You will only have to enter this number for the first calf you add to the event. The app then automatically increments the MTAG number for the next animals you add. The app observes the following guidelines when incrementing this number:
+
+    - The app warns you if you attempt to process any animals that do not have an MTAG number defined. It will not prevent you from processing an animal without an MTAG number; it only cautions you to be certain you intended to leave it blank.
+    - If you need to enter a new number along the way, the app starts incrementing upon the new value.
+    - The app does not warn of duplicate MTAG numbers because some farms may reach a point where they need to begin reusing older tag numbers.
+    - The app may increment the MTAG number based on country-specific rules.
+
+    <ExpandableHeading>
+      ### Show me an example!
+
+      You are vaccinating a group of calves. You scan your first calf, whose \{\{ID}}=10. You are then prompted for an MTAG value, so you enter 93\{\{masterVAS.CompanyName-short}}100. That animal is now done.
+
+      Now, you scan your next calf, whose ID=11. The mobile app automatically assigns the MTAG value for calf ID=11 as the last MTAG value+1, e.g. MTAG=93\{\{masterVAS.CompanyName-short}}10**1**. Every calf you continue to add to this event is assigned the next incremented MTAG value.
+    </ExpandableHeading>
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Process Changes
+
+  When you add events from web or the mobile app, your updates are sent to \{\{masterVAS-Products.Pulse-only}} and then on to \{\{DC-UI.DC-ProductName}} for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}} (\{\{Mobile-UI.ConnectionRequired}}).
+
+  When the updates are received, a \{\{Events.17CALFVACC}} event is added for each completed animal to confirm that it has been checked or rechecked. The \{\{EDAY}} is recorded as the date the event was completed in the mobile app.
+</ExpandableHeading>

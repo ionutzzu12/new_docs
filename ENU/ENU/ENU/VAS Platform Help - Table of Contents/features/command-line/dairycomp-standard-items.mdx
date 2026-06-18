@@ -1,0 +1,146 @@
+---
+title: DairyComp Standard Items
+slug: dairycomp-standard-items
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:49 GMT+0200 (Eastern European Standard Time)
+---
+
+Standard items are available in \{\{DC-UI.DC-ProductName}} to capture specific animal data. Items are either stored or calculated values used by applications that connect to \{\{DC-UI.DC-ProdNameShort}} to generate reports or display animal details. Standard item types can be either default (generally used by all \{\{masterVAS-Terminology.d-airies}}) or pre-defined (for optional use in \{\{masterVAS-Products.Pulse-only}}).
+
+<hint type="info">
+  **NOTE:&#x20;**
+
+  Items are customizable in
+
+  \{\{masterVAS-Products.DC305-simple}}
+
+  , and your
+
+  \{\{masterVAS-Terminology.d-airy}}
+
+  may use additional items not shown here. See the following for item number ranges and their associated types:
+
+  - 1-89: default standard items
+  - 90-1023: custom items, configured in the \{\{masterVAS-Terminology.c-owfile}}
+  - 1024-1999: on-the-fly items, for advanced \{\{masterVAS-Products.DC305-simple}} command line use
+  - 2000+: pre-defined standard items, for use in \{\{masterVAS-Products.Pulse-only}} only
+</hint>
+
+| Item number | Item name   | Description                                                                                                                    | Type                             |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| 1           | \{\{ID}}    | Animal identifier                                                                                                              | default                          |
+| 2           | \{\{PEN}}   | \{\{masterVAS-Terminology.P-en-}} number                                                                                       |                                  |
+| 3           | \{\{VC}}    | Vet code (1-13)                                                                                                                |                                  |
+| 4           | \{\{REG}}   | Animal registration number                                                                                                     |                                  |
+| 5           | \{\{EID}}   | 15-digit electronic ID number associated with the animal eartag                                                                |                                  |
+| 6           | \{\{CBRD}}  | Cattle breed                                                                                                                   |                                  |
+| 7           | \{\{DID}}   | \{\{masterVAS-Terminology.D-am-}} identifier                                                                                   |                                  |
+| 8           | \{\{DREG}}  | \{\{masterVAS-Terminology.D-am-}} USDA or REG number                                                                           |                                  |
+| 9           | \{\{DBRD}}  | \{\{masterVAS-Terminology.D-am-}} breed                                                                                        |                                  |
+| 10          | \{\{SID}}   | \{\{masterVAS-Terminology.S-ire-}} identifier                                                                                  |                                  |
+| 11          | \{\{BDAT}}  | Birth date                                                                                                                     |                                  |
+| 12          | \{\{EDAT}}  | Enrollment date                                                                                                                |                                  |
+| 13          | \{\{LACT}}  | Lactation number                                                                                                               |                                  |
+| 14          | \{\{PSTRH}} | Permanent string or \{\{masterVAS-Terminology.p-en}}                                                                           |                                  |
+| 15          | \{\{RC}}    | Reproductive code (1-8)                                                                                                        |                                  |
+| 16          | \{\{STAT}}  | \{\{DHIA}} (\{\{masterVAS-Terminology.D-airy-}}\{\{masterVAS-Terminology.H-erd-}} Improvement Association) status code (1,2,6) |                                  |
+| 17          | \{\{CAR}}   | Condition affecting record or disposal code                                                                                    |                                  |
+| 18          | \{\{EDAY}}  | Event day                                                                                                                      |                                  |
+| 19          | \{\{EC}}    | Event code (1-64)                                                                                                              |                                  |
+| 20          | \{\{INT}}   | Interval                                                                                                                       |                                  |
+| 21          | \{\{REM}}   | Remark or comment                                                                                                              |                                  |
+| 22          | \{\{SIR1}}  | 1st choice mating \{\{masterVAS-Terminology.s-ire}}                                                                            |                                  |
+| 23          | \{\{SIR2}}  | 2nd choice mating \{\{masterVAS-Terminology.s-ire}}                                                                            |                                  |
+| 24          | \{\{CNTL}}  | Computer number                                                                                                                |                                  |
+| 25          | \{\{LSIR}}  | Last service \{\{masterVAS-Terminology.s-ire}}                                                                                 |                                  |
+| 26          | \{\{SIRC}}  | \{\{masterVAS-Terminology.S-ire-}} of conception                                                                               |                                  |
+| 27          | \{\{TBRD}}  | Times bred                                                                                                                     |                                  |
+| 28          | \{\{HDAT}}  | Heat date                                                                                                                      |                                  |
+| 29          | \{\{FDAT}}  | \{\{masterVAS-Terminology.F-resh-cow-}} date                                                                                   |                                  |
+| 30          | \{\{CDAT}}  | Conception date                                                                                                                |                                  |
+| 31          | \{\{DDAT}}  | Dry date                                                                                                                       |                                  |
+| 32          | \{\{PODAT}} | Pregnant/open date                                                                                                             |                                  |
+| 33          | \{\{PFDAT}} | Previous \{\{masterVAS-Terminology.f-resh-cow}} date                                                                           |                                  |
+| 34          | \{\{PCDAT}} | Previous conception date                                                                                                       |                                  |
+| 35          | \{\{PDDAT}} | Previous dry date                                                                                                              |                                  |
+| 36          | \{\{PCUDT}} | Previous close-up move date                                                                                                    |                                  |
+| 37          | \{\{BLDAT}} | Bullpen entry date                                                                                                             |                                  |
+| 38          | \{\{ABDAT}} | Abortion date                                                                                                                  |                                  |
+| 39          | \{\{ADDAT}} | Abortion determination date                                                                                                    |                                  |
+| 40          | \{\{VDAT}}  | Vet check date                                                                                                                 |                                  |
+| 41          | \{\{TDAT}}  | Test date                                                                                                                      |                                  |
+| 42          | \{\{ETDAM}} | Embryo transfer \{\{masterVAS-Terminology.d-am}}                                                                               |                                  |
+| 43          | \{\{ARDAT}} | Archive date                                                                                                                   |                                  |
+| 44          | \{\{TOTM}}  | Total milk this lactation                                                                                                      |                                  |
+| 45          | \{\{TOTF}}  | Total fat this lactation                                                                                                       |                                  |
+| 46          | \{\{TOTP}}  | Total protein/solids not fat this lactation                                                                                    |                                  |
+| 47          | \{\{RELV}}  | Relative value %                                                                                                               |                                  |
+| 48          | \{\{TPEN}}  | \{\{masterVAS-Terminology.T-estday-}}\{\{masterVAS-Terminology.p-en}} location                                                 |                                  |
+| 49          | \{\{SCC}}   | Somatic cell count                                                                                                             |                                  |
+| 50          | MILK        | Current \{\{masterVAS-Terminology.t-estday}} milk                                                                              |                                  |
+| 51          | \{\{FCM}}   | Current fat corrected milk                                                                                                     |                                  |
+| 52          | \{\{305ME}} | 305 day mature \{\{masterVAS-Terminology.h-erd}} equivalent                                                                    |                                  |
+| 53          | \{\{PCTP}}  | Percent protein/solids not fat                                                                                                 |                                  |
+| 54          | \{\{PCTF}}  | Percent fat                                                                                                                    |                                  |
+| 55          | \{\{MEFAC}} | Mature equivalent factor                                                                                                       |                                  |
+| 56          | \{\{PSIRC}} | Previous lactation \{\{masterVAS-Terminology.s-ire}} of conception                                                             |                                  |
+| 57          | \{\{PDIM}}  | Previous lactation days in milk                                                                                                |                                  |
+| 58          | \{\{PDOPN}} | Previous lactation days open                                                                                                   |                                  |
+| 59          | \{\{PTBRD}} | Previous lactation times bred                                                                                                  |                                  |
+| 60          | \{\{PTOTM}} | Previous lactation total milk                                                                                                  |                                  |
+| 61          | \{\{PTOTF}} | Previous lactation total fat                                                                                                   |                                  |
+| 62          | \{\{PTOTP}} | Previous lactation total protein/solids not fat                                                                                |                                  |
+| 63          | \{\{PVET}}  | Previous vet code                                                                                                              |                                  |
+| 64          | \{\{OLDID}} | Old ID                                                                                                                         |                                  |
+| 65          | \{\{DCCP}}  | Days carried calf at pregnancy check                                                                                           |                                  |
+| 66          | \{\{HINT}}  | Heat interval                                                                                                                  |                                  |
+| 67          | \{\{CALF1}} | Recent identified offspring                                                                                                    |                                  |
+| 68          | \{\{CALF2}} | Previous identified offspring                                                                                                  |                                  |
+| 69          | \{\{CALF3}} | Oldest identified offspring                                                                                                    |                                  |
+| 70          | \{\{CODA}}  | Wildcard 1 byte item any character                                                                                             |                                  |
+| 71          | \{\{COD1}}  | Wildcard 1 byte item (0-255)                                                                                                   |                                  |
+| 72          | \{\{COD2}}  | Wildcard 2 byte item (0-32000)                                                                                                 |                                  |
+| 73          | \{\{XDAT}}  | Wildcard date item                                                                                                             |                                  |
+| 74          | NOTE        | Permanent note                                                                                                                 |                                  |
+| 75          | \{\{DIM}}   | Days in milk                                                                                                                   |                                  |
+| 76          | \{\{DOPN}}  | Days open                                                                                                                      |                                  |
+| 77          | \{\{DDRY}}  | Days dry                                                                                                                       |                                  |
+| 78          | \{\{DUE}}   | Due to \{\{masterVAS-Terminology.f-reshen}}                                                                                    |                                  |
+| 79          | \{\{DCC}}   | Days carrying calf/pregnant                                                                                                    |                                  |
+| 82          | \{\{TODAY}} | Today's date                                                                                                                   |                                  |
+| 83          | \{\{VETC}}  | Reason for vet check                                                                                                           |                                  |
+| 84          | \{\{RPRO}}  | Reproductive code                                                                                                              |                                  |
+| 86          | \{\{DSLH}}  | Days since last heat                                                                                                           |                                  |
+| 87          | \{\{AGE}}   | Age in months                                                                                                                  |                                  |
+| 89          | \{\{TECH}}  | Technician number                                                                                                              |                                  |
+| 2000        | \{\{BFDAT}} | Beef withdrawal date                                                                                                           | pre-defined                      |
+| 2001        | \{\{MKDAT}} | Milk withdrawal date                                                                                                           |                                  |
+| 2002        | \{\{LTDAT}} | Last treatment date                                                                                                            |                                  |
+| 2003        | COST        | Total treatment cost                                                                                                           |                                  |
+| 2004        | \{\{PN}}    | Previous \{\{masterVAS-Terminology.p-en}}                                                                                      |                                  |
+| 2005        | \{\{HPDAT}} | Hospital date                                                                                                                  |                                  |
+| 2006        | \{\{RCDAT}} | Recheck date                                                                                                                   |                                  |
+| 2007        | \{\{THD}}   | Total sick days                                                                                                                |                                  |
+| 2008        | \{\{SCDAT}} | Last scan date                                                                                                                 |                                  |
+| 2009        | \{\{SCTIM}} | Last scan time                                                                                                                 |                                  |
+| 2010        | \{\{SCMTH}} | Last scan method                                                                                                               |                                  |
+| 2011        | \{\{SCPEN}} | Last scan \{\{masterVAS-Terminology.p-en}}                                                                                     |                                  |
+| 2012        | \{\{BNAME}} | Barn name                                                                                                                      |                                  |
+| 2013        | \{\{EASE}}  | Calving ease                                                                                                                   |                                  |
+| 2014        | \{\{CWVAL}} | Cow value                                                                                                                      |                                  |
+| 2015        | \{\{PGVAL}} | Pregnancy value                                                                                                                |                                  |
+| 2016        | \{\{SIR3}}  | \{\{masterVAS-Terminology.S-ire-}} preference 3                                                                                |                                  |
+| 2017        | \{\{SIR4}}  | \{\{masterVAS-Terminology.S-ire-}} preference 4                                                                                |                                  |
+| 2018        | \{\{SYDAT}} | Ovsynch enrollment date                                                                                                        |                                  |
+| 2019        | \{\{CLIV}}  | Calf livability                                                                                                                |                                  |
+| 2020        | \{\{CVACC}} | Calf vaccination                                                                                                               |                                  |
+| 2021        | \{\{SF}}    | Source farm                                                                                                                    |                                  |
+| 2044        | EXPCALF     | Expected Calf                                                                                                                  |                                  |
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Command Line](<../../../../VAS Platform Help - Table of Contents/features/command-line.mdx>)
+  - [LIST (SHOW) Command](ListCmd.htm)
+  - [Item Definitions](../DairyComp/Settings/DC-ItemDefinitions.htm)
+</ExpandableHeading>

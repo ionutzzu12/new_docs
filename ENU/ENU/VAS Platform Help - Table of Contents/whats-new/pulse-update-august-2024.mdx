@@ -1,0 +1,21 @@
+---
+title: PULSE Update - August 2024
+slug: pulse-update-august-2024
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:50 GMT+0200 (Eastern European Standard Time)
+---
+
+NEW FEATURE Create \{\{Buttons-UI.EventDefRemark}} pick lists and enable custom remarks for events! When editing :Link[Event Definitions]{label="Event Definitions" overridedLabel="Event Definitions" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#Edit" loadingMethod="dynamic" newTab="false" githubPath="../../Features/DairyComp/Settings/DC-EventDefinitions.htm#Edit" href="../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"} in \{\{masterVAS-Products.Pulse-only}}, you can now create \{\{Buttons-UI.EventDefRemark}} pick lists and enable custom remarks. This new functionality allows technicians to select a remark from your pre-defined list when adding an event, or they can enter a custom remark if you choose to allow it.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/h0iQFCyDiFf5fvSY51YjH_24-jul-rem-picklist-custom.png" size="45" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/24-jul-rem-picklist-custom.png" githubPath="Content/Resources/Images/Platform/release-notes/24-jul-rem-picklist-custom.png" position="flex-start" showCaption="false"></Image>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/BRqJuvBwi_LMIzJnSMOWn_24-aug-new-user-account.png" size="54" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/24-aug-new-user-account.png" githubPath="Content/Resources/Images/Platform/release-notes/24-aug-new-user-account.png" position="flex-start" showCaption="false"></Image>
+
+ENHANCEMENTNew users are automatically prompted to enter their preferred account settings. When a user creates a \{\{masterVAS-Products.Pulse-only}} account, the system automatically prompts them to set their preferred measurement units (imperial or metric), date/time format, and language. This is a usability improvement, as new users won't need to navigate to [Account Settings](../../Features/Config/EditUserAcct.htm) manually.
+
+## Bug Fixes
+
+- Wrong field label for \{\{Events.12ABORT}} event. The \{\{REM}} label now shows as expected on the \{\{Events.12ABORT}} event entry page.
+- BNAME and REG now accept alpha characters. \{\{masterVAS-Products.Pulse-only}} now accepts alpha characters for an animal's \{\{BNAME}} or \{\{REG}} number (for country code).
+- EXPCALF fix. The EXPCALF item now displays correctly in reports and worklists.
+- `MyDC ONLY`SSF export fix. If applicable, multiple events for the same animal are correctly exported. Previously, \{\{masterVAS-Products.Pulse-only}} limited the export to a single recent event per animal.

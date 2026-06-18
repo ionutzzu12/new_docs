@@ -1,0 +1,59 @@
+---
+title: System Settings
+slug: system-settings
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:45 GMT+0200 (Eastern European Standard Time)
+---
+
+The \{\{Buttons-UI.FeaturesTertiary}} page allows you to customize general \{\{masterVAS-Terminology.c-onfiguration}} options that define how your \{\{masterVAS-Terminology.d-airy}} uses \{\{masterVAS-Products.AllProductNames}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/5UV8eCxe4e6MpqxO87X0z_fcp-settings-system.png" size="58" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/web/fcp-settings-system.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/web/fcp-settings-system.png" position="flex-start" showCaption="false"></Image>
+
+Expand the sections below to learn more:
+
+<ExpandableHeading indent="2">
+  ## Edit Start of Day for Feeding
+
+  By default, \{\{masterVAS-Products.FeedComp}} automatically restarts the feeding schedule at 12:00 AM. If you'd like to change the time when \{\{masterVAS-Products.FeedComp}} restarts the feeding schedule, update the time and then click the blue check mark
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/_t6VuNFYpunsmxMeyzyQs_checkmark-blue25x25.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/icons/checkmark-blue_25x25.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/icons/checkmark-blue_25x25.png" position="flex-start" showCaption="false"></Image>
+
+  on the right to save your changes.
+</ExpandableHeading>
+
+<ExpandableHeading indent="2">
+  ## Reset Feeding Schedule
+
+  If you've already completed \{\{today}}'s feedings but need to perform an after-hours feeding before tomorrow's :Link[Start of Day for Feeding]{label="Start of Day for Feeding" overridedLabel="Start of Day for Feeding" spaceId docId="Scf_oKAgI4-qedjJ8K14l" version="v2" docAnchorId="#edit" loadingMethod="dynamic" newTab="false" href="system-settings.mdx"}, you can \{\{Commands.click}}**Reset** to manually reset the feeding schedule.
+
+  Resetting the feeding schedule has these effects:
+
+  <ExpandableHeading indent="2">
+    ### FeedComp on PULSE Web App
+
+    - On the [Feedings](FCP-Feedings.htm) page:\* Any :Link[split feedings]{label="split feedings" overridedLabel="split feedings" spaceId docId="ZnD-2aIRbRK5oTUU59QGY" version="v2" docAnchorId="#splitfeedingdetails" loadingMethod="dynamic" newTab="false" githubPath="FCP-Feedings.htm#splitfeedingdetails" href="FCP-Feedings.htm#splitfeedingdetails"} are recalculated.
+      - All feedings reset to pending.
+    - On the [Feed History](FCP-Reports-FeedHistory.htm) report:\* All pending feedings reset to missing.
+      - Any overnight loads from the last feeding remain paused.
+      - Any overnight loads prior to the last feeding are aborted.
+      - All feedings in progress reset to pending.
+  </ExpandableHeading>
+
+  <ExpandableHeading indent="2">
+    ### FeedComp Mobile App
+
+    - On the [Feedings](../mobile/FCM-Feedings.htm) screen, all feedings reset to pending.
+    - On the :Link[Feeding History]{label="Feeding History" overridedLabel="Feeding History" spaceId docId="EgGjILyt4px-Lp9R18n71" version="v2" docAnchorId="#feed" loadingMethod="dynamic" newTab="false" githubPath="../mobile/FCM-Reports.htm#feed" href="../mobile/FCM-Reports.htm#feed"} report:\* All pending feedings reset to missing.
+      - Any overnight loads from the last feeding remain paused.
+      - Any overnight loads prior to the last feeding are aborted.
+      - All feedings in progress reset to pending.
+  </ExpandableHeading>
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x54;his feature is disabled when feedings are in progress. See [Editing Restrictions](FCP-Settings-EditingRestrictions.htm) to learn more.
+  </hint>
+</ExpandableHeading>
+
+<hint type="info">
+  **TIP:&#x20;**&#x59;ou're currently viewing \{\{masterVAS-Terminology.h-elp}} for \{\{FeedComp.FeedCompFeatures-Lower}} in \{\{masterVAS-Products.AllProductNames}}. [Click here to see online help for settings in the FeedComp mobile app.](<../../../Mobile Apps/FeedComp App/make-adjustments.mdx>)
+</hint>

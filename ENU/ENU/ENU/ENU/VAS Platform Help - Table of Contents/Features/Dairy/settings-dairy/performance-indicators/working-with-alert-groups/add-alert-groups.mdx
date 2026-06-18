@@ -1,0 +1,43 @@
+---
+title: Add Alert Groups
+slug: add-alert-groups
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature. See [Edit Dairy User Permissions](../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+Click the **Add Alert Group** button on the [Alert Groups](<../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/settings-dairy/performance-indicators/working-with-alert-groups.mdx>) page to open a side panel and add a new alert group for your \{\{masterVAS-Terminology.d-airy}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/fBsOTCa2VmVKfMMOC4i3J_indicators-tab-alerts-subtab-add-intro.png" size="59" isUploading="false" initialPath="../../../Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-add-intro.png" githubPath="Content/Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-add-intro.png" position="flex-start" showCaption="false"></Image>
+
+You cannot add or edit alert groups until \{\{PlatformContentSnippets.PerformanceIndicators-AlertsAndThresholds}} are enabled in \{\{masterVAS-Products.Pulse-only}} and at least one \{\{PlatformContentSnippets.PerformanceIndicators-AlertThresholdValue}} is entered on the [Indicators](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Settings (Dairy)/Performance Indicators/working-with-indicators.mdx>) page for your \{\{masterVAS-Terminology.h-erd}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/KUNJ_YHM0EwMTrlJ5v2wx_indicators-tab-alerts-subtab-disabled.png" size="58" isUploading="false" initialPath="../../../Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-disabled.png" githubPath="Content/Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-disabled.png" position="flex-start" showCaption="false"></Image>
+
+See [Step 1: Enable & Set Up Health Indicators](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Settings (Dairy)/Performance Indicators/Set Up Health Indicators and Alerts/step-1-enable-and-set-up-health-indicators.mdx>) and [Step 2: Enter Alert Thresholds](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Settings (Dairy)/Performance Indicators/Set Up Health Indicators and Alerts/step-2-enter-alert-thresholds.mdx>) for instructions.
+
+See the guidelines below to learn more about adding alert group details.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/aRX7CSp7KyUTNDLkWtcuS_indicators-tab-alerts-subtab-add.png" size="55" isUploading="false" initialPath="../../../Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-add.png" githubPath="Content/Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-add.png" position="flex-start" showCaption="false"></Image>
+
+- All required fields are marked with the **\*** (asterisk) symbol.
+- The **Indicators to Track** section allows you to include one or more \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s to track across your \{\{masterVAS-Terminology.h-erd}} for the new alert group. The total number of \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s being tracked by the alert group displays at the top right of this section once one or more \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s have been added.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zKwGmgNxU_0OV9oGf1sGS_indicators-tab-alerts-subtab-add-omcm.png" alt caption size="42"}You can click the **X** next to an \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}} to remove it, or click **Clear All** to stop tracking all \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s in the alert group. Click **Add more indicators** to track additional \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s in this alert group.
+- The **Users to Notify** section allows you to select one or more members of your \{\{masterVAS-Terminology.d-airy}} team to notify when a tracked event occurs. Once one or more users are added, the total number of users receiving notifications displays at the top right of this section.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/lBgu_3FbTq01Aw-GrJ2zj_indicators-tab-alerts-subtab-add-users-slct2.png" size="40" isUploading="false" initialPath="../../../Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-add-users-slct2.png" githubPath="Content/Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-add-users-slct2.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<hint type="info" indent="2">
+  **NOTE:&#x20;**\{\{masterVAS-Products.Pulse-only}} sends notifications for alert groups only by text or email. Alert group notifications are not added to the [Message Center](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/User Menu/message-center.mdx>) or to the [Notifications button](<../../../../../../../../../VAS Platform Help - Table of Contents/FAQs/Using PULSE/how-do-notifications-work.mdx>) as a new activity badge.
+  \:::Check the **SMS** and **Email** boxes to send notifications to users as text messages, emails, or both. You can click the **X** next to a user's name to remove them, or click **Clear All** to stop all users from receiving notifications for the alert group. Click **Add more users** to notify more users in this alert group.:::hint\{type="info"}
+  **NOTE:&#x20;**&#x54;he **SMS** box cannot be checked for a user who does not have a mobile phone number listed in account settings. Additionally, \{\{masterVAS-Products.Pulse-only}} cannot send SMS alerts to international phone numbers at this time, but they can still receive email alerts!
+</hint>
+
+- The **Time Preferences** section shows the time of day when \{\{masterVAS-Products.Pulse-only}} examines \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s for your \{\{masterVAS-Terminology.h-erd}} and notifies your \{\{masterVAS-Terminology.d-airy}} team. The time specified is in your local \{\{masterVAS-Terminology.d-airy}}'s time \{\{zone}}. Select the preferred time of day in the **Hour** and **Minutes** fields.:::hint\{type="info"}
+  **NOTE:&#x20;**&#x54;he time specified here combines with the period selected when setting up indicators on [Indicators](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Settings (Dairy)/Performance Indicators/working-with-indicators.mdx>) page, and these settings determine how often \{\{masterVAS-Products.Pulse-only}} examines \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s and notifies your \{\{masterVAS-Terminology.d-airy}} team. At the time specified, \{\{masterVAS-Products.Pulse-only}} examines the \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s for your \{\{masterVAS-Terminology.d-airy}} first and then alerts your \{\{masterVAS-Terminology.d-airy}} team after processing completes. Depending on the size of your \{\{masterVAS-Terminology.d-airy}} and the number of \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s being tracked by this alert group, alerts may not be sent or received exactly at the time specified.
+  \:::
+- Once you've added the information, click **Save**. The [Alert Groups](<../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/settings-dairy/performance-indicators/working-with-alert-groups.mdx>) page is displayed and \{\{masterVAS-Products.Pulse-only}} displays a message indicating that your new alert group was added.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/8zX1anwpWLKhMaIvnKzAU_indicators-tab-alerts-subtab-added-msg.png" alt caption size="59"}

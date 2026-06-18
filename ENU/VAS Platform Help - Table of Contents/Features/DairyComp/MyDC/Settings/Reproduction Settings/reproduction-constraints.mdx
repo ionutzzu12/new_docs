@@ -1,0 +1,84 @@
+---
+title: Reproduction Constraints
+slug: reproduction-constraints
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:43 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  All users assigned to a role with \{\{RolesPermissions.PermissionNames}} permissions can view this feature.Only users who are assigned a role with \{\{RolesPermissions.PermissionNames}} permissions can edit data or customize settings.
+
+  See the topics below to learn more:
+
+  - [Know Your VAS PULSE Version](../../../GetStarted/KnowYourPulse.htm)
+  - [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm)
+  - [Manage Dairy Roles](<../../../../Manage Dairy Users and Roles/manage-dairy-roles.mdx>)
+</ExpandableHeading>
+
+The settings within the Reproduction Constraints page are used to manage the limits and warnings the system uses when reproductive events are entered. The settings on this page are broken down into specific breeding and \{\{masterVAS-Terminology.f-reshening}} categories to make them easier to understand and apply.
+
+You can find this feature under the :Link[DairyComp/MyDC menu]{label="DairyComp/MyDC menu" overridedLabel="DairyComp/MyDC menu" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp" href="../../../../../../ENU/VAS Platform Help - Table of Contents/navigate-pulse/menu-options.mdx"} > :Link[Settings]{label="Settings" overridedLabel="Settings" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp" href="../../../../../../ENU/VAS Platform Help - Table of Contents/navigate-pulse/menu-options.mdx"} option on the \{\{Buttons-UI.FeaturesSecondary}} tab.
+
+<ExpandableHeading>
+  ## General Breeding
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/QEHIJMvw14W-Malh2DcTC_generalbreeding.png" size="40" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/GeneralBreeding.png" githubPath="Content/Resources/Images/Platform/dairycomp/GeneralBreeding.png" position="flex-start" showCaption="false"></Image>
+
+  **Voluntary Wait Period:** In this field, enter the number of days that should pass before another reproductive event is entered for an animal. Entering a reproduction event for an animal prior to the amount of days specified here will result in a warning message before the event can proceed.
+
+  \{\{masterVAS-Terminology.S-ire-}}**&#x20;Mating Strategy:** Use the buttons to choose how the per-animal \{\{masterVAS-Terminology.s-ire}} preference items are used on your \{\{masterVAS-Terminology.d-airy}}. Choose either *Prefer mating with the specified&#x20;*\{\{masterVAS-Terminology.s-ires}} or *Never mate with the specified&#x20;*\{\{masterVAS-Terminology.s-ires}}.
+
+  **Minimum Days Since Last Heat for Pregnancy Entry:** In this field, enter the minimum number of days since the last heat event before a pregnancy can be entered. This value must be between 1-100 days.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Heifer Breeding
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/utmhp1--JTLDZTiX4wlF9_heiferbreeding.png" size="16" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/HeiferBreeding.png" githubPath="Content/Resources/Images/Platform/dairycomp/HeiferBreeding.png" position="flex-start" showCaption="false"></Image>
+
+  **Minimum&#x20;**\{\{Age}}**&#x20;in Months:&#x20;**&#x49;n this field, enter the minimum age of a heifer before entering a \{\{Events.5BRED}} event. This value must be between 1-48 months.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Cow Breeding
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/6A5srnHEKmBobmZOqxok__cowbreeding.png" size="26" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/CowBreeding.png" githubPath="Content/Resources/Images/Platform/dairycomp/CowBreeding.png" position="flex-start" showCaption="false"></Image>
+
+  **Minimum Days in Milk:** In this field, enter the minimum days since the last \{\{masterVAS-Terminology.f-reshening}}/calving before entering a Bred event for an animal. This value must be between 1-100 days.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## General Freshening/Calving
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/7-Jgllk1npQWsKhK46hLL_generalfresh.png" size="30" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/GeneralFresh.png" githubPath="Content/Resources/Images/Platform/dairycomp/GeneralFresh.png" position="flex-start" showCaption="false"></Image>
+
+  **Minimum Days Carried Calf for an Abort to Start a New Lactation:** Enter the minimum \{\{DCC}} that an animal must reach in order to be eligible for an abort diagnosis to result in a new lactation.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Heifer Freshening/Calving
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/omfj-M0GloYqwaKWdR-NX_heiferfresh.png" size="20" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/HeiferFresh.png" githubPath="Content/Resources/Images/Platform/dairycomp/HeiferFresh.png" position="flex-start" showCaption="false"></Image>
+
+  **Minimum Age in Months:** In this field, enter the minimum age of a heifer before a \{\{Events.1FRESH}} event can occur. This value must be between 4-400 months.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Cow Freshening/Calving
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zTJ5DLNkYTADbCvdYnaMi_cowfreshcalving.png" size="45" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/CowFreshCalving.png" githubPath="Content/Resources/Images/Platform/dairycomp/CowFreshCalving.png" position="flex-start" showCaption="false"></Image>
+
+  **Warn When Not Dry:** Use this switch to display a warning when attempting to enter a \{\{Events.1FRESH}} event for a cow that is not dry.
+
+  **Minimum Days in Milk:** In this field, enter the minimum number of days since the last \{\{masterVAS-Terminology.f-reshening}}/calving before the next \{\{Events.1FRESH}} event can occur. This value must be between 100-400 days.
+
+  **Minimum Days Dry:** In this field, enter the minimum number of dry days expected before the next \{\{Events.1FRESH}} event can occur. This value must be between 0-560 days.
+
+  **Minimum Days Carried Calf:** In this field, enter the minimum expected duration of pregnancy before the next \{\{Events.1FRESH}} event can occur. This value must be between 140-410 days.
+
+  **Maximum Days Carried Calf:** In this field, enter the maximum expected duration of pregnancy before the next \{\{Events.1FRESH}} event can occur. This value must be between 150-410 days.
+
+  **Minimum Days in Milk for an Open Cow:** In this field, enter the minimum number of days since the last \{\{masterVAS-Terminology.f-reshening}}/calving before entering a \{\{Events.1FRESH}} event for an Open animal. This value must be between 1-400 days.
+</ExpandableHeading>

@@ -1,0 +1,79 @@
+---
+title: Inventory & Projections
+slug: inventory-and-projections
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:45 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x54;o use this feature, your \{\{masterVAS-Terminology.d-airy}} must integrate \{\{Buttons-UI.FeaturesMain}} with the \{\{General.ProductName}}.The edit options for this feature are available in \{\{masterVAS-Products.FeedWatchOnPremise}} desktop application version 9.2.10 or greater. If necessary, contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) to complete the integration or upgrade to the latest version of \{\{masterVAS-Products.FeedWatchOnPremise}}.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  To use this feature, your \{\{General.ProductName}} user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+The **Inventory & Projections** page tracks how much feed inventory your \{\{masterVAS-Terminology.d-airy}} has on hand and projects how much is needed over a specified number of days. It also alerts you to any inventory that is running low and how much of each item remains. You can find this feature under the :Link[Menu Options]{label="Menu Options" overridedLabel="Menu Options" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-FeedWatchOnPremise" loadingMethod="dynamic" newTab="false" githubPath="../../NavPlatform/Menu.htm#Menu-FeedWatchOnPremise" href="../../navigate-pulse/menu-options.mdx"}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/jkGPcpq8GI4V0rkrX5Kzc_inventory-projections-main-crop.png" size="56" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/inventory-projections-main-crop.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/inventory-projections-main-crop.png" position="flex-start" showCaption="false"></Image>
+
+<ExpandableHeading>
+  ### Is the Inventory list long? Sort it!
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x46;or \{\{masterVAS-Terminology.d-airies}} with a long inventory list, you can click the column titles to sort by ingredient type, cost, quantity, and days left. Click the **Name** column title to re‑sort the list in alphabetical order by Name.
+  </hint>
+</ExpandableHeading>
+
+1. **View Alerts:&#x20;**&#x51;uickly scan the page for inventory alerts:\* Check the top of the page for a list of urgent alerts
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/xFywmM5Knq34C-CklulJt_alert-red-info.png" size="10" caption="urgent alert" alt="urgent alert" isUploading="false" initialPath="../../../Resources/Images/icons/alert-red-info.png" githubPath="Content/Resources/Images/icons/alert-red-info.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+<Paragraph indent="1">
+  on inventory that is running low. All items listed at the top of the page will be depleted within the next 5 days and may need priority attention when reordering.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/8yDVYNvOK-i8nNKDUctoz_inv-alert-urgent.png" alt caption size="35"}
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  All urgent alerts that are listed at the top of the page are also flagged in the inventory list below. Inventory with an urgent alert is within 0‑5 days of running out. Inventory with the caution alert
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RrFPxAMJe8OG3dKXJkzgK_alert-orange-info.png" size="10" caption="caution alert" alt="caution alert" isUploading="false" initialPath="../../../Resources/Images/icons/alert-orange-info.png" githubPath="Content/Resources/Images/icons/alert-orange-info.png" position="flex-start" showCaption="true" indent="3"></Image>
+
+<Paragraph indent="2">
+  is within 6‑10 days of running out.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RIRNOZ82Sisa0uuDuKP6N_inv-alert-important.png" alt caption size="25"}
+</Paragraph>
+
+2. **View Inventory Details:&#x20;**&#x54;he following details are available for each inventory item:\* **Name:&#x20;**&#x49;nventory name as defined in \{\{masterVAS-Products.FeedWatchOnPremise}}. Click on the inventory name to view ingredient details. Note that this action takes you into the :Link[ingredient  Details]{label="ingredient  Details" overridedLabel="ingredient  Details" spaceId docId="2qPNJ_MJBUJ4uJc0qopDZ" version="v2" docAnchorId="#ingred-details" loadingMethod="dynamic" newTab="false" githubPath="FeedWatchPlatform-IngredientsList.htm#ingred-details" href="../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/ingredients.mdx"} page under \{\{masterVAS-Products.Pulse-only}} Ingredients list (the breadcrumbs links at the top of the page will help you find your current location). To return to the \{\{Buttons-UI.FeaturesSecondary}} page, simply select it again from the \{\{Buttons-UI.FeaturesMain}} main menu.
+   - **Type:&#x20;**&#x54;he inventory type is shown in a color‑coded label. The predefined types are Forage, Protein, Concentrate, Additive, Mineral, and Premix. Any type that does not belong to one of these categories is displayed with the color‑coded label for Other ingredient types (for example, Grain, Hi-Fiber, Fat, etc.).
+   - **Location:&#x20;**&#x4C;ocation of the inventory. If an inventory item is stored in multiple locations, you will see **All** listed in this column and can \{\{Commands.click}} the expand arrow to view all other locations. See :Link[View Inventory with Multiple Locations]{label="View Inventory with Multiple Locations" overridedLabel="View Inventory with Multiple Locations" spaceId docId="md2bS6SmzCO-QPj9_PKPl" version="v2" docAnchorId="#View_Inventory_with_Multiple_Locations" loadingMethod="dynamic" newTab="false" href="inventory-and-projections.mdx"} below.
+   - \{\{AF}}**&#x20;Qty (Tons):&#x20;**&#x41;s‑fed quantity in tons.
+   - **AF&#x20;**\{\{Cost/Ton}}**:&#x20;**&#x41;s‑fed cost per ton.
+   - **Daily AF:&#x20;**&#x41;mount used daily as‑fed.
+   - **Next 30 Days (Tons):&#x20;**&#x50;rojected amount needed (in tons) over the next 30 days.
+   - **Next 60 Days (Tons):&#x20;**&#x50;rojected amount needed (in tons) over the next 60 days.
+   - **Next 90 Days (Tons):&#x20;**&#x50;rojected amount needed (in tons) over the next 90 days.
+   - **Days Left:&#x20;**&#x45;stimated days remaining before the inventory runs out. This estimation is based on \{\{masterVAS-Products.FeedWatchOnPremise}} values. If a feeder uses too much/little of an ingredient or the inventory is not accurate, this date may be incorrect. Be sure to check your actual inventory if this date seems unreasonable.:::hint\{type="warning"}
+     **IMPORTANT:&#x20;**&#x54;he quantities and projections on this page are based on the \{\{masterVAS-Terminology.d-airy}}'s active recipes. Be sure to check the related recipes for any adjustments you might need to make.
+     \:::
+3. **View Inventory with Multiple Locations:&#x20;**&#x49;f you see an expand arrow to the left of an inventory name, it means that the ingredient is stored in multiple locations. Click the arrow to expand the inventory item and view all locations.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/H-tY5lKXYinP-oZtbKY2O_inventory-projections-expanded.png" alt caption size="58"}For inventory with multiple locations, the top‑level row displays the following information:\* **All** for **Location**, meaning that the top row represents all locations.
+   - Total **AF Qty (Tons)** for all locations.
+   - Weighted average for **AF Cost / Ton** across all locations.
+   - Total **Daily AF** for all locations.
+   - Lowest number of days left for 30‑, 60‑, and 90‑day projections.
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Ingredients](<../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/ingredients.mdx>)
+  - [Recipes List](recipes-list.mdx)
+  - [Recipe Details and Adjustments](<../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/Recipes/recipe-details-and-adjustments.mdx>)
+  - [Location DM% Adjustments](location-dmpercent-adjustments.mdx)
+  - [Bunk Scoring](<../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/bunk-scoring.mdx>)
+  - [Export to Equipment](FeedWatchPlatform-ExporttoEquip.htm)
+</ExpandableHeading>

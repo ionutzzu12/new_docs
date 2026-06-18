@@ -1,0 +1,51 @@
+---
+title: Events with Protocols
+slug: events-with-protocols
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:38 GMT+0200 (Eastern European Standard Time)
+---
+
+Some events allow you to select a treatment \{\{Protocols.Protocol-common}}, such as drugs to be administered or treatments that should be applied to the animal's hooves or udder. For \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}, \{\{masterVAS-Products.Pulse-only}} works together with \{\{DC-UI.DC-ProductName}} and \{\{MorphHelp.CowCare}} to include all of your \{\{masterVAS-Terminology.d-airy}}'s configured \{\{Protocols.Protocol-common}}s when entering these events in the mobile app.
+
+Follow these guidelines when entering events with \{\{Protocols.Protocol-common}}s:
+
+1. If you are entering an event that includes \{\{Protocols.Protocol-common}}s, you will see the \{\{Protocols.Protocol-singular}} field as an option for each animal in the event.
+2. Tap the \{\{Protocols.Protocol-singular}} field to view the available \{\{Protocols.Protocol-common}}s.Note that the mobile app filters the list of \{\{Protocols.Protocol-common}}s based on the event you are entering, as well as the type of animal you selected (heifer or adult). Some \{\{Protocols.Protocol-common}}s are available only for heifers, some for adults, and some are available for both.For each \{\{Protocols.Protocol-common}}, the app displays the corresponding Milk and Meat withholdings. It also displays the remark that will be auto-filled for this animal when you choose this \{\{Protocols.Protocol-common}}, as well as the \{\{masterVAS-Terminology.p-en}} to which animals on this \{\{Protocols.Protocol-common}} should be moved.
+3. If you select a \{\{Protocols.Protocol-common}} that requires you to choose which hoof or quarter of the udder is affected, the app opens a screen where you can choose the quarter(s).1) Select which quarter(s) the \{\{Protocols.Protocol-common}} affects. Note that the options you see on this screen may vary based on \{\{DC-UI.DC-ProductName}}'s configured character limit for the Remark field. The labels you see here may also be different from those listed below, but the typical ones are:\* **ALL** - Selects all quarters/quadrants
+   - **LF** - **L**eft **F**ront hoof or teat
+   - **RF** - **R**ight **F**ront hoof or teat
+   - **LH** - **L**eft **H**ind hoof or teat
+   - **RH** - **R**ight **H**ind hoof or teat:::hint\{type="info"}
+     **NOTE:&#x20;**&#x54;he labels for quarters/quadrants can be customized in \{\{masterVAS-Products.Pulse-only}} [Animal Configuration](../DairyComp/Settings/DC-AnimalConfiguration.htm) settings or in \{\{DC-UI.DC-ProdNameShort}} for \{\{masterVAS-Products.DCUnlimited-short}} \{\{masterVAS-Terminology.d-airies}}.
+
+<ExpandableHeading indent="2">
+  ### Click here to learn more about REM field length and quarter/quadrant selection!
+
+  The length of the remark field may be 16 or 8 characters, depending on your \{\{masterVAS-Terminology.d-airy}} type/item table \{\{masterVAS-Terminology.c-onfiguration}}. \{\{masterVAS-Products.MyDC-short}}\{\{masterVAS-Terminology.d-airies}} support 16-character remarks. \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}} can support 16-character remarks if they have adequate item table storage space. If a \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airy}} has limited item table storage space, it can only support 8-character remarks. Follow the guidelines below and learn how quarter/quadrant selection works for specific events:
+
+  - \{\{Events.30MAST}} and \{\{Events.32LAME}} events:\* 16-character \{\{REM}}: Choose 1, 2, 3, or all quarters/quadrants for MAST and LAME events.
+    - 8-character REM: Choose 1 or all quarters/quadrants for MAST and LAME events.
+  - \{\{Events.21CULTURE}} events: Choose either 1 or all quarters to follow best practices for this event type, irrespective of the REM field length.
+    \:::
+
+  2. After you select the quarter(s), tap the **Continue** button at the bottom of the screen.
+</ExpandableHeading>
+
+After you tap **Continue**, the app returns you to the event screen, where you will see the following updates:
+
+- The event \{\{Protocols.Protocol-singular}} field displays your chosen \{\{Protocols.Protocol-common}}.
+- The **Remark** field is auto-populated based on the \{\{Protocols.Protocol-common}} you selected. You can edit the remark further after the app inserts it.
+- If the \{\{Protocols.Protocol-common}} you selected defined a *Go To&#x20;*\{\{masterVAS-Terminology.P-en-}} number, the app automatically inserts that \{\{masterVAS-Terminology.p-en}} number in the event's \{\{masterVAS-Terminology.P-en-}} field. In this case, you cannot edit the new \{\{masterVAS-Terminology.p-en}} assignment for this animal because the \{\{Protocols.Protocol-common}} defines the required \{\{masterVAS-Terminology.p-en}}.
+
+<hint type="warning">
+  **IMPORTANT:&#x20;**&#x57;hen you are adding animals in bulk to an event that allows \{\{Protocols.Protocol-common}}s, the information in the \{\{Protocols.Protocol-singular}} and Remark fields will **not** carry forward to other animals as you add them. Because \{\{Protocols.Protocol-common}} treatments are specific to each animal, the app requires you to define them individually for each animal you add to the event. See :Link[Save Time when Adding Animals in Bulk]{label="Save Time when Adding Animals in Bulk" overridedLabel="Save Time when Adding Animals in Bulk" spaceId docId="aEhwxYbuecaFP9Ctr3Y5S" version="v2" docAnchorId="#SaveTimeBulkEntries" loadingMethod="dynamic" newTab="false" githubPath="TipsEventEntry.htm#SaveTimeBulkEntries" href="TipsEventEntry.htm#SaveTimeBulkEntries"} for more information.
+</hint>
+
+To learn more about a specific \{\{Protocols.Protocol-common}}, you can log into the web version of \{\{masterVAS-Products.Pulse-only}} and view the [Protocols](../DairyComp/Settings/DC-Settings-Protocols.htm) list.
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [User-Defined Events (for DC Unlimited Dairies)](UserEvents.htm)
+  - [Protocols](../DairyComp/Settings/DC-Settings-Protocols.htm)
+</ExpandableHeading>

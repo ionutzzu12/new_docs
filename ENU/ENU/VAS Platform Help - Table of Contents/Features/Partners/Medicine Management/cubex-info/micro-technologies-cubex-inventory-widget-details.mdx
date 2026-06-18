@@ -1,0 +1,53 @@
+---
+title: Micro Technologies Cubex Inventory Widget Details
+slug: micro-technologies-cubex-inventory-widget-details
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### How do I add a widget to my Dashboard or Overview Page?
+
+  To add this widget to your Dashboard or \{\{masterVAS-Terminology.O-verview-}} page, check the box for it under the \{\{masterVAS-Terminology.H-erd-}} category in the [Page Customization](<../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Dashboard/customize-dashboards.mdx>) options.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/TuIJmnysRkH8gPLF6ZKTr_herd-widgets.png" size="43" isUploading="false" initialPath="../../Resources/Images/Platform/dashboard/herd-widgets.png" githubPath="Content/Resources/Images/Platform/dashboard/herd-widgets.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### What permissions do I need to add this widget?
+
+  To add this widget to a Dashboard or \{\{masterVAS-Terminology.O-verview-}} Page, your user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+The \{\{Widgets.Cubex}} widget includes key \{\{General.CompanyName-short}} animal events, such as diagnoses and treatment protocols, as well as drug supply and usage information from \{\{Partners.Cubex}}. View the example below for more information on the data shown in the widget.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/tfKpmr8Dj-0DQZ_8VeM-9_cubex-widget.png" size="72" isUploading="false" initialPath="../../Resources/Images/Partners/cubex/cubex-widget.png" githubPath="Content/Resources/Images/Partners/cubex/cubex-widget.png" position="flex-start" showCaption="false"></Image>
+
+1. **Premise Tab:** If your \{\{masterVAS-Terminology.d-airy}} has multiple \{\{Partners.Cubex}} instances installed, each site displays on its own tab with the Premise Alias name. For more information on editing the alias, see :Link[Premise Mapping]{label="Premise Mapping" overridedLabel="Premise Mapping" spaceId docId="IW6k5b529PTSOaMOYbG5m" version="v2" docAnchorId="#PremMap" loadingMethod="dynamic" newTab="false" githubPath="cubex-map.htm#PremMap" href="cubex-premise-and-medicine-mapping.mdx"}.
+2. **View:&#x20;**&#x43;hoose to view widget data for the last 7 or 30 days.
+3. **Drug Name:&#x20;**&#x4D;edicine name from \{\{Partners.Cubex}}.
+4. **Event:&#x20;**\{\{DC-UI.DC-ProductName}} Event name. See [Event Definitions](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>) for a complete list of Events for your \{\{masterVAS-Terminology.d-airy}}.
+5. \{\{Protocol}}**:&#x20;**\{\{DC-UI.DC-ProductName}} Protocol name. See [Protocols](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/Health Settings/8k1I-protocols.mdx>) for a complete list of Protocols for your \{\{masterVAS-Terminology.d-airy}}.
+6. **Animals on Protocol:&#x20;**&#x54;otal number of animals on the treatment protocol for the selected date range.
+7. **New Cases:&#x20;**&#x54;otal number of new cases diagnosed in the selected date range.
+8. **Checked Out:&#x20;**&#x41;mount of medicine checked out from \{\{Partners.Cubex}} inventory.
+9. **Total Given:&#x20;**&#x54;otal amount of medicine used to treat animals recorded during \{\{DC-UI.DC-ProductName}} event entry.
+10. **In the Field:&#x20;**&#x41;mount of medicine checked out from inventory, minus the total given.
+11. **Protocols Link:&#x20;**&#x46;ollow this link to view [Protocols](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/Health Settings/8k1I-protocols.mdx>) for your \{\{masterVAS-Terminology.d-airy}}.
+12. **Unmapped Medicines:&#x20;**&#x49;f any medicines from the \{\{Partners.Cubex}} inventory are not mapped to a \{\{MorphHelp.CowCare}} drug, a message displays here to notify you that a mapping is required. Click the link to access the :Link[Medicine Mapping]{label="Medicine Mapping" overridedLabel="Medicine Mapping" spaceId docId="IW6k5b529PTSOaMOYbG5m" version="v2" docAnchorId="#MedMap" loadingMethod="dynamic" newTab="false" githubPath="cubex-map.htm#MedMap" href="cubex-premise-and-medicine-mapping.mdx"} page.
+13. **Unit Conflict:&#x20;**&#x41; message displays here if unit of measurement conflicts are detected. This occurs if multiple \{\{Partners.Cubex}} medicines are mapped to a single \{\{MorphHelp.CowCare}} medicine and the units of measurement do not match between the mapped Cubex drugs. For example, if one Cubex medicine is measured in milliliters and another is measured in grams, a conflict would result. When a unit conflict exists, the In the Field amount cannot be calculated, and the value displays as a dash (-).::::ExpandableHeading
+
+### How do I fix unit conflicts?
+
+<Paragraph indent="1">
+  Click the link to access the :Link[Medicine Mapping]{label="Medicine Mapping" overridedLabel="Medicine Mapping" spaceId docId="IW6k5b529PTSOaMOYbG5m" version="v2" docAnchorId="#MedMap" loadingMethod="dynamic" newTab="false" githubPath="cubex-map.htm#MedMap" href="cubex-premise-and-medicine-mapping.mdx"} page and make corrections. For example, if a Cubex drug was mapped to the wrong CowCare medicine, click the option to unmap it. Then, map it to the correct medicine.
+  If the unit conflict is the result of mismatched medicine details in Cubex, correct the assigned units in the Cubex system.
+</Paragraph>
+
+<hint type="info" indent="2">
+  **NOTE:&#x20;**&#x54;he unit conflict message will continue to display until the selected view date range no longer includes mixed units. This means that if you corrected the units on a medicine 8 days ago, the conflict shows as resolved when viewing widget data for the last 7 days, but persists when viewing widget data for 30 days.
+</hint>
+
+<Paragraph indent="1">
+  \::::
+</Paragraph>

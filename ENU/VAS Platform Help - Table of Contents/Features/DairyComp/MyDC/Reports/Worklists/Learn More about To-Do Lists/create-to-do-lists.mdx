@@ -1,0 +1,94 @@
+---
+title: Create To-Do Lists
+slug: create-to-do-lists
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+Before you can process your \{\{Worklists.ToDoCommonUse}}s in \{\{masterVAS-Products.Pulse-only}} or the mobile app, you must first generate them in \{\{masterVAS-Products.Pulse-only}}, or set them up in \{\{DC-UI.DC-ProdNameShort}} with the \K switch and then send them to \{\{masterVAS-Products.Pulse-only}}. \{\{masterVAS-Products.Pulse-only}} then sends them out to the mobile app in its next \{\{care package}} update.
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Create To-Do Lists in PULSE
+
+  You can generate \{\{Worklists.worklistCommonUse}}s in \{\{masterVAS-Products.Pulse-only}} from multiple locations: 
+
+  - [Dairy Reports/Worklists](ManageReportsWorklists.htm): Use this tab to generate reports or \{\{Worklists.worklistCommonUse}}s saved from the Gallery.
+  - [Template Gallery](DC-ReportsGallery.htm): Use the Gallery to check out available report and \{\{Worklists.worklistCommonUse}} options.
+  - [Report/Worklist Builder](ReportWorklistBuilder.htm): This tool allows you to build custom reports and \{\{Worklists.worklistCommonUse}}s using an easy drag & drop interface.
+
+  See [Build a To-Do List](BuildTodoList.htm) for step-by-step instructions for building a \{\{Worklists.ToDoCommonUse}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Create To-Do Lists in DairyComp 305
+
+  <ExpandableHeading>
+    ### Step 1: Create PULSE To-Do Tasks in DairyComp 305
+
+    For customers who are familiar with the \{\{General.CompanyName-short}}\{\{PCC}} product, you may already know how to create and send a list to PCC handhelds. The command is similar when creating a \{\{Worklists.ToDoCommonUse}} to send to \{\{masterVAS-Products.Pulse-only}}.
+
+    Set up the command as shown in the example below:
+
+    1. Start with the **SERVER** command to define what you want the \{\{Worklists.worklistCommonUse}} to do.
+    2. Use the **\K** switch to tell \{\{DC-UI.DC-ProductName}} to send this list to \{\{masterVAS-Products.Pulse-only}}.
+    3. If you want to define a \{\{Worklists.PostProcess}} or \{\{Worklists.OnDone}} command, enter **\~** for \{\{Worklists.PostProcess}} or **^** for \{\{Worklists.OnDone}}, followed by the command that should be run:\* \{\{Worklists.PostProcess}}**&#x20;Example:&#x20;**&#x53;ERVER \{\{ID}}\{\{VETC}} FOR \{\{VC}}>2 LHDAT\<\{\{TODAY}} \K \\\~SETVET
+       - \{\{Worklists.OnDone}}**&#x20;Example:&#x20;**&#x53;ERVER ID VETC FOR VC>2 LHDAT\<TODAY \K \\^SETVET
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/14XjCWm0e5xdRuCBJu-tI_worklist-command-example.png" size="37" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/worklist-command-example.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/worklist-command-example.png" position="flex-start" showCaption="false"></Image>
+
+    <ExpandableHeading>
+      ### Cautions when planning follow‑up routines
+
+      Use caution when scheduling follow‑up routines for \{\{DC-UI.DC-ProdNameShort}} to run after a list is processed (i.e., \{\{Worklists.PostProcess}} lists), especially if **all** animals on the list must be processed **before** kicking off the next routine. \{\{DC-UI.DC-ProdNameShort}}**&#x20;does&#x20;****not****&#x20;wait for the entire list to be&#x20;**\{\{Worklists.DoneUI}}**.** It will kick off the follow‑up routines for each animal **as** it receives notification from the mobile app that the animal is \{\{Worklists.DoneUI}}.
+
+      <hint type="warning">
+        **IMPORTANT:&#x20;**&#x55;se caution when scheduling follow‑up routines for \{\{DC-UI.DC-ProdNameShort}} to run after a list is processed (i.e., \{\{Worklists.PostProcess}} lists), especially if **all** animals on the list must be processed **before** kicking off the next routine. \{\{DC-UI.DC-ProdNameShort}}**&#x20;does&#x20;****not****&#x20;wait for the entire list to be&#x20;**\{\{Worklists.DoneUI}}**.** It will kick off the follow‑up routines for each animal **as** it receives notification from the mobile app that the animal is \{\{Worklists.DoneUI}}.:::ExpandableHeading\{customAnchorSlug="video"}
+
+        ### Click here for video tutorials on this feature!
+
+        For more information on how to use \{\{masterVAS-Terminology.OnDone}} and \{\{masterVAS-Terminology.PostProcess}} routines in \{\{masterVAS-Products.DC305-short}}, check out the following videos on the \{\{masterVAS.CompanyName-short}} website:
+
+        <embed url="https://player.vimeo.com/video/274759138">
+
+        </embed>
+
+        <embed url="https://player.vimeo.com/video/305782522">
+
+        </embed>
+
+        \:::
+      </hint>
+    </ExpandableHeading>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Step 2: Send your To-Do Tasks to PULSE
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x42;e aware that if \{\{DC-UI.DC-ProductName}} sends multiple versions of the same list to \{\{masterVAS-Products.Pulse-only}} in one day, the most recent list overwrites the earlier ones but does NOT affect any progress or changes made against the list.
+    </hint>
+
+    Unlike the PCC product, which requests each \{\{Worklists.worklistCommonUse}} during a refresh, \{\{masterVAS-Products.Pulse-only}} does **not** request \{\{Worklists.worklistCommonUse}}s from on‑premise \{\{DC-UI.DC-ProdNameShort}}. Instead, \{\{DC-UI.DC-ProdNameShort}} must manually send \{\{Worklists.worklistCommonUse}}s to \{\{masterVAS-Products.Pulse-only}}. This ensures that on‑premise users control the lists that are sent out to the \{\{General.ProductName}} mobile app.
+
+    You can send \{\{Buttons-UI.PlatformWorklists}} from \{\{DC-UI.DC-ProdNameShort}} manually or schedule \{\{DC-UI.DC-ProdNameShort}} to send them automatically. Follow the instructions below to proceed.
+
+    <ExpandableHeading>
+      ### Send Lists Manually
+
+      Follow these steps to send \{\{Worklists.worklistCommonUse}}s from \{\{DC-UI.DC-ProdNameShort}} to \{\{masterVAS-Products.Pulse-only}} manually:
+
+      1. Go to the \{\{DC-UI.DC-ProdNameShort}} command line.
+      2. Type PLATFORM\K and press enter.
+
+      This command instructs \{\{DC-UI.DC-ProdNameShort}} to find all Platform-enabled (\K) SERVER commands and generate the corresponding worklist files. The \{\{Worklists.worklistCommonUse}} files are then sent to \{\{masterVAS-Products.Pulse-only}} the next time it synchronizes data from \{\{DC-UI.DC-ProdNameShort}}.
+    </ExpandableHeading>
+
+    <ExpandableHeading>
+      ### Schedule DairyComp 305 to Send Lists
+
+      If you prefer not to do a manual send each time you want to update your \{\{masterVAS-Products.Pulse-only}} lists, you can set up a \{\{DC-UI.DC-ProdNameShort}} Scheduled Task that automatically executes the PLATFORM\K command at a convenient daily or weekly interval. Please contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) if you need help scheduling this type of task in \{\{DC-UI.DC-ProdNameShort}}.
+    </ExpandableHeading>
+  </ExpandableHeading>
+</ExpandableHeading>

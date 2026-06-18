@@ -1,0 +1,54 @@
+---
+title: Step 4: Connect Integration in PULSE
+slug: step-4-connect-integration-in-pulse
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+Follow the steps below to activate the \{\{Partners.ZoetisGenomics}} in \{\{masterVAS-Products.Pulse-only}}:
+
+1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners&#x20;**>**&#xA0;Integrations Gallery&#x20;**> \{\{Partners.ZoetisGenomics}}.
+2. \{\{Commands.Click}}**&#x20;See Details** or **See Requirements** on the \{\{Partners.ZoetisGenomics}} card.
+3. Follow the Connection Instructions on the right side of the page to establish the connection::::::WorkflowBlock
+
+<WorkflowBlockItem>
+  From the **Animal Registration** drop-down list, select the animal \{\{ID}} type that you use.
+</WorkflowBlockItem>
+
+<WorkflowBlockItem>
+  Select the genomic items you created or confirmed in [Step 1: Create Genomic Items in DC305](<../../../../../../../../VAS Platform Help - Table of Contents/Features/Partners/Breeding and Genetics/Zoetis Genomics/Activate Zoetis Genomics Integration/DC Unlimited Subscribers: Activate the Integration/step-1-create-genomic-items-in-dc305.mdx>):\* Sample Number Item: GSAMP
+
+  - Sample Date Item: GSDAT
+</WorkflowBlockItem>
+
+<WorkflowBlockItem>
+  Check the **Update Pedigree based on genomic results** box if you want to automatically update your animals' pedigrees based on the genomic results. If you check this box, the system will update your animals' parentage information if the existing data doesn't match the genomic results data.
+</WorkflowBlockItem>
+
+<WorkflowBlockItem>
+  <hint type="info">
+    **NOTE:&#x20;**&#x49;f the tested animal's \{\{DREG}} from the \{\{CDCB}} does not match an existing DREG in \{\{masterVAS-Products.Pulse-only}}, \{\{masterVAS-Products.Pulse-only}} will search for an animal whose registration information matches the DREG from the CDCB. If a match is found, \{\{masterVAS-Products.Pulse-only}} assigns the animal's ID to the \{\{DID}}. If no match is found, \{\{masterVAS-Products.Pulse-only}} clears the DID for the tested animal.
+  </hint>
+
+  Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+</WorkflowBlockItem>
+
+<WorkflowBlockItem>
+  \{\{Commands.Click}}**Save**.
+</WorkflowBlockItem>
+
+<WorkflowBlockItem>
+  If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+</WorkflowBlockItem>
+
+<Paragraph indent="1">
+  \:::::
+</Paragraph>
+
+After you activate the integration, you can start collecting and adding genomic sample data.
+
+If you plan to use \{\{masterVAS-Products.PCC-long}} to automatically enter your genomic sample data, proceed to [Step 5: Set Up Your PCC Scanner](zoetis-integrate-step5.htm). If you plan to manually enter sample data using \{\{DC-UI.DC-ProdNameShort}},\{\{masterVAS-Products.Pulse-only}}, or the mobile app, see [Add Zoetis Genomics Sample Data](<../../../../../../../../VAS Platform Help - Table of Contents/Features/Partners/Breeding and Genetics/Zoetis Genomics/add-zoetis-genomics-sample-data.mdx>).
+
+<hint type="warning">
+  **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your \{\{Partners.Zoetis}} representative to connect the integration from their system.
+</hint>

@@ -1,0 +1,175 @@
+---
+title: View Parlor Data and Build Reports
+slug: view-parlor-data-and-build-reports
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+After you connect your \{\{Partners.parlor}}, milking shifts and \{\{Partners.parlor}} data are available in \{\{masterVAS-Products.Pulse-only}} from the \{\{masterVAS-Terminology.cowcard}}, and you can create reports to track and analyze your \{\{Partners.parlor}} data.
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## View Daily Milk on the CowCard
+
+  Use the Daily Milk tab on the \{\{masterVAS-Terminology.cowcard}} to view milking shift details for your animals:
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/QLkxGORIbolpUPIplcWih_parlor-daily-milk-tab.png" size="58" isUploading="false" initialPath="../../Resources/Images/Platform/parlorcomp/parlor-daily-milk-tab.png" githubPath="Content/Resources/Images/Platform/parlorcomp/parlor-daily-milk-tab.png" position="flex-start" showCaption="false"></Image>
+
+  See [Daily Milk](<../../Manage Your Animals/daily-milk.mdx>) to learn more about analyzing daily and weekly milking data.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## View Parlor Items
+
+  After your \{\{Partners.parlor\_system}} is integrated, the following \{\{masterVAS-Products.Pulse-only}} items populate with data from your \{\{Partners.parlor\_system}}: 
+
+  - \{\{Items.M1}}: Today’s milk weight at shift 1
+  - \{\{Items.M2}}: Today’s milk weight at shift 2
+  - \{\{Items.M3}}: Today’s milk weight at shift 3
+  - \{\{Items.M4}}: Today’s milk weight at shift 4
+  - \{\{Items.DMLK1}}: Current daily milk total
+  - \{\{Items.WMLK1}}: Weekly milk average
+  - \{\{Items.EXPDM}}: Expected daily milk weight
+  - \{\{Items.EXDEV}}: Expected daily milk deviation percent
+  - \{\{Items.MDEV}}: Daily milk deviation from expected
+  - \{\{Items.WMDEV}}: Weekly milk deviation percent
+  - \{\{Items.PPEN}}: Pen animal was identified in at last milking
+  - \{\{Items.MCODE}}: Milking Code, 1-20:::ExpandableHeading
+
+  ### Click here to view all possible MCODEs
+
+  <Paragraph listStyleType="disc" indent="2">
+    1: OK
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    2: Cow is \{\{Events.11DRY}}
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    3: ID Not Read
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    4: Pedometer
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    5: Reattach
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    6: No Milk
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    7: Manual ID
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    8: Entered Twice
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    9: No Attach
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    10: No Letdown
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    11: Suspect Weight
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    12: Cow is \{\{Events.14SOLD}}/\{\{Events.15DIED}}
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    13: Cow is Not Milking
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    14: Weight Tossed
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    15: Manual Mode
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    16: Cow Not Found
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    17: Early Falloff
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    18: Late Rehang
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    19: Manual Detach
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    20: No Duration
+    \:::
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Build Parlor Reports
+
+  \{\{Partners.Parlor}} reporting can be completed using \{\{masterVAS-Products.Pulse-only}}[Report/Worklist Builder](../../Platform/Features/DairyComp/ReportsWorklists/ReportWorklistBuilder.htm) and the \{\{Partners.parlor}} items listed above. See the sample reports below: 
+
+  <ExpandableHeading>
+    ### Daily Milk Summary
+
+    SUMM1 M2 M3 DMLK1BYPENFORLACT>0 RC\<6
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Milking Code Summary
+
+    SUM BYMCODE
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Missing EID Tag
+
+    LIST ID EID DIM WMLK1 FORDIM>6 WMLK1=0 FDAT>0 DDAT=0
+
+    <hint type="info">
+      **NOTE:&#x20;**&#x49;f your \{\{Partners.parlor}} uses an identifier other than \{\{EID}}, be sure to use the correct identifier to build your report.
+    </hint>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Cow Milked in Wrong Pen
+
+    SHOW ID PEN PPEN FOR PPEN\<>PEN
+  </ExpandableHeading>
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x41;dditional \{\{Partners.Parlor}} insights and analysis tools are planned for a future \{\{masterVAS-Products.Pulse-only}} release. Stay tuned!
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Check Parlor Integration Status & Troubleshoot Errors
+
+  You can quickly check on the connection status of your \{\{Partners.parlor}} integration by clicking on the Integration Status icon at the top right of the page in \{\{masterVAS-Products.Pulse-only}}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/KrfQAZanOEfoZu0NS8wdV_integration-status.png" size="49" isUploading="false" initialPath="../../Resources/Images/Platform/parlorcomp/integration-status.png" githubPath="Content/Resources/Images/Platform/parlorcomp/integration-status.png" position="flex-start" showCaption="false"></Image>
+
+  See [Integration Status](../../Dairy/integration-status.mdx) to learn more about the Integration Status page and the indicators used. You can also use the [Notifications](<../../../FAQs/Using PULSE/how-do-notifications-work.mdx>) area at the top right of the page in \{\{masterVAS-Products.Pulse-only}} to check for errors. Use the guidelines below for troubleshooting potential errors: 
+
+  - Cow Not Found: Make sure the animal was correctly added to \{\{masterVAS-Products.MyDC-short}} and has a valid \{\{Partners.parlor}} identifier assigned. See [Add Animals](../../DairyComp/MyDC/Animals/add-animals.mdx) to learn more about adding one or more animals to \{\{masterVAS-Products.Pulse-only}}.
+  - Other errors:[Contact Us](<../../../Get Started/contact-us.mdx>) for help addressing other errors:\* Could not load milk
+    - Failed to send data to \{\{masterVAS-Products.Pulse-only}}
+    - Unable to fetch animal data from \{\{masterVAS-Products.Pulse-only}}
+</ExpandableHeading>

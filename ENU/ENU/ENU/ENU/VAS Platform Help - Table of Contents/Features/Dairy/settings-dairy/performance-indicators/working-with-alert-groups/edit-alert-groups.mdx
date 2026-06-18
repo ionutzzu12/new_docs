@@ -1,0 +1,50 @@
+---
+title: Edit Alert Groups
+slug: edit-alert-groups
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature. See [Edit Dairy User Permissions](<../../../../../../../VAS Platform Help - Table of Contents/features/manage-dairy-users-and-roles/edit-dairy-user-permissions.mdx>) and [Manage Dairy Roles](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+On the [Alert Groups](<../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/settings-dairy/performance-indicators/working-with-alert-groups.mdx>) page, you can easily edit the details for an alert group by clicking on an alert group to open a side panel that displays the alert group details you can change.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/2xySWoPOCFHf6sYQDeiWC_indicators-tab-alerts-subtab-edit-intro.png" size="75" isUploading="false" initialPath="../../../Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-edit-intro.png" githubPath="Content/Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-edit-intro.png" position="flex-start" showCaption="false"></Image>
+
+You cannot add or edit alert groups until \{\{PlatformContentSnippets.PerformanceIndicators-AlertsAndThresholds}} are enabled in \{\{masterVAS-Products.Pulse-only}} and at least one \{\{PlatformContentSnippets.PerformanceIndicators-AlertThresholdValue}} is entered on the [Indicators](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Settings (Dairy)/Performance Indicators/working-with-indicators.mdx>) page for your \{\{masterVAS-Terminology.h-erd}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/KUNJ_YHM0EwMTrlJ5v2wx_indicators-tab-alerts-subtab-disabled.png" size="58" isUploading="false" initialPath="../../../Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-disabled.png" githubPath="Content/Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-disabled.png" position="flex-start" showCaption="false"></Image>
+
+See [Step 1: Enable & Set Up Health Indicators](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Settings (Dairy)/Performance Indicators/Set Up Health Indicators and Alerts/step-1-enable-and-set-up-health-indicators.mdx>) and [Step 2: Enter Alert Thresholds](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Settings (Dairy)/Performance Indicators/Set Up Health Indicators and Alerts/step-2-enter-alert-thresholds.mdx>) for instructions.
+
+See the guidelines below to learn more about editing alert group details.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/STxG6dpyF9syNNvzVQfM6_indicators-tab-alerts-subtab-edit.png" size="58" isUploading="false" initialPath="../../../Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-edit.png" githubPath="Content/Resources/Images/Platform/getting-started/indicators-tab-alerts-subtab-edit.png" position="flex-start" showCaption="false"></Image>
+
+- All required fields are marked with the **\*** (asterisk) symbol.
+- Click the delete button
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/LpD9BwgjpcA94KYTX2Y5v_trashcan-gray-on-white22x25.png" size="10" isUploading="false" initialPath="../../../Resources/Images/icons/trashcan-gray-on-white_22x25.png" githubPath="Content/Resources/Images/icons/trashcan-gray-on-white_22x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  in the upper right corner of the side panel to delete the alert group. See [Delete Alert Groups](delete-alert-groups.mdx) for instructions.
+</Paragraph>
+
+- The **Indicators to Track** section shows all \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s that are currently being tracked by this alert group. The total number of \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s being tracked by the alert group displays at the top right of this section.You can click the **X** next to an \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}} to remove it, or click **Clear All** to stop tracking all \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s in the alert group. Click **Add more indicators** to track additional \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s in this alert group.
+- The **Users to Notify** section shows all members of your \{\{masterVAS-Terminology.d-airy}} team that are currently being notified by this alert group. The total number of users receiving notifications displays at the top right of this section.:::hint\{type="info"}
+  **NOTE:&#x20;**\{\{masterVAS-Products.Pulse-only}} sends notifications for alert groups only by text or email. Alert group notifications are not added to the [Message Center](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/User Menu/message-center.mdx>) or to the [Notifications button](<../../../../../../../../../VAS Platform Help - Table of Contents/FAQs/Using PULSE/how-do-notifications-work.mdx>) as a new activity badge.
+  \:::Check the **SMS** and **Email** boxes to send notifications to users as text messages, emails, or both. You can click the **X** next to a user's name to remove them, or click **Clear All** to stop all users from receiving notifications for the alert group. Click **Add more users** to notify more users in this alert group.:::hint\{type="info"}
+  **NOTE:&#x20;**&#x54;he **SMS** box cannot be checked for a user who does not have a mobile phone number listed in account settings. Additionally, \{\{masterVAS-Products.Pulse-only}} cannot send SMS alerts to international phone numbers at this time, but they can still receive email alerts!
+  \:::
+- The **Time Preferences** section shows the time of day when \{\{masterVAS-Products.Pulse-only}} examines \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s for your \{\{masterVAS-Terminology.h-erd}} and notifies your \{\{masterVAS-Terminology.d-airy}} team. The time specified is in your local \{\{masterVAS-Terminology.d-airy}}'s time \{\{zone}}. Select the preferred time of day in the **Hour** and **Minutes** fields.:::hint\{type="info"}
+  **NOTE:&#x20;**&#x54;he time specified in this section and the period selected when configuring indicators on the [Indicators](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Settings (Dairy)/Performance Indicators/working-with-indicators.mdx>) page determine how often \{\{masterVAS-Products.Pulse-only}} examines \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s and sends notifications. The results of these selections can be viewed as new processes on the [Process Scheduler](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/process-scheduler.mdx>) page for your \{\{masterVAS-Terminology.d-airy}}. See [Step 4: View Scheduled Alerts in Process Scheduler](<../../../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Settings (Dairy)/Performance Indicators/Set Up Health Indicators and Alerts/step-4-view-scheduled-alerts-in-process-scheduler.mdx>) for more information.
+  \:::
+- Once you're done editing the information, click **Save**. The [Alert Groups](<../../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/settings-dairy/performance-indicators/working-with-alert-groups.mdx>) page is displayed and \{\{masterVAS-Products.Pulse-only}} displays a message indicating that the alert group was edited.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wgvsJVCLQmEISdObsFYIQ_indicators-tab-alerts-subtab-edited-msg.png" alt caption size="59"}
+
+<hint type="info">
+  **NOTE:&#x20;**&#x41;ny changes made to an alert group affect all scheduled occurrences of the alert group.
+</hint>

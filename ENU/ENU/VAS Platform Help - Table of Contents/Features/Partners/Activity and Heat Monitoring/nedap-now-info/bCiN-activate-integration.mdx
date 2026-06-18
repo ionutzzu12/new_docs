@@ -1,0 +1,106 @@
+---
+title: Activate Integration
+slug: bCiN-activate-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:47 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+Follow these steps to integrate the partner system with \{\{General.CompanyName-short}} and allow health and reproduction data and alerts to display in \{\{masterVAS-Products.Pulse-only}}:
+
+<ExpandableHeading>
+  ## Step 1: Nedap Now Setup
+
+  Prior to activating your integration, you must first fulfill the following requirements: 
+
+  - Ensure your \{\{masterVAS-Terminology.d-airy}} has a company in \{\{Partners.NedapNow-platform}}.
+  - Ensure that your company is configured with farms and locations in \{\{Partners.NedapNow-platform}}.
+  - Connect your \{\{Partners.Nedap-parent}} Velos device to \{\{Partners.NedapNow-platform}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Configure Items in DairyComp 305 (DairyComp Unlimited Users Only)
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f you have \{\{masterVAS-Products.DC305-short}} version lower than 23.10.909, you must update \{\{masterVAS-Products.DC305-short}} to the latest release version before you can configure \{\{Partners.NedapNow-product}} items. See [Update DC305 to the Latest Release](https://dc-help.vas.com/FAQs/WebUpdater.htm) \{\{masterVAS-Phrases.RefsToOtherHelpProjects}} for update instructions.
+  </hint>
+
+  To receive animal alerts in \{\{DC-UI.DC-ProductName}} and \{\{masterVAS-Products.Pulse-only}}, you must first create and configure several items:
+
+  1. In \{\{masterVAS-Products.DC305-long}}, enter `PLATFORM` in the command line.
+  2. Click the **Pulse Items** tab and expand **Nedap**.
+  3. If necessary, map or add an activity measurement alert:\* **Map Existing Item:** To map an activity measurement alert to an existing \{\{DC-UI.DC-ProdNameShort}} item, double-click the alert. Select the existing item, then click **OK** to confirm your selection to map the alert to the item.
+     - **Add New Item:** To create a new item for an activity measurement alert in \{\{DC-UI.DC-ProdNameShort}}, check the box for the alert. Click **Create (1) Items**, then confirm your selection to add the item to the \{\{DC-UI.DC-ProdNameShort}} database.
+
+  <Paragraph indent="1">
+    Expand :Link[Nedap Now Items]{label="Nedap Now Items" overridedLabel="Nedap Now Items" spaceId docId="bCiN--mhTyhD7LwH3umyc" version="v2" docAnchorId="#Items" loadingMethod="dynamic" newTab="false" href="bCiN-activate-integration.mdx"} to learn more about each item.
+  </Paragraph>
+
+  <ExpandableHeading>
+    ### Nedap Now Items
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;tem names can be customized and may differ from those suggested by \{\{General.CompanyName-short}}. If you choose to customize your item names, be sure to use the correct names for any reports or worklists you create.
+    </hint>
+
+    | Item Description                              | \{\{masterVAS-Products.DC305-short}} Suggested Item | \{\{masterVAS-Products.Pulse-only}} Standard Item |
+    | --------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- |
+    | \{\{Partners.Nedap-parent}} first transponder | RESP1                                               | NDPRS1                                            |
+    | Last urgent health attention date             | URDAT                                               | NDPURGD                                           |
+    | Last urgent health attention time             | URTIM                                               | NDPURGT                                           |
+    | Last health alert date                        | DXDAT                                               | NDPHEALTHD                                        |
+    | Last health alert time                        | DXTIM                                               | NDPHEALTHT                                        |
+    | Last heat alert date                          | ACDAT                                               | NDPHEATD                                          |
+    | Last heat alert time                          | ACTIM                                               | NDPHEATT                                          |
+    | Last heat alert level                         | HTALT                                               | NDPHEATI                                          |
+    | Last health alert level                       | HLALT                                               | NDPHLTHI                                          |
+    | Last urgent health alert level                | HLUAT                                               | NDPURHLI                                          |
+    | Heat alert flag                               | HTFLG                                               | NDPHTFLG                                          |
+    | Health alert flag                             | HLFLG                                               | NDPHLFLG                                          |
+    | Urgent health alert flag                      | URFLG                                               | NDPURFLG                                          |
+
+    <hint type="info">
+      **NOTE:&#x20;**&#x49;n \{\{masterVAS-Products.DC305-short}}, the animal's flag value indicates if the animal requires attention. If the animal has a flag value of 0, the animal does not require attention. If the animal has a flag value of 1, the animal requires attention.
+    </hint>
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 3: Configure Worklist Commands in DairyComp 305 (DairyComp Unlimited Users Only)
+
+  To generate partner worklists using the new items and send them to \{\{masterVAS-Products.Pulse-only}}, you must configure the \{\{worklist}} commands in \{\{masterVAS-Products.DC305-short}}. In \{\{masterVAS-Products.DC305-short}}, access Command Abbreviations (\{\{ALTER}}\3) and create or modify the required lists. Expand :Link[Worklist Commands]{label="Worklist Commands" overridedLabel="Worklist Commands" spaceId docId="bCiN--mhTyhD7LwH3umyc" version="v2" docAnchorId="#Commands" loadingMethod="dynamic" newTab="false" href="bCiN-activate-integration.mdx"} to learn more about each worklist command.
+
+  <ExpandableHeading>
+    ### Worklist Commands
+
+    | Abbreviation | Command                                                                           | Title                   |
+    | ------------ | --------------------------------------------------------------------------------- | ----------------------- |
+    | NEDAPHD      | SHOW ID PEN DIM DSLH RPRO ACDAT ACTIM HTALT HTFLG FOR HTFLG=1 BY PEN              | Heat Detection Alerts   |
+    | NEDAPDX      | SHOW ID PEN DIM DSLH RPRO DXDAT DXTIM HLALT HLFLG FOR HLFLG=1 BY PEN              | Health Attention Alerts |
+    | NEDAPUR      | SHOW ID PEN DIM DSLH RPRO EVT EDAY REM URDAT URTIM HLUAT URFLG FOR URFLG=1 BY PEN | Urgent Attention Alerts |
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 4: Connect Integration in PULSE
+
+  Follow the steps below to establish the connection to the partner system:
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners&#x20;**>**&#xA0;Integrations Gallery&#x20;**>\{\{Partners.NedapNow-product}}.
+  2. \{\{Commands.Click}}**See Details** or **See Requirements** on the \{\{Partners.NedapNow-product}}integration card.
+  3. Follow the Connection Instructions on the upper right side of the page to establish the connection:1) \{\{Commands.Click}}**Add New Alias**, then complete the following fields:\* **Alias:** Enter your \{\{masterVAS-Terminology.D-airy-}} Name. If you have multiple \{\{masterVAS-Terminology.d-airies}}, we recommend you use different names for each alias.
+     2\) \{\{Commands.Click}}**Select&#x20;**\{\{masterVAS-Terminology.P-ens-}} to choose \{\{masterVAS-Terminology.p-ens}} that use \{\{Partners.NedapNow-product}}. Enter the \{\{masterVAS-Terminology.p-en}} numbers and select the correct \{\{masterVAS-Terminology.p-ens}} from the results list, which lists the \{\{masterVAS-Terminology.p-ens}} in ascending order.
+     3\) \{\{Commands.Click}}**Save**.
+     4\) Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+     5\) \{\{Commands.Click}}**Authorize integration**, then complete the necessary fields on the \{\{Partners.NedapNow-platform}} website that automatically opens.
+     6\) If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your \{\{Partners.NedapNow-product}} representative to connect the integration from their system.
+  </hint>
+</ExpandableHeading>

@@ -1,0 +1,54 @@
+---
+title: Projected Calves by Sire & Semen Type for All Dairies
+slug: projected-calves-by-sire-and-semen-type-for-all-dairies
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### How do I add this widget to a Company Dashboard?
+
+  This widget is only available on \{\{Buttons-UI.D-ashboardsCompany-}}. To add this widget, please contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) to have this widget made available for your company. After the widget is added, check the box for it under the \{\{masterVAS-Terminology.H-erd-}} category in the [Page Customization](<../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Dashboard/customize-dashboards.mdx>) options.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/liRbhy8A_Hea4c1ylmfsZ_co-herd-widgets.png" size="45" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/company/co-herd-widgets.png" githubPath="Content/Resources/Images/Platform/dashboard/company/co-herd-widgets.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### What permissions do I need to view this widget?
+
+  To view this widget on your \{\{Buttons-UI.D-ashboardCompany-}}, your user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+The \{\{Widgets.ProjectedCalves}} company widget identifies the expected number of calves to be born in all company \{\{masterVAS-Terminology.d-airies}} by \{\{masterVAS-Terminology.s-ire}} and semen type, as well as a projected Replacement Heifer count for 7 to 8 months. This information helps to plan for Replacement Heifers that will be added to your \{\{masterVAS-Terminology.h-erd}} by month. It also allows you to analyze parentage information for your calves. This widget is only available on \{\{Buttons-UI.D-ashboardsCompany-}}.
+
+Reference the following to understand the data in this widget.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/iQTfenCku9rZCbrG0bbDs_proj-calves-all-dairies-widget.png" size="44" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/company/proj-calves-all-dairies-widget.png" githubPath="Content/Resources/Images/Platform/dashboard/company/proj-calves-all-dairies-widget.png" position="flex-start" showCaption="false"></Image>
+
+Semen Type: Identifies the type of semen used to conceive the calf. Available types are:
+
+- **Sexed**&#xNAN;**:&#x20;**&#x53;emen that has been analyzed and sorted based on the X/Y chromosome in the individual sperm cells. For \{\{masterVAS-Terminology.d-airy}} cows, this type of semen has mostly X-chromosome sperm cells to increase the likelihood of producing heifer calves. 90% of calves conceived with sexed semen are expected to be heifers, and are included in the projected number of Replacement Heifers.
+- **Unsexed**&#xNAN;**:&#x20;**&#x53;emen that has not been sorted based on the X/Y chromosome in the sperm cells. 45% of calves conceived with unsexed semen are expected to be heifers, and are included in the projected number of Replacement Heifers.
+- **Unknown**&#xNAN;**:&#x20;**&#x53;emen for which the bull \{\{NAAB}} code was not specified. \{\{General.CompanyName-short}} recommends using the NAAB code whenever possible for more robust data analysis, including improved Replacement Heifer projections. 45% of calves conceived with unknown semen are expected to be heifers, and are included in the projected number of Replacement Heifers.
+- **Beef**&#xNAN;**:** Semen produced by a beef bull. Beef semen is a lower-cost option and may provide additional advantages, including improved conception rates and lower calf birth weight for calving \{\{ease}}. Heifer and bull calves with a beef \{\{masterVAS-Terminology.s-ire}} are designated for beef production and are not included in the projected number of Replacement Heifers.
+
+Replacement Heifers: Identifies the expected number of heifer calves to be added to the \{\{masterVAS-Terminology.h-erd}} for milk production. This count includes calves conceived with sexed, unsexed, and unknown semen.
+
+<ExpandableHeading>
+  ### How is this data calculated?
+
+  This value is a calculation that incorporates the much higher chance of conceiving heifer calves using sexed semen. The calculation is:
+
+  Replacement Heifers = (sexed semen calves \* 0.90) + (unsexed semen calves \* 0.45) + (unknown semen calves \* 0.45)
+
+  - For instance, if you are projected to have 18 sexed calves, 231 unsexed calves, and 8 unknown calves, the Replacement Heifers calculation is: (18 \* 0.90 = 16) + (231 \* 0.45 = 104) + (8 \* 0.45 = 4) = **124**
+
+  Calves with beef \{\{masterVAS-Terminology.s-ires}} are not included in this calculation.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Dashboard](../../Dashboards/DashboardsOverview.htm)
+  - [Projected Calves by Sire & Semen Type](../../Dashboards/DairyDashboard/ProjectedCalves.htm)
+</ExpandableHeading>

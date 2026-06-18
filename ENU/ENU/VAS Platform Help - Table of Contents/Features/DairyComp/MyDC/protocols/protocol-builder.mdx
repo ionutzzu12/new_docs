@@ -1,0 +1,145 @@
+---
+title: Protocol Builder
+slug: protocol-builder
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+Use \{\{Protocols.ProtocolBuilder}} to customize \{\{Protocols.Protocol-common}}s for your \{\{masterVAS-Terminology.d-airy}} in one of three ways.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/YdwcXIw8T7s7WU56v5xTo_protocol-build.png" size="77" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/protocols/protocol-build.png" githubPath="Content/Resources/Images/Platform/dairycomp/protocols/protocol-build.png" position="flex-start" showCaption="false"></Image>
+
+- Start with a reproduction \{\{Protocols.Protocol-common}} template from the **Gallery** page to customize a reproduction \{\{Protocols.Protocol-common}}.
+- Start with a health \{\{Protocols.Protocol-common}} template from the **Dairy Protocols** page to customize a health treatment.
+- If a template is not available, click the **Build Protocol** button on the top right of the page to create a new custom \{\{Protocols.Protocol-common}}.
+
+You can find this feature under the :Link[MyDC]{label="MyDC" overridedLabel="MyDC" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp" href="../../../../navigate-pulse/menu-options.mdx"} > :Link[Protocols]{label="Protocols" overridedLabel="Protocols" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp-Protocols" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp-Protocols" href="../../../../navigate-pulse/menu-options.mdx"} menu. Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Build an OvSynch Protocol
+
+  1. Open the **Gallery** to see if the \{\{masterVAS-Terminology.ovsynch}} protocol you need is available. If it is, click **Use Protocol** to begin customizing it. If you need to define a completely custom \{\{masterVAS-Terminology.ovsynch}} protocol, click **Build Protocol** to build it.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ILRivtaj3SolFOQ6r2QA9_protocol-gallery2.png" alt caption size="78"}:::hint\{type="info"}
+     **TIP:&#x20;**&#x55;sing a \{\{Protocols.Protocol-common}} template from the Gallery as a starting point will save you time, as it includes the default enrollment criteria, as well as standard treatments according to the expected timeline. You can still customize the timing of treatments or make other adjustments if you'd like!
+     \:::
+  2. Set your protocol options and click **Next** to continue through the customization process.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/24-zYjO_TLu8DgYisTPiD_step1-ovsynch.png" alt caption size="58"}1) **Protocol Information:&#x20;**&#x41;dd a **Protocol Name** and select **Reproduction** as the **Protocol Type**.::::ExpandableHeading
+
+  ### Learn more about protocol types
+
+  <Paragraph listStyleType="disc" indent="2">
+    **1st Service Synchronization:** Select this option if the protocol will be used for the initial synchronization before the first breeding.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    **Other Synchronization:** Select this option if the protocol will be used for breeding attempts other than the first synchronization.
+  </Paragraph>
+
+  <hint type="warning" indent="2">
+    **IMPORTANT:&#x20;**&#x41;nimals' previous \{\{masterVAS-Terminology.ovsynch}} breedings are only evaluated for \{\{Protocols.Protocol-common}}s set to automatically enroll. If your \{\{masterVAS-Terminology.d-airy}} uses manual enrollment, this setting is not enforced. See [Step 2: OvSynch Enrollment & Scheduling](OvsynchEnrollment.htm) to learn more about the different ways to enroll animals!
+  </hint>
+
+  <Paragraph indent="1">
+    \::::
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="2" indent="2">
+    **Enrollment Criteria:&#x20;**&#x41;dd enrollment and disenrollment event details and select if the protocol is for cows or heifers.:::ExpandableHeading\{customAnchorSlug="criteria"}
+  </Paragraph>
+
+  ### Learn more about enrollment criteria
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Enrolling Event:&#xA0;**\{\{masterVAS-Terminology.ovsynch}} is selected by default.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Secondary Events:** If additional events qualify an animal for enrollment, add those events using the drop-down list. For example, if you're defining a new \{\{masterVAS-Terminology.ovsynch}} protocol that will be used after the first \{\{masterVAS-Terminology.ovsynch}} breeding, you may choose to use Open as a qualifying event. That would allow an animal that did not get pregnant during a previous breeding to qualify for enrollment.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Availability:** Select **Cows** or **Heifers** to specify which animals the protocol allows.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Additional Criteria:** Specify additional criteria that animals must meet to be added to the \{\{Protocols.Protocol-common}} automatically. For example, you may limit enrollment to cows that are at least 30 DIM and are either \{\{Events.1FRESH}} (RC=2) or \{\{Events.2OK}}/\{\{Events.7OPEN}} (RC=3). To set that criteria, select DIM as the first Item, Greater Than as the **Operator**, and type 30 as the **Value**. Then set the RC as the item, and select both \{\{Events.1FRESH}} and \{\{Events.2OK}}/\{\{Events.7OPEN}}.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/8EWtwXNfYaJGOkQcOmROE_additionalcritwrc.png" alt caption size="70"}If you set more than one criteria, only animals that meet all listed conditions are automatically enrolled. Manual enrollment allows you to override these settings.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Disenrollment:** Select events that remove animals from the protocol and cancel future treatments and tasks. If you are using pre-defined protocols from the Gallery, the events may be pre-populated for you.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/LpjuFKq_ztjcFGk1RhEdM_step2-disenroll-example.png" alt caption size="58"}Click the **X** to remove an event if needed.
+    \:::
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="3" indent="2">
+    **Protocol Details:&#xA0;**&#x41;dd or adjust the specific tasks for the protocol, including day/required treatment details. You can mark tasks as **Required** using the toggle
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/n4xuGF4UcSncZ_yzQSWoj_required-toggle.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/protocols/required-toggle.png" githubPath="Content/Resources/Images/Platform/dairycomp/protocols/required-toggle.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+  <Paragraph indent="2">
+    \::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/mvlRVloeroMQ0oZm3KF6Z_step3-ovsynch.png" alt caption size="59"}:::hint\{type="info"}
+    **NOTE:&#x20;**&#x44;ay 1 tasks occur on the day the animal is enrolled in the \{\{Protocols.Protocol-common}}. Required tasks cannot be Skipped when processing your \{\{Protocols.OpenTasks}} list.
+    \:::
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="4" indent="2">
+    **Summary:&#x20;**&#x55;se this screen to review your options. Click **Back** to make any necessary adjustments.
+  </Paragraph>
+
+  3. Click **Create** to save the protocol to your \{\{masterVAS-Terminology.D-airy-}}**&#x20;Protocols** page.Proceed to [Step 2: OvSynch Enrollment & Scheduling](OvsynchEnrollment.htm) to begin enrolling animals.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Build Other Protocols
+
+  1. Go to your \{\{masterVAS-Terminology.D-airy-}} \{\{Protocols.Protocols}} to see if the health protocol you need is available. See more information about the \{\{Protocols.Protocol-common}} by clicking **Trigger Event** and **Task List**, or click **See Details** to view more information in a side panel. If you need to define a completely custom health protocol, click **Build Protocol** to build it.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/gTkifFLyNAwbwCk46yjw3_protocol-dairy.png" alt caption size="86"}:::hint\{type="info"}
+     **TIP:&#x20;**&#x55;sing a \{\{Protocols.Protocol-common}} template from \{\{masterVAS-Terminology.D-airy-}} \{\{Protocols.Protocols}} as a starting point will save you time, as it includes the default event settings, as well as standard treatments according to the expected duration. You can still customize the timing of treatments or make other adjustments if you'd like!
+     \:::
+  2. Set your protocol options and click **Next** to continue through the customization process.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/5WgqHKYQBOGPalWCK65WW_step1-other.png" alt caption size="58"}1) **Protocol Information:&#x20;**&#x41;dd a **Protocol Name** and select **Other** as the **Protocol Type**.
+     2. **Enrollment Criteria:&#x20;**&#x41;dd enrollment and disenrollment event details and select if the protocol is for cows and/or heifers.:::ExpandableHeading
+
+  ### Learn more about enrollment criteria
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Enrolling Event:&#xA0;**&#x53;elect the primary health event for this treatment.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Secondary Events:** If the treatment can be used for additional events, add them using the drop-down list. For example, if you're defining a new LAME protocol that may sometimes be used for TRIM events, add TRIM as a secondary event.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Availability:** Check **Cows** and/or **Heifers** to specify which animals the protocol allows.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Disenrollment:** Select events that remove animals from the protocol and cancel future treatments and tasks.If you are using a template from \{\{masterVAS-Terminology.D-airy-}} Protocols, events may be pre-populated for you. Click the **X** to remove an event if needed.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/EolZSo5DMIJKegxYmwsxP_step2-other.png" alt caption size="65"}
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Remarks:** Select **Yes** and enter an optional **Default Remark** to prompt for additional comments or details when the protocol is offered as an option of treatment for an animal. Or, select **No** to disable this feature.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Change&#x20;**\{\{masterVAS-Terminology.P-en-}}**:** Search for and select a \{\{masterVAS-Terminology.p-en}} If the animal needs to be moved to a different \{\{masterVAS-Terminology.p-en}} for treatment. Select **Do Not Change&#x20;**\{\{masterVAS-Terminology.P-en-}} to make sure the animal isn't moved to a new \{\{masterVAS-Terminology.p-en}}.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wRYSuu4hwPRCokCA7wOIC_step2-other-changepen.png" alt caption size="61"}
+    \:::
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="3" indent="2">
+    **Protocol Details:&#xA0;**&#x41;dd or adjust the specific tasks for the protocol, including the days that treatments or other activities are needed. You can mark tasks as **Required** using the toggle
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/n4xuGF4UcSncZ_yzQSWoj_required-toggle.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/protocols/required-toggle.png" githubPath="Content/Resources/Images/Platform/dairycomp/protocols/required-toggle.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+  <Paragraph indent="2">
+    \::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/o_qUnnOC37_ZfaBqvIAoq_step3-other.png" alt caption size="57"}:::hint\{type="info"}
+    **NOTE:&#x20;**&#x52;equired tasks cannot be Skipped when processing your \{\{Protocols.OpenTasks}} list.
+    \:::The calendar preview provides a helpful visual for your protocol, and updates as you add treatments, other tasks, or meat and milk withholds.If the protocol requires a meat or milk withhold, enter the total number of withhold days. If your protocol does not require tasks on a set daily schedule, use the **Duration** options to set the treatment time frame and a recheck day.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Qr1mwvHfNSjgZ09Q1cyco_step3-other-duration.png" alt caption size="57"}:::hint\{type="warning"}
+    **IMPORTANT:&#x20;**&#x54;he treatment duration is added to the withhold days for a total withholding period. For instance, if the treatment requires a 7-day milk withhold and the treatment duration is 2 days, milk is withheld for a total of 9 days.
+    \:::
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="4" indent="2">
+    **Summary:&#x20;**&#x55;se this screen to review your options. Click **Back** to make any necessary adjustments.
+  </Paragraph>
+
+  3. Click **Save** to add or update the protocol.After your protocol is added, you can select it during event entry for the trigger event you selected.
+</ExpandableHeading>

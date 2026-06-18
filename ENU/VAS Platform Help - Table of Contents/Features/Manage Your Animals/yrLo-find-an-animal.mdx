@@ -1,0 +1,85 @@
+---
+title: Find an Animal
+slug: yrLo-find-an-animal
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:40 GMT+0200 (Eastern European Standard Time)
+---
+
+Use the Search bar or the Animal List to find an animal in \{\{masterVAS-Products.Pulse-only}}:
+
+- Search Bar: You can use the Search bar at any time by clicking the \{\{Buttons-UI.Search}} field at the top of the page or pressing **F2** on your keyboard. On the \{\{Buttons-UI.DairyProfile}} page, you can also click the \{\{Buttons-UI.Search}} button to open the Search bar.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zCnKZ07AhaPAd85vIkRN__search-web.png" alt caption size="86"}\{\{Commands.Click}} on any match to view the animal's [CowCard](cowcards-at-a-glance.mdx).:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/tEeWve4-w18AnSa-qru_a_search-list2.png" alt caption size="59"}:::::ExpandableHeading\{customAnchorSlug="Filters"}
+
+### Click here to learn more about search filters & results!
+
+<Paragraph indent="1">
+  To control how animals are searched and which animals are included in your results, \{\{Commands.click}} the expand icon
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/afhU3YX2_b7_OYmsTxKK-_expand-gray2.png" size="10" isUploading="false" initialPath="../../../Resources/Images/icons/expand-gray2.png" githubPath="Content/Resources/Images/icons/expand-gray2.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  and set your search filters.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nWOu774msi8k8c15Q9ztA_search-list-expanded-new.png" size="73" isUploading="false" initialPath="../../../Resources/Images/Platform/cowcards/search-list-expanded-new.png" githubPath="Content/Resources/Images/Platform/cowcards/search-list-expanded-new.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph listStyleType="disc" indent="2">
+  Identifier: You can find an animal by its \{\{ID}}, \{\{BNAME}}, \{\{CNTL}}, \{\{VISID}}, \{\{REG}}, or \{\{EID}}, though not all of these items may be available in your \{\{masterVAS-Terminology.d-airy}}. To change your preferred search Identifier from ID to another item, use the :Link[Animal Configuration - Preferred Identifier]{label="Animal Configuration - Preferred Identifier" overridedLabel="Animal Configuration - Preferred Identifier" spaceId docId="87n3BKxetaoNmZIUQMas_" version="v2" docAnchorId="#naming" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-AnimalConfiguration.htm#naming" href="../DairyComp/Settings/DC-AnimalConfiguration.htm#naming"} setting.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Search Type: Search animal identifiers by the location of your search term: Starts With, Contains, or Ends With. Use **Contains** to search the whole identifier. For example, a Contains search for "123" returns animals with "123" at the start, end, or anywhere within the identifier.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Jhi7M9tpiPq-nx1l_06Y5_dp-search-contains.png" alt caption size="18"}
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Status: Filter animals by status: Alive, Dead/Sold, All.
+</Paragraph>
+
+<hint type="info" indent="2">
+  **NOTE:&#x20;**&#x42;y default, the system filters the search results to show only **Alive** animals with an **ID** that **Starts With** the search term you entered.
+</hint>
+
+<ExpandableHeading indent="2">
+  ### Learn more about the FNAME and BNAME in Search Results
+
+  For \{\{masterVAS-Terminology.d-airies}}that identify animals by source farm or barn name, the search results will display the respective FNAME (source farm name) or BNAME (barn name) for each match. The system displays both the FNAME and BNAME up to their first 7 characters.
+
+  :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/jC-6hH71L919cU-_-_qgW_search-fname-results.png" alt caption size="16"}:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/1lS3GkeGxYQadZHn3b16d_search-bname-results.png" alt caption size="14"}
+
+  Likewise, the \{\{masterVAS-Terminology.cowcard}} header identifies the source farm name/ID and barn name.
+
+  :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/PuMzCBapGdLcLDZs3mX1t_fname-header.png" alt caption size="25"}:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/EzWITMIWSNqWRKzyMbsNr_bname-header.png" alt caption size="27"}
+
+  For \{\{masterVAS-Terminology.d-airies}} that use source farms, \{\{masterVAS-Products.Pulse-only}} displays the source farm ID as it is configured in \{\{masterVAS-Products.DC305-simple}}. This feature allows you to use a dot when you want to search for animals by source farm. For example, if the source farm ID is 11, you can start typing `11.` or `.11`, depending on whether \{\{masterVAS-Products.DC305-simple}} is configured to display the source farm extension before or after the animal ID. As shown in the example below, this \{\{masterVAS-Terminology.d-airy}} configures its source farm ID at the end of the animal ID.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/1X-Wiz80gRS3OL5EpIcnv_search-by-sfid.png" size="34" isUploading="false" initialPath="../../../Resources/Images/Platform/cowcards/search-by-sfid.png" githubPath="Content/Resources/Images/Platform/cowcards/search-by-sfid.png" position="flex-start" showCaption="false"></Image>
+
+  <ExpandableHeading>
+    ### Tell me more about the Source Farm Name and ID Number
+
+    In both the search results and the \{\{masterVAS-Terminology.cowcard}} header, animals with source farms are displayed with a source farm extension on their animal IDs. As illustrated here, the source farm number is displayed after a dot at the end of the ID and indicates the farm from which the animal came.
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/b48K6M7___aHYsaehT2vP_fname-id-number.png" size="31" isUploading="false" initialPath="../../../Resources/Images/Platform/cowcards/fname-id-number.png" githubPath="Content/Resources/Images/Platform/cowcards/fname-id-number.png" position="flex-start" showCaption="false"></Image>
+
+    In the example below, the combined \{\{DC-UI.DC-ProdNameShort}}FNAME and animal ID is **1109123**. It can be interpreted as:
+
+    - The Source Farm ID number 11 is at the beginning, followed by an extra zero (i.e., 110) as part of the \{\{masterVAS-Products.DC-Platform}} FNAME ID coding.
+    - The animal ID 9123 is at the end.
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/q6F8NOA-igCD6r5q-Tm4Z_fname-illustrated.png" size="13" isUploading="false" initialPath="../../../Resources/Images/Platform/cowcards/fname-illustrated.png" githubPath="Content/Resources/Images/Platform/cowcards/fname-illustrated.png" position="flex-start" showCaption="false"></Image>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Tell me more about the Barn Name
+
+    The Barn Name (BNAME) is a distinct name assigned to an animal, separate from the animal ID. The BNAME is displayed in \{\{masterVAS-Products.Pulse-only}} as a 7‑character-max letter/number combo, such as an assigned name, the color of the ear tag, or any other distinct name that helps identify each specific animal. A BNAME could look like this: *Daisy*, *Sammie*, or *Janie* when they are only names, or combos such as *GRE1234*, *BL1234*, *OR909*, *R909*, *Daisy123*, *123Daisy*, etc.
+
+    When searching for an animal at a \{\{masterVAS-Terminology.d-airy}} with BNAMEs, you can search by numbers and letters. The search then returns all animal ID numbers and BNAMEs that contain those numbers and letters. For example, if you type `123`, the results could show an animal ID 12344 as well as BNAMEs such as 123Daisy or Daisy123.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<Paragraph indent="1">
+  \:::::
+</Paragraph>
+
+- Animal List: To access the Animal List, select \{\{Buttons-UI.FeaturesMain}}**&#x20;> \*\*\*\***\{\{Buttons-UI.FeaturesSecondary}}> \{\{Buttons-UI.FeaturesTertiary}} from the [menu bar](<../../../ENU/VAS Platform Help - Table of Contents/navigate-pulse/menu-options.mdx>). Click**Filters** to search for specific animals or to limit the animals shown by \{\{masterVAS-Terminology.p-en}}, lactation, or reproductive code (\{\{RC}}). You can then sort the Animals table by clicking any of the column headers. If you know the animal's \{\{masterVAS-Terminology.p-en}} number, you can click a \{\{masterVAS-Terminology.P-en-}} option to see only the animals in that \{\{masterVAS-Terminology.p-en}}. When you find the animal you're looking for, click its ID to display a side panel with more details.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/6FeqrD7Ip9Bz83JO9v7wh_animal-list-new.png" alt caption size="66"}In the side panel, click **Go To&#x20;**\{\{masterVAS-Terminology.cowcard}} to view the animal's [CowCard](cowcards-at-a-glance.mdx).

@@ -1,0 +1,54 @@
+---
+title:   Troubleshoot Scanner Connections (v1)
+slug: troubleshoot-scanner-connections-v1
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:39 GMT+0200 (Eastern European Standard Time)
+---
+
+If the mobile app loses connection with your scanner, check its connection status on the \{\{Mobile-UI.MoreTab}} menu under \{\{masterVAS-Terminology.radiofrequencyID-short}}.\{\{Commands.Click}} the images below for help understanding the connection status:
+
+<ExpandableHeading>
+  ###
+
+  The wand name is displayed and **Ready**, and the connection switch is active (blue
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/460AmXEqLlVNkzg7Gedfq_rfid-conn-switch-active.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/rfid-conn-switch-active.png" githubPath="Content/Resources/Images/Platform/mobile-app/rfid-conn-switch-active.png" position="flex-start" showCaption="false"></Image>
+
+  ). This means that the Bluetooth connection is active for both the mobile device and \{\{masterVAS-Terminology.radiofrequencyID-short}} wand, and both devices are powered on. The wand is connected and ready to scan data to the mobile app.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ###
+
+  The \{\{masterVAS-Terminology.radiofrequencyID-short}} wand is paired to the mobile device but is not currently connected to the mobile app (illustrated by the gray connection switch
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zhGroklLjHQmfEX6wV-4r_rfid-conn-switch-inactive.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/rfid-conn-switch-inactive.png" githubPath="Content/Resources/Images/Platform/mobile-app/rfid-conn-switch-inactive.png" position="flex-start" showCaption="false"></Image>
+
+  ).
+
+  On Android devices, tap the \{\{masterVAS-Terminology.radiofrequencyID-short}} menu item to connect the wand, and for \{\{MorphHelp.AppleOS}} devices, simply make sure the wand is powered on and has Bluetooth enabled. Once the wand connects to the mobile app, the connection switch will turn blue and is active
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/460AmXEqLlVNkzg7Gedfq_rfid-conn-switch-active.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/rfid-conn-switch-active.png" githubPath="Content/Resources/Images/Platform/mobile-app/rfid-conn-switch-active.png" position="flex-start" showCaption="false"></Image>
+
+  .
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ###
+
+  On \{\{MorphHelp.AndroidOS}} devices, this message appears when you tap the \{\{masterVAS-Terminology.radiofrequencyID-short}} menu item to connect the scanner. \{\{MorphHelp.AppleOS}} devices will automatically initiate the scanner connection. In either case, the scanner typically connects quickly, so this message may be displayed only very briefly.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ###
+
+  The fully grayed-out \{\{masterVAS-Terminology.radiofrequencyID-short}} menu item most likely indicates one the following issues:
+
+  - No wands are currently paired with the mobile device.
+  - The wand's Bluetooth connection is turned off.
+  - The mobile device's Bluetooth connection is turned off.
+</ExpandableHeading>
+
+<hint type="info">
+  **TIP:&#x20;**&#x49;f you turn on **Airplane Mode** on your \{\{MorphHelp.AppleOS-TM}} device, Bluetooth is turned off automatically. You can turn Bluetooth back on in settings, and it will stay on until you turn it off or toggle Airplane Mode off and on again.
+</hint>

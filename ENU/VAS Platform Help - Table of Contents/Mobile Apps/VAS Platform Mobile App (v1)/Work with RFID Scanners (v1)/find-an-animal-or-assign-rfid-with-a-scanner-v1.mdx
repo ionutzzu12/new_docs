@@ -1,0 +1,56 @@
+---
+title:   Find an Animal or Assign RFID with a Scanner (v1)
+slug: find-an-animal-or-assign-rfid-with-a-scanner-v1
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:39 GMT+0200 (Eastern European Standard Time)
+---
+
+Before you scan any animals, use the:Link[Refresh Herd]{label="Refresh Herd" overridedLabel="Refresh Herd" spaceId docId="KJ_HEKX7eNLh7NlL5_0lV" version="v2" docAnchorId="#RefHerdData" loadingMethod="dynamic" newTab="false" githubPath="MobMore.htm#RefHerdData" href="MobMore.htm#RefHerdData"} option on the **More** menu to pull the latest data down to the mobile app. Then, begin scanning from any tab to:
+
+<ExpandableHeading>
+  ### Find an Animal
+
+  If the scanned animal's \{\{masterVAS-Terminology.radiofrequencyID-short}} is recognized and found, the mobile app displays its \{\{masterVAS-Terminology.cowcard}}. You can then choose to [add an event](MobEventsIntro.htm), mark an animal done on a [worklist](<../Tasks & Worklists (v1)/view-tasks-and-worklists-in-the-mobile-app-v1.mdx>), or complete other required tasks.
+</ExpandableHeading>
+
+OR
+
+<ExpandableHeading>
+  ### Assign an RFID to an Animal
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x4F;nly users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature.If your account only has \{\{RolesPermissions.PermissionNames}} permissions, you will **not** be able to use this feature.
+  </hint>
+
+  If the scanned animal's \{\{masterVAS-Terminology.radiofrequencyID-short}} is not recognized, you have the option to assign it to an animal in the \{\{masterVAS-Terminology.h-erd}}:
+
+  <WorkflowBlock>
+    <WorkflowBlockItem>
+      Tap **Assign**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/SQBx82LFh0_GIkhIFBU4N_rfid-assign-option.png" alt caption size="17"}
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Look up the animal to which you will assign the \{\{masterVAS-Terminology.radiofrequencyID-short}} tag. You can find an animal by its \{\{ID}}, \{\{BNAME}}, \{\{CNTL}}, \{\{VISID}}, \{\{REG}}, or \{\{EID}}, though not all of these items may be available in your \{\{masterVAS-Terminology.d-airy}}.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Select which item to assign to the animal. For instance, if an animal's electronic ID (EID is replaced and no longer matches its EID in \{\{masterVAS-Products.Pulse-only}}, you can assign the new value as its EID.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IYCBGrKe_BCNNPcvPojv1_rfid-assign-eid.png" size="15" isUploading="false" initialPath="../../Resources/Images/Platform/mobile-app/rfid-assign-EID.png" githubPath="Content/Resources/Images/Platform/mobile-app/rfid-assign-EID.png" position="flex-start" showCaption="false"></Image>
+
+      Tap **Yes** to confirm the assignment.
+
+      <ExpandableHeading>
+        ## Why can't I assign an RFID?
+
+        If you encounter an error, your \{\{masterVAS-Terminology.d-airy}} is not configured to assign items while scanning.
+
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/8fMRRl0KpNiD-U7-vuIEB_rfid-assign-eid-error.png" size="25" isUploading="false" initialPath="../../Resources/Images/Platform/mobile-app/rfid-assign-EID-error.png" githubPath="Content/Resources/Images/Platform/mobile-app/rfid-assign-EID-error.png" position="flex-start" showCaption="false"></Image>
+
+        Log into the web version of \{\{masterVAS-Products.Pulse-only}} and adjust the :Link[RFID Scanning]{label="RFID Scanning" overridedLabel="RFID Scanning" spaceId docId="87n3BKxetaoNmZIUQMas_" version="v2" docAnchorId="#RFID" loadingMethod="dynamic" newTab="false" githubPath="../Features/DairyComp/Settings/DC-AnimalConfiguration.htm#RFID" href="../Features/DairyComp/Settings/DC-AnimalConfiguration.htm#RFID"} settings.
+      </ExpandableHeading>
+    </WorkflowBlockItem>
+  </WorkflowBlock>
+</ExpandableHeading>

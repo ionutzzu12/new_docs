@@ -1,0 +1,94 @@
+---
+title: DRY Event
+slug: dry-event
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:40 GMT+0200 (Eastern European Standard Time)
+---
+
+The \{\{Events.11DRY}} event records the end of a lactation when an animal is removed from milking to prepare for calving. Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Event Guidelines
+
+  Use the mobile app or the web version of \{\{masterVAS-Products.Pulse-only}} to enter events! Tap \{\{Mobile-UI.EventsFeature}} in the [mobile app](<../../../../../../VAS Platform Help - Table of Contents/mobile-apps.mdx>) to get started, or see :Link[Add Events]{label="Add Events" overridedLabel="Add Events" spaceId docId="sp1fQUQTHg-WLIRXAer4X" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" githubPath="Events.htm#Add" href="Events.htm#Add"} to learn more about adding events from web. \{\{masterVAS-Products.Pulse-only}} supports adding events that have occurred within the last year.
+
+  The app expects you to add pregnant females to this event, so it will warn you before allowing you to add an animal that is not in \{\{Events.6PREG}} status, is already in \{\{Events.11DRY}} status, or is younger than the minimum breeding \{\{age}} configured in \{\{masterVAS-Products.Pulse-only}} or \{\{masterVAS-Products.DC305-short}} for \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}}.
+
+  Expand the topics below to learn more about \{\{Mobile-UI.EventTypes}} event details:
+
+  <ExpandableHeading>
+    ### Protocol
+
+    If you are entering this event for an animal that is in her first lactation cycle, the \{\{Protocol}} field is not required. Follow the guidelines below when entering protocol details:
+
+    1. Tap the \{\{Protocols.Protocol-singular}} field to view the available \{\{Protocols.Protocol-common}}s.Note that the mobile app filters the list of \{\{Protocols.Protocol-common}}s based on the event you are entering, as well as the type of animal you selected (heifer or adult). Some \{\{Protocols.Protocol-common}}s are available only for heifers, some for adults, and some are available for both.For each \{\{Protocols.Protocol-common}}, the app displays the corresponding Milk and Meat withholdings. It also displays the remark that will be auto-filled for this animal when you choose this \{\{Protocols.Protocol-common}}, as well as the \{\{masterVAS-Terminology.p-en}} to which animals on this \{\{Protocols.Protocol-common}} should be moved.
+    2. If you select a \{\{Protocols.Protocol-common}} that requires you to choose which hoof or quarter of the udder is affected, the app opens a screen where you can choose the quarter(s).1) Select which quarter(s) the \{\{Protocols.Protocol-common}} affects. Note that the options you see on this screen may vary based on \{\{DC-UI.DC-ProductName}}'s configured character limit for the Remark field. The labels you see here may also be different from those listed below, but the typical ones are:\* **ALL** - Selects all quarters/quadrants
+       - **LF** - **L**eft **F**ront hoof or teat
+       - **RF** - **R**ight **F**ront hoof or teat
+       - **LH** - **L**eft **H**ind hoof or teat
+       - **RH** - **R**ight **H**ind hoof or teat:::hint\{type="info"}
+         **NOTE:&#x20;**&#x54;he labels for quarters/quadrants can be customized in \{\{masterVAS-Products.Pulse-only}} [Animal Configuration](../DairyComp/Settings/DC-AnimalConfiguration.htm) settings or in \{\{DC-UI.DC-ProdNameShort}} for \{\{masterVAS-Products.DCUnlimited-short}} \{\{masterVAS-Terminology.d-airies}}.
+
+    <ExpandableHeading indent="2">
+      ### Click here to learn more about REM field length and quarter/quadrant selection!
+
+      The length of the remark field may be 16 or 8 characters, depending on your \{\{masterVAS-Terminology.d-airy}} type/item table \{\{masterVAS-Terminology.c-onfiguration}}. \{\{masterVAS-Products.MyDC-short}}\{\{masterVAS-Terminology.d-airies}} support 16-character remarks. \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}} can support 16-character remarks if they have adequate item table storage space. If a \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airy}} has limited item table storage space, it can only support 8-character remarks. Follow the guidelines below and learn how quarter/quadrant selection works for specific events:
+
+      - \{\{Events.30MAST}} and \{\{Events.32LAME}} events:\* 16-character \{\{REM}}: Choose 1, 2, 3, or all quarters/quadrants for MAST and LAME events.
+        - 8-character REM: Choose 1 or all quarters/quadrants for MAST and LAME events.
+      - \{\{Events.21CULTURE}} events: Choose either 1 or all quarters to follow best practices for this event type, irrespective of the REM field length.
+        \:::
+
+      2. After you select the quarter(s), tap the **Continue** button at the bottom of the screen.
+    </ExpandableHeading>
+
+    After you tap **Continue**, the app returns you to the event screen, where you will see the following updates:
+
+    - The event \{\{Protocols.Protocol-singular}} field displays your chosen \{\{Protocols.Protocol-common}}.
+    - The **Remark** field is auto-populated based on the \{\{Protocols.Protocol-common}} you selected. You can edit the remark further after the app inserts it.
+    - If the \{\{Protocols.Protocol-common}} you selected defined a *Go To&#x20;*\{\{masterVAS-Terminology.P-en-}} number, the app automatically inserts that \{\{masterVAS-Terminology.p-en}} number in the event's \{\{masterVAS-Terminology.P-en-}} field. In this case, you cannot edit the new \{\{masterVAS-Terminology.p-en}} assignment for this animal because the \{\{Protocols.Protocol-common}} defines the required \{\{masterVAS-Terminology.p-en}}.
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x57;hen you are adding animals in bulk to an event that allows \{\{Protocols.Protocol-common}}s, the information in the \{\{Protocols.Protocol-singular}} and Remark fields will **not** carry forward to other animals as you add them. Because \{\{Protocols.Protocol-common}} treatments are specific to each animal, the app requires you to define them individually for each animal you add to the event. See :Link[Save Time when Adding Animals in Bulk]{label="Save Time when Adding Animals in Bulk" overridedLabel="Save Time when Adding Animals in Bulk" spaceId docId="aEhwxYbuecaFP9Ctr3Y5S" version="v2" docAnchorId="#SaveTimeBulkEntries" loadingMethod="dynamic" newTab="false" githubPath="TipsEventEntry.htm#SaveTimeBulkEntries" href="TipsEventEntry.htm#SaveTimeBulkEntries"} for more information.
+    </hint>
+
+    See [Events with Protocols](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Your Animals/Events/events-with-protocols.mdx>) to learn more about defining protocol information when entering an event.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Pen
+
+    This field is available for events that may include a \{\{masterVAS-Terminology.p-en}} move. If you select a protocol for this event and that protocol designates a required \{\{masterVAS-Terminology.p-en}}, the app auto-fills the animal's new \{\{masterVAS-Terminology.p-en}} number in the \{\{masterVAS-Terminology.P-en-}} field; you cannot edit the new \{\{masterVAS-Terminology.p-en}} number at this point because it must be the \{\{masterVAS-Terminology.p-en}} that is defined by the protocol you selected.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Height
+
+    The animal's height (in the units set in your [PULSE User Account](<../../../../../../VAS Platform Help - Table of Contents/Features/User Menu/edit-your-user-account.mdx>)). To enable Height for this event, select the event from [Event Definitions](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>) and expand :Link[Optional Details]{label="Optional Details" overridedLabel="Optional Details" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#optional" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-EventDefinitions.htm#optional" href="../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"}.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Weight
+
+    The animal's weight (in the units set in your [PULSE User Account](<../../../../../../VAS Platform Help - Table of Contents/Features/User Menu/edit-your-user-account.mdx>)). To enable Weight for this event, select the event from [Event Definitions](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>) and expand :Link[Optional Details]{label="Optional Details" overridedLabel="Optional Details" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#optional" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-EventDefinitions.htm#optional" href="../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"}.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### BCS value
+
+    Body condition score, which is used to evaluate an animal's energy balance based on being extremely thin (1.00) or having excessive fat deposits (5.00). The value can be a whole number or decimal, and you can include additional notes using the REM field for the event (up to 16 alpha-numeric characters). To enable \{\{Events.19BCS}} value for this event, select the event from [Event Definitions](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx>) and expand :Link[Optional Details]{label="Optional Details" overridedLabel="Optional Details" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#optional" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-EventDefinitions.htm#optional" href="../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"}.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Process Changes
+
+  When you add events from web or the mobile app, your updates are sent to \{\{masterVAS-Products.Pulse-only}} and then on to \{\{DC-UI.DC-ProductName}} for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}} (\{\{Mobile-UI.ConnectionRequired}}).
+
+  When the updates are received, the following changes for each animal in the event are processed:
+
+  - Records \{\{PlatformContentSnippets.A-An}}\{\{Events.EventName}} event and sets the \{\{EDAY}} to the date the event was completed or diagnosed.
+  - Sets the \{\{DDAT}} (dry date) to the EDAY.
+  - Sets the animal's reproduction code/status to 6 (DRY).
+  - Updates the \{\{masterVAS-Terminology.p-en}} number if a \{\{masterVAS-Terminology.p-en}} move was included with the event.
+</ExpandableHeading>

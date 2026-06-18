@@ -1,0 +1,89 @@
+---
+title: ENTER Command
+slug: enter-command
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+Use the ENTER command to change stored item values for multiple animals at once. After you build and execute the ENTER command, \{\{masterVAS-Products.Pulse-only}} generates a report that lists the updated item values.
+
+<ExpandableHeading>
+  ## Build an ENTER Command
+
+  In the [command line](<../../../../VAS Platform Help - Table of Contents/features/command-line.mdx>), build your ENTER command using the following format:
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wBJXLoUubXg11yKKBkHaS_cmdline-syntax-example-enter.png" size="51" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/cmdline-syntax-example-enter.png" githubPath="Content/Resources/Images/Platform/cmdline/cmdline-syntax-example-enter.png" position="flex-start" showCaption="false"></Image>
+
+  <WorkflowBlock>
+    <WorkflowBlockItem>
+      Command Word: Start by typing the command word, ENTER, to indicate that you want to change stored item values for multiple animals at once.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Item Updates: Enter the new values for the stored items you want to change.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      In the command example, GSDAT=11/8/2023 and GSAMP=EID indicates that \{\{masterVAS-Products.Pulse-only}} needs to update the genomic sample date (GSDAT) to the entered date and the genomic sample \{\{ID}} (GSAMP) to the animal's \{\{EID}}.
+
+      See the topics below to learn more:
+
+      - You can't use the ENTER command to change calculated item values and some stored item values. For example, you can’t change an animal's \{\{masterVAS-Terminology.p-en}} using the ENTER command. Instead, use a MOVE event to implement a \{\{masterVAS-Terminology.p-en}} change.
+      - You can update a stored item's new value to match another existing item's value. For example, you can change an animal's GSAMP value to its EID value by entering GSAMP=EID.
+        Items: Type the items you want to include in your report. Items define the data you want to see in your report.In the command example, the items are ID, BDAT, LACT, and RPRO, which tells \{\{masterVAS-Products.Pulse-only}} to include columns for the animal ID, birthdate (BDAT), lactation number (LACT), and reproductive code (RPRO) in the report.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Conditions: Type the conditions to only update the animals that match the criteria.
+
+      In the command example, PEN=7 indicates that \{\{masterVAS-Products.Pulse-only}} should only update item values for animals in \{\{masterVAS-Terminology.p-en}} 7.
+    </WorkflowBlockItem>
+  </WorkflowBlock>
+
+  Click **Execute** to implement the changes. \{\{masterVAS-Products.Pulse-only}} then generates the :Link[Results Report]{label="Results Report" overridedLabel="Results Report" spaceId docId="ZNEBstJ5aiNulBnztUuI6" version="v2" docAnchorId="#Report" loadingMethod="dynamic" newTab="false" href="enter-command.mdx"}, which you can find on the [Report History](<../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/reportsworklists/view-report-history.mdx>) page.
+
+  You can also view the changes on your \{\{masterVAS-Terminology.d-airy}}'s [Change Log](../ChangeLog/ChangeLog.htm) or an affected animal's [Change Log](<../../../../../VAS Platform Help - Table of Contents/Features/Manage Your Animals/change-log.mdx>) in its \{\{masterVAS-Terminology.cowcard}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## ENTER Command Examples
+
+  See the following ENTER command examples, but note that some item names may not match your item names. Learn more about item names in [Item Definitions](../../Features/DairyComp/MyDC/Fo2o-settings/general-settings/item-definitions.mdx):
+
+  <ExpandableHeading>
+    ### Sort animals that need a pregnancy check, and include the animal's ID, pen, lactation number, and days since last heat in the report:
+
+    ENTER CUT=1WITH ID PEN LACT DSLHFOR VC=3
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Put identified cows on a trim list, and include the animal's ID, pen, trim date, lactation number, days carried calf and days in milk in the report
+
+    ENTER FLAG=1 WITH ID PEN TRMDT LACT DCC DIMFOR ID=123,456,678
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## View the Results Report
+
+  After you execute your ENTER command, \{\{masterVAS-Products.Pulse-only}} generates a report that lists all updated animals and the previous and current stored item values.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/GX32s8ZXGp2uHegPOJE1i_cmdline-enter-report.png" size="77" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/cmdline-ENTER-report.png" githubPath="Content/Resources/Images/Platform/cmdline/cmdline-ENTER-report.png" position="flex-start" showCaption="false"></Image>
+
+  See the topics below to learn more:
+
+  - UNDO changes for individual animals: When \{\{masterVAS-Products.Pulse-only}} first generates the report, you can check the box next to any animal and click **UNDO UPDATE** in the upper right corner of the table to revert the change for the selected animal(s). You can only undo changes from the Results Report page. If you leave the Results Report page, you can go to the animal’s CowCard to edit the item.
+  - Filter your results: Click **Filters** in the upper left corner of the table to search for an animal by its ID or to filter the results by the following animal statuses:\* **Unchanged:&#x20;**\{\{masterVAS-Products.Pulse-only}}\{\{did}} not update the animal's stored item because the new value matched the previous value.
+    - **Invalid:&#x20;**\{\{masterVAS-Products.Pulse-only}} did not update the animal's stored item because the new value was invalid. For example, a value might be invalid because the stored item can't be set to a negative number or a certain date.
+    - **Updated:&#x20;**\{\{masterVAS-Products.Pulse-only}} successfully updated the animal's stored item.
+    - **Undone:&#x20;**\{\{masterVAS-Products.Pulse-only}} successfully updated the animal's stored item, but it was manually reverted back to the previous value.
+  - Check old and updated item values: The report shows the previous item value and the current item value. If there’s a “-” under the PREVIOUS column, the stored item had no value before the command was executed.
+  - Include more items in your report: Use WITH statements in the ENTER command to include additional details in the generated report. For example, you may want to include the animal ID, birth date (BDAT), lactation number (LACT), and reproductive code (RPRO) to use the report to its full potential.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Command Line](<../../../../VAS Platform Help - Table of Contents/features/command-line.mdx>)
+  - [View Report History](<../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/reportsworklists/view-report-history.mdx>)
+</ExpandableHeading>

@@ -1,0 +1,64 @@
+---
+title: SUM Command
+slug: sum-command
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+A SUM report or command generates averages for specific items or animals within certain groups and presents the following details in a table or graph:
+
+- Animal counts
+- Average values
+- \{\{Standard deviation}}
+- Data range details, including minimum and maximum values
+
+The graph view is flexible and can be adjusted on the fly.
+
+:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/-XRfIat_Hj88qQM3-SjX0_sum-example6n.png" alt caption size="44"}:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/vcYO3zLNFDGthwR3jK-iF_sum-example8n.png" alt caption size="53"}
+
+Additionally, each of the table columns allows for sorting to quickly customize your data view.
+
+See the following SUM command examples:
+
+<ExpandableHeading>
+  ### Get an overview of milk composition and quality by lactation or pen
+
+  SUMMILK PCTF PCTS LGSCC BY lact PENFORLACT>0
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/hOL0DANyRmY6WqIPFaTli_sum-example7n.png" size="44" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/SUM-example7n.png" githubPath="Content/Resources/Images/Platform/cmdline/SUM-example7n.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Analyze the number of times ketosis was diagnosed by lactation group for all animals that calved in the last year
+
+  SUM \Z TKETBYLCTGPFORFDAT>-365
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/GdqgxVhoGVvudh2BNpxuk_sum-examplewswitchn.png" size="43" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/SUM-examplewswitch_n.png" githubPath="Content/Resources/Images/Platform/cmdline/SUM-examplewswitch_n.png" position="flex-start" showCaption="false"></Image>
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x54;he use of the \Z switch results in the inclusion of zero values for TKET, which includes all animals, not only those diagnosed with \{\{ketosis}}. Removing the switch only includes animals with TKET values, which leads to higher TKET averages.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Get an overview of milk production by lactation
+
+  SUMMILK DIM BY LACTFORLACT>0
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/6J82bNV7qloABRSQTcIvw_sum-example3n.png" size="44" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/SUM-example3n.png" githubPath="Content/Resources/Images/Platform/cmdline/SUM-example3n.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Analyze animal inventory and identify animals coming into milking
+
+  SUM BYAGEFORLACT=0
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/I2Njq6lt1bTegALGPY6xt_sum-example2n.png" size="48" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/SUM-example2n.png" githubPath="Content/Resources/Images/Platform/cmdline/SUM-example2n.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Command Reference Guide](CmdSyntax.htm)
+  - [../DairyComp/ReportsWorklists/ReportWorklistResults.htm](<../DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>)[Reports/Worklists Results](<../DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>)
+</ExpandableHeading>

@@ -1,0 +1,118 @@
+---
+title: Permission Descriptions
+slug: permission-descriptions
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:49 GMT+0200 (Eastern European Standard Time)
+---
+
+The permissions below control whether users can perform certain actions within \{\{masterVAS-Products.Pulse-only}}. Please refer to this information when [managing or creating new Roles](<../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>).
+
+<hint type="info">
+  **NOTE:&#x20;**&#x42;e aware of \{\{Zone}} "write" permissions as you are editing roles. The zone write :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RAsWMD-IsbPX_etOV-z1q_dairy-zones-write-permissions.png" alt caption size="10"} icon is displayed for any permission level that requires zone selections. When you edit a permission level with this icon, you must also select which zones can be edited by users who are granted that permission.
+</hint>
+
+<ExpandableHeading>
+  ## Dairy
+
+  - \{\{RolesPermissions.PermissionNames}}: \{\{RolesPermissions.Billing\_Management}}
+  - \{\{RolesPermissions.DB}}::Variable\{key="RolesPermissions.Dashboard\_Management" type="variable"}
+  - View: \{\{RolesPermissions.Dashboard\_View}}
+  - File Management: \{\{RolesPermissions.File\_Management}}
+  - General \{\{masterVAS-Terminology.F-ileDownload-}}: \{\{RolesPermissions.General\_File\_Download}}
+  - General \{\{masterVAS-Terminology.F-ileUpload-}}::Variable\{key="RolesPermissions.General\_File\_Upload" type="variable"}
+  - Integration Management::Variable\{key="RolesPermissions.Integration\_Management" type="variable"}
+  - Profile Management::Variable\{key="RolesPermissions.Profile\_Management" type="variable"}
+  - User Management: \{\{RolesPermissions.User\_Management}}
+  - Zone Management: \{\{RolesPermissions.Zone\_Management}}\{\{RolesPermissions.ZoneDefinition}}
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## DairyComp/MyDC
+
+  - \{\{masterVAS-Terminology.H-erd-}}\{\{masterVAS-Terminology.C-onfiguration-}}::Variable\{key="RolesPermissions.Herd\_Configuration" type="variable"}
+  - \{\{masterVAS-Terminology.H-erd-}}\{\{masterVAS-Terminology.F-ileDownload-}}::Variable\{key="RolesPermissions.Herd\_File\_Download" type="variable"}
+  - \{\{masterVAS-Terminology.H-erd-}}\{\{masterVAS-Terminology.F-ileUpload-}}::Variable\{key="RolesPermissions.Herd\_File\_Upload" type="variable"}
+  - \{\{masterVAS-Terminology.H-erd-}}\{\{masterVAS-Terminology.P-rotocolMgmt-}}: \{\{RolesPermissions.Herd\_Protocol\_Management}}
+  - \{\{masterVAS-Terminology.H-erd-}}\{\{masterVAS-Terminology.R-ead-}}: \{\{RolesPermissions.Herd\_Read}}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RAsWMD-IsbPX_etOV-z1q_dairy-zones-write-permissions.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/dairy-zones-write-permissions.png" githubPath="Content/Resources/Images/icons/dairy-zones-write-permissions.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{masterVAS-Terminology.H-erd-}}\{\{masterVAS-Terminology.W-rite-}}: \{\{RolesPermissions.Herd\_Write}}
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Feed
+
+  ### FeedComp Mobile
+
+  <hint type="info">
+    **TIP:&#x20;**&#x41;ll \{\{masterVAS-Products.FeedComp-upper}} users are allowed to complete \{\{FeedComp.FeedCompFeedings}} by default.
+  </hint>
+
+  - \{\{FeedComp.FeedCompBatchFeeding}}: \{\{RolesPermissions.Batch\_Feeding}}
+  - \{\{FeedComp.FeedCompEquipment}}\{\{masterVAS-Terminology.E-dit-}}: \{\{RolesPermissions.Equipment\_Edit}}
+  - \{\{FeedComp.FeedCompFeedingSchedules}}\{\{masterVAS-Terminology.E-dit-}}: \{\{RolesPermissions.Feeding\_Schedule\_Edit}}
+  - \{\{FeedComp.FeedCompIngredient-singular}} Adjust DM%: \{\{RolesPermissions.Ingredient\_Adjust\_DM-percent}}
+  - \{\{FeedComp.FeedCompIngredient-singular}}\{\{masterVAS-Terminology.E-dit-}}: \{\{RolesPermissions.Ingredient\_Edit}}
+  - \{\{FeedComp.FeedCompInventory}} Access: \{\{RolesPermissions.Inventory\_Access}}
+  - \{\{FeedComp.FeedCompLocation-singular}}\{\{masterVAS-Terminology.E-dit-}}: \{\{RolesPermissions.Location\_Edit}}
+  - Mobile App Access: \{\{RolesPermissions.Mobile\_App\_Access}}
+  - \{\{masterVAS-Terminology.P-en-}} Counts: \{\{RolesPermissions.Pen\_Counts}}
+  - \{\{masterVAS-Terminology.P-en-}}\{\{masterVAS-Terminology.E-dit-}}: \{\{RolesPermissions.Pen\_Edit}}
+  - \{\{masterVAS-Terminology.P-en-}}\{\{FeedComp.FeedCompFeeding-singular}} Amounts: \{\{RolesPermissions.Pen\_Feeding\_Amounts}}
+  - \{\{FeedComp.FeedCompRecipe-singular}} Adjust \{\{FeedComp.FeedCompIngredient-singular}} Amounts: \{\{RolesPermissions.Recipe\_Adjust\_Ingredient\_Amounts}}
+  - \{\{FeedComp.FeedCompRecipe-singular}}\{\{masterVAS-Terminology.E-dit-}}: \{\{RolesPermissions.Recipe\_Edit}}
+  - \{\{FeedComp.FeedCompRecipe-singular}} Set \{\{FeedComp.FeedCompAlternateRecipe-singular}}: \{\{RolesPermissions.Recipe\_Set\_Alternate\_Recipe}}
+  - \{\{FeedComp.FeedCompReport-singular}} Access: \{\{RolesPermissions.Report\_Access}}
+
+  ### FeedComp and FeedWatch Web
+
+  - \{\{FeedComp.FeedCompFeed}}\{\{masterVAS-Terminology.C-onfiguration-}}: \{\{RolesPermissions.Feed\_Configuration}}
+  - \{\{FeedComp.FeedCompFeed}}\{\{masterVAS-Terminology.F-ileDownload-}}: \{\{RolesPermissions.Feed\_File\_Download}}
+  - \{\{FeedComp.FeedCompFeed}}\{\{masterVAS-Terminology.F-ileUpload-}}: \{\{RolesPermissions.Feed\_File\_Upload}}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RAsWMD-IsbPX_etOV-z1q_dairy-zones-write-permissions.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/dairy-zones-write-permissions.png" githubPath="Content/Resources/Images/icons/dairy-zones-write-permissions.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{FeedComp.FeedCompFeed}}\{\{FeedComp.FeedCompInventory}}\{\{masterVAS-Terminology.W-rite-}}: \{\{RolesPermissions.Feed\_Inventory\_Write}}
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RAsWMD-IsbPX_etOV-z1q_dairy-zones-write-permissions.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/dairy-zones-write-permissions.png" githubPath="Content/Resources/Images/icons/dairy-zones-write-permissions.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{FeedComp.FeedCompFeed}}\{\{masterVAS-Terminology.P-en-}}\{\{masterVAS-Terminology.W-rite-}}: \{\{RolesPermissions.Feed\_Pen\_Write}}
+  </Paragraph>
+
+  - \{\{FeedComp.FeedCompFeed}}\{\{masterVAS-Terminology.R-ead-}}: \{\{RolesPermissions.Feed\_Read}}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RAsWMD-IsbPX_etOV-z1q_dairy-zones-write-permissions.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/dairy-zones-write-permissions.png" githubPath="Content/Resources/Images/icons/dairy-zones-write-permissions.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{FeedComp.FeedCompFeed}}\{\{masterVAS-Terminology.W-rite-}}: \{\{RolesPermissions.Feed\_Write}}
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Parlor
+
+  - \{\{Partners.Parlor}}\{\{masterVAS-Terminology.C-onfiguration-}}::Variable\{key="RolesPermissions.Parlor\_Configuration" type="variable"}
+  - \{\{Partners.Parlor}}\{\{masterVAS-Terminology.F-ileDownload-}}::Variable\{key="RolesPermissions.Parlor\_File\_Download" type="variable"}
+  - \{\{Partners.Parlor}}\{\{masterVAS-Terminology.F-ileUpload-}}::Variable\{key="RolesPermissions.Parlor\_File\_Upload" type="variable"}
+  - \{\{Partners.Parlor}}\{\{masterVAS-Terminology.R-ead-}}::Variable\{key="RolesPermissions.Parlor\_Read" type="variable"}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RAsWMD-IsbPX_etOV-z1q_dairy-zones-write-permissions.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/dairy-zones-write-permissions.png" githubPath="Content/Resources/Images/icons/dairy-zones-write-permissions.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{Partners.Parlor}}\{\{masterVAS-Terminology.W-rite-}}::Variable\{key="RolesPermissions.Parlor\_Write" type="variable"}
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Edit Dairy User Permissions](EditUserPermissions.htm)
+  - [Manage Dairy Roles](<../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>)
+  - [Default Roles and Permissions](Default-Roles-Permissions.htm)
+</ExpandableHeading>

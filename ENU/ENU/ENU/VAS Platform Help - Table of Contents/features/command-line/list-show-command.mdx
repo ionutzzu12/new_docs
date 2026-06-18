@@ -1,0 +1,51 @@
+---
+title: LIST (SHOW) Command
+slug: list-show-command
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+The LIST (SHOW) command generates a listing of animals with certain items and conditions.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/-KsggzMJ17Iro27UHP5GF_command-results-page.png" size="64" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/command-results-page.png" githubPath="Content/Resources/Images/Platform/cmdline/command-results-page.png" position="flex-start" showCaption="false"></Image>
+
+See the following LIST command examples:
+
+<ExpandableHeading>
+  ### Identify animals that are due to be dried off (calving date is approaching)
+
+  LIST ID PEN LACT DIM DCC MILK FOR LACT>0 DCC>220 DDAT=0 BY PEN
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/qjcY9TLXz3NdiPYVGoSnX_list-example1.png" size="58" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/LIST-example1.png" githubPath="Content/Resources/Images/Platform/cmdline/LIST-example1.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Track breeding tasks and generate a breeding sheet
+
+  LISTID PEN DIM MILK TBRD LACT DSLH RPRO SIR1 SIR2FORPEN=1 TBRD\<5
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/tsxuE4I2gZcUliuyh9yUp_list-example2.png" size="61" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/LIST-example2.png" githubPath="Content/Resources/Images/Platform/cmdline/LIST-example2.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Determine if an animal's milk production is lower than expected, possibly to drive a decision to dry early or sell the animal
+
+  LIST ID PEN DIM DCC MILK FOR MILK=1-50 DIM>0 DDAT=0
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zMyXsxnRzwaE9lrJZgbWj_list-example3.png" size="52" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/LIST-example3.png" githubPath="Content/Resources/Images/Platform/cmdline/LIST-example3.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Manage the hospital pen, such as checking the total number of sick animals and milk and beef withholds
+
+  LISTID PEN DIM DCC LACT MILK MKDAT BFDATFOR LACT>0 MKDAT>TODAY
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/3njShFejvySAnVOxfh_qr_list-example4.png" size="52" isUploading="false" initialPath="../../../Resources/Images/Platform/cmdline/LIST-example4.png" githubPath="Content/Resources/Images/Platform/cmdline/LIST-example4.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Command Reference Guide](<../../../../../VAS Platform Help - Table of Contents/Features/Command Line/command-reference-guide.mdx>)
+  - [../DairyComp/ReportsWorklists/ReportWorklistResults.htm](<../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>)[Reports/Worklists Results](<../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>)
+</ExpandableHeading>

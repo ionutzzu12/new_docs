@@ -1,0 +1,67 @@
+---
+title: Equipment Status
+slug: equipment-status
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### How do I add this widget to my Dashboard or Overview Page?
+
+  To add this widget to your \{\{Buttons-UI.Dashboard}} or \{\{masterVAS-Terminology.O-verview-}} page, check the box for it under the **Feed** category in the [Page Customization](<../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Dashboard/customize-dashboards.mdx>) options.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/X1uk9oV82Q3Qj3RXUSJlZ_feed-widgets.png" size="21" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/feed-widgets.png" githubPath="Content/Resources/Images/Platform/dashboard/feed-widgets.png" position="flex-start" showCaption="false"></Image>
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x54;o add **Feed** widgets to your Dashboard, your \{\{masterVAS-Terminology.d-airy}} must have \{\{masterVAS-Products.FeedWatchPlatform}} integration enabled in the \{\{General.ProductName}}.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### What permissions do I need to view this widget?
+
+  To view this widget on a Dashboard or \{\{masterVAS-Terminology.O-verview-}} Page, your user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+The \{\{Widgets.EquipmentStatus}} widget displays the current status of feed mixers that are synchronized into the \{\{General.ProductName}} from \{\{masterVAS-Products.FeedWatchPlatform}}. As shown in the example below, the colors in the equipment header boxes indicate the equipment status:
+
+- A GREEN HEADER BOX indicates that the equipment connection is good.
+- A RED HEADER BOX indicates a connection loss between the equipment and \{\{masterVAS-Products.FeedWatchPlatform}}.
+- A GRAY HEADER BOX indicates disabled equipment. This type of equipment is only displayed if the **Show Disabled Equipment** box at the top left of the widget is checked.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Lk5Qkdn_fwHVgKGirhf-D_equipment-status.png" size="40" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/equipment-status.png" githubPath="Content/Resources/Images/Platform/dashboard/equipment-status.png" position="flex-start" showCaption="false"></Image>
+
+The example below illustrates the information displayed for each \{\{mixer}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/5FsM26Y9G-RC-52oU-17r_equipment-status-large.png" size="22" isUploading="false" initialPath="../../../../Resources/Images/Platform/dashboard/equipment-status-large.png" githubPath="Content/Resources/Images/Platform/dashboard/equipment-status-large.png" position="flex-start" showCaption="false"></Image>
+
+1. Mixer name.
+2. Mixer type.
+3. PREVIOUS LOAD details:\* :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/JDT1GU72oNf2dvwpzLm9h_person.png" alt caption size="10"}
+   The name of the \{\{masterVAS-Terminology.d-airy}} worker responsible for the load.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/I4uc5VNnmsRYKqZjI9hRT_clipboard.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/clipboard.png" githubPath="Content/Resources/Images/icons/clipboard.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+<Paragraph indent="2">
+  The feeding period and \{\{masterVAS-Terminology.p-ens}} where the feed was delivered (shown as **AM Feeding** for \{\{masterVAS-Terminology.p-ens}}**&#x20;7 and 8** in the example).
+</Paragraph>
+
+4. Target vs Actual feed results:\* If the Actual amount delivered **exceeds** the Target amount, the values will be illustrated in green and red on the bar.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/gCeDtzLRXWhkz1pxTKTJ-_equip-status-red.png" alt caption size="14"}- In this case, the green part of the bar shows the Target amount that was delivered. The Target value is displayed by the green dot above the bar. In the example above, the green shows that the full Target amount of **30,763 lbs** of feed was delivered.
+   - The red part of the bar shows how much the Actual amount exceeded the Target. In the example above, the Actual value of **31,619 lbs** is displayed by the red dot below the bar, and the Actual amount that exceeded the Target is displayed as the percentage **+2.78%** next to the Actual weight value.
+   - If the Actual amount delivered **is less than** the Target, the values will be illustrated in green and orange on the bar.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Yu4xKv4IO2qBuJqAfSKWN_equip-status-orange.png" alt caption size="14"}\* In this case, the green part of the bar shows the Actual amount that was delivered. In the example above, the Actual value of **27,621 lbs** is displayed by the green dot below the bar, and the amount that was less than the Target is displayed as the negative percentage **-3.75%** next to the Actual weight value.
+     - The orange part of the bar represents how much of the Target was *not* delivered. In the example above, the Target value of **30,000 lbs** is displayed by the orange dot above the bar, and the orange portion represents the **-3.75%** difference between the Target and the Actual amount delivered.
+5. NEXT LOAD details:\* :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/I4uc5VNnmsRYKqZjI9hRT_clipboard.png" alt caption size="10"}
+   The next scheduled feeding period and \{\{masterVAS-Terminology.p-ens}} (shown as **AM Feeding** for \{\{masterVAS-Terminology.p-ens}}**&#x20;19, 13, 14, 11, and 12** in the example above).
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/MFGuXObrXjnzdMd8ICiM4_target.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/target.png" githubPath="Content/Resources/Images/icons/target.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+<Paragraph indent="2">
+  The target weight for the next load (shown as **11,719 lbs** in the example above).
+</Paragraph>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Dashboard](../DashboardsOverview.htm)
+  - [Customize Dashboards](<../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/Dashboard/customize-dashboards.mdx>)
+</ExpandableHeading>

@@ -1,0 +1,25 @@
+---
+title: Process TODO Lists
+slug: process-todo-lists
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+\{\{Worklists.ToDoUI-Web}} Lists include animals that may need to be checked, moved, or treated. After the required task is completed, the animal is marked as \{\{Worklists.DoneUI}}. Use these actionable lists to help manage your work on farm and keep track of completed activities electronically.
+
+Follow the steps below to continue:
+
+1. On the **TODO** page of this \{\{Worklists.worklistCommonUse}}, you can process a single animal or multiple animals. Simply select the animals you want to process (or select all animals in the upper left corner), then click **Mark as Complete** in the upper right corner. The system will then move the selected animals to the **DONE** page and change the animals' status to \{\{Worklists.Received}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/6k0xeDfDScvWMyna_Guqr_worklists-multi-markasdone-todo.png" size="66" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/worklists-multi-markasdone-todo.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/worklists-multi-markasdone-todo.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  If an animal on the **DONE** page is not fully processed and its status is still \{\{Worklists.Received}}, you can move the animal back to the **TODO** page. To move the animal back, click the **UNDO** button.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/JZPfZqYWAQySlgmqY4J2T_worklists-undo-todo.png" alt caption size="56"}
+</Paragraph>
+
+<ExpandableHeading>
+  ### What happens when I Process Changes?
+
+  - When you process changes, it completes all animals that are marked as \{\{Worklists.DoneUI}} and are in the status \{\{Worklists.Received}}. The animals' status changes to PROCESSED, and the updates are sent from \{\{masterVAS-Products.Pulse-only}} to mobile devices, as well as \{\{DC-UI.DC-ProdNameShort}} (for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}).
+  - For \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}: When \{\{DC-UI.DC-ProdNameShort}} receives notification that one or more animals on a list is \{\{Worklists.DoneUI}}, it kicks off any corresponding \{\{Worklists.OnDone}} or \{\{Worklists.PostProcess}} routine(s) for those animals.
+</ExpandableHeading>

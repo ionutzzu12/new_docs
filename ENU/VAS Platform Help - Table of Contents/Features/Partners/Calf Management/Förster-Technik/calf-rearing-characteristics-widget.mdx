@@ -1,0 +1,56 @@
+---
+title: Calf Rearing Characteristics Widget
+slug: calf-rearing-characteristics-widget
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  For the \{\{Partners.PartnersUIoption}} tab to display \{\{Partners.Forster}} data, your \{\{masterVAS-Terminology.d-airy}} must first activate the integration. See [Activate Förster-Technik Integration](forster-integrate.htm) to learn more.
+</ExpandableHeading>
+
+The \{\{Widgets.ForsterCalf}} widget includes important calf data such as birth date, projected \{\{wean}} date, parentage, weight, and feeding details. The widget also includes an option to download the calf's feeding plan as a PDF.
+
+View the example below for more information on the data shown in the widget.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/XfjSJeH28NvYdXnhCTMUp_calf-rearing-widget.png" size="64" isUploading="false" initialPath="../../Resources/Images/Partners/forster/calf-rearing-widget.png" githubPath="Content/Resources/Images/Partners/forster/calf-rearing-widget.png" position="flex-start" showCaption="false"></Image>
+
+1. The top row of data includes details about the calf, including the following\:BDATE: Calf birthdateProjected Wean Date/Weaned: Date the calf is expected to be weaned or the date the calf was weaned.Sex: Calf sex:\* F: female
+   - M: male\{\{CBRD}}: Calf breed:\* H: Holstein
+   - J: Jersey
+   - G: Guernsey
+   - B: Brown Swiss
+   - A: Ayrshire
+   - M: Milking Shorthorn\{\{DID}}: Calf's \{\{masterVAS-Terminology.d-am}} identifier\{\{SID}}: Calf's \{\{masterVAS-Terminology.s-ire}} identifierAGEDY: Calf \{\{age}} in days
+2. \{\{Commands.Click}} the Download Calf Report button
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/9P-74S30nyUBy2id04qc8_calf-report-button.png" size="10" caption="Calf Report (PDF) button" alt="Calf Report (PDF) button" isUploading="false" initialPath="../../Resources/Images/Partners/forster/calf-report-button.png" githubPath="Content/Resources/Images/Partners/forster/calf-report-button.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+<Paragraph indent="1">
+  to view and/or save a summary of the calf's feeding plan.:::ExpandableHeading
+</Paragraph>
+
+### See a sample Calf Report
+
+<Paragraph indent="1">
+  :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/A249CffFR7bEq28cweQ3l_calf-summary-pdf.png" alt caption size="46"}
+  \:::
+</Paragraph>
+
+3. Units: Choose the units in which to display data\:Units: Choose the units in which to display data:\* Metric: Display data in Kilograms and Liters.
+   - Imperial: Display data in Pounds and Gallons.:::hint\{type="info"}
+     **NOTE:&#x20;**&#x54;his setting is independent of the Units selected in your [Account Settings](../../Platform/Features/Config/EditUserAcct.htm) and applies to all users in your \{\{masterVAS-Terminology.d-airy}}.
+     \:::
+4. Calf Weight data. If your \{\{masterVAS-Terminology.d-airy}} is equipped with a \{\{Partners.Forster}} half-body scale, this is an actual weight. If not, this value is an estimate based on calf age.\* 4 days: Calf weight at 4 days old
+   - \{\{Today}}: Current calf weight
+   - ADG: Average daily weight gain
+5. Milk Consumption data:\* Total Consumption: MR (milk \{\{replacer}} consumed)
+   - Milk: Volume of milk consumed
+   - Concentration: Total weight of concentrate consumed
+   - Additive: Total weight of additive(s) consumed
+6. Allowance data:\* Allowance Ratio: Milk consumed/allowance, in weight and as a percentage
+   - \# Dips Milk Intake: Total number of periods during which the calf milk consumption is decreased
+   - Avg Breaks/Day: Average number of times per day the calf feeding is interrupted
+   - Days on Prescription: Number of days on a prescription and the number of days as a percentage of the feeding plan period. For instance, if a calf has been on a prescription for 5 days of 28 days on a feeding plan, the Days on Prescription is 5 (17.86%).

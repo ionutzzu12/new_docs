@@ -1,0 +1,137 @@
+---
+title: Recipes List
+slug: recipes-list
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:46 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x54;o use this feature, your \{\{masterVAS-Terminology.d-airy}} must integrate \{\{Buttons-UI.FeaturesMain}} with the \{\{General.ProductName}}.If necessary, contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) to complete the integration or upgrade to the latest version of \{\{masterVAS-Products.FeedWatchOnPremise}}.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  To use this feature, your \{\{General.ProductName}} user account must be assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions. See [Edit Dairy User Permissions](../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+The \{\{Buttons-UI.RecipesList}} list allows you to see all of your \{\{masterVAS-Terminology.d-airy}}'s recipes in one place. You can find this feature under the :Link[Menu Options]{label="Menu Options" overridedLabel="Menu Options" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-FeedWatchOnPremise" loadingMethod="dynamic" newTab="false" githubPath="../../NavPlatform/Menu.htm#Menu-FeedWatchOnPremise" href="../../navigate-pulse/menu-options.mdx"}.
+
+As illustrated in the example here, the Recipes page is divided into **Active Recipes** and **Other Recipes**, based on whether a \{\{recipe}} is currently feeding any \{\{masterVAS-Terminology.p-ens}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/w17MyJYAURpbzASMz9ZmB_recipes-list-full.png" size="51" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/recipes-list-full.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/recipes-list-full.png" position="flex-start" showCaption="false"></Image>
+
+- The :Link[Active Recipes]{label="Active Recipes" overridedLabel="Active Recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Active" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} section displays recipes that are feeding at least 1 \{\{masterVAS-Terminology.p-en}}.
+- The :Link[Other Recipes]{label="Other Recipes" overridedLabel="Other Recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Other" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} section displays all recipes that are not currently feeding any \{\{masterVAS-Terminology.p-ens}}. This section includes :Link[premix recipes]{label="premix recipes" overridedLabel="premix recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Premix" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"}.
+- Each recipe is represented by a recipe card that summarizes its ingredients, cost, animals fed, and related \{\{masterVAS-Terminology.p-ens}}. Click the Details link at the top right of any recipe card to view its :Link[Recipes List]{label="Recipes List" overridedLabel="Recipes List" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Recipe_Details" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"}.
+- If an active recipe is replaced by an alternate, the recipe card will display the :Link[alternative recipe information]{label="alternative recipe information" overridedLabel="alternative recipe information" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Alternat" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"}.
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Active Recipes
+
+  Each recipe card under **Active Recipes** provides the information defined below. The recipe cards under **Other Recipes** vary slightly and are defined below in :Link[Other Recipes]{label="Other Recipes" overridedLabel="Other Recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Other" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/SnMD2UmBQlrIORGy1zoA0_recipe-card-active-illustrated.png" size="26" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/recipe-card-active-illustrated.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/recipe-card-active-illustrated.png" position="flex-start" showCaption="false"></Image>
+
+  1. Recipe Name: This is the recipe name that is defined in \{\{masterVAS-Products.FeedWatchOnPremise}}.
+  2. Recipe DM %: Percentage of \{\{dry matter}} in this recipe.
+  3. \{\{AF}}\{\{Cost/Ton}}: As‑fed cost per ton.
+  4. Animals Fed: Number of animals fed by this recipe.
+  5. Density Factor: The density factor is defined in \{\{masterVAS-Products.FeedWatchOnPremise}}. It indicates how much of a recipe you can load into the \{\{mixer}}, based on its weight and bulk:\* A density factor that is lower than 100% indicates recipes with ingredients that are lighter in weight but take up a lot of space (like dry hay). They will fill the mixer's available space before they reach its maximum weight capacity.
+     - A density factor that is higher than 100% indicates recipes with ingredients that are more compact and heavy (like a Premix recipe, which is typically dense if it does not have forages in the recipe). They will reach the mixer's maximum weight capacity even though they do not fill all of its available space.
+  6. Alternative Recipe Indicator: If this recipe has been used to replace another that was previously in use, the Alternative Recipe Indicator defines which recipe it replaces. The recipe that was replaced can be found in the :Link[Other Recipes]{label="Other Recipes" overridedLabel="Other Recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Other" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} section. See :Link[Alternative Recipes]{label="Alternative Recipes" overridedLabel="Alternative Recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Alternat" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} for an example of how alternative recipes appear in the Recipes list.
+  7. \{\{masterVAS-Terminology.P-ens-}} Fed: \{\{masterVAS-Terminology.P-ens-}} that are fed by this recipe. If a recipe is assigned to 7 or more \{\{masterVAS-Terminology.p-ens}}, the first 6 \{\{masterVAS-Terminology.p-en}} numbers are displayed, and a number such as **+4** is shown at the end of the list to show how many additional \{\{masterVAS-Terminology.p-ens}} are fed by the recipe. \{\{Commands.Click}} that last number in the list view a pop‑up list of the remaining \{\{masterVAS-Terminology.p-ens}}.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/IamRb7NaDS7ZnDuWDUXIb_pens-fed-expanded.png" alt caption size="20"}
+  8. Details: Click the Details link at the top right of a recipe card to view more recipe details, including:\* Recipe composition.
+     - Directions for mixing the recipe, including the sequence and amounts.
+     - A list of \{\{masterVAS-Terminology.p-ens}} that use the recipe.
+     - Links to view ingredient details.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/BUfE42wUmu0t6OFHEUfcM_recipe-details-link.png" alt caption size="26"}See :Link[Recipes List]{label="Recipes List" overridedLabel="Recipes List" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Recipe_Details" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} for an illustrated example of the recipe details page.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Other Recipes
+
+  The **Other Recipes** section displays all recipes that are not actively feeding a \{\{masterVAS-Terminology.p-en}}:
+
+  - Premix recipes are always included in this section because they are not directly feeding any \{\{masterVAS-Terminology.p-ens}}.
+  - As illustrated in the example here, premixes are defined by the yellow
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/dcHSPCxCDudK8YNq8CBKx_premix-label.png" size="10" caption="premix" alt="premix" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/premix-label.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/premix-label.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    label and are displayed at the top of the section.
+  </Paragraph>
+
+  - The remaining recipes are displayed in alphabetical order.
+
+  The Other Recipes cards are similar to those in the Active Recipes section, but with a few differences.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/QIQsmlBJB12rvt9AgvmIF_recipes-list-other.png" size="52" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/recipes-list-other.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/recipes-list-other.png" position="flex-start" showCaption="false"></Image>
+
+  1. Recipe Details: The recipe cards under Other Recipes display the same **Recipe Name**,**&#x20;Recipe&#x20;**\{\{DM%}},**&#x20;Density Factor**, an&#x64;**&#x20;AF Cost/Ton** as those in Active Recipes. See :Link[Active Recipes]{label="Active Recipes" overridedLabel="Active Recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Active" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} for more information on these fields. No information is displayed on related animals or \{\{masterVAS-Terminology.p-ens}} because the Other Recipes are not currently feeding any \{\{masterVAS-Terminology.p-ens}}.
+  2. Premix Recipe: Premix recipes are defined by the yellow
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/dcHSPCxCDudK8YNq8CBKx_premix-label.png" size="10" caption="premix" alt="premix" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/premix-label.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/premix-label.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    label and are displayed at the top of the section. See :Link[Premix Recipes]{label="Premix Recipes" overridedLabel="Premix Recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Premix" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} for more information.
+  </Paragraph>
+
+  3. Alternative Recipe Indicator: If this recipe was previously in use but then replaced with an alternate, the recipe card here identifies the Active Recipe that is being used in its place. In the example above, the Other Recipe named \{\{masterVAS-Terminology.P-en-}}**&#xA0;2/3/6 WB** was replaced with the alternate recipe named \{\{masterVAS-Terminology.P-en-}}**&#xA0;2/3/6**. The recipe that replaced this one can be found in the :Link[Active Recipes]{label="Active Recipes" overridedLabel="Active Recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Active" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} section. See :Link[Alternative Recipes]{label="Alternative Recipes" overridedLabel="Alternative Recipes" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Alternat" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} for an example of how alternative recipes appear in the Recipes list.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Premix Recipes
+
+  Premix recipes are listed at the top of the Other Recipes section and are easily identified by the yellow
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/dcHSPCxCDudK8YNq8CBKx_premix-label.png" size="10" caption="premix" alt="premix" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/premix-label.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/premix-label.png" position="flex-start" showCaption="true"></Image>
+
+  label. If the premix is used as an ingredient in an Active Recipe, you will see a note icon
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/U8EcA3S1cu6ihG8nrrAUp_note-icon.png" size="10" isUploading="false" initialPath="../../../Resources/Images/icons/note-icon.png" githubPath="Content/Resources/Images/icons/note-icon.png" position="flex-start" showCaption="false"></Image>
+
+  to the right of the premix label. If this icon is not present on the premix recipe card, that premix is **not** currently being used in a recipe.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/DS65woWrUIwFD2YlhlJ-Z_in-recipe-indicator.png" size="49" isUploading="false" initialPath="../../../Resources/Images/Platform/feedwatchplatform/in-recipe-indicator.png" githubPath="Content/Resources/Images/Platform/feedwatchplatform/in-recipe-indicator.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Alternative Recipes
+
+  If an Active Recipe has been replaced with an alternative recipe, the \{\{Buttons-UI.RecipesList}} list responds in the following ways:
+
+  1. The alternate recipe moves into the Active Recipes section and displays a green checkmark
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/rWL8Te-TpZbm3EOnGbJtb_check-green.png" size="10" caption="green checkmark" alt="green checkmark" isUploading="false" initialPath="../../../Resources/Images/icons/check-green.png" githubPath="Content/Resources/Images/icons/check-green.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    and a label that indicates which recipe it replaces.AND
+  </Paragraph>
+
+  2. The recipe that was replaced by the alternate is moved to the Other Recipes section (since it is no longer feeding any \{\{masterVAS-Terminology.p-ens}} at the moment). Its recipe card also displays a green checkmark
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/rWL8Te-TpZbm3EOnGbJtb_check-green.png" size="10" caption="green checkmark" alt="green checkmark" isUploading="false" initialPath="../../../Resources/Images/icons/check-green.png" githubPath="Content/Resources/Images/icons/check-green.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    and an Alternative Recipe label that indicates the name of the Active Recipe that is feeding its \{\{masterVAS-Terminology.p-ens}} (see example to the right). If you view the :Link[Recipes List]{label="Recipes List" overridedLabel="Recipes List" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Recipe_Details" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"}, the :Link[Recipe Name]{label="Recipe Name" overridedLabel="Recipe Name" spaceId docId="mFmG6tjKhh5JEpRfxMuwv" version="v2" docAnchorId="#Recipe_Name" loadingMethod="dynamic" newTab="false" href="recipes-list.mdx"} in the Details Summary at the top of the page shows that this recipe has been replaced by a different recipe.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/3LixCtaYJgvJWSc1e1H8f_recipes-list-alternate.png" alt caption size="51"}
+  </Paragraph>
+</ExpandableHeading>
+
+See [Recipe Details and Adjustments](<../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/Recipes/recipe-details-and-adjustments.mdx>) for more information on specific recipes and making adjustments to ingredient mixing order or dry matter (DM) and as-fed (AF) quantities.
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Ingredients](<../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/ingredients.mdx>)
+  - [Recipe Details and Adjustments](<../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/Recipes/recipe-details-and-adjustments.mdx>)
+  - [Inventory & Projections](FeedWatchPlatform-InvProj.htm)
+  - [Location DM% Adjustments](location-dmpercent-adjustments.mdx)
+  - [Bunk Scoring](<../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/bunk-scoring.mdx>)
+  - [Export to Equipment](FeedWatchPlatform-ExporttoEquip.htm)
+</ExpandableHeading>

@@ -1,0 +1,79 @@
+---
+title: PULSE Update - November 2025
+slug: pulse-update-november-2025
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:50 GMT+0200 (Eastern European Standard Time)
+---
+
+ENHANCEMENT\{\{masterVAS-Products.DCUnlimited-short}} ONLY Protect your herd data with \{\{masterVAS-Products.Pulse-only}} offline \{\{mode}} alerts! If your \{\{masterVAS-Products.DC305-short}} connection goes down, \{\{masterVAS-Products.Pulse-only}}now warns you and specifies the actions you need to take. This ensures you don't inadvertently edit outdated animal records and keeps your \{\{masterVAS-Products.Pulse-only}} data current. \{\{masterVAS-Products.Pulse-only}} detects three different offline modes to safeguard your \{\{masterVAS-Terminology.h-erd}} data. See :Link[Offline DC305 Integration]{label="Offline DC305 Integration" overridedLabel="Offline DC305 Integration" spaceId docId="Fd8QuwzdEFx_q7JKcYm7K" version="v2" docAnchorId="#offline" loadingMethod="dynamic" newTab="false" githubPath="../../Features/Dairy/IntegrationStatus.htm#offline" href="../../Features/Dairy/IntegrationStatus.htm#offline"} to learn how to address warnings and make sure your latest animal records are live in \{\{masterVAS-Products.Pulse-only}} and the mobile app.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/55nFWQNdvyMQi820v3FYc_25-nov-dc305offline.png" size="63" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/25-nov-dc305offline.png" githubPath="Content/Resources/Images/Platform/release-notes/25-nov-dc305offline.png" position="flex-start" showCaption="false"></Image>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/fyEO6wp6nvbn7nvpfdDKx_25-nov-embryo-delete.png" size="77" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/25-nov-embryo-delete.png" githubPath="Content/Resources/Images/Platform/release-notes/25-nov-embryo-delete.png" position="flex-start" showCaption="false"></Image>
+
+ENHANCEMENTEmbryo management improvements: Managing your embryos in \{\{masterVAS-Products.Pulse-only}} just got easier! Check out the latest improvements: 
+
+- You can now delete transferred embryos and choose to either return them to inventory or discard them. This helps to correct mistakes if the wrong embryo was selected during a \{\{Events.3000TRANSFER}} event. See :Link[Delete Transferred Embryos]{label="Delete Transferred Embryos" overridedLabel="Delete Transferred Embryos" spaceId docId="QMJysXEoHcmgu2GzWwO0-" version="v2" docAnchorId="#delete" loadingMethod="dynamic" newTab="false" githubPath="../../Features/DairyComp/Embryo/EmbryoTransferred.htm#delete" href="../../Features/DairyComp/Embryo/EmbryoTransferred.htm#delete"} to learn more.
+- If an animal was \{\{Events.5BRED}} within 10 days, \{\{Events.3000TRANSFER}} events cannot be added and \{\{masterVAS-Products.Pulse-only}} flags the animal in an error message: :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/O71bkyOM_ZuViXbsXWyjd_embryo-error-bred.png" alt caption size="23"}Be sure to check that the recipient animal is correct when you see the \{\{Events.5BRED}} error message. This and other built-in sanity checks protect your valuable investment and avoid wasting viable embryos. See :Link[TRANSFER Event Sanity Checks]{label="TRANSFER Event Sanity Checks" overridedLabel="TRANSFER Event Sanity Checks" spaceId docId="-WRFAkkm6KnVtEvx3u4b_" version="v2" docAnchorId="#checks" loadingMethod="dynamic" newTab="false" githubPath="../../Features/Events/TransferEvent.htm#checks" href="../../Features/Events/TransferEvent.htm#checks"} for additional \{\{masterVAS-Products.Pulse-only}} checks and other event details.
+- You can now add stage 9 embryos (expanded and hatched blastocysts) to recipient animals. See :Link[Requirements for Embryo Transfers]{label="Requirements for Embryo Transfers" overridedLabel="Requirements for Embryo Transfers" spaceId docId="ML5l3xpCqnu1Y8s6zR7u_" version="v2" docAnchorId="#requirements" loadingMethod="dynamic" newTab="false" githubPath="../../Features/DairyComp/Embryo/EmbryoTips.htm#requirements" href="../../Features/DairyComp/Embryo/EmbryoTips.htm#requirements"} for additional requirements.
+
+ENHANCEMENTAdditional embryo details: \{\{masterVAS-Products.Pulse-only}} now supports additional data for your embryos: 
+
+- Lab \{\{ID}}
+- Lab Embryo ID
+- Embryo Owner
+
+You can also filter your [Embryo Inventory](../../Features/DairyComp/Embryo/EmbryoInventory.htm), [Transferred Embryos](../../Features/DairyComp/Embryo/EmbryoTransferred.htm), and [Embryo Results](../../Features/DairyComp/Embryo/EmbryoResults.htm) pages using the new fields. See [Embryo Management](../../Features/DairyComp/Embryo/EmbryoManagement.htm) to learn more about managing your embryos in \{\{masterVAS-Products.Pulse-only}}.
+
+:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/dNEqomGFJgqJSScXYm8Eu_25-nov-embryo.png" alt caption size="73"}:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/glslXV1KqwUeeWm-VJftx_25-aug-pbossreports2.png" alt caption size="98"}
+
+NEW FEATURE\{\{masterVAS-Products.ParlorBoss}} Reports are now available in \{\{masterVAS-Products.Pulse-only}}! \{\{masterVAS-Terminology.D-airies-}} with a \{\{masterVAS-Products.ParlorBoss}}\{\{masterVAS-Products.DC305-simple}} integration can now view reports on their \{\{Partners.parlor}}'s efficiency and animal identification accuracy. Use the reports to track and analyze specific \{\{Partners.parlor}} performance details and help your team evaluate animal prep routines, milking equipment attachment methods, and other \{\{Partners.parlor}} activities for potential improvement opportunities.
+
+<hint type="warning">
+  **IMPORTANT:&#x20;**\{\{masterVAS-Products.ParlorBoss}} version 2.8.9 or higher must be installed and integrated with \{\{masterVAS-Products.DC305-simple}} at your \{\{masterVAS-Terminology.d-airy}} for reporting to be available.
+</hint>
+
+<ExpandableHeading>
+  ### Click here for a full list of available reports!
+
+  Efficiency Reports
+
+  - [Turns per Day Report](../../Features/PBoss/PB-Reports-TurnsPerDay.htm)
+  - [Shift Start and End Report](../../Features/PBoss/PB-Reports-ShiftStartEnd.htm)
+  - [Pen Time Report](../../Features/PBoss/PB-Reports-PenTime.htm)
+  - [Parlor Speed Report](../../Features/PBoss/PB-Reports-ParlorSpeed.htm)
+  - [Empty Stalls per Day Report](../../Features/PBoss/PB-Reports-EmptyStalls.htm)
+  - [Pen Time Report](../../Features/PBoss/PB-Reports-PenTime.htm)
+
+  Identification Reports
+
+  - [Tasks Scanned/Expected Report](../../Features/PBoss/PB-Reports-TasksExpectedScanned.htm)
+  - [Cows Scanned/Expected Report](../../Features/PBoss/PB-Reports-CowsExpectedScanned.htm)
+  - [Wrong Pen Animals Report](../../Features/PBoss/PB-Reports-WrongPenAnimals.htm)
+  - [Cows without ID Scans Report](../../Features/PBoss/PB-Reports-CowsWithoutIDScans.htm)
+</ExpandableHeading>
+
+See [ParlorBoss Setup & Troubleshooting](<../../../ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /ParlorBoss /parlorboss-setup-and-troubleshooting.mdx>) to learn more about getting started!
+
+ENHANCEMENT\{\{Partners.Nedap-parent}}\{\{Partners.NedapSmartSight}} integration now available! \{\{masterVAS.CompanyName-short}} is committed to partnering with other technology leaders in the \{\{masterVAS-Terminology.d-airy}} industry, and we are excited to announce the general availability of \{\{Partners.Nedap-parent}}\{\{Partners.NedapSmartSight}} integration.  [SmartSight](https://nedap-livestockmanagement.com/smartsight/) powered by \{\{Partners.Nedap-parent}} is an AI-powered camera system that helps detect lameness in cows during milking. A consistent, objective, and automatic tool for creating a lame score on a cow at every milking. These scores help generate actionable insights, including prioritized trim lists and monitoring recovery after trimming. See [Nedap SmartSight Overview](../../../PlatformPartners/Nedap-SmartSight/smartsight-info.htm) to learn more.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ggE_HIx1zZH_7px67IKMv_25-nov-smartsight.png" size="81" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/25-nov-smartsight.png" githubPath="Content/Resources/Images/Platform/release-notes/25-nov-smartsight.png" position="flex-start" showCaption="false"></Image>
+
+## Other Improvements & Bug Fixes 
+
+- \{\{masterVAS-Products.FeedCompWeb}} user interface improvements: The \{\{FeedComp.FeedCompFeedings}} page and Feed History Report are now more intuitive and easier to use. Printed outputs were also improved for readability.
+- Added "Unknown" breeding result: \{\{masterVAS-Products.Pulse-only}} now shows "Unknown" rather than a "-" when waiting to confirm the results of a \{\{Events.5BRED}} event.
+- \{\{masterVAS-Products.ParlorBoss}} report timezone fix: \{\{masterVAS-Products.ParlorBoss}} reports now show the correct local \{\{masterVAS-Terminology.d-airy}} date/time for all timezones.
+- Integration toggle fix: If an integration is disabled and then enabled from the \{\{Buttons-UI.IntConfigMenu}} Gallery without a page reload, \{\{masterVAS-Products.Pulse-only}} connects the integration as expected.
+- \{\{masterVAS-Products.FeedComp}} ingredient name edit: The ingredient name is now editable when adding a new ingredient in the side panel.
+- \{\{masterVAS-Products.FeedComp}}\{\{Widgets.DryMatterIntake}} report metric value fix: The \{\{Widgets.DryMatterIntake}} report now formats the Total Dry Matter amount correctly for metric \{\{masterVAS-Terminology.d-airies}}.
+- Embryo transfer invalid breed error: Resolved an unexpected error when transferring embryos from inventory.
+
+## `MyDC ONLY` Bug Fixes
+
+- EXPCALF cleared for new lactations: When an animal has a \{\{Events.1FRESH}} or \{\{Events.12ABORT}} event, the EXPCALF is now cleared as expected.
+- \{\{Events.12ABORT}} batch entry fix: Batch entry for \{\{Events.12ABORT}} events now works as expected when selecting to continue the current lactation.
+- Breeding result improvement: If an animal is \{\{Events.5BRED}} after a previous breeding, the last breeding results is automatically set to \{\{Events.7OPEN}}.
+- Milk weights fix: Current milk weights are correctly shown for DMLK1, M1, M2, and M3.
+- Bulk \{\{Events.23MEASURE}} event date: \{\{Events.23MEASURE}} event dates are now captured correctly when set to a date other than \{\{today}}.
+- \{\{masterVAS-Terminology.H-erd-}}\{\{masterVAS-Terminology.W-orker-}} role fix: Tasks can now be completed as expected in mobile and web for users with a \{\{masterVAS-Terminology.H-erd-}}\{\{masterVAS-Terminology.W-orker-}} role.

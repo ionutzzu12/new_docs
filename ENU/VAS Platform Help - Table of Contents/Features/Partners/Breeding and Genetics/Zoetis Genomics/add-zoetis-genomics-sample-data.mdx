@@ -1,0 +1,64 @@
+---
+title: Add Zoetis Genomics Sample Data
+slug: add-zoetis-genomics-sample-data
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+If you collected genomic samples [and did not use a Pocket CowCard scanner](zoetis-integrate-step5.htm) to automatically assign the genomic sample data to an animal, you can manually assign the genomic sample data to an animal using \{\{masterVAS-Products.Pulse-only}}, \{\{masterVAS-Products.DConMobile}}, or \{\{DC-UI.DC-ProdNameShort}}.
+
+To assign genomic sample data to an animal, you must update the animal's genomic sample items (GSAMP and GSDAT) in its \{\{masterVAS-Terminology.cowcard}}:
+
+<ExpandableHeading>
+  ## Update Genomic Items in PULSE
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, open the animal's \{\{masterVAS-Terminology.cowcard}}.
+  2. In the **Items** tab, click the **GSAMP** field, enter the animal's genomic sample \{\{ID}}, and save your changes.
+  3. Click the **GSDAT** field, enter the date you collected the sample, and save your changes.
+  4. Repeat these steps for every animal you sampled.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Update Genomic Items in DC on Mobile
+
+  1. In \{\{masterVAS-Products.DConMobile}}, open the animal's \{\{masterVAS-Terminology.cowcard}}.
+  2. In the **Items** tab, tap **Edit Items** at the bottom of the page.
+  3. In the **GSAMP** field, enter the animal's genomic sample ID.
+  4. In the **GSDAT** field, enter the date you collected the sample.
+  5. Tap **Done** to save your changes.
+  6. Repeat these steps for every animal you sampled.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Update Genomic Items in DC305 (DC Unlimited Subscribers Only)
+
+  <ExpandableHeading>
+    ### How do I know which PULSE version I'm using?
+
+    Check the top of your \{\{General.ProductName-short}} page to see if your \{\{masterVAS-Terminology.d-airy}} has \{\{masterVAS-Products.DCUnlimited-short}} or \{\{masterVAS-Products.MyDC-short}}.
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/30Q32wE9Q5mb20vcqW-ix_dc-unlimited-pro-header.png" size="38" isUploading="false" initialPath="../../../Resources/Images/Platform/navigating/DC-unlimited-pro-header.png" githubPath="Content/Resources/Images/Platform/navigating/DC-unlimited-pro-header.png" position="flex-start" showCaption="false"></Image>
+
+    Click [here](../../../Platform/GetStarted/KnowYourPulse.htm) to learn more about the different versions of \{\{masterVAS-Products.Pulse-only}}.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Update Items for One Animal
+
+    1. In \{\{DC-UI.DC-ProdNameShort}}, open the animal's \{\{masterVAS-Terminology.cowcard}}.
+    2. In the **Items** tabs, double-click the **GSAMP** field and enter the animal's genomic sample ID.
+    3. Double-click the **GSDAT** field and enter the date you collected the sample.
+    4. Repeat these steps for every animal you sampled.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Update Items for Multiple Animals
+
+    1. In \{\{masterVAS-Products.DC305-short}}, enter `GSDAT=%DATE_SAMPLE GSAMP` in the command line.
+    2. Enter the date you collected the animal samples.
+    3. Enter the animal ID and the genomic sample ID for the sampled animal. Repeat this step for every animal you sampled.
+    4. Press **Enter** twice on your keyboard to complete the batch entry.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+After you update the genomic sample items, you can submit the genomic samples to \{\{Partners.Zoetis}} in \{\{masterVAS-Products.Pulse-only}}. See [Submit Zoetis Genomics Samples](zoetis-genomics-submit-samples.htm) to get started.

@@ -1,0 +1,604 @@
+---
+title:   RFID Scanners (v2)
+slug: rfid-scanners-v2
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:39 GMT+0200 (Eastern European Standard Time)
+---
+
+<hint type="warning">
+  **IMPORTANT:&#x20;**
+
+  If you use
+
+  \{\{masterVAS-Terminology.radiofrequencyID-short}}
+
+  scanners, make sure your
+
+  \{\{masterVAS-Terminology.AppleOS-TM}}
+
+  device is compatible with your version of the mobile app: 
+
+  - \{\{masterVAS-Products.VASPlatformMobile}}\:Variable\{key="Mobile-UI.MobileAppVersion1" type="variable"}: iOS versions 18.3.2 and lower. Do **not** upgrade to \{\{masterVAS-Terminology.AppleOS-TM}} versions 18.4.0 or greater and be sure to disable automatic updates in \{\{masterVAS-Terminology.AppleOS-TM}} settings.
+  - \{\{masterVAS-Products.DConMobile}}\{\{Mobile-UI.MobileAppVersion2}}: All recent iOS versions, including 18.4.0 and above.
+</hint>
+
+<ExpandableHeading>
+  ### Supported Scanners
+
+  \{\{masterVAS-Terminology.AndroidOS}}: Most low-frequency \{\{masterVAS-Terminology.radiofrequencyID-short}} scanners, including the following brands:
+
+  - \{\{masterVAS-Terminology.Allflex}}
+  - Agrident
+  - Datamars
+  - Tru-Test
+  - All \{\{masterVAS.CompanyName-short}}-branded models
+
+  \{\{masterVAS-Terminology.AppleOS}}:
+
+  - \{\{masterVAS-Terminology.APR250long}}
+  - \{\{masterVAS-Terminology.APR600long}}
+  - \{\{masterVAS-Terminology.APR650long}}
+  - \{\{MorphHelp.AWR300long}}
+  - \{\{MorphHelp.LPR}}
+  - \{\{MorphHelp.RS420long}}
+
+  <ExpandableHeading>
+    ### Learn more about the Standards for Low Frequency RFID Scanners
+
+    The International Organization for Standardization (\{\{ISO}}) provides standards for the identification of animals using radio frequencies. See [ISO 11784 and ISO 11785](https://en.wikipedia.org/wiki/ISO_11784_and_ISO_11785) to view these standards.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Was My Scanner Purchased from VAS?
+
+  Check the back of your scanner to confirm if it was purchased from \{\{masterVAS.CompanyName-short}}. All scanners purchased from \{\{masterVAS.CompanyName-short}} have \{\{masterVAS.CompanyName-short}}**&#x20;Scan the QR** code stickers.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/9C4Nio-AbW8nH-q55GjFV_allflex-wand-purchase-proof.png" size="18" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-purchase-proof.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-purchase-proof.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+You can scan animals with the mobile app after you pair and connect your \{\{masterVAS-Terminology.radiofrequencyID-short}} scanners to your device. The mobile app supports Bluetooth connections with \{\{masterVAS-Terminology.radiofrequencyID-short}} wands and scanners. However, the \{\{MorphHelp.AppleOS-TM}} and \{\{MorphHelp.AndroidOS-TM}} versions of the mobile app each work a bit differently with Bluetooth wands/scanners.
+
+The \{\{masterVAS-Terminology.radiofrequencyID-short}} scanner
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/qHX0h-iu4XazqKwOtRG38_scanner-on25x25.png" size="10" caption="Green scanner icon" alt="Green scanner icon" isUploading="false" initialPath="../../../Resources/Images/Platform/dc-mobile-img/scanner-on_25x25.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/scanner-on_25x25.png" position="flex-start" showCaption="true"></Image>
+
+icon at the top left side of any screen in the mobile app shows the current connection status: a green icon
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/qHX0h-iu4XazqKwOtRG38_scanner-on25x25.png" size="10" caption="Greed scanner icon" alt="Green scanner icon" isUploading="false" initialPath="../../../Resources/Images/Platform/dc-mobile-img/scanner-on_25x25.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/scanner-on_25x25.png" position="flex-start" showCaption="true"></Image>
+
+indicates that the scanner is connected and a red icon
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RpHPV3G6VynNJn3kx_8SD_scanners-off25x25.png" size="10" caption="Red scanner icon" alt="Red scanner icon" isUploading="false" initialPath="../../../Resources/Images/Platform/dc-mobile-img/scanners-off_25x25.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/scanners-off_25x25.png" position="flex-start" showCaption="true"></Image>
+
+indicates that the scanner is not connected. On the **More** tab, tap **RFID Scanner** to pair a device with the mobile app.
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Use a Scanner with iOS (Apple) Devices
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f you use \{\{masterVAS-Terminology.radiofrequencyID-short}} scanners, make sure your \{\{masterVAS-Terminology.AppleOS-TM}} device is compatible with your version of the mobile app:  \{\{masterVAS-Products.VASPlatformMobile}} \{\{Mobile-UI.MobileAppVersion1}}: iOS versions 18.3.2 and lower. Do **not** upgrade to \{\{masterVAS-Terminology.AppleOS-TM}} versions 18.4.0 or greater and be sure to disable automatic updates in \{\{masterVAS-Terminology.AppleOS-TM}} settings. \{\{masterVAS-Products.DConMobile}} \{\{Mobile-UI.MobileAppVersion2}}: All recent iOS versions, including 18.4.0 and above.
+  </hint>
+
+  The first time you connect a scanner to an \{\{MorphHelp.AppleOS-TM}} device, go to your Bluetooth settings to connect it. After the first connection, your device will recognize the scanner and automatically pair and connect (as long as Bluetooth is enabled).
+
+  <hint type="info">
+    **TIP:&#x20;**&#x49;f you turn on **Airplane Mode** on your \{\{MorphHelp.AppleOS-TM}} device, Bluetooth is turned off automatically. You can turn Bluetooth back on in settings, and it will stay on until you turn it off or toggle Airplane Mode off and on again.
+  </hint>
+
+  Once the scanner is paired with your device, it can scan animals in the mobile app. Tap the **More** button to check your scanner's connection status.
+
+  \{\{masterVAS-Terminology.radiofrequencyID-short}} Scanner: This field shows if a paired scanner is connected or disconnected. If one is currently connected, the name of the connected scanner is displayed.
+
+  <ExpandableHeading>
+    ## I don't see the More button. How do I find it?
+
+    Follow the steps below if you do not see the \{\{Mobile-UI.Feature-Names}} button at the bottom of your screen.
+
+    1. Tap the **Back** arrow at the top left of the screen until you return to one of the main feature screens.
+    2. From there, you'll find the feature buttons at the bottom of the screen.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Use a Scanner with Android Devices
+
+  Make sure that Bluetooth is enabled both in your mobile device and the scanner, and then tap the **More** button in the mobile app to access the following scanner options.
+
+  If the scanner you want to use is already paired with your device but shows a status of **Not Connected**, make sure that the scanner is powered on and that the Bluetooth connection is enabled in both your mobile device and the scanner. For any scanner that shows a status of **Connected**, you can use it to look up animals in the mobile app to [Complete Tasks (v2)](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/complete-tasks-v2.mdx>) and [Enter Events (v2)](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/enter-events-v2.mdx>).
+
+  <ExpandableHeading>
+    ### Show me how to pair a new scanner
+
+    When pairing with available scanners, simply tap any scanner in the list that is **Not Connected**. If the scanner has not paired with your device yet, you may be prompted to enter a PIN to complete the pairing.
+
+    If your \{\{masterVAS-Terminology.d-airy}} has multiple scanners and wands, you can pair each of them with your device and then select the one you want to use within the \{\{General.ProductName}} mobile app.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Look for the Scanner Shortcut!
+
+    In the \{\{MorphHelp.AndroidOS-TM}} version of the mobile app, features that support scanners, such as [completing tasks](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/complete-tasks-v2.mdx>) and [entering events](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/enter-events-v2.mdx>), offer a shortcut for using scanners.
+
+    Toggle the **Scanner** connection switch on or off to connect or disconnect from a paired scanner. When you toggle this switch on, the mobile app detects which scanner was last used under your account, and it connects you to it. Once the scanner finishes connecting, the mobile app displays a pop-up message to confirm that it is ready to use.
+
+    Note that in the \{\{MorphHelp.AppleOS-TM}} version of the mobile app, the **Scanner** indicator is not a switch that you can toggle. Instead, it is a status indicator that shows green when a scanner is connected and gray when it is not.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ## I don't see the More button. How do I find it?
+
+    Follow the steps below if you do not see the \{\{Mobile-UI.Feature-Names}} button at the bottom of your screen.
+
+    1. Tap the **Back** arrow at the top left of the screen until you return to one of the main feature screens.
+    2. From there, you'll find the feature buttons at the bottom of the screen.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Troubleshoot Scanner Connections
+
+  If the mobile app loses connection with your scanner, check its connection status on the \{\{Mobile-UI.MoreTab}} menu under \*\*\{\{masterVAS-Terminology.radiofrequencyID-short}}\*\***Scanner**. Expand the topics below for help understanding the connection status:
+
+  <ExpandableHeading>
+    ### \<Scanner Name> Ready
+
+    The wand name is displayed and **Ready**, and the connection switch is active. This means that the Bluetooth connection is active for both the mobile device and \{\{masterVAS-Terminology.radiofrequencyID-short}} wand, and both devices are powered on. The wand is connected and ready to scan data to the mobile app.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Connected to \<Scanner Name>
+
+    The \{\{masterVAS-Terminology.radiofrequencyID-short}} wand is paired to the mobile device but is not currently connected to the mobile app.
+
+    On Android devices, tap the \{\{masterVAS-Terminology.radiofrequencyID-short}} menu item to connect the wand, and for \{\{MorphHelp.AppleOS}} devices, simply make sure the wand is powered on and has Bluetooth enabled. Once the wand connects to the mobile app, the connection switch is active.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Starting...
+
+    On \{\{MorphHelp.AndroidOS}} devices, this message appears when you tap the \{\{masterVAS-Terminology.radiofrequencyID-short}} menu item to connect the scanner. \{\{MorphHelp.AppleOS}} devices will automatically initiate the scanner connection. In either case, the scanner typically connects quickly, so this message may be displayed only very briefly.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Not Connected
+
+    The fully grayed-out \{\{masterVAS-Terminology.radiofrequencyID-short}} menu item most likely indicates one the following issues:
+
+    - No wands are currently paired with the mobile device.
+    - The wand's Bluetooth connection is turned off.
+    - The mobile device's Bluetooth connection is turned off.
+  </ExpandableHeading>
+
+  <hint type="info">
+    **TIP:&#x20;**&#x49;f you turn on **Airplane Mode** on your \{\{MorphHelp.AppleOS-TM}} device, Bluetooth is turned off automatically. You can turn Bluetooth back on in settings, and it will stay on until you turn it off or toggle Airplane Mode off and on again.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Find an Animal or Assign RFID with a Scanner
+
+  Before you scan any animals, use the**Refresh&#x20;**\{\{masterVAS-Terminology.H-erd-}}**&#x20;Data** option on the **More** menu to pull the latest data down to the mobile app. Then, begin scanning from any tab to:
+
+  <ExpandableHeading>
+    ### Find an Animal
+
+    If the scanned animal's \{\{masterVAS-Terminology.radiofrequencyID-short}} is recognized and found, the mobile app displays its \{\{masterVAS-Terminology.cowcard}}. You can then choose to [Enter Events (v2)](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/enter-events-v2.mdx>) or [Complete Tasks (v2)](<../../../../../VAS Platform Help - Table of Contents/Mobile Apps/DC on Mobile (v2)/complete-tasks-v2.mdx>).
+  </ExpandableHeading>
+
+  OR
+
+  <ExpandableHeading>
+    ### Assign an RFID to an Animal
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x4F;nly users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature.If your account only has \{\{RolesPermissions.PermissionNames}} permissions, you will **not** be able to use this feature.
+    </hint>
+
+    If the scanned animal's \{\{masterVAS-Terminology.radiofrequencyID-short}} is not recognized, you have the option to assign it to an animal in the \{\{masterVAS-Terminology.h-erd}}:
+
+    <WorkflowBlock>
+      <WorkflowBlockItem>
+        Tap **Assign**.
+      </WorkflowBlockItem>
+
+      <WorkflowBlockItem>
+        Look up the animal to which you will assign the \{\{masterVAS-Terminology.radiofrequencyID-short}} tag. You can find an animal by its \{\{ID}}, \{\{BNAME}}, \{\{CNTL}}, \{\{VISID}}, \{\{REG}}, or \{\{EID}}, though not all of these items may be available in your \{\{masterVAS-Terminology.d-airy}}.
+      </WorkflowBlockItem>
+
+      <WorkflowBlockItem>
+        Select which item to assign to the animal. For instance, if an animal's electronic ID (EID is replaced and no longer matches its EID in \{\{masterVAS-Products.Pulse-only}}, you can assign the new value as its EID.
+      </WorkflowBlockItem>
+
+      <WorkflowBlockItem>
+        Tap **Yes** to confirm the assignment.
+
+        <ExpandableHeading>
+          ## Why can't I assign an RFID?
+
+          If you encounter an error, your \{\{masterVAS-Terminology.d-airy}} is not configured to assign items while scanning.
+
+          Log into the web version of \{\{masterVAS-Products.Pulse-only}} and adjust the :Link[RFID Scanning]{label="RFID Scanning" overridedLabel="RFID Scanning" spaceId docId="87n3BKxetaoNmZIUQMas_" version="v2" docAnchorId="#RFID" loadingMethod="dynamic" newTab="false" githubPath="../../Features/DairyComp/Settings/DC-AnimalConfiguration.htm#RFID" href="../../Features/DairyComp/Settings/DC-AnimalConfiguration.htm#RFID"} settings.
+        </ExpandableHeading>
+      </WorkflowBlockItem>
+    </WorkflowBlock>
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Switch RS420 Pairing Between Android and iOS
+
+  If your \{\{masterVAS-Terminology.d-airy}} uses only \{\{MorphHelp.AppleOS-TM}} devices, or a variety of \{\{MorphHelp.AndroidOS-TM}} and \{\{MorphHelp.AppleOS-TM}} equipment, you must update the wand \{\{masterVAS-Terminology.c-onfiguration}} to pair it with \{\{MorphHelp.AppleOS-TM}} devices. You will then also need to update the \{\{masterVAS-Terminology.c-onfiguration}} again if you want to switch back to pairing it with \{\{MorphHelp.AndroidOS-TM}} devices. Follow the instructions below to pair the \{\{MorphHelp.RS420short}} with an \{\{MorphHelp.AppleOS-TM}} device and then (if necessary) switch it back to an \{\{MorphHelp.AndroidOS-TM}} device.
+
+  <ExpandableHeading>
+    ### Pair RS420 with an iOS Device
+
+    To reconfigure the \{\{MorphHelp.RS420short}} scanner to be used with \{\{MorphHelp.AppleOS-TM}} devices, you'll first need to see if Menu Access is enabled. If it is not, use the AllFlex EID Tag Manager client to change the wand Menu Access setting. Then, proceed to setting the scanner to be discoverable for connection.
+
+    Test for Menu Access on the \{\{MorphHelp.RS420short}} & Change if Needed
+
+    1. Press and hold the top (black) button on the scanner for 3 seconds to test for Menu Access.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/jZEzTKENtmqfE158wSclv_allfelx-rs420scanner.png" alt caption size="22"}\* If nothing happens, continue to :Link[step 2]{label="step 2" overridedLabel="step 2" spaceId docId="lH2VzcmuBAva0fceRHljE" version="v2" docAnchorId="#Step2" loadingMethod="dynamic" newTab="false" href="rfid-scanners-v2.mdx"}.
+       - Or, jump to :Link[Manually Connect the RS420 to an iOS Device]{label="Manually Connect the RS420 to an iOS Device" overridedLabel="Manually Connect the RS420 to an iOS Device" spaceId docId="lH2VzcmuBAva0fceRHljE" version="v2" docAnchorId="#ConnectiOS" loadingMethod="dynamic" newTab="false" href="rfid-scanners-v2.mdx"} if the Menu displays.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/tbFfvmyEjc4kUoF_2dOrz_allflex-scanner-menuonly.png" alt caption size="10"}
+    2. Start with the scanner disconnected from your computer. If the scanner has an active Bluetooth connection, verify that the scanner displays an S next to the Bluetooth symbol
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/HVjMQ2Fu0yqJqUhEBnxGe_bluetooth-symbol-s-android30x28.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/bluetooth-symbol-S-android_30x28.png" githubPath="Content/Resources/Images/Platform/mobile-app/bluetooth-symbol-S-android_30x28.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      to indicate it is paired as a Slave. This is the required setting for \{\{MorphHelp.AndroidOS-TM}} devices.
+    </Paragraph>
+
+    3. Open the **AllFlex EID Tag Manager** client. If necessary, download it from the [Allflex website](http://www.allflexusa.com/support/downloads/).
+    4. Connect the scanner to your computer via USB, a serial port, or Bluetooth. The client notifies you when a connection is established. For options on setting your connection, \{\{Commands.click}} the Connect button
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/HnMNvZzhzmZqNzeBNucuD_allflex-connect-button.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/Allflex-connect-button.png" githubPath="Content/Resources/Images/Platform/mobile-app/Allflex-connect-button.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      .
+    </Paragraph>
+
+    5. \{\{Commands.Click}}**Tools > Reader Config > Menu Access** and change the setting to **Enabled**.
+    6. \{\{Commands.Click}}**Apply Settings**.
+    7. Disconnect the scanner from the computer.
+
+    Manually Connect the \{\{MorphHelp.RS420short}} to an \{\{MorphHelp.AppleOS-TM}} Device
+
+    1. Press and hold the top (black) button on the scanner for 3 seconds to access the menu.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/jZEzTKENtmqfE158wSclv_allfelx-rs420scanner.png" alt caption size="22"}
+    2. Use the bottom (green) button to arrow down to **Bluetooth settings**::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/DSst1GGfcmXpUsJfevMtg_allflex-scanner-menu.png" alt caption size="10"}Press the top button to select the option.
+    3. From the Bluetooth settings, choose **iPhone discoverable**::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/fgQw50lftaoppRoH-a8Gp_allflex-scanner-bluetooth-menu.png" alt caption size="10"}
+    4. The scanner discovers the \{\{MorphHelp.AppleOS-TM}} device, and displays its name and the option to connect. Select **Yes**.
+    5. From the \{\{MorphHelp.AppleOS-TM}} device, view the Bluetooth settings to see available devices. The scanner displays as \{\{MorphHelp.RS420short}}\_\<serial number>. The scanner's serial number is located on the back of the scanner on the Allflex decal.
+    6. Tap the correct scanner. If prompted for a password, use **1234** or **0000**.
+    7. The scanner displays a message to confirm the connection. Verify the connection on the \{\{MorphHelp.AppleOS-TM}} device.
+    8. Once the scanner and \{\{MorphHelp.AppleOS-TM}} device are connected, the scanner displays an M next to the Bluetooth symbol
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/9YA2JP1INxZ6rbqFQM8jc_bluetooth-symbol-m-ios32x28.png" size="10" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/bluetooth-symbol-M-iOS_32x28.png" githubPath="Content/Resources/Images/Platform/mobile-app/bluetooth-symbol-M-iOS_32x28.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      to indicate it is paired as Master.
+    </Paragraph>
+
+    You should now be able to use the \{\{MorphHelp.RS420short}} as a scanner with \{\{masterVAS-Products.Pulse-only}} mobile app on your \{\{MorphHelp.AppleOS-TM}} device.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Pair RS420 with an Android Device
+
+    If you have reconfigured a scanner for use with an \{\{MorphHelp.AppleOS-TM}} device and want to return it to \{\{MorphHelp.AndroidOS-TM}} setup, you'll need to reconnect it to your \{\{MorphHelp.AndroidOS-TM}} device. See :Link[Use a Scanner with Android Devices]{label="Use a Scanner with Android Devices" overridedLabel="Use a Scanner with Android Devices" spaceId docId="lH2VzcmuBAva0fceRHljE" version="v2" docAnchorId="#android-device" loadingMethod="dynamic" newTab="false" href="rfid-scanners-v2.mdx"} for details.
+  </ExpandableHeading>
+
+  To avoid having to reconfigure the \{\{MorphHelp.RS420short}} when switching between device types, consider maintaining dedicated scanners for \{\{MorphHelp.AndroidOS-TM}} and \{\{MorphHelp.AppleOS-TM}} devices. Or, you may choose to purchase an additional, lower-cost scanner for use with the less common device type.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Connect an Allflex Scanner
+
+  If you purchased your \{\{masterVAS-Terminology.Allflex}} scanner from \{\{masterVAS.CompanyName-short}}, follow the steps below to connect it to your \{\{masterVAS-Terminology.AndroidOS}} or \{\{masterVAS-Terminology.AppleOS}} device.
+
+  <ExpandableHeading>
+    ### Was My Scanner Purchased from VAS?
+
+    Check the back of your scanner to confirm if it was purchased from \{\{masterVAS.CompanyName-short}}. All scanners purchased from \{\{masterVAS.CompanyName-short}} have \{\{masterVAS.CompanyName-short}}**&#x20;Scan the QR** code stickers.
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/9C4Nio-AbW8nH-q55GjFV_allflex-wand-purchase-proof.png" size="18" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-purchase-proof.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-purchase-proof.png" position="flex-start" showCaption="false"></Image>
+  </ExpandableHeading>
+
+  <hint type="info">
+    **TIP:&#x20;**&#x41;lthough these pairing instructions apply to the \{\{masterVAS-Terminology.Allflex}} \{\{masterVAS-Terminology.APR250short}}, \{\{masterVAS-Terminology.AWR300short}}, and \{\{masterVAS-Terminology.APR600short}} scanner models, images shown are from the \{\{masterVAS-Terminology.AWR300short}}. Expand the sections below to learn more::::ExpandableHeading
+
+    ### Required Setup
+
+    - Before you connect the \{\{masterVAS-Terminology.APR250long}}, \{\{masterVAS-Terminology.AWR300long}}, or \{\{masterVAS-Terminology.APR600long}}, download the latest firmware from the [Allflex website](https://www.allflexsa.com/products/readers/game-livestock/).
+    - If you purchased the scanner from a third party, verify with the seller that the scanner has all of the necessary \{\{masterVAS-Terminology.c-onfiguration}} files installed before you continue.
+
+    <ExpandableHeading>
+      ### Navigation Tips
+
+      - The display is **not** a touchscreen; options are selected using the **Arrow** buttons.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/DjXc5HyW5l2FVn-GBr6MA_allflex-navigation.png" alt caption size="19"}
+      - To confirm a selection, you must press the **Enter** button
+
+      <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+      <Paragraph indent="1">
+        . To confirm options highlighted in orange or blue, press the **Red** or **Blue** button instead.
+        \:::
+      </Paragraph>
+    </ExpandableHeading>
+  </hint>
+
+  1. Power on the scanner.
+  2. Press the red button in the bottom half of the display to open the **Menu**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/90thSon814ebydeTY85kp_allflex-main-menu.png" alt caption size="19"}
+  3. Using the arrow buttons, select **Setup** and press the **Enter** button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zCYnMuRjG3f6wjhblhLry_allflex-setup.png" alt caption size="23"}
+  </Paragraph>
+
+  4. Select **Interface Setup** and press the **Enter** button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/l-X1Ltn8xwLNFxSYSWJbS_allflex-interface-setup.png" alt caption size="23"}
+  </Paragraph>
+
+  5. Select **Bluetooth** and press the **Enter** button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/53IjuphzNCV872_hS5YeM_allflex-bluetooth.png" alt caption size="22"}
+  </Paragraph>
+
+  6. Select **Set Bluetooth Mode** and **Enter** button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/bII19jssJP-0tA5z0Cul1_allflex-set-bluetooth.png" size="22" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-set-bluetooth.png" githubPath="Content/ContentShare/AWR300/Allflex-set-bluetooth.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  7. Set the Bluetooth \{\{mode}} for your device type.:::ExpandableHeading
+
+  ### Android
+
+  <Paragraph listStyleType="decimal" indent="2">
+    Select **Slave Mode** and press the **Enter** button
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+  <Paragraph indent="2">
+    .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yY7IBU8gjalUaikfINblJ_allflex-ios.png" alt caption size="10"}
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="2" indent="2">
+    Select **Set BT Profile** and press the **Enter** button
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+  <Paragraph indent="2">
+    .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/a5nK2lG3WUyeIRCuHGSxy_allflex-set-bt.png" alt caption size="24"}
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="3" indent="2">
+    Select **SPP** and press the **Enter** button
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="3"></Image>
+
+  <Paragraph indent="2">
+    .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/aoiVkV6t81eCBN4zUuLgG_allflex-spp.png" alt caption size="10"}
+  </Paragraph>
+
+  <ExpandableHeading indent="2">
+    ### iOS
+
+    1. Select **Master Mode** and press the **Enter** button
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/B3AbhX0FN-PToFhJ7LLtx_allflex-mastermode.png" alt caption size="11"}
+    </Paragraph>
+
+    2. Select **Set BT Profile** and press the **Enter** button
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/a5nK2lG3WUyeIRCuHGSxy_allflex-set-bt.png" alt caption size="24"}
+    </Paragraph>
+
+    3. Select **IAP** and press the **Enter** button
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/hbyGQ6DGNsvy99M3JOBZT_allflex-iap.png" alt caption size="10"}
+      \:::
+    </Paragraph>
+  </ExpandableHeading>
+
+  8. Press the blue button to **Exit** setup.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/srfIanS7l4is2G7hA-k8Q_allflex-exit-setup.png" alt caption size="21"}
+  9. Press the **Enter** button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Tq5ZgljSj16FnyUEUgt39_allflex-wand-return-button27x23.png" size="10" isUploading="false" initialPath="../../../ContentShare/AWR300/Allflex-wand-return-button_27x23.png" githubPath="Content/ContentShare/AWR300/Allflex-wand-return-button_27x23.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to begin scanning.
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Configure a Tru-Test SRS2 Scanner
+
+  The \{\{masterVAS-Terminology.SRS2long}} is a portable hand-held device that allows you to quickly read, record, and transfer EID tag information for the animals in your \{\{masterVAS-Terminology.h-erd}}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/GZ19Ku8rsKQC7Chs_B_pv_srs2-stick-reader.png" size="43" isUploading="false" initialPath="../../../ContentShare/TruTest/srs2-stick-reader.png" githubPath="Content/ContentShare/TruTest/srs2-stick-reader.png" position="flex-start" showCaption="false"></Image>
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**\{\{masterVAS-Terminology.SRS2long}}s are currently only supported in the Android version of the mobile app. Always charge your scanner to 100% before configuring settings. Expand the sections below to learn more::::ExpandableHeading
+
+    ### Required Setup
+
+    Before you connect the \{\{masterVAS-Terminology.SRS2long}}, download the latest firmware from the [Tru-Test website](https://www.livestock.tru-test.com/en-us/resources/4328#downloads).
+
+    <ExpandableHeading>
+      ### Navigation Tips
+
+      The display is not a touchscreen. You can navigate to options using the **Arrow** buttons.
+
+      <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/YoYHDtxSW5H2kCJl91lIP_srs2-arrow-buttons.png" size="10" isUploading="false" initialPath="../../../ContentShare/TruTest/srs2-arrow-buttons.png" githubPath="Content/ContentShare/TruTest/srs2-arrow-buttons.png" position="flex-start" showCaption="false"></Image>
+
+      To select an option, press the **Scan** button.
+
+      <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Woe6IMfopw-SymHgPjrqJ_srs2-scan-button.png" size="10" isUploading="false" initialPath="../../../ContentShare/TruTest/srs2-scan-button.png" githubPath="Content/ContentShare/TruTest/srs2-scan-button.png" position="flex-start" showCaption="false"></Image>
+
+      <hint type="info">
+        **NOTE:&#x20;**&#x54;he **Scan** button is also referred to as the \{\{masterVAS-Terminology.R-ead-}} and/or **Select** button in your \{\{masterVAS-Terminology.SRS2long}} user manual.
+      </hint>
+
+      To return to a previous menu, press the **Return** button.
+
+      :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/m9bRDwdFmTcQllLQrSByx_srs2-return-button.png" alt caption size="10"}
+      \::::
+    </ExpandableHeading>
+  </hint>
+
+  Follow the steps below to configure a \{\{masterVAS-Terminology.SRS2long}}:
+
+  1. Use the **Arrow** buttons to navigate and press the **Scan** button to select **Settings**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/_jW1uPD5ptv7wGzxtY7YF_srs2-settings.png" alt caption size="19"}
+  2. Select **General**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/CirtfntI2knztdNodXS-l_srs2-general.png" alt caption size="19"}
+
+  <ExpandableHeading indent="2">
+    ### Set the date and time.
+
+    1. Select **Date/Time**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/DdmcFCmRfr4BKfyeRxYgr_srs2-datetime.png" alt caption size="19"}
+    2. Select the current **Date**, **Month**, and **Year**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/AHQLfsBwP49i3Sc7hUH6__srs2-date.png" alt caption size="19"}
+    3. Set the **Format** to **MM/DD/YYYY**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/qcMP9NCKf8D65C0Emoc9K_srs2-format.png" alt caption size="19"}
+    4. Set the **Hour** and **Minute** time settings for your time \{\{zone}}.:::hint\{type="info"}
+       **NOTE:&#x20;**&#x54;ime settings are in military time.
+       \:::
+    5. Press the **Return** button to return to the **General** menu.
+  </ExpandableHeading>
+
+  <ExpandableHeading indent="2">
+    ### Set the language and country.
+
+    1. Select **Language/Country**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/BmHGW9Sq8UsDHhURpXoML_srs2-language.png" alt caption size="19"}
+    2. Set **Language** to **English**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/6PR6YVRnyPwAMlCyhmpTS_srs2-english.png" alt caption size="19"}
+    3. Select your **Country**.
+    4. Press the **Return** button to return to the **General** menu.
+  </ExpandableHeading>
+
+  5. Set **Auto Off** to **10m**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/I8sl93_aSxYrown5MiWU1_srs2-autooff.png" alt caption size="19"}
+  6. Press the **Return** button to return to the **General** menu.
+  7. Set **Vibration** to **On**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/XlH29uTmNMAq-GyJtcu8A_srs2-vibration.png" alt caption size="19"}
+  8. Press the **Return** button to return to the **General** menu.
+  9. Set **Buzzer** to **Off**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yDiN1xjXiybhG5ExJFMzY_srs2-buzzer.png" alt caption size="19"}
+  10. Press the **Return** button to return to the **General** menu.
+  11. Press the **Return** button to return to the **Settings** menu.
+  12. Select **Bluetooth**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/5f0KWLVFcWSIEc-H0bQve_srs2-bluetooth.png" alt caption size="19"}
+  13. Set **Bluetooth** to **Auto**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/tCZvr5DvFaKQSGMqTwATw_srs2-bluetooth2.png" alt caption size="19"}
+
+  <ExpandableHeading indent="2">
+    ### Set advanced Bluetooth features.
+
+    1. Select **Advanced**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/19NW0LJ5eeeewyvXlrcVr_srs2-advanced.png" alt caption size="19"}
+    2. Set **Connect Mode** to **Default**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/QRmZGUfJNa0AL1fYzCAau_srs2-connectmode.png" alt caption size="19"}
+    3. Set **Output** to **Default**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/LAmwXOpr_hYeyaBrdUIzY_srs2-output.png" alt caption size="19"}
+    4. Press the **Return** button to return to the **Settings** menu.
+  </ExpandableHeading>
+
+  15. Press the **Return** button to return to the **General** menu.
+  16. Press the **Return** button to return to the **Settings** menu.
+
+  <ExpandableHeading indent="2">
+    ### Set tag reading features.
+
+    1. Select **Tag Reading**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/LMn9WXLv-7VtbhHvtPn52_srs2-tagreading.png" alt caption size="19"}
+    2. Set \{\{masterVAS-Terminology.R-ead-}}**&#x20;Mode** to **Continuous**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/S2LfFB8jHkr0glJlhyr9x_srs2-readmode.png" alt caption size="19"}
+    3. Set **Tag Format** to **Decimal2**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Ve6IARDKiaOYmKwtq1vgk_srs2-tagformat.png" alt caption size="19"}
+    4. Set **Allow Duplicates** to **Yes**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/XBGmPhcEA-bP3bZGUw1KS_srs2-allowduplicates.png" alt caption size="19"}
+    5. Press the **Return** button to return to the **General** menu.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Delete a Tru-Test SRS2 Scanner Session
+
+  The \{\{masterVAS-Terminology.SRS2long}} is a portable hand-held device that allows you to quickly read, record, and transfer EID tag information for the animals in your \{\{masterVAS-Terminology.h-erd}}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/GZ19Ku8rsKQC7Chs_B_pv_srs2-stick-reader.png" size="43" isUploading="false" initialPath="../../../ContentShare/TruTest/srs2-stick-reader.png" githubPath="Content/ContentShare/TruTest/srs2-stick-reader.png" position="flex-start" showCaption="false"></Image>
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**\{\{masterVAS-Terminology.SRS2long}}s are currently only supported in the Android version of the mobile app. Expand the sections below to learn more::::ExpandableHeading
+
+    ### Required Setup
+
+    Before you connect the \{\{masterVAS-Terminology.SRS2long}}, download the latest firmware from the [Tru-Test website](https://www.livestock.tru-test.com/en-us/resources/4328#downloads).
+
+    <ExpandableHeading>
+      ### Navigation Tips
+
+      The display is not a touchscreen. You can navigate to options using the **Arrow** buttons.
+
+      <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/YoYHDtxSW5H2kCJl91lIP_srs2-arrow-buttons.png" size="10" isUploading="false" initialPath="../../../ContentShare/TruTest/srs2-arrow-buttons.png" githubPath="Content/ContentShare/TruTest/srs2-arrow-buttons.png" position="flex-start" showCaption="false"></Image>
+
+      To select an option, press the **Scan** button.
+
+      <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Woe6IMfopw-SymHgPjrqJ_srs2-scan-button.png" size="10" isUploading="false" initialPath="../../../ContentShare/TruTest/srs2-scan-button.png" githubPath="Content/ContentShare/TruTest/srs2-scan-button.png" position="flex-start" showCaption="false"></Image>
+
+      <hint type="info">
+        **NOTE:&#x20;**&#x54;he **Scan** button is also referred to as the \{\{masterVAS-Terminology.R-ead-}} and/or **Select** button in your \{\{masterVAS-Terminology.SRS2long}} user manual.
+      </hint>
+
+      To return to a previous menu, press the **Return** button.
+
+      :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/m9bRDwdFmTcQllLQrSByx_srs2-return-button.png" alt caption size="10"}
+      \::::
+    </ExpandableHeading>
+  </hint>
+
+  Follow the steps below to delete a \{\{masterVAS-Terminology.SRS2long}} session:
+
+  1. Use the **Arrow** buttons to navigate and press the **Scan** button to select **Sessions**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/tKL8McviJQnDazDGUx9_O_srs2-sessions.png" alt caption size="19"}
+  2. Select a **Session** name.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/TkpNEtmJEtvmqF0PpA6-H_srs2-session.png" alt caption size="19"}
+  3. Select a session **ID**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/H7jgY9ahtPRQNY4icJht1_srs2-session-scanset.png" alt caption size="19"}
+  4. Select the hamburger icon in the bottom right corner
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/j_3dP75KTKoxjwoInQCJE_icon-hamburger34x25.png" size="10" isUploading="false" initialPath="../../../ContentShare/TruTest/icon-hamburger_34x25.png" githubPath="Content/ContentShare/TruTest/icon-hamburger_34x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    .
+  </Paragraph>
+
+  5. Select **Delete**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/sBsq9FWVHohZFieojAhcR_srs2-session-scanset-delete.png" alt caption size="19"}
+  6. Select the check mark icon in the bottom right corner
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ug16WyR5cI4leCOYHzXPV_icon-checkmark27x25.png" size="10" isUploading="false" initialPath="../../../ContentShare/TruTest/icon-checkmark_27x25.png" githubPath="Content/ContentShare/TruTest/icon-checkmark_27x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to confirm the deletion.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Sqib5fVgtfGtw1STd32xb_srs2-session-scanset-delete-confirm.png" alt caption size="19"}
+  </Paragraph>
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x41; session holds up to 10,000 scans. When a session fills up, you'll need to start a new session to continue sending data to the mobile app.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Tips for Using Bluetooth Low Energy (BLE)
+
+  \{\{masterVAS-Products.DConMobile}} supports scanners that use \{\{masterVAS-Terminology.BLElong}}. If the device connecting to the app supports \{\{masterVAS-Terminology.BLEshort}}, the device will automatically use it. Otherwise, the device will deactivate \{\{masterVAS-Terminology.BLEshort}} and use Bluetooth Classic instead.
+
+  You may see a Bluetooth Pairing Request message or encounter some issues when you try to connect a \{\{masterVAS-Products.DConMobile}}-compatible scanner to \{\{masterVAS-Terminology.BLEshort}}. Follow the guidelines below when troubleshooting or connecting to \{\{masterVAS-Terminology.BLEshort}}:
+
+  - \{\{masterVAS-Terminology.SRS2long}} and \{\{masterVAS-Terminology.XRS2long}}\:If your scanner was connected to Bluetooth Classic and you try to switch the scanner connection to \{\{masterVAS-Terminology.BLEshort}}, the app may not detect the scanner over \{\{masterVAS-Terminology.BLEshort}}. To fix this, turn the scanner off and on. If that doesn't work, remove the scanner from your saved scanners list under System Settings and try again.
+  - \{\{masterVAS-Terminology.SRS2ilong}} and \{\{masterVAS-Terminology.XRS2ilong}}\:The \{\{masterVAS-Terminology.SRS2ishort}} and \{\{masterVAS-Terminology.XRS2ishort}} have both \{\{masterVAS-Terminology.BLEshort}} and Bluetooth Classic modules. \{\{MorphHelp.AppleOS-TM}}**&#x20;devices only support&#x20;**\{\{masterVAS-Terminology.BLEshort}}**&#x20;connections with these scanners**. When you first connect, the scanner enables both protocols but then disables the unused one. This can cause the \{\{masterVAS-Terminology.BLEshort}} module not to start, and the app won't detect the scanner over \{\{masterVAS-Terminology.BLEshort}}. To fix this, turn the scanner off and on. If that doesn't work, remove the scanner from your saved scanners list under System Settings and try again.
+  - \{\{masterVAS-Terminology.APR250long}}**,&#x20;**\{\{masterVAS-Terminology.AWR300long}}, \{\{masterVAS-Terminology.APR600long}}, and \{\{masterVAS-Terminology.APR650long}}:\* To switch to \{\{masterVAS-Terminology.BLEshort}}, follow the steps in :Link[Connect an Allflex Scanner]{label="Connect an Allflex Scanner" overridedLabel="Connect an Allflex Scanner" spaceId docId="lH2VzcmuBAva0fceRHljE" version="v2" docAnchorId="#allflex-connect" loadingMethod="dynamic" newTab="false" href="rfid-scanners-v2.mdx"}. However, when you select **Set BT Profile**, tap \{\{masterVAS-Terminology.BLEshort}}.
+    - When the scanner is in Master mode, you cannot change the Bluetooth profile to \{\{masterVAS-Terminology.BLEshort}}. You must switch to Slave mode in order to use \{\{masterVAS-Terminology.BLEshort}}.
+</ExpandableHeading>

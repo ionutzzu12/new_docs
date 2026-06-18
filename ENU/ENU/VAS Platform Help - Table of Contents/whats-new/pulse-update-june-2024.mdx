@@ -1,0 +1,30 @@
+---
+title: PULSE Update - June 2024
+slug: pulse-update-june-2024
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:50 GMT+0200 (Eastern European Standard Time)
+---
+
+ENHANCEMENTData entry improvement: \{\{Events.11DRY}} events can no longer be added to heifers. \{\{masterVAS-Products.Pulse-only}} now limits the events you can add for heifers and keeps you from accidentally adding \{\{Events.11DRY}} events to the wrong animals. This extra sanity check supports more accurate event data entry for you and your team!
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/CDorqiBIZYWyVNi4PLxyF_heifer-dry-event.png" size="46" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/heifer-dry-event.png" githubPath="Content/Resources/Images/Platform/release-notes/heifer-dry-event.png" position="flex-start" showCaption="false"></Image>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/4zDhRqd0AxyVK0TNeM59A_intstatus-icon.png" size="62" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/intstatus-icon.png" githubPath="Content/Resources/Images/Platform/release-notes/intstatus-icon.png" position="flex-start" showCaption="false"></Image>
+
+ENHANCEMENTIntegration Status now shows errors for all on-premise products! The Integration Status icon now reflects the connection details for all your integrated products. \{\{masterVAS-Products.Pulse-only}} previously only indicated if your \{\{masterVAS-Products.DC305-short}} connection was interrupted. See [Integration Status](../../Features/Dairy/IntegrationStatus.htm) to learn more!
+
+## Bug Fixes
+
+- Integration Status error message clarification.\{\{masterVAS-Products.Pulse-only}} status messages are now clearer and provide more information on when your data was last sent from your on-premise products and when \{\{masterVAS-Products.Pulse-only}} last processed the data. See [Integration Status](../../Features/Dairy/IntegrationStatus.htm) to learn more!
+- \{\{Worklists.VetListSingular}} fix for edited events. If you added an event in a \{\{Worklists.VetListCommonUse}} and then edited the event, the event code was not being sent to \{\{masterVAS-Products.DC305-short}}. This is no longer an issue.
+- Animals page filter fix. If you set filters on your \{\{Buttons-UI.DC-Animals}} list, click into an animal's \{\{masterVAS-Terminology.cowcard}}, and then return to the list, the filter labels are cleared as expected.
+- Technician users fix. All \{\{masterVAS-Products.Pulse-only}} users associated with a technician account now display as expected.
+- Multiple animal errors. \{\{masterVAS-Products.Pulse-only}} now displays more comprehensive error messages if multiple problems are encountered during event entry.
+- `MyDC ONLY`\{\{masterVAS-Terminology.ovsynch}}\{\{Protocols.ProtocolBuilder}} now limits repro codes to a single constraint. When defining a new \{\{masterVAS-Terminology.ovsynch}}\{\{Protocols.Protocol-common}}, \{\{masterVAS-Products.Pulse-only}} now supports only one \{\{RC}} constraint. Rather than setting multiple RC constraints, you can select more than one RC value during setup. Having a single constraint makes the \{\{Protocols.Protocol-common}} setup more intuitive and supports best practices for defining RC requirements.See :Link[Step 1: Define an OvSynch Protocol]{label="Step 1: Define an OvSynch Protocol" overridedLabel="Step 1: Define an OvSynch Protocol" spaceId docId="eN_Nvrrn8wbRIV0eYcZ6T" version="v2" docAnchorId="#criteria" loadingMethod="dynamic" newTab="false" githubPath="../../Features/DairyComp/Protocols/OvsynchDefine.htm#criteria" href="../../Features/DairyComp/Protocols/OvsynchDefine.htm#criteria"} to learn more about setting \{\{Protocols.Protocol-common}} constraints.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Y1gGtf4PfWyIXVXsERQ3H_repro-codes-constraint.png" size="63" isUploading="false" initialPath="../../../Resources/Images/Platform/release-notes/repro-codes-constraint.png" githubPath="Content/Resources/Images/Platform/release-notes/repro-codes-constraint.png" position="flex-start" showCaption="false"></Image>
+
+- `MyDC ONLY`\{\{Events.14SOLD}} event delete item reset fix. When you delete a \{\{Events.14SOLD}} event, \{\{masterVAS-Products.Pulse-only}} now correctly sets the animal's repro code and archive date.
+- `MyDC ONLY`\{\{Events.12ABORT}} event delete fixes. Two issues were fixed related to deleting \{\{Events.12ABORT}} events:\* For cows missing a \{\{masterVAS-Terminology.F-resh-}} Date and continuing the lactation, the system no longer deletes the whole lactation.
+  - When an \{\{Events.12ABORT}} is entered on a heifer, you can now delete the event if needed.
+- `MyDC ONLY`\{\{Events.23MEASURE}} event fix. Item data now displays correctly for \{\{Events.23MEASURE}} events.

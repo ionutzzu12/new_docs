@@ -1,0 +1,50 @@
+---
+title: View Progress on All Open Worklists
+slug: view-progress-on-all-open-worklists
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+Use the **Open Worklists** page to monitor the status, details, and progress of all current \{\{Worklists.worklistCommonUse}} types:
+
+- \{\{Worklists.ToDoUI-Web}} Lists
+- \{\{Worklists.VetListUI-Web}}
+- \{\{Worklists.HospitalListUI-Web}}
+- \{\{Worklists.EventListUI-Web}}
+- \{\{Protocols.OpenTasks}} Lists
+- All List Types (the default selection)
+
+Follow the guidelines below to monitor your \{\{Worklists.worklistCommonUse}}s:
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nNRz8e4T3ZBoLzu0njPB4_workllists-short-illustrated.png" size="60" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/workllists-short-illustrated.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/workllists-short-illustrated.png" position="flex-start" showCaption="false"></Image>
+
+1. **List Types:&#x20;**&#x55;se this filter to select the types of \{\{Worklists.worklistCommonUse}}s to view on screen. Once you select a \{\{Worklists.worklistCommonUse}} type, you can click **Clear Filter** to de-select it.
+2. Use the expandable sections on the **Open&#x20;**\{\{Buttons-UI.DC-WorklistsONLY}} page to view the status of all current \{\{Worklists.worklistCommonUse}}s that have been updated \{\{today}} are grouped at the top. Below that, you will find other expandable sections that show the status of \{\{Worklists.worklistCommonUse}}s that were in progress before the current day.
+3. **Name:&#x20;**&#x54;his column shows the list name and the corresponding \{\{DC-UI.DC-ProdNameShort}} list command. Click the name of each list to view more details on the [ReportWorklistResults.htm](<../Create New Report or Worklist/see-reportsworklists-results.mdx>)[Reports/Worklists Results](<../Create New Report or Worklist/see-reportsworklists-results.mdx>) page.
+4. **List Type:&#x20;**&#x54;he type of list:|                                                                                            |                                                                                                                                                                                                 |
+   \| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   \| :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/swdED_dmIZ7CCAkUBUTQa_event-icon-web25x25.png" alt caption size="10"}    | Event List                                                                                                                                                                                      |
+   \| :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/h6vtb0aZOOgu8I5G65vHF_hospital-icon-web25x25.png" alt caption size="10"} | \{\{Worklists.HospitalListSingular}}                                                                                                                                 |
+   \| :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/efGD0dNj30ws2Ztd3Eylt_todo-icon-web25x25.png" alt caption size="10"}     | \{\{Worklists.ToDoUI-Web}} List                                                                                                                                      |
+   \| :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/JiW8Boslop49omloqvyHx_vetlist-icon-web25x25.png" alt caption size="10"}  | \{\{Worklists.VetListSingular}}                                                                                                                                      |
+   \| :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/bmfoVpWkq9r3QxtiYaVAg_icon-opentasks24x25.png" alt caption size="10"}    | \{\{Protocols.OpenTasks}} List (\{\{masterVAS-Products.MyDC-short}} \{\{masterVAS-Terminology.d-airies}} only) |
+5. **Progress:&#x20;**&#x54;he Progress column displays how much of the list has been completed against the total, both in percentage and for the number of animals. The visual progress bar makes it easy to glance at the page and assess the current progress for all lists. See the image below to learn more about the colors in the progress bar.:inlineImage[]{src="https://archbee-doc-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/lgxOp8BdfUAt9vMUqV87U_status-bar-illustrated.bmp" alt caption}
+6. **Status:&#x20;**&#x54;he Status column reflects whether work has started on the list, and if so, how far along it is. The possible status messages are:\* TOD&#x4F;**:&#x20;**&#x4E;o changes have been made to the list yet.
+   - IN PROGRES&#x53;**:&#x20;**&#x4F;ne or more users have marked at least one animal as \{\{Worklists.DoneUI}}, but no one has yet tapped the \{\{Worklists.ProcessChanges}} button in the mobile app (i.e., at least one person is working on the list and marking animals as \{\{Worklists.DoneUI}}, but no one has sent those changes back to \{\{DC-UI.DC-ProductName}} yet).
+   - QUEUE&#x44;**:&#x20;**&#x41;fter a user taps the \{\{Worklists.ProcessChanges}} button in the mobile app and sends the list updates back to \{\{masterVAS-Products.Pulse-only}}, this status shows the list updates that are waiting to be fetched by \{\{DC-UI.DC-ProdNameShort}}.
+   - PROCESSE&#x44;**:&#x20;**&#x54;his status means that the list updates are complete and \{\{masterVAS-Products.Pulse-only}} has updated the records for the animals that were marked as \{\{Worklists.DoneUI}}.For more information on \{\{Worklists.worklistCommonUse}} status, see [View Animal Status in the Mobile App (v1)](<../../../../../../Mobile Apps/VAS Platform Mobile App (v1)/Tasks & Worklists (v1)/view-animal-status-in-the-mobile-app-v1.mdx>) or [Complete Tasks (v2)](<../../../../../../Mobile Apps/DC on Mobile (v2)/complete-tasks-v2.mdx>).
+7. **Edit&#x20;**\{\{Worklists.worklistCommonUse}}**:** Click the
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/-GeV398BnZkfLEMqi8n73_editworklisticon.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/EditWorklistIcon.png" githubPath="Content/Resources/Images/Platform/dairycomp/EditWorklistIcon.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  icon to open a window in which you can edit the name of the \{\{Worklists.worklistCommonUse}} and add/edit its description.
+</Paragraph>
+
+8. **Delete&#x20;**\{\{Worklists.worklistCommonUse}}**:** Click the
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Iv1kKRQvBmHIcax87i81s_deleteworklist.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/DeleteWorklist.png" githubPath="Content/Resources/Images/Platform/dairycomp/DeleteWorklist.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  icon to delete the applicable \{\{Worklists.worklistCommonUse}}. You will be asked to confirm your choice before proceeding.
+</Paragraph>

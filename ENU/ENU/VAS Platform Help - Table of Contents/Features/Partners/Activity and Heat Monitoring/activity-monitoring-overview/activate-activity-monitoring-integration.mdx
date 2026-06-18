@@ -1,0 +1,79 @@
+---
+title: Activate Activity Monitoring Integration
+slug: activate-activity-monitoring-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:47 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](<../../../../../ENU/VAS Platform Help - Table of Contents/features/manage-dairy-users-and-roles/edit-dairy-user-permissions.mdx>) and [Manage Dairy Roles](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+Follow these steps to integrate the partner system with \{\{General.CompanyName-short}} and allow heat and health attentions and sensor data to display in \{\{masterVAS-Products.Pulse-only}}:
+
+<ExpandableHeading>
+  ## Step 1: Activity Monitoring System Setup
+
+  Contact your \{\{Partners.ActivityMonitoring}} representative to enable the integration with \{\{masterVAS.CompanyName-short}} and complete any required setup.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Configure Items in PULSE
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**\{\{masterVAS-Products.DC305-short}} version 25.2 is required to support mapping items from \{\{masterVAS-Products.Pulse-only}} for \{\{General.DCUnlimited}} dairies. See [Update DC305 to the Latest Release](https://dc-help.vas.com/FAQs/WebUpdater.htm) \{\{masterVAS-Phrases.RefsToOtherHelpProjects}} for update instructions.
+  </hint>
+
+  For device data to be sent to \{\{masterVAS-Products.Pulse-only}} (and \{\{masterVAS-Products.DC305-short}} for \{\{General.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}), you must first add new items to capture the data or configure existing items to map to your device data.
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners > Integrations Gallery** and locate your partner company.
+  2. Click **See Requirements**.
+  3. Click **Select Items** to begin adding new items or mapping to existing items. Expand :Link[Available Items]{label="Available Items" overridedLabel="Available Items" spaceId docId="5IardkEcLQLcsyLqXzKhW" version="v2" docAnchorId="#Items" loadingMethod="dynamic" newTab="false" href="activate-activity-monitoring-integration.mdx"} below to learn more about each item. :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nW7Rzc1TymaFvPCI9O0a5_item-selection.png" alt caption size="50"}
+  4. Check the boxes to add new items to your dairy for the specific data you are connecting to \{\{masterVAS-Products.Pulse-only}}.:::hint\{type="warning"}
+     **IMPORTANT:&#x20;**&#x53;elect items for mapping carefully. If you make an error and need to change your item configuration, you will need to correct the items in \{\{masterVAS-Products.DC305-short}} (for \{\{General.DCUnlimited}} \{\{masterVAS-Terminology.d-airies}}) or contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004).
+     \:::
+  5. If you have an existing \{\{masterVAS-Products.DC305-simple}} item you'd like to use, select it from the **DairyComp Item** drop-down.
+  6. Click **Create** or **Done** in the bottom right corner to finish adding and/or mapping your items.
+  7. Confirm the addition or mapping of your items and click **Save**.
+
+  <ExpandableHeading>
+    ### Available Items
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;tem names can be customized and may differ from those suggested by \{\{General.CompanyName-short}}. If you choose to customize your item names, be sure to use the correct names for any reports or worklists you create.
+    </hint>
+
+    | Item Description                             | \{\{masterVAS-Products.Pulse-only}} Standard Item | \{\{masterVAS-Products.DC305-short}} Suggested Item |
+    | -------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
+    | Heat attention date                          | ACTHDAT                                           | ACDAT                                               |
+    | Heat attention time                          | ACTHTIM                                           | ACTIM                                               |
+    | Heat attention score                         | ACTHTLVL                                          | ACLEV                                               |
+    | Health attention date                        | ACTHLTHDAT                                        | DXDAT                                               |
+    | Health attention time                        | ACTHLTHTIM                                        | DXDTIM                                              |
+    | Health attention score                       | ACTHLTHLVL                                        | DXLEV                                               |
+    | Last eating time                             | EAT                                               | EAT                                                 |
+    | Last 24-hour eating time                     | EAT24                                             | EAT24                                               |
+    | Previous to the last eating time (EAT)       | PEAT                                              | PEAT                                                |
+    | Last inactivity time                         | INACT                                             | INACT                                               |
+    | Last 24-hour inactivity time                 | INA24                                             | INA24                                               |
+    | Previous to the last inactivity time (INACT) | PINA                                              | PINA                                                |
+    | Last rumination time                         | RUMIN                                             | RUMIN                                               |
+    | Last 24-hour rumination time                 | RUM24                                             | RUM24                                               |
+    | Previous to the last rumination time (RUMIN) | PRUM                                              | PRUM                                                |
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 3: Connect Integration in PULSE
+
+  Follow these steps to establish the connection to the \{\{Partners.ActivityMonitoringPartner}}:
+
+  1. Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+  2. If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your partner company representative to connect the integration from their system.
+  </hint>
+</ExpandableHeading>

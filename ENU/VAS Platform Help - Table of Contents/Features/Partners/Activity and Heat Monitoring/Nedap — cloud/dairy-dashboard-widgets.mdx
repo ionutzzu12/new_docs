@@ -1,0 +1,55 @@
+---
+title: Dairy Dashboard Widgets
+slug: dairy-dashboard-widgets
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:47 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### How do I add this widget to my Dashboard?
+
+  Thiswidget is added to your \{\{Buttons-UI.Dashboard}} automatically after the integration is activated.
+</ExpandableHeading>
+
+\{\{masterVAS-Products.Pulse-only}} displays live sensor data in two \{\{Buttons-UI.Dashboard}} widgets, providing an up-to-date view of animals requiring health checks or reproduction-related protocols.
+
+View the example below for more information on the data shown in the dashboard widgets.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/XUYg4MRI-gL3iPfAZtaHm_nedapnow-herd-overview.png" size="81" isUploading="false" initialPath="../../Resources/Images/Partners/nedap/nedapnow-herd-overview.png" githubPath="Content/Resources/Images/Partners/nedap/nedapnow-herd-overview.png" position="flex-start" showCaption="false"></Image>
+
+1. **Urgent attention:** Animals that have been inactive for an extended amount of time are flagged as requiring immediate action.
+2. **Animals to check:&#xA0;**&#x49;ncludes animals that were on the Urgent attention list the previous day, as well as animals in the transition period. The transition period includes the three weeks before and three weeks after calving, when the animal transitions from dry to producing milk. This period is critical in the overall health and potential milk production of the cow, as most infections and metabolic diseases occur during this six-week window.
+3. **More Info:&#xA0;**\{\{Commands.Click}} this option to view additional information in a table format.
+4. **Heat Attentions:&#x20;**&#x54;he partner system flags animals as in heat, and \{\{masterVAS-Products.Pulse-only}} categorizes the animal as follows:\* In insemination period: The breeding portion of the reproductive cycle, when the animal is open and being monitored for signs of heat (based on \{\{masterVAS.CompanyName-short}} animal data).
+   - In voluntary waiting period: The period that follows calving to the beginning of the breeding (insemination) period (based on \{\{masterVAS.CompanyName-short}} animal data).
+   - Pregnant: Currently pregnant (based on \{\{masterVAS.CompanyName-short}} event data).
+5. **More Info:&#x20;**\{\{Commands.Click}} this option to view Optimal Insemination details and additional animal information in a table format.
+6. **Optimal Insemination details:&#xA0;**&#x54;he Optimal Insemination column helps you visualize how many hours each animal has been in heat and when she reaches the 5-15 hour mark, which is the timeframe that typically yields the highest conception rates. If you do not see this column, be sure to scroll to the right to find it.Within the Optimal Insemination column, you'll find a colored bar for each animal in heat. The colors reflect the ideal times to inseminate each animal, based on the Hours since Attention (i.e., the hours since the onset of heat):\* :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/6A5-QCV62AeDiL2ZXRQxh_optimal-insemination-time.png" alt caption="5-15 hours" size="10"}
+   : Optimal range for insemination
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/sqch-tJWG91uursoTxO5r_less-optimal-insemination-time.png" size="10" caption="0-5 hours, 15-24 hours" isUploading="false" initialPath="../../Resources/Images/Partners/nedap/less-optimal-insemination-time.png" githubPath="Content/Resources/Images/Partners/nedap/less-optimal-insemination-time.png" position="flex-start" showCaption="true" indent="3"></Image>
+
+<Paragraph indent="2">
+  : Less ideal ranges for insemination
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/a48JbRrBa_lxvGgBvXnbZ_least-optimal-insemination-time.png" size="10" caption="24-32 hours" isUploading="false" initialPath="../../Resources/Images/Partners/nedap/least-optimal-insemination-time.png" githubPath="Content/Resources/Images/Partners/nedap/least-optimal-insemination-time.png" position="flex-start" showCaption="true" indent="3"></Image>
+
+<Paragraph indent="2">
+  : Least ideal range for inseminationFollow these guidelines to plan your breedings.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/P6I-8nkwW0IlZmi319dr6_optimal-insemination-graph.png" alt caption size="46"}\* When a heat is detected, the system automatically adds the animal to this list and begins tracking how many hours have passed. The time the heat was detected is shown in the Attention Time column.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  During the first 32 hours after the onset of heat, the system updates the animal's status in the Optimal Insemination column. It displays a small slider on the colored bar to show which range she is currently within, and it displays the exact number of hours that have passed below the colored bar.
+</Paragraph>
+
+<hint type="warning" indent="3">
+  **IMPORTANT:&#x20;**&#x54;o increase chances of conception, your activity/heat monitoring partner recommends inseminating animals when the slider is in the 5-15 hour range (the dark green portion of the bar). The optimal time frame for breeding varies throughout the industry, and other heat monitoring systems may recommend a slightly different range.
+</hint>
+
+<Paragraph indent="2">
+  When more than 32 hours have passed since the Attention Time, the slider disappears, and the system continues to update the hours beneath the colored bar.
+</Paragraph>
+
+7. **Health Index score:&#x20;**&#x54;he health score is an overall picture of how well the animal is doing behavior- and health-wise. A higher score means the animal is healthy, while a lower score means the animal is unhealthy and needs attention. The health score ranges from 1 to 10 in increments of 1.
+8. **Heat Index score:&#x20;**&#x54;he heat scores show the likelihood that an animal is in heat. Animals with a high heat score are more likely to be in heat. The heat score is calculated using multiple factors, including the intensity and whether the animal is cycling. The heat scores range from 1 to 5 in increments of 1.

@@ -1,0 +1,126 @@
+---
+title: Create Hospital Lists
+slug: create-hospital-lists
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+Before you can process your \{\{Worklists.HospListCommonUse}}s in \{\{masterVAS-Products.Pulse-only}} or the mobile app, you must first generate them in \{\{masterVAS-Products.Pulse-only}}, or set them up in \{\{DC-UI.DC-ProdNameShort}} with the \K switch (which sends them to \{\{masterVAS-Products.Pulse-only}}). \{\{masterVAS-Products.Pulse-only}} then sends them out to the mobile app in its next \{\{care package}} update.
+
+<hint type="info">
+  **NOTE:&#x20;**&#x43;onfiguring treatment protocols and hospital lists requires advanced knowledge of \{\{masterVAS-Products.Pulse-only}}, as well as the guidance of animal health experts. The steps outlined below assume that you are working with an expert user and your veterinarians to guide and properly define your treatment protocols.
+</hint>
+
+Follow the steps below to continue:
+
+<ExpandableHeading>
+  ## Create Hospital Lists in PULSE
+
+  You can generate \{\{Worklists.worklistCommonUse}}s in \{\{masterVAS-Products.Pulse-only}} from multiple locations: 
+
+  - [Dairy Reports/Worklists](ManageReportsWorklists.htm): Use this tab to generate reports or \{\{Worklists.worklistCommonUse}}s saved from the Gallery.
+  - [Template Gallery](DC-ReportsGallery.htm): Use the Gallery to check out available report and \{\{Worklists.worklistCommonUse}} options.
+  - [Report/Worklist Builder](ReportWorklistBuilder.htm): This tool allows you to build custom reports and \{\{Worklists.worklistCommonUse}}s using an easy drag & drop interface.
+
+  See [Build a Hospital List](BuildHospitalList.htm) for step-by-step instructions for building a \{\{Worklists.HospListCommonUse}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Create Hospital Lists in DairyComp 305
+
+  <ExpandableHeading>
+    ### Step 1: Define Protocols in DairyComp 305
+
+    Deciding which conditions to treat and how to treat them requires input from veterinarians and other animal health experts. After your \{\{masterVAS-Terminology.d-airy}} has defined treatment plans, known as protocols, they must be entered in \{\{DC-UI.DC-ProdNameShort}}. Use the \{\{ALTER}}**\7** command and enter all required details for each \{\{protocol}}.
+
+    After your protocols are defined in \{\{DC-UI.DC-ProdNameShort}}, they are available for viewing from the[Protocols](../Settings/DC-Settings-Protocols.htm) page in \{\{masterVAS-Products.Pulse-only}}.
+
+    <hint type="info">
+      **TIP:&#x20;**&#x46;or complicated treatments that require different drugs on different days or information that exceeds the \{\{DC-UI.DC-ProdNameShort}} 14-character limit in the \{\{REM}} (Remark) field, use the **Details** option in the protocol. This option allows you to add up to 5 unique notes per day of treatment.
+    </hint>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Step 2: Define Hospital Items in DairyComp 305
+
+    \{\{DC-UI.DC-ProdNameShort}} hospital items are customizable, and are defined as part of protocol setup using the **Advanced > Set Up Items** option in **ALTER\7**.
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x54;he milk withdrawal date item (\{\{MKDAT}}) and beef withdrawal date item (\{\{BFDAT}}) are required for \{\{Worklists.HospListCommonUse}}s. These are the dates that a cow's milk or meat is deemed clear of drug residues and safe to return to the bulk tank or for the animal to be sold for beef. Additional items are optional.
+    </hint>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Step 3: Define Hospital Pens in DairyComp 305 (Optional)
+
+    It is common for larger \{\{masterVAS-Terminology.d-airy}} operations to dedicate specific \{\{masterVAS-Terminology.p-ens}} to the treatment of sick animals. This simplifies the management of milk and beef withholds, and makes locating animals for treatment easier and faster. \{\{masterVAS-Terminology.P-ens-}} can be labeled as hospital \{\{masterVAS-Terminology.p-ens}} in \{\{DC-UI.DC-ProdNameShort}} using the **ALTER\4** command. This is an optional step and will affect the commands you will use to generate your \{\{Worklists.HospListCommonUse}}s.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Step 4: Create PULSE Hospital Lists in DairyComp 305
+
+    For customers who are familiar with the \{\{General.CompanyName-short}}\{\{PCC}} product, you may already know how to create and send a \{\{Worklists.HospListCommonUse}} to PCC handhelds. The command is similar when creating a \{\{Worklists.HospListCommonUse}} to send to \{\{masterVAS-Products.Pulse-only}}.
+
+    Set up the command as shown in the example below:
+
+    1. Start with the **SERVER** command to define what you want the \{\{Worklists.HospListCommonUse}} to do.
+    2. Use the **\H** switch to tell \{\{DC-UI.DC-ProductName}} to have this list behave like a hospital list.
+    3. Use the **\K** switch to tell \{\{DC-UI.DC-ProductName}} to send the list to \{\{masterVAS-Products.Pulse-only}}.
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/urhQjo3KYCCk995iTkYGV_hosplist-command-example-whpen.png" size="45" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/hosplist-command-example-whpen.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/hosplist-command-example-whpen.png" position="flex-start" showCaption="false"></Image>
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**
+
+      The way to define which items display in a
+
+      \{\{Worklists.HospListCommonUse}}
+
+      differs between PCC and Platform. PCC items are defined in
+
+      \{\{DC-UI.DC-ProdNameShort}}
+
+      using the PCC Entry tab in Server
+
+      \{\{masterVAS-Terminology.C-onfiguration-}}
+
+      (
+
+      **SERVER\3**
+
+      ). Platform items are included in the Hospital List command in one of two ways:
+
+      - Directly in the command. For example:`SERVER ID Identifier PEN Pen number DIM Days in milk RPRO Reproductive code DCC Days carrying calf/pregnant FOR PEN=99 \HK`
+      - As a separate command. For example:`SERVER HPITEMS FOR PEN=99 \HK`where the HPITEMS command is defined as `ID PEN DIM RPRO DCC`
+    </hint>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Step 5: Send your Hospital Lists to PULSE
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x42;e aware that if \{\{DC-UI.DC-ProductName}} sends multiple versions of the same list to \{\{masterVAS-Products.Pulse-only}} in one day, the most recent list overwrites the earlier ones but does NOT affect any progress or changes made against the list.
+    </hint>
+
+    Unlike the PCC product, which requests each \{\{Worklists.worklistCommonUse}} during a refresh, \{\{masterVAS-Products.Pulse-only}} does **not** request \{\{Worklists.worklistCommonUse}}s from on‑premise \{\{DC-UI.DC-ProdNameShort}}. Instead, \{\{DC-UI.DC-ProdNameShort}} must manually send \{\{Worklists.worklistCommonUse}}s to \{\{masterVAS-Products.Pulse-only}}. This ensures that on‑premise users control the lists that are sent out to the \{\{General.ProductName}} mobile app.
+
+    You can send \{\{Buttons-UI.PlatformWorklists}} from \{\{DC-UI.DC-ProdNameShort}} manually or schedule \{\{DC-UI.DC-ProdNameShort}} to send them automatically. Follow the instructions below to proceed.
+
+    <ExpandableHeading>
+      ### Send Lists Manually
+
+      Follow these steps to send \{\{Worklists.worklistCommonUse}}s from \{\{DC-UI.DC-ProdNameShort}} to \{\{masterVAS-Products.Pulse-only}} manually:
+
+      1. Go to the \{\{DC-UI.DC-ProdNameShort}} command line.
+      2. Type PLATFORM\K and press enter.
+
+      This command instructs \{\{DC-UI.DC-ProdNameShort}} to find all Platform-enabled (\K) SERVER commands and generate the corresponding worklist files. The \{\{Worklists.worklistCommonUse}} files are then sent to \{\{masterVAS-Products.Pulse-only}} the next time it synchronizes data from \{\{DC-UI.DC-ProdNameShort}}.
+    </ExpandableHeading>
+
+    <ExpandableHeading>
+      ### Schedule DairyComp 305 to Send Lists
+
+      If you prefer not to do a manual send each time you want to update your \{\{masterVAS-Products.Pulse-only}} lists, you can set up a \{\{DC-UI.DC-ProdNameShort}} Scheduled Task that automatically executes the PLATFORM\K command at a convenient daily or weekly interval. Please contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) if you need help scheduling this type of task in \{\{DC-UI.DC-ProdNameShort}}.
+    </ExpandableHeading>
+  </ExpandableHeading>
+</ExpandableHeading>

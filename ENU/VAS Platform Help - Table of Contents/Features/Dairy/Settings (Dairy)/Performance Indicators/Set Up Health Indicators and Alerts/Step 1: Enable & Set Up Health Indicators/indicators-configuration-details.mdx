@@ -1,0 +1,24 @@
+---
+title: Indicators Configuration Details
+slug: indicators-configuration-details
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+If the **Weekly** option is selected in the **Period Preferences** area, the weekly schedule is displayed in the side panel. If the **Daily** option is selected, the side panel shows the daily schedule instead.
+
+:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/2oiPfcLbT-Cn2zV6EeCeJ_indicators-tab-config-schedule-weekly.png" alt caption size="49"}:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/eolIYFenSTk3iko803RLg_indicators-tab-config-daily-slct.png" alt caption size="40"}
+
+While the daily schedule shows only three days instead of four weeks, the color coding is essentially the same as the weekly schedule.
+
+Periods on the schedule are color-coded as follows:
+
+- Dark blue shows the prior period that \{\{masterVAS-Products.Pulse-only}} uses to determine \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s for your \{\{masterVAS-Terminology.h-erd}}.
+- Light blue shows the period when \{\{masterVAS-Products.Pulse-only}} last examined \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s and sent alerts.
+- Green shows the next day when \{\{masterVAS-Products.Pulse-only}} will examine \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s and send alerts.
+
+For the weekly schedule, this means that \{\{masterVAS-Products.Pulse-only}} examines \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s and sends alerts on the day of the week you selected. In the example above, Wednesday (the day highlighted in green) is the one selected. If your \{\{masterVAS-Terminology.h-erd}} exceeds an \{\{PlatformContentSnippets.PerformanceIndicators-AlertThresholdValue}} from the previous two periods (the previous week in dark blue and the last week in light blue), \{\{masterVAS-Products.Pulse-only}} notifies your team on that Wednesday.
+
+In the daily schedule, yesterday's date is highlighted in light blue, and this shows you the day when \{\{masterVAS-Products.Pulse-only}} last examined \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s and sent alerts. The previous day that \{\{masterVAS-Products.Pulse-only}} uses to determine \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s for your \{\{masterVAS-Terminology.h-erd}} is highlighted in dark blue, and \{\{today}}'s date is highlighted in green.
+
+This means that \{\{masterVAS-Products.Pulse-only}} examines \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}}s today using the data from yesterday and the day before yesterday as a base. When the \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}} examined today exceeds the \{\{PlatformContentSnippets.PerformanceIndicators-AlertThresholdValue}} entered for the \{\{PlatformContentSnippets.PerformanceIndicators-ThresholdDifferential}} examined from the previous two days, \{\{masterVAS-Products.Pulse-only}} notifies your \{\{masterVAS-Terminology.d-airy}} team.

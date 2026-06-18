@@ -1,0 +1,112 @@
+---
+title: Manage Dairy Reports/Worklists
+slug: manage-dairy-reportsworklists
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature. See [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+The \{\{masterVAS-Terminology.D-airy-}} \{\{Buttons-UI.DC-Reports}} page includes the reports or \{\{Worklists.worklistCommonUse}}s you customized from the [Template Gallery](DC-ReportsGallery.htm), as well as any other custom reports you created using [Report/Worklist Builder](<../../../../../ENU/VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/reportsworklists/create-new-report-or-worklist/build-custom-report-or-worklist.mdx>). Note that reports are shaded in **blue** and \{\{Worklists.worklistCommonUse}}s are shaded in **green**.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zew_KGJDGJWc_EQkD-cbg_dairy-managereportsworklists.png" size="94" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/Reports/dairy-ManageReportsWorklists.png" githubPath="Content/Resources/Images/Platform/dairycomp/Reports/dairy-ManageReportsWorklists.png" position="flex-start" showCaption="false"></Image>
+
+You can find this feature under the :Link[DairyComp/MyDC > Reports/Worklists menu]{label="DairyComp/MyDC > Reports/Worklists menu" overridedLabel="DairyComp/MyDC > Reports/Worklists menu" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp-Reports" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp-Reports" href="../../../../navigate-pulse/menu-options.mdx"} on the \{\{Buttons-UI.FeaturesSecondary}} tab.
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Save a Report/Worklist
+
+  Save reports and \{\{Worklists.worklistCommonUse}}s that you run frequently to your \{\{masterVAS-Terminology.D-airy-}} \{\{Buttons-UI.DC-Reports}} page for easy reuse.You can save reports to your \{\{masterVAS-Terminology.D-airy-}} \{\{Buttons-UI.DC-Reports}} page in two different ways:
+
+  - From the [Template Gallery](DC-ReportsGallery.htm)\{\{Commands.Click}} the **Customize** button to open the report in [Report/Worklist Builder](<../../../../../ENU/VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/reportsworklists/create-new-report-or-worklist/build-custom-report-or-worklist.mdx>)..
+  - After running a report from the [Command Line](../../../../features/command-line.mdx) (\{\{masterVAS-Products.DCU-users-short}} only):1) \{\{Commands.Click}} the **Edit** button to open the [Report/Worklist Builder](<../../../../../ENU/VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/reportsworklists/create-new-report-or-worklist/build-custom-report-or-worklist.mdx>)\{\{Buttons-UI.FeatureType}}. Enter the report/\{\{Worklists.worklistCommonUse}} details and the **Next** button to open the **Contents** screen on the [Report/Worklist Builder](<../../../../../ENU/VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/reportsworklists/create-new-report-or-worklist/build-custom-report-or-worklist.mdx>) page.
+    2\) \{\{Commands.Click}} the **Save and Execute** button to save the report/\{\{Worklists.worklistCommonUse}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Schedule a Report/Worklist
+
+  After a report or \{\{Worklists.worklistCommonUse}} is saved to the \{\{masterVAS-Terminology.D-airy-}} \{\{Buttons-UI.DC-Reports}} page, \{\{masterVAS-Products.DCP-users-short}} can automate the generation of a report or \{\{Worklists.worklistCommonUse}} and add it to the [Process Scheduler](<../../../../../../VAS Platform Help - Table of Contents/Features/Dairy/process-scheduler.mdx>) calendar. Follow these steps on the \{\{masterVAS-Terminology.D-airy-}}\{\{Buttons-UI.DC-Reports}} page to schedule a report or \{\{Worklists.worklistCommonUse}} to run automatically:
+
+  1. Click the **Schedule** button to open a side panel where you can create an automated schedule for the report or \{\{Worklists.worklistCommonUse}}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yvARXVR2Stbbp2Qh1gip7_schedule-report-worklist.png" size="66" isUploading="false" initialPath="../../../../Resources/Images/Platform/process-scheduler/schedule-report-worklist.png" githubPath="Content/Resources/Images/Platform/process-scheduler/schedule-report-worklist.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    Use the following guidelines to schedule your report or \{\{Worklists.worklistCommonUse}}:\* Select the date and time to start the process.:::hint\{type="warning"}
+    **IMPORTANT:&#x20;**&#x53;et the **Day to Start** to a future time, either later \{\{today}} or a future date, as scheduling a process at a time that has passed will not run until the next time the scheduled interval is reached. For example, if you schedule a process to start on Mondays at 5 am, but today is a Monday at 9 am, the enrollment will start next week at 5 am.
+    \:::- Set the schedule for the process:1) Set the **Repetition** to "Repeats".
+    2\) Set the frequency and interval for the process. For instance, to run a process weekly, set **Every** to "1" and **Intervals** to "Weeks".
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    Click **Schedule**.After you schedule your report or \{\{Worklists.worklistCommonUse}}, \{\{masterVAS-Products.Pulse-only}} shows the **Scheduled** button and \{\{Protocols.ProcessScheduler}} includes the report or \{\{Worklists.worklistCommonUse}}. To view the generated report or \{\{Worklists.worklistCommonUse}}, see [Report History](view-report-history.mdx) or [Worklist History](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/view-worklists-history.mdx>).
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Run a Report/Worklist
+
+  You can run reports or \{\{Worklists.worklistCommonUse}}s for today or up to 30 days in the future. This option allows you to collect additional data and gives you even more choices when planning tasks and managing your \{\{masterVAS-Terminology.h-erd}}.
+
+  1. \{\{Commands.Click}} the **See Results** button to open the options window.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/2oQUpgGaNa9JAYOIBXlIs_dairy-reports-report.png" alt caption size="29"}:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/MvbaQ-qG59YkcYljOseAK_report-results-options.png" alt caption size="31"}
+  2. The date field defaults to today's date. \{\{Commands.Click}} on the date field to change it.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/tRfIljpjXlLhVcubJZhna_date-picker.png" alt caption size="38"}:::hint\{type="info"}
+     **NOTE:&#x20;**&#x59;ou cannot select a date in the past, but you can select a date up to 30 days in the future.
+     \:::
+  3. Click the **See Results** button to run the report or \{\{Worklists.worklistCommonUse}}. \{\{masterVAS-Products.Pulse-only}} builds the report or \{\{Worklists.worklistCommonUse}} and displays the results.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/WGwt-TUBup0HAN9Z7LBmO_worklistreport-results-edit2.png" alt caption size="62"}See [ReportWorklistResults.htm](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>)[Reports/Worklists Results](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>) to learn more!
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Edit Reports/Worklists
+
+  You can make changes to your \{\{masterVAS-Terminology.d-airy}} report or \{\{Worklists.worklistCommonUse}} from two different locations in \{\{masterVAS-Products.Pulse-only}}.
+
+  1. On the \{\{masterVAS-Terminology.D-airy-}} \{\{Buttons-UI.DC-Reports}} page, click the Options button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/CDT7MGgVdxUe43MtlyWvh_options-black-dots.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/options-black-dots.png" githubPath="Content/Resources/Images/icons/options-black-dots.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    and select **Edit**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Kmgo4elWCe5RjeW9eDWNf_dairy-reports-options-menu.png" alt caption size="16"}Or, click the **See Results** button to run the report or \{\{Worklists.worklistCommonUse}} and [See Reports/Worklists Results](<../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/see-reportsworklists-results.mdx>). Click the **Edit** button at the top right of the page.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/A_mwSGY4imFn8gYKIZVwb_worklistreport-results-edit.png" alt caption size="62"}
+  </Paragraph>
+
+  2. Use [Report/Worklist Builder](<../../../../../ENU/VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/reportsworklists/create-new-report-or-worklist/build-custom-report-or-worklist.mdx>) to complete your updates and save your changes.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Duplicate a Report/Worklist
+
+  You can duplicate any of your \{\{masterVAS-Terminology.d-airy}} reports or \{\{Worklists.worklistCommonUse}}s. This makes it easy to create a new report with slightly different criteria.
+
+  1. \{\{Commands.Click}} the Options button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/CDT7MGgVdxUe43MtlyWvh_options-black-dots.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/options-black-dots.png" githubPath="Content/Resources/Images/icons/options-black-dots.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Kmgo4elWCe5RjeW9eDWNf_dairy-reports-options-menu.png" alt caption size="16"}
+  </Paragraph>
+
+  2. Select the **Duplicate** option to open the Report Builder. See [Build Custom Report or Worklist](<../../../../../ENU/VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/reportsworklists/create-new-report-or-worklist/build-custom-report-or-worklist.mdx>) to learn more!
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Delete a Report/Worklist
+
+  You can delete a \{\{masterVAS-Terminology.d-airy}} report or \{\{Worklists.worklistCommonUse}} at any time. This helps you find the reports and \{\{Worklists.worklistCommonUse}}s you need and use often more quickly.
+
+  1. \{\{Commands.Click}} the Options button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/CDT7MGgVdxUe43MtlyWvh_options-black-dots.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/options-black-dots.png" githubPath="Content/Resources/Images/icons/options-black-dots.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    .:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Kmgo4elWCe5RjeW9eDWNf_dairy-reports-options-menu.png" alt caption size="16"}
+  </Paragraph>
+
+  2. Select the **Delete** option.
+  3. \{\{Commands.Click}}**Remove** to confirm.
+</ExpandableHeading>

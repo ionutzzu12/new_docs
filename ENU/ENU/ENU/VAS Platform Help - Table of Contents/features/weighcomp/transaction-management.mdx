@@ -1,0 +1,261 @@
+---
+title: Transaction Management
+slug: transaction-management
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:46 GMT+0200 (Eastern European Standard Time)
+---
+
+The Transaction Management feature allows you to view a list of all transactions that have taken place in \{\{MorphHelp.WeighComp}}, both pending and previously approved. The Transaction Management page displays detailed information about every transaction, such as its type (i.e., delivery or pickup), its vendor, and its product (for example, rolled wheat). Additionally, you can quickly enter new transactions or approve pending transactions directly on the page.
+
+You can find this feature under the :Link[WeighComp menu]{label="WeighComp menu" overridedLabel="WeighComp menu" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-WeighComp" loadingMethod="dynamic" newTab="false" githubPath="../../../Platform/NavPlatform/Menu.htm#Menu-WeighComp" href="../../../../VAS Platform Help - Table of Contents/navigate-pulse/menu-options.mdx"}.
+
+<ExpandableHeading>
+  ## Enter WeighComp Transactions
+
+  Data entry for spot load transactions is done via the \{\{MorphHelp.WeighComp}} app by the truck driver, whether the transaction is inbound (a delivery) or outbound (a pickup). Additionally, authorized users can enter transactions directly on \{\{masterVAS-Products.WC-Platform}} in \{\{General.ProductName}}. However, the \{\{masterVAS-Products.WC-Platform}} app provides a step-by-step interface so that truck drivers can easily record deliveries and pickups of feed inventory. Once a transaction is completed in the \{\{masterVAS-Products.WC-Platform}} app, the data is sent to \{\{masterVAS-Products.Pulse-only}}.
+
+  The relationship between \{\{MorphHelp.WeighComp}}, \{\{masterVAS-Products.FeedWatchOnPremise}}, and \{\{masterVAS-Products.Pulse-only}} for transaction management is shown in the following diagram:
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/lmc-qDt3qId8uGgAO9qy0_transman.png" size="57" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/TransMan.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/TransMan.png" position="flex-start" showCaption="false"></Image>
+
+  For example, once a truck arrives at the feed scale for a delivery, the driver inputs basic information about the transaction (name, product type, vendor, etc.) into the app, records the full and empty weights for the load, and then finalizes the transaction. The data for that transaction is transferred to \{\{masterVAS-Products.Pulse-only}} via a cloud-based connection. At that point, the driver is done and is free to move on to other work.
+
+  The diagrams below illustrate the app workflow. These diagrams are designed so that you can print and post them for easy reference near the \{\{MorphHelp.WeighComp}} tablet on‑site at your \{\{masterVAS-Terminology.d-airy}}.
+
+  :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/0CJuqTAhl7MrC7GHzZeqo_appworkflowdel.png" alt caption size="53"}:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/opLgyCqQNz9hS3JiW-cfv_appworkflowpick.png" alt caption size="53"}
+
+  Download and print the PDF version:
+
+  [<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/qPa89nwzvpqyhBhwvuXTD_pdflogo.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/PDFlogo.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/PDFlogo.png" position="flex-start" showCaption="false"></Image>](../../../Resources/PDFdownloads/WC_Driver_Flow_Chart.pdf)
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## View WeighComp Transactions
+
+  The main job of \{\{MorphHelp.WeighComp}} in \{\{masterVAS-Products.Pulse-only}} is to store the transactions created in the \{\{MorphHelp.WeighComp}} app. You can then view these transactions in \{\{masterVAS-Products.Pulse-only}}, as well as manage and approve them.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/F0Zu7lGqgR0uiXtH5WH7D_transmanagescreen.png" size="80" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/TransManageScreen.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/TransManageScreen.png" position="flex-start" showCaption="false"></Image>
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x54;he information displayed in the main chart of the page is read-only. To edit the information for an individual transaction, click on that transaction to view it in a side panel. From there, the transaction's data can be edited.
+  </hint>
+
+  1. **Pending/Approved:&#x20;**&#x43;lick the **Pending** or **Approved** tab to choose either type of transactions to display in the page.\* **Pending** transactions are those that have been completed through \{\{MorphHelp.WeighComp}} but have not yet been reviewed and approved.
+     - **Approved** transactions are those that have been reviewed and accepted.
+  2. **Display filters:&#x20;**&#x46;ilter the list by **Type**, **Vendor**, **Product**, etc.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/k1bj3cXAcQtWH3KC9b4Qp_productfilter.png" alt caption size="10"}
+  3. **Transaction Summary:&#x20;**&#x53;hows a complete summary of all your transactions, including total amounts for loads, net weight, and cost, as well as the average percentage of \{\{dry matter}} and average cost per ton.
+  4. **Selection checkboxes:&#x20;**&#x43;heck boxes
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/hLutby8orZwy6qGZM-NN0_checkbox21x25.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/checkbox_21x25.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/checkbox_21x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to select multiple transactions for bulk update or approval.
+  </Paragraph>
+
+  5. **Ticket:&#x20;**&#x54;he number of the ticket printed when the transaction was completed in the \{\{MorphHelp.WeighComp}} app or manually entered in \{\{masterVAS-Products.Pulse-only}}. The \{\{masterVAS-Products.WC-Platform}} app automatically assigns a new ticket number to the transaction using the following structure::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/l-9f0WxIRDA7FSmUW6HXe_ticketstructure-trans.png" alt caption size="21"}1) **Integration&#x20;**\{\{Zone}}**&#x20;Number:** The identifier for the \{\{masterVAS-Products.WC-Platform}} tablet that was used to create the ticket.
+     2\) **Ticket Number:** The unique, sequential number that the \{\{masterVAS-Products.WC-Platform}} app generates every time you create a new ticket.
+  6. **Type:&#x20;**&#x53;hows whether the transaction is a delivery
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/oGF0wFPV-L-9MFP4qp47M_delivery32x25.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/Delivery_32x25.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/Delivery_32x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    or a pick-up
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/_1cfBzAJKa1AtgPmwdSAo_pendingicon.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/PendingIcon.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/PendingIcon.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    .
+  </Paragraph>
+
+  7. **Vendor:&#x20;**&#x54;he name of the vendor associated with the transaction (from \{\{masterVAS-Products.FeedWatchOnPremise}}).
+  8. **Product:** The product name associated with the transaction. Clicking on a product brings up its details, including what recipes it's used in and location information.
+  9. **Net Weight:&#x20;**&#x54;he new weight of the product associated with the transaction.
+  10. **Location:&#x20;**&#x54;he location on the farm where the transaction took place.
+  11. **Start/End Date/Time:&#x20;**&#x54;he date and time that the transaction began and ended.
+  12. \{\{DM%}}**:&#x20;**&#x54;he percentage of dry matter for the transaction.
+  13. \{\{AF}} \{\{Cost/Ton}}**:&#x20;**&#x54;he cost of the product involved in the transaction.
+  14. **Delete icon:&#x20;**&#x43;lick the delete icon
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zLU2mZ4WhozIST0T9-2EN_deleteicon2.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/DeleteIcon2.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/DeleteIcon2.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to delete the transaction. See :Link[Delete a Pending Transaction]{label="Delete a Pending Transaction" overridedLabel="Delete a Pending Transaction" spaceId docId="ekw9j1KL_O4tzm2hyoQLO" version="v2" docAnchorId="#Deleting" loadingMethod="dynamic" newTab="false" href="transaction-management.mdx"} to learn more.
+  </Paragraph>
+
+  15. **Reconciled:&#x20;**&#x41; check-mark
+
+  <Image src="https://archbee-doc-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/JfJs8OsnjAV1x57hFQefj_reconcilecheck.bmp" size="100" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/ReconcileCheck.bmp" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/ReconcileCheck.bmp" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    in this column indicates that this transaction has been reviewed. This column only appears on the Approved tab.
+  </Paragraph>
+
+  16. **New Transaction:&#x20;**&#x43;lick the New Transaction button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/PasCIKvW3GpZk7qfCX05U_addtransaction114x25.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/AddTransaction_114x25.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/AddTransaction_114x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    at the upper right corner of the screen to add a new transaction to your records directly from \{\{masterVAS-Products.Pulse-only}}. See :Link[Add a New Transaction]{label="Add a New Transaction" overridedLabel="Add a New Transaction" spaceId docId="ekw9j1KL_O4tzm2hyoQLO" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" href="transaction-management.mdx"} to learn more.
+  </Paragraph>
+
+  17. **Options button:&#x20;**&#x43;lick the Options button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wIXwfkZ07oPcd_rKpJE8J_options-green-small41x29.png" size="10" caption="Options button" alt="Options button" isUploading="false" initialPath="../../../Resources/Images/icons/options-green-small_41x29.png" githubPath="Content/Resources/Images/icons/options-green-small_41x29.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    at the upper right corner of the screen to print or export your transaction data. See [Print and Export WeighComp Data](print-and-export-weighcomp-data.mdx) to learn more.
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Add a New Transaction
+
+  You can easily add a new WeighComp transaction to your records on \{\{masterVAS-Products.Pulse-only}}. Click the New Transaction button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/PasCIKvW3GpZk7qfCX05U_addtransaction114x25.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/AddTransaction_114x25.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/AddTransaction_114x25.png" position="flex-start" showCaption="false"></Image>
+
+  at the upper right corner of the screen to open a side panel where you can create a new transaction.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/XMY_WPGTPtuSRxlOyqjin_transsidepanel-add.png" size="44" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/TransSidePanel-Add.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/TransSidePanel-Add.png" position="flex-start" showCaption="false"></Image>
+
+  Follow the guidelines below when you enter information for new transactions:
+
+  - You can manually enter a ticket number for the transaction. If you prefer, you can leave the ticket number blank.
+  - The fields in this side panel are the same as those shown in the Transactions list. Refer to :Link[View WeighComp Transactions]{label="View WeighComp Transactions" overridedLabel="View WeighComp Transactions" spaceId docId="ekw9j1KL_O4tzm2hyoQLO" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" href="transaction-management.mdx"} for a description for each of these fields.
+  - Remember to mark the transaction as a delivery or a pickup transaction.
+  - You can manually enter information for the **DM%** or **AF Cost/Ton** fields or you can click **Import DM% and Cost from&#x20;**\{\{masterVAS-Products.FeedWatchPlatform}} to directly import the percentage of dry matter or the cost of the product from \{\{masterVAS-Products.FeedWatchPlatform}}. See :Link[Import Dry Matter and Cost Data]{label="Import Dry Matter and Cost Data" overridedLabel="Import Dry Matter and Cost Data" spaceId docId="ekw9j1KL_O4tzm2hyoQLO" version="v2" docAnchorId="#Import" loadingMethod="dynamic" newTab="false" href="transaction-management.mdx"} to learn more.
+
+  When you're finished, click **Save Draft**. The system displays a message at the bottom of the page stating that your new transaction has been added.
+
+  The list now displays your new transaction, which you can now edit or approve. See :Link[Edit and Approve Transactions]{label="Edit and Approve Transactions" overridedLabel="Edit and Approve Transactions" spaceId docId="ekw9j1KL_O4tzm2hyoQLO" version="v2" docAnchorId="#Editing" loadingMethod="dynamic" newTab="false" href="transaction-management.mdx"} to learn more.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Edit and Approve Transactions
+
+  Click on any pending transaction to edit its details in a side panel. You can also edit the start and end weights of a pending transaction and approve pending transactions from the side panel.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/E1_DU2qSfbLx7m12ESfr5_transsidepanel.png" size="38" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/TransSidePanel.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/TransSidePanel.png" position="flex-start" showCaption="false"></Image>
+
+  When editing a pending transaction, you can use the **Save Draft** button to save your changes before actually approving the transaction. A new transaction can't be approved until all the fields (except **Field&#x20;**\{\{ID}} and **Truck ID**) are completed. To approve the transaction, click **Approve**. Approved transactions are considered done and cannot be edited.
+
+  <ExpandableHeading>
+    ### Edit Transaction Details
+
+    1. Click on a pending transaction to display its side panel.
+    2. In the side panel, click in the field(s) of the detail(s) to change and enter the new information.
+    3. When you're finished editing the information, click **Save Draft**.The system displays a message at the bottom of the page indicating that your changes have been saved.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Edit Start and End Weights
+
+    The start and end weights originally received by the WeighComp app for pending transactions can be manually edited:
+
+    1. Click on a pending transaction to display its side panel.
+    2. In the side panel, click the edit icon
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/0NEgqyaM4Qdt3vIYmstxD_manualediticon.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/ManualEditIcon.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/ManualEditIcon.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      for the start weight or end weight.
+    </Paragraph>
+
+    3. Enter a new start or end weight value.
+    4. When you're finished editing the information, click **Save Draft**The system displays a message at the bottom of the page indicating that your changes have been saved.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Import Dry Matter and Cost Data
+
+    You can import the dry matter percentage (DM%) and cost data for a pending transaction directly from \{\{masterVAS-Products.FeedWatchPlatform}}. Doing so provides the most current data available for those values (which can be viewed from the [Ingredients](<../../../../../VAS Platform Help - Table of Contents/Features/FeedWatch/ingredients.mdx>) page). Dry matter and cost data can be added to individual transactions, or to multiple transactions using the bulk edit feature.
+
+    <hint type="info">
+      **NOTE:&#x20;**&#x49;n order to import dry matter and cost data, the transaction must have a product and location defined. Additionally, the selected location must have data assigned to it. You can view all available locations and their data in the [Location DM% Adjustments](<../../../../VAS Platform Help - Table of Contents/Features/feedwatch/location-dmpercent-adjustments.mdx>) page.
+    </hint>
+
+    1. Click on a pending transaction to display its side panel.
+    2. If necessary, assign **Product** and **Location** values to the transaction.
+    3. Click **Import DM% and Cost from&#x20;**\{\{masterVAS-Products.FeedWatchPlatform}}.The newly imported values appear in the **DM%** and **AF Cost/Ton** fields.
+    4. Click **Save Draft**.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Edit Multiple Transactions
+
+    You can edit/update multiple pending transactions at the same time, provided that they all have the same product (for example, Corn Silage). (Remember, you can filter the transaction list using the **Product** filter at the top of the list.)
+
+    To update multiple transactions:
+
+    1. Check the boxes for the transactions you want to update.You can check boxes for individual transactions, or check the topmost box to select all transactions. A blue indicator bar appears near the top of the grid showing the number of transactions selected as well as an edit icon.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/08uq3aZR0cyBRMfpla2Av_bulkupdateselect.png" alt caption size="94"}
+    2. Click the edit icon
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/TaG7sYmf-KTWMYX6IRBv-_editicon.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/EditIcon.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/EditIcon.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      .The system displays showing the fields you can update.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/aQF9o22I-b_Maiu0-6G5W_bulkupdatewindow.png" alt caption size="49"}
+    </Paragraph>
+
+    3. Edit the applicable fields as desired, then click **Save**.A green indicator bar appears at the bottom of the screen stating how many transactions have been updated, and the data for the applicable transactions updates in the transaction list.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Approve Multiple Transactions
+
+    You can approve multiple pending transactions at the same time, provided that the transactions selected contain all the data needed for approval. To do so:
+
+    1. Check the boxes for the transactions you want to approve, or check the topmost box to select all transactions.
+    2. In the blue indicator bar that appears, click the approve icon
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/EwSr3Mz50qYhW2gkZQdjX_approveicon.png" size="10" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/ApproveIcon.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/ApproveIcon.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+    <Paragraph indent="1">
+      .The system displays a window indicating the number of pending transactions to approve and asking you to confirm the approval process.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/z2Q4qTRQGobNuKlqCm3ub_bulkapprovewindow.png" alt caption size="23"}
+    </Paragraph>
+
+    3. Click **Confirm**.The system displays a new window summarizing the numbers of the transactions that were approved and/or failed the approval process. The window also shows product and timestamp information for the transactions that failed to be approved.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/1cNGlzmPlgG8KejUzJTvM_bulksummary.png" alt caption size="31"}
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Delete a Pending Transaction
+
+  To delete a pending transaction, click the delete icon
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/S9tHm_4Pj-XnyPExBbmVf_delete-icon.png" size="10" caption="edit icon" alt="edit icon" isUploading="false" initialPath="../../../Resources/Images/Platform/delete-icon.png" githubPath="Content/Resources/Images/Platform/delete-icon.png" position="flex-start" showCaption="true"></Image>
+
+  at the far right of any transaction row.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/MCewQxrLyGku89g3AgFKj_deleteinrow.png" size="53" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/DeleteinRow.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/DeleteinRow.png" position="flex-start" showCaption="false"></Image>
+
+  In the pop-up confirmation window, click **Delete** to complete the deletion.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Reconcile Approved Transactions
+
+  Reconciling a transaction is a way to note that an approved transaction has been reviewed in \{\{masterVAS-Products.Pulse-only}}. This is an optional step to electronically verify that the desired loads for a product were actually brought to (or picked up from) the \{\{masterVAS-Terminology.d-airy}}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/CWN_x4XsdMXo4nuQcZF6w_reconcile.png" size="97" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/WeighComp/Reconcile.png" githubPath="Content/Resources/Images/PlatformAddons/WeighComp/Reconcile.png" position="flex-start" showCaption="false"></Image>
+
+  1. Transactions that have been reconciled are displayed in the **Reconciled** column of the Approved tab.
+  2. In the Approved tab, check the boxes for the transactions you want to reconcile.
+  3. In the blue indicator bar that appears, click **Reconcile**.
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x41;lternatively, you can click **Non-Reconcile** to undo transactions that have already been reconciled.
+  </hint>
+</ExpandableHeading>
+
+<hint type="info">
+  **TIP:&#x20;**\{\{Controls.ControlTypes}} are displayed in pounds or kilograms based on the unit of measure specified for your [user account](<../../../../../VAS Platform Help - Table of Contents/Features/User Menu/edit-your-user-account.mdx>).
+</hint>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [WeighComp](<../../../../VAS Platform Help - Table of Contents/features/weighcomp.mdx>)
+  - [WeighComp App](weighcomp-app.mdx)
+  - [WeighComp Settings](<../../../../../VAS Platform Help - Table of Contents/Features/WeighComp/weighcomp-settings.mdx>)
+</ExpandableHeading>

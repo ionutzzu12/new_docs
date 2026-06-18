@@ -1,0 +1,28 @@
+---
+title: Activity Monitoring Reports/Worklists
+slug: activity-monitoring-reportsworklists
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:47 GMT+0200 (Eastern European Standard Time)
+---
+
+Use \{\{masterVAS-Products.Pulse-only}}'s [Report/Worklist Builder](../../Platform/Features/DairyComp/ReportsWorklists/ReportWorklistBuilder.htm) or \{\{masterVAS-Products.DC305-short}} to generate reports or \{\{Worklists.worklistCommonUse}}s for animals with activity data that may indicate they need to be checked or bred. Connected \{\{Partners.ActivityMonitoring}} systems send data to \{\{masterVAS-Products.Pulse-only}} and \{\{DC-UI.DC-ProductName}} (for \{\{General.DCUnlimited}} dairies) at a frequency controlled by the \{\{Partners.ActivityMonitoringPartner}}. Contact your \{\{Partners.ActivityMonitoring}} representative with any questions or issues with device data being sent to \{\{masterVAS-Products.Pulse-only}}.
+
+<ExpandableHeading>
+  ## Sample report to capture heat activity
+
+  List of animals showing all heat activity data for yesterday and \{\{today}} by \{\{masterVAS-Terminology.p-en}}:
+
+  LISTID PEN DIM RPRO TBRD DSLH ACDAT ACTIM ACLEVFORACDAT>-2BYPEN
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Sample report to capture health and other data
+
+  List of animals showing all health and activity data for yesterday and today by \{\{masterVAS-Terminology.p-en}}:
+
+  LISTID PEN DIM LACT DXDAT DXTIM DXLEV RUM EAT INAFORDXDAT>-2BYPEN
+</ExpandableHeading>
+
+<hint type="warning">
+  **IMPORTANT:&#x20;**&#x49;f generating the \{\{Worklists.worklistCommonUse}} in \{\{masterVAS-Products.DC305-short}}, be sure to add the `\K` switch to send the list to \{\{masterVAS-Products.Pulse-only}}.
+</hint>

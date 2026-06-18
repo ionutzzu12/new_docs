@@ -1,0 +1,69 @@
+---
+title: Item Definitions
+slug: item-definitions
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:43 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  All users assigned to a role with \{\{RolesPermissions.PermissionNames}} permissions can view this feature.Only users who are assigned a role with \{\{RolesPermissions.PermissionNames}} permissions can edit data or customize settings.
+
+  The ability to edit and customize select fields may also depend on which version of \{\{masterVAS-Products.Pulse-only}} you are using (\{\{masterVAS-Products.DCUnlimited-short}} or \{\{masterVAS-Products.MyDC-short}}). See the topics below to learn more:
+
+  - [Know Your VAS PULSE Version](../../../GetStarted/KnowYourPulse.htm)
+  - [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm)
+  - [Manage Dairy Roles](<../../../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>)
+</ExpandableHeading>
+
+The **Item Definitions** page displays detailed information on all items configured for your \{\{masterVAS-Terminology.d-airy}}. \{\{masterVAS-Products.MyDC-short}}\{\{masterVAS-Terminology.d-airies}} include standard, predefined items commonly used throughout the industry. \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}} may also have custom or \{\{masterVAS-Terminology.d-airy}}-specific items. \{\{masterVAS-Products.Pulse-only}} items capture specific animal data points, including numbers, dates, animal status, and milk production details that are critical to managing your \{\{masterVAS-Terminology.h-erd}}. These data points are the foundational components of \{\{General.CompanyName-short}} data analysis and daily management tools, including reports, worklists, and \{\{masterVAS-Products.Pulse-only}} widgets. You can find this feature under the :Link[DairyComp/MyDC menu]{label="DairyComp/MyDC menu" overridedLabel="DairyComp/MyDC menu" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp" href="../../../../../../../VAS Platform Help - Table of Contents/navigate-pulse/menu-options.mdx"} > :Link[Settings]{label="Settings" overridedLabel="Settings" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp" href="../../../../../../../VAS Platform Help - Table of Contents/navigate-pulse/menu-options.mdx"} option on the \{\{Buttons-UI.FeaturesSecondary}} tab.
+
+With the correct permissions, \{\{masterVAS-Products.DCU-users-short}} can view additional item details and edit their settings. \{\{masterVAS-Products.DCP-users-short}} can only edit item descriptions.
+
+<ExpandableHeading>
+  ## View Item Definitions
+
+  See item details illustrated in the example below.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/vF7nFlHdWej3L_Hfdng1X_dc-item-definitions.png" size="57" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/dc-item-definitions.png" githubPath="Content/Resources/Images/Platform/dairycomp/dc-item-definitions.png" position="flex-start" showCaption="false"></Image>
+
+  1. **Name:&#x20;**\{\{masterVAS-Products.Pulse-only}} item name.
+  2. **#:&#x20;**\{\{masterVAS-Products.Pulse-only}} item number.
+  3. **Standard #:&#x20;**&#x49;f standard, the number for the item. \{\{masterVAS-Products.Pulse-only}} uses existing \{\{DC-UI.DC-ProductName}} standard item numbers, as well as an expanded set of pre-defined standard items (2000+). See [DairyComp Standard Items](../../../../../features/command-line/dairycomp-standard-items.mdx) for more information.
+  4. OP1/OP2: Item type \{\{masterVAS-Terminology.c-onfiguration}} values. Operands OP1 and OP2 control the data points provided for the item.
+  5. **Type:&#xA0;**&#x49;tem type. Common types include stored items (dates, numbers, strings) and calculated items (ages, \{\{due}} dates, expected or estimated values).
+  6. **Description:&#xA0;**\{\{masterVAS-Products.Pulse-only}} item description.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Edit Item Definitions
+
+  Users with permissions to edit this page can make adjustments to item information. Follow the steps below to continue:
+
+  1. \{\{Commands.Click}} a row to open the side panel and edit an item's details.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/lSkc7fFOE0gPj9WVO_7KC_dc-item-definitions-edit.png" alt caption size="74"}Fields available for editing are visible in the panel and fields that are grayed out cannot be changed.:::hint\{type="warning"}
+     **IMPORTANT:&#x20;**&#x55;se caution when renaming items because it can interfere with your :Link[saved commands]{label="saved commands" overridedLabel="saved commands" spaceId docId="p1lpWiLZqyWLUE9J62W5e" version="v2" docAnchorId="#Save" loadingMethod="dynamic" newTab="false" githubPath="../../PlatCmdLine/CmdLineIntro.htm#Save" href="../../../../../../../VAS Platform Help - Table of Contents/features/command-line.mdx"}. If you rename an item here, you must update it in your saved commands as well.
+
+  <ExpandableHeading indent="2">
+    ### Editing Guidelines
+
+    - Item names are limited to 5 characters, including spaces.
+    - Standard # ranges:\* 1-89: Default items (cannot be modified)
+      - 90-1023: Custom items
+      - 1024-1999: On-the-fly items
+      - 2000+: Platform items
+    - Types include stored items (dates, numbers, strings) and calculated items (ages, due dates, expected or estimated values). Item types are not editable in \{\{masterVAS-Products.Pulse-only}}.
+    - OP1/OP2 are operands, and are \{\{masterVAS-Terminology.c-onfiguration}} values that control the data provided for the item. OP1 and OP2 cannot be modified for item Types 1-48.
+    - Descriptions are limited to 31 characters, including spaces.
+    - The **Allow Sounds** option enables audible cues from the [Sounds](DC-Sounds.htm) page to be played in the mobile app when tapping or scanning animals in a \{\{worklist}}.
+      \:::
+  </ExpandableHeading>
+
+  2. Complete your edits and \{\{Commands.click}}**Save** when done. \{\{masterVAS-Products.Pulse-only}} processes and saves your updates. \{\{masterVAS-Products.Pulse-only}} also sends your changes to \{\{DC-UI.DC-ProdNameShort}} for \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [DairyComp Standard Items](../../../../../features/command-line/dairycomp-standard-items.mdx)
+</ExpandableHeading>

@@ -1,0 +1,104 @@
+---
+title: Activate Allflex SCR Heatime Integration
+slug: activate-allflex-scr-heatime-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:46 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x54;he current \{\{General.ProductName}} release only supports the \{\{Partners.Allflex}} integration for U.S. customers using Heatime systems. Additionally, users must have \{\{Partners.Allflex}} sorting gates in order to use the sorting features and LED activity transponders in order to use the LED sorting features. \{\{General.CompanyName-short}} plans to support additional \{\{Partners.Allflex}} products in future releases.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+Follow these steps to view your \{\{Partners.Allflex}} health and reproduction data and alerts in \{\{masterVAS-Products.Pulse-only}}:
+
+<ExpandableHeading>
+  ## Step 1: Connect Integration in PULSE
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners&#x20;**>**&#xA0;Integrations Gallery&#x20;**>**&#xA0;**\{\{Partners.PartnerName}}.
+  2. \{\{Commands.Click}}**See Details** or **See Requirements** on the \{\{Partners.PartnerName}}integration card.
+  3. Follow the Connection Instructions on the right side of the page to establish the connection:1) \{\{Commands.Click}}**Add New Alias**, then complete the following fields:\* **Alias:** Enter your \{\{masterVAS-Terminology.D-airy-}} Name. If you have multiple \{\{masterVAS-Terminology.d-airies}}, we recommend you use different names for each alias.
+     - **Registration Key**&#xNAN;**:** Copy or enter your software registration key from your \{\{Partners.PartnerName}} account. Each device used to access \{\{Partners.PartnerName}} has a unique registration key.
+
+  <ExpandableHeading indent="3">
+    ### How do I find my registration key?
+
+    Follow these steps to see your registration key in your Allflex Heatime Pro or DataFlow software:
+
+    - \{\{Commands.Click}} the **Settings** button on the right side of the window.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/31uXSF4N4un6HJAZkLPoj_allflex-regkey-1.png" alt caption size="29"}
+    - Go to **Farm** > **Account** to view your registration key in the lower right corner of the display.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/XqWftxqgBBU6EccsrkHWr_allflex-regkey-2.png" alt caption size="29"}
+    - \{\{masterVAS-Terminology.W-rite-}} down or copy your registration key.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/FzbaHfVSf2HCai24OCbYQ_allflex-regkey-3.png" alt caption size="16"}
+  </ExpandableHeading>
+
+  <hint type="info" indent="3">
+    **NOTE:&#x20;**&#x49;f you do not have a registration key, contact your \{\{Partners.PartnerName}} representative.
+  </hint>
+
+  <Paragraph listStyleType="decimal" listStart="2" indent="2">
+    \{\{Commands.Click}}**Select&#x20;**\{\{masterVAS-Terminology.P-ens-}} to choose \{\{masterVAS-Terminology.p-ens}} that use this product. Enter the \{\{masterVAS-Terminology.p-en}} numbers and select the correct \{\{masterVAS-Terminology.p-ens}} from the results list, which lists the \{\{masterVAS-Terminology.p-ens}} in ascending order.
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="3" indent="2">
+    Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="4" indent="2">
+    \{\{Commands.Click}}**Save**.
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="5" indent="2">
+    If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+  </Paragraph>
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your \{\{Partners.PartnerName}} representative to connect the integration from their system. If requested, provide your \{\{masterVAS-Terminology.D-airy-}} \{\{Id}} and Herdcode listed on the \{\{Partners.PartnerName}} Integration Gallery details page.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Configure Items in DairyComp 305 (DC Unlimited Users Only)
+
+  1. In \{\{DC-UI.DC-ProductName}}, enter `PLATFORM` in the command line.
+  2. Click the **Pulse Items** tab and expand \{\{masterVAS-Terminology.Allflex}}.
+  3. If necessary, map or add an item. Expand :Link[Allflex SCR Heatime Items]{label="Allflex SCR Heatime Items" overridedLabel="Allflex SCR Heatime Items" spaceId docId="PAUuhs1t_Lshneb2kMbEY" version="v2" docAnchorId="#items" loadingMethod="dynamic" newTab="false" href="activate-allflex-scr-heatime-integration.mdx"} below to learn more about each item:1) **Map Existing Item:** To map an item to an existing \{\{masterVAS-Products.DC305-short}} item, double-click the item. Select the existing \{\{masterVAS-Products.DC305-short}} item, then click **OK** to confirm your selection.
+     2\) **Add New Item:** To create a new item, check the box for that item. Click **Create (1) Items**, then click **Yes** to confirm your selection.
+  4. \{\{Commands.Click}}**OK** to save your changes.
+
+  <ExpandableHeading>
+    ### Allflex SCR Heatime Items
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;tem names can be customized and may differ from those suggested by \{\{General.CompanyName-short}}. If you choose to customize your item names, be sure to use the correct names for any reports or worklists you create.
+    </hint>
+
+    | Item Description                                 | \{\{masterVAS-Products.DC305-short}} Suggested Item | \{\{masterVAS-Products.Pulse-only}} Standard Item | Item Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+    | ------------------------------------------------ | --------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+    | \{\{Partners.Allflex}} Transponder Assignment    | HTTAG                                               | AFXTNSP                                           | Number assigned to each animal's \{\{Partners.Allflex}} transponder, which collects the animal's activity data. Each animal must have a unique transponder value.:::hint\{type="warning"}                                                                                                                                                                                                                                                                                                                          |
+    | **IMPORTANT:&#x20;**&#x54;his field is required. |                                                     |                                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+    | :::                                              |                                                     |                                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+    | LED Sort Date                                    | SRTDT                                               | AFXSRTDT                                          | Date that the animal's tag lights up to indicate that the animal should be sorted. It will be entered in MMDDYY format. We recommend that you set this as a scheduled task. Learn how to schedule tasks in [Schedule Automatic Sorting in DC305](allflex-sortschedule.htm).                                                                                                                                                                                                                                        |
+    | LED Sort Code                                    | SORT                                                | AFXSRTCD                                          | Number between 0–255 that indicates whether an animal should be sorted. If the value exceeds 0, the animal will be sorted. Its \{\{Partners.Allflex}} tag will flash at a speed determined by its LED Sort Code assignment.If the value is 0, the animal will not be sorted.We recommend that you set this as a scheduled task. Learn how to schedule tasks in [Schedule Automatic Sorting in DC305](allflex-sortschedule.htm).                                                                                    |
+    | Heat Alert Date                                  | HTDAT                                               | AFXHEATD                                          | Last date that peak heat activity was recorded.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+    | Heat Alert Time                                  | HTIDT                                               | AFXHEATT                                          | Last time that peak heat activity was recorded.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+    | Heat Alert Index                                 | HTIDX                                               | AFXHEATIDX                                        | \{\{Partners.Allflex}}'s measurement that indicates whether an animal is in heat, between 1–100 with 100 being the highest. Allflex uses multiple parameters to determine whether an animal with elevated activity change is actually in heat.                                                                                                                                                                                                                                                                     |
+    | Health Alert Date                                | DXDAT                                               | AFXHEALTHD                                        | Date that the health alert was activated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+    | Health Alert Time                                | DXTIM                                               | AFXHEALTHT                                        | Time that the health alert was activated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+    | Health Alert Index                               | DXIDX                                               | AFXHEALTHIDX                                      | \{\{Partners.Allflex}}'s measurement of an animal's health, between 1-100 with 100 being the highest. \{\{Partners.Allflex}} calculates health by comparing an animal's health history with its health history in the past 24 hours.                                                                                                                                                                                                                                                                               |
+    | Sort Gate Code                                   | CUT                                                 | AFXSRTGC                                          | Number between 0–255 that indicates whether an animal should be sorted into a separate \{\{masterVAS-Terminology.p-en}} when the animal leaves the milking parlor.If the value exceeds 0, a separate gate will open for the animal and the animal will be sorted into a separate \{\{masterVAS-Terminology.p-en}}If the value is 0, the animal will not be sorted.We recommend that you set this as a scheduled task. Learn how schedule tasks in [Schedule Automatic Sorting in DC305](allflex-sortschedule.htm). |
+    | Allflex Hours to \{\{AI}}                        | HTHAI                                               | AFXHTAI                                           | The amount of time (in hours) that a user has to breed an animal, based on \{\{Partners.Allflex}}'s heat-related calculations.                                                                                                                                                                                                                                                                                                                                                                                     |
+    | Allflex For AI                                   | HT4AI                                               | AFXFORAI                                          | Indicates whether an animal experiencing a heat alert is eligible to be bred or needs to be evaluated🔢 Breed the animal2: Evaluate the animal                                                                                                                                                                                                                                                                                                                                                                     |
+  </ExpandableHeading>
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x41;fter completing these steps, the widgets will populate automatically on your [Dairy Dashboard](allflex-scr-heatime-dairy-dashboard-widgets.mdx) within a few hours.
+  </hint>
+</ExpandableHeading>

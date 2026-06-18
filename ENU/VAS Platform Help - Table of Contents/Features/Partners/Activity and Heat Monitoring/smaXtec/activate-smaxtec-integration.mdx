@@ -1,0 +1,112 @@
+---
+title: Activate smaXtec Integration
+slug: activate-smaxtec-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:47 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+Follow these steps to integrate \{\{Partners.smaXtec}} with \{\{General.CompanyName-short}} and allow bolus data and alerts to display on the CowCard Partners tab and to generate health and reproduction worklists:
+
+<ExpandableHeading>
+  ## Step 1: Capture Organisation Id
+
+  - From the \{\{Partners.smaXtec}} Messenger app, view your Dashboard.
+  - From the browser URL, copy the alpha-numeric Organisation \{\{ID}}. The ID includes all numbers and characters after `organisation=` in the URL. For instance, if the URL is `https://messenger.smaxtec.com/dashboard?organisation=1a2b3c456789101112131415`, the Organisation ID is: 1a2b3c456789101112131415.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/pbNaZ7We8cxt8M0aAIpV2_smaxtec-messengerurl.png" size="45" isUploading="false" initialPath="../../Resources/Images/Partners/smaxtec-messengerURL.png" githubPath="Content/Resources/Images/Partners/smaxtec-messengerURL.png" position="flex-start" showCaption="false"></Image>
+
+  - Click **OK** to save your changes.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Configure Items in DairyComp 305 (DairyComp Unlimited Users Only)
+
+  To store item information produced by the smaXtec alerts, you must first create and map items in \{\{masterVAS-Products.DC305-short}}:
+
+  1. In \{\{DC-UI.DC-ProductName}}, enter `PLATFORM` in the command line.
+  2. Click the **Pulse Items** tab and expand \{\{Partners.smaXtec}}.
+  3. If necessary, map or add an item. Expand :Link[smaXtec Items]{label="smaXtec Items" overridedLabel="smaXtec Items" spaceId docId="Mxq4jzY6YUCiz_ITpoFu8" version="v2" docAnchorId="#items" loadingMethod="dynamic" newTab="false" href="activate-smaxtec-integration.mdx"} to learn more about each item:1) **Map Existing Item:** To map an item to an existing \{\{masterVAS-Products.DC305-short}} item, double-click the item. Select the existing \{\{masterVAS-Products.DC305-short}} item, then click **OK** to confirm your selection.
+     2\) **Add New Item:** To create a new item, check the box for that item. Click **Create (1) Items**, then click **Yes** to confirm your selection.
+  4. Click **OK** to save your changes.
+
+  <ExpandableHeading>
+    ### smaXtec Items
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;tem names can be customized and may differ from those suggested by \{\{General.CompanyName-short}}. If you choose to customize your item names, be sure to use the correct names for any reports or worklists you create.
+    </hint>
+
+    | Item Description                             | \{\{masterVAS-Products.DC305-short}} Suggested Item/ \{\{masterVAS-Products.Pulse-only}} Standard Item |
+    | -------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+    | Date of last heat alert                      | SHEAT                                                                                                  |
+    | Date of last calving alert                   | SCALV                                                                                                  |
+    | Date of last drinking alert                  | SDRDT                                                                                                  |
+    | Code of last drinking alert                  | SDRC                                                                                                   |
+    | Drinking alert description                   | SDRNK                                                                                                  |
+    | Date of last temperature increase alert      | STMPI                                                                                                  |
+    | Date of last temperature decrease alert      | STMPD                                                                                                  |
+    | Date of last heat stress alert               | SHSDT                                                                                                  |
+    | Heat stress temperature humidity index (THI) | STHI                                                                                                   |
+    | Date of last pH alert                        | SPHDT                                                                                                  |
+    | Code of last pH alert                        | SPHC                                                                                                   |
+    | pH alert description                         | SPH                                                                                                    |
+    | Date of last feed efficiency alert           | SFEED                                                                                                  |
+    | Date of last \{\{acidosis}} risk alert       | SACID                                                                                                  |
+    | Date of last activity increase alert         | SACTI                                                                                                  |
+    | Date of last activity decrease alert         | SACTD                                                                                                  |
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 3: Connect Integration in PULSE
+
+  Before you can activate your integration, you must have your Organisation Id from :Link[Step 1: Capture Organisation Id ]{label="Step 1: Capture Organisation Id " overridedLabel="Step 1: Capture Organisation Id " spaceId docId="Mxq4jzY6YUCiz_ITpoFu8" version="v2" docAnchorId="#Step1" loadingMethod="dynamic" newTab="false" href="activate-smaxtec-integration.mdx"}, as well as all required equipment installed on-site. Follow these steps to establish the connection with \{\{Partners.smaXtec}}:
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners** >&#x20;**&#xA0;Integrations Gallery** > \{\{Partners.smaXtec}}.
+  2. \{\{Commands.Click}}**See Details** or **See Requirements** on the \{\{Partners.smaXtec}}integration card.
+  3. Follow the Connection Instructions on the right side of the page to establish the connection:1) Enter your Organisation Id from :Link[Step 1]{label="Step 1" overridedLabel="Step 1" spaceId docId="Mxq4jzY6YUCiz_ITpoFu8" version="v2" docAnchorId="#Step1" loadingMethod="dynamic" newTab="false" href="activate-smaxtec-integration.mdx"} and click the checkmark button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nJBBbxo7mmWpH0H5ttrvd_check-blue28x28.png" size="10" isUploading="false" initialPath="../../Resources/Images/icons/check-blue_28x28.png" githubPath="Content/Resources/Images/icons/check-blue_28x28.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to save it.
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="2" indent="2">
+    Select the type of Official Id you're using from the drop-down list:\* \{\{EID}}**:** 15-digit electronic ID number
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    \{\{REG}}**:** Animal registration number
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    **Other:** Depending on your \{\{masterVAS-Terminology.d-airy}}\{\{masterVAS-Terminology.c-onfiguration}}, you may have additional custom items available for selection.
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="3" indent="2">
+    \{\{Commands.Click}}**Select&#x20;**\{\{masterVAS-Terminology.P-ens-}} to choose \{\{masterVAS-Terminology.p-ens}} that use this product. Enter the \{\{masterVAS-Terminology.p-en}} numbers and select the correct \{\{masterVAS-Terminology.p-ens}} from the results list, which lists the \{\{masterVAS-Terminology.p-ens}} in ascending order.
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="4" indent="2">
+    \{\{Commands.Click}}**Save**.
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="5" indent="2">
+    Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+  </Paragraph>
+
+  <Paragraph listStyleType="decimal" listStart="6" indent="2">
+    If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+  </Paragraph>
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your \{\{Partners.smaXtec}} representative to connect the integration from their system.
+  </hint>
+</ExpandableHeading>

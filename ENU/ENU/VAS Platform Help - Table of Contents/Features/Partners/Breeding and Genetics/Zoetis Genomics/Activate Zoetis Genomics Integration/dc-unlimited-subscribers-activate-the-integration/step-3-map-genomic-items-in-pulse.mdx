@@ -1,0 +1,36 @@
+---
+title: Step 3: Map Genomic Items in PULSE
+slug: step-3-map-genomic-items-in-pulse
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+Before you can connect the integration in \{\{masterVAS-Products.Pulse-only}}, you must first map the genomic items you created in [Step 1: Create Genomic Items in DC305](<../../../../../../../../VAS Platform Help - Table of Contents/Features/Partners/Breeding and Genetics/Zoetis Genomics/Activate Zoetis Genomics Integration/DC Unlimited Subscribers: Activate the Integration/step-1-create-genomic-items-in-dc305.mdx>) to standard items in \{\{masterVAS-Products.Pulse-only}}:
+
+<WorkflowBlock>
+  <WorkflowBlockItem>
+    In \{\{masterVAS-Products.Pulse-only}}, navigate to the \{\{masterVAS-Products.DC-Platform}} > **Settings** page and select [Item Definitions](../../../Platform/Features/DairyComp/Settings/DC-ItemDefinitions.htm) from the list on the left side.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    Find the user-defined item you created to store genomic sample numbers, then \{\{Commands.click}} the item to edit its details in a side panel.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    In the **Standard Item** field, select the standard item equivalent for your user-defined item. In this instance, select **GSAMP** for your genomic sample number item.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/ppckKTvUunf3_mEK0DgRS_zoetis-map-items.png" alt caption size="38"}
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    <hint type="info">
+      **NOTE:&#x20;**&#x54;he system disables the field if the item is already mapped.
+    </hint>
+
+    \{\{Commands.Click}}**Save**.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    Repeat steps 2 – 3 to update the item you created to store genomic sample dates and set it to use the **GSDAT** standard item.
+  </WorkflowBlockItem>
+</WorkflowBlock>
+
+After you map the items, proceed to [Step 4: Connect Integration in PULSE](zoetis-integrate-step4.htm) to connect the integration in \{\{masterVAS-Products.Pulse-only}}.

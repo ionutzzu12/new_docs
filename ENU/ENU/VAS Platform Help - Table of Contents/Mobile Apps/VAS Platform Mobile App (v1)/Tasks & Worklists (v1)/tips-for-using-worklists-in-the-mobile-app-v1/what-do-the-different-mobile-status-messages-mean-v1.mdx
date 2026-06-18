@@ -1,0 +1,39 @@
+---
+title:   What do the different mobile status messages mean? (v1)
+slug: what-do-the-different-mobile-status-messages-mean-v1
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:38 GMT+0200 (Eastern European Standard Time)
+---
+
+If you want to view the status of specific animals that have been set to \{\{Worklists.DoneUI}} in the mobile app, you can check them in the \{\{Worklists.DoneUI}} tab for your current \{\{Worklists.worklistCommonUse}}.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/5HaUQmxzA1ml_fvfqmU2M_done-tab.png" size="25" isUploading="false" initialPath="../../../Resources/Images/Platform/mobile-app/worklists/done-tab.png" githubPath="Content/Resources/Images/Platform/mobile-app/worklists/done-tab.png" position="flex-start" showCaption="false"></Image>
+
+From there, you'll see the status of all updated animals in the list, including:
+
+- \{\{Worklists.Received}}**:&#x20;**&#x49;f an animal's status is \{\{Worklists.Received}}, it means that either you or another \{\{masterVAS-Products.Pulse-only}} user has set it to \{\{Worklists.DoneUI}} in this list but no one has processed that change yet. An animal in this status can be undone and sent back to the \{\{Worklists.ToDoUI-Mob}} tab. As a visual cue, animals in this state are displayed with a pale blue bar to the right (see example below).
+- \{\{Worklists.Processing}}**:&#x20;**&#x49;f an animal's status is \{\{Worklists.Processing}}, either you or another \{\{masterVAS-Products.Pulse-only}} user has set it to \{\{Worklists.DoneUI}} and then tapped the \{\{Worklists.ProcessChanges}} button to send the updates back to on‑premise. As a visual cue, animals in this state are displayed with a light blue bar to the right (see example below).
+- \{\{Worklists.Processed}}**:&#x20;**&#x49;f an animal's status is \{\{Worklists.Processed}}, it means that the animal was set to \{\{Worklists.DoneUI}}, the \{\{Worklists.ProcessChanges}} button was used to send the update back to on‑premise, and the on‑premise product has processed the change and updated the animal's record. As a visual cue, animals in this state are displayed with a green bar to the right (see example below).
+- \{\{Worklists.WaitingToConnect}}**:** The app displays this message if you mark an animal as \{\{Worklists.DoneUI}} while your device is offline.
+- \{\{Worklists.SystemFailed}}**:&#x20;**&#x49;f you see an error symbol
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/1HAIqIpO3ZXx1f4stMsTt_error-fail24x25.png" size="10" isUploading="false" initialPath="../../../Resources/Images/icons/error-fail_24x25.png" githubPath="Content/Resources/Images/icons/error-fail_24x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  and the message System Failed, it means that the update was not processed successfully when the **Process Changes** button was tapped. This type of processing failure can occur for several reasons, including communication errors between the mobile app and on‑premise product, or when you or another \{\{masterVAS-Products.Pulse-only}} user attempts to process an animal that has already been \{\{Worklists.Processed}}.
+</Paragraph>
+
+<hint type="info">
+  **NOTE:&#x20;**&#x49;n addition to status information, any animals marked as \{\{Worklists.DoneUI}} from a \{\{Worklists.VetListCommonUse}} also include the events added for the animal.
+</hint>
+
+**What does "processed" mean?**
+
+:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/E95JIfkovpSergs8fA_YQ_done-status.png" alt caption}When an update is fully "processed," it means that **both** of the following actions have been completed:
+
+1. A \{\{masterVAS-Products.Pulse-only}} user has tapped the \{\{Worklists.ProcessChanges}} button to send that animal's \{\{Worklists.DoneUI}} status back to \{\{masterVAS-Products.Pulse-only}}, which changes the status to \{\{Worklists.Processing}}.
+2. \{\{masterVAS-Products.Pulse-only}}, \{\{DC-UI.DC-ProductName}}, or a \{\{General.CompanyName-short}} integrated partner product has received the change and has updated the animal's record, which changes the status to \{\{Worklists.Processed}}.
+
+Once an animal's status changes to \{\{Worklists.Processing}} or \{\{Worklists.Processed}} in the mobile app, the change can no longer be undone.
+
+To learn more about processing animals in a worklist, see [View Tasks & Worklists in the Mobile App (v1)](<../../../../../../VAS Platform Help - Table of Contents/Mobile Apps/VAS Platform Mobile App (v1)/Tasks & Worklists (v1)/view-tasks-and-worklists-in-the-mobile-app-v1.mdx>) and [Process Open Worklist in PULSE](../../Features/DairyComp/ReportsWorklists/ProcessOpenWorklistsWeb.htm).

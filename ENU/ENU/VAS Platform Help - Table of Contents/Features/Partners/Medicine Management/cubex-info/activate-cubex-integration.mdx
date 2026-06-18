@@ -1,0 +1,59 @@
+---
+title: Activate Cubex Integration
+slug: activate-cubex-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+To view your \{\{Partners.Cubex}} integration in the \{\{General.ProductName}}, the following setup is required: 
+
+<ExpandableHeading>
+  ## Step 1: Install and Configure CowCare & DairyComp 305
+
+  1. Install \{\{General.CompanyName-short}}\{\{MorphHelp.CowCare}}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zNXWTznTlcZIGk2P_jyaL_cowcare-icon53x46.png" size="10" isUploading="false" initialPath="../../Resources/Images/Partners/cubex/CowCare-icon_53x46.png" githubPath="Content/Resources/Images/Partners/cubex/CowCare-icon_53x46.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    in \{\{DC-UI.DC-ProductName}}.
+  </Paragraph>
+
+  2. Check the **Use CowCare Inventory&#x20;**&#x6F;ption on the **Settings > Inventory** tab::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/v6Es4UQR88PFJcJze9Adg_cowcare-turn-on-inventory.png" alt caption size="35"}
+  3. Select **View Protocols** and note any protocols with a "Drug?" status.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/8beBY47Yj84Ne0Nhou-rJ_cowcare-view-protocols.png" alt caption size="48"}
+  4. Use the **Exit to&#x20;**\{\{ALTER}}**&#x20;to Modify Protocols** shortcut and add drugs to any protocols without drugs. Reference the CowCare User Guide for detailed steps.
+  5. Determine how new drug usage approvals will be handled:\* To approve automatically, check the **Automatically Approve All New Usages** option in the **Settings > General** tab.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/i_xDbN_oFwBUh_4-Gu6zA_cowcare-automatically-approve-usages.png" alt caption size="26"}
+     - To approve manually, use the **Approve All Pending** or **Approve Pending** options from the **Drug Usage** tab::inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Cxwh2bSoCXWN1HptK4GeZ_cowcare-drug-usage.png" alt caption size="48"}:::hint\{type="warning"}
+       **IMPORTANT:&#x20;**&#x46;or manual approvals, be sure to log in to CowCare and perform approvals daily.
+       \:::
+  6. Assign units to all CowCare drugs.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/bO8O6_MIDMEDLdmULOAD2_cowcare-assign-units.png" alt caption size="60"}
+  7. Add the **COWCARE\E** command to \{\{DC-UI.DC-ProductName}}'s Scheduled Tasks. Schedule the task to run daily to export Event \{\{Protocol}} approvals to the \{\{General.ProductName}}.
+  8. If your \{\{masterVAS-Terminology.d-airy}} installs more than one \{\{Partners.Cubex}} instance, note the Premise \{\{ID}} for each site. Use the **ALTER > Define Premises Table** option in \{\{DC-UI.DC-ProductName}} to view all Premise IDs.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/NscMFDPAAYoQW6Z7u9gz3_dairycomp-premiseids.png" alt caption size="40"}You will need the Premise ID for each \{\{Partners.Cubex}} database to complete the required :Link[Premise Mapping]{label="Premise Mapping" overridedLabel="Premise Mapping" spaceId docId="IW6k5b529PTSOaMOYbG5m" version="v2" docAnchorId="#PremMap" loadingMethod="dynamic" newTab="false" githubPath="cubex-map.htm#PremMap" href="cubex-map.htm#PremMap"} tasks.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Create a VAS PULSE Platform Account
+
+  Create a \{\{General.ProductName}} account, request access to your \{\{masterVAS-Terminology.d-airy}}, and complete the connection process. See [Sign Up](<../../../../../../VAS Platform Help - Table of Contents/Get Started/sign-up.mdx>) and [Request Access to a Dairy](<../../../../../../VAS Platform Help - Table of Contents/Get Started/request-access-to-a-dairy.mdx>) for more information.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 3: Install & Configure Cubex
+
+  Install and configure \{\{Partners.Cubex}} at your \{\{masterVAS-Terminology.d-airy}}. Note your QLink user name, password, and database name during the installation process, as this information will be requested by \{\{General.CompanyName-short}} Support to complete the integration. If your \{\{masterVAS-Terminology.d-airy}} installs more than one \{\{Partners.Cubex}} instance, note the database name and credentials for each site.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 4: Contact VAS Support
+
+  Once \{\{MorphHelp.CowCare}} and \{\{Partners.Cubex}} are fully installed and your \{\{masterVAS-Products.Pulse-only}} account has access to your \{\{masterVAS-Terminology.d-airy}}, complete the following steps to activate the integration and view data on the \{\{Widgets.Cubex}} widget:
+
+  1. Contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) to activate the \{\{Partners.Cubex}}‑to‑\{\{masterVAS-Products.Pulse-only}} integration. Be sure to have your \{\{General.ProductName}}\{\{masterVAS-Terminology.D-airy-}} Name and \{\{Partners.Cubex}} database name(s) and credentials prior to contacting \{\{General.CompanyName-short}} Support.
+  2. Once complete, \{\{General.CompanyName-short}} Support will have you verify that you are able to add the \{\{Widgets.Cubex}} widget to a \{\{Buttons-UI.Dashboard}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Cubex Premise & Medicine Mapping](cubex-map.htm)
+  - [Micro Technologies Cubex Inventory Widget Details](cubex-widget.htm)
+</ExpandableHeading>

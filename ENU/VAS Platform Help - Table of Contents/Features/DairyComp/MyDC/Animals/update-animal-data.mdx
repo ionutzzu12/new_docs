@@ -1,0 +1,98 @@
+---
+title: Update Animal Data
+slug: update-animal-data
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature. See [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](../../Config/UserMgmtRoles/ManageRoles.htm) for more information.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ### Click here for a video tutorial on this feature!
+
+  <embed url="https://player.vimeo.com/video/982051059">
+
+  </embed>
+</ExpandableHeading>
+
+The \{\{General.ProductName-short}}**Update Animal Data** feature offers the ability to import \{\{masterVAS-Terminology.s-ire}} mating, maternal pedigree, animal identification, and genomic data using a CSV file from any provider. This additional flexibility extends the power of \{\{General.ProductName-short}}\{\{masterVAS-Terminology.h-erd}} management capabilities for reporting and tracking purposes and helps you leverage critical animal data from multiple sources.
+
+You can find this feature under the :Link[DairyComp/MyDC]{label="DairyComp/MyDC" overridedLabel="DairyComp/MyDC" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp" href="../../../../../ENU/VAS Platform Help - Table of Contents/navigate-pulse/menu-options.mdx"} > :Link[Animals]{label="Animals" overridedLabel="Animals" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp-Testdays" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp-Testdays" href="../../../../../ENU/VAS Platform Help - Table of Contents/navigate-pulse/menu-options.mdx"} menu.
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Download the template and upload data
+
+  Use the guidelines below to download the template file, add animal data, and upload the CSV file to \{\{General.ProductName-short}}.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/h-4G7C20jrIMpgKjtB2Kx_data-file-import-template.png" size="48" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/animals/data-file-import-template.png" githubPath="Content/Resources/Images/Platform/dairycomp/animals/data-file-import-template.png" position="flex-start" showCaption="false"></Image>
+
+  - Select your data type and required options. The template file adjusts to match your settings.
+  - Use the template to add your data and upload the file.::::ExpandableHeading
+
+  ### Click here for supported item details
+
+  <Paragraph listStyleType="disc" indent="2">
+    **Sire Mating:** The top three mating sires for your herd can be imported as \{\{SIR1}}, \{\{SIR2}}, and \{\{SIR3}} items. If \{\{masterVAS-Products.Pulse-only}} identifies a match already exists in your \{\{masterVAS-Terminology.d-airy}}'s sire table, the existing sire is linked.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    **Maternal Pedigree:** Pedigree data for your herd can be imported for maternal grandsire (MGSID) and maternal great grandsire (GGSID). If \{\{masterVAS-Products.Pulse-only}} identifies a match already exists in your \{\{masterVAS-Terminology.d-airy}}'s sire table, the existing sire is linked.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    **Genomic Sampling:** Upload your genomic sampling data to import your sample data (GSAMP) for a specific date (GSDAT). Both items are required for each animal.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    **Unique Identification Tags:** Identification details for your animals can be imported based on electronic \{\{ID}} (\{\{EID}}) to support multiple unique ID items: \* \{\{REG}}: Registration ID
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    TRANS: Transponder ID
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="3">
+    RESP: Responder ID
+  </Paragraph>
+
+  <hint type="info" indent="2">
+    **NOTE:&#x20;**&#x59;our dairy many have additional custom identification items available. \{\{masterVAS-Products.Pulse-only}} includes all available IDs as options during the import process. \{\{masterVAS-Products.Pulse-only}} also checks for duplicates within the herd for all live animals.
+  </hint>
+
+  <hint type="warning" indent="2">
+    **IMPORTANT:&#x20;**&#x49;f you are missing data for an animal, leave the field empty to avoid replacing any existing \{\{masterVAS-Products.Pulse-only}} data. Make sure the file extension remains CSV. If you change the extension, the file upload will fail, resulting in an **Invalid File Type** error.
+    \:::
+  </hint>
+
+  - \{\{Commands.Click}}**Continue** to preview and confirm the data.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Preview data and confirm
+
+  \{\{General.ProductName-short}} previews the animal data being imported with a summary and, if applicable, errors or warnings. Hover over the error/warning icons to display the full error message.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/X9LN-_cTnXeaT1eq7QvM9_data-file-import-step2.png" size="71" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/animals/data-file-import-step2.png" githubPath="Content/Resources/Images/Platform/dairycomp/animals/data-file-import-step2.png" position="flex-start" showCaption="false"></Image>
+
+  If necessary, return to the template file to resolve errors or missing data and upload the file again. When ready, click **Import** to continue.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Import summary
+
+  View the summary for the total number of updates made.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/rhQjbPITaF4OJgvJDPpe0_data-file-import-step3.png" size="54" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/animals/data-file-import-step3.png" githubPath="Content/Resources/Images/Platform/dairycomp/animals/data-file-import-step3.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## View Animal Data
+
+  Your updated data is available from each animal's [CowCard](../../CowCards/ViewCowCard-CC.htm) after the import completes.
+</ExpandableHeading>

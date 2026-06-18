@@ -1,0 +1,50 @@
+---
+title: Pregnancy Risk
+slug: pregnancy-risk
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:46 GMT+0200 (Eastern European Standard Time)
+---
+
+Use the \{\{Insights.PregnancyRiskTab}} page to examine the factors that impact your \{\{masterVAS-Terminology.h-erd}}'s pregnancy risk. \{\{Commands.Click}}**Filters** at the top left of the page to limit the data that is displayed.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/t21MtuD982U7FhvaK-9v4_reproduction-cows-pregnancyrisk-new.png" size="43" isUploading="false" initialPath="../../../../Resources/Images/Platform/insights/reproduction-cows-pregnancyrisk-NEW.png" githubPath="Content/Resources/Images/Platform/insights/reproduction-cows-pregnancyrisk-NEW.png" position="flex-start" showCaption="false"></Image>
+
+The gray boxes at the top of the page summarize your \{\{masterVAS-Terminology.h-erd}}'s reproduction data based on your selected **Filters**:
+
+- \{\{VWP}}: The minimum number of days after calving before a cow is eligible for insemination.
+- \{\{Insights.PregnancyRiskTab}}: Your \{\{masterVAS-Terminology.h-erd}}'s overall \{\{Insights.InsightDataType}}, displayed as a percentage. A higher \{\{Insights.InsightDataType}} indicates a more efficient breeding program.\{\{masterVAS-Products.Pulse-only}} includes the statistics displayed in the gray box to calculate your \{\{masterVAS-Terminology.h-erd}}'s overall \{\{Insights.InsightDataType}}. In the example above, the pregnancy risk is 28%. This means that, on average, 28% of the eligible cows actually became pregnant in a 21-day cycle.
+- Service Rate: The breeding-eligible-animals that were actually inseminated during a 21-day cycle, displayed as a percentage.
+- Pregnant: The number of animals currently pregnant.
+- \{\{Preg}} Eligible: The number of animals entering the 21-day interval that are eligible to become pregnant.
+- Bred Eligible: The number of animals entering the 21-day interval that are eligible to be inseminated. An eligible animal is defined as having passed the voluntary waiting period, is not currently pregnant, and is active in the reproductive program.:::ExpandableHeading
+
+### Tell me more about Bred Eligible and Preg Eligible!
+
+<Paragraph indent="1">
+  Animals that were present for at least half of the 21-day cycle (11 days) are considered bred eligible. Bred eligible animals are then considered preg eligible following the 21-day cycle as long as the breeding result is not set or remains unknown. If a bred animal is culled from the \{\{masterVAS-Terminology.h-erd}} during the preg eligible period, she is included in the bred eligible total but not in the preg eligible total. Therefore, the preg eligible total is always the same as or less than the bred eligible total.
+  \:::
+</Paragraph>
+
+- Bred: The number of animals actually inseminated.
+- Abort: The animals that were confirmed pregnant but later lost the pregnancy.
+
+The graphed data helps to visualize your overall pregnancy risk as well as the confidence interval:
+
+- References: Each reference is color-coded to match a specific bar or line on the graph.
+- The black "wick" represents a 95% confidence interval (CI) for the \{\{Insights.InsightDataType}} shown by the bar. For instance, if the wick reflects a 95% CI of 27-35, you can be 95% confident in a \{\{Insights.InsightDataType}} between 27%-35%.
+- If there is not enough data to calculate a 95th percentile confidence interval, the
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/RrFPxAMJe8OG3dKXJkzgK_alert-orange-info.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/alert-orange-info.png" githubPath="Content/Resources/Images/icons/alert-orange-info.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  icon is displayed in the table below the graph.
+</Paragraph>
+
+- Hover over a bar on the graph to view additional data.
+- Scroll down to view the graphed data in a table format.
+
+Once the data is displayed, \{\{Commands.UserActions}} the green **Export as CSV** button
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zn2pf0OAXXl9XFdkEO1Ld_export.png" size="10" isUploading="false" initialPath="../../../../Resources/Images/icons/export.png" githubPath="Content/Resources/Images/icons/export.png" position="flex-start" showCaption="false"></Image>
+
+at the top right of the page to save the data as a CSV file. If you applied filter(s), the data will print with the current filter(s) applied.

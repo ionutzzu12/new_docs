@@ -1,0 +1,53 @@
+---
+title: ABORT Event
+slug: abort-event
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:40 GMT+0200 (Eastern European Standard Time)
+---
+
+The \{\{Events.12ABORT}} event records that an animal's pregnancy ended and resulted in a loss of the fetus. Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Event Guidelines
+
+  Use the mobile app or the web version of \{\{masterVAS-Products.Pulse-only}} to enter events! Tap \{\{Mobile-UI.EventsFeature}} in the [mobile app](../../DC-Mobile/MobAppHome.htm) to get started, or see :Link[Add Events]{label="Add Events" overridedLabel="Add Events" spaceId docId="sp1fQUQTHg-WLIRXAer4X" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" githubPath="Events.htm#Add" href="Events.htm#Add"} to learn more about adding events from web. \{\{masterVAS-Products.Pulse-only}} supports adding events that have occurred within the last year.
+
+  The app expects you to add pregnant females to this event, so it will not allow you to add an animal that is not in the \{\{PREG}} reproduction status.
+
+  Expand the topics below to learn more about \{\{Mobile-UI.EventTypes}} event details:
+
+  <ExpandableHeading>
+    ### Abort Date/Days (ABDAT)
+
+    Select this field to choose the abortion date from a calendar or enter the days since the abortion occurred. Do not enter a date or number of days that occurs before the conception date, before the last \{\{Events.6PREG}} event, after the last breeding date, or more than 300 days before the current date.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Reproduction Code (REPRO CODE)
+
+    When entering an \{\{Events.12ABORT}} event for an animal, the animal will no longer remain in PREG status. Tap this field to select the new reproduction code:
+
+    - If the animal’s \{\{DDAT}}=0, select one of the following reproduction codes: No Bred, \{\{masterVAS-Terminology.F-resh-cow-}}, Open/OK, or Bred.
+    - If the animal’s DDAT>0, select one of the following reproduction codes: No Bred, \{\{masterVAS-Terminology.F-resh-cow-}}, Open/OK, Bred, or Dry.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ## Lactation Cycle
+
+    If an animal is not eligible to start a new lactation cycle, the app does not display this field. If an animal is eligible to start a new lactation cycle, tap this field to **Continue Current Lactation** or **Start New Lactation**. An animal is only eligible to start a new lactation if it is \{\{Events.11DRY}} or its \{\{DCC}} is greater than 152 days.
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Process Changes
+
+  When you add events from web or the mobile app, your updates are sent to \{\{masterVAS-Products.Pulse-only}} and then on to \{\{DC-UI.DC-ProductName}} for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}} (\{\{Mobile-UI.ConnectionRequired}}).
+
+  When the updates are received, the following changes for each animal in the event are processed:
+
+  - Records \{\{PlatformContentSnippets.A-An}}\{\{Events.EventName}} event and sets the \{\{EDAY}} to the date the event was completed or diagnosed.
+  - Changes the breeding result of the last BRED event to **A** (\{\{Events.12ABORT}}) and sets the \{\{CDAT}} and \{\{SIRC}} to 0 (zero).
+  - Updates the \{\{RPRO}} code to the one selected in the mobile app.
+  - Leaves the lactation cycle unchanged OR starts a new lactation cycle, depending on which option was selected in the mobile app.
+  - Sets the \{\{ABDAT}} and the \{\{ADDAT}}.While the ABDAT (Abortion Date) is usually set to a time in the past, the ADDAT (Abortion Determination Date) records when the \{\{Events.12ABORT}} event was executed. For example, if \{\{today}} is 11/19/2019 and you run a \{\{Worklists.VetListCommonUse}} to check a cow for DRY confirmation, but you see that she aborted some time in the past and is now OPEN, you might estimate that the \{\{Events.12ABORT}} event occurred 90 days ago. In this case, the ABDAT (\{\{Events.12ABORT}} Date) is the ADDAT (11/19/2019) – 90.
+</ExpandableHeading>

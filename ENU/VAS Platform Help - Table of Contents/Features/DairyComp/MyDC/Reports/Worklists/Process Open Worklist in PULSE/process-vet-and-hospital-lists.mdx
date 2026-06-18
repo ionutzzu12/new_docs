@@ -1,0 +1,32 @@
+---
+title: Process Vet and Hospital Lists
+slug: process-vet-and-hospital-lists
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+\{\{Worklists.VetListUI-Web}} identify animals that need to be seen by your vet for various reasons, including for pregnancy checks or to diagnose an illness or other condition.\{\{Worklists.HospitalListSingular}}s are commonly used to follow treatment protocols and evaluate animals on active milk and meat withholds. Both types of worklists support optimal tracking of your animal health events and make your vet visits more efficient.
+
+Follow the steps below to continue:
+
+1. On the **TODO** page, you can add an event to one or more animals. Select one or more animals that need the event, and then click **Add Event** in the upper right corner.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/DGFV0AhYsf-3YnNuf-EUt_worklists-multi-addevent.png" size="87" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/worklists-multi-addevent.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/worklists-multi-addevent.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  To learn more about adding event details, see :Link[Add Events]{label="Add Events" overridedLabel="Add Events" spaceId docId="sp1fQUQTHg-WLIRXAer4X" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" githubPath="../../Events/Events.htm#Add" href="../../Events/Events.htm#Add"}.
+  If an animal on the **DONE** page is not fully processed and its status is still \{\{Worklists.Received}}, you can move the animal back to the **TODO** page. To move the animal back, click the **UNDO** button.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/_fHxEkEm0Mz6JX4y-XWvF_worklists-undo.png" size="92" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/worklists-undo.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/worklists-undo.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+<Paragraph indent="1">
+  When you are ready to save your event details, select **Save and Mark as Done**. The system will move the selected animals to the **DONE** page.
+</Paragraph>
+
+<ExpandableHeading>
+  ### What happens when I Process Changes?
+
+  - When you process changes, it completes all animals that are marked as \{\{Worklists.DoneUI}} and are in the status \{\{Worklists.Received}}. The animals' status changes to PROCESSED, and the updates are sent from \{\{masterVAS-Products.Pulse-only}} to mobile devices, as well as \{\{DC-UI.DC-ProdNameShort}} (for \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}).
+  - For \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}: When \{\{DC-UI.DC-ProdNameShort}} receives notification that one or more animals on a list is \{\{Worklists.DoneUI}}, it kicks off any corresponding \{\{Worklists.OnDone}} or \{\{Worklists.PostProcess}} routine(s) for those animals.
+</ExpandableHeading>

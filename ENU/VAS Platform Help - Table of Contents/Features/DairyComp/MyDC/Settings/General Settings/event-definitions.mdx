@@ -1,0 +1,161 @@
+---
+title: Event Definitions
+slug: event-definitions
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:43 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  All users assigned to a role with \{\{RolesPermissions.PermissionNames}} permissions can view this feature. Only users who are assigned a role with \{\{RolesPermissions.PermissionNames}} permissions can edit data or customize settings.
+
+  The ability to edit and customize select fields may also depend on which version of \{\{masterVAS-Products.Pulse-only}} you are using (\{\{masterVAS-Products.DCUnlimited-short}} or \{\{masterVAS-Products.MyDC-short}}). See the topics below to learn more:
+
+  - [Know Your VAS PULSE Version](../../../GetStarted/KnowYourPulse.htm)
+  - [Edit Dairy User Permissions](../../Config/UserMgmtRoles/EditUserPermissions.htm)
+  - [Manage Dairy Roles](../../Config/UserMgmtRoles/ManageRoles.htm)
+</ExpandableHeading>
+
+The **Event Definitions** page allows you to view detailed information on all configured events, including any custom or \{\{masterVAS-Terminology.d-airy}}-specific events. Events capture key animal activities that are vital to managing your \{\{masterVAS-Terminology.h-erd}}, such as reproduction items (\{\{masterVAS-Terminology.f-reshening}}, pregnancy, breeding), location information (movement between \{\{masterVAS-Terminology.p-ens}}), and illness details (diagnoses, treatment). Events are critical in supporting \{\{General.CompanyName-short}} data analysis and daily management tools, including reports, \{\{Worklists.worklistCommonUse}}s, and dashboard widgets. You can find this feature under the :Link[DairyComp/MyDC menu]{label="DairyComp/MyDC menu" overridedLabel="DairyComp/MyDC menu" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp" href="../../../NavPlatform/Menu.htm#Menu-DairyComp"} > :Link[Settings]{label="Settings" overridedLabel="Settings" spaceId docId="WFLX7SPMpZfy7zoMyrvRh" version="v2" docAnchorId="#Menu-DairyComp" loadingMethod="dynamic" newTab="false" githubPath="../../../NavPlatform/Menu.htm#Menu-DairyComp" href="../../../NavPlatform/Menu.htm#Menu-DairyComp"} option on the \{\{Buttons-UI.FeaturesSecondary}} tab.
+
+With the correct permissions, \{\{masterVAS-Products.DCU-users-short}} can edit the details of events. \{\{masterVAS-Products.DCP-users-short}} can edit the descriptions and display colors of events.
+
+<hint type="warning">
+  **IMPORTANT:&#x20;**&#x4F;nce an event definition is created, it cannot be deleted. You can, however, mark unused event definitions as inactive.
+</hint>
+
+<ExpandableHeading>
+  ## View Event Definitions
+
+  Click on an event definition to display its details in the side panel.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wppGIS4j9lYq443qrdgMH_dc-event-definitions.png" size="72" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/dc-event-definitions.png" githubPath="Content/Resources/Images/Platform/dairycomp/dc-event-definitions.png" position="flex-start" showCaption="false"></Image>
+
+  1. **Show Inactive:&#x20;**\{\{Commands.UserActions}} the **Show Inactive**box at the top of the page to view all available \{\{FeedComp.FeedCompFeatures-Lower}} in the list. Once text is typed, click the **Clear Filter(s)** option to the right of the field to clear the text typed..
+  2. **Event Name:&#x20;**&#x54;he event name.
+  3. **Active:&#x20;**&#x49;ndicates whether the event definition is currently active or inactive.
+  4. **#:&#x20;**&#x54;he event number.
+  5. **Gap:&#x20;**&#x54;he number of days to translate multiple occurrences of the same event into a single event. For example, if the Gap for \{\{Events.30MAST}} is set to 28, then all \{\{Events.30MAST}} events for a 28-day period are considered a single \{\{mastitis}} diagnosis.
+  6. **Standard Event:&#x20;**&#x54;he event type.
+  7. **Team:&#x20;**&#x49;f applicable, the \{\{masterVAS-Terminology.d-airy}} team responsible for the event entry and management.
+  8. **Description:&#x20;**&#x54;ext that describes the event definition. This field can contain up to 39 characters.
+  9. **Command:&#x20;**\{\{DC-UI.DC-ProdNameShort}} command that generates the event.
+  10. **Active&#x20;**\{\{Protocols.Protocols}}**:&#x20;**&#x41;ny \{\{Protocols.Protocol-common}}s that are currently active for the event.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Edit Event Definitions
+
+  Most of the details for an event can be edited, such as event name, description, and whether the event is active.
+
+  <WorkflowBlock>
+    <WorkflowBlockItem>
+      Click on an event definition to display its details in the side panel.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/Vx109QvF0ySuw4ZfZU_Uu_eventdefssidepanel.png" alt caption size="51"}
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Expand the \{\{Buttons-UI.EditEventInformation}} section and click in any of the editable fields to change their values.:::ExpandableHeading
+
+      ### Need help editing event information?
+
+      Most of the fields under \{\{Buttons-UI.EditEventInformation}} are the same as those described in [Event Definitions](../../Events/EventDefs.htm). Editable fields that are unique to the side panel include the following:
+
+      - Active \{\{Protocols.Protocols}}: Click to choose the treatment \{\{Protocols.Protocol-common}}s that are active for the event definition. See [Events with Protocols](../../Events/EventsWithProtocols.htm) for more information.
+
+      <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/74DBi_lfC-Ih03t7iQqv7_eventprotocols.png" size="26" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/EventProtocols.png" githubPath="Content/Resources/Images/Platform/dairycomp/EventProtocols.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+      <Paragraph indent="1">
+        Color: Click to control the background and text colors for the event definition in the list.
+        :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/NFxzAWcotv0knfz4ckfFb_eventcolors.png" alt caption size="44"}
+        \:::
+      </Paragraph>
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Expand the \{\{Buttons-UI.EditRemarkInformation}} section to define a pick list of remarks or allow custom remarks for the event.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/UjMophwSE4YairyqAtqA3_eventdefssidepanel-rem.png" size="49" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/EventDefsSidePanel-REM.png" githubPath="Content/Resources/Images/Platform/dairycomp/EventDefsSidePanel-REM.png" position="flex-start" showCaption="false"></Image>
+
+      <hint type="warning">
+        **IMPORTANT:&#x20;**&#x54;his feature is **not** supported in the original version of the \{\{masterVAS-Products.VASPlatformMobile}} \{\{Mobile-UI.MobileAppVersion1}} mobile app. It is supported in \{\{masterVAS-Products.Pulse-only}} and the \{\{masterVAS-Products.DConMobile}} \{\{Mobile-UI.MobileAppVersion2}} mobile app. See [Mobile Apps](../../../DC-Mobile/MobAppHome.htm) and [Known Issues and Workarounds (v1)](../../../MobileApp/KnownLimitations-v1.htm) for more information.
+      </hint>
+
+      <ExpandableHeading>
+        ### Need help defining event remarks?!
+
+        <ExpandableHeading>
+          ### Click here for a video tutorial on this feature!
+
+          <embed url="https://player.vimeo.com/video/1015790175">
+
+          </embed>
+        </ExpandableHeading>
+
+        Create a Remark Pick List: Use the **Add Remark** field to build a pick list of commonly used remarks for the event:
+
+        - Type the remark and press Enter to save it as a pick list item.
+        - Each new remark is displayed as a blue list item below the field.
+        - You can drag and drop each remark to rearrange the pick list order.
+        - Click the **X** on the right side of a remark to delete it.
+
+        Allow a Custom Remark: This box is displayed after you add at least one remark:
+
+        - Check the **Allow user to enter a Custom remark** box to allow technicians to enter a remark of their choosing when adding the event for an animal (instead of forcing selection from the remarks pick list).
+        - This allows technicians to leave the remark blank as well.
+
+        Follow the guidelines below when adding \{\{Buttons-UI.EvenfDefRemarks}} for events:
+
+        - The \{\{Buttons-UI.EvenfDefRemarks}} entered for the event are stored in \{\{REM}} item #21 and are based on the \{\{masterVAS-Products.DC305-short}} command language.
+        - If a remark entered already exists, the system displays an error message.
+        - All remarks entered are available in a pick list when adding the event. See [Enter Events](../../../CommonTasks/EnterEvents-CT.htm) to learn more about adding events in the mobile apps, and see :Link[Add Events]{label="Add Events" overridedLabel="Add Events" spaceId docId="sp1fQUQTHg-WLIRXAer4X" version="v2" docAnchorId="#Add" loadingMethod="dynamic" newTab="false" githubPath="../../Events/Events.htm#Add" href="../../Events/Events.htm#Add"} and [View Animal Details](../Animals/AnimalDetails.htm) to learn more about adding events in \{\{masterVAS-Products.Pulse-only}}.
+        - When remarks are entered for an event that automatically generates a remark (for example, a \{\{Events.9MOVE}} event definition, etc.), the remark takes precedence over the automated remark.
+        - When adding an event with a \{\{Protocols.Protocol-common}} (for example, a \{\{Events.30MAST}} event, etc.), the \{\{Protocols.Protocol-common}}'s REM overrides the \{\{Buttons-UI.EventDefRemark}}.
+        - The total number of characters that can be entered for a remark is displayed on the right side of the **Add Remark** field. Your current \{\{masterVAS-Terminology.C-owfile}} version determines how many characters and remarks can be added to the overall event definition for your \{\{masterVAS-Terminology.d-airy}}.
+
+        <ExpandableHeading indent="2">
+          ## What are the character limits for each version of the Cowfile?
+
+          \{\{masterVAS-Terminology.C-owfile}} V8 allows 127 total characters for the overall event definition, and \{\{masterVAS-Terminology.C-owfile}} V9 or greater allows 1024 total characters.
+
+          The system calculates in total how many characters have already been added to the overall event definition and then limits the remarks accordingly. The limit is for the total remark definitions between the pick list and custom remark field (if one is allowed).
+
+          Each individual remark has a character limit, which is displayed at the end of the **Add Remark** field. Each remark you add to your pick list uses characters from the total limit.
+
+          For example, let's say the system determines that you have \{\{masterVAS-Terminology.C-owfile}} V8 with a total limit of 127 characters, and you've added 7 pick list remarks that are 16 characters long. At this point, you have used 112 of your total 127 characters. You now have 15 characters left. You can enter one more pick list remark that contains up to 15 characters, or you can enter several shorter remarks, as long as the remaining items do not exceed 15 total characters (for example, you could create three 5-character remarks, or five 3-character remarks, or fifteen 1-character remarks, etc.).
+
+          Remember that custom remark characters count toward this limit, so if you want your users to be able to enter their own custom remark, be sure not to use all the characters up with your pick list items.
+        </ExpandableHeading>
+
+        <Paragraph indent="1">
+          When the total number of characters allowed in remarks for your \{\{masterVAS-Terminology.C-owfile}} version has been reached, a message is displayed that directs you to [contact support](../../../GetStarted/ContactUs.htm) to update your \{\{masterVAS-Terminology.C-owfile}} version and the **Add Remark** field is disabled for the event.
+        </Paragraph>
+      </ExpandableHeading>
+
+      If you wish to revert back to the event definition's original values, click **Reset**.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Once you're done editing the information, click **Save**.\{\{masterVAS-Products.Pulse-only}} displays a message at the bottom of the page indicating that your changes have been saved.
+    </WorkflowBlockItem>
+  </WorkflowBlock>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Edit Optional Details
+
+  Some events support additional optional data. For instance, the \{\{Events.1FRESH}} event includes Height, Weight, and BCS value as optional details. Click the toggle to enable additional details for the event.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/kVKPTMHU7u8aESln69qEl_eventdefssidepanel-optional.png" size="71" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/EventDefsSidePanel-optional.png" githubPath="Content/Resources/Images/Platform/dairycomp/EventDefsSidePanel-optional.png" position="flex-start" showCaption="false"></Image>
+
+  See [Event Definitions](../../Events/EventDefs.htm) to learn more about events with optional details.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Related Topics
+
+  - [Events](../../Events/Events.htm)
+  - [HealthVAL](../../Insights/HealthVAL/HealthVAL.htm)
+</ExpandableHeading>

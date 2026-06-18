@@ -1,0 +1,74 @@
+---
+title: Drop Error Report
+slug: drop-error-report
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:44 GMT+0200 (Eastern European Standard Time)
+---
+
+\{\{Commands.UserActions}} the \{\{FeedComp.FeedCompReportNames}}\{\{Controls.ControlTypes}} to view drop error amounts for feedings to monitor and help prevent drop errors made during feedings.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/21HHWd1vqqjdzPY6U7AqW_fcp-reports-droperror.png" size="72" isUploading="false" initialPath="../../../../Resources/Images/Platform/feedcomp-img/web/fcp-reports-droperror.png" githubPath="Content/Resources/Images/Platform/feedcomp-img/web/fcp-reports-droperror.png" position="flex-start" showCaption="false"></Image>
+
+Expand the sections below to learn more:
+
+<ExpandableHeading indent="2">
+  ## Search, Sort, and Filter the Drop Error Report
+
+  Options to search and filter the \{\{FeedComp.FeedCompReportNames}}\{\{Controls.ControlTypes}} are available at the top of the \{\{General.UI-gui}}. Follow the guidelines below when \{\{Commands.UserActions}} the \{\{FeedComp.FeedCompReportNames}}\{\{Controls.ControlTypes}}:
+
+  - \{\{Commands.Click}}**Filters** at the top left of the page to limit the data that is displayed. The **Filters** side panel opens.
+  - Use the **From** and **To** filters to only view data from that range.
+  - \{\{Commands.UserActions}} a \{\{FeedComp.FeedCompFeatures-Upper}} to limit the \{\{Controls.ControlTypes}} to a specific \{\{FeedComp.FeedCompFeatures-Lower}}. Multiple \{\{FeedComp.FeedCompFeatures-Lower}} can be \{\{Commands.UserActions}}. You can also type text directly in the field to search for \{\{FeedComp.FeedCompFeatures-Lower}} by name.
+  - \{\{Commands.UserActions}}a \{\{FeedComp.FeedCompFeatures-Upper}}**\*\*\*\* Name or Number** to limit the \{\{Controls.ControlTypes}} to a specific \{\{FeedComp.FeedCompFeatures-Lower}}. Multiple \{\{FeedComp.FeedCompFeatures-Lower}} can be \{\{Commands.UserActions}}. You can also type text directly in the field to search for \{\{FeedComp.FeedCompFeatures-Lower}} by name or number.
+  - Enter the preferred \{\{FeedComp.FeedCompFeatures-Upper}}**&#x20;Tolerance Error**. The error tolerance sets the minimum error amount to include in the report. For instance, if you set the error tolerance to 100, the report includes errors of 100 pounds and more (or kilograms based on the unit of measure specified for your [user account](../../Config/EditUserAcct.htm)).
+  - \{\{Commands.UserActions}} the **Clear Filter\*\*\*\*s** option to clear all of the filters currently applied.
+  - Select an option in **Sort By** at the top right of the page to change how the page is sorted.
+  - Select an option in **View Rows Per Page** to change how many records are displayed on the page, and click the navigation options to jump to a specific page.
+</ExpandableHeading>
+
+<ExpandableHeading indent="2">
+  ## Change the Report View
+
+  Select the preferred view for the \{\{Controls.ControlTypes}} at the top right of the \{\{General.UI-gui}}:
+
+  - \{\{Commands.Click}}\{\{Controls.ControlNames}} to view \{\{dry matter}} data on the \{\{Controls.ControlTypes}}.
+  - \{\{Commands.Click}}\{\{Controls.ControlNames}} to view as-fed data on the \{\{Controls.ControlTypes}}.
+</ExpandableHeading>
+
+<ExpandableHeading indent="2">
+  ## View Feeding Cards
+
+  <hint type="info">
+    **TIP:&#x20;**\{\{Controls.ControlTypes}} are displayed in pounds or kilograms based on the unit of measure specified for your [user account](../../Config/EditUserAcct.htm).
+  </hint>
+
+  Follow the guidelines below when \{\{Commands.UserActions}}\{\{FeedComp.FeedCompFeatures-Lower}}\{\{Controls.ControlTypes}}:
+
+  - Date: The date of the \{\{FeedComp.FeedCompFeatures-Lower}} is displayed at the top left of the \{\{General.UI-gui}}.
+  - \{\{FeedComp.FeedCompFeatures-Upper}}\{\{Controls.ControlTypes}}: The \{\{masterVAS-Terminology.p-en}} number where the mix was dropped is displayed at the top right of the card in a color-coded label.
+  - Mix Name: The name of the \{\{FeedComp.FeedCompFeatures-Lower}}.
+  - \{\{FeedComp.FeedCompFeeder}}: The name of the \{\{FeedComp.FeedCompFeatures-Lower}} who dropped the mix at the \{\{masterVAS-Terminology.p-en}}.
+  - \{\{Controls.ControlNames}} or \{\{Controls.ControlNames}} Amount: The total dry matter (\{\{Controls.ControlNames}}) or as-fed (\{\{Controls.ControlNames}}) amount.
+  - \{\{Controls.ControlNames}} or \{\{Controls.ControlNames}}/\{\{Controls.ControlNames}}: The total dry matter (\{\{Controls.ControlNames}}) or as-fed (\{\{Controls.ControlNames}}) amount per \{\{FeedComp.FeedCompFeatures-Lower}}.
+  - Target / \{\{Controls.ControlNames}} or \{\{Controls.ControlNames}} Amount: The target and total dry matter (\{\{Controls.ControlNames}}) or as-fed (\{\{Controls.ControlNames}}) amounts.
+  - Error Amount: The total \{\{Commands.UserActions}} amount for the \{\{FeedComp.FeedCompFeatures-Lower}}.:::ExpandableHeading\{customAnchorSlug="erroramounts"}
+
+  ### Click here to learn more about drop error amounts!
+
+  <Paragraph listStyleType="disc" indent="2">
+    **Red:&#x20;**&#x41;mounts displayed in **red** indicate that the weight of the \{\{Commands.UserActions}} was at least 50 pounds (or 20 kilograms) higher than the load tolerance threshold allowed for the feeding.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    **Orange:&#x20;**&#x41;mounts displayed in **orange** indicate that the weight of the \{\{Commands.UserActions}} was at least 50 pounds (or 20 kilograms) lower than the load tolerance threshold allowed for the feeding.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    **Black:&#x20;**&#x41;mounts displayed in **black** indicate that the weight of the \{\{Commands.UserActions}} was within the load tolerance threshold allowed for the feeding.
+    \:::
+  </Paragraph>
+</ExpandableHeading>
+
+<hint type="info">
+  **TIP:&#x20;**&#x59;ou're currently viewing \{\{masterVAS-Terminology.h-elp}} for \{\{FeedComp.FeedCompFeatures-Lower}} in \{\{masterVAS-Products.AllProductNames}}. :Link[Click here to see online help for reports in the FeedComp mobile app.]{label="Click here to see online help for reports in the FeedComp mobile app." overridedLabel="Click here to see online help for reports in the FeedComp mobile app." spaceId docId="EgGjILyt4px-Lp9R18n71" version="v2" docAnchorId="#droperrors" loadingMethod="dynamic" newTab="false" githubPath="../mobile/FCM-Reports.htm#droperrors" href="../mobile/FCM-Reports.htm#droperrors"}
+</hint>

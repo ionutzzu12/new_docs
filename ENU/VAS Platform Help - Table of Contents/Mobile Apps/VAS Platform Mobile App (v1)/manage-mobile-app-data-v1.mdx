@@ -1,0 +1,62 @@
+---
+title:   Manage Mobile App Data (v1)
+slug: manage-mobile-app-data-v1
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:38 GMT+0200 (Eastern European Standard Time)
+---
+
+:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/UTi1KX41xGHrm1neRxBTF_more-tab-icon.png" alt caption size="10"}Tap \{\{Mobile-UI.MoreTab}} at the bottom right of the app to access additional options in the mobile app.
+
+![](https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/vv1AdNIMiZnslQYFxSOtr_more-button-illustrated.png)
+
+<ExpandableHeading>
+  ### I don't see the More button. How do I find it?
+
+  If you do not see the \{\{Mobile-UI.Feature-Names}} button at the bottom of your screen, tap the Back arrow at the top left of the page until you return to one of the main feature screens. From there, you'll find the feature buttons at the bottom of the screen.
+
+  :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/pZ-fdT6OopdTlK4swZj7h_back-button.png" alt caption size="51"}:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/fPssjiPFN6FBGrFPY_OV1_home-buttons.jpg" alt caption size="45"}
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Refresh Herd Data
+
+  While your mobile device maintains an active WiFi or data connection, the \{\{General.ProductName}} mobile app automatically checks for \{\{masterVAS-Terminology.h-erd}} updates. When new data is available for download, the system displays a numbered activity badge on the **More** button.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/UTi1KX41xGHrm1neRxBTF_more-tab-icon.png" size="10" isUploading="false" initialPath="../../Resources/Images/Platform/mobile-app/more-tab-icon.png" githubPath="Content/Resources/Images/Platform/mobile-app/more-tab-icon.png" position="flex-start" showCaption="false"></Image>
+
+  <hint type="info">
+    **NOTE:&#x20;**\{\{masterVAS-Products.DCP-users-long}} can refresh mobile data from \{\{masterVAS-Products.Pulse-only}} at any time and thus will not see the activity badge. Additionally, \{\{masterVAS-Products.MyDC-short}} users can set the system to automatically refresh the \{\{masterVAS-Terminology.h-erd}} data when you :Link[switch to another dairy]{label="switch to another dairy" overridedLabel="switch to another dairy" spaceId docId="KJ_HEKX7eNLh7NlL5_0lV" version="v2" docAnchorId="#SwitchDairy" loadingMethod="dynamic" newTab="false" href="manage-mobile-app-data-v1.mdx"}. In your [User Settings Menu (v1)](<../../../ENU/VAS Platform Help - Table of Contents/Mobile Apps/VAS Platform Mobile App (v1)/account-and-app-settings-v1/user-settings-menu-v1.mdx>), go to the \{\{Care Package}} field and select **Download Automatically** to enable this feature.
+  </hint>
+
+  Follow these steps to refresh \{\{masterVAS-Terminology.h-erd}} data:
+
+  1. Go to the mobile app **Home** page.Note that for \{\{masterVAS-Products.DCU-users-long}}, the **More** button will display an activity badge when new data is received from on-premise \{\{masterVAS-Products.DC-Platform}} or \{\{masterVAS-Products.Pulse-only}} (see example above).
+  2. Tap the **More** button to open a page of more options in the app.
+  3. Tap the **Refresh&#x20;**\{\{masterVAS-Terminology.H-erd-}} button at the top of the page.
+  4. Allow the app a few moments to refresh the \{\{masterVAS-Terminology.h-erd}} data. The required time will vary based on the amount of data that needs to be updated, as well as the speed of your WiFi or data connection.
+  5. Once the \{\{masterVAS-Terminology.h-erd}} data is refreshed, you will find your \{\{masterVAS-Terminology.d-airy}}'s most recently available \{\{masterVAS-Terminology.h-erd}} information within the mobile app.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Switch to Another Dairy
+
+  You can switch to another \{\{masterVAS-Terminology.d-airy}} at any time by tapping the \{\{Mobile-UI.MoreTab}} button and then tapping the **Switch to Another&#x20;**\{\{masterVAS-Terminology.D-airy-}} button in the More menu (see example above). If the list of available \{\{masterVAS-Terminology.d-airies}} does not appear to be correct, see :Link[Refresh My Dairies List]{label="Refresh My Dairies List" overridedLabel="Refresh My Dairies List" spaceId docId="YqSVKPWvAq4oU59TELgOX" version="v2" docAnchorId="#Refresh" loadingMethod="dynamic" newTab="false" githubPath="UsingMobApp.htm#Refresh" href="Tips for Using the Mobile App (v1)/using-the-vas-platform-mobile-app-v1.mdx"} to update it.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## RFID Connections
+
+  The \{\{masterVAS-Terminology.AndroidOS}} version of the mobile app supports most \{\{masterVAS-Terminology.radiofrequencyID-short}} scanners and wands that can establish a Bluetooth connection with your device, and you can pair with them directly through \{\{masterVAS-Products.Pulse-only}} app. See [Work with RFID Scanners (v1)](Scanners/RFIDScanners.htm) for more information.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## "Data Not Current" Alert
+
+  The mobile app displays an Integration Status Alert if it detects that the data from on‑premise \{\{DC-UI.DC-ProductName}} has not been synchronized with \{\{masterVAS-Products.Pulse-only}} for 24 hours or more. This is a critical error that requires **immediate attention** to ensure that all animal information, \{\{worklist}} details, and event data continue to sync correctly with the \{\{masterVAS-Products.Pulse-only}} and mobile app.
+
+  The alert displays below the \{\{masterVAS-Terminology.d-airy}} name when your device is online, and if you attempt to use the app when your data is out of sync, the system displays a pop‑up warning to ensure that you want to continue using the app with potentially expired data.
+
+  :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/X4y1L1DaEWDgClgDdfzhr_int-status-alert.png" alt caption size="71"}:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/5kBCLVfBgaatEhqs4rl_d_int-status-message.png" alt caption size="49"}
+
+  The error may result from a connection issue between \{\{DC-UI.DC-ProdNameShort}} and \{\{masterVAS-Products.Pulse-only}}, in which case you should contact your manager or office staff to verify that \{\{DC-UI.DC-ProdNameShort}} is running normally. See [Integration Status](../../Features/Dairy/integration-status.mdx) for more information on troubleshooting \{\{masterVAS-Products.Pulse-only}} connection and data issues.
+</ExpandableHeading>

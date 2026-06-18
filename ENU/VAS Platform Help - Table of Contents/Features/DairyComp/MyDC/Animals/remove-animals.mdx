@@ -1,0 +1,59 @@
+---
+title: Remove Animals
+slug: remove-animals
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:40 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature. If your account only has \{\{RolesPermissions.PermissionNames}} permissions, you will **not** be able to use this feature. See [Edit Dairy User Permissions](../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](../Config/UserMgmtRoles/ManageRoles.htm) for more information.
+</ExpandableHeading>
+
+As illustrated below, the\{\{masterVAS-Terminology.cowcard}} for every animal contains a button at the upper right of the page with options for removing the animal from the \{\{masterVAS-Terminology.h-erd}} or marking the animal as sold or died. Simply click the Options button
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wIXwfkZ07oPcd_rKpJE8J_options-green-small41x29.png" size="10" caption="Options button" alt="Options button" isUploading="false" initialPath="../../../Resources/Images/icons/options-green-small_41x29.png" githubPath="Content/Resources/Images/icons/options-green-small_41x29.png" position="flex-start" showCaption="true"></Image>
+
+and select either **Mark as Sold or Died** or **Remove Animal**. See the topics below to learn more:
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yIIeb6Ab60FkQXHBRf6FC_cowcardmorebutton.png" size="29" isUploading="false" initialPath="../../../Resources/Images/Platform/cowcards/CowCardMoreButton.png" githubPath="Content/Resources/Images/Platform/cowcards/CowCardMoreButton.png" position="flex-start" showCaption="false"></Image>
+
+<ExpandableHeading>
+  ## Remove an Animal
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x54;he removal of an animal from the \{\{masterVAS-Terminology.h-erd}} is permanent and cannot be undone.
+  </hint>
+
+  Follow these steps to remove an animal from the \{\{masterVAS-Terminology.h-erd}}:
+
+  1. Click the Options button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wIXwfkZ07oPcd_rKpJE8J_options-green-small41x29.png" size="10" caption="Options button" alt="Options button" isUploading="false" initialPath="../../../Resources/Images/icons/options-green-small_41x29.png" githubPath="Content/Resources/Images/icons/options-green-small_41x29.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    on the \{\{masterVAS-Terminology.cowcard}}, and then select **Remove Animal**.The system prompts you to confirm the removal of animal.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/vpPghR9kFFBhYNt6xEVT2_removeconfirmation.png" alt caption size="33"}
+  </Paragraph>
+
+  2. Verify the animal \{\{ID}} at the top of the prompt, and then click **Remove** to proceed.The system displays a message at the bottom of the page indicating that the animal has been removed successfully from the \{\{masterVAS-Terminology.h-erd}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Mark an Animal as Sold or Died
+
+  Follow these steps to mark an animal as sold or died:
+
+  1. Click the Options button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wIXwfkZ07oPcd_rKpJE8J_options-green-small41x29.png" size="10" caption="Options button" alt="Options button" isUploading="false" initialPath="../../../Resources/Images/icons/options-green-small_41x29.png" githubPath="Content/Resources/Images/icons/options-green-small_41x29.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    on the animal's \{\{masterVAS-Terminology.cowcard}}, and then select **Mark as Sold/Died**.The system prompts you to mark the animal as sold or died.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/p8VDDTc2Lmk9E7jMSCCzG_removesolddied.png" alt caption size="43"}
+  </Paragraph>
+
+  2. Select **Animal Sold** or **Animal Died**, and then enter the following information:\* **Disposal Code:** A code provided by the system that describes the disposal event. See [Disposal Codes](../DairyComp/Settings/DC-DisposalCodes.htm) to learn more.
+     - **Remark:** Brief, additional information about the transaction. You can enter up to 16 characters in this field.
+     - **Date:** The date of the transaction. This field defaults to \{\{today}}'s date, but you can change it to any other date.
+  3. Click **Confirm** to complete the transaction.The system displays a message at the bottom of the screen confirming that the animal has been marked as sold or died. Additionally, the Reproduction status item on the animal's \{\{masterVAS-Terminology.cowcard}} changes to indicate SLD/DIE (sold/died).
+</ExpandableHeading>

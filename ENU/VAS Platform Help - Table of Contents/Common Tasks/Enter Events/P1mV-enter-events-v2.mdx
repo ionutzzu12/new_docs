@@ -1,0 +1,147 @@
+---
+title: Enter Events (v2)
+slug: P1mV-enter-events-v2
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:38 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature.If your account only has \{\{RolesPermissions.PermissionNames}} permissions, you will **not** be able to use this feature. See [Edit Dairy User Permissions](../Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+\{\{masterVAS-Products.Pulse-only}} allows you to create events, add animals to them, and process your changes—all from the mobile app while you are out on the \{\{masterVAS-Terminology.d-airy}}. Add events to one or more animals, either by searching for them manually or using [RFID Scanners (v2)](../DC-Mobile/Scanners/Scanners.htm). When you finish adding animals to an event, tap
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/v5wfvQAcJhnIgw0iXuFul_process-all-changes-icon.png" size="10" caption="Process All Changes button" alt="Process All Changes button" isUploading="false" initialPath="../../Resources/Images/Platform/dc-mobile-img/events-img/process-all-changes-icon.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/events-img/process-all-changes-icon.png" position="flex-start" showCaption="true"></Image>
+
+\{\{Mobile-UI.EventProcessChangesv2}} to send your updates back to \{\{masterVAS-Products.Pulse-only}} (\{\{Mobile-UI.ConnectionRequired}}).
+
+Expand the topics below to learn more about entering animal events in the mobile app:
+
+<ExpandableHeading>
+  ## Guidelines for Adding Events
+
+  <ExpandableHeading>
+    ### Click here for a video tutorial on this feature!
+
+    <embed url="https://player.vimeo.com/video/910544733">
+
+    </embed>
+  </ExpandableHeading>
+
+  - Tap \{\{Mobile-UI.EventsFeature}}
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/sDC8ayU-Gb8badRAAMdCA_5iconsenterevents30x30.png" size="10" isUploading="false" initialPath="../../Resources/Images/Platform/dc-mobile-img/intro-img/5_Icons_enter_events_30x30.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/intro-img/5_Icons_enter_events_30x30.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    and select the event you need to add.
+  </Paragraph>
+
+  - If you are using a scanner, scan an animal to add it to the event. If not, tap the **Add Animals** button to find the animal.
+  - The required event details vary based on event type. The app validates the event details you enter and warns you if there is a potential data entry error. If appropriate, you can dismiss the error and continue.
+  - Use the \{\{REM}} field to provide additional details for the event, such as affected quarters, \{\{Protocols.Protocol-common}} details, or notes from your vet. Some events may also allow you to select a remark from a pick list. See :Link[Edit Event Definitions]{label="Edit Event Definitions" overridedLabel="Edit Event Definitions" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#Edit" loadingMethod="dynamic" newTab="false" githubPath="../Features/DairyComp/Settings/DC-EventDefinitions.htm#Edit" href="../../Features/DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"} for more information.
+
+  <ExpandableHeading indent="2">
+    ### Click here to learn more about REM field length and quarter/quadrant selection!
+
+    The length of the remark field may be 16 or 8 characters, depending on your \{\{masterVAS-Terminology.d-airy}} type/item table \{\{masterVAS-Terminology.c-onfiguration}}. \{\{masterVAS-Products.MyDC-short}}\{\{masterVAS-Terminology.d-airies}} support 16-character remarks. \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}} can support 16-character remarks if they have adequate item table storage space. If a \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airy}} has limited item table storage space, it can only support 8-character remarks. Follow the guidelines below and learn how quarter/quadrant selection works for specific events:
+
+    - \{\{Events.30MAST}} and \{\{Events.32LAME}} events:\* 16-character REM: Choose 1, 2, 3, or all quarters/quadrants for MAST and LAME events.
+      - 8-character REM: Choose 1 or all quarters/quadrants for MAST and LAME events.
+    - \{\{Events.21CULTURE}} events: Choose either 1 or all quarters to follow best practices for this event type, irrespective of the REM field length.
+  </ExpandableHeading>
+
+  <Paragraph indent="1">
+    The event date defaults to \{\{today}}, so if you’re adding events for previous days, be sure to adjust the date.
+  </Paragraph>
+
+  - If you are adding an event with similar details to multiple animals, you can copy event details to speed up event entry. See :Link[Copy Event Details to Multiple Animals]{label="Copy Event Details to Multiple Animals" overridedLabel="Copy Event Details to Multiple Animals" spaceId docId="P1mVV5b_hBP0xYfh04irO" version="v2" docAnchorId="#copy" loadingMethod="dynamic" newTab="false" href="P1mV-enter-events-v2.mdx"} for more info.
+  - As animals are added to an event, each animal is assigned a number with a gray background
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/SOfgasCE-fx0Od2Am_VVn_add-animaltoevent-icon25x25.png" size="10" isUploading="false" initialPath="../../Resources/Images/Platform/dc-mobile-img/events-img/add-animaltoevent-icon_25x25.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/events-img/add-animaltoevent-icon_25x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    until all required details are added. Then the animal number background turns blue and includes a check
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/VcxVFRO2_sfdE7uu5oD2W_add-animaltoevent-done-icon41x25.png" size="10" isUploading="false" initialPath="../../Resources/Images/Platform/dc-mobile-img/events-img/add-animaltoevent-done-icon_41x25.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/events-img/add-animaltoevent-done-icon_41x25.png" position="flex-start" showCaption="false" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to show that the animal is ready to process.
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Edit or Delete Events
+
+  - You can edit animal events until you tap the
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/v5wfvQAcJhnIgw0iXuFul_process-all-changes-icon.png" size="10" caption="Process All Changes button" alt="Process All Changes button" isUploading="false" initialPath="../../Resources/Images/Platform/dc-mobile-img/events-img/process-all-changes-icon.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/events-img/process-all-changes-icon.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{Mobile-UI.EventProcessChangesv2}} button.
+  </Paragraph>
+
+  - Tap the **Delete** button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/hRZUIiv_4nAzL9aOJnA9__delete-red-on-white22x25.png" size="10" caption="Delete button" alt="Delete button" isUploading="false" initialPath="../../Resources/Images/icons/delete-red-on-white_22x25.png" githubPath="Content/Resources/Images/icons/delete-red-on-white_22x25.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    to delete the event.
+  </Paragraph>
+
+  - To modify or delete events after they are processed, go to the animal’s \{\{masterVAS-Terminology.cowcard}} from the web version of \{\{masterVAS-Products.Pulse-only}}. See [Events](../Features/Events/Events.htm) to learn more!
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Copy Event Details to Multiple Animals
+
+  To speed up entering an event with similar details to multiple animals, you can copy event details. Follow the steps below to continue:
+
+  1. Enter an event for the first animal. That activates the settings button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/WKLpWGZY4hislOAmGD0ay_gear-green.png" size="10" caption="Settings button" alt="Settings button" isUploading="false" initialPath="../../Resources/Images/icons/gear-green.png" githubPath="Content/Resources/Images/icons/gear-green.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    at the top right of the screen.
+  </Paragraph>
+
+  2. Tap the settings button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/WKLpWGZY4hislOAmGD0ay_gear-green.png" size="10" caption="Settings button" alt="Settings button" isUploading="false" initialPath="../../Resources/Images/icons/gear-green.png" githubPath="Content/Resources/Images/icons/gear-green.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    and check which fields to copy to additional animals. Select Apply and Copy.
+  </Paragraph>
+
+  3. Scan animals or tap Add Animals to add the event with the copied details to additional animals.
+  4. If you need to adjust event details for an animal, tap the animal and make necessary edits. Manually-entered data overrides copied details.
+  5. When you're done, tap the back arrow and then the
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/v5wfvQAcJhnIgw0iXuFul_process-all-changes-icon.png" size="10" caption="Process All Changes button" alt="Process All Changes button" isUploading="false" initialPath="../../Resources/Images/Platform/dc-mobile-img/events-img/process-all-changes-icon.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/events-img/process-all-changes-icon.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{Mobile-UI.EventProcessChangesv2}} button.
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Process All Changes
+
+  - When you're done adding all animal events and required details, tap the back arrow and then the
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/v5wfvQAcJhnIgw0iXuFul_process-all-changes-icon.png" size="10" caption="Process All Changes button" alt="Process All Changes button" isUploading="false" initialPath="../../Resources/Images/Platform/dc-mobile-img/events-img/process-all-changes-icon.png" githubPath="Content/Resources/Images/Platform/dc-mobile-img/events-img/process-all-changes-icon.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    \{\{Mobile-UI.EventProcessChangesv2}} button. The total number of animals with events is shown below the button.
+  </Paragraph>
+
+  - For \{\{masterVAS-Products.MyDC-short}}\{\{masterVAS-Terminology.d-airies}}, the app sends the events to \{\{masterVAS-Products.Pulse-only}} as soon as your mobile connection is active, and the events are immediately added to the animal \{\{masterVAS-Terminology.cowcard}}s. For \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}, you may see a slight delay as the latest \{\{care package}} is pulled down to \{\{masterVAS-Products.Pulse-only}} and \{\{masterVAS-Products.DC305-short}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Available Events
+
+  See [Event Definitions](<../../Features/Manage Your Animals/Events/hHY8-event-definitions.mdx>) for a full list of standard\{\{masterVAS-Products.MyDC-short}} events available in \{\{masterVAS-Products.Pulse-only}}. \{\{masterVAS-Products.DCUnlimited-short}}\{\{masterVAS-Terminology.d-airies}} may have additional custom events.
+</ExpandableHeading>

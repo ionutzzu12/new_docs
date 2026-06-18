@@ -1,0 +1,59 @@
+---
+title: General Integration Instructions
+slug: general-integration-instructions
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:46 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](../UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../../../../VAS Platform Help - Table of Contents/Features/Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+All available \{\{masterVAS.CompanyName-short}}\{\{masterVAS-Products.Pulse-only}} integrations are available from the [Integrations Gallery](<../../../../../VAS Platform Help - Table of Contents/Features/partners/integrations-gallery.mdx>). Steps to connect specific integrations vary by partner and are shown on the right side of the [Partner Integration Details](partner-integration-details.mdx) page.
+
+<hint type="info">
+  **NOTE:&#x20;**&#x49;f the partner you are looking for is not available from the gallery, a \{\{masterVAS-Products.Pulse-only}} integration is not available. [Contact Us](<../../../../../../VAS Platform Help - Table of Contents/Get Started/contact-us.mdx>) to discuss adding a new partner.
+</hint>
+
+The general steps for connecting a partner system with \{\{General.CompanyName-short}} to allow data to display in \{\{masterVAS-Products.Pulse-only}} are as follows:
+
+<ExpandableHeading>
+  ## Step 1: Partner System Setup
+
+  Contact your partner company representative to enable the integration with \{\{masterVAS.CompanyName-short}} and complete any required setup from their system.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Configure Items in PULSE
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**\{\{masterVAS-Products.DC305-short}} version 25.2 is required to support mapping items from \{\{masterVAS-Products.Pulse-only}} for \{\{General.DCUnlimited}} dairies. See [Update DC305 to the Latest Release](https://dc-help.vas.com/FAQs/WebUpdater.htm) \{\{masterVAS-Phrases.RefsToOtherHelpProjects}} for update instructions.
+  </hint>
+
+  For data to be sent to \{\{masterVAS-Products.Pulse-only}} (and \{\{masterVAS-Products.DC305-short}} for \{\{General.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}), you must first identify the pens the integration applies to, as well as add new items or configure existing items to map to the partner's data points.
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners > Integrations Gallery** and locate your partner company.
+  2. Click **See Requirements**.
+  3. Click **Select Items** to begin adding new items or mapping to existing items.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nW7Rzc1TymaFvPCI9O0a5_item-selection.png" alt caption size="50"}
+  4. Check the boxes to add new items to your dairy for the specific data you are connecting to \{\{masterVAS-Products.Pulse-only}}.:::hint\{type="warning"}
+     **IMPORTANT:&#x20;**&#x53;elect items for mapping carefully. If you make an error and need to change your item configuration, you will need to correct the items in \{\{masterVAS-Products.DC305-short}} (for \{\{General.DCUnlimited}} \{\{masterVAS-Terminology.d-airies}}) or contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004).
+     \:::
+  5. If you have an existing \{\{masterVAS-Products.DC305-simple}} item you'd like to use, select it from the **DairyComp Item** drop-down.
+  6. Click **Create** or **Done** in the bottom right corner to finish adding and/or mapping your items.
+  7. Confirm the addition or mapping of your items and click **Save**.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 3: Connect Integration in PULSE
+
+  Follow these steps to establish the connection to the partner system:
+
+  1. Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+  2. If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your partner company representative to connect the integration from their system.
+  </hint>
+</ExpandableHeading>

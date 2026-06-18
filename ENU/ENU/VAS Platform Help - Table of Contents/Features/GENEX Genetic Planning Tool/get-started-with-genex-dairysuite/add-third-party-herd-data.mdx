@@ -1,0 +1,142 @@
+---
+title: Add Third-Party Herd Data
+slug: add-third-party-herd-data
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:49 GMT+0200 (Eastern European Standard Time)
+---
+
+If you do not use a \{\{masterVAS.CompanyName-short}} herd management tool, you can still access \{\{UDS-general.GENEX-Pulse}} to gain valuable animal insights and use advanced genetic planning tools to make informed decisions that guide your herd toward its genetic goals:
+
+- If your herd has been migrated from \{\{UDS-general.GENEX-Pulse}}, your data has already been imported into the genetic planning tool and you can proceed to [Create a Genetic Plan](../BuildGeneticPlan/BuildGeneticPlan-intro.htm).
+- If your herd is brand new, :Link[contact your GENEX DairySuite admin]{label="contact your GENEX DairySuite admin" overridedLabel="contact your GENEX DairySuite admin" spaceId docId="Kk0UeFPEsM0CshK-aRILO" version="v2" docAnchorId="#Contact" loadingMethod="dynamic" newTab="false" githubPath="UserMgmt.htm#Contact" href="../../../../../VAS Platform Help - Table of Contents/Features/GENEX Genetic Planning Tool/Get Started with GENEX DairySuite/genex-management.mdx"} to create a third-party \{\{masterVAS-Terminology.h-erd}} and follow the steps below to import \{\{masterVAS-Terminology.h-erd}} data so you can use it to start building genetic plans:
+
+<ExpandableHeading>
+  ## Import Animals
+
+  Follow the steps below to import multiple animals from your third-party \{\{masterVAS-Terminology.h-erd}} management system:
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/entioSdjuzJDBjt8OwCJA_import-animals.png" size="53" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/GenPlanning/GettingStarted/import-animals.png" githubPath="Content/Resources/Images/PlatformAddons/GenPlanning/GettingStarted/import-animals.png" position="flex-start" showCaption="false"></Image>
+
+  <WorkflowBlock>
+    <WorkflowBlockItem>
+      From the main menu bar, select \{\{UDS-general.GENEX-Pulse}} > **Animals** > **Import Animals**.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Click **Download the template**. In the downloaded template, enter your \{\{masterVAS-Terminology.h-erd}} data and save it. Follow the guidelines to ensure that your animals can be imported successfully:
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      <ExpandableHeading>
+        ### Herd Data Template Guidelines
+
+        - Enter as much animal information as you can. \{\{UDS-general.GENEX-Pulse}} yields more accurate results when you add more information. Animal \{\{ID}} is required to proceed, but all other fields are essential for creating a quality genetic plan:\* Animal ID
+          - Barn Name
+          - Registration Number
+          - Lactation Number
+          - Birth Date
+          - Fresh Date
+          - \{\{masterVAS-Terminology.S-ire-}} ID
+          - Maternal \{\{masterVAS-Terminology.G-rands-ire-}} ID
+          - Maternal Great-\{\{masterVAS-Terminology.G-rands-ire-}} ID
+          - Heifer or Cow
+        - If you do not provide enough animal information, \{\{UDS-general.GENEX-Pulse}} can estimate or enter some information using proofs or other telling data points. For example, if an animal only has a Heifer designation, the genetic planning tool can infer and denote that its lactation number is 0.
+        - Any phenotype value (physical trait) must be a whole number between 1 and 10. If you want to use linear mating, you must enter phenotype data.
+      </ExpandableHeading>
+
+      Click **browse** and select the completed template.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Select the **Date Format** that you use.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Select the \{\{masterVAS-Terminology.H-erd-}}**&#x20;Software** that you use.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Select whether the imported animals are **Cows** or **Heifers** and the animal **Breed**.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Check the box next to **Deactivate Remaining Females** to deactivate all females that are not included in the imported file.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Click **Continue** to view a list of the animals included in the file. Use **Filters** in the upper left corner to search for an animal by animal ID or to narrow the list by Animal State, which indicates whether an animal can be imported or not:\* Validated Animals: All the animal information is valid and the animal can be imported.
+
+      - Animals with Warnings: Some animal information is missing or incomplete, but the animal can still be imported.
+      - Animals with Errors: Some animal information is not valid and the animal cannot be imported until the errors are fixed.
+    </WorkflowBlockItem>
+
+    <WorkflowBlockItem>
+      Click **Import** to add the animals and review your summary. If any animals were not imported, click **Download list of animals that were not included** to review a list of incorrect or missing animal data:1) Red: Invalid or missing required data is listed in red. This information must be fixed before you can import an animal.
+      2\) Orange: Missing data is listed in orange. This information will improve the \{\{UDS-general.GENEX-Pulse}}'s performance, but it is not required to import an animal.After you successfully import your animals, you can [start building your genetic plan](../BuildGeneticPlan/BuildGeneticPlan-intro.htm).
+    </WorkflowBlockItem>
+  </WorkflowBlock>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Add Animal
+
+  Follow the steps below to add a single animal from your third-party \{\{masterVAS-Terminology.h-erd}} management system:
+
+  1. Select \{\{UDS-general.GENEX-Pulse}} > **Animals** > **Add Animal** from the main menu bar.
+  2. Select whether the animal is a **Cow** or a **Heifer**.
+  3. Enter the animal's ID and breed. Enter as much animal information as you can. \{\{UDS-general.GENEX-Pulse}} yields more accurate results when you add more information. Animal ID is required to proceed, but all other fields are essential for creating a quality genetic plan.
+  4. Enter the animal's phenotype data (physical traits). Each value must be a whole number between 1 and 10.
+  5. Review the animal's summary, then click **Add** save your changes.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## View Animal List
+
+  To view your imported animals, select \{\{UDS-general.GENEX-Pulse}} > **Animals** > **Animal List** from the main menu bar. Use the following guidelines when using the Animal List:
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/T12u5UtYHnJcalIOvLEFO_view-animals.png" size="72" isUploading="false" initialPath="../../../Resources/Images/PlatformAddons/GenPlanning/GettingStarted/view-animals.png" githubPath="Content/Resources/Images/PlatformAddons/GenPlanning/GettingStarted/view-animals.png" position="flex-start" showCaption="false"></Image>
+
+  1. Use the **Filters** in the top left corner to search for animal by its animal ID or to limit the list to only Active or Inactive Animals.
+  2. Click on an animal ID to view or edit its details in a side panel.
+  3. To add a single animal, \{\{Commands.click}}**Add Animal** in the top right corner.
+  4. To add multiple animals at once, \{\{Commands.click}} the Options button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wIXwfkZ07oPcd_rKpJE8J_options-green-small41x29.png" size="10" caption="Options button" alt="Options button" isUploading="false" initialPath="../../../Resources/Images/icons/options-green-small_41x29.png" githubPath="Content/Resources/Images/icons/options-green-small_41x29.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    in the upper right corner, then click **Import Animals**.
+  </Paragraph>
+
+  5. To export your animal data, \{\{Commands.click}} the Options button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wIXwfkZ07oPcd_rKpJE8J_options-green-small41x29.png" size="10" caption="Options button" alt="Options button" isUploading="false" initialPath="../../../Resources/Images/icons/options-green-small_41x29.png" githubPath="Content/Resources/Images/icons/options-green-small_41x29.png" position="flex-start" showCaption="true" indent="2"></Image>
+
+  <Paragraph indent="1">
+    in the upper right corner, then click **Export as CSV**.
+  </Paragraph>
+
+  6. You can mark multiple animals as Active or Inactive, or delete multiple animals at once. Check the boxes next to the animals you want to edit and click **Actions** in the upper right corner to make your changes.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## View Imported Data in the Genetic Dashboard
+
+  After you successfully import your animals, you can view some of your imported data in the listed [GENEX DairySuite Genetic Dashboard](<../../../../../VAS Platform Help - Table of Contents/Features/GENEX Genetic Planning Tool/genex-dairysuite-genetic-dashboard.mdx>) widgets.
+
+  \{\{Commands.Click}}\{\{UDS-general.GENEX-Pulse}}**&#x20;>&#x20;**\{\{masterVAS-Terminology.O-verview-}} from the main menu bar to access the dashboard:
+
+  - \{\{masterVAS-Terminology.H-erd-}} Assessment: Use this widget to review animal counts, including the number of cows, heifers, and total animals, as well as breed. See :Link[Herd Assessment]{label="Herd Assessment" overridedLabel="Herd Assessment" spaceId docId="2vwexQ_em-anYfngtfeEw" version="v2" docAnchorId="#Herd" loadingMethod="dynamic" newTab="false" githubPath="../Dashboard/Dashboard-GenPlan.htm#Herd" href="../../../../../VAS Platform Help - Table of Contents/Features/GENEX Genetic Planning Tool/genex-dairysuite-genetic-dashboard.mdx"} to learn more.
+  - Genetic Averages by Company: Use this widget to compare genetic averages by company. This widget only shows data if your imported animal data includes sire data. See :Link[Genetic Averages by Company]{label="Genetic Averages by Company" overridedLabel="Genetic Averages by Company" spaceId docId="2vwexQ_em-anYfngtfeEw" version="v2" docAnchorId="#GenAverage" loadingMethod="dynamic" newTab="false" githubPath="../Dashboard/Dashboard-GenPlan.htm#GenAverage" href="../../../../../VAS Platform Help - Table of Contents/Features/GENEX Genetic Planning Tool/genex-dairysuite-genetic-dashboard.mdx"} to learn more.
+  - \{\{masterVAS-Terminology.H-erd-}} Genetic \{\{masterVAS-Terminology.O-verview-}}: Use this widget to assess 12 key genetic traits for the \{\{masterVAS-Terminology.h-erd}}. This widget shows groups of heifers and cows, but pregnancies are not recorded for imported animals. See :Link[Herd Genetic Overview]{label="Herd Genetic Overview" overridedLabel="Herd Genetic Overview" spaceId docId="2vwexQ_em-anYfngtfeEw" version="v2" docAnchorId="#GenAverage" loadingMethod="dynamic" newTab="false" githubPath="../Dashboard/Dashboard-GenPlan.htm#GenAverage" href="../../../../../VAS Platform Help - Table of Contents/Features/GENEX Genetic Planning Tool/genex-dairysuite-genetic-dashboard.mdx"} to learn more.
+  - Heifer Inventory: Use this widget to view all live heifers grouped by birth year and reproduction status. This widget only shows data if your imported data includes birth dates. See :Link[Heifer Inventory]{label="Heifer Inventory" overridedLabel="Heifer Inventory" spaceId docId="2vwexQ_em-anYfngtfeEw" version="v2" docAnchorId="#HeiferInventory" loadingMethod="dynamic" newTab="false" githubPath="../Dashboard/Dashboard-GenPlan.htm#HeiferInventory" href="../../../../../VAS Platform Help - Table of Contents/Features/GENEX Genetic Planning Tool/genex-dairysuite-genetic-dashboard.mdx"} to learn more.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Export Animal Data
+
+  To export your animal data, select \{\{UDS-general.GENEX-Pulse}}&#xNAN;**> Animals >****Animal List** from the main menu bar. \{\{Commands.Click}} the Options button
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/wIXwfkZ07oPcd_rKpJE8J_options-green-small41x29.png" size="10" caption="Options button" alt="Options button" isUploading="false" initialPath="../../../Resources/Images/icons/options-green-small_41x29.png" githubPath="Content/Resources/Images/icons/options-green-small_41x29.png" position="flex-start" showCaption="true"></Image>
+
+  in the upper right corner, then click **Export as CSV**.
+</ExpandableHeading>

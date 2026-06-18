@@ -1,0 +1,59 @@
+---
+title: Activate CattleEye Integration
+slug: activate-cattleeye-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](<../../../Manage Dairy Users and Roles/manage-dairy-roles.mdx>) for more information.
+</ExpandableHeading>
+
+Follow these steps to connect the \{\{Partners.PartnerName}} integration and view measurement data in \{\{masterVAS-Products.Pulse-only}}:
+
+<ExpandableHeading>
+  ## Step 1: Connect Integration in PULSE
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners&#x20;**>**&#xA0;Integrations Gallery&#x20;**>**&#xA0;**\{\{Partners.PartnerName}}.
+  2. \{\{Commands.Click}}**See Details** or **See Requirements** on the \{\{Partners.PartnerName}}integration card.
+  3. Follow the Connection Instructions on the right side of the page to establish the connection:1) Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+     2\) \{\{Commands.Click}}**Save**.
+     3\) If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your \{\{Partners.PartnerName}} representative to connect the integration from their system. If requested, provide your \{\{masterVAS-Terminology.D-airy-}} \{\{Id}} and Herdcode listed on the \{\{Partners.PartnerName}} Integration Gallery details page.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Configure Items in DairyComp 305 (DairyComp Unlimited Users Only)
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**\{\{masterVAS-Products.DC305-short}} version 25.1 is required to support all :Link[Measurement Items]{label="Measurement Items" overridedLabel="Measurement Items" spaceId docId="-OCLzLD2z8ixp1k_oAajr" version="v2" docAnchorId="#items" loadingMethod="dynamic" newTab="false" href="activate-cattleeye-integration.mdx"}. See [Update DC305 to the Latest Release](https://dc-help.vas.com/FAQs/WebUpdater.htm) \{\{masterVAS-Phrases.RefsToOtherHelpProjects}} for update instructions.
+  </hint>
+
+  1. In \{\{DC-UI.DC-ProductName}}, enter `PLATFORM` on the command line.
+  2. \{\{Commands.Click}} the \{\{masterVAS-Products.Pulse-only}}**&#x20;Items** tab and expand the **Activity Measurement Alerts**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/zdYxPRHUqEU_10MbwsDdN_dc305-pulse-items.png" alt caption size="33"}
+  3. Verify that locomotion and body condition items exist. Expand :Link[Available Items]{label="Available Items" overridedLabel="Available Items" spaceId docId="-OCLzLD2z8ixp1k_oAajr" version="v2" docAnchorId="#items" loadingMethod="dynamic" newTab="false" href="activate-cattleeye-integration.mdx"} to learn more about each item.
+
+  <ExpandableHeading>
+    ### Available Items
+
+    | Item Description            | \{\{masterVAS-Products.DC305-short}} Suggested Item/\{\{masterVAS-Products.Pulse-only}} Standard Item | Item Details                                                                                                                                                                                                                                          |
+    | --------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Last BCS date               | BCSFD                                                                                                 | Date the last BCS was added.                                                                                                                                                                                                                          |
+    | Last BCS time               | BCSFT                                                                                                 | Time the last BCS was added.                                                                                                                                                                                                                          |
+    | Last BCS value              | BCSV                                                                                                  | Last BCS value. The value indicates an animal's energy balance based on being extremely thin or having excessive fat deposits. Contact \{\{Partners.PartnerName}} for more details on how their system scores body condition.                         |
+    | Previous BCS value          | PBCSV                                                                                                 | BCS value before the last value (BCSV). The value indicates an animal's energy balance based on being extremely thin or having excessive fat deposits. Contact \{\{Partners.PartnerName}} for more details on how their system scores body condition. |
+    | Last locomotion score date  | LMSFD                                                                                                 | Date the last locomotion score was added.                                                                                                                                                                                                             |
+    | Last locomotion score time  | LMSFT                                                                                                 | Time the last locomotion score was added.                                                                                                                                                                                                             |
+    | Last locomotion score value | LMSV                                                                                                  | Last locomotion score value to indicate mobility. Contact \{\{Partners.PartnerName}} for more details on how their system scores locomotion.                                                                                                          |
+    | Previous locomotion score   | PLMSV                                                                                                 | Locomotion score value before the last value (LMSV). Contact \{\{Partners.PartnerName}} for more details on how their system scores locomotion.                                                                                                       |
+  </ExpandableHeading>
+
+  <hint type="info">
+    **NOTE:&#x20;**&#x4F;nce the \{\{Partners.measurements}} system is connected and collecting data, the [CowCard](<../../../Manage Your Animals/cowcards-at-a-glance.mdx>) Partners tab will begin to populate measurement data. See [CattleEye CowCard Widget](cattleeye-cowcard-widget.htm) to learn more. See [Nedap SmartSight CowCard Widget](<../Nedap SmartSight/nedap-smartsight-cowcard-widget.mdx>) to learn more.
+  </hint>
+</ExpandableHeading>

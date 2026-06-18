@@ -1,0 +1,26 @@
+---
+title: Step 2: Enter Alert Thresholds
+slug: step-2-enter-alert-thresholds
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:41 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned to a Role with \{\{RolesPermissions.PermissionNames}} permissions can use this feature. See [Edit Dairy User Permissions](../Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](../Config/UserMgmtRoles/ManageRoles.htm) for more information.
+</ExpandableHeading>
+
+Follow the steps below to enter \{\{PlatformContentSnippets.PerformanceIndicators-AlertThresholdValue}}s for \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}}s so that \{\{masterVAS-Products.Pulse-only}} will send notifications to your \{\{masterVAS-Terminology.d-airy}} team.
+
+\{\{masterVAS-Products.Pulse-only}} does not currently support alerts and notifications for all available indicator types. Use the following instructions to set up \{\{Buttons-UI.HealthIndicators}}, but note that the steps may differ for other indicator types.
+
+These instructions assume that you completed [Step 1: Enable & Set Up Health Indicators](Step1Indicators.htm) and already enabled alerts and indicators in \{\{masterVAS-Products.Pulse-only}}:
+
+1. Begin by making sure the \{\{Buttons-UI.Indicators}} tab and the \{\{Buttons-UI.HealthIndicators}} option are selected on the [Performance Indicators](PerformanceIndicators.htm) page (see example below).In this example, \{\{masterVAS-Products.Pulse-only}} analyzed the \{\{masterVAS-Terminology.h-erd}} and updated the **Count of Occurrence** fields on the [Indicators](../working-with-indicators.mdx) page for each event found across the \{\{masterVAS-Terminology.h-erd}}.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/f1oeu2bhLbixrboxAK1zL_indicators-tab-initial-setup.png" alt caption size="88"}You can track any of these events by setting an \{\{PlatformContentSnippets.PerformanceIndicators-AlertThresholdValue}}.
+2. Enter \{\{PlatformContentSnippets.PerformanceIndicators-AlertThresholdValue}}s for each event that you want to track in the **Alert Threshold** fields. **Alert Threshold** fields allow whole numbers or decimal places. 0.1% is the smallest value that can be entered, and 100% is the max.:::hint\{type="info"}
+   **NOTE:&#x20;**&#x43;hanges made in a field on this page are automatically saved when clicking or tabbing into another field or navigating to a different page.
+   \:::The first time you enter a value in an **Alert Threshold** field, \{\{masterVAS-Products.Pulse-only}} displays an icon indicating that the event is not currently being tracked by an alert group.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/xdPPd9KSmz-x1xFghvI0k_indicators-tab-omcm-entered.png" alt caption size="71"}For example, if you enter "0.1" in the **Alert Threshold** field for the **Overall&#x20;**\{\{Mastitis}} and **Cow Mastitis** events, this tells \{\{masterVAS-Products.Pulse-only}} to notify your team when there's a 0.1% change in **Overall Mastitis** events or when specific **Cow Mastitis** events occur in your \{\{masterVAS-Terminology.h-erd}}. As shown above, \{\{masterVAS-Products.Pulse-only}} displays an icon to let you know that the overall mastitis \{\{PlatformContentSnippets.PerformanceIndicators-EventIndicator}} is not included in any alert groups.Depending on the size of your \{\{masterVAS-Terminology.h-erd}}, a value of 0.1% may be insignificant to your \{\{masterVAS-Terminology.d-airy}} operations. For example, you may want members of your \{\{masterVAS-Terminology.d-airy}} team to be alerted when 10% or 20% of the animals in your \{\{masterVAS-Terminology.h-erd}} experience a change in **Overall Mastitis** events. But, don't worry! You can update the \{\{PlatformContentSnippets.PerformanceIndicators-AlertThresholdValue}} to a percentage that meets your \{\{masterVAS-Terminology.d-airy}}'s needs at any time.:::hint\{type="info"}
+   **NOTE:&#x20;**&#x54;he \{\{PlatformContentSnippets.PerformanceIndicators-AlertThresholdValue}}s entered on the [Indicators](../working-with-indicators.mdx) page in \{\{MorphHelp.D-airySettings}} are different from the **Threshold (%)** values entered when configuring events. See :Link[Edit Event Definitions]{label="Edit Event Definitions" overridedLabel="Edit Event Definitions" spaceId docId="GxXIleQm2y07Vuz9c38iV" version="v2" docAnchorId="#Edit" loadingMethod="dynamic" newTab="false" githubPath="../DairyComp/Settings/DC-EventDefinitions.htm#Edit" href="../../../../DairyComp/MyDC/Settings/General Settings/event-definitions.mdx"} for more information.
+   \:::Once the indicators are included in at least alert group on the [Alert Groups](AlertGroupsTab.htm) page, the icons in the example above are no longer displayed.
+3. Before \{\{masterVAS-Products.Pulse-only}} will send notifications to your \{\{masterVAS-Terminology.d-airy}} team, you need to add an alert group. Proceed to [Step 3: Add Alert Groups](Step3AlertGroups.htm) to continue.

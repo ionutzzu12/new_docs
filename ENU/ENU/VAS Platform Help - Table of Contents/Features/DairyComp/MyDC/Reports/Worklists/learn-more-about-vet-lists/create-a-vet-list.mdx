@@ -1,0 +1,120 @@
+---
+title: Create a Vet List
+slug: create-a-vet-list
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:42 GMT+0200 (Eastern European Standard Time)
+---
+
+Before you can process your \{\{Worklists.VetListCommonUse}} in \{\{masterVAS-Products.Pulse-only}} or the mobile app, you must first build it in \{\{masterVAS-Products.Pulse-only}}, or set it up in \{\{DC-UI.DC-ProdNameShort}} with the \K switch (which sends the list to \{\{masterVAS-Products.Pulse-only}}).
+
+<hint type="warning">
+  **IMPORTANT:&#x20;**&#x43;onfiguring \{\{Worklists.VetListSingular}}s requires advanced veterinary knowledge as well as the guidance of animal health experts. The steps outlined below assume that you are working with an expert \{\{masterVAS-Products.Pulse-only}}/\{\{masterVAS-Products.DC305-short}} user and your vet.
+</hint>
+
+Expand the sections below to learn more:
+
+<ExpandableHeading>
+  ## Create a Vet List in PULSE
+
+  You can generate \{\{Worklists.worklistCommonUse}}s in \{\{masterVAS-Products.Pulse-only}} from multiple locations: 
+
+  - [Dairy Reports/Worklists](ManageReportsWorklists.htm): Use this tab to generate reports or \{\{Worklists.worklistCommonUse}}s saved from the Gallery.
+  - [Template Gallery](DC-ReportsGallery.htm): Use the Gallery to check out available report and \{\{Worklists.worklistCommonUse}} options.
+  - [Report/Worklist Builder](ReportWorklistBuilder.htm): This tool allows you to build custom reports and \{\{Worklists.worklistCommonUse}}s using an easy drag & drop interface.
+
+  See [Build a Vet List](<../../../../../../../../VAS Platform Help - Table of Contents/Features/DairyComp/MyDC/Reports/Worklists/Create New Report or Worklist/Build Custom Report or Worklist/build-a-vet-list.mdx>) for step-by-step instructions for building a custom \{\{Worklists.VetListCommonUse}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Create Vet Lists in DairyComp 305
+
+  <ExpandableHeading>
+    ### Step 1: Define Vet List Options in DairyComp 305
+
+    Use the \{\{ALTER}}**\5** command to define \{\{Worklists.VetListSingular}} options, such as Vet Codes (\{\{VC}}) and Vet Check (\{\{VETC}}) reasons. The order of the items is important, as the VETLIST command flags the first \{\{Mobile-UI.VetCodeSingular}} encountered as the reason for the vet check. For instance, if an animal has multiple vet codes in its record, including VC 3 (\{\{PREG}}) and VC 6 (\{\{ABT?}}), the \{\{Worklists.VetListSingular}} will use VC 3 as the reason for the check.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Step 2: Save VETLIST Command(s) in DairyComp 305 (Recommended)
+
+    Save your common VETLIST commands for easy reuse in \{\{masterVAS-Products.DC305-short}} using the **ALTER\3** command. For example, you can save VETLIST VITEMS FOR VC>0 HLDAT\<\{\{TODAY}} BY \{\{PEN}} as "VLIST".
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Step 3: Run VETLIST Command(s) in DairyComp 305
+
+    The VETLIST command resets the veterinary codes by first looking at the animal's record and checking if a veterinary code exists. If there is no veterinary code present, \{\{DC-UI.DC-ProdNameShort}} examines the items in the animal's record to see if they meet any of the conditions in the veterinary code table (such as days in milk and \{\{RC=2}} or \{\{Events.1FRESH}}), or in the command (such as PEN=2-4).
+
+    Prior to being able to send your \{\{Worklists.VetListSingular}} to \{\{masterVAS-Products.Pulse-only}} , you must run your VETLIST command(s).
+
+    If you saved your VETLIST command as an abbreviation, such as "VLIST", use the abbreviation to quickly run the command.
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Step 4: Create PULSE Vet List in DairyComp 305
+
+    For customers who are familiar with the \{\{General.CompanyName-short}}\{\{PCC}} product, you may already know how to create and send a \{\{Worklists.VetListCommonUse}} to PCC handhelds. The command is similar when creating a \{\{Worklists.VetListCommonUse}} to send to \{\{masterVAS-Products.Pulse-only}}.
+
+    Set up the command as shown in the example below:
+
+    1. Start with the **SERVER** command to define what you want the \{\{Worklists.VetListCommonUse}} to do.
+    2. Use the **\V** switch to identify the list as a \{\{Worklists.VetListCommonUse}} (in the mobile app).
+    3. Use the **\K** switch to tell \{\{DC-UI.DC-ProductName}} to send the list to \{\{masterVAS-Products.Pulse-only}}.
+
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/5FScb1bXqiZR6t50MOt_4_vetlist-command-example.png" size="44" isUploading="false" initialPath="../../../../Resources/Images/Platform/dairycomp/worklists/vetlist-command-example.png" githubPath="Content/Resources/Images/Platform/dairycomp/worklists/vetlist-command-example.png" position="flex-start" showCaption="false"></Image>
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**
+
+      The way to define which items display in a
+
+      \{\{Worklists.HospListCommonUse}}
+
+      differs between PCC and Platform. PCC items are defined in
+
+      \{\{DC-UI.DC-ProdNameShort}}
+
+      using the PCC Entry tab in Server
+
+      \{\{masterVAS-Terminology.C-onfiguration-}}
+
+      (
+
+      **SERVER\3**
+
+      ). Platform items are included in the Hospital List command in one of two ways:
+
+      - Directly in the command. For example:`SERVER ID Identifier PEN DIM Days in milk RPRO Reproductive code DCC Days carrying calf/pregnant FOR PEN=99 \HK`
+      - As a separate command. For example:`SERVER HPITEMS FOR PEN=99 \HK`where the HPITEMS command is defined as `ID PEN DIM RPRO DCC`
+    </hint>
+  </ExpandableHeading>
+
+  <ExpandableHeading>
+    ### Step 5: Send your Vet Lists to PULSE
+
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x42;e aware that if \{\{DC-UI.DC-ProductName}} sends multiple versions of the same list to \{\{masterVAS-Products.Pulse-only}} in one day, the most recent list overwrites the earlier ones but does NOT affect any progress or changes made against the list.
+    </hint>
+
+    Unlike the PCC product, which requests each \{\{Worklists.worklistCommonUse}} during a refresh, \{\{masterVAS-Products.Pulse-only}} does **not** request \{\{Worklists.worklistCommonUse}}s from on‑premise \{\{DC-UI.DC-ProdNameShort}}. Instead, \{\{DC-UI.DC-ProdNameShort}} must manually send \{\{Worklists.worklistCommonUse}}s to \{\{masterVAS-Products.Pulse-only}}. This ensures that on‑premise users control the lists that are sent out to the \{\{General.ProductName}} mobile app.
+
+    You can send \{\{Buttons-UI.PlatformWorklists}} from \{\{DC-UI.DC-ProdNameShort}} manually or schedule \{\{DC-UI.DC-ProdNameShort}} to send them automatically. Follow the instructions below to proceed.
+
+    <ExpandableHeading>
+      ### Send Lists Manually
+
+      Follow these steps to send \{\{Worklists.worklistCommonUse}}s from \{\{DC-UI.DC-ProdNameShort}} to \{\{masterVAS-Products.Pulse-only}} manually:
+
+      1. Go to the \{\{DC-UI.DC-ProdNameShort}} command line.
+      2. Type PLATFORM\K and press enter.
+
+      This command instructs \{\{DC-UI.DC-ProdNameShort}} to find all Platform-enabled (\K) SERVER commands and generate the corresponding worklist files. The \{\{Worklists.worklistCommonUse}} files are then sent to \{\{masterVAS-Products.Pulse-only}} the next time it synchronizes data from \{\{DC-UI.DC-ProdNameShort}}.
+    </ExpandableHeading>
+
+    <ExpandableHeading>
+      ### Schedule DairyComp 305 to Send Lists
+
+      If you prefer not to do a manual send each time you want to update your \{\{masterVAS-Products.Pulse-only}} lists, you can set up a \{\{DC-UI.DC-ProdNameShort}} Scheduled Task that automatically executes the PLATFORM\K command at a convenient daily or weekly interval. Please contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004) if you need help scheduling this type of task in \{\{DC-UI.DC-ProdNameShort}}.
+    </ExpandableHeading>
+  </ExpandableHeading>
+</ExpandableHeading>

@@ -1,0 +1,66 @@
+---
+title: Activate HerdVision Integration
+slug: activate-herdvision-integration
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Permissions
+
+  Only users who are assigned a Role with Integrations Management permissions can connect partner integrations. See [Edit Dairy User Permissions](../../Platform/Features/Config/UserMgmtRoles/EditUserPermissions.htm) and [Manage Dairy Roles](../../Platform/Features/Config/UserMgmtRoles/ManageRoles.htm) for more information.
+</ExpandableHeading>
+
+Follow these steps to connect the \{\{Partners.PartnerName}} integration and view measurement data in \{\{masterVAS-Products.Pulse-only}}:
+
+<ExpandableHeading>
+  ## Step 1: Configure Items in PULSE
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**\{\{masterVAS-Products.DC305-short}} version 25.2 is required to support mapping items from \{\{masterVAS-Products.Pulse-only}} for \{\{General.DCUnlimited}} dairies. See [Update DC305 to the Latest Release](https://dc-help.vas.com/FAQs/WebUpdater.htm) \{\{masterVAS-Phrases.RefsToOtherHelpProjects}} for update instructions.
+  </hint>
+
+  For data to be sent to \{\{masterVAS-Products.Pulse-only}} (and \{\{masterVAS-Products.DC305-short}} for \{\{General.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}}), you must first identify the pens the integration applies to, as well as add new items or configure existing items to map to the partner's data points.
+
+  1. In \{\{masterVAS-Products.Pulse-only}}, navigate to **Partners > Integrations Gallery** and locate your partner company.
+  2. Click **See Requirements**.
+  3. Click **Select Items** to begin adding new items or mapping to existing items. Expand :Link[Available Items]{label="Available Items" overridedLabel="Available Items" spaceId docId="0XKLCDOCv_QtspQYSrh_j" version="v2" docAnchorId="#items" loadingMethod="dynamic" newTab="false" href="activate-herdvision-integration.mdx"} below to learn more about each item. :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/nW7Rzc1TymaFvPCI9O0a5_item-selection.png" alt caption size="50"}
+  4. Check the boxes to add new items to your dairy for the specific data you are connecting to \{\{masterVAS-Products.Pulse-only}}.:::hint\{type="warning"}
+     **IMPORTANT:&#x20;**&#x53;elect items for mapping carefully. If you make an error and need to change your item configuration, you will need to correct the items in \{\{masterVAS-Products.DC305-short}} (for \{\{General.DCUnlimited}} \{\{masterVAS-Terminology.d-airies}}) or contact [VAS Support](http://platform-docs.vas.com/default.htm#cshid=1004).
+     \:::
+  5. If you have an existing \{\{masterVAS-Products.DC305-simple}} item you'd like to use, select it from the **DairyComp Item** drop-down.
+  6. Click **Create** or **Done** in the bottom right corner to finish adding and/or mapping your items.
+  7. Confirm the addition or mapping of your items and click **Save**.
+
+  <ExpandableHeading>
+    ### Available Items
+
+    | Item Description            | \{\{masterVAS-Products.DC305-short}} Suggested Item/\{\{masterVAS-Products.Pulse-only}} Standard Item | Item Details                                                                                                                                                                                                                                          |
+    | --------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Last BCS date               | BCSFD                                                                                                 | Date the last BCS was added.                                                                                                                                                                                                                          |
+    | Last BCS time               | BCSFT                                                                                                 | Time the last BCS was added.                                                                                                                                                                                                                          |
+    | Last BCS value              | BCSV                                                                                                  | Last BCS value. The value indicates an animal's energy balance based on being extremely thin or having excessive fat deposits. Contact \{\{Partners.PartnerName}} for more details on how their system scores body condition.                         |
+    | Previous BCS value          | PBCSV                                                                                                 | BCS value before the last value (BCSV). The value indicates an animal's energy balance based on being extremely thin or having excessive fat deposits. Contact \{\{Partners.PartnerName}} for more details on how their system scores body condition. |
+    | Last locomotion score date  | LMSFD                                                                                                 | Date the last locomotion score was added.                                                                                                                                                                                                             |
+    | Last locomotion score time  | LMSFT                                                                                                 | Time the last locomotion score was added.                                                                                                                                                                                                             |
+    | Last locomotion score value | LMSV                                                                                                  | Last locomotion score value to indicate mobility. Contact \{\{Partners.PartnerName}} for more details on how their system scores locomotion.                                                                                                          |
+    | Previous locomotion score   | PLMSV                                                                                                 | Locomotion score value before the last value (LMSV). Contact \{\{Partners.PartnerName}} for more details on how their system scores locomotion.                                                                                                       |
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Step 2: Connect Integration in PULSE
+
+  Follow these steps to establish the connection to \{\{Partners.HerdVision}}:
+
+  1. Click the **Connection Status** toggle and verify the status switches to **Active**.:inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/yVoLb7NAnbX1zs-j2jcYx_integration-connected.png" alt="Connection Status: Active" caption size="22"}
+  2. If necessary, \{\{Commands.click}}**Edit Integration** to make any adjustments or edits and save your changes.
+
+  <hint type="warning">
+    **IMPORTANT:&#x20;**&#x49;f your integration does not automatically connect, contact your partner company representative to connect the integration from their system.
+  </hint>
+</ExpandableHeading>
+
+<hint type="info">
+  **NOTE:&#x20;**&#x4F;nce the \{\{Partners.measurements}} system is connected and collecting data, the [CowCard](../../Platform/Features/CowCards/ViewCowCard-CC.htm) Partners tab will begin to populate measurement data. See [HerdVision CowCard Widget](herdvision-cowcard-widget.mdx) to learn more. See [Nedap SmartSight CowCard Widget](../Nedap-SmartSight/smartsight-cowcard-widget.htm) to learn more.
+</hint>

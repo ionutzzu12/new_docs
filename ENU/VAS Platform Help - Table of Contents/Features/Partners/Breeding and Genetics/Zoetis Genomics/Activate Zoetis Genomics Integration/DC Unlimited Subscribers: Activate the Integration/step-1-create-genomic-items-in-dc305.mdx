@@ -1,0 +1,40 @@
+---
+title: Step 1: Create Genomic Items in DC305
+slug: step-1-create-genomic-items-in-dc305
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:48 GMT+0200 (Eastern European Standard Time)
+---
+
+Before you can start submitting samples to \{\{Partners.Zoetis}}, you must first create the genomic sample items. The system will not display records that do not have a GSAMP (Genomic Sample Number) and a GSDAT (Genomic Sample Date):
+
+<WorkflowBlock>
+  <WorkflowBlockItem>
+    In \{\{DC-UI.DC-ProdNameShort}}, enter \{\{ALTER}}**\2** in the command line to open the **Item Definitions** list and check to see if you have the required items:
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    | Suggested Name | Type     | Length/Op2 | Description             |
+    | -------------- | -------- | ---------- | ----------------------- |
+    | GSAMP          | 31 or 33 | 15         | Genomic sample \{\{ID}} |
+    | GSDAT          | 18       | —          | Date sampled            |
+    | TWCOD          | 33       | 1          | Twin code               |
+
+    If the items are not in the **Item Definitions** list, click **Add \[Ins]** on the left side of the window to create the items.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/GjD8A6I7unXnkBkwGr_2g_zoetis-create-item.png" size="61" isUploading="false" initialPath="../../../Resources/Images/Partners/zoetis/zoetis-create-item.png" githubPath="Content/Resources/Images/Partners/zoetis/zoetis-create-item.png" position="flex-start" showCaption="false"></Image>
+
+    Use the information in the table to enter the item name, item type, length, and description for each required item.
+  </WorkflowBlockItem>
+
+  <WorkflowBlockItem>
+    <hint type="warning">
+      **IMPORTANT:&#x20;**&#x49;tem names can be customized and may differ from those suggested by \{\{General.CompanyName-short}}. If you choose to customize your item names, be sure to use the correct names later in this procedure.
+    </hint>
+
+    Click **Save**.
+  </WorkflowBlockItem>
+</WorkflowBlock>
+
+After you verify that the required items are in the **Item Definitions** list, proceed to [Step 2: Store PULSE Genomic Items in DC305](zoetis-integrate-step2.htm).

@@ -1,0 +1,43 @@
+---
+title: Alerts
+slug: alerts
+docTags: 
+createdAt: Fri Feb 13 2026 17:40:47 GMT+0200 (Eastern European Standard Time)
+---
+
+<ExpandableHeading>
+  ### Required Setup
+
+  For the \{\{Partners.PartnersUIoption}} tab to display heat and health data and generate alerts, \{\{masterVAS-Products.DCUnlimited}}\{\{masterVAS-Terminology.d-airies}} must first configure \{\{masterVAS-Products.DC-Platform}} to activate the integration. See [Activate Integration](activate-integration.mdx) to learn more.
+</ExpandableHeading>
+
+Animal alerts are generated based on sensor data pulled from the partner system and sent to \{\{DC-UI.DC-ProductName}} and \{\{masterVAS-Products.Pulse-only}} every hour. To view animals with alerts, check the [Dashboard Widget](nedap-dashboard-widgets.htm) and click the animal's Cow Number to view its CowCard.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/UlNzT03WY9BiWOV_EBKEx_nedap-alerts-overiew.png" size="61" isUploading="false" initialPath="../../Resources/Images/Partners/nedap/nedap-alerts-overiew.png" githubPath="Content/Resources/Images/Partners/nedap/nedap-alerts-overiew.png" position="flex-start" showCaption="false"></Image>
+
+<ExpandableHeading>
+  ## Heat Alerts
+
+  The partner system sends the following heat alerts to \{\{Buttons-UI.FeaturesMain}} and \{\{masterVAS-Products.Pulse-only}}:
+
+  - Heat detected date and time
+  - Suspicious heat detected date and time
+
+  Heat alerts are marked on the CowCard graph in red or yellow, and hovering over the marking provides additional detail.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/c1FbUsqtGQFwdE61bo8UA_nedap-alert-heat.png" size="30" isUploading="false" initialPath="../../Resources/Images/Partners/nedap/nedap-alert-heat.png" githubPath="Content/Resources/Images/Partners/nedap/nedap-alert-heat.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Health Alerts
+
+  The partner system sends the following health alerts to \{\{Buttons-UI.FeaturesMain}} and \{\{masterVAS-Products.Pulse-only}}:
+
+  - Eating, when total eating time is too low
+  - Inactive, when total time spent not eating or ruminating is too high
+  - Lying, when the total time spent lying down is too high
+
+  Health alerts are marked on the CowCard graph as a red bar, and hovering over the bar provides additional detail.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/QjalyvC_Eyr95bGir3p2_/MZnC-OSJf8kZPGEV_Hrru_nedap-alert-health.png" size="25" isUploading="false" initialPath="../../Resources/Images/Partners/nedap/nedap-alert-health.png" githubPath="Content/Resources/Images/Partners/nedap/nedap-alert-health.png" position="flex-start" showCaption="false"></Image>
+</ExpandableHeading>

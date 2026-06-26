@@ -1,0 +1,61 @@
+---
+title: DB - InfluxDB v2.x+ SSL
+slug: product-features/integration/integration-connectors/databases/db-influxdb-v2x-ssl
+description: Review parameters for the DB - InfluxDBv2.x+ SSL connector.
+docTags: 
+createdAt: Thu May 28 2026 23:46:59 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [InfluxDB v2.x SSL Integration Guide](<./././././How-To Guides/Integration Guides/InfluxDB v2_x SSL Integration Guide.md>).&#x20;
+
+## Overview
+
+InfluxDB v2.x SSL integration enables an Edge System to connect with an InfluxDB database using SSL authentication.&#x20;
+
+<hint type="info">
+  **Note**: The following data types and formats are not viewable in InfluxDB:
+
+  - string
+  - char
+  - JSON payloads
+</hint>
+
+## Supported Versions
+
+- Compatible with InfluxDB 2.x
+
+## Supported Communication Directions
+
+- Outbound (Write from Edge to Database) - Yes
+- Inbound (Read from Database to Edge) - No
+
+## Variable Definitions
+
+| **Variable**                  | **Details**                                                                                                                                                                               |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                          | Name for the connector                                                                                                                                                                    |
+| Address                       | InfluxDB database URL (for example, http\://localhost:8086)                                                                                                                               |
+| Bucket                        | Bucket name                                                                                                                                                                               |
+| Organization                  | Organization name                                                                                                                                                                         |
+| Auth Token                    | Authentication token                                                                                                                                                                      |
+| Username                      | User name (optional)                                                                                                                                                                      |
+| Password                      | User password (optional)                                                                                                                                                                  |
+| CA Certificate                | SSL CA Certificate                                                                                                                                                                        |
+| Certificate                   | SSL Certificate                                                                                                                                                                           |
+| Private key                   | SSL Private key                                                                                                                                                                           |
+| Batch size                    | Batch size                                                                                                                                                                                |
+| Batch commit time             | Batch-commit time in seconds                                                                                                                                                              |
+| Parallel publish count        | Number of messages to publish simultaneously. Set a value above `1` to batch messages into a single publish request                                                                       |
+| Throttling limit              | Limits the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.            |
+| Persistent storage            | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages are retained and sent when the connection is restored.    |
+| Persistent storage limit size | Maximum amount of data (in GB) to store in connector's persistent storage. Set a limit to prevent excessive disk space usage by failed connectors.                                        |
+| Queue mode                    | Sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first. |
+| Remote Data Topic             | InfluxDB measurement that you want to publish data to.                                                                                                                                    |
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+| Product          | Version |
+| ---------------- | ------- |
+| docker: influxdb | 2.x     |

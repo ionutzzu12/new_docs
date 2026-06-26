@@ -1,0 +1,34 @@
+---
+title: Aveva Data Hub
+slug: product-features/integration/integration-connectors/cloud-service-providers/aveva-data-hub
+description: Review parameters for the Aveva Data Hub connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:00 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [Aveva Data Hub Integration Guide]().&#x20;
+
+## Overview
+
+Aveva Data Hub integration enables an Edge System to connect with Aveva Data Hub.
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to Aveva Data Hub ) - Yes
+- Inbound (Subscribe data from Aveva Data Hub to Edge) - Yes
+
+## Configurations
+
+| **Variable**       | **Detail**                                                                                                                                                                                                                                                        | **Required** |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name               | Enter a name for the connector                                                                                                                                                                                                                                    | Yes          |
+| Description        | Enter a description for the connection                                                                                                                                                                                                                            | No           |
+| Endpoint           | Region Endpoints for West US (primary), Northern Australia, Eastern Europe. The endpoint is found i&#x6E;**&#x20;Aveva Data Hub** > **Security&#x20;**> **Clients&#x20;**> **Client&#x20;**> **Connection Information** > **Regional Endpoints**.                 | Yes          |
+| Client id          | The Client ID is used to authenticate and access data. This Client ID is found in **Aveva Data Hub** > **Security&#x20;**> **Clients&#x20;**> **Client&#x20;**> **Details**> **Client ID**.                                                                       | Yes          |
+| Client secret      | The Client secret is used to authenticate and access data. A user can create a new secret in **Aveva Data Hub** > **Security&#x20;**> **Clients&#x20;**> **Client&#x20;**>**Secrets&#x20;**&#x61;nd use the secret as this field.                                 | Yes          |
+| Tenant id          | The ID required for a tenant to make connection. A tenant represents the set of services, applications, data, and configuration states available to a customer. The Tenant ID is found in **Aveva Data Hub** > **Security&#x20;**> **Client&#x20;**> **Details**. | Yes          |
+| Stream id          | The default SDS stream. The Sequential Data Store stream name is found in **Aveva Data Hub** > **Data Management** . The Stream ID can be found in a stream’s details.                                                                                            | Yes          |
+| Namespace          | The Namespace of the Default SDS stream name.                                                                                                                                                                                                                     | Yes          |
+| Throttling limit   | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                                                                            | No           |
+| Persistent storage | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.                                                             | No           |
+| Queue mode         | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.                                                              | No           |

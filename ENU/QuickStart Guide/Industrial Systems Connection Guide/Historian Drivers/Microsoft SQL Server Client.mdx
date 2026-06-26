@@ -1,0 +1,217 @@
+---
+title: Microsoft SQL Server Client
+slug: historian-mssql-server-client
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+# Overview
+
+To set up and configure this device in Litmus Edge, you must:
+
+- Step 1: Obtain the appropriate SQL Server connection details
+- Step 2: Set up the Microsoft SQL Server Client Device in Litmus Edge DeviceHub
+- Step 3: Configure a Tag with defined SQL Queries
+
+# Step 1: Obtain SQL Server connection details
+
+You require the following connection information to connect to Microsoft SQL Server. Find this information on Microsoft SQL Server Management Studio or from the appropriate server admin.
+
+- **Address:** IP address/domain for the SQL server
+- **Port:** Port to connect to the SQL server
+- **Database:** SQL database name
+- **Username and Password:** Authentication credentials to connect to SQL server
+
+# Step 2: Set up the SQL Server Client Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device](<././././Product Features/DeviceHub/Devices/Connect a Device.md>) with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                                                       |
+| ---------------------- | ----------------------------------------------------------- |
+| **Type**               | Historian                                                   |
+| **Driver**             | Microsoft SQL Server Client                                 |
+| **Name**               | User-defined name for the device in Litmus Edge             |
+| **Description**        | (Optional) Description for device                           |
+| **Network Address**    | SQL address you found in Step 1                             |
+| **Network Port&#x20;** | SQL port you found in Step 1                                |
+| **Instance**           | (Optional) Server Instance path                             |
+| **Database**           | Name of database in SQL server                              |
+| **Username**           | Enter username of SQL account                               |
+| **Password**           | Enter password of SQL account                               |
+| **Encryption**         | Select desired encryption mode. &#xA;\* None: No encryption |
+
+- Optional: Doesn't require certificate
+- Mandatory: Verify certificate
+- Strict: Verify certificate and use TDS 8.0 |
+  \| **Validate Query**     | Parse Queries and Validate Syntax (MySQL Syntax Only)                                                                                                                            |
+
+There are additional advanced configuration that can be defined for the SQL device by setting **Advanced** to `Show`. These settings are optional.
+
+| Parameter              | Value                                                                     |
+| ---------------------- | ------------------------------------------------------------------------- |
+| **App name**           | Client application ID                                                     |
+| **Host Name**          | Client Workstation ID                                                     |
+| **Request Timeout**    | Request timeout in seconds. Default 10 seconds.                           |
+| **Connection Timeout** | Connection timeout in seconds. Default 5 seconds.                         |
+| **Keep Alive**         | Interval in seconds to keep the TCP connection alive. Enter 0 to disable. |
+| **Packet Size**        | Maximum packet size for SQL query results                                 |
+
+# Step 3: Configure a Tag with defined SQL Queries
+
+When you [Add a Tag](<././././Product Features/DeviceHub/Tags/Add a Tag.md>) to the connected device, see the following Register Table and Tag Parameters sections. You can also [Browse and Add Tags from a Device](<././././Product Features/DeviceHub/Tags/Browse and Add Tags from a Device.md>) for the device.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata](<././././How-To Guides/DeviceHub Guides/Organize Device and Tag Data by Using Metadata.md>)
+- [Tag Formula Variables](<././././Product Features/DeviceHub/Tags/Tag Formula Variables.md>)
+
+## Register Table
+
+| **Name**                  | **Value Types**                                                                                       |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Table - Multi-Row Value   | JSON                                                                                                  |
+| Record - Single-Row Value | JSON, BOOL, BYTES, FLOAT32, FLOAT64, INT8, INT16, INT32, INT64, STRING, UINT8, UINT16, UINT32, UINT64 |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should query the SQL server
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.&#x20;
+- **Data Query:** Enter the desired SQL query.
+- **Only Publish On Change:&#x20;**&#x53;elect **Disabled** or **Enabled**. Select **Enabled** for Microsoft SQL Server Change Data Capture (CDC) feature.
+- **Parse Timestamp:&#x20;**&#x53;elect **Column Index**, **Column Name** or **None**.
+  - Timestamp value from a specific column Index or Name, will be used as the `timestamp` value in the DeviceHub payload
+  - Only available when **Name** is set to **Record - Single-Row Value**
+- **Timestamp Index/Name:&#x20;**&#x44;efine the column index or name from the SQL table
+- **Parse Value:&#x20;**&#x53;elect **Column Index**, **Column Name** or **None**.
+  - Value from a specific column Index or Name, will be used as the `value` in the DeviceHub payload
+  - Only available when **Name** is set to **Record - Single-Row Value**
+  - Value Type defined above must match the SQL Column datatype
+- **Value Index/Name:&#x20;**&#x44;efine the column index or name from the SQL table
+- **Endianness:** Select the endianness, either Little or Big.
+  - **Little-Endian:&#x20;**&#x54;he "little end" (the least significant byte) is stored first at the lowest memory address.
+  - **Big-Endian:&#x20;**&#x54;he "big end" (the most significant byte) is stored first at the lowest memory address.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>
+
+# Enabling Change Data Capture (CDC):
+
+CDC lets our product read only what changed in your Microsoft SQL Server tables instead of re-reading everything. For more information on CD please refer to [Microsoft SQL CDC documentation.](https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-data-capture-sql-server?view=sql-server-ver17)
+
+In order to enable CDC, make sure **Only Publish On Change** is set to Enabled.
+
+Each CDC-enabled Tag uses three queries you provide:
+
+<Paragraph listStyleType="decimal" indent="2">
+  Data Query: SQL query to return desired results.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="2" indent="2">
+  Init Query: returns the initial CDC position so we know where to start.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="3" indent="2">
+  Change Query: returns only the changes since the last position.
+</Paragraph>
+
+# Examples:
+
+This example shows the following SQL table in our Microsoft SQL server:
+
+### SQL table:
+
+Database: `OTdata`
+
+Table Name: `Metrics`
+
+| **Timestamp**           | **ID** | **Metric Name** | **Value** | **Area** | **Line** | **Machine**        |
+| ----------------------- | ------ | --------------- | --------- | -------- | -------- | ------------------ |
+| 2025-06-18 08:20:00.000 | 1      | Temperature     | 56        | A1       | L1       | Temperature sensor |
+| 2025-06-18 08:20:00.000 | 2      | Pressure        | 500       | A1       | L3       | Boiler             |
+| 2025-06-18 08:20:00.000 | 3      | Power           | 4000      | A1       | L4       | Laser cutter       |
+| 2025-06-19 08:20:00.000 | 4      | Temperature     | 53        | A1       | L1       | Temperature sensor |
+| 2025-06-19 08:20:00.000 | 5      | Pressure        | 550       | A1       | L3       | Boiler             |
+| 2025-06-19 08:20:00.000 | 6      | Power           | 4005      | A1       | L4       | Laser cutter       |
+| 2025-06-20 08:20:00.000 | 7      | Temperature     | 51        | A1       | L1       | Temperature sensor |
+| 2025-06-20 08:20:00.000 | 8      | Pressure        | 600       | A1       | L3       | Boiler             |
+| 2025-06-20 08:20:00.000 | 9      | Power           | 4010      | A1       | L4       | Laser cutter       |
+
+### Tag Configuration 1:
+
+Name: `Table - Multi-Row Value`
+
+Query: `SELECT * FROM [OTdata].[Metrics]`
+
+Result:
+
+```json
+{
+  "success": true,
+  "datatype": "JSON",
+  "timestamp": 1683901823577,
+  "registerId": "DBE0C6D2-A91D-49D1-9CB7-DBF3C6D9C919",
+  "value": {
+    "Fields":["Timestamp","ID","Metric Name", "Value", "Area", "Line", "Machine" ],
+    "Types":["DATE","INT","VARCAR","INT","VARCAR","VARCAR","VARCAR"],
+    "Data":[
+      ["2025-06-18 08:20:00.000",1,"Temperature", 56, "A1", "L1","Temperature sensor"],
+      ["2025-06-18 08:20:00.000",2,"Pressure", 500, "A1", "L1","Boiler"],
+      ["2025-06-18 08:20:00.000",3,"Power", 4000, "A1", "L4","Laser cutter"],
+      ...
+      ["2025-06-18 08:20:00.000",9,"Power", 4010, "A1", "L4","Laser cutter"],
+    ]
+  },
+  "deviceID": "7C01E851-FE46-463A-90EC-98AA3F12BE09",
+  "tagName": "table_all",
+  "deviceName": "MSSQL_DB",
+  "description": "",
+  "metadata": {}
+}
+```
+
+### Tag Configuration 2:
+
+Name: `Record - Single-Row Value`
+
+Value Type: `INT`
+
+Query: `SELECT * FROM [OTdata].[Metrics]`
+
+Parse Timestamp: `Column Index`
+
+Timestamp Index: `0`
+
+Parse Value: `Column Name`
+
+Value Index: `Value`
+
+Result:
+
+```json
+{
+  "success": true,
+  "datatype": "JSON",
+  "timestamp": 1750407600000,
+  "registerId": "DBE0C6D2-A41D-46D1-2CB7-DBF3C6D9C919",
+  "value": 4010,
+  "deviceID": "7C01E851-FE46-463A-90EC-98AA3F12BE09",
+  "tagName": "table_last_entry",
+  "deviceName": "MSSQL_DB",
+  "description": "",
+  "metadata": {}
+}
+```

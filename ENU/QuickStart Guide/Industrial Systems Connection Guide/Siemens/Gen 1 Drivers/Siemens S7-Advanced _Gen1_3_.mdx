@@ -1,0 +1,167 @@
+---
+title: Siemens S7-Advanced (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/siemens/siemens-s7-advanced-gen1
+description: Review the following information for setting up and configuring the Siemens S7-Advanced (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Siemens S7-Advanced (Gen1.3) driver.
+
+To review a use case for this driver, see [Use the Siemens S7 Browse Agent](<./././././How-To Guides/DeviceHub Guides/Use the Siemens S7 Browse Agent.md>).
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter        | Compatible items                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**                | Ethernet                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Validated devices/series**   | [S7-300](https://new.siemens.com/global/en/products/automation/systems/industrial/plc/simatic-s7-300.html)&#xA;[S7-400&#xA;](https://new.siemens.com/global/en/products/automation/systems/industrial/plc/simatic-s7-400.html)[S7-1200&#xA;](https://www.siemens.com/global/en/products/automation/systems/industrial/plc/s7-1200.html)[S7-1500](https://new.siemens.com/global/en/products/automation/systems/industrial/plc/simatic-s7-1500.html) |
+| **Replaced with Gen 2 driver** | [Siemens S7](<././Gen 2 Drivers/Siemens S7.md>)                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it when needed.&#x20;
+   - **Device**: Siemens S7 CPU1212C AC/DC/RLY
+   - **Communication I/F**: Profitnet. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/aFXzRwgeMGU4YsGiDd8XS_siemens-s7-advanced.png" size="80" width="600" height="642" position="flex-start" caption="Reference image of device" indent="2" showCaption="true"></Image>
+
+2. Launch the **Primary Setup Tool**.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/nji_vwk1BHrAp49BTcs5e_siemens-s7-advanced-setup482x338.png" size="80" width="482" height="338" position="flex-start" caption="Primary Setup Tool icon" indent="2" showCaption="true"></Image>
+
+3. Set up the PG/PC Interface using either software or the PC control panel.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Ho07N8UzR6K97KTYz29bv_siemens-s7-advanced-interface.png" size="80" width="730" height="439" position="flex-start" caption="Set PC/PC Interface option" indent="2" showCaption="true"></Image>
+
+4. Select the network adapter, making sure the PC and the device are on the same subnet.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7xQQsTfYIhVWVkNQnYFKS_siemens-s7-advanced-adapter.png" size="50" width="266" height="285" position="flex-start" caption="Select the network adapter" indent="2" showCaption="true"></Image>
+
+5. Browse the Siemens devices on the network, select the device, and then set up the network parameters.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/a8e0O1GK5B7m-ZwH_ysOP_siemens-s7-advanced-parameters.png" size="80" width="480" height="343" position="flex-start" caption="Network parameters section" indent="2" showCaption="true"></Image>
+
+6. Launch the TIA Portal v14 software and create a project file with the correct device model and version.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/8c2pGUw0S64-K4gRVDZLL_siemens-s7-advanced-project.png" size="80" width="1230" height="653" position="flex-start" caption="TIA Portal software" indent="2" showCaption="true"></Image>
+
+7. Click the **Accessible devices&#xA0;**&#x69;con and search for the devices in the same subnet segment.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/MdPHhQXILbxwjgquaDzFk_siemens-s7-advanced-search.png" size="80" width="1234" height="653" position="flex-start" caption="Accessible devices dialog box" indent="2" showCaption="true"></Image>
+
+8. Right-click the device, and select **Properties**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7CMYvm85pOXt2SlbZTAHK_siemens-s7-advanced-property.png" size="50" width="372" height="603" position="flex-start" caption="Properties option" indent="2" showCaption="true"></Image>
+
+9. Set up the network parameters. The following settings are applicable for Siemens S7-1200 and Siemens S7-1500 only. The changes must be made when the TIA Portal is offline, and then downloaded to the PLC.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/IXAjErx11fr3vVh9nxsfX_siemens-s7-advanced-network.png" size="80" width="612" height="408" position="flex-start" caption="Ethernet addresses section" indent="2" showCaption="true"></Image>
+
+10. Click **Protection & Security > Connection mechanisms**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/5pJzRMQiuIfoOAT1GTeZv_siemens-s7-advanced-mechanism.png" size="80" width="609" height="406" position="flex-start" caption="Connection mechanisms section" indent="2" showCaption="true"></Image>
+
+11. In order to read the data block data, uncheck the **Optimized block access&#xA0;**&#x6F;ption.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7UHrVQ1PfGfKnu8DMmprG_siemens-s7-advanced-optimized-block.png" size="80" width="764" height="398" position="flex-start" caption="Optimized block access option" indent="2" showCaption="true"></Image>
+
+12. Select **Profinet Interface > Advanced Options > Port&#xA0;**&#x61;nd set the **Partner port&#xA0;**&#x74;o **Any Partner**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/00afZ7iwrTIQIPK8RSlTH_siemens-s7-advanced-partner-port.png" size="80" width="1325" height="666" position="flex-start" caption="Any Partner option" indent="2" showCaption="true"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                    |
+| ------------------- | ---------------------------------------- |
+| **Type**            | Siemens                                  |
+| **Driver**          | Siemens S7-Advanced (Gen1.3)             |
+| **Network Address** | The device address you defined in Step 1 |
+| **Port**            | 102                                      |
+| **Slot**            | 1                                        |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Type**                                                                                  | **Address Format** | **Min Address** | **Max Address** |
+| -------- | ----------------------------------------------------------------------------------------------- | ------------------ | --------------- | --------------- |
+| I        | bit, byte, char, sint, word, int, counter, timer, dword, dint, real, lreal, lword, lint, string | DDDDd              | 0               | 40957           |
+| Q        | bit, byte, char, sint, word, int, counter, timer, dword, dint, real, lreal, lword, lint, string | DDDDd              | 0               | 40957           |
+| M        | bit, byte, char, sint, word, int, counter, timer, dword, dint, real, lreal, lword, lint, string | DDDDd              | 0               | 40957           |
+| PE       | bit, byte, char, sint, word, int, counter, timer, dword, dint, real, lreal, lword, lint, string | DDDDd              | 0               | 40957           |
+| PA       | bit, byte, char, sint, word, int, counter, timer, dword, dint, real, lreal, lword, lint, string | DDDDd              | 0               | 40957           |
+| MK       | bit, byte, char, sint, word, int, counter, timer, dword, dint, real, lreal, lword, lint, string | DDDDd              | 0               | 40957           |
+| DB       | bit, byte, char, sint, word, int, counter, timer, dword, dint, real, lreal, lword, lint, string | DDDDDd             | 0               | 327677          |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **DB Number**: Enter the data block number of the tag.&#x20;
+- **Polling Group**: Enter the polling group.&#x20;
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>
+
+# Export Tags as PDF
+
+You have the option of exporting tags as a PDF file.&#x20;
+
+## Export Tags with Simatic Manager
+
+**To export tags with Simatic Manager:**
+
+1. Start **Simatic Manager&#xA0;**&#x61;nd open the project file.
+2. Right-click the target **Data Block**, and then select **Print > Object Contents**.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/msRncgVqobamieLDumJXf_siemens-s7-advanced-object-contents.png" size="80" width="916" height="395" caption="Print Object Contents option" position="center" indent="2" showCaption="true"></Image>
+
+3. Save the contents of the data block as a PDF file.
+
+## Export Tags with the TIA Portal
+
+**To export tags with the TIA Portal:**
+
+1. Launch the TIA Portal v14 software and open the project file.
+2. Open the **Data Block&#x20;**&#x79;ou want to export.&#x20;
+3. From the toolbar, select **Project > Print**.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/5AU2rdx2KeUqzN2_KOx3Z_siemens-s7-advanced-tia-portal.png" size="80" width="1241" height="373" caption="Print option" position="center" indent="2" showCaption="true"></Image>
+
+4. Save the contents of the data block as a PDF file.&#x20;

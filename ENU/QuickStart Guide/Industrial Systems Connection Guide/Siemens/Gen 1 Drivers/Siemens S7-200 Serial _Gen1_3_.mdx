@@ -1,0 +1,109 @@
+---
+title: Siemens S7-200 Serial (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/siemens/siemens-s7-200-serial-gen1
+description: Review the following information for setting up and configuring the Siemens S7-200 Serial (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Siemens S7-200 Serial (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                             |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Driver type**              | Serial                                                                                                       |
+| **Validated devices/series** | [S7-200](https://cache.industry.siemens.com/dl/files/582/1109582/att_22063/v1/s7200_system_manual_en-US.pdf) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+Record the serial communication parameters for the device. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**&#x20;
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Siemens CPU 222
+   - **Communication I/F**: RS485. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/d964M7ieFCw7hCxKiKHQT_siemens-s7-200-serialdevice.png" size="80" width="725" height="878" position="flex-start" caption="Reference image of device" indent="2" showCaption="true"></Image>
+
+2. Launch Step7-Micro/WIN software and click **Set PG/PC Interface**.&#x20;
+3. Select **PC/PPI Cable**, and then click **Property**.
+4. From th&#x65;*&#x20;Local Communication* dialog box, select **USB**.
+5. Click **Communication**, and then click **Double-Click to Refresh**.
+   The device is detected.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                             |
+| ---------------------- | --------------------------------- |
+| **Type**               | Siemens                           |
+| **Driver**             | Siemens S7-200 Serial (Gen1.3)    |
+| **Communication Port** | Local Serial connection file path |
+| **Baud Rate**          | 38400                             |
+| **Data Bits**          | 8                                 |
+| **Parity**             | Even, Odd, None                   |
+| **Stop Bits**          | 1                                 |
+| **Station**            | 1                                 |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Type**                                   | **Address Format** | **Min Address** | **Max Address** |
+| -------- | ------------------------------------------------ | ------------------ | --------------- | --------------- |
+| I        | bit, byte, sint, word, int, dword, dint, real    | DDo                | 0               | 317             |
+| Q        | bit, byte, sint, word, int, dword, dint, real    | DDo                | 0               | 317             |
+| M\_Bit   | bit                                              | DDo                | 0               | 317             |
+| V\_Bit   | bit                                              | DDDDo              | 0               | 20477           |
+| S\_Bit   | bit                                              | DDo                | 0               | 287             |
+| SM\_Bit  | bit                                              | DDDo               | 0               | 5497            |
+| T\_Bit   | bit                                              | DDD                | 0               | 255             |
+| C\_Bit   | bit                                              | DDD                | 0               | 255             |
+| AI       | byte, sint, word, int, dword, dint, real         | DD                 | 0               | 31              |
+| AQ       | byte, sint, word, int, dword, dint, real         | DD                 | 0               | 31              |
+| M        | byte, sint, word, int, dword, dint, real         | DD                 | 0               | 31              |
+| S        | byte, sint, word, int, dword, dint, real         | DD                 | 0               | 31              |
+| SM       | byte, sint, word, int, dword, dint, real         | DDD                | 0               | 549             |
+| T        | dword                                            | DDD                | 0               | 255             |
+| C        | word                                             | DDD                | 0               | 255             |
+| V        | byte, sint, word, int, dword, dint, real, string | DDDD               | 0               | 2047            |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. Available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. Available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to publish NATS messages only when the *value&#x20;*&#x70;arameter changes to a new one value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics are not affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

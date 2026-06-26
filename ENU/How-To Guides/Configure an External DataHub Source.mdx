@@ -1,0 +1,79 @@
+---
+title: Configure an External DataHub Source
+slug: how-to-guides/configure-external-datahub-source
+description: Learn how to configure an external DataHub source.
+docTags: 
+createdAt: Thu May 28 2026 23:47:01 GMT+0300 (Eastern European Summer Time)
+---
+
+When you [Configure the Timeseries DB](<././Product Features/DataHub/Configure the Timeseries DB.md>) in DataHub, you have the option of selecting an internal or external source. This guide will show you how to configure an external DataHub source with an InfluxDB database.&#x20;
+
+# Video
+
+<Iframe code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/SiZRHbFMpkU?si=EGmlduEFTbR7qjhr&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; referrerpolicy=&#x22;strict-origin-when-cross-origin&#x22; allowfullscreen></iframe>" iframeHeight="0">
+
+</Iframe>
+
+# User Scenario
+
+In this guide you will deploy InfluxDB from the same computer (Windows-based) running Litmus Edge and then configure the InfluxDB database for the DataHub Timeseries DB.
+
+For your specific scenario, you can deploy an external InfluxDB database and connect to it from Litmus Edge DataHub.&#x20;
+
+# Before You Begin
+
+- You will need to set up your computer so that it can run Docker commands.&#x20;
+- Follow the steps to [Connect a Device](<././Product Features/DeviceHub/Devices/Connect a Device.md>) (with **Enable Data Store** selected) and [Add Tags](#) in DeviceHub. The data from the tags will be used to test the connection of the Timeseries DB.&#x20;
+
+# Step 1: Set up InfluxDB
+
+You will first need to pull an InfluxDB image file and then run it on your computer.&#x20;
+
+**To set up InfluxDB:**
+
+1. On your computer, open the command prompt window.&#x20;
+2. Run the following command.&#x20;
+   `docker run --name influxdb -p 8086:8086 influxdb:2.0.9`
+   The command will create the InfluxDB container with the name "influxdb", on port 8086, and install InfluxDB version 2.0.9. If you are using a different version of InfluxDB, update the version number.&#x20;
+3. Once the pulling and running of InfluxDB is complete, open a browser window and enter http\://localhost:8086 in the address window.&#x20;
+   The setup screen for InfluxDB displays.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/-AE-DmvxDBy5oTN-pgRrK_influxdbinitial-user.png "InfluxDB initial setup screen")
+4. Configure the details for the initial user. You will need to refer to the organization name when configuring the Timeseries DB in Litmus Edge.&#x20;
+   - **Username**
+   - **Password**
+   - **Initial Organization Name**
+   - **Initial Bucket Name**
+5. Click **Continue**.&#x20;
+6. Continue setting up the database as needed.&#x20;
+7. Return to the homepage of InfluxDB.&#x20;
+8. Navigate to **Data&#x20;**> **Tokens**. Then, click the token name already created.&#x20;
+   Details for the token display.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Q5Fk7tvFfH8I6AO9-FY8k_tokens.png "The Tokens page")
+9. Click **Copy to Clipboard** and store the token somewhere securely. You will refer to this when setting up the Timeseries DB in Litmus Edge.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/W_Y_npKkQcRaTnMKokMR4_copytoken.png "Token details")
+
+Now that InfluxDB is configured to your specific requirements and you've collected the parameters needed to set up the connection, you can complete the setup in Litmus Edge.&#x20;
+
+# Step 2: Configure DataHub Timeseries DB
+
+You can now configure the DataHub Timeseries DB and use the InfluxDB database as the source.&#x20;
+
+**To configure the DataHub Timeseries DB:**
+
+1. Navigate to **DataHub&#x20;**> **Configuration**.&#x20;
+2. Click the toggle to enable the Timeseries DB and select the *Source type* of **External**.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/2OT5eoBSJlEGjTtmYToED_configure-external-datahub-source01.png)
+3. Configure the parameters.&#x20;
+   - **DB uri**: Enter **http\://localhost**:8086.
+   - **Auth token**: Paste the token copied in Step 1, number 9.&#x20;
+   - **Organization name**: Enter the organization name configured in Step 1, number 4.&#x20;
+   - **DB vendor**: Select **InfluxDB v2.x**.&#x20;
+   - **Description&#x20;**(Optional): Enter a description. &#x20;
+   - **Name**: Enter a name for the configuration.&#x20;
+4. Click **Save**.&#x20;
+5. Click **Test&#x20;**&#x61;nd review the result.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ITfI3vufE6iKtLRHmz_G6_testresult.png)
+
+# Step 3: Verify Connection in InfluxDB
+
+Return to the InfluxDB browser window and explore the metrics to ensure that data is being successfully sent from Litmus Edge to InfluxDB.&#x20;

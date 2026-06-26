@@ -1,0 +1,51 @@
+---
+title: MQTT - System Protobuf SSL
+slug: product-features/integration/integration-connectors/message-brokers/mqtt-system-protobuf-ssl
+description: Review parameters for the System Protobuf SSL connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+## Overview
+
+MQTT - System Protobuf SSL integration enables an Edge System to connect with a System Protobuf broker using SSL authentication.
+
+## Supported Versions
+
+Compatible with MQTT Protocol version 3.1.0 and MQTT Protocol version 3.1.1
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to MQTT Broker) - Yes
+- Inbound (Subscribe data from MQTT Broker to Edge) - Yes
+
+## Configurations
+
+| **Variable**           | **Detail**                                                                                                                                                                                                                                                                                                                                                                                                                         | **Required** |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name                   | Enter a name for the connector                                                                                                                                                                                                                                                                                                                                                                                                     | Yes          |
+| Hostname               | IP Address or Server FQDN of MQTT broker (Must be reachable from the Edge system)                                                                                                                                                                                                                                                                                                                                                  | Yes          |
+| Port                   | MQTT broker port                                                                                                                                                                                                                                                                                                                                                                                                                   | No           |
+| CA certificate         | CA Certificate for SSL connection                                                                                                                                                                                                                                                                                                                                                                                                  | No           |
+| Client id              | Unique client identity. If left blank, a default value is auto-generated.                                                                                                                                                                                                                                                                                                                                                          | Yes          |
+| Username               | User name                                                                                                                                                                                                                                                                                                                                                                                                                          | Yes          |
+| Password               | User password                                                                                                                                                                                                                                                                                                                                                                                                                      | Yes          |
+| QoS                    | The Quality of Service (QoS) level is an agreement between the sender of a message and the receiver of a message that defines the guarantee of delivery for a specific message.&#xA;You can publish several messages simultaneously. When you publish, a larger value allows more throughput but may lead to packages losing messages despite assigning QoS=1.&#xA;**Note**: the QoS option depends upon the server configuration. | No           |
+| Parallel publish count | For example, Mosquitto has the following options:&#xA;\* max\_queued\_messages (100 by default)                                                                                                                                                                                                                                                                                                                                    |              |
+
+- max\_queued\_bytes (0 by default)
+  According to the Mosquitto documentation, once this limit has been reached, subsequent messages are silently dropped.
+  You can modify the server configuration or set this value in accordance with the server option.                                                                   | Yes          |
+  \| Integration topic      | Default topic for publishing or subscribing                                                                                                                                                                                                                                                                                                                                                                                          | Yes          |
+  \| Throttling limit       | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                                                                                                                                                                                                                                               | No           |
+  \| Persistent storage     | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.                                                                                                                                                                                                                                | No           |
+  \| Queue mode             | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.                                                                                                                                                                                                                                 | No           |
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+| **Product**              | **Version** | **Date**     |
+| ------------------------ | ----------- | ------------ |
+| Mosquitto Message Broker | 1.x         | Nov 14, 2019 |
+| HiveMQ                   | 2.x         | Nov 14, 2019 |

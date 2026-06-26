@@ -1,0 +1,105 @@
+---
+title: Omron Fins Ethernet (Gen1)
+slug: quickstart-guide/industrial-systems-connection-guide/omron/omron-fins-ethernet-gen1
+description: Review the following information for setting up and configuring the Omron Fins Ethernet (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Omron Fins Ethernet (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter        | Compatible items                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**                | Ethernet                                                                                                                                                                                                                                                                                                                                      |
+| **Validated devices/series**   | [CJ1](https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/cj1/index.html)&#xA;[CJ2](https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/cj2/index.html)&#xA;[CS](https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/cs1/index.html) |
+| **Replaced with Gen 2 driver** | [Omron Fins Ethernet](<Omron Fins Ethernet.mdx>)                                                                                                                                                                                                                                                                                              |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Record the following information and refer to it as needed.&#x20;
+   - **Device**: Omron CJ2M CPU15
+   - **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/c2ZbyGeMDiWLkzNeB5gLB_omron-fins-ethernet.png" size="80" width="679" height="255" position="flex-start" caption="Reference image of device" indent="2" showCaption="true"></Image>
+
+2. Connect the PC to the device using USB cable.
+3. Launch CX Programmer and create a project.
+4. Click **PLC > Work Online**.
+5. Open IO Table and Unit Setting and create IO table based on hardware allocation.
+6. Set up communication Parameters for communication module.
+7. Transfer to PLC.
+8. Log in using Ethernet, click **Offline**, and then click the device name.
+9. Select Ethernet as the network type, click **Settings**, set up the IP and Port number, and then click **PLC > Work Online**.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                        |
+| ------------------- | -------------------------------------------- |
+| **Type**            | Omron                                        |
+| **Driver**          | Omron Fins Ethernet (Gen1)                   |
+| **Network Address** | The device address you defined during Step 1 |
+| **Port**            | 9600                                         |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Types** | **Address Format** | **Min Address** | **Max Address** | **Description** |
+| -------- | --------------- | ------------------ | --------------- | --------------- | --------------- |
+| CIO\_bit | bit             | DDDDDdd            | 0               | 3276715         | Channel I/O bit |
+| CIO      | word, string    | DDDDD              | 0               | 32767           | Channel I/O     |
+| W        | word, string    | DDDDD              | 0               | 32767           | Work Area       |
+| A        | word, string    | DDDDD              | 0               | 32767           | Auxiliary Relay |
+| H        | word, string    | DDDDD              | 0               | 32767           | Holding Area    |
+| C        | word, string    | DDDDD              | 0               | 32767           | Counter         |
+| T        | word, string    | DDDDD              | 0               | 32767           | Timer           |
+| D        | word, string    | DDDDD              | 0               | 32767           | Data Memory     |
+| EM0      | word, string    | DDDDD              | 0               | 32767           | Extended Memory |
+| EM1      | word, string    | DDDDD              | 0               | 32767           | Extended Memory |
+| EM2      | word, string    | DDDDD              | 0               | 32767           | Extended Memory |
+| EM3      | word, string    | DDDDD              | 0               | 32767           | Extended Memory |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. Available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. Available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to publish NATS messages only when the *value&#x20;*&#x70;arameter changes to a new one value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics are not affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

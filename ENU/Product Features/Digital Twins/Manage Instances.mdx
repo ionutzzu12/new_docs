@@ -1,0 +1,107 @@
+---
+title: Manage Instances
+slug: product-features/digital-twins/manage-instances
+description: Learn how to manage digital twins instances.
+docTags: 
+createdAt: Thu May 28 2026 23:47:00 GMT+0300 (Eastern European Summer Time)
+---
+
+Manage your Digital Twins instances from **Digital Twins** > **Instances**.
+
+<hint type="info">
+  **Note**: Digital Twins requires a Scale or Growth Litmus license.
+</hint>
+
+## Change instance view
+
+Click **Show instances grid** or **Show instances table** to switch between views. Use the search bar to filter by instance name.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/WMUy048np95x6VGUh6syt_image.png" size="80" width="1919" height="401" position="flex-start" caption="Change instance view icons" darkWidth="1919" darkHeight="401" showCaption="true"></Image>
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Pj3qgBxXRRMdlJoILgUJp_image.png" size="80" width="943" height="498" position="flex-start" caption="The instance search bar" darkWidth="943" darkHeight="498" showCaption="true"></Image>
+
+## Instance tile actions
+
+From the grid view, each instance tile provides the following actions.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/F80bGcoZm7FbRlDDK6sya_image.png)
+
+<table isTableHeaderOn="true" columnWidths="307,308">
+  <tr>
+    <td>
+      Action
+    </td>
+    <td>
+      Details
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1] **Action menu**
+    </td>
+    <td>
+      Contains Disable/Enable, Edit, and Delete options.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2] **Copy Instance Topic**
+    </td>
+    <td>
+      Copies the instance topic string to the clipboard.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3] **Export JSON Schema**
+    </td>
+    <td>
+      Downloads the instance schema as a JSON file.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4] **Open Parameters**
+    </td>
+    <td>
+      Available when one or more dynamic attributes have topic expressions defined. Opens a dialog for updating the parameter values for this instance.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[5] **Show Topics**
+    </td>
+    <td>
+      Displays all available topics for the instance, including any attribute-level topics if Publish Attributes is enabled.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[6] **Disable/Enable instance**
+    </td>
+    <td>
+      Pauses or resumes data publishing for the instance without deleting it.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[7] **Edit**
+    </td>
+    <td>
+      Update the associated model, instance name, interval, and Flatten Hierarchy setting.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[8] **Delete**
+    </td>
+    <td>
+      Removes the instance permanently.
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note**: Enable **Flatten Hierarchy** to convert nested JSON objects to single-level, dot-notation key-value pairs. For example, `dynamic_attribute.Temperature.value: 30`. Use this when sending instance payloads to tabular databases such as SQL or InfluxDB.
+</hint>
+

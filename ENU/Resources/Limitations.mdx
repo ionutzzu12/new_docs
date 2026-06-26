@@ -1,0 +1,25 @@
+---
+title: Limitations
+slug: resources/limitations
+description: Review the list of identified limitations that are scheduled to be resolved.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+The following limitations have been identified. When they are resolved, they will be reported in the latest [Product Updates](<././Product Updates.md>) under *Resolved Issues*.&#x20;
+
+| Description                                                                                                                                                                                                                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Analytics:**&#xA;\* The first flow created in Flows Manager cannot be stopped or restarted in Safe Mode.                                                                                                                                                                                                                                |
+| **Applications**\*\*:\*\*&#xA;\* When a non-privileged user attempts to launch a privileged application, a `failed to create an application,undefined` error message incorrectly displays instead of `Failed to create an application. rejected by administrative policy: privileged and some directories require additional permission`. |
+| **Integration:**&#xA;\* Updating the **Bulk Insert Count** from `0` to any other value causes connectors to enter a failed state.                                                                                                                                                                                                         |
+
+- A `bulk operation limit of 1000 exceeded` error message displays when performing a bulk edit on less than 100 subscriptions.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+  \| **System****:**
+  \* After a system reset of an `.iso` deployment, certain services (such as DeviceHub API, Analytics API, and Message Broker) fail to initialize and remain in a failed state regardless of subsequent reboots.
+- LDAP searches can return an excessive number of records resulting in a `Size Limit Exceeded` error.
+- When the system generates a high volume of events from a single database file, the UI may become unresponsive in **System** > **Events**. Additionally, CSV files may not generate and download. As a workaround, use APIs to query events.
+- Importing a template with multiple connectors fails when a configuration issue occurred with one component. |
+  \| **High Availability:**
+  \* Changes in **Network** > **Interfaces** are not reflected on the backup node.
+- Proxy URLs configured on the primary node are not copied to the High Availability backup node.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |

@@ -1,0 +1,67 @@
+---
+title: Create Audio Notifications for Sensor Readings
+slug: how-to-guides/flows-guides/create-audio-notifications-for-sensor-readings
+description: You can create Flows to create dashboards for notifications. For example, a dashboard can notify you when sensor anomalies occur.
+docTags: 
+createdAt: Thu May 28 2026 23:47:03 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Flows to create dashboards to notify you when sensor anomalies occur.
+
+# User Scenario
+
+Imagine a situation in an automobile assembly plant where temperature sensors detect readings that are beyond the normal range. In such a scenario, the system can immediately trigger an audio alert, which can help to quickly address potential issues.&#x20;
+
+**To create a flow that notifies you of temperature reading alerts:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow. See [Create a Flow](<./././Product Features/Flows Manager/Create a Flow.md>) to learn more.
+2. Drag an **Inject** node, **Function&#x20;**&#x6E;ode, and **Serial out** node onto the canvas and connect them.
+3. Create a new connection by adding **Serial in**, **Function**, and **Audio out&#x20;**&#x6E;odes to the canvas and connecting them together.
+   The *two connections* should be connected as shown below.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/011yIOGsXZY095XaicBdv_image.png "Flows canvas")
+4. Double-click either the **Serial in** or **Serial out&#x20;**&#x6E;ode.
+   The *Edit serial node&#x20;*&#x64;ialog box appears.&#x20;
+   - **Serial Port:&#x20;**&#x43;lick the **Edit&#x20;**&#x69;con.&#x20;
+     The *Edit serial-port node&#x20;*&#x70;age opens.
+     - Create a configuration for the connected device. Make sure that the **Serial Port&#x20;**&#x61;nd **Baud rate** match the device information.
+     - Click **Update**.
+   - Click **Done**.
+5. Repeat **step 4** to configure each *serial* node in the flow.
+6. Double-click the **Inject&#x20;**&#x6E;ode.&#x20;
+   The *Edit inject node&#x20;*&#x64;ialog box appears.
+   - **msg.payload**: Select **string&#x20;**&#x66;rom the drop-down option and enter a string message that requests the desired data from it.&#x20;
+     In this use case, *F* is used to request temperature data in Fahrenheit from the sensor.&#x20;
+   - **Repeat:** Set an interval to have the node automatically request data after every one second.
+   - Click **Done**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Y5W_AB5PZb0o9ZTrSaCcB_image.png" size="70" width="778" height="893" position="center" caption="Edit inject node dialog box" indent="3" showCaption="true"></Image>
+
+7. Double-click th&#x65;**&#x20;Audio out** node.&#x20;
+   The *Edit audio out node* dialog box appears.
+   - **TTS Voice**: Select a voice to use.&#x20;
+   - **Play audio when window not in focus:** Select the check box to hear the alert when the flow is minimized.
+   - **Group:** If needed, click the **Edit&#x20;**&#x69;con to create a dashboard.
+   - **Name:&#x20;**&#x45;nter a user-define&#x64;**&#x20;name.**&#x20;
+   - Click **Done**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AD64zUX-fM6FXfYFk0Mjq_image.png" size="70" width="800" height="442" position="center" caption="Edit audio out node dialog box" indent="3" showCaption="true"></Image>
+
+8. Double-click the **Function&#x20;**&#x6E;ode connected to the *Inject* node and *Serial out* node.
+   The *Edit function node* dialog box appears.&#x20;
+   - **On Message:** Enter code that adds a carriage return to the message to ensure that the device reads it properly.
+     `msg.payload = msg.payload + "\r"; // Add a carriage return to the output.     `
+     `return msg;`
+9. Double-click the **Function&#x20;**&#x6E;ode connected to the *Serial in* node and *Audio out* node.
+   The *Edit function node* dialog box appears.&#x20;
+   - **On Message:&#x20;**&#x45;nter code that checks for the sensor reading and outputs a message when it is above or below a certain threshold.
+     `var val = parseFloat(msg.payload); // Gets the temperature in degrees Fahrenheit from the string sent by the device.     `
+     `if (val > 70.0) { // Checks for if the temperature is higher than 70 deg F     `
+     `msg.payload = "high"; // Sets the notification message to say "high" when the temperature is high.     `
+     `}     `
+     `else {     `
+     `msg.payload = "low"; // Sets the notification message to say "low" when the temperature is lower than 70 deg F.     `
+     `}     `
+     `return msg;`
+10. Click **Deploy&#x20;**&#x61;nd expand the message window beneath the flow.
+11. Click the **Dashboard&#x20;**&#x69;con. Then, click the **Expand** icon to open the dashboard to begin hearing the audio notifications.
+    ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/BeQ1CtJSD6J_q5oBgXs7J_image.png "The expanded dashboard icon")

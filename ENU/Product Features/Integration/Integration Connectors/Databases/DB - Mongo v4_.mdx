@@ -1,0 +1,50 @@
+---
+title: DB - Mongo v4+
+slug: product-features/integration/integration-connectors/databases/db-mongo-v4
+description: Review parameters for the DB - Mongo v4+ connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:10 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [MongoDB Integration Guide](<./././././How-To Guides/Integration Guides/MongoDB Integration Guide.md>).&#x20;
+
+## Overview
+
+MongoDB integration enables an Edge System to connect with a MongoDB database.&#x20;
+
+## Supported Versions
+
+- MongoDB 3.6 or higher
+
+## Supported Communication
+
+- Outbound (Edge to Database) - Yes
+- Inbound (Database to Edge) - No
+
+## Configurations
+
+| **Variable**         | **Detail**                                                                                                                                                                                                                                                                      | **Required** |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name                 | Enter a name for the connector                                                                                                                                                                                                                                                  | Yes          |
+| Hostname             | IP Address or Hostname of MongoDB Server (Must be reachable from the Edge system)                                                                                                                                                                                               | Yes          |
+| Port                 | MongoDB Server port                                                                                                                                                                                                                                                             | Yes          |
+| Username             | User name                                                                                                                                                                                                                                                                       | No           |
+| Password             | User password                                                                                                                                                                                                                                                                   | No           |
+| Auth database        | Authentication database name                                                                                                                                                                                                                                                    | No           |
+| Auth mechanism       | Authentication mechanism (can be one of "SCRAM-SHA-1", "MONGODB-CR", "MONGO-CR", "PLAIN", "MONGODB-X509")                                                                                                                                                                       | No           |
+| Database             | Database name. If database does not exist it is created.                                                                                                                                                                                                                        | Yes          |
+| Collection           | Collection name. If collection does not exist it is created.                                                                                                                                                                                                                    | Yes          |
+| Show Mapping         | Data from a predefined table could be mapped into a custom one. Example: \{"from": "to"} where "from" is a column from predefined table, and "to" is a column from destination table. See [Work with Tables in SQL Connectors (Create Table and Show Mapping)]() to learn more. |              |
+| Commit timeout       | Transaction commit timeout (ms)                                                                                                                                                                                                                                                 | No           |
+| Max transaction size | Maximum number of messages before a transaction is committed regardless of timeout                                                                                                                                                                                              | No           |
+| Throttling limit     | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                                                                                          | No           |
+| Queue mode           | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.                                                                            | No           |
+| Persistent storage   | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.                                                                           | No           |
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+| **Product** | **Version** |
+| ----------- | ----------- |
+| MongoDB     | 4.2         |

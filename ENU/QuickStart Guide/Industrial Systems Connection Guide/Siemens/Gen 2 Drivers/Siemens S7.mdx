@@ -1,0 +1,180 @@
+---
+title: Siemens S7
+slug: siemens-s7
+description: Review the following information for setting up and configuring the Siemens S7 driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information to set up and configure the Siemens S7 driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Validated devices/series** | [S7-300](https://new.siemens.com/global/en/products/automation/systems/industrial/plc/simatic-s7-300.html)&#xA;[S7-400](https://new.siemens.com/global/en/products/automation/systems/industrial/plc/simatic-s7-400.html)&#xA;[S7-1200](https://www.siemens.com/global/en/products/automation/systems/industrial/plc/s7-1200.html)&#xA;[S7-1500](https://new.siemens.com/global/en/products/automation/systems/industrial/plc/simatic-s7-1500.html) |
+| **Replaces Gen 1 driver(s)** | [Siemens S7-Advanced (Gen1)](<././Gen 1 Drivers/Siemens S7-Advanced _Gen1_3_.md>) &#xA;Learn more about [Gen1 and Gen2 Driver Differences](<./././././Product Features/DeviceHub/Devices/Gen1 and Gen2 Driver Differences.md>)                                                                                                                                                                                                                      |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.
+
+## S7-1200 and S7-1500 Devices&#x20;
+
+**To configure your device:**
+
+1. Open your TIA Portal project.&#x20;
+2. In the project tree, right-click your PLC and select **Properties… from the popup menu.&#x20;**&#xA;The *Properties&#x20;*&#x77;indow opens.
+3. To obtain the device’s IP address (if you do not already have it):
+   - From the left pane, select **PROFINET** **interface > Ethernet addresses**.
+   - In the right pane, go t&#x6F;**&#x20;Internet protocol\*\*\*\* version 4 (IPv4)**, find the IP address of the PLC, and copy it aside.
+4. From the left pane, select **PROFINET interface** > **Advanced options** > **Port \[X1 P1]** > **Port interconnection.**
+5. In the right pane, enter “Any partner” in the **Partner port** field.
+6. From the left pane, select **Protection & Security > Access level**.
+7. In the right pane, select the **Full access** radio button.
+8. From the left pane, select **Protection & Security > Connection mechanisms**.
+9. In the right pane, select the **Permit access with PUT/GET communication from remote partner&#x20;**&#x63;heck box.
+10. Clic&#x6B;**&#x20;OK**.
+11. In the project tree, right-click the data block you want to read and select **Properties&#x20;**&#x66;rom the popup menu.
+    The *Properties&#x20;*&#x77;indow opens.
+12. From the left pane, select **Attributes**.
+13. In the right pane, clear the **Optimized block access** check box.&#x20;
+14. Click **OK.&#x20;**
+15. Repeat steps 11-14 for all data blocks you want to read.&#x20;
+16. Click th&#x65;**&#x20;Compile icon on the toolbar.&#x20;**
+17. When the project finishes compiling, clic&#x6B;**&#x20;Download to Device**.
+
+## S7-300 and S7-400 Devices
+
+**To configure your device:&#x20;**
+
+1. Open your SIMATIC Manager project.&#x20;
+2. In the project tree, right-click your PLC and select **Object Properties...** from the popup menu.&#x20;
+   The *Properties&#x20;*&#x77;indow opens.&#x20;
+3. Select the **Interfaces&#x20;**&#x74;ab.&#x20;
+4. Find and copy the IP address of the Ethernet interface.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                                                                                                   |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Type**            | Siemens                                                                                                                 |
+| **Driver**          | Siemens S7                                                                                                              |
+| **Network Address** | The device address you defined during Step 1                                                                            |
+| **Port**            | 102                                                                                                                     |
+| **Slot**            | Set based on your PLC configuration. Default slot values for the S7 Series controllers are as follows:&#xA;\* S7-300: 2 |
+
+- S7-400: 3
+- S7-1200 or S7-1500: 1 |
+
+# Step 3: Configure the List of Registers
+
+When you [Add Tags]() to the connected device, refer to the following register table and tag parameters.
+
+Refer to the following additional resources:
+
+- [Device and Tag Metadata Use Case]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+<hint type="info">
+  **NOTE**: The address format in this Gen 2 driver is different from the ([Siemens S7-Advanced (Gen1)](<././Gen 1 Drivers/Siemens S7-Advanced _Gen1_3_.md>)) for the same device. Learn more about [Gen1 and Gen2 Driver Differences](<./././././Product Features/DeviceHub/Devices/Gen1 and Gen2 Driver Differences.md>).&#x20;
+</hint>
+
+| **Name** | **Value Types**                                                                                                                                                           | **Address Format** | **Min Address** | **Max Address** | **Description**                     |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------- | --------------- | ----------------------------------- |
+| DB       | byte, word, dword, lword, usint, uint, udint, ulint, sint, int, dint, lint, real, lreal, date, s5time, dt, ldt, tod, ltod, time, ltime, dtl, char, wchar, string, wstring | DDDDD              | 0               | 65535           | Data block, absolute address        |
+| DB(bit)  | bool                                                                                                                                                                      | DDDDDd             | 0               | 655357          | Data block (bits), absolute address |
+| M        | byte, word, dword, lword, usint, uint, udint, ulint, sint, int, dint, lint, real, lreal, date, s5time, dt, ldt, tod, ltod, time, ltime, dtl, char, wchar, string, wstring | DDDDD              | 0               | 65535           | M memory                            |
+| M(bit)   | bool                                                                                                                                                                      | DDDDDd             | 0               | 655357          | M memory (bits)                     |
+| I        | byte, word, dword, lword, usint, uint, udint, ulint, sint, int, dint, lint, real, lreal, date, s5time, dt, ldt, tod, ltod, time, ltime, dtl, char, wchar, string, wstring | DDDDD              | 0               | 65535           | Input area                          |
+| I(bit)   | bool                                                                                                                                                                      | DDDDDd             | 0               | 655357          | Input area (bits)                   |
+| Q        | byte, word, dword, lword, usint, uint, udint, ulint, sint, int, dint, lint, real, lreal, date, s5time, dt, ldt, tod, ltod, time, ltime, dtl, char, wchar, string, wstring | DDDDD              | 0               | 65535           | Output area                         |
+| Q(bit)   | bool                                                                                                                                                                      | DDDDDd             | 0               | 655357          | Output area (bits)                  |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values. &#x20;
+- **DB**: Enter the data block number of the tag.&#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>
+
+# Additional Considerations/Configurations
+
+## Tag configuration based on Siemens absolute addressing conventions
+
+Most users of Siemens PLCs and TIA Portal are familiar with the convention for absolute addressing, which may look like this: DB2.DBx0.7. This address refers to Data Block 2, byte 0, bit 7. To add this tag to a Litmus Edge device using the Siemens S7 driver, enter the following tag parameters:
+
+- Name: DB(bit)
+- Value Type: bool
+- DB: 2
+- Address: 07
+  - Litmus Edge only allows integers in the "Address" field. When entering addresses of bits, delete the bit delimiter.
+
+Here is another example of a Siemens address that a user may want to add as a DInt type in Litmus Edge: DB40.DBD20
+
+- Name: DB
+- Value Type: dint
+- DB: 40
+- Address: 20
+
+The last character in the absolute addressing format signifies the size of the register. The following table shows some examples of data types you may want to use based on the size of the register.
+
+| Siemens size character | Size (bits) | Data type examples               |
+| ---------------------- | ----------- | -------------------------------- |
+| x                      | 1           | Bool                             |
+| B                      | 8           | Byte&#xA;Char                    |
+| W                      | 16          | Int&#xA;UInt&#xA;Word            |
+| D                      | 32          | DInt&#xA;DWord&#xA;Real&#xA;UInt |
+| (None)                 | 64          | LInt&#xA;LReal&#xA;ULInt         |
+
+## Exporting tags from TIA Portal
+
+You can:
+
+- Export elements from a single PLC tag table
+- Export all PLC tags and constants of a CPU from the **All tags** table
+
+**To export device tags:**
+
+1. In TIA Portal, open the table from which you want to export the tags (a single PLC tag table or the **All tags table**).
+2. In the PLC tag table, click the **Export** button
+   The *Export&#x20;*&#x64;ialog box opens.
+3. Click the **Path of export file** button.
+   The *Save as* dialog opens.
+4. Select the directory for the export file and enter the file name.
+5. Select `.xlsx`, `.sdf`, or `.xml` as the file type. The only human-readable file type is `.xlsx`.
+6. Click **Save**.
+7. Select the export options:
+   - Export tags and/or constants
+   - Export all elements of the table or just the elements that are being used in the program on the current CPU
+8. Clic&#x6B;**&#x20;OK**.
+   The export file is generated. Errors and warnings generated during export appear on th&#x65;**&#xA0;***Info&#xA0;*&#x74;ab of the *Inspector&#xA0;*&#x77;indow.

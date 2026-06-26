@@ -1,0 +1,46 @@
+---
+title: About MQTT
+slug: resources/about-mqtt
+docTags: 
+createdAt: Thu May 28 2026 23:47:07 GMT+0300 (Eastern European Summer Time)
+---
+
+**Message Queue Telemetry Transport (MQTT)&#xA0;**&#x69;s a publish/subscribe-based lightweight protocol. It is designed for Machine to Machine (M2M) telemetry in low-bandwidth environments. MQTT sits on top of the TCP/IP protocol. This publish/subscribe protocol requires a message broker. The broker distributes messages to the interested clients based on the topic of the message.
+
+**MQTT&#xA0;**&#x64;efines methods for the desired action to be performed on the client. The different methods are:
+
+- **Connect**: Waits for a connection to be established with the server.
+- **Disconnect**: Waits for the MQTT client to finish the work and then for the TCP/IP session to disconnect.
+- **Subscribe**: Waits for the completion of a subscribe or unsubscribe method.
+- **Unsubscribe**: It request the server to unsubscribe the client from one or more topic.
+- **Publish**: This method immediately returns to the application thread after passing the request to the MQTT client.
+
+A **MQTT client&#xA0;**&#x69;s a sensor that generally publishes messages to the broker.
+
+The broker sends the message to the MQTT clients that have subscribed to receive the data.
+
+<hint type="info">
+  **NOTE**: A MQTT client can publish, subscribe, or both.
+</hint>
+
+A **Client Agent&#xA0;**&#x69;s available in almost all programming languages and major operating systems.
+
+**Topics&#xA0;**&#x61;re used for MQTT addressing. The JSON file that is downloaded from the Loop platform (when the device is deployed) contains the topic to which the data needs to be published and subscribed. The user can also create a custom topic and define to publish or subscribe or both from ACL (Action Control List) under project settings.
+
+An **MQTT Broker&#xA0;**&#x69;s responsible for receiving all messages, filtering them and sending messages to all the subscribed clients. The broker also does the authentication and authorization of the client. The broker is also extensible, which allows integration of custom authentication, authorization, and integration of the clients.
+
+The MQTT connection is always between a client and a broker, as no client connects to another client. The client sends a CONNECT message to the broker and broker response with a CONNACK and the status. Once the connection is established, the broker keeps it open as long as the client does not send a disconnect command.
+
+A **Client ID&#xA0;**&#x69;t is the identifier for each of the MQTT clients that connects to the MQTT broker. The ID is unique per broker. The broker identifies the client and the state of the client using the client ID.
+
+**Security**: The broker has a username and password for authentication of the client and authorization. MQTTS also uses TLS/SSL certificates for authentication.
+
+**QOS**: The Quality of Service tells the user regarding the guarantee of message delivery.
+
+- QOS 0 - At most once.
+- QOS 1 - At least once.
+- QOS 2 - Exactly once.
+
+The Quality of Service is important as it lets the client choose the QoS level based on the application and network reliability.
+
+Alternate protocols include the AMQP (Advanced Message Queuing Protocol), COAP (Constrained Application Protocol), and XMPP (Extensible Messaging and Presence Protocol).

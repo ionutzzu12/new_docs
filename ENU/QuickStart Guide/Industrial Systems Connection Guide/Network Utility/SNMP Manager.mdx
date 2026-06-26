@@ -1,0 +1,119 @@
+---
+title: SNMP Manager
+slug: i5pY-snmp-manager
+docTags: 
+createdAt: Thu May 28 2026 23:47:10 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the SNMP Manager driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                      |
+| ---------------------------- | --------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                              |
+| **Validated devices/series** | [Hirschmann Greyhound](https://www.belden.com/products/greyhound1040) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the Device
+
+Find your SNMP agent's configuration and note down its settings.
+
+# Step 2: Set up the Device in Litmus Edge DeviceHub
+
+## Upload required MIB files
+
+<hint type="info">
+  See [SNMP Manager Reference](<SNMP Manager/SNMP Manager Reference.mdx>) to review the MIB files which are already included in the driver.
+</hint>
+
+1. Enable the Litmus Edge FTP server and add a user. See [Manage FTP and System Services](<././././Product Features/System/Device Management/System Services/Manage FTP and System Services.md>) for more information.
+2. Create a folder in the devicehub/ folder and note down the name of the folder.
+3. Upload the required MIB files to the folder you created.
+
+## Add the device in DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter                | Value                                                      |
+| ------------------------ | ---------------------------------------------------------- |
+| **Type**                 | Network Utility                                            |
+| **Driver**               | SNMP Manager                                               |
+| **Transport**            | UDP                                                        |
+| **Network Address**      | Enter the IP address of your SNMP agent                    |
+| **Network Port&#x20;**   | 161                                                        |
+| **SNMP Version**         | Select based on your SNMP agent's setting                  |
+| **Enable TLS**           | Select based on your SNMP agent's setting                  |
+| **Enable Trap Listener** | Select based on your SNMP agent's setting                  |
+| **MIB Folder Path**      | Enter the name of the folder you created in the FTP server |
+| **Browse Root**          | 1.3                                                        |
+| **Browse Order**         | Alphabetical (by Name)                                     |
+
+If you set **SNMP Version&#x20;**&#x74;o **V1&#x20;**&#x6F;r **V2C**, enter the value for the **Community String&#x20;**&#x70;arameter based on your SNMP agent's settings.
+
+If you set the **SNMP Version&#x20;**&#x74;o **V3**, all the parameters will have values selected based on your SNMP agent's settings. The following parameters will be available:
+
+- Username
+- Context Name
+- Authentication Protocol
+- Authentication Passphrase
+- Privacy Protocol
+- Privacy Passphrase
+
+If Traps are enabled:
+
+| Parameter          | Value   |
+| ------------------ | ------- |
+| **Trap Transport** | UDP     |
+| **Trap Interface** | 0.0.0.0 |
+| **Traps Port**     | 162     |
+
+Advanced Options:
+
+| Parameter           | Value |
+| ------------------- | ----- |
+| **Request Timeout** | 2000  |
+| **Rquest Retries**  | 3     |
+| **Max OID Count**   | 25    |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, see the following Register Table and Tag Parameters sections. You can also [Browse and Add Tags from a Device]() for the device.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Types**                                                                                                                                                                                                                         | **Access Type** |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| R        | Integer32, Counter32, Gauge32, Uinteger32, TimeTicks, Counter64, Opaque(Float), Opaque(Double), Opaque(Count64), Opaque(Integer64), Opaque(Uinteger64), Opaque, OctetString, OctetString(Ascii), ObjectIdentifier, IPAddress, BitString | R/W             |
+
+## Tag Parameters
+
+- **Name**: Enter the case-sensitive register name exactly as it is defined in the PLC.&#x20;
+- **Value Type**: Select a data type from the drop-down list.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

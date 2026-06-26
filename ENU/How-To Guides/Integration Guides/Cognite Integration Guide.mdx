@@ -1,0 +1,189 @@
+---
+title: Cognite Integration Guide
+slug: how-to-guides/integration-guides/cognite
+description: Learn how to set up the Cognite connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and Cognite. Once the integration is set up, you can send and receive data through the Cognite connector.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/sLw1vShTU5-ML0mcKKZK5_image.png "Cognite Platform")
+
+# Before You Begin
+
+You must have access to [Cognite Data Fusion](https://www.cognite.com/en/product/cognite_data_fusion_industrial_dataops_platform).&#x20;
+
+# Step 1: Collect Cognite Connection Parameters
+
+You will need to retrieve the following parameters to configure the connection.&#x20;
+
+## Project ID
+
+The project ID is the unique identifier assigned to each project within Cognite.&#x20;
+
+**To get the project ID:**
+
+1. Sign in to Cognite Data Fusion.&#x20;
+2. In the top-left corner, open the environment identifier to view the list of project IDs. Select the appropriate one to integrate with Litmus Edge.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/IHjzIbuP85QZwS1cObu-h_cognite-project-list.png)
+
+Refer to [Projects ](https://api-docs.cognite.com/20230101/tag/Projects)API documentation to learn more.&#x20;
+
+## Tenant ID
+
+Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) and navigate to **Identity&#x20;**> **Overview&#x20;**> **Properties**. See [How to find your Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-find-tenant) to learn more.&#x20;
+
+## Client ID
+
+To retrieve the client ID, you will need to register the Cognite account as an application in Microsoft Entra. If you don't have the appropriate permissions to create a client ID, follow up with your IT department. See [Quickstart: Register an application with the Microsoft identity platform > Register an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#register-an-application) to learn more.&#x20;
+
+## Client Secret
+
+To retrieve the client secret, you will need to register the Cognite account as an application in Microsoft Entra, and then create the client secret. Please note that the secret value is only visible when it is created, and not available to view after. If you don't have the appropriate permissions to create a client secret, follow up with your IT department. See [Quickstart: Register an application with the Microsoft identity platform > Add a client secret](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#add-a-client-secret) to learn more.&#x20;
+
+## Cluster
+
+A cluster is a grouping of resources within the platform.&#x20;
+
+**To retrieve the cluster value:**
+
+1. Log in to Cognite Data Fusion.&#x20;
+2. Navigate to **Data Management&#x20;**> **Manage&#x20;**> **Manage Access**.
+3. Click the **OpenID connect** tab.&#x20;
+4. Refer to the *Audience&#x20;*&#x66;ield. The cluster value is between *https\://* and *.cognitedata.com*.&#x20;
+
+For example, if the audience value is [https://az-eastus-1.cognitedata.com](https://az-eastus-1.cognitedata.com), the cluster value is **az-eastus-1**.&#x20;
+
+## Scope
+
+The scope specifies the level of access and permissions granted to an application in the Cognite platform.&#x20;
+
+**To retrieve the scope value:**
+
+1. Log in to Cognite Data Fusion.&#x20;
+2. Navigate to **Data Management&#x20;**> **Manage&#x20;**> **Manage Access**.
+3. Click the **OpenID connect** tab.&#x20;
+4. Refer to the *Audience&#x20;*&#x66;ield and update it as needed for the scope.&#x20;
+
+For example, if the audience value is [https://az-eastus-1.cognitedata.com](https://az-eastus-1.cognitedata.com), the scope value can be [https://az-eastus-1.cognitedata.com/.default](https://az-eastus-1.cognitedata.com/.default). Follow up with your IT department for further assistance.&#x20;
+
+# Step 2: Add Cognite Connector in Litmus Edge
+
+Follow the steps to [Add a Connector](<./././Product Features/Integration/Add a Connector.md>) and select the **Cognite Connector** provider.&#x20;
+
+Configure the following parameters.&#x20;
+
+| **Parameter**      | **Description**                                                                                                                                                                                                                                                   |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name               | Enter a name for the connector.                                                                                                                                                                                                                                   |
+| Project ID         | Enter the value retrieved in Step 1.                                                                                                                                                                                                                              |
+| Tenant ID          | Enter the value retrieved in Step 1.                                                                                                                                                                                                                              |
+| Client ID          | Enter the value retrieved in Step 1.                                                                                                                                                                                                                              |
+| Client Secret      | Enter the value retrieved in Step 1.                                                                                                                                                                                                                              |
+| Cluster            | Enter the value retrieved in Step 1.                                                                                                                                                                                                                              |
+| Scope              | Enter the value retrieved in Step 1.                                                                                                                                                                                                                              |
+| Subscribe interval | Enter the interval (in seconds) that the connector polls for data.                                                                                                                                                                                                |
+| Throttling limit   | The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.                                                                                                                                         |
+| Persistent storage | When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online.                                                                                                      |
+| Queue Mode         | Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first. |
+
+# Step 3: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/N49umYXapOJOskb6EwaGN_image.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the [Connector Logs](<./././Product Features/Integration/Manage Connectors.md>) and relevant error messages.&#x20;
+
+# Step 4: Set up Connection (Outbound or Inbound) with Cognite
+
+You have the option of setting up an outbound or inbound connection.&#x20;
+
+## Set up Outbound Connection
+
+To set up an outbound connection, you will need to create a DeviceHub device and tags. The tags will be used to send data to Cognite.&#x20;
+
+### Step a: Add Device
+
+Follow the steps to [Connect a Device](). The device will be used to store tags that will be eventually used to create outbound topics in the connector. Make sure to select the **Enable Data Store** checkbox.&#x20;
+
+### Step b: Add Tags
+
+After connecting the device in Litmus Edge, you can [Add Tags]() to the device. Create tags that you want to use to create outbound topics for the connector.&#x20;
+
+### Step c: Create Outbound Topics for Connector
+
+You will now need to import the tags you added to the connector as topics.&#x20;
+
+**To create outbound topics:**
+
+1. Click the connector tile.
+   The connector *Dashboard&#x20;*&#x61;ppears.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Click the **Import from DeviceHub** tags icon.&#x20;
+   The *DeviceHub Import&#x20;*&#x64;ialog box appears.
+
+![](https://api.archbee.com/api/optimize/xSuIWwMa6RnsbeD5Kdqd7-zaOGMDYbPZWYALvLBgotp-20250606-203859.png)
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+### Step d: Enable Topics
+
+Ensure the topics you imported are enabled by returning to the *Topics&#x20;*&#x74;ab and clicking the **Enable all topics** icon.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/HtkW-nbWXeAvOV8ru8B1U_image.png)
+
+### Step e: Verify Connection in Cognite
+
+You can verify the connection is successfully sending data by navigating the Cognite *Data Explorer*. See [Explore data](https://docs.cognite.com/cdf/integration/guides/exploration/data_explorer) to learn more.&#x20;
+
+## Set up Inbound Connection
+
+You have the option of subscribing to data from Cognite. The data that is subscribed to is a loopback as it is first sent from Litmus Edge to Cognite, and then back to Litmus Edge as time-series data.&#x20;
+
+### Step a: Create Assets and Time Series
+
+To set up an inbound connection, you will need to create assets and time series as needed in Cognite through API. See [Assets ](https://api-docs.cognite.com/20230101/tag/Assets)and [Time Series](https://api-docs.cognite.com/20230101/tag/Time-series) to learn more.&#x20;
+
+Once you set up assets and time series, copy the IDs for the time series. You will refer to the IDs when configuring the remote topic names for the inbound connection.&#x20;
+
+**To collect the time series IDs:**
+
+1. Log in to Cognite Data Fusion.&#x20;
+2. Click **Data Explorer**.&#x20;
+3. Click the appropriate asset name to select it.&#x20;
+4. Click the **Time series** tab.&#x20;
+5. Click the appropriate time series name to select it.&#x20;
+6. Under *General*, click the **Copy&#x20;**&#x69;con for **ID**.&#x20;
+
+### Step b: Create Inbound Topics for Connector
+
+You will create topics for the connector that will subscribe to data from associated Cognite time series IDs.&#x20;
+
+**To create inbound topics:&#x20;**
+
+1. Navigate to **Integration**.&#x20;
+2. Click the connector tile.&#x20;
+3. Click the **Topics&#x20;**&#x74;ab.&#x20;
+4. Click the **Add a new subscription** icon.
+   The *Data Integration* dialog box appears.
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eT4cT36wVHPqXRb-83Boe_cognite-inbound-topic.png "Add a new subscription icon")
+5. Configure the following parameters.&#x20;
+   - **Data Direction**: Select **Remote to Local - Inbound**.&#x20;
+   - **Local Data Topic**: Enter a topic name that will be used for subscribing to data in Litmus Edge.&#x20;
+   - **Remote Data Topic**: Copy and paste the associated time series ID collected in the previous step.&#x20;
+   - **Enable**: Select the toggle to enable the topic.&#x20;
+6. Click **Yes&#x20;**&#x74;o add the topic.&#x20;
+7. From the connector tile, ensure the connector is not disabled and still shows a CONNECTED status. Also verify the topic shows an *Enabled&#x20;*&#x73;tatus.&#x20;
+
+### Step c: Verify Connection in Litmus Edge
+
+You have several options for verifying the connection in Litmus Edge. When subscribing to the data, you will need to use the *Local Data Topic* name configured in the previous step.&#x20;
+
+You can visualize the incoming data using one of the dedicated [Applications](<./././Product Features/Applications.md>) such as [Grafana](<././Applications Guides/Visualize Data Using Grafana.md>).&#x20;
+
+You can also view the data in the [Flows Manager](<./././Product Features/Flows Manager.md>) and [Analytics](<./././Product Features/Analytics.md>) areas of Litmus Edge.&#x20;
+
+- If you are creating a flow from the [Flows Manager](<./././Product Features/Flows Manager.md>), subscribe to the *Local Data Topic* name. See [Subscribe to Topics with Flows](<././Flows Guides/Subscribe to Topics with Flows.md>) to learn more.&#x20;
+- If you are using [Analytics](<./././Product Features/Analytics.md>), select the DataHub Subscribe processor and use the *Local Data Topic* name. See [Create an Analytics Flow](<./././Product Features/Analytics/Analytics Flows and Processors/Create an Analytics Flow.md>) and [Add Processors and Processor Connections](<./././Product Features/Analytics/Analytics Flows and Processors/Add Processors and Processor Connections.md>) to learn more.&#x20;

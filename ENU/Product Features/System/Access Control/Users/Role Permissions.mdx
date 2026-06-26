@@ -1,0 +1,119 @@
+---
+title: Role Permissions
+slug: product-features/system/access-control/users/role-permissions
+description: Review the available role permissions and the specific areas they can view/modify.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the available role permissions and the specific areas of Litmus Edge they can view/modify.&#x20;
+
+<hint type="info">
+  **Note**: Consider the following:
+
+  - If a role has a Modify permission, any relevant View permission will be automatically added to the role as well.&#x20;
+  - Click **Individual Permissions** for DeviceHub, Flows Manager, or Marketplace to view granular permissions for each component.&#x20;
+</hint>
+
+There are several default permissions that apply to all users. See the "Default User Permissions" section in [Users](././Users.md) for details.&#x20;
+
+| **Resource Name**                                          | **Permission** | **Access to Litmus Edge Modules**                                                          |
+| ---------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------ |
+| Access&#xA;(Provides access to data from external systems) | View           | Read-only access to:&#xA;\* System > Tokens&#xA;Can view created tokens in System > Tokens |
+| Access&#xA;(Provides access to data from external systems) | Modify         | Can  view and make changes to:&#xA;\* System > Tokens                                      |
+
+- Can add access accounts
+- Can enable/disable NATS Proxy                                                                                                                                                                                                                        |
+  \| Analytics                                                                              | Modify           | Can view and make changes to:
+  \* Analytics                                                                                                                                                                                                                                                                                             |
+  \| Analytics                                                                              | View             | Read-only access to:
+  \* Analytics                                                                                                                                                                                                                                                                                                      |
+  \| Auth                                                                                   | Modify           | Can view and make changes to:
+  \* System > Users
+- System > Device Management
+- System > LDAP/AD Auth
+- System > Tokens                                                                                                                                                                                                                 |
+  \| Cloud Storage Sync                                                                     | View             | Read-only access to:
+  \* Integration > Object                                                                                                                                                                                                                                                                                           |
+  \| Cloud Storage Sync                                                                     | Modify           | Can view and make changes to:
+  \* Integration > Object                                                                                                                                                                                                                                                                                  |
+  \| Datahub                                                                                | Modify           | Can view and make changes to:
+  \* DataHub
+  Note: This user permission can't enable Data Store                                                                                                                                                                                                                                       |
+  \| Datahub                                                                                | View             | Read-only access to:
+  \* DataHub                                                                                                                                                                                                                                                                                                        |
+  \| DeviceHub                                                                              | Modify           | Can view and make changes to:
+  \* DeviceHub                                                                                                                                                                                                                                                                                             |
+  \| DeviceHub                                                                              | View             | Read-only access to:
+  \* DeviceHub                                                                                                                                                                                                                                                                                                      |
+  \| Device Management                                                                      | Modify           | Can view and make changes to:
+  \* System > Device Management
+- System > Info
+- System > Certificates
+- System > Network
+- System > Remote Access
+- System > Services
+- System > External Storage
+- System > Policy Management > Change disk space policy
+- System > Backup/Restore                                                      |
+  \| Digital Twin                                                                           | Modify           | Can view and make changes to:
+  \* Digital Twins                                                                                                                                                                                                                                                                                         |
+  \| Digital Twin                                                                           | View             | Read-only access to:
+  \* Digital Twins                                                                                                                                                                                                                                                                                                  |
+  \| Downloads                                                                              | View             | Can do the following:
+  \* View status in System > Support > Status > Components
+- Download files from System > Support > Support Bundle > Download                                                                                                                                                                                      |
+  \| Events                                                                                 | View             | Read-only access to:
+  \* System > Events                                                                                                                                                                                                                                                                                                |
+  \| FTP Server                                                                             | Modify           | Can view and make changes to:
+  \* System > Services > FTP Service                                                                                                                                                                                                                                                                       |
+  \| FTP Server                                                                             | View             | Read-only access to:
+  \* System > Services                                                                                                                                                                                                                                                                                              |
+  \| Flows Manager
+  You can select **Modify permissions** to individual Flows Managers. | Modify           | Can view and make changes to:
+  \* Flows Manager
+- Individual Flows Managers.                                                                                                                                                                                                                                                       |
+  \| Flows Manager                                                                          | View             | Read-only access to:
+  \* Flows Manager
+  Can do the following:
+  \* Flows Manager > Go To Flow Definition
+- Flows Manager > Download Flow File
+- Flows Manager > Got To Flow Definition > Debug messages
+- Flows Manager > Go To Flow Definition > Export
+- Make changes but can't Deploy in Flows Manager > Go To Flow Definition |
+  \| Integrations                                                                           | View             | Read-only access to:
+  \* Integration > Click a Connector > Dashboard
+- Integration > Click a Connector > Configuration
+- Integration > Click a Connector > Topics                                                                                                                                                                       |
+  \| Integrations                                                                           | ViewConnectors   | Read-only access to:
+  \* Integration > Click a Connector > Configuration                                                                                                                                                                                                                                                                |
+  \| Integrations                                                                           | ViewTopics       | Read-only access to:
+  \* Integration > Click a Connector > Topics                                                                                                                                                                                                                                                                       |
+  \| Integrations                                                                           | Modify           | Can view and make changes to:
+  \* Integration                                                                                                                                                                                                                                                                                           |
+  \| Integrations                                                                           | ModifyConnectors | Can do the following:
+  \* Integration > Add a connector
+- Integration > Edit                                                                                                                                                                                                                                                            |
+  \| Integrations                                                                           | ModifyTopics     | Can view and make changes to the following:
+  \* Integration > Click a Connector > Topics                                                                                                                                                                                                                                                |
+  \| Licensing                                                                              | Modify           | Can view and make changes to:
+  \* System > License                                                                                                                                                                                                                                                                                      |
+  \| Marketplace                                                                            | Modify           | Can view and make changes to:
+  \* Applications                                                                                                                                                                                                                                                                                          |
+  \| Marketplace                                                                            | View             | Read-only access to:
+  \* All Applications pages except for Configure                                                                                                                                                                                                                                                                    |
+  \| Marketplace                                                                            | Granular Modify  | Can create, update, or delete applications.
+  Use to allow users to maintain Marketplace applications and containers that are running, while preventing them from launching or removing Docker containers.                                                                                                                               |
+  \| Marketplace                                                                            | ModifyPrivileged | Can launch Docker containers in privileged mode and perform volume binding. Use with caution as enabling this privilege can give the container full root access to the host machine.                                                                                                                                                       |
+  \| Network Discovery                                                                      | Modify           | Can view and make changes to:
+  \* DeviceHub > Device Discovery                                                                                                                                                                                                                                                                          |
+  \| Network Discovery                                                                      | View             | Read-only access to:&#x20;
+  \* DeviceHub > Device Discovery                                                                                                                                                                                                                                                                                  |
+  \| Network Util                                                                           | View             | Read-only access to:
+  \* DeviceHub devices under the Network Util device type.                                                                                                                                                                                                                                                     |
+  \| Network Util                                                                           | Modify           | Can view and make changes to:
+  \* DeviceHub devices under the Network Util device type.                                                                                                                                                                                                                                            |
+  \| OPC UA Server                                                                          | Modify           | Can view and make changes to:
+  \* OPC UA                                                                                                                                                                                                                                                                                                |
+  \| OPC UA Server                                                                          | View             | Read-only access to:
+  \* OPC UA                                                                                                                                                                                                                                                                                                         |

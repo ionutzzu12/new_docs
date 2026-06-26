@@ -1,0 +1,149 @@
+---
+title: Tag Data Type Conversions
+slug: how-to-guides/devicehub-guides/use-the-siemens-s7-browse-agent/tag-data-type-conversions
+description: Learn more about tag data type conversions when using the Siemens S7 Browse Agent.
+docTags: 
+createdAt: Thu May 28 2026 23:47:01 GMT+0300 (Eastern European Summer Time)
+---
+
+Tag Data Type conversion is converted as follows:
+
+- TIA Portal Tag Table Data Types
+- TIA Portal Program Block Data Types
+
+<hint type="info">
+  **Notes**:
+
+  - Arrays are automatically expanded. For each array, a tag is created for the entire array as well as each index in the array.
+  - Tags cannot be created for User Data Types or Strings placed in the InOut section of a function block.
+  - User-defined types in tag tables cannot be expanded. The address of the start of the UDT will be provided as a tag.&#x20;
+</hint>
+
+# TIA Portal Tag Table Data Types
+
+*TIA Portal tag table* *data types* are converted to *Server data types* as follows:
+
+| **TIA Portal Data Type** | **Server Data Type** |
+| ------------------------ | -------------------- |
+| Bool                     | Boolean              |
+| Byte                     | Byte                 |
+| Char                     | Char                 |
+| Counter                  | Word                 |
+| Date                     | String               |
+| Dint                     | Long                 |
+| DWord                    | DWord                |
+| Int                      | Short                |
+| Real                     | Float                |
+| S5Time                   | Long                 |
+| Time                     | String               |
+| Timer                    | Long                 |
+| Time Of Day              | String               |
+| Word                     | Word                 |
+| Aom\_Ident               | DWord                |
+| Conn\_Any                | Word                 |
+| Conn\_Ouc                | Word                 |
+| Conn\_Prg                | Word                 |
+| Conn\_R\_Id              | DWord                |
+| DB\_ANY                  | Word                 |
+| DB\_DYN                  | Word                 |
+| DB\_WWW                  | Word                 |
+| Event\_Any               | DWord                |
+| Event\_Att               | DWord                |
+| Event\_HwInt             | DWord                |
+| Hw\_Any                  | Word                 |
+| Hw\_Device               | Word                 |
+| Hw\_DpMaster             | Word                 |
+| Hw\_DpSlave              | Word                 |
+| Hw\_Hsc                  | Word                 |
+| Hw\_Interface            | Word                 |
+| Hw\_IEPort               | Word                 |
+| Hw\_Io                   | Word                 |
+| Hw\_IoSystem             | Word                 |
+| Hw\_Module               | Word                 |
+| Hw\_Pto                  | Word                 |
+| Hw\_Pwm                  | Word                 |
+| Hw\_SubModule            | Word                 |
+| LReal                    | Double               |
+| OB\_Any                  | Short                |
+| OB\_Att                  | Short                |
+| OB\_Cyclic               | Short                |
+| OB\_Delay                | Short                |
+| OB\_DIAG                 | Short                |
+| OB\_HWINT                | Short                |
+| OB\_PCYCLE               | Short                |
+| OB\_STARTUP              | Short                |
+| OB\_TIMEERROR            | Short                |
+| OB\_Tod                  | Short                |
+| Pip                      | Word                 |
+| Port                     | Word                 |
+| Rtm                      | Word                 |
+| SInt                     | Char                 |
+| UDInt                    | DWord                |
+| UInt                     | Word                 |
+| USInt                    | Byte                 |
+| WChar                    | Short                |
+
+# TIA Portal Program Block Data Types
+
+*TIA Portal program block data types&#x20;*&#x61;re converted to *Server data types&#x20;*&#x61;s follows:
+
+| **TIA Portal Data Type** | **Server Data Type** |
+| ------------------------ | -------------------- |
+| Bool                     | Boolean              |
+| Byte                     | Byte                 |
+| Char                     | Char                 |
+| Counter                  | Char                 |
+| Date                     | String               |
+| Dint                     | Long                 |
+| DWord                    | DWord                |
+| Int                      | Short                |
+| Real                     | Float                |
+| S5Time                   | Long                 |
+| Time                     | String               |
+| Timer                    | String               |
+| Time Of Day              | String               |
+| Word                     | Word                 |
+| Date and Time            | String               |
+| AOM\_IDENT               | DWord                |
+| CONN\_ANY                | Word                 |
+| CONN\_OUC                | Word                 |
+| CONN\_PRG                | Word                 |
+| CONN\_R\_ID              | DWord                |
+| DB\_ANY                  | Word                 |
+| DB\_DYN                  | Word                 |
+| DB\_WWW                  | Word                 |
+| EVENT\_ANY               | DWord                |
+| EVENT\_ATT               | DWord                |
+| EVENT\_HWINT             | DWord                |
+| Hw\_Any                  | Word                 |
+| Hw\_Device               | Word                 |
+| Hw\_DPMaster             | Word                 |
+| Hw\_DPSlave              | Word                 |
+| Hw\_HSC                  | Word                 |
+| Hw\_Interface            | Word                 |
+| Hw\_IEPort               | Word                 |
+| Hw\_Io                   | Word                 |
+| Hw\_IoSystem             | Word                 |
+| Hw\_Module               | Word                 |
+| Hw\_Pto                  | Word                 |
+| Hw\_Pwm                  | Word                 |
+| Hw\_SubModule            | Word                 |
+| LReal                    | Double               |
+| OB\_Any                  | Short                |
+| OB\_Att                  | Short                |
+| OB\_Cyclic               | Short                |
+| OB\_Delay                | Short                |
+| OB\_DIAG                 | Short                |
+| OB\_HWINT                | Short                |
+| OB\_PCYCLE               | Short                |
+| OB\_STARTUP              | Short                |
+| OB\_TIMEERROR            | Short                |
+| OB\_Tod                  | Short                |
+| Pip                      | Word                 |
+| Port                     | Word                 |
+| Rtm                      | Word                 |
+| SInt                     | Char                 |
+| UDInt                    | DWord                |
+| UInt                     | Word                 |
+| USInt                    | Byte                 |
+| WChar                    | Short                |

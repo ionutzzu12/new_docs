@@ -1,0 +1,88 @@
+---
+title: Koyo Ethernet
+slug: quickstart-guide/industrial-systems-connection-guide/koyo/koyo-ethernet
+description: Review the following information for setting up and configuring the Koyo Ethernet driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:03 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Koyo Ethernet driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                                                                                                                                                                                                                                                |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                                                                                                                                                                                                                                                                        |
+| **Validated devices/series** | Koyo DirectLogic Series &#xA;[Automation Direct DirectLogic PLC Series](https://www.automationdirect.com/adc/overview/catalog/programmable_controllers/directlogic_plcs_\(micro_to_small,_brick_-a-_modular\)?gclid=CjwKCAjwq-WgBhBMEiwAzKSH6CBiyKAdShGTwXSUtgzDLhYfK7y-0u1z0p6V5wzVcfCztV1oL9k03BoCJugQAvD_BwE#bodycontentppc) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use DirectSoft6 V6.1 software to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                        |
+| ------------------- | -------------------------------------------- |
+| **Type**            | Koyo                                         |
+| **Driver**          | Koyo Ethernet                                |
+| **Network Address** | The device address you defined during Step 1 |
+| **Network Port**    | 428784                                       |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Types** | **Access Types&#x20;** | **Address Format** | **Min Address** | **Max Address** |
+| -------- | --------------- | ---------------------- | ------------------ | --------------- | --------------- |
+| GX       | bit             | R/W                    | OOOO               | 0               | 2047            |
+| X        | bit             | R/W                    | OOOO               | 0               | 1023            |
+| SP       | bit             | R/W                    | OOOO               | 0               | 1023            |
+| GY       | bit             | R/W                    | OOOO               | 0               | 2047            |
+| Y        | bit             | R/W                    | OOOO               | 0               | 1023            |
+| C        | bit             | R/W                    | OOOO               | 0               | 1023            |
+| S        | bit             | R/W                    | OOOO               | 0               | 1023            |
+| T        | bit             | R/W                    | OOO                | 0               | 255             |
+| CT       | bit             | R/W                    | OOO                | 0               | 255             |
+| CCM\_31  | word            | R/W                    | HHHH               | 0               | 17056           |
+| CCM\_32  | word            | R/W                    | HHH                | 0               | 512             |
+| CCM\_33  | word            | R/W                    | HHH                | 0               | 832             |
+| V        | word            | R/W                    | OOOOO              | 0               | 17055           |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. Available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. Available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to publish NATS messages only when the *value&#x20;*&#x70;arameter changes to a new one value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics are not affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

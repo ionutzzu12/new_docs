@@ -1,0 +1,31 @@
+---
+title: Azure Event Hubs
+slug: product-features/integration/integration-connectors/cloud-service-providers/azure-event-hubs
+description: Review parameters for the Azure Event Hubs connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [Azure Event Hub Integration Guide](<./././././How-To Guides/Integration Guides/Azure Event Hub Integration Guide.md>).&#x20;
+
+## Overview
+
+Azure Event Hubs integration enables an Edge System to connect to Azure Event Hubs.
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to Azure Event Hub) - Yes
+- Inbound (Subscribe data from Azure Event Hub to Edge) - No
+
+## Configurations
+
+| **Variable**              | **Detail**                                                                                                                                                                                            | **Required** |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name                      | Connector name                                                                                                                                                                                        | Yes          |
+| Connection string         | Configuration string                                                                                                                                                                                  | Yes          |
+| Maximum message size      | The maximum message size for an individual event (message) in Azure Event Hubs is 256 KB.                                                                                                             | Yes          |
+| Parallel connections unit | Impose a strict limit on the maximum number of simultaneous connections or clients that can be established with an Event Hub.                                                                         | Yes          |
+| Combine messages          | Message or event combination refers to the procedure of consolidating several separate messages or events into one unified message or event.                                                          | No           |
+| Throttling limit          | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                | No           |
+| Persistent storage        | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored. | No           |
+| Queue mode                | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.  | No           |

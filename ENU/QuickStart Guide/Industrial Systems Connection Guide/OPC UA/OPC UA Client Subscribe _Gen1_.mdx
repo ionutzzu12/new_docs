@@ -1,0 +1,76 @@
+---
+title: OPC UA Client Subscribe (Gen1)
+slug: quickstart-guide/industrial-systems-connection-guide/opc-ua/opc-ua-client-subscribe-gen1
+description: Review the following information for setting up and configuring the OPC UA Client Subscribe (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:08 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="warning">
+  **Important**: This driver was deprecated in Litmus Edge version 3.5.2. We recommend using the Gen 2 [OPC UA Client Advanced](<OPC UA Client Advanced.mdx>).
+</hint>
+
+Review the following information for setting up and configuring the OPC UA Client Subscribe (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter        | Compatible items                                                                                                                |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**                | Ethernet                                                                                                                        |
+| **Validated devices/series**   | Unified Automation &#xA;Prosys&#xA;[https://opcfoundation.org/certified-products](https://opcfoundation.org/certified-products) |
+| **Replaced with Gen 2 driver** | [OPC UA Client Advanced](<OPC UA Client Advanced.mdx>)                                                                          |
+
+# Supported Servers
+
+## OPC UA Client
+
+- Used to subscribe data from OPC UA Servers.
+- Subscribes to the data and waits for OPC Server to send the update.
+- Most server vendors recommend to use subscription mode.
+
+# Set up the PLC Device in DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                          |
+| ------------------- | ------------------------------ |
+| **Type**            | OPC UA                         |
+| **Driver**          | OPC UA Client Subscribe (Gen1) |
+| **Network Address** | The device IP address          |
+| **Port**            | 4840                           |
+
+# Configure the List of Registers
+
+<hint type="info">
+  **Notes**:
+
+  - Certain device drivers do *not* have a list of Register Names in the DeviceHub Add/Edit Tag form. These are *Free Tag* PLCs. For Free Tag requirements, see [Device Connectivity Issues](<././././Troubleshooting/DeviceHub Troubleshooting/Device Connectivity Issues.md>).
+  - For the Register Name, in the DeviceHub Add/Edit Tag form, map the OPC server tags to the client using this format: `ns=1;s=tagname`.&#x20;
+    - Example: `ns=2;s=Demo.Static.Scalar.Boolean`
+  - **Server Name** currently is not used, however, an entry must be made in this field.
+  - The **Browse&#x20;**&#x69;con displayed on the device tile means that this PLC uses Browse Tags. See [Add Tags](#) for more information.&#x20;
+</hint>
+
+When you [Add Tags](#) to the connected device, use the following tag/register mapping table.
+
+| **Name** | **Value Type** |
+| -------- | -------------- |
+| R        | BOOL           |
+| R        | BYTE           |
+| R        | CHAR           |
+| R        | SHORT          |
+| R        | WORD           |
+| R        | LONG           |
+| R        | DWORD          |
+| R        | FLOAT          |
+| R        | DOUBLE         |
+| R        | STRING         |
+| R        | BoolArray      |
+| R        | ByteArray      |
+| R        | CharArray      |
+| R        | ShortArray     |
+| R        | WordArray      |
+| R        | LongArray      |
+| R        | DWordArray     |
+| R        | FloatArray     |
+| R        | DoubleArray    |

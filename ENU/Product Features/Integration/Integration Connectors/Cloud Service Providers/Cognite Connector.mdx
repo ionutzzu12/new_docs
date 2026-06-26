@@ -1,0 +1,34 @@
+---
+title: Cognite Connector
+slug: product-features/integration/integration-connectors/cloud-service-providers/cognite-connector
+description: Review parameters for the Cognite connector.
+docTags: 
+createdAt: Thu May 28 2026 23:46:59 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [Cognite Integration Guide](<./././././How-To Guides/Integration Guides/Cognite Integration Guide.md>)
+
+## Overview
+
+Cognite integration enables an Edge System to connect with the Cognite platform.
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to Cognite platform ) - Yes
+- Inbound (Subscribe data from Cognite platform to Edge) - Yes
+
+## Configurations
+
+| **Variable**       | **Detail**                                                                                                                                                                                            | **Required** |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name               | Connector Name                                                                                                                                                                                        | Yes          |
+| Project ID         | A unique identifier assigned to each project within the Cognite platform                                                                                                                              | Yes          |
+| Tenant ID          | A unique identifier associated with a specific customer or organization within the Cognite platform, obtained from Microsoft Azure.                                                                   | Yes          |
+| Client ID          | A unique identifier used to authenticate Cognite clients, obtained from Microsoft Azure.                                                                                                              | Yes          |
+| Client Secret      | A confidential key used for authentication of Cognite clients, obtained from Microsoft Azure.                                                                                                         | Yes          |
+| Cluster            | A grouping of resources within the Cognite platform for managing and processing data efficiently.                                                                                                     | Yes          |
+| Scope              | Specifies the level of access or permissions granted to an application within the Cognite platform.                                                                                                   | Yes          |
+| Subscribe interval | The time interval at which a client application receives updates or notifications from the Cognite platform                                                                                           | No           |
+| Throttling limit   | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                | No           |
+| Persistent storage | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored. | No           |
+| Queue mode         | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.  | No           |

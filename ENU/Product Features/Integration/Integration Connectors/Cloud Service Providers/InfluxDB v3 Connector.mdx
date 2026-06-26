@@ -1,0 +1,203 @@
+---
+title: InfluxDB v3 Connector
+docTags: 
+createdAt: Thu May 28 2026 23:47:01 GMT+0300 (Eastern European Summer Time)
+---
+
+The InfluxDB v3 connector allows Litmus Edge to stream time-series data to an InfluxDB v3 database.
+
+<hint type="info">
+  **Note:&#x20;**&#x54;his feature is available starting with Litmus Edge 4.1.x
+</hint>
+
+## Supported Communication
+
+- Outbound (Write from Edge to InfluxDB v3): Yes
+- Inbound (Read from InfluxDB v3 to Edge): No
+
+## Connector Configuration
+
+<table isTableHeaderOn="true" columnWidths="186,147,414,124,126">
+  <tr>
+    <td>
+      **Field**
+    </td>
+    <td>
+      **Type**
+    </td>
+    <td>
+      **Description**
+    </td>
+    <td>
+      **Required**
+    </td>
+    <td>
+      **Default**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      String
+    </td>
+    <td>
+      Name defined for the connector instance
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Host URL
+    </td>
+    <td>
+      String
+    </td>
+    <td>
+      Full URL of the InfluxDB v3 instance. Length: `3` to `1024`)
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Connection Type
+    </td>
+    <td>
+      Dropdown
+    </td>
+    <td>
+      Transport protocol used to connect to InfluxDB
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      tcp
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Organization
+    </td>
+    <td>
+      String
+    </td>
+    <td>
+      InfluxDB organization name or ID. Required for Cloud Serverless. Leave blank for Cloud Dedicated and Clustered deployments.
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Database
+    </td>
+    <td>
+      String
+    </td>
+    <td>
+      Name of the target InfluxDB v3 database. Length: `1` to `256`
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      API Token
+    </td>
+    <td>
+      String (Secret)
+    </td>
+    <td>
+      API token with write permissions scoped to the target database. Stored securely and never logged.
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Show Static Tags
+    </td>
+    <td>
+      Checkbox
+    </td>
+    <td>
+      When enabled, expands a key-value input for configuring static tags appended to every data point written by this connector
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      Disabled
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Write Precision
+    </td>
+    <td>
+      Dropdown
+    </td>
+    <td>
+      Timestamp precision for Line Protocol writes: `ns` (nanoseconds), `us` (microseconds), `ms` (milliseconds), `s` (seconds). Located under Advanced Parameters
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      ms
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Batch Size
+    </td>
+    <td>
+      Integer
+    </td>
+    <td>
+      Number of records per write batch. Range: `1` to `10000`. Located under Advanced Parameters.
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      5000
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Batch Interval (ms)
+    </td>
+    <td>
+      Integer
+    </td>
+    <td>
+      Maximum time to wait before flushing a batch in milliseconds. The batch is sent when either Batch Size or Batch Interval is reached (whichever comes first). Range: `100` to `60000`. Located under Advanced Parameters
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      1000
+    </td>
+  </tr>
+</table>

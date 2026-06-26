@@ -1,0 +1,78 @@
+---
+title: AB MicroLogix (Gen1)
+slug: quickstart-guide/industrial-systems-connection-guide/allen-bradley/ab-micrologix-gen1
+description: Review the following information for setting up and configuring the AB MicroLogix (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="warning">
+  **Important**: This driver was deprecated in Litmus Edge version 3.5.2.  We recommend using the Gen 2 [AB EthernetIP Ethernet](<././Gen 2 Drivers/AB EthernetIP Ethernet.md>). &#x20;
+</hint>
+
+Review the following information for setting up and configuring the AB MicroLogix (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+| Compatibility parameter        | Compatible items                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Driver type**                | Ethernet                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Validated devices/series**   | Rockwell Automation Allen-Bradley MicroLogix 1000&#xA;Rockwell Automation Allen-Bradley MicroLogix 1100&#xA;Rockwell Automation Allen-Bradley MicroLogix 1200&#xA;Rockwell Automation Allen-Bradley MicroLogix 1400&#xA;Rockwell Automation Allen-Bradley MicroLogix 1500&#xA;Rockwell Automation Allen-Bradley SLC 5/03&#xA;Rockwell Automation Allen-Bradley SLC 5/04 with 1761-NET-ENI&#xA;Rockwell Automation Allen-Bradley SLC 5/05 Ethernet port |
+| **Replaced with Gen 2 driver** | [AB EthernetIP Ethernet](<././Gen 2 Drivers/AB EthernetIP Ethernet.md>)                                                                                                                                                                                                                                                                                                                                                                                |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+Refer to the following parameters.&#x20;
+
+**Communication mode**: Port Setting: 10/100 Mbps Full Duplex/Half Duplex
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                    |
+| ------------------- | ---------------------------------------- |
+| **Type**            | Allen-Bradley                            |
+| **Driver**          | AB MicroLogix (Gen1)                     |
+| **Network Address** | The device address you defined in Step 1 |
+| **Port**            | 102                                      |
+| **Slot Number**     | 0                                        |
+
+# Step 3: Configure the List of Registers
+
+When you [Add Tags](#) to the connected device, use the following tag/register mapping table.
+
+| **Name** | **Value Type** | **Access  Types&#x20;** | **Address Format** | **Min Address** | **Max Address** | **Description**                    |
+| -------- | -------------- | ----------------------- | ------------------ | --------------- | --------------- | ---------------------------------- |
+| I        | bit            | R/W                     | DDDdd              | 0               | 25515           | Input bit                          |
+| O        | bit            | R/W                     | DDDdd              | 0               | 25515           | Output bit                         |
+| S        | bit            | R/W                     | DDD                | 0               | 255             | Status bit                         |
+| B3       | bit            | R/W                     | DDDdd              | 0               | 25515           | Bit Data file (B3)                 |
+| Bfn      | bit            | R/W                     | FFFDDDdd           | 100000          | 25525515        | Bit Data File                      |
+| T4ACC    | int            | R/W                     | DDD                | 0               | 255             | Timer Accumulator (T4)             |
+| T4PRE    | int            | R/W                     | DDD                | 0               | 255             | Timer Prese (T4)                   |
+| TfnACC   | int            | R/W                     | FFFDDD             | 1000            | 255255          | Timer Accumulator                  |
+| Tfn\_PRE | int            | R/W                     | FFFDDD             | 1000            | 255255          | Timer Preset                       |
+| CS\_ACC  | int            | R/W                     | DDD                | 0               | 255             | Counter Accumulator (CS)           |
+| CS\_PRE  | int            | R/W                     | DDD                | 0               | 255             | Counter Preset (CS)                |
+| Cfn\_ACC | int            | R/W                     | FFFDDD             | 1000            | 255255          | Counter Accumulator                |
+| Cfn\_PRE | int            | R/W                     | FFFDDD             | 1000            | 255255          | Counter Preset                     |
+| R6       | int            | R/W                     | DDD                | 0               | 255             | Control File (R6)                  |
+| R6.POS   | int            | R/W                     | DDD                | 0               | 255             | Control file pointer position (R6) |
+| R6.LEN   | int            | R/W                     | DDD                | 0               | 255             | Control file length (R6)           |
+| Rfn      | int            | R/W                     | FFFDDD             | 0               | 255255          | Control File                       |
+| Rfn\_POS | int            | R/W                     | FFFDDD             | 0               | 255255          | Control file pointer position      |
+| Rfn\_LEN | int            | R/W                     | FFFDDD             | 0               | 255255          | Control file length                |
+| N7       | int            | R/W                     | DDD                | 0               | 255             | Integer Data File (N7)             |
+| Nfn      | int            | R/W                     | FFFDDD             | 1000            | 255999          | Integer Data File                  |
+| Lfn      | int            | R/W                     | FFFDDD             | 1000            | 255999          |                                    |
+| F8       | float          | R/W                     | DDD                | 0               | 255             | Floating Point data file (F8)      |
+| Ffn      | float          | R/W                     | FFFDDD             | 1000            | 255999          | Floating Point data file           |

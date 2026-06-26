@@ -1,0 +1,104 @@
+---
+title: AB Logix Ethernet (3.16.4)
+slug: jb0W-ab-logix-ethernet
+docTags: 
+createdAt: Thu May 28 2026 23:47:05 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information to set up and configure the AB Logix Ethernet driver.
+
+# Overview
+
+Multiple tags in the same polling cycle can be read in a single request/response.
+
+The driver implements two modes: Symbolic and CompactLogix.
+
+## Symbolic Mode
+
+The driver supports FlexLogix, CompactLogix, and ControlLogix connections in Symbolic mode. This mode makes tag grouping more efficient compared to the standard driver by trying to combine as many tags as possible but not exceeding the maximum transmission unit (MTU) size for both requests and responses. Compared to CompactLogix mode, it performs better when dealing with changes to the PLC program.&#x20;
+
+## CompactLogix Mode
+
+In CompactLogix mode, the driver only supports connections between ControlLogix and CompactLogix models with firmware version 21 or greater. The driver uses numeric handles instead of symbolic names. Usually, this allows for reading more tags per request than in symbolic mode, especially if symbolic names are pretty long. However, the driver must be restarted every time the PLC program changes. It performs better overall than Symbolic mode as long as the PLC program does not change.
+
+# Litmus Edge Compatible Series
+
+| Compatibility parameter      | Compatible items                                                                                                                                                                                          |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                                                                                                                                                  |
+| **Validated devices/series** | CompactLogix&#xA;ControlLogix&#xA;FlexLogix&#xA;When configuring tags for this driver, you must enter the register name precisely as defined in the PLC. See the *Free Tags* section below to learn more. |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                                                           |
+| ------------------- | ------------------------------------------------------------------------------- |
+| **Type**            | Allen-Bradley                                                                   |
+| **Driver**          | AB Logix Ethernet                                                               |
+| **Network Address** | The device address you defined in Step 1                                        |
+| **Network Port**    | 44818                                                                           |
+| **Access Mode**     | Select Symbolic or CompactLogix                                                 |
+| **Route**           | 1,0 &#xA;(Route describes the path the message takes to get to the destination) |
+
+# Step 3: Configure the List of Registers
+
+When you [Add Tags]() to the connected device, refer to the following tag parameters and available value types.
+
+You can also [Search for Pre-defined Device Tags]() for this device.&#x20;
+
+Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Free Tags
+
+This driver doesn't have a list of available register names in the DeviceHub *Add Tag* form.
+
+To add tags, you must enter the register name exactly as it is defined in the PLC.
+
+## Available Value Types
+
+- `bool`
+- `byte`
+- `sint`
+- `int`
+- `dint`
+- `real`
+- `dword`
+- `lint`
+- `lreal`
+- `string`
+
+## Tag Parameters
+
+- **Name**: Enter the case-sensitive register name exactly as it is defined in the PLC.&#x20;
+- **Value Type**: Select a data type from the drop-down list.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

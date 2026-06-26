@@ -1,0 +1,75 @@
+---
+title: Create a Cloud Storage Sync Job
+slug: R_h01vqj6YfJGuA5X5Pil
+description: Learn how to create a Cloud Storage Sync job.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+You can create Cloud Storage sync jobs by navigating to **Integration&#x20;**> **Object**.&#x20;
+
+# Before You Begin
+
+Before you can start leveraging Cloud Storage Sync, you will need to set up the source directory. See [Set Up Cloud Storage](<././Cloud Storage.md>) to learn more. &#x20;
+
+# Create Cloud Storage Sync Job
+
+**To create a cloud storage sync job:**
+
+1. Navigate to **Integration&#x20;**> **Object**.&#x20;
+2. Click **Add sync job**.
+   The *Add Cloud Sync Job* dialog box displays.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/39ycCkpJeDoUTofNjdMjt_add-cloud-sync-job.png" size="100" width="1012" height="491" position="flex-start" indent="2" showCaption="false"></Image>
+
+3. Enter a name for the job.&#x20;
+4. Select a provider for the job.&#x20;
+
+Configure the parameters for the provider.&#x20;
+
+## AWS S3
+
+- **Region**: Enter the region name. See [Amazon Simple Storage Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/s3.html) to learn more.&#x20;
+- **Access key ID**: Enter the appropriate access key ID. See [AWS security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html) to learn more.&#x20;
+- **Secret access key**: Enter the appropriate secret access key. See [AWS security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html) to learn more.&#x20;
+- **Source**: Enter the file path to the local directory. For example: `/var/lib/customer/ftp-data/s3-sync`. Make sure you have started the Litmus Edge FTP server and created the necessary folders for the file path. See [Set Up Cloud Storage](<././Cloud Storage.md>) to learn more.&#x20;
+- **Destination**: Enter the remote S3 bucket name.&#x20;
+- **Transfer mode**: Select a transfer mode: **Copy&#x20;**&#x6F;r **Move**.&#x20;
+- **Run every**: Configure the time interval for the sync job in minutes, hours, or seconds.&#x20;
+
+## Azure Blob Storage
+
+- **Access Key**: Enter the access key. See the following resources to learn more.&#x20;
+  - [Security recommendations](https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations)
+  - [About Azure Key Vault ](https://learn.microsoft.com/en-us/azure/key-vault/general/overview)
+- **Access Name**: Enter the storage account name.&#x20;
+- **Source**: Enter the file path to the local directory. For example: `/var/lib/customer/ftp-data/azure-sync`. Make sure you have started the Litmus Edge FTP server and created the necessary folders for the file path. See [Set Up Cloud Storage](<././Cloud Storage.md>) to learn more.&#x20;
+- **Destination**: Enter the Azure Blob Storage container name.&#x20;
+- **Transfer mode**: Select a transfer mode: **Copy&#x20;**&#x6F;r **Move**.&#x20;
+- **Run every**: Configure the time interval for the sync job in minutes, hours, or seconds.&#x20;
+
+## Google Cloud Storage
+
+- **JSON Key FIle**: Pase or upload the JSON key file.&#x20;
+- **Source**: Enter the file path to the local directory. For example: `/var/lib/customer/ftp-data/gcp-sync`. Make sure you have started the Litmus Edge FTP server and created the necessary folders for the file path. See [Set Up Cloud Storage](<././Cloud Storage.md>) to learn more.&#x20;
+- **Destination**: Enter the remote GCP bucket name.&#x20;
+- **Transfer mode**: Select a transfer mode: **Copy&#x20;**&#x6F;r **Move**.&#x20;
+- **Run every**: Configure the time interval for the sync job in minutes, hours, or seconds.&#x20;
+
+## Databricks Unity Catalog Volume
+
+- **Workspace URL**: Enter the Databricks workspace URL. See [Get identifiers for workspace objects](https://docs.databricks.com/en/workspace/workspace-details.html) to learn more.&#x20;
+- **Authentication Option**:
+  - **Personal Access Token:** If you select this, then:&#x20;
+    - **Access Token:** You can paste the access token here. See [Databricks personal access token authentication](https://docs.databricks.com/en/dev-tools/auth/pat.html) to learn more.&#x20;
+- **Source**: Enter the file path to the local directory. For example: `/var/lib/customer/ftp-data/databricks-sync`. Make sure you have started the Litmus Edge FTP server and created the necessary folders for the file path. See [Set Up Cloud Storage](<././Cloud Storage.md>) to learn more.&#x20;
+- **Destination**: Enter the file path to Databricks directory.&#x20;
+- **Transfer mode**: Select a transfer mode: **Copy&#x20;**&#x6F;r **Move**.&#x20;
+- **Run every**: Configure the time interval for the sync job in minutes, hours, or seconds&#x20;
+- See [Databricks Unity Catalog Volume](<././././How-To Guides/Integration Guides/Databricks Integration/Databricks Unity Catalog Volume.md>) guide to configure the Databricks Unity Catalog Volume on the Litmus Edge webUI to send files directly to the Databricks Unity Catalog.
+
+When done configuring the provider, click **Save**.&#x20;
+
+Once the job is created, you can enable or disable it. To manage the job, you must disable the job first.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/mrozGm18B7WQyT6n2cPwA_image.png "Enable/Disable status for sync jobs")

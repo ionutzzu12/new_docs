@@ -1,0 +1,161 @@
+---
+title: Generated System Events
+slug: product-features/system/events/generated-system-events
+description: Events are displayed when you complete a specific action for a component.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Events are displayed when you complete a specific action for a component.&#x20;
+
+<hint type="info">
+  **Note**: Some actions performed are local.&#x20;
+</hint>
+
+The event can be a success or a failure. Review below what each event may display and the possible events for each component.&#x20;
+
+| **Component**         | **This event may display**                      | **Possible events** |
+| --------------------- | ----------------------------------------------- | ------------------- |
+| Auth (Authentication) | - Username of the user who performed the action |                     |
+
+- Username of the affected user
+- Name of the affected role
+- Failure reason               | \* User created
+- Failed to create user and failure reason
+- User deleted
+- Failed to delete user and failure reason
+- Role created
+- Failed to create role and failure reason
+- Role deleted
+- Failed to delete role and failure reason
+- Role assigned to the user
+- Failed to assign role to the user and failure reason
+- Role unassigned from the user
+- Failed to unassign role from the user and failure reason
+- User logged in
+- Login lockdown initiated                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+  \| Integration           | - Username of the user who performed the action
+- Connector type
+- Connector name
+- A list of affected tags
+- Failure reason               | \* Connector created
+- Failed to create a connector and the failure reason
+- Connector removed
+- Failed to remove the connector and the failure reason
+- Connector enabled
+- Connector disabled
+- Connected
+- Disconnected
+- Tags removed
+- Tags enabled
+- Tags disabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+  \| DeviceHub             | - Username of the user who performed the action
+- Name of the driver
+- A list of affected tags
+- Failure reason                            | \* Device created
+- Failed to create device and failure reason
+- Device updated
+- Failed to update device and failure reason
+- Device removed
+- Failed to remove device and failure reason
+- Device enabled
+- Device disabled
+- Device connected
+- Device disconnected
+- Tags added
+- Failed to create tags and failure reason
+- Tags removed
+- Failed to remove tags and failure reason
+- Tags updated (added or removed)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+  \| System                | - Username of the user who performed the action
+- Name of the file the backup was restored from
+- Certificate information
+- Failure reason | \* Device rebooted
+- Version information
+- Software update applied. Confirmation is pending a reboot.
+- Software update failed and failure reason
+- Activation information
+- Activation completed
+- Activation failed and failure reason
+- Deactivation completed
+- Deactivation failed and failure reason
+- Disk space limit information
+- Low disk space. User-defined level exceeded
+- Low disk space. System level exceeded
+- Backup - restore information
+- Backup restored successfully
+- Backup restored with warning(s) and failure reason
+- Backup restore failed and failure reason
+- Template applied
+- Failed to apply the template and failure reason
+- New self-signed certificate deployed
+- Server SSL certificate deployed
+- Failed to deploy server certificate and failure reason
+- CA certificate added
+- Failed to add CA certificate and failure reason
+- CA certificate removed
+- Failed to remove CA certificate and failure reason
+- Identity certificate added
+- Failed to add identity certificate and failure reason
+- Identity certificate removed
+- Failed to remove identity certificate and failure reason
+- Identity certificate renewed
+- Identity certificate expired |
+  \| Licensing             | - Username of the user who performed the action
+- License key, name, features, expiry date and days to expiry
+- Failure reason             | \* Trial has started
+- License added
+- Failed to add license and failure reason
+- License activated
+- License is expiring soon
+- License is expired                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+  \| Marketplace           | - Username of the user who performed the action
+- Application name
+- Failure reason                                                        | \* Application created
+- Failed to create an application and failure reason
+- Application stopped
+- Failed to delete the application and failure reason
+- Application download started
+- Application download completed
+- Application download failed and failure reason
+- Application started
+- Application exited
+- Application restarted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+  \| OPC UA                | - Username of the user who performed the action
+- uuid
+- Message
+- Failure reason                                                          | \* Server started / stopped
+- User modified
+- Certificate or hierarchy update                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+  \| Digital Twins         | - The model or instance ID
+- Message
+- The model or instance name
+- uuid
+  &#x20;                                                            \| \* Model created
+- Model deleted
+- Model updated
+- Instance created
+- Instance updated
+- Instance deleted
+- Instance enabled
+- Instance disabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+  \| Flows Manager         | - Username of the user that performed the action
+- id
+- Last heartbeat value
+- Message
+- Flow name
+- uuid
+  &#x20;                           \| \* Flow created
+- Flow deleted
+- Flow updated
+- Flow started
+- Flow stopped
+- Flow memory limit updated
+- Failures and errors                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+  \| Analytics             | - The group name
+- Message
+- Username of the user who performed the action
+- uuid
+  &#x20;                                                   \| \* Create new analytics group
+- Analytics group updated
+- Analytics group locked and unlocked                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |

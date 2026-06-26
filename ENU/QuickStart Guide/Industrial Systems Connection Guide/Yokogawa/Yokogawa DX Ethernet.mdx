@@ -1,0 +1,363 @@
+---
+title: Yokogawa DX Ethernet
+docTags: 
+createdAt: Thu May 28 2026 23:46:59 GMT+0300 (Eastern European Summer Time)
+---
+
+<table isTableHeaderOn="true" columnWidths="307,308">
+  <tr>
+    <td>
+      Compatibility Parameter
+    </td>
+    <td>
+      Compatible Items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Driver Type
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Validated Devices/Series
+    </td>
+    <td>
+      DX230, DX208P
+    </td>
+  </tr>
+</table>
+
+## Introduction
+
+Review the following information for setting up and configuring the Yokogawa DX Ethernet driver. This driver connects to Yokogawa DX series data recorders and MV series paperless recorders over Ethernet TCP and supports reading channel data, alarm states, and configuration properties by polling.
+
+## How to Configure the Device
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and configure the device
+- Step 2: Set up the device in Litmus Edge DeviceHub
+- Step 3: Configure the list of registers
+
+### Step 1: Set up and configure the device
+
+1. Ensure the DX recorder is connected to the same network as your Litmus Edge device.
+2. On the recorder, navigate to the Ethernet communication settings and note the **IP Address** and **Port** configured for Ethernet communication.
+3. If user authentication is configured on the recorder, note the registered **Username** and **Password**. If no registered user is configured, the default credentials are `admin` / `0`.
+4. Verify that the recorder's Ethernet port is reachable from the Litmus Edge host (no firewall blocking the configured port).
+
+### Step 2: Set up the device in Litmus Edge DeviceHub
+
+Configure the following parameters when you connect a device with this driver. Update default values to match the specific setup of your device.
+
+<table isTableHeaderOn="true" columnWidths="307,308">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Type
+    </td>
+    <td>
+      `Yokogawa`
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Driver
+    </td>
+    <td>
+      `Yokogawa DX Ethernet`
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Network Address
+    </td>
+    <td>
+      IP address of the DX recorder
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Network Port
+    </td>
+    <td>
+      Port configured on the recorder for Ethernet communication
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Username
+    </td>
+    <td>
+      Username configured on the recorder. If no registered user is configured, use `admin`.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Password
+    </td>
+    <td>
+      Password for the configured user. If no registered user is configured, use `0`.
+    </td>
+  </tr>
+</table>
+
+### Step 3: Configure the list of registers
+
+When you add a tag to the connected device, see the following register table and tag parameters sections.
+
+## Register Table
+
+**Note:** Each register name corresponds to a specific data type available per channel on the recorder. When adding a tag, select the register name that matches the data you want to read from the channel.
+
+<table isTableHeaderOn="true" columnWidths="153,153,153,156">
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Value Types
+    </td>
+    <td>
+      Access Types
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      PV
+    </td>
+    <td>
+      float32, float64
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Process value of the channel
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Alarm
+    </td>
+    <td>
+      uint16
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Alarm summary for the channel
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Alarm1
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Alarm level 1 status
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Alarm2
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Alarm level 2 status
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Alarm3
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Alarm level 3 status
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Alarm4
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Alarm level 4 status
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ASP1
+    </td>
+    <td>
+      float32, float64
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Alarm level 1 setpoint
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ASP2
+    </td>
+    <td>
+      float32, float64
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Alarm level 2 setpoint
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ASP3
+    </td>
+    <td>
+      float32, float64
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Alarm level 3 setpoint
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ASP4
+    </td>
+    <td>
+      float32, float64
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Alarm level 4 setpoint
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ScaleHi
+    </td>
+    <td>
+      float32, float64
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Upper scale value of the channel
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ScaleLo
+    </td>
+    <td>
+      float32, float64
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Lower scale value of the channel
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Status
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Status of the channel
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Tag
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Tag name of the channel
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Unit
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Unit symbol of the channel
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Precision
+    </td>
+    <td>
+      int16
+    </td>
+    <td>
+      R/O
+    </td>
+    <td>
+      Precision of the channel
+    </td>
+  </tr>
+</table>

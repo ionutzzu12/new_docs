@@ -1,0 +1,70 @@
+---
+title: Licenses
+slug: product-features/system/activation/licenses
+description: The licenses pane allows you to manage site-based and node-locked licenses.
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Litmus Edge supports two types of licenses.&#x20;
+
+- **Node-locked license**:  Each license is locked to an edge device.
+- **Site** **license**: Activated with a license server embedded in Litmus Edge Manager. During the edge device activation, this server can provision a site license, which offers unlimited usage of devices (except for configurable tag limits and reservations). You can define the limit (upper limit) and reservation (lower limit) of assets, such as tags, per site license. See [Activate an Edge Device](#) to learn more.&#x20;
+
+For even more detailed information on the two types of licenses, see [Site and Node-Locked License Overview for Litmus Edge](<././././Resources/Site and Node-Locked License Overview for Litmus Edge.md>).
+
+The *License&#xA0;*&#x70;ane includes the following sections.
+
+- **License Server Settings**: Allows you to configure License server settings.
+- **Node-Locked License**: Allows you to add a standard node-locked license to replace the trial license, upgrade a license, add additional licenses to increase the number of devices and tags, or add new modules, as well as to remove licenses. By default Litmus Edge comes with a 15-day node-locked trial license. All features are available with a trial license except backup/restore and template.&#x20;
+- **Version**: Allows you to view the current Litmus Edge version and License ID.
+- **Features**: Allows you to view the currently installed modules, as well as view and configure the number of devices and tags allowed under your license for site license.
+
+<hint type="info">
+  **Note**: [Backup/Restore](<././Device Management/Backup_Restore.md>) are not available under the trial license.
+</hint>
+
+Contact your Litmus representative to request a license key.
+
+# Node-Locked License
+
+A standard node-locked license is valid for one year. The license type, license key, and expiration date are visible from **System** > **License**. The license key is 16 digits, for example: `2411-3629-5461-7935`. You must include all the dashes in the license. Multiple licenses can be purchased, added, and activated to increase the number of devices and tags or for products in addition to the standard core license.
+
+When a standard core license expires, you cannot access any modules except the license section in *System*. Furthermore, the expired license could use up the CPU, thereby unnecessarily wasting computing resources. A banner appears in **System** > **License** that lets you know which license has expired. You must contact your admin to add a new license. Expiration dates apply to core and additional licenses.
+
+You can upgrade an existing core license to replace it.
+
+<hint type="info">
+  **Notes**:
+
+  - For a standard core license, see [Activate a License Offline](<Licenses/Offline Node-Locked License Activations/Activate a Node-Locked License Offline.mdx>) to learn how to activate a license without being connected to the internet.
+  - A license can be upgraded but not deactivated.
+  - A license can be used on the same edge device (same Host ID) any number of times as long as it is within the valid date of expiration.
+</hint>
+
+Litmus Edge does not require Ethernet or an internet connection during installation. The installation works completely offline. However, Ethernet (not internet) is required during the first bootup after the installation is complete.
+
+<hint type="info">
+  **Important&#x20;**&#xA0;**for Cloud Deployment**:
+
+  Before activating the license, ensure all hardware / VM configuration steps that can modify the MAC address (add/replace a Network Interface Controller (NIC) card) are finalized.
+
+  The license Host ID depends on the Media Access Control (MAC) address for the device. The MAC&#x20;
+
+  address identifies the devices on a network. Changing the MAC address will invalidate the license.
+</hint>
+
+# Access License UI
+
+From the Litmus Edge navigation panel, navigate to **System&#x20;**> **Activation&#x20;**> **License**.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eabukmTHcvrmNwKP182oL_image.png)
+
+# Next Steps
+
+- [Set a License Server](<Licenses/Set a License Server.mdx>)
+- [Remove a License Server](<Licenses/Remove a License Server.mdx>)
+- [Online Node-Locked License Activations](<Licenses/Online Node-Locked License Activations.mdx>)
+- [Offline Node-Locked License Activations](<Licenses/Offline Node-Locked License Activations.mdx>)
+- [Remove a Node-Locked License](<Licenses/Remove a Node-Locked License.mdx>)
+- [Time Synchronization Issues](<././././Troubleshooting/System Troubleshooting/Time Synchronization Issues.md>)

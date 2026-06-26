@@ -1,0 +1,30 @@
+---
+title: Manage the OPC UA Server
+slug: product-features/opc-ua-server/management/manage-the-opc-ua-server
+description: Learn how to manage the OPC UA server.
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+You can manage the OPC UA Server by navigating to **OPC&#x20;**>**&#x20;Management**.&#x20;
+
+If you are using the Docker version of Litmus Edge and having issues connecting to the OPC UA server, refer to [Issues Connecting to OPC UA Server](<././././Troubleshooting/OPC UA Troubleshooting/Issues Connecting to OPC UA Server.md>).&#x20;
+
+Refer to the following OPC UA Server management options.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/3_ek_UIuIo3rhWsPGiK95_image.png)
+
+| **Action**                            | **Details**                                                                                                                                               |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \[1] **Start and Stop OPC UA Server** | Before you start the OPC UA Server, make sure you do the following:&#xA;\* Configure the OPC UA Server. Refer to the callout below for more information.  |
+
+- [Add a Node](#).&#x20;
+- Enable at least one OPC UA policy.&#x20;
+- Configure OPC UA authentication.&#x20;
+  After starting the OPC UA Server, you have the option of stopping it.                        |
+  \| \[2] **Restart OPC UA Server**        | Restarting the server returns it to its original configuration.                                                                                                                                                                                                                                                                                                              |
+  \| \[3] **Configure OPC UA Server**      | To configure the OPC UA Server, enter the details for the server:
+  \* **Host**: Enter the OPC UA host IP address.&#x20;
+- **Port**: Enter the port number 4840.&#x20;
+- **Allow Nodes Under Root**: If this option is selected, the OPC UA hierarchy will start under the root folder. If unselected, the OPC UA hierarchy will start under the *Objects&#x20;*&#x6E;ode. |
+  \| \[4]**&#x20;View**                    | Click the **View&#x20;**&#x69;con to review logs for the server.                                                                                                                                                                                                                                                                                                             |

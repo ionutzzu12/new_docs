@@ -1,0 +1,140 @@
+---
+title: Keyence Nano Ethernet (Gen1.3) (3.24.0)
+slug: JLroajuVSDl9BnljeclmE
+description: Review the following information for setting up and configuring the Keyence Nano Ethernet (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Keyence Nano Ethernet (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Driver type**              | Ethernet                                                                                                                                                                                                                                                                                                                                   |
+| **Validated devices/series** | [Keyence KV-5000](https://www.keyence.com.sg/products/controls/plc-building-block-type/kv-5000_3000/models/kv-5000/)&#xA;[Keyence KV-7500](https://www.keyence.com.sg/products/controls/plc-building-block-type/kv-7000/models/kv-7500/)&#xA;[Keyence KV-8000](https://www.keyence.com/products/controls/plc-building-block-type/kv-8000/) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it when needed.&#x20;
+2. **Device**: Keyence Nano Ethernet
+3. **Communication I/F**: Ethernet. Refer to the following figures.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZJS7Az-QzXe41kRUHpEJ7_keyence-nano-ethernet.png" size="80" width="373" height="420" caption="Keyence Nano Ethernet reference" position="center" indent="2" showCaption="true"></Image>
+
+4. Launch the KV-Studio Software, and then click **Tools > Ethernet IP Settings**.
+5. Set up the IP address.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/8yrnI9S-IHaPDD1phYgLg_keyence-nano-ethernet-ip-address.png" size="80" width="568" height="444" caption="IP address setup" position="center" indent="2" showCaption="true"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Use the following parameters/values when you [Connect a Device](<././././Product Features/DeviceHub/Devices/Connect a Device.md>) with this driver:
+
+| Parameter               | Value                                    |
+| ----------------------- | ---------------------------------------- |
+| **Type**                | Keyence                                  |
+| **Driver**              | Keyence Nano Ethernet (Gen1)             |
+| **Network Address**     | The device address you defined in Step 1 |
+| **Port**                | 8501                                     |
+| **Enable Alias Topics** | Enabled                                  |
+| **Enable Data Store**   | Enabled                                  |
+
+# Step 3: Configure the List of Registers
+
+When you [Add Tags]() to the connected device, refer to the following register table and tag parameters.
+
+Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Important
+
+When you enter a count greater than 1 for 32- and 64-bit types, the driver will skip the appropriate addresses, so it doesn’t read the overlapping addresses. For example, if you enter a count of 4 for address DM0, the following addresses will be read based on the data-type size:
+
+- 16 bit: DM0, DM1, DM2, DM3
+- 32 bit: DM0, DM2, DM4, DM6
+- 64 bit: DM0, DM4, DM8, DM12
+
+For the string data type, you will need to set the count as the number of characters to read. There are 2 ASCII characters per 16-bit register, so if you enter a count of 10 and address DM0, then the driver should read DM0-4 and print 10 characters (or less, if the registers are null). If you write a string with fewer characters than the count of the tag, the string will be right-padded with null characters that will overwrite any values in those registers.
+
+## Register Table
+
+| **Name**  | **Value Types**                                          |     | **Address Format** | **Min Address** | **Max Address** | **Description**           |
+| --------- | -------------------------------------------------------- | --- | ------------------ | --------------- | --------------- | ------------------------- |
+| MR        | bit                                                      | R/W | DDDDdd             | 0               | 399915          | Internal Auxiliary Relay  |
+| LR        | bit                                                      | R/W | DDDdd              | 0               | 99915           | Latch Relay               |
+| CR        | bit                                                      | R/W | DDDdd              | 0               | 99915           | Control Relay             |
+| RLY       | bit                                                      | R/W | DDDdd              | 0               | 99915           | Relay                     |
+| B         | bit                                                      | R/W | HHHh               | 0               | 32767           | Link Relay                |
+| T\_Bit    | bit                                                      | R/W | DDDD               | 0               | 9999            | Timer bit                 |
+| C\_Bit    | bit                                                      | R/W | DDDD               | 0               | 9999            | Counter bit               |
+| DM\_Bit   | bit                                                      | R/W | DDDDDdd            | 0               | 6553515         | Data memory bit           |
+| TM\_Bit   | bit                                                      | R/W | DDDDdd             | 0               | 999915          | Temporary data memory bit |
+| CM\_Bit   | bit                                                      | R/W | DDDDDdd            | 0               | 6553515         | Control memory bit        |
+| EM\_Bit   | bit                                                      | R/W | DDDDDdd            | 0               | 6553515         | Data memory               |
+| FM\_Bit   | bit                                                      | R/W | DDDDDdd            | 0               | 6553515         | File Register bit         |
+| CTC\_Bit  | bit                                                      | R/W | D                  | 0               | 7               |                           |
+| ZF\_Bit   | bit                                                      | R/W | DDDDDDdd           | 0               | 52428715        | File Register (SQ) bit    |
+| W\_Bit    | bit                                                      | R/W | HHHHh              | 0               | 524287          | Link Register bit         |
+| VM\_Bit   | bit                                                      | R/W | DDDDDdd            | 0               | 6553515         |                           |
+| VB\_Bit   | bit                                                      | R/W | HHHh               | 0               | 63999           |                           |
+| CTC       | word, int16, int32, uint32, ascii, float, double, string | R/W | D                  | 0               | 7               |                           |
+| CTH       | word, int16, int32, uint32, ascii, float, double, string | R/W | D                  | 0               | 3               |                           |
+| Z         | word, int16, int32, uint32, ascii, float, double, string | R/W | DD                 | 1               | 12              |                           |
+| TRM       | word, int16, int32, uint32, ascii, float, double, string | R/W | D                  | 0               | 7               |                           |
+| C\_Preset | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDD               | 0               | 9999            | Counter preset            |
+| C\_Curr   | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDD               | 0               | 9999            | Counter current           |
+| T\_Preset | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDD               | 0               | 9999            | Timer preset              |
+| T-Curr    | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDD               | 0               | 9999            | Timer Current             |
+| C         | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDD               | 0               | 9999            | Counter                   |
+| T         | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDD               | 0               | 9999            | Timer                     |
+| B\_Word   | word, int16, int32, uint32, ascii, float, double, string | R/W | HHH                | 0               | 2047            | Link Delay                |
+| RLY\_Word | word, int16, int32, uint32, ascii, float, double, string | R/W | DDD                | 0               | 999             | Relay                     |
+| VB        | word, int16, int32, uint32, ascii, float, double, string | R/W | HHH                | 0               | 3999            |                           |
+| ZF        | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDDDD             | 0               | 524287          | File Register             |
+| CR\_Word  | word, int16, int32, uint32, ascii, float, double, string | R/W | DDD                | 0               | 999             | Control Relay             |
+| LR\_Word  | word, int16, int32, uint32, ascii, float, double, string | R/W | DDD                | 0               | 999             | Latch Relay               |
+| MR\_Word  | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDD               | 0               | 3999            | Internal Auxiliary relay  |
+| FM        | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDDD              | 0               | 65535           | File Register             |
+| EM        | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDDD              | 0               | 65535           | Data memory               |
+| CM        | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDDD              | 0               | 65535           | Control memory            |
+| VM        | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDDD              | 0               | 65535           |                           |
+| W         | word, int16, int32, uint32, ascii, float, double, string | R/W | HHHH               | 0               | 32767           | Link Register             |
+| TM        | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDD               | 0               | 9999            | Temporary data memory     |
+| DM        | word, int16, int32, uint32, ascii, float, double, string | R/W | DDDDD              | 0               | 65535           | Data memory               |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

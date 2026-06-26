@@ -1,0 +1,49 @@
+---
+title: File Reading Processor
+slug: 7Q0B-file-reading-processor
+docTags: 
+createdAt: Thu May 28 2026 23:46:59 GMT+0300 (Eastern European Summer Time)
+---
+
+The **File Reading** processor function allows users to read content from a specified file and pass it as a string in the output payload, with customizable parameters for filename management, file size limits, and re-reading intervals.
+
+# File Reading Overview
+
+- Reads a file and passes it as a string in the **"value"** field of the output payload
+- If the ***File Name*** field is empty, this processor will attempt to get filename from incoming payload field **"filename"**
+  - Otherwise, the filename entered here field will be honored
+- If the **"Generate Filename From Expression"** option is enabled, the filename will be evaluated as expression.
+  - For example, if you want to get the filename from "path" and name" properties of incoming connection "AAA", your expression could be: **AAA\_path + AAA\_name + ".txt"**
+  - Please note that static text in expressions should be put into quotes
+- Time interval, in seconds, allows a file to be re-read even if the file is unmodified
+  - Typically, an input message triggers a file read, if the file is unmodified since the last read
+  - The specified time interval resets the “unmodified” status, so that the file can be read at the next input trigger
+  - Any change of the processor’s setting also resets the "unmodified" status
+  - Setting **0** means that the “unmodified” status is never reset, and the file is only read if modified
+- **"File Size Limit"**: If the file/s is bigger than the specified amount of megabytes, reading action on that file/s will be skipped
+  - ***Caution!*** If this limit is set to **0**, files of all sizes will be read, but it can potentially lead to overuse of CPU, memory and storage space
+- If ***"Input File Type"*** is set to **value only** processor will set incoming data to **"value""** payload field.
+- If ***"Input File Type"*** is set to **CSV** following options will affect input:
+  - **CSV Comma** contains CSV-file delimiter (only first character will be used from string entered)
+  - **CSV Columns Mode** controls how processor will determine data column names.
+    - If this option is set to "indexed" mode processor will assume CSV file doesn't have header and will generate payload field names as "FieldXXX"
+    - If this option is set to "from header" mode processor will get payload field names from CSV file header
+    - If this option is set to "custom" mode processor will get payload field names **CSV Custom Columns** string
+- **"Data Output Mode"**: specifies whether data from file would be sent in one message on record-by-record.
+  - Please note: &#x41;**&#x20;message per record** data output mode is not supported for binary or JSON files
+
+# File Reading Parameters
+
+| **Parameters**                    | **Details**                                                                                                             |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| File Name                         | Specifies the name of the file to be read.                                                                              |
+| Generate Filename From Expression | Enables filename evaluation as an expression when activated, allowing for dynamic filename assignment.                  |
+| Input File Type                   | Determines the format of the input file, which dictates how the processor handles the content. e.g., JSON, CSV, Parquet |
+| File Size Limit in Mb             | Sets a maximum file size (in megabytes) that can be read; if a file exceeds this limit, it will not be processed.       |
+| Time Interval in Seconds          | Defines a timer interval for re-evaluating the filename to check for updates on file changes.                           |
+| Data Output Mode                  | Specifies how the data from the file will be formatted in the output.                                                   |
+| CSV Comma                         | Indicates whether to use commas as delimiters in CSV output.                                                            |
+| CSV Columns Mode                  | Sets how columns are managed in the CSV output format.                                                                  |
+| CSV Customs Columns               | Allows the definition of custom columns for CSV output, providing flexibility in data structuring.                      |
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/vTsLunQWvJ7ukDma0SkYB_image.png)

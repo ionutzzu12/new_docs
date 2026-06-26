@@ -1,0 +1,32 @@
+---
+title: Splunk
+slug: product-features/integration/integration-connectors/cloud-service-providers/splunk
+description: Review parameters for the Splunk connector.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [Splunk Integration Guide](<./././././How-To Guides/Integration Guides/Splunk Integration Guide.md>).&#x20;
+
+## Overview
+
+Splunk integration enables an Edge System to connect with Splunk via HTTP
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to Splunk) - Yes
+- Inbound (Subscribe data from Splunk to Edge) - No
+
+## Configurations
+
+| **Variable**       | **Detail**                                                                                                                                                                                            | **Required** |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name               | Enter a name for the connector                                                                                                                                                                        | Yes          |
+| Hostname           | Splunk server host name                                                                                                                                                                               | Yes          |
+| Port               | Splunk server port                                                                                                                                                                                    | Yes          |
+| Use SSL            | Use SSL HTTP connection                                                                                                                                                                               | No           |
+| Endpoint           | The Splunk endpoint. The default is services/collector/event.                                                                                                                                         | Yes          |
+| Token              | Token for access to Splunk server                                                                                                                                                                     | Yes          |
+| Throttling limit   | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                | No           |
+| Persistent storage | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored. | No           |
+| Queue mode         | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.  | No           |

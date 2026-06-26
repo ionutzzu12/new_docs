@@ -1,0 +1,85 @@
+---
+title: Splunk Integration Guide
+slug: how-to-guides/integration-guides/splunk
+description: Learn how to set up the Splunk connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and Splunk through HTTP.&#x20;
+
+# Before You Begin
+
+You must have a Splunk account.&#x20;
+
+# Step 1: Add Device
+
+Follow the steps to [Connect a Device](). The device will be used to store tags that will be eventually used to create outbound topics in the connector. Make sure to select the **Enable Data Store** checkbox.&#x20;
+
+# Step 2: Add Tag
+
+After connecting the device in Litmus Edge, you can [Add Tags]() to the device. Create tags that you want to use to create outbound topics for the connector.&#x20;
+
+# Step 3: Retrieve Splunk Parameters
+
+Log in to Splunk, navigate to the Splunk - Sublime Text page, and copy the following values:
+
+- Input line
+- Services line
+- Token line
+
+# Step 4: Add the Splunk Connector
+
+Follow the steps to [Add a Connector](<./././Product Features/Integration/Add a Connector.md>) and select the **Splunk** provider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Paste the **Input line** copied in Step 3.&#x20;
+- **Port**: Leave the default value of **8088**.&#x20;
+- **Use SSL**: Make sure the check box is selected.&#x20;
+- **Endpoint**: Paste the **Services line** copied in Step 3.&#x20;
+- **Token**: Paste the **Token line** copied in Step 3.&#x20;
+- **Throttling Limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/D1fE9vqPtVcbjwPwupsHA_splunk.png" size="60" width="369" height="345" position="center" caption="Toggle to enable connector" showCaption="true"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the [Connector Logs](<./././Product Features/Integration/Manage Connectors.md>) and relevant error messages.&#x20;
+
+# Step 6: Create Topics for Connector
+
+You will now need to import the tags created in Step 2 as topics for the Splunk connector. The topic will be created as outbound topics.&#x20;
+
+**To create outbound topics:**
+
+1. Click the connector tile.
+   The connector *Dashboard&#x20;*&#x61;ppears.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Click the **Import from DeviceHub** tags icon.&#x20;
+   The *DeviceHub Import&#x20;*&#x64;ialog box appears.
+
+![](https://api.archbee.com/api/optimize/xSuIWwMa6RnsbeD5Kdqd7-zaOGMDYbPZWYALvLBgotp-20250606-203859.png)
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 7: Enable Topics
+
+To enable the topic, return to the Topics tab and click the **Enable all topics** icon.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Iq7BWYqGWueu4US73iBl3_image.png" size="80" width="1220" height="330" caption="Enable all topics icon" position="center" showCaption="true"></Image>
+
+# Step 8: Verify Data Connection in Splunk
+
+**To verify the data connection in Splunk:**
+
+1. Log in to Splunk.&#x20;
+2. Open the Splunk HTTP Event Collector and refresh the data.
+3. Scroll down to the *Activity&#xA0;*&#x73;ection and hover over the data to view *Valid Requests*.
+4. In the *Request Overview* section, hover over the *Valid Request Count* and click the **Refresh&#x20;**&#x69;con.&#x20;
+5. Verify that the values for *Event Count* and *Valid Request Count* update.&#x20;

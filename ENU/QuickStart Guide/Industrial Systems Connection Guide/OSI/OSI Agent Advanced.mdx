@@ -1,0 +1,75 @@
+---
+title: OSI Agent Advanced
+slug: quickstart-guide/industrial-systems-connection-guide/osi/osi-agent-advanced
+description: Review the following information for setting up and configuring the OSI Agent Advanced driver.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the OSI Agent driver.&#x20;
+
+<hint type="warning">
+  **Important**:&#x20;
+
+  - The DH Historian Agent can only have one OSI PI agent and one OSI PI server connection with one username/password configured for the OSI PI server.
+  - The username/password in the DeviceHub configuration is to access the DH Historian Agent, not the OSI PI server.
+  - If you would like to manage access to tags/data being sent through the OSI PI agent and server, you can set up multiple Litmus Edge connections through the NATS connector. See [Set Up Edge Cascading with the NATS Connector](<././././How-To Guides/Integration Guides/Set Up Edge Cascading with the NATS Connector.md>) to learn more. &#x20;
+</hint>
+
+# Set Up the OSI Agent
+
+See [DH Historian Agent](#) to review how to set up and configure the OSI Agent driver.&#x20;
+
+# OSI Agent Advanced Driver Settings in Litmus Edge
+
+If you review or edit the settings of the OSI Agent Advanced device, refer to the following parameters.&#x20;
+
+| Parameter                      | Value                                                                                                                                                                                           |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Type**                       | OSI                                                                                                                                                                                             |
+| **Driver**                     | OSI Agent Advanced                                                                                                                                                                              |
+| **Network Port**               | The port configured in the DH Historian Agent. The default value is 4777.                                                                                                                       |
+| **Interface**                  | You have the option of selecting the interface for accepting client connections. The default value is 0.0.0.0, which means using all network interfaces for accepting connections from clients. |
+| **User**                       | The username configured in the DH Historian Agent.                                                                                                                                              |
+| **Password**                   | The password configured in the DH Historian Agent.                                                                                                                                              |
+| **Enable TLS**                 | Disable or Enable                                                                                                                                                                               |
+| **Nats Connection Name**       | The NATS connection name, which should be the same as the Windows-based OSI Agent setting.                                                                                                      |
+| **Nats Request Timeout (ms)**  | 5000                                                                                                                                                                                            |
+| **Browse Request Items Count** | 500                                                                                                                                                                                             |
+
+When you [Add Tags](#) to the connected device, refer to the following register table and tag parameters.
+
+Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](<././././How-To Guides/DeviceHub Guides/Organize Device and Tag Data by Using Metadata.md>)
+- [Tag Formula Variables](<././././Product Features/DeviceHub/Tags/Tag Formula Variables.md>)
+
+## Register Table
+
+| **Name** | **Value Types**                                                                                                                                                                                                        |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| R        | float64, bool\[], sbyte\[], byte\[], int32\[], sbyte, int16, int64, uint64\[], float64\[], string, uint16\[], float32\[], bool, byte, float32, uint64, string\[], int16\[], uint32\[], int64\[], uint16, int32, uint32 |
+| State    | byte, string                                                                                                                                                                                                           |
+| Status   | JSON                                                                                                                                                                                                                   |
+
+## Tag Parameters
+
+- **Name**: Select **R**. &#x20;
+- **Value Type**: Select a value type.&#x20;
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Publishing Interval**: Enter the publishing interval is seconds.&#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

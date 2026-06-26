@@ -1,0 +1,76 @@
+---
+title: Use the Linear Prediction Function
+slug: how-to-guides/analytics-guides/linear-prediction-function
+description: Learn how to use the Linear Prediction function in Analytics.
+docTags: 
+createdAt: Thu May 28 2026 23:47:04 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the Linear Prediction function to forecast future data points by fitting a linear equation to collected data and using statistical techniques to identify the underlying trend.
+
+# User Scenario
+
+Review the following scenario for the linear prediction processor function. Then, using an input processor, you will simulate PLC data and predict future data from the window of generated values.
+
+In a steel production facility, the temperature within the blast furnace is a critical parameter that determines the quality of the produced steel. Operators use the Linear Prediction function to forecast the temperature trends based on past readings. By fitting a linear model to the historical temperature data collected from sensors, the function helps predict potential overheating or cooling, which could lead to suboptimal steel quality.
+
+# Step 1: Add a Device
+
+Follow the steps to [Connect a Device](<./././Product Features/DeviceHub/Devices/Connect a Device.md>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# Step 2: Add Tags
+
+After connecting the device, add the following tag. See [Add Tags](#) to learn more.&#x20;
+
+## Tag 1: input1
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **1**
+- **Tag Name**: Enter **input1**
+- **Min\_value**: Enter **1**
+- **Max\_value**: Enter **25**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Linear Prediction Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" indent="2" showCaption="true"></Image>
+
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **input1&#x20;**&#x74;ag.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **Linear Prediction&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Window Size:** Enter a value that represents the range to observe before making each prediction. For this example, we input a value of **60**.
+   - **Number of Predictions**: Enter a value to determine how many predictions you want. For this example, we input a value of **2**.
+   - **Polling Interval:** Enter the interval in seconds at which you want to publish the data from the input tag. For this example, we input a value of **1**.
+   - **TimeInterval:&#x20;**&#x49;f you know your input is going to publish at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+     ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AG55hRS51Rt_37_lAxC7Y_image.png "Edit a Processor dialog box")
+7. Connect the *DataHub Subscribe* processor (tag: *input1*) to the *Linear Prediction* processor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+   The configured analytics flows should look like the following:&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/TJYPkDKGOJmgZz-Qgf0b4_image.png "Completed Flows Canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Linear Prediction&#x20;*&#x70;rocessor to view the output values.
+
+The prediction is made by extrapolating the number of predictions in the simple formula `y = m*X + b`.
+
+The output indicates a linear prediction with an intercept of **9.89**, a slope of **0.0434**, and a prediction value of **12.68**.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NO_BdcdibNDQ8z49zCV6p_image.png "Output of Linear Prediction")

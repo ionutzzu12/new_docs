@@ -1,0 +1,38 @@
+---
+title: Statistical Prediction
+slug: 7bdT-statistical-prediction
+docTags: 
+createdAt: Thu May 28 2026 23:47:04 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Statistical Prediction** processor enables users to project future values based on historical data. This is achieved by applying Fast Fourier Transform (FFT) to the time series signal, allowing for accurate analysis and prediction.
+
+# Statistical Prediction Overview
+
+- To achieve a prediction of value in the future, Fast Fourier Transform (FFT) is done on the time series signal.
+- This FFT is then used to de-trend the data, generate sine-cosine waveform out of the signal, and then the signal is restored to it's best capacity.
+- The **frequency difference** represents the sampling rate of discretization.
+  - For example, if the window has 10 elements, 1 second frequency difference will generate 10 frequency samples (maximum). 2 seconds will generate 5 samples, and so on.
+  - Usually 1 is good, because it is a time series signal, so you're sampling at every second.
+- **Harmonics** represent the number of waves to "add" to the fundamental wave, to reach the desired signal.
+  - Some signals have a huge number of harmonics, for example square waves have theoretically infinite harmonics.
+  - For the number of harmonics, it is better to start with a lower number and play around with it to see what best fits your needs, rather than just entering a high number.
+- Due to limitations of working with live data, it is preferable to have a window of data to "observe" and then give a "prediction" for a future time.
+- For now, the poling interval of the subscription tag is assumed to be 1 second.
+- **Expected Output:** Until the window is filled up, no output is expected. Afterwards, the *prediction*, with the timestamp of prediction will be the output.
+
+# Statistical Prediction Parameters
+
+| **Parameters**                          | **Details**                                                                                                                                                                                                                                                       |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Display Prediction On Current Timestamp | This parameter shows predictions at the current timestamp from the payload.                                                                                                                                                                                       |
+| Window Size                             | This parameter determines how many values should be observed before making each prediction. It is assumed that the polling interval is 1 second.                                                                                                                  |
+| Number of Predictions                   | This parameter specifies how many seconds into the future the prediction should be made. Again, it is assumed that the polling interval is 1 second.                                                                                                              |
+| Frequency Difference                    | This parameter represents the frequency sampling distance in seconds. It is used to define the frequency resolution of the analysis and prediction.                                                                                                               |
+| Number of Harmonics                     | This parameter determines the number of waves to "add" to the fundamental wave in order to reach the desired signal. It is recommended to start with a lower number and adjust it based on the fit to the actual data, rather than simply entering a high number. |
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/VNBzHt5rlJ9sEfG5s1DKS_image.png" size="80" width="938" height="489" caption="Statistical Prediction parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Statistical Prediction&#x20;*&#x70;rocessor, refer the [Use the Statistical Prediction Function](<././././How-To Guides/Analytics Guides/Use the Statistical Prediction Function.md>)  guide for more details.
+</hint>

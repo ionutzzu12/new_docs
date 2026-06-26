@@ -1,0 +1,88 @@
+---
+title: GE Ethernet Absolute
+slug: ZcQj-ge-ethernet-absolute
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the GE Ethernet Absolute driver.
+
+## Litmus Edge Compatible Series
+
+| Compatibility parameter      | Compatible items              |
+| ---------------------------- | ----------------------------- |
+| **Driver type**              | Ethernet                      |
+| **Validated devices/series** | GE PACSystems RX3i            |
+| **Replaces Gen 1 driver(s)** | GE Fanuc RX3i Ethernet (Gen1) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Note the IP address and ensure the Ethernet Global Data (EGD) port is configured (default port is 18245).
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you **Connect a Device** with this driver. Update default values to the specific setup of your device.
+
+| Parameter           | Value                                  |
+| ------------------- | -------------------------------------- |
+| **Type**            | GE Fanuc                               |
+| **Driver**          | GE Ethernet Absolute                   |
+| **Network Address** | The IP address you recorded in Step 1. |
+| **Port**            | 18245                                  |
+| **Slot Number**     | 0                                      |
+| **Read Timeout**    | 3000 (ms)                              |
+
+## Step 3: Configure the List of Registers
+
+When you [Add a Tag](<././././Product Features/DeviceHub/Tags/Add a Tag.md>) to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](<././././How-To Guides/DeviceHub Guides/Organize Device and Tag Data by Using Metadata.md>)
+- [Tag Formula Variables](<././././Product Features/DeviceHub/Tags/Tag Formula Variables.md>)&#x20;
+
+## Register Table
+
+| Name | Value Types | Address Format | Min Address | Max Address | Access Type | Description   |
+| ---- | ----------- | -------------- | ----------- | ----------- | ----------- | ------------- |
+| I    | bit         | DDDDD          | 1           | 32768       | R/O         | Input         |
+| Q    | bit         | DDDDD          | 1           | 32768       | R/W         | Output        |
+| M    | bit         | DDDDD          | 1           | 32768       | R/W         | Internal      |
+| S    | bit         | DDD            | 1           | 128         | R/O         | System        |
+| SA   | bit         | DDD            | 1           | 128         | R/W         | System A      |
+| SB   | bit         | DDD            | 1           | 128         | R/W         | System B      |
+| SC   | bit         | DDD            | 1           | 128         | R/W         | System C      |
+| T    | bit         | DDDD           | 1           | 1024        | R/W         |               |
+| G    | bit         | DDDD           | 1           | 7680        | R/W         | Genius Global |
+| AI   | word, int16 | DDDDD          | 1           | 32640       | R/O         | Analog Input  |
+| AQ   | word, int16 | DDDDD          | 1           | 32640       | R/W         | Analog Output |
+| R    | word, int16 | DDDDD          | 1           | 32640       | R/W         | Register      |
+| W    | word, int16 | DDDDD          | 1           | 32640       | R/W         |               |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Address**: Enter a tag address. The value must be in decimal format, within the allowed min/max range. Omit the leading zeros. The lowercase letters in the address format indicate how many digits you should enter in the address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power (`x`) performs the operation` 10^x`
+  - log: log (`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp (`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note:** If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>

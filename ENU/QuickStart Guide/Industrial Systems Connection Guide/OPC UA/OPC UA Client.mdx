@@ -1,0 +1,98 @@
+---
+title: OPC UA Client
+slug: quickstart-guide/industrial-systems-connection-guide/opc-ua/opc-ua-client
+description: Review the following information for setting up and configuring the OPC UA Client.
+docTags: 
+createdAt: Thu May 28 2026 23:47:00 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note**: This driver will be deprecated in a future Litmus Edge release. We recommend using [OPC UA Client Advanced](<OPC UA Client Advanced.mdx>).
+</hint>
+
+Review the following information for setting up and configuring the OPC UA Client.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter | Compatible items                              |
+| ----------------------- | --------------------------------------------- |
+| **Driver type**         | Ethernet                                      |
+| **Functionality&#x20;** | - Used to subscribe data from OPC UA servers. |
+
+- Only sends a message to the broker if the value changes at the server level.
+- Subscription interval is defined at the driver level and does not have a polling interval at the tag level. |
+  \| **Replaced with Gen 2 driver** | [OPC UA Client Advanced](<OPC UA Client Advanced.mdx>)                                                                                                                                                                                    |
+
+<hint type="info">
+  **Note**: The OPC UA client does not connect to the server with the Basic256Sha256-SE security policy.
+</hint>
+
+# Supported Servers
+
+## OPC UA Client
+
+- It provides better performance compared to other OPC UA Clients.
+- OPC UA Client with new design supports both poll and subscription mode.
+
+# Set up the Driver in DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                 |
+| ------------------- | --------------------- |
+| **Type**            | OPC UA                |
+| **Driver**          | OPC UA Client         |
+| **Network Address** | The device IP address |
+| **Network Port**    | 4840                  |
+| **Certificate**     | Auto-generated        |
+| **Private Key**     | Auto-generated        |
+
+# Configure the List of Registers
+
+Browse for tags to add to this FreeTag device. See [Browse Tags](#) to learn more.&#x20;
+
+Alternatively, when you [Add Tags](#), for **Name** map the OPC server tags to the client using this format: `ns=1;s=tagname`.
+
+Example: `ns=2;s=Demo.Static.Scalar.Boolean`
+
+The following value types are supported:&#x20;
+
+- `int32`
+- `bool`
+- `sbyte`
+- `byte`
+- `int16`
+- `uint16`
+- `int32`
+- `uint32`
+- `int64`
+- `uint64`
+- `float32`
+- `float64`
+- `string`
+- `dump`
+- `desc`
+
+Refer to the following tag parameters.&#x20;
+
+## Tag Parameters
+
+- **Name**: Enter a name based on this format: `ns=1;s=tagname`.
+  - Example: `ns=2;s=Demo.Static.Scalar.Boolean`
+- **Value Type**: Select a data type from the drop-down list.&#x20;
+- **Tag Name**: Enter a name for the tag.&#x20;
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

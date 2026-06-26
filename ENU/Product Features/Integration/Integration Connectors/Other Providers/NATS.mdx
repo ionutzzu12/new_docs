@@ -1,0 +1,34 @@
+---
+title: NATS
+slug: product-features/integration/integration-connectors/other-providers/rest-api
+description: Review parameters for the NATS connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:08 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following guide: [Set Up Edge Cascading with the NATS Connector](<./././././How-To Guides/Integration Guides/Set Up Edge Cascading with the NATS Connector.md>).&#x20;
+
+## Overview
+
+NATS integration enables an Edge System to connect to a NATS server.
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to NATS server) - Yes
+- Inbound (Subscribe data from NATS Server to Edge) - Yes
+
+## Configurations
+
+| **Variable**                 | **Detail**                                                                                                                                                                                                       | **Required** |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name                         | Enter a name for the connector                                                                                                                                                                                   | Yes          |
+| Hostname                     | NATS server host name                                                                                                                                                                                            | Yes          |
+| Port                         | NATS server port                                                                                                                                                                                                 | Yes          |
+| NATS username                | NATS username, which is part of the client's authentication credentials.                                                                                                                                         | No           |
+| NATS password                | NATS password, which is part of the client's authentication credentials.                                                                                                                                         | No           |
+| Default topic name           | Default topic for publishing                                                                                                                                                                                     | Yes          |
+| Enable TLS secure connection | If enabled, message are transmitted securely. This certificate ensures that data transmitted between the server and clients is encrypted and secure, safeguarding it from unauthorized access and eavesdropping. | No           |
+| Insecure skip verify         | If enabled, the verification of the server's certificate and hostname is skipped.                                                                                                                                | No           |
+| Throttling limit             | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                           | No           |
+| Persistent storage           | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.            | No           |
+| Queue mode                   | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.             | No           |

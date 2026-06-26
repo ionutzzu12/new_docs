@@ -1,0 +1,98 @@
+---
+title: Mitsubishi QJ71E71 (Gen1)
+slug: quickstart-guide/industrial-systems-connection-guide/mitsubishi/mitsubishi-qj71e71-gen1
+description: Review the following information for setting up and configuring the Mitsubishi QJ71E71 (Gen1) PLC.
+docTags: 
+createdAt: Thu May 28 2026 23:47:01 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="warning">
+  **Important**: This driver was deprecated in Litmus Edge version 3.3.2. We recommend using [Mitsubishi QJ71E71](<././Gen 2 Drivers/Mitsubishi QJ71E71.md>).
+</hint>
+
+Review the following information for setting up and configuring the Mitsubishi QJ71E71 (Gen1) PLC.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| **Driver type**                | **Ethernet**                                                    |
+| ------------------------------ | --------------------------------------------------------------- |
+| **Validated devices/series**   | Mitsubishi QJ71E71                                              |
+| **Replaced with Gen 2 driver** | [Mitsubishi QJ71E71](<././Gen 2 Drivers/Mitsubishi QJ71E71.md>) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Note**: Only one connection is allowed per port defined in the PLC. See the steps below to view and edit the open ports on the PLC.
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it as needed. ****
+   **Device**: Mitsubishi Q02CPU+Q71E71-100****
+   **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eRudfJaBjVu9Tagi4HBbC_mitsubishi-qj71e71-binary-reference.png" size="80" width="580" height="490" caption="Reference image of device" position="center" indent="2" showCaption="true"></Image>
+
+2. Launch GX Works2 v1.560J software, click **Create a project**, and then click **Connection1&#xA0;**&#x69;n the navigation panel.
+3. Set up communication parameters, and then click **Connect**.
+4. Set up the network parameters. The *Station Number* cannot be duplicated.
+5. Click **Operation Setting&#xA0;**&#x74;o set up IP for modules.
+6. Click **Online > Write to PLC**, and then reboot the device to activate the settings.
+7. Click **Connection1&#xA0;**&#x69;n the navigation panel.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Use the following parameters/values when you [Connect a Device](<./././././Product Features/DeviceHub/Devices/Connect a Device.md>) with this driver:
+
+| Parameter                | Value                                    |
+| ------------------------ | ---------------------------------------- |
+| **Type**                 | Mitsubishi                               |
+| **Driver**               | Mitsubishi QJ71E71-(Gen1)                |
+| **Network Address**      | The device address you defined in Step 1 |
+| **Port**                 | 5002                                     |
+| **Station ID**           | 0                                        |
+| **Show Device Security** | Enabled                                  |
+| **Enable Alias Topics**  | Enabled                                  |
+| **Enable Data Store**    | Enabled                                  |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag](#) to the connected device, use the following tag/register mapping table.
+
+| Name | Value Type | Address Format | Min Address | Max Address | Description                   |
+| ---- | ---------- | -------------- | ----------- | ----------- | ----------------------------- |
+| X    | bit        | DDDD           | 0           | 9999        | Input Relay                   |
+| Y    | bit        | DDDD           | 0           | 9999        | Output Relay                  |
+| M    | bit        | DDDDD          | 0           | 65535       | Internal Relay                |
+| SM   | bit        | DDDD           | 0           | 2047        |                               |
+| L    | bit        | DDDDD          | 0           | 32237       | Latch Relay                   |
+| F    | bit        | DDDDD          | 0           | 32237       | Annunciator                   |
+| V    | bit        | DDDDD          | 0           | 32237       | Edge Relay                    |
+| B    | bit        | DDDDD          | 0           | 32237       | Link Relay                    |
+| TS   | bit        | DDDDD          | 0           | 25471       | Timer Contact                 |
+| TC   | bit        | DDDDD          | 0           | 25471       | Timer Coil                    |
+| SS   | bit        | DDDDD          | 0           | 25471       | Retentive Timer Contact       |
+| SC   | bit        | DDDDD          | 0           | 25471       | Retentive Timer Coil          |
+| CS   | bit        | DDDDD          | 0           | 25471       | Counter Contact               |
+| CC   | bit        | DDDDD          | 0           | 25471       | Counter Coil                  |
+| SB   | bit        | DDDDD          | 0           | 32237       | Special Link Relay            |
+| S    | bit        | DDDD           | 0           | 8191        | Step Relay                    |
+| DX   | bit        | DDDD           | 0           | 8191        | Direct Input                  |
+| DY   | bit        | DDDD           | 0           | 8191        | Direct Output                 |
+| CN   | word       | DDDD           | 0           | 1023        | Counter current               |
+| D    | word       | DDDD           | 0           | 9999        | Data Register                 |
+| W    | word       | DDDD           | 0           | 8191        | Link Register                 |
+| TN   | word       | DDDDD          | 0           | 25471       | Timer Current Value           |
+| SN   | word       | DDDD           | 0           | 25471       | Retentive Timer Current Value |
+| SD   | word       | DDDD           | 0           | 2047        |                               |
+| R    | word       | DDDD           | 0           | 9999        | File Register                 |
+| ZR   | word       | DDDDDD         | 0           | 999999      | File Register                 |
+| Z    | word       | DD             | 0           | 20          | Index Register                |

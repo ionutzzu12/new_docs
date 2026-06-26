@@ -1,0 +1,144 @@
+---
+title: Manage Templates
+slug: product-features/system/device-management/backup-restore/manage-templates
+description: Learn how to download and upload templates.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+A template is a JSON file containing configuration settings for a Litmus Edge device. The **Templates&#x20;**&#x70;age provides a location for creating and organizing these configurations. Templates store a snapshot of your device configuration. A template captures the components you select such as devices, connectors, flows, and analytics workspaces.
+
+<hint type="info">
+  **Note**: To access the *Templates* page, you need a valid license. See [Licenses]().
+</hint>
+
+To access templates, navigate to **System** > **Device Management** >**Template**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/BRttsmkNJjeVInxVmk1Dj_image.png" size="80" width="1576" height="502" position="flex-start" darkWidth="1576" darkHeight="502" showCaption="false"></Image>
+
+# Template components
+
+Components group your device configuration by type. They appear when you view a template's contents and as options when you create or upload a template. Each category lists only the components you have configured or installed on your device. For example, the Connectors category lists the connectors currently configured on your device. The following components are available to templates.
+
+- **Auth**: Configurations of LDAP/AD Authentication Providers. This doesn't include roles, groups, and users created in Litmus Edge. See [LDAP/AD Auth]().&#x20;
+- **Connectors**: Installed connectors and configurations. Connectors with the same name that exist in both the template and the Litmus Edge device will be duplicated with a unique name after uploading the template. The default connector that connects Litmus Edge and Litmus Edge Manager is not included. See [Integration]().
+- **Country&#x20;**&#x63;onfigured for the instance. See [Change Country]().&#x20;
+- **Devices**: Connected devices, tags, and configurations. See [DeviceHub](). Note that DataHub configurations and credentials are backed up for Timeseries DB connections.&#x20;
+- **DNS**: Saved Fallback DNS Resolvers. See [Configure DNS/NTP Servers]().&#x20;
+- **Docker Binding IP**: Contains the IP address and netmask to use for Docker’s default bridge using standard CIDR notation. See [Applications]().
+
+<hint type="info" indent="2">
+  **Example**: `"bip":"10.30.50.1/24"`
+</hint>
+
+- **Firewall**: Saved firewall rules. See [Manage Firewall Rules]().&#x20;
+- **Digital Twins**: Saved models and instances. See [Digital Twins]().
+- **Flows**: Saved Flows. See [Flows Manager]().
+
+<hint type="info" indent="2">
+  **Note**: When you upload a template, the existing flows in the instance are replaced with the flows in the template configuration. If you would like to ensure existing flows are maintained after uploading a template, confirm that any flows you want to keep are part of the template configuration.&#x20;
+</hint>
+
+- **Analytics Groups**: Saved Analytics Flows and Processors within each group. See [Analytics]().&#x20;
+- **Marketplace**: Installed catalogs and registries. Only applications deployed using a catalog can be part of a template. For example, If you deployed an application from the catalog, it is part of a template file. If you use the docker run command to deploy an application, it is not part of a template file. See [Marketplace]().&#x20;
+- **NTP**: Saved Network Time Protocol (NTP) servers. See [Configure DNS/NTP Servers]() and [Troubleshooting - Time Synchronization]().&#x20;
+- **OPC UA**: Saved configurations. See [OPC UA]().
+- **Static Routes**: Saved static routes. See [Manage Static Routes]().&#x20;
+- **Timezone&#x20;**&#x63;onfigured for the instance. See [Set Timezone]().&#x20;
+
+# Encryption
+
+Credentials in templates, including external InfluxDB, OIDC, and LDAP passwords can be encrypted. This ensures sensitive configuration data is protected when templates are stored or transferred.
+
+# Template statistics
+
+To view detailed information about a template, click the show template content icon in a template row to display the **Template Details&#x20;**&#x70;anel. The panel contains the following collapsible sections.
+
+- **Details**
+  Details displays basic information about the template including created and modified timestamps.
+- **Template Content**
+  Displays all components included in the template to provide a quick overview of what the template provisions when applied. Expand a component to see the names of individual items. For example, expand devices to see devices included in the template.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Hc8-Lsl6z_xpLZphAdotB_image.png" size="100" width="1707" height="903" darkWidth="1707" darkHeight="903" position="flex-start" indent="2" showCaption="false"></Image>
+
+# Create a template
+
+When creating a template, you select which categories to include.
+
+**To create a template:**
+
+1. On the Templates page, click **Manage Template** > **Create Template** at the top right.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/kjKxTG4IGUtxR8LBPv_bH_image.png" size="40" width="660" height="281" position="flex-start" darkWidth="660" darkHeight="281" indent="2" showCaption="false"></Image>
+
+2. In the Create Template dialog, enter a name and description and click **Next**.
+3. Select the individual components to include and click **Next**.
+4. Choose whether to encrypt template credentials.&#x20;
+   - To store credentials as plain text, choose **Plain Text**.
+   - To encrypt password in the file, choose **Encrypted** and provide a password in **Encryption Key**. Record the encryption key as you require this value when uploading the template.
+5. Click **Create**.
+
+# Upload a Template
+
+You can upload a device configuration template by navigating to **System&#x20;**>**&#x20;Device Management&#x20;**>**&#x20;Template**. When you upload a device configuration template, it applies the configuration in the file to the Litmus Edge device.
+
+You can also apply templates to Litmus Edge devices using Litmus Edge Manager, potentially changing the configurations for hundreds of Litmus Edge devices.
+
+<hint type="info">
+  **Note**: Before you upload, consider the following:&#x20;
+
+  - If one component fails during a template upload, an error message displays and the upload process continues to upload the remaining components.&#x20;
+  - If you upload a template with the same connectors that already exist in the Litmus Edge device, duplicate connectors are created with unique names. For example, if the template and the Litmus Edge device both have a MySQL connector named **MySQL\_integration**, a duplicate connector will be created as **MySQL\_integration (1)**.&#x20;
+  - If you upload a template with the same device and tags as the Litmus Edge device, any additional tags that are in the Litmus Edge device but are not in the template are automatically deleted when the template  uploads. Additionally, the device and tag settings for existing devices are overwritten when the template is loaded.&#x20;
+</hint>
+
+**To upload a template:**
+
+1. Click **Manage Templates** > **Upload Template**.
+2. In the **Upload Templates** dialog:
+   - Provide a template name and description.
+   - Select **Plain Text** or **Encrypted** depending on what you option you chose when you downloaded the template.
+
+# Apply a template
+
+Applying a template pushes its configuration to the device. Before applying a template, understand the you can overwrite or delete existing configuration.
+
+<hint type="warning">
+  Note: When you apply a template that includes:
+
+  - Flows the existing flows on the device are replaced with the flows in the template. Include any flows you want to keep before applying
+  - Devices any tags on the device that are not in the template are deleted. Device and tag settings for existing devices are overwritten
+</hint>
+
+You can also apply templates to multiple Litmus Edge devices at once using Litmus Edge Manager. See [Templates]() and [Edge Device Templates]().
+
+**To apply a template:**
+
+1. On the Templates page, in a template row, click **Actions** and select **Apply**.
+2. In the Apply Templates dialog, select **Plain Text** or **Encrypted** depending on template setting. For **Encrypted**, provide the encryption key.
+3. Click Apply and Confirm the action when prompted.
+
+A progress indicator shows the apply status. When the operation completes, a success message shows the number of connectors added, updated, skipped, and failed, along with the reason for any failures. If a component fails during the apply, the operation continues with the remaining components.
+
+# Edit a template
+
+You can edit a template name and description.
+
+**To edit a template:**
+
+1. On the Templates page, in a template row, click **Actions** and select **Edit**.
+2. Make your changes and click **Save**.
+
+# Delete templates
+
+**To delete a single template:**
+
+1. On the Templates page, in a template row click **Actions** and select **Delete**.
+2. Confirm the deletion.
+
+**To delete multiple templates:**
+
+1. On the Templates page, select the checkboxes beside the templates you want to delete.
+2. Select **Manage Template** > **Delete Templates**.
+3. Click **Delete Selected** and confirm.
+

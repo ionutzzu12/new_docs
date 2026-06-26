@@ -1,0 +1,39 @@
+---
+title: Read a File from a Shared Folder
+slug: y72KIF7gzQXJfXYxsZvwg
+description: You can use flows to read a file from a shared folder.
+docTags: 
+createdAt: Thu May 28 2026 23:47:00 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use flows to read a file from a shared folder.
+
+<hint type="info">
+  **NOTE:** This procedure was created using Litmus Edge 3.1.5.0.
+</hint>
+
+Flows can utilize Network Storage to read data directly from a shared folder on the network. This allows Litmus Edge to access file contents from Windows, Mac, and Linux machines that are connected to the same network.
+
+# Add a Flow to Read from Network Storage
+
+The following flow reads data from a file in a shared folder on a Windows 10 machine.
+
+To add a flow that reads from a file in a network shared folder:
+
+1. Log in to Litmus Edge.&#x20;
+2. From the Navigation panel, select **Flows Manager**.
+3. Click the **Expand&#x20;**&#x69;con next to a selected Flow.
+4. From the sidebar on the left of the Flows canvas, drag an **Inject&#x20;**&#x6E;ode, a **Function&#x20;**&#x6E;ode, a **read file** node, and a **Debug&#x20;**&#x6E;ode to the canvas.
+5. Connect the four nodes as shown in the diagram below.
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/UHdk2JB90dJCdtTwDnBYx_2023-09-2615-10-12.png "File read nodes")
+6. Double-click the **Function&#xA0;**&#x6E;ode. Enter the following lines under the **On Message** tab:
+   `msg.filename = "/data/<mount point name>/<filename in shared folder>";   `
+   `return msg;`
+7. Click **Done**.&#x20;
+8. At the upper right corner of the canvas, click **Deploy**.
+   Changes are saved and the Flow is deployed.
+9. Click the **inject&#x20;**&#x6E;ode button to read the full contents of the file. You can view the file contents in the Debug tab.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/LuPWspBfwHvUBeBdi-XPu_image.png "Debug tab")
+
+You may find that files read from Windows machines output the file contents onto a single line. This is because the newline character is different on Windows machines (`\r\n`), and Flows uses the Unix newline character (`\n`). To have newlines from Windows files output correctly in Flows, you must use Unix newline characters.

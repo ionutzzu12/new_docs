@@ -1,0 +1,110 @@
+---
+title: Syslog Server Reference
+slug: gsit-syslog-server-re
+docTags: 
+createdAt: Thu May 28 2026 23:47:03 GMT+0300 (Eastern European Summer Time)
+---
+
+Refer to the following configuration information for the Syslog Server driver.&#x20;
+
+| Parameter                     | Description                                                                               |
+| ----------------------------- | ----------------------------------------------------------------------------------------- |
+| **Browse devices supported:** | No                                                                                        |
+| **Browse tags supported:**    | No                                                                                        |
+| **Driver Settings:**          | - LogProtocol: RFC5424-> Current Syslog Protocol, RFC3164 -> Original BSD Syslog Protocol |
+
+- UDP, TCP, TLS Endpoint configuration (must enable at least 1)
+- AllowMultiMatch: Keep scanning and processing log matches, even after one is found
+- StringifyIntFields: Publish keywords for Facility (0 -> "kern") & Severity (0 -> "emerg")
+- ReplaceEmptyFields: Replaces any empty values within published payload
+- MaxWorkers: Increases throughput and CPU usage              |
+  \| **Tag Settings:**             | \* Severity: Inclusive Limit (at least as severe)
+- Facility: Exact match, or "ANY"
+- Wildcard: character used to indicate string matching pattern
+- Hostname, Appname, MsgID, Message: String matching, described below
+- Structured Data: Field matching, described below (rfc5424 only)
+- Client Address: Address matching, described below
+- Order: Logs processed in specified order (low->high)
+- Format: Format directives to define the published payload, described below |
+  \| **Tag Types:**                | - STRING: Published payload is string type, using format directives
+- JSON: Published payload is json type, using format directives (NOTE: only pre-defined variable characters accepted)
+- IGNORE: No publish payload. Always scanned before non-IGNORE tags. Overrides "AllowMultiMatch" setting. Severity limit setting is reversed (atmost as severe). Should only be used to improve performance when most logs can easily be ignored (i.e., ignoring all debug level logs)  |
+
+# String Matching
+
+Pattern matching string fields:
+
+- If this wildcard is changed from default "\*", all string match settings must be updated to reflect the active wildcard.&#x20;
+- The wildcard cannot be escaped. It must not appear anywhere in the string as a literal character.&#x20;
+
+String Match Types:
+
+- IsExact ("value")
+- BeginsWith ("prefix\*")
+- EndsWith ("\*suffix")
+- Contains ("\*middle\*")
+- IsEmpty ("")
+- IsAny ("\*")
+
+# Field Matching
+
+Structured Data Matching (two exact key matches, delimited by Wildcard, followed by a String Match):
+
+- IsAny ("\*")
+- IsEmpty ("")
+- HasField ("key")
+- HasParam ("key1\*key2")
+- FieldIsEmpty ("key\*")
+- ParamIsEmpty ("key1\*key2\*")
+
+String Matching applies to the value of a data match ("key1\*key2\*")
+
+- ValueIsExact ("key1\*key2\*value")
+- ValueBeginsWith ("key1\*key2\*prefix\*")
+- ValueEndsWith ("key1\*key2\*\*suffix")
+- ValueContains ("key1\*key2\*\*middle\*")
+- ValueIsEmpty ("key1\*key2\*")
+- ValueIsAny ("key1\*key2\*\*") \<- equivalent to HasParam
+
+# Address Matching
+
+Address matching requires a valid CIDR block.&#x20;
+
+- 172.22.0.1/16 -> matches client IPs starting with "172.22"
+
+Address matches starting with a wildcard are negated.&#x20;
+
+- \*172.22.0.1/16 -> matches client IPs which do not start with "172.22"
+
+Note that any unmasked bits in the specified CIDR range have no effect.&#x20;
+
+- 172.22.0.1/16 == 172.22.99.99/16
+
+# Format Directives
+
+Custom publish payloads.&#x20;
+
+| **Symbol** | **Definition**                                                                                                                                                    | **Type**                                             |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| $          | A special character that indicates that a variable character will follow. A variable represents some dynamic string value. Supported variables are defined below. | -                                                    |
+| $F         | Facility                                                                                                                                                          | uint8 (\<=23) OR keyword string                      |
+| $S         | Severity                                                                                                                                                          | uint8 (\<=7) OR keyword string                       |
+| $P         | Priority (Facility \* 8 + Severity)                                                                                                                               | uint8 (\<=191)                                       |
+| $T         | Timestamp                                                                                                                                                         | RFC3339 string                                       |
+| $H         | Hostname                                                                                                                                                          | string                                               |
+| $A         | Appname                                                                                                                                                           | string                                               |
+| $X         | ProcessID                                                                                                                                                         | string                                               |
+| $I         | MessageID                                                                                                                                                         | string                                               |
+| $D         | Structured Data                                                                                                                                                   | string OR json object (string🧵string, rfc5424 only) |
+| $M         | Message                                                                                                                                                           | string                                               |
+| $V         | Version                                                                                                                                                           | uint16 (>=1 && \<=999, rfc5424 only)                 |
+| $C         | Client                                                                                                                                                            | string (IP from connection, not log)                 |
+
+String Format Directive Notes:
+
+- To use a special character in its literal form, enter symbol twice ($$ -> $)
+  Example "$$$H.$A" -> "$hostABC.appXYZ"
+- A special character must be followed by either itself, or one of the supported characters in the table above. Any other condition will result in an error.&#x20;
+  Example1 "$H.$A$Z" -> error
+  Example2 "$H.$A$" -> error
+  Example3 "$H.$A$#" -> error

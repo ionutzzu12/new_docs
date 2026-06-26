@@ -1,0 +1,79 @@
+---
+title: AB Logix Serial
+slug: driver-ablogix-serial
+docTags: 
+createdAt: Thu May 28 2026 23:47:05 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB Logix Serial driver.
+
+## Litmus Edge Compatible Series
+
+| Compatibility parameter      | Compatible items                                                                                                  |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Serial                                                                                                            |
+| **Validated devices/series** | CompactLogix, ControlLogix, FlexLogix, Micro800                                                                   |
+| **Replaces Gen 1 driver(s)** | AB Flex Serial (Gen1), AB CompactLogix FreeTag (Gen1), AB ControlLogix Freetag (Gen1), AB Micro850 FreeTag (Gen1) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+1. Ensure the PLC device is configured for serial communication.
+2. Note the serial port configuration parameters including baud rate, data bits, stop bits, and parity settings.
+3. Identify the local serial port (for example, `/dev/ttyS0`) on your Litmus Edge gateway that will connect to the PLC.
+4. Ensure proper physical connectivity between the PLC's serial port and the gateway's serial port.
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device](<./././././Product Features/DeviceHub/Devices/Connect a Device.md>) with this driver. Update default values to the specific setup of your device.
+
+| Parameter       | Value                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------- |
+| **Type**        | Allen-Bradley                                                                         |
+| **Driver**      | AB Logix Serial                                                                       |
+| **PLC Type**    | Select the appropriate PLC type (CompactLogix, ControlLogix, FlexLogix, or Micro 800) |
+| **Device File** | The local serial connection file path, for example `/dev/ttyS0`.                      |
+| **Baud Rate**   | Update to match your device configuration. The default is `19200`.                    |
+| **Data Bits**   | 8                                                                                     |
+| **Stop Bits**   | 1                                                                                     |
+| **Parity**      | None                                                                                  |
+
+## Step 3: Configure the List of Registers
+
+When you [Add a Tag](<./././././Product Features/DeviceHub/Tags/Add a Tag.md>) to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](<./././././How-To Guides/DeviceHub Guides/Organize Device and Tag Data by Using Metadata.md>)
+- [Tag Formula Variables](<./././././Product Features/DeviceHub/Tags/Tag Formula Variables.md>)&#x20;
+
+## Register Table
+
+| Name | Value Types                                                                | Access Type | Description            |
+| ---- | -------------------------------------------------------------------------- | ----------- | ---------------------- |
+| R    | bool, sint, int, dint, lint, byte, uint, udint, ulint, real, lreal, string | R/W         | Read/Write tags to PLC |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected and include: bool, sint, int, dint, lint, byte, uint, udint, ulint, real, lreal, and string.
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag. This should match the tag name configured in your PLC program.
+- **Description** (Optional): Enter a description for the tag.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power (`x`) performs the operation `10^x`
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp(`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b)
+</hint>

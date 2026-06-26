@@ -1,0 +1,195 @@
+---
+title: MySQL Server Client Driver
+slug: historian-mysql
+docTags: 
+createdAt: Thu May 28 2026 23:47:08 GMT+0300 (Eastern European Summer Time)
+---
+
+# Overview
+
+To set up and configure this device in Litmus Edge, you must:
+
+- Step 1: Obtain the appropriate MySQL Server connection details
+- Step 2: Set up the MySQL Server Client Device in Litmus Edge DeviceHub
+- Step 3: Configure a Tag with defined SQL Queries
+
+## Step 1: Obtain MySQL Server connection details
+
+To connect to MySQL Server, you require the following connection information. Find these on the MySQL Server or from the appropriate server admin.
+
+- **Address**: IP address/domain for the MySQL server
+- **Port**: Port to connect to the MySQL server (default: 3306)
+- **Database**: MySQL Database name
+- **Username and Password**: Authentication credentials to connect to MySQL server
+
+## Step 2: Set up the MySQL Server Client Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device](<././././Product Features/DeviceHub/Devices/Connect a Device.md>) with this driver. Update default values to the specific setup of your device.
+
+| Parameter       | Value                                              |
+| --------------- | -------------------------------------------------- |
+| **Type**        | Historian                                          |
+| **Driver**      | MySQL Server Client                                |
+| **Name**        | User defined name for the device in Litmus Edge    |
+| **Description** | (Optional) Description of the device               |
+| **Address**     | The MySQL address you found in Step 1              |
+| **Port**        | The MySQL port you found in Step 1 (default: 3306) |
+| **Database**    | Name of database in MySQL server                   |
+| **Username**    | Username of MySQL account                          |
+| **Password**    | Password of MySQL account                          |
+| **Enable TLS**  | Select Enable to secure connection via TLS         |
+
+### TLS Configuration
+
+| Parameter       | Value                                                                             |
+| --------------- | --------------------------------------------------------------------------------- |
+| **CA Chain**    | Enter or upload the MySQL Server CA Chain in PEM format                           |
+| **Client Auth** | Select Enable to enable mTLS                                                      |
+| **Certificate** | When Client Auth is enabled, enter or upload the client certificate in PEM format |
+| **Private Key** | When Client Auth is enabled, enter or upload private key in PEM format            |
+
+Define additional advanced configuration options for the MySQL device by setting **Advanced&#x20;**&#x74;o `Show`. These settings are optional.
+
+| Parameter                    | Value                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------- |
+| **App Name**                 | Client Application ID (optional connection identifier). Default devicehub |
+| **Certificate Verification** | When enabled, the server certificate and hostname will be verified.       |
+| **Request Timeout**          | Define a request timeout in seconds. Default 10 seconds                   |
+| **Connection Timeout**       | Define a connection timeout in seconds. Default 5 seconds                 |
+
+## Step 3: Configure a Tag with defined SQL Queries
+
+When you [Add a Tag](<././././Product Features/DeviceHub/Tags/Add a Tag.md>) to the connected device, see the following Register Table and Tag Parameters sections. You can also [Browse and Add Tags from a Device](<././././Product Features/DeviceHub/Tags/Browse and Add Tags from a Device.md>).
+
+See the following additional resources if necessary:
+
+- Organize Device and Tag Data by Using Metadata
+- Tag Formula Variables
+
+### Register Table
+
+| Name                      | Value Types                                                                                           | Description                                                           |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Table - Multi-Row Value   | JSON                                                                                                  | Results in multiple records in JSON with schema, datatypes and values |
+| Record - Single-Row Value | JSON, BOOL, BYTES, FLOAT32, FLOAT64, INT8, INT16, INT32, INT64, STRING, UINT8, UINT16, UINT32, UINT64 | Returns a single record parsed into the DeviceHub standard payload    |
+
+### Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. Available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. Available options depend on the register name selected.
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should query the MySQL server.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Data Query**: Enter the desired SQL query.
+- **Only Publish On Change**: Select Disabled or Enabled from dropdown.&#x20;
+- **Parse Timestamp**: Select Column Index, Column Name, or None&#x20;
+  - Timestamp value from a specific column Index or Name is used as the timestamp value in the DeviceHub payload
+  - Only available when **Name&#x20;**&#x69;s `Record - Single-Row Value`
+- **Timestamp Index/Name**: Define the column index or name from the SQL table
+- **Parse Value**: Select between Column Index, Column Name or None&#x20;
+  - Value from a specific column Index or Name will be used as the value in the DeviceHub payload
+  - Only available when **Name&#x20;**&#x69;s `Record - Single-Row Value`
+  - Value Type defined above must match the SQL Column datatype
+- **Value Index/Name**: Define the column index or name from the SQL table
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: value (current tag value) and timestamp (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp(`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to publish only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics are not be affected by Change of Value settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+
+## Examples:
+
+In this example we have the following SQL table in our MySQL server:
+
+### SQL table:
+
+Database: `OTdata`
+
+Table Name: `Metrics`
+
+| Timestamp            | ID | Metric Name | Value | Area | Line | Machine            |
+| -------------------- | -- | ----------- | ----- | ---- | ---- | ------------------ |
+| 2025-06-18 08:20.000 | 1  | Temperature | 56    | A1   | L1   | Temperature sensor |
+| 2025-06-18 08:20.000 | 2  | Pressure    | 500   | A1   | L3   | Boiler             |
+| 2025-06-18 08:20.000 | 3  | Power       | 4000  | A1   | L4   | Laser cutter       |
+| 2025-06-19 08:20.000 | 4  | Temperature | 53    | A1   | L1   | Temperature sensor |
+| 2025-06-19 08:20.000 | 5  | Pressure    | 550   | A1   | L3   | Boiler             |
+| 2025-06-19 08:20.000 | 6  | Power       | 4005  | A1   | L4   | Laser cutter       |
+| 2025-06-20 08:20.000 | 7  | Temperature | 51    | A1   | L1   | Temperature sensor |
+| 2025-06-20 08:20.000 | 8  | Pressure    | 600   | A1   | L3   | Boiler             |
+| 2025-06-20 08:20.000 | 9  | Power       | 4010  | A1   | L4   | Laser cutter       |
+
+### Tag Configuration 1:
+
+Name: `Table - Multi-Row Value`
+
+Query: `SELECT * FROM [OTdata].[Metrics]`
+
+Result:
+
+```json
+{
+  "success": true,
+  "datatype": "JSON",
+  "timestamp": 1683901823577,
+  "registerId": "DBE0C6D2-A91D-49D1-9CB7-DBF3C6D9C919",
+  "value": {
+    "Fields":["Timestamp","ID","Metric Name", "Value", "Area", "Line", "Machine" ],
+    "Types":["DATE","INT","VARCAR","INT","VARCAR","VARCAR","VARCAR"],
+    "Data":[
+      ["2025-06-18 08:20:00.000",1,"Temperature", 56, "A1", "L1","Temperature sensor"],
+      ["2025-06-18 08:20:00.000",2,"Pressure", 500, "A1", "L1","Boiler"],
+      ["2025-06-18 08:20:00.000",3,"Power", 4000, "A1", "L4","Laser cutter"],
+      ...
+      ["2025-06-18 08:20:00.000",9,"Power", 4010, "A1", "L4","Laser cutter"],
+    ]
+  },
+  "deviceID": "7C01E851-FE46-463A-90EC-98AA3F12BE09",
+  "tagName": "table_all",
+  "deviceName": "MSSQL_DB",
+  "description": "",
+  "metadata": {}
+}
+```
+
+### Tag Configuration 2:
+
+Name: `Record - Single-Row Value`
+
+Value Type: `INT`
+
+Query: `SELECT * FROM [OTdata].[Metrics]`
+
+Parse Timestamp: `Column Index`
+
+Timestamp Index: `0`
+
+Parse Value: `Column Name`
+
+Value Index: `Value`
+
+Result:
+
+```json
+{
+  "success": true,
+  "datatype": "JSON",
+  "timestamp": 1750407600000,
+  "registerId": "DBE0C6D2-A41D-46D1-2CB7-DBF3C6D9C919",
+  "value": 4010,
+  "deviceID": "7C01E851-FE46-463A-90EC-98AA3F12BE09",
+  "tagName": "table_last_entry",
+  "deviceName": "MSSQL_DB",
+  "description": "",
+  "metadata": {}
+}
+```

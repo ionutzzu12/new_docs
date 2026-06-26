@@ -1,0 +1,74 @@
+---
+title: Siemens S7-1500 (Gen1)
+slug: quickstart-guide/industrial-systems-connection-guide/siemens/siemens-s7-1500-gen1
+description: Review the following information for setting up and configuring the Siemens S7-1500 (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:05 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="warning">
+  **Important**: This driver was deprecated in Litmus Edge version 3.5.2. We recommend using the Gen 2 [Siemens S7](<././Gen 2 Drivers/Siemens S7.md>) or [Siemens S7-Advanced (Gen1)](<Siemens S7-Advanced _Gen1_3_.mdx>).
+</hint>
+
+Review the following information for setting up and configuring the Siemens S7-1500 (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                       |
+| ---------------------------- | ---------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                               |
+| **Validated devices/series** | [Siemens S7-1500 series Ethernet](http://www.siemens.com/entry/cc/en/) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure your device for Ethernet access.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                    |
+| ------------------- | ---------------------------------------- |
+| **Type**            | Siemens                                  |
+| **Driver**          | Siemens S7-1500 (Gen1)                   |
+| **Network Address** | The device address you defined in Step 1 |
+| **Port**            | 102                                      |
+| **Slot**            | 1                                        |
+
+# Step 3: Configure the List of Registers
+
+When you [Add Tags](#) to the connected device, use the following tag/register mapping table.
+
+| **Name** | **Value Type**                 | **Address Format** | **Min Address** | **Max Address** | **Description** |
+| -------- | ------------------------------ | ------------------ | --------------- | --------------- | --------------- |
+| PE       | bit                            | DDDDd              | 0               | 40957           |                 |
+| PE       | word                           | DDDD               | 0               | 4095            |                 |
+| PA       | bit                            | DDDDd              | 0               | 40957           |                 |
+| PA       | word                           | DDDD               | 0               | 4095            |                 |
+| MK       | bit                            | DDDDd              | 0               | 40957           |                 |
+| MK       | byte, word, dword, real, cou   | DDDD               | 0               | 4095            |                 |
+| DB       | bit                            | DDDDDd             | 0               | 327677          |                 |
+| DB       | byte, sint, word, int, counter | DDDDD              | 0               | 32767           |                 |
+
+## Supported Data Types
+
+| **S7-1500 Data Type** | **Data Format**                   | **Description** |
+| --------------------- | --------------------------------- | --------------- |
+| Byte                  | 8-bit BCD, Hex, Binary, Unsigned  | 8-bit           |
+| SInt                  | 8-bit BCD, Hex, Binary, Signed    | 8-bit           |
+| Bool                  | bit                               | bit             |
+| USInt                 | 8-bit BCD, Hex, Binary, Unsigned  | 8-bit           |
+| Word                  | 16-bit BCD, Hex, Binary, Unsigned | 16-bit          |
+| Int                   | 16-bit BCD, Hex, Binary, Signed   | 16-bit          |
+| UInt                  | 16-bit BCD, Hex, Binary, Unsigned | 16-bit          |
+| DWord                 | 32-bit BCD, Hex, Binary, Unsigned | 32-bit          |
+| DInt                  | 32-bit BCD, Hex, Binary, Signed   | 32-bit          |
+| Real                  | 32-bit Float                      | 32-bit          |
+| UDInt                 | 32-bit BCD, Hex, Binary, Unsigned | 32-bit          |
+| Array                 |                                   |                 |

@@ -1,0 +1,42 @@
+---
+title: Litmus UNS
+slug: TX2X-litmus-uns
+docTags: 
+createdAt: Thu May 28 2026 23:47:04 GMT+0300 (Eastern European Summer Time)
+---
+
+## Overview
+
+The Litmus UNS integration enables an Edge System to connect to the Litmus MQTT broker.
+
+## Supported Versions
+
+Compatible with MQTT Protocol version 3.1.0 and MQTT Protocol version 3.1.1
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to Litmus MQTT Broker) - Yes
+- Inbound (Subscribe data from Litmus MQTT Broker to Edge) - Yes
+
+## Configurations
+
+| **Variable**           | **Detail**                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------------- |
+| Name                   | This field specifies a unique name identifier for the connector.                             |
+| Parallel Publish Count | This setting determines the maximum number of messages that can be published simultaneously. |
+| MQTT Client ID         | An identifier unique to each client that connects to the MQTT broker.                        |
+| UNS Hierarchy          | Defines the organizational structure for which data will be categorized and accessed.        |
+| Litmus UNS Token       | A Base64-encoded, one-time token used for secure access to the Litmus UNS endpoint.          |
+
+<hint type="warning">
+  **Important:&#x20;**&#x43;ustom topics are not supported within the UNS connectors.
+</hint>
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+| **Product**              | **Version** | **Date**     |
+| ------------------------ | ----------- | ------------ |
+| Mosquitto Message Broker | 1.x         | Nov 14, 2019 |
+| HiveMQ                   | 2.x         | Nov 14, 2019 |

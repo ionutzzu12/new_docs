@@ -1,0 +1,57 @@
+---
+title: Network
+slug: product-features/system/network
+description: The Network pane allows you to view and configure network settings.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+On the *Network&#xA0;*&#x70;ane, you can view and configure network and certificate settings. The pane includes the following tabs.
+
+- **Overview**: View information on the host, gateways, interfaces, modems, and Docker.
+- **Configure**: Includes the Host Information, Timezone, and Docker Interface sections where you can perform changes to the Friendly Name, Country and Docker Binding IP address.
+- **Interfaces**: Includes the Interfaces section, where you can update the eth0 network and eth1 private network interfaces. Also includes the Wi-Fi section, which only appears if your edge device supports Wi-Fi. You can select a network for your edge device to connect to. You can also disconnect any device that appears on the Wi-Fi pane. Litmus Edge Wi-Fi uses WPA for authentication to ensure a secure wireless network. You must configure the wlan0 network interface in the *Interfaces&#xA0;*&#x74;ab before it appears here.
+- **Certificates**: Manage certificates. See [Certificates](Network/Certificates.mdx).&#x20;
+- **DNS/NTP Servers**: Includes the Fallback DNS Resolvers, NTP Client Status, NTP Servers, and Host file sections. You can add, modify or delete DNS Resolvers, NTP Servers, and the Host File.
+- **Firewall**: Displays firewall rules that open ports for inbound communication. You can create and edit firewall rules.&#x20;
+- **Routes**: Control the routing of messages by adding static routes. Only IPv4 and IPv6 routes are supported.
+- **WWAN**: Modify modem configurations, if available.
+- **Packet Capture:&#x20;**&#x45;nables advanced diagnosis of network communication issues with any industrial device.
+
+Litmus Edge includes two Ethernet interfaces:
+
+- **eth0&#x20;**&#x69;s always connected to the Internet. It is located in the DMZ (demilitarized zone), a separate network that has restricted access to a company's internal network.
+- **eth1&#x20;**&#x69;s connected to a private network with a DHCP server.
+
+There are two optional Wireless Network interfaces:
+
+- **wlan0&#x20;**&#x72;epresents a Wi-Fi network connection. If your device supports Wi-Fi, the interface appears on the *Wi-Fi&#x20;*&#x70;ane in the System module, where you can establish a connection.
+- **wwan0&#x20;**&#x72;epresents a connection to an LTE mobile network. You must set up an LTE modem for this type of connection. If your device supports LTE, after you configure the associated APN, you can view its information in the *Info&#x20;*&#x70;ane in the System module under the *Modem Interfaces* section.
+
+<hint type="info">
+  **Important for Cloud Deployment:**
+  Before activating the license, ensure all hardware / VM configuration steps that can modify the MAC address (add/replace a Network Interface Controller (NIC) card) are finalized.
+
+  The license Host ID depends on the Media Access Control (MAC) address for the device. The MAC address identifies the devices on a network. Changing the MAC address will invalidate the license.
+</hint>
+
+# Access System Network UI
+
+From the Litmus Edge navigation panel, navigate to **System&#x20;**>**&#x20;Network**.
+The *Network&#x20;*&#x70;ane appears.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/KOIoUv2zGYHrZPTQZmmnW_image.png)
+
+# Next Steps
+
+- [Configure the Network Settings](<Network/Configure Network Settings.mdx>)&#x20;
+- [Configure Network Interfaces](<Network/Configure Network Interfaces.mdx>)&#x20;
+- [Certificates](Network/Certificates.mdx)
+- [Configure DNS/NTP Servers](<Network/Configure DNS_NTP Servers.mdx>)&#x20;
+- [Manage Firewall Rules](<Network/Manage Firewall Rules.mdx>)
+- [Manage Static Routes](<Network/Manage Static Routes.mdx>)
+- [Packet Capture](<Network/Packet Capture.mdx>)
+- [Configure a Modem](<Network/Configure a Modem.mdx>)&#x20;
+- [Configure an LTE Modem](<Network/Configure an LTE Modem.mdx>)&#x20;
+- [Manage Network Devices](<Network/Manage Network Devices.mdx>)
+- [Configure Wi-Fi Settings](<Network/Configure Wi-Fi Settings.mdx>)

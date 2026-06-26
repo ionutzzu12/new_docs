@@ -1,0 +1,100 @@
+---
+title: System Architecture
+slug: system-architecture
+description: Learn more about the system architecture of Litmus Edge.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information to learn more about the system architecture and network architecture of Litmus Edge.&#x20;
+
+# System Architecture&#x20;
+
+The diagram below shows the system architecture of Litmus Edge and the different paths that data can travel through Litmus Edge.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/H_f-B2RJEnX6wPYFrVu-J_image.png "Litmus Edge system architecture")
+
+| **Details**                                                                                                                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **\[1]&#x20;**&#x59;ou have the option of accessing Litmus Edge through the Web UI, the Terminal User Interface (TUI), or REST API. &#xA;See the following to learn more:&#xA;\* [Access the Litmus Edge Web UI](<././QuickStart Guide/Access the Litmus Edge Web UI.md>) |
+
+- [Access the Terminal User Interface](<././QuickStart Guide/Access the Litmus Edge Web UI/Access the Terminal User Interface.md>)
+- [Litmus API Portal Overview](#)                                                                                                                                                                                                                                                                                                                                     |
+  \| **\[2]&#x20;**&#x54;o get data into Litmus Edge, you will need to configure a connection between PLCs and DeviceHub drivers. Review the list of available drivers and the parameters that need to be configured in the [Industrial Systems Connection Guide](<././QuickStart Guide/Industrial Systems Connection Guide.md>). Once the data flows into DeviceHub, it is sent to the message broker for further processing.                                                                                                                                                                                                                                                                                                                                                          |
+  \| **\[3]** Once the data reaches the message broker, there are different paths the data can flow.&#x20;
+  \* You can store the data in a database. Learn more about database options for Litmus Edge in [DataHub](<././Product Features/DataHub.md>).&#x20;
+- There are different options for the data to flow northbound for further processing.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+  \| **\[4]&#x20;**&#x59;ou can send the data northbound to the following:&#x20;
+  \* You can send the data through an application in Litmus Edge. Learn more about [Applications](<././Product Features/Applications.md>) and [Applications Guides](<././How-To Guides/Applications Guides.md>).&#x20;
+- Create flows in the [Flows Manager](<././Product Features/Flows Manager.md>).&#x20;
+- Process the data in [Analytics](<././Product Features/Analytics.md>).&#x20;
+- Integrate Litmus Edge with other applications for Cloud and DB Connectivity. Learn more about [Integration](<././Product Features/Integration.md>) and [Integration Guides](<././How-To Guides/Integration Guides.md>).&#x20;
+- Configure an [OPC UA Server](<././Product Features/OPC UA Server.md>).  |
+
+# Network Architecture&#x20;
+
+The diagram below shows the typical network architecture for Litmus Edge. Refer to the callouts in the diagram and descriptions below to learn more.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/wmbhbrRNLanrrMYa_m6pp_zwmsy6llbpkw7ynansfzisystemnetworkarchitecturediagrams1.png" size="80" width="7620" height="10250" position="center" caption="Litmus Edge Typical Network Architecture" showCaption="true"></Image>
+
+## Options for Setting Up Litmus Edge
+
+You have the following options for setting up Litmus Edge on your site.&#x20;
+
+Learn more about [Installation and Deployments](<././QuickStart Guide/Installation and Deployments.md>).&#x20;
+
+| **Action**   | **Details**                                                                                                            |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| ### Option 1 | Refer to callout **\[1]** in the diagram. &#xA;\* Litmus Edge in a DMZ is connected to PLCs through a Level 2 switch.  |
+
+- Only the "Head" PLC has a network connection in a designated VLAN.&#x20;
+- The Litmus Edge in the DMZ must have access to the same VLAN as the "Head" PLC.&#x20;
+- The Litmus Edge in the DMZ can read from registers of the "Head" PLC.&#x20;
+- Other PLCs attached to the "Head" PLC must transfer their data to the "Head" PLC to be read.  |
+  \| ### Option 2 | Refer to callout **\[2]** in the diagram.&#x20;
+  \* Litmus Edge in a DMZ is connected to PLCs through a Level 2 switch.&#x20;
+- All PLCs have a network connection in a designated VLAN.&#x20;
+- The Litmus Edge in the DMZ must have access to the same VLAN as the PLCs.&#x20;
+- The Litmus Edge in the DMZ will be able to connect to all PLCs to read data.                                                                                                                     |
+  \| ### Option 3 | Refer to callout **\[3]** in the diagram.&#x20;
+  \* Litmus Edge in a DMZ is connected to other data sources through a Level 2 switch.
+- All data sources have a network connection in a designated VLAN.&#x20;
+- The Litmus Edge in the DMZ must have access to the same VLAN as the data sources.&#x20;
+- The Litmus Edge in the DMZ will be able to connect to all data sources to read data.                                                                                |
+  \| ### Option 4 | Refer to callout **\[4]** in the diagram.&#x20;
+  \* Litmus Edge in a DMZ is connected to a PLC through a panel switch.&#x20;
+- The panel switch is connected to a Level 2 switch.
+- The PLC is connected to the panel switch.&#x20;
+- The Litmus Edge in the DMZ must have access to the same VLAN as the PLC.
+- The Litmus Edge in the DMZ will read data from any PLC connected to the panel switch.                                                                         |
+  \| ### Option 5 | Refer to callout **\[5]** in the diagram.&#x20;
+  \* An RS232 to Ethernet converter connects to a PLC through an RS232/484 physical connection.&#x20;
+- Litmus Edge can read from the registers on the connected PLC.&#x20;
+- The Litmus Edge in the DMZ will read the data from the PLC through the Ethernet converter.                                                                                                                                                        |
+  \| ### Option 6 | Refer to callout **\[6]** in the diagram.&#x20;
+  \* Litmus Edge in a DMZ connects to a Remote I/O Module/Sensor Gateway.&#x20;
+- The Remote I/O Module/Sensor Gateway is connected to the PLC (or in some cases to the Level 2 switch).&#x20;
+- Sensors are connected to the gateway through wireless or proprietary technology.&#x20;
+- The Litmus Edge reads sensor data through the PLC or through the gateway if it's connected to the Level 2 switch.                     |
+
+## Cloud and Litmus Edge Manager Setup
+
+Refer to the following options for setting up cloud storage and Litmus Edge Manager.&#x20;
+
+### Litmus Edge Manager
+
+Refer to callout **\[7]** in the diagram.&#x20;
+
+Data collected from Litmus Edge is sent to [Litmus Edge Manager](https://docs.litmus.io/edgemanager) for consolidation.&#x20;
+
+### Cloud Storage&#x20;
+
+Refer to callout **\[8]** in the diagram.&#x20;
+
+Litmus Edge Manager sends data to cloud systems or other enterprise systems. Learn more about [Applications](<././Product Features/Applications.md>) and [Applications Guides](<././How-To Guides/Applications Guides.md>).&#x20;
+
+### Integrations
+
+Refer to callout **\[9]** in the diagram.&#x20;
+
+Litmus Edge can also send data directly to cloud systems/other enterprise systems through integrations. Learn more about [Integration](<././Product Features/Integration.md>) and [Integration Guides](<././How-To Guides/Integration Guides.md>).&#x20;

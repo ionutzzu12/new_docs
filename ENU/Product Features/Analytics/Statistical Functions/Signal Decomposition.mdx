@@ -1,0 +1,30 @@
+---
+title: Signal Decomposition
+slug: YStd-signal-decomposition
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Signal Decomposition** processor separates signal components from composite signals related to semantic units. Examples for this are distinct objects in images or video, video shots, melody sequences in music, spoken words or sentences in speech signals.
+
+# Signal Decomposition Overview
+
+- Native version of signal decomposition.
+- **Additive model:&#x20;**&#x53;ignal = Trend + Seasonality + Residue
+- **Multiplicative model:** Signal = Trend \* Seasonality \* Residue
+- Trend is calculated by linear regression.
+- Seasonality is calculated by naive differencing.
+
+# Signal Decomposition Parameters
+
+| **Parameters** | **Details**                                                                                                                                                                |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Window Size    | This parameter specifies how many values are included in the periodic interval for the signal decomposition process.&#xD;&#xA;&#xD;&#xD;                                   |
+| Model Type     | This parameter defines the type of model to be used for the signal decomposition.                                                                                          |
+| Periodicity    | This parameter determines the periodic interval for the signal decomposition, providing the frequency at which the seasonal components are expected to repeat in the data. |
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/707xbvJn6tDHFLVqY0Zmm_image.png" size="80" width="945" height="376" caption="Signal Decomposition parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Signal Decomposition&#x20;*&#x70;rocessor, refer the [Use the Signal Decomposition Function](<././././How-To Guides/Analytics Guides/Use the Signal Decomposition Function.md>)  guide for more details.
+</hint>

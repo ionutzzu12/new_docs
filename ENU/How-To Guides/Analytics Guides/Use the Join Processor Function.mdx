@@ -1,0 +1,122 @@
+---
+title: Use the Join Processor Function
+slug: how-to-guides/analytics-guides/join-processor-function
+description: Learn how to use the Join statistical function in Analytics.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the Join processor to combine the output for two or more input processors. You must define the connector when multiple input processors are connected to a Join Processor.
+
+# Understanding Different Join Outputs
+
+You have the following output modes for Join processor by fields:
+
+- **Map:** Use this option if standard JSON format is needed (e.g., for database output).
+- **Array:** Use this option if all values are needed in an array format.
+
+# User Scenario
+
+Review the following scenario for the join processor function. Then, you will simulate PLC data and join outputs using multiple input processors.
+
+In a chemical plant, different PLCs monitor environmental factors like temperature, humidity, gas levels, and pressure in various plant areas. With the Join Processor, you can combine these readings into an array or JSON format for real-time monitoring and trend analysis of the plant environment.
+
+# Step 1: Add a Device
+
+Follow the steps to [Connect a Device](<./././Product Features/DeviceHub/Devices/Connect a Device.md>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# Step 2: Add Tags
+
+After connecting the device, add the following tags. See [Add Tags](#) to learn more.  Each tag will be used for simulating the different Join processor outputs mentioned above.
+
+## Tag 1: tag1
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **tag1**
+
+## Tag 2: tag2
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **tag2**
+
+## Tag 3: tag3
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **string**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **tag3**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tags you previously created. Follow Step 3a or 3b, depending on whether you want to combine outputs in JSON or Array format.
+
+**To create an analytics flow with the Join Processor function:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" indent="2" showCaption="true"></Image>
+
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **tag1**.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Repeat steps 2-5 to add another *DataHub Subscribe* node. Select the alias topic for the **tag2&#x20;**&#x61;nd **tag3&#x20;**&#x72;espectively.&#x20;
+
+## Step 3a: Configure Join Processor with Output as MAP
+
+1. Click **Add processor** again and select **Join Processor**.
+   The following information defines this function:
+   - **Output Mode:** Select **map** from the drop-down menu.
+   - **Map Field Prefix:&#x20;**&#x41;dd a **prefix&#x20;**&#x62;efore the output fields when they are combined if needed.
+   - **Input Source:&#x20;**&#x59;ou can use the device or connecting wire definition name. If the device name is chosen, it is required to have the **deviceName** and **tagName** fields in the input.
+   - **Field:&#x20;**&#x54;he field from the JSON String you want to join. Available options are **device**, **tagName**, **value**, etc.
+2. Click **Save.**
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/N8W18SonlubcI2SmmkStQ_image.png "Join Processr dialog box with Map Output")
+3. Connect the DataHub Subscribe processor (tag: *tag1)* to the Join processor with a wire and enter the definition of **inputA&#x20;**&#x66;or the connection.
+4. Connect the DataHub Subscribe processor (tag: *tag2*) to the Join processor with a wire and enter a definition of **inputB&#x20;**&#x66;or the connection.
+5. Connect the DataHub Subscribe processor (tag: *tag3*) to the Join processor with a wire and enter a definition of **inputC&#x20;**&#x66;or the connection.
+6. On the analytics canvas, click **Save**.
+
+## Step 3b: Configure Join Processor with Output as Array
+
+1. Click **Add processor** again and select **Join Processor**.&#x20;
+   The following information defines this function:
+   - **Output Mode:** Select **array** from the drop-down menu.
+   - **Map Field Prefix:&#x20;**&#x54;his field can remain empty.
+   - **Field:&#x20;**&#x54;he field from the JSON String you want to join. Available options are **device**, **tagName**, **value**, etc.
+   - **Array Sort By:&#x20;**&#x49;n **Array&#x20;**&#x6D;ode, you can arrange field values by **tag**, **definition**, **id**, and **time**.
+   - **Array Sort Order:&#x20;**&#x49;n **Array&#x20;**&#x6D;ode, you can arrange field values in either **Ascending&#x20;**&#x6F;r **Descending&#x20;**&#x6F;rder.
+2. Click **Save**.
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/xzkKPmt1SIiQmDGYmB2Ub_image.png "Join Processr dialog box with Array Output")
+3. Connect the DataHub Subscribe processor (tag: *tag1)* to the Join processor with a wire and enter the definition of **inputA&#x20;**&#x66;or the connection.
+4. Connect the DataHub Subscribe processor (tag: *tag2*) to the Join processor with a wire and enter a definition of **inputB&#x20;**&#x66;or the connection.
+5. Connect the DataHub Subscribe processor (tag: *tag3*) to the Join processor with a wire and enter a definition of **inputC&#x20;**&#x66;or the connection.
+6. On the analytics canvas, click **Save**.
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Join&#x20;*&#x70;rocessor to view outputs in different modes on the analytics canvas.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/fja6VU1A99pU9CaBYR154_image.png "Completed Analytics Canvas")
+
+## View Map Mode Output
+
+The *Join* processor returns a JSON string with the joined fields from all the tags defined.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Mcm5UwlM1RGcQfoHoWQxc_image.png "Output of Map Mode")
+
+## View Array Mode Output
+
+The *Join&#x20;*&#x70;rocessor returns an Array of the joined field from all the tags defined, sorted by time in ascending order.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/M4oNAGH9TGHFk94hZ1Vfc_image.png "Output of Array Mode")

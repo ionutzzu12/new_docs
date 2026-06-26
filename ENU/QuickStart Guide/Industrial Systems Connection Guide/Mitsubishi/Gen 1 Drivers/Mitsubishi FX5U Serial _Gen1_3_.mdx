@@ -1,0 +1,130 @@
+---
+title: Mitsubishi FX5U Serial (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/mitsubishi/mitsubishi-fx5u-serial-gen1
+description: Review the following information for setting up and configuring the Mitsubishi FX5U Serial (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:08 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi FX5U Serial (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                        |
+| ---------------------------- | --------------------------------------------------------------------------------------- |
+| **Driver type**              | Serial                                                                                  |
+| **Validated devices/series** | [MELSEC iQ-F](https://www.mitsubishielectric.com/fa/products/cnt/plcf/items/index.html) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+Record the serial communication parameters for the device. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it when needed.&#x20;
+   - **Device**: Mitsubishi FX5U-32M
+   - **Communication I/F**: RS485. Refer to the following figures.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/U58spZmOnhdKtSHmuUYF__mitsubishi-fx5u-gx-reference.png" size="80" width="874" height="848" position="flex-start" caption="Reference image of device" indent="2" showCaption="true"></Image>
+
+2. Launch the GX Work3-V1.035M software, and then click **Online > Read from PLC**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/IAfpmxbpAyighIJKb6qqs_mitsubishi-fx5u-gx-online-read482x338.png" size="80" width="482" height="338" position="flex-start" caption="Read from PLC option" indent="2" showCaption="true"></Image>
+
+3. Select series.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/i370u2PB5LmGW37CBt_ZN_mitsubishi-fx5u-serial-series.png" size="80" width="745" height="401" position="flex-start" caption="Series selection drop-down list" indent="2" showCaption="true"></Image>
+
+4. Select connection destination.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/2TkGj96zd91C12dOJU4_2_mitsubishi-fx5u-serial-connection.png" size="80" width="825" height="467" position="flex-start" caption="Select Connection Destination dialog box" indent="2" showCaption="true"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                             |
+| ---------------------- | --------------------------------- |
+| **Type**               | Mitsubishi                        |
+| **Driver**             | Mitsubishi FX5U Serial (Gen1.3)   |
+| **Communication Port** | Local Serial connection file path |
+| **Data Bits**          | 8                                 |
+| **Baud Rate**          | 19200                             |
+| **Parity**             | Even, Odd, None                   |
+| **Stop Bits**          | 1                                 |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Types** | **Address Format** | **Min Address** | **Max Address** | **Description**               |
+| -------- | --------------- | ------------------ | --------------- | --------------- | ----------------------------- |
+| LCS      | bit             | DDDD               | 0               | 1023            | Long counter Contact          |
+| LCC      | bit             | DDDD               | 0               | 1023            | Long counter Col              |
+| SM       | bit             | DDDD               | 0               | 9999            | Special Relay                 |
+| X        | bit             | OOOO               | 0               | 1023            | Input Relay                   |
+| Y        | bit             | OOOO               | 0               | 1023            | Output Relay                  |
+| M        | bit             | DDDDD              | 0               | 32767           | Internal Relay                |
+| L        | bit             | DDDDD              | 0               | 32767           | Latch Relay                   |
+| F        | bit             | DDDDD              | 0               | 32767           | Annunciator                   |
+| B        | bit             | DDDDD              | 0               | 32767           | Link Relay                    |
+| TS       | bit             | DDDD               | 0               | 1023            | Timer Contact                 |
+| TC       | bit             | DDDD               | 0               | 1023            | Timer Coil                    |
+| SS       | bit             | DDDD               | 0               | 1023            | Retentive Timer Contact       |
+| SC       | bit             | DDDD               | 0               | 1023            | Retentive Timer Coil          |
+| CS       | bit             | DDDD               | 0               | 1023            | Counter Contact               |
+| CC       | bit             | DDDD               | 0               | 1023            | Counter Coil                  |
+| SB       | bit             | HHHH               | 0               | 32767           | Special Link Relay            |
+| S        | bit             | DDDD               | 0               | 4095            | Step relay                    |
+| D\_Bit   | bit             | DDDDdd             | 0               | 799915          | Data Register bit             |
+| SD\_Bit  | bit             | DDDDDdd            | 0               | 1199915         | Special Register bit          |
+| R\_Bit   | bit             | DDDDDdd            | 0               | 3276715         | File Register bit             |
+| SW\_Bit  | bit             | HHHHh              | 0               | 3276715         | Special Link Register Bit     |
+| W\_Bit   | bit             | HHHHh              | 0               | 3276715         | Lin Register Bit              |
+| LCN      | word            | DDDD               | 0               | 1023            | Long counter Current Value    |
+| LZ       | word            | D                  | 0               | 1               | Long Index Register           |
+| SD       | word            | DDDDD              | 0               | 11999           | Special register              |
+| D        | word            | DDDD               | 0               | 7999            | Dat Register                  |
+| R        | word            | DDDDD              | 0               | 32767           | File Register                 |
+| W        | word            | HHHH               | 0               | 32767           | Link Register                 |
+| TN       | word            | DDDD               | 0               | 1023            | Timer Current value           |
+| SN       | word            | DDDD               | 0               | 1023            | Retentive Timer Current value |
+| CN       | word            | DDDD               | 0               | 1023            | Counter Current value         |
+| SW       | word            | HHHH               | 0               | 32767           | Special Link Register         |
+| Z        | word            | DD                 | 0               | 19              | Index Register                |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

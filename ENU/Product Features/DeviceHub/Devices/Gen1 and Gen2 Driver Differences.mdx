@@ -1,0 +1,43 @@
+---
+title: Gen1 and Gen2 Driver Differences
+slug: product-features/devicehub/devices/gen1-and-gen2-driver-differences
+description: Learn more about the differences between Gen1 and Gen2 devices.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+The following table shows the differences between the capabilities of Gen1 and Gen2 drivers.
+
+The Gen2 drivers are paired as closely as possible with comparative Gen1 drivers to help with the selection process.
+
+<hint type="info">
+  **Note**: The **Enable Logging** option when connecting an edge device is only available for Gen 2 drivers. See [Connect a Device](<Connect a Device.mdx>) for more details.
+</hint>
+
+| **Gen 1 Driver**                                                    | **Gen 2 Driver**                                                           |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Modbus ASCII (Gen1)**&#xA;\* Data types supported are: bit, word. | **Modbus ASCII**&#xA;\* Has the same functionality as Modbus ASCII (Gen1). |
+
+- Better performance compared to Gen1 driver.
+- Data types supported are: bit, word.                                                                                                             |
+  \| **Modbus RTU (Gen1)**
+  \* Data types supported are: bit, int, uint, ulong, ulong (big-endian), float, float (big-endian), double, double (big-endian).                                                                                        | **Modbus RTU**
+  \* Data types supported are: bit, word.&#x20;
+- Has an option for zero-based addressing and therefore replaces both Gen1 RTU drivers.                                                                                                               |
+  \| **Modbus TCP (Gen1)**
+  \* Data types supported are: bit, int, uint, ulong, ulong (big-endian), float, float (big-endian), double, double (big-endian).                                                                                        | **Modbus TCP**
+  \* Has the same functionality as Modbus TCP (Gen1).
+- Data types supported are: bit, word, float32, float64.
+- Better performance compared to Gen1 driver.
+- Has an option for zero-based addressing and therefore replaces both Gen1 TCP drivers.  |
+  \| **Modbus UDP (Gen1)**
+  \* Data types supported are: bit, word.                                                                                                                                                                                     | **Modbus UDP**
+  \* Has the same functionality as Modbus UDP (Gen1).
+- Better performance compared to Gen1 driver.
+- Data types supported are: bit, word.                                                                                                                 |
+  \| **Simulator (Gen1)**
+  \* This driver is used to generate simulated data. It supports all the standard Python math functions.
+- Does not support char and string data types.
+- Data types supported are: bit, int, float.                      | **Generator**
+  \* Has the same functionality as Simulator (Gen1).
+- Data types supported are: float64, int64, unit64, bit, char, string.                                                                                                                                 |

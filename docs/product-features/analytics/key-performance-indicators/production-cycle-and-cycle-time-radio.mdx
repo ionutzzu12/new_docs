@@ -1,0 +1,86 @@
+---
+title: Production Cycle and Cycle Time Radio (CTR)
+slug: product-features/analytics/key-performance-indicators/production-cycle-and-cycle-time-radio
+description: Learn more about the Production Cycle and Cycle Time Radio KPI. 
+docTags: 
+createdAt: Fri Oct 21 2022 17:40:53 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Production Time and Cycle Time Ratio&#x20;**&#x4B;PI mainly deals with production time and the ideal production cycle.&#x20;
+
+# Production Cycle and Cycle Time Radio (CTR) Overview
+
+- Use **Actual Production Time&#xA0;**&#x74;o keep track of how much time it takes to complete production by counting the time between when you received an order to when manufacturing is finished, or counting the time between the start of manufacturing to when inspection ends.
+- Use Cycle Time Ratio if you need to monitor the production cycle time compared to an ideal production cycle time.
+- The **timer interval&#xA0;**&#x70;arameter is useful if the connected input tag is offline but you still want this KPI to look for a value every few seconds, defined by the timer.
+- You should have 2 inputs connected with this KPI, with the definitions of their connections as *manufactureStart* and *manufactureEnd* respectively.
+  For example, if you define **Manufacture Start From**: `0 `and **Manufacture Start To**: `1`, this means that when the value from the input tag, with the definition on the connection as *manufactureStart*, will go from 0 to 1, it is an indication that manufacture was started and production cycle should start to be calculated.
+  Manufacture End works the same way. **Manufacture End From**: `2 `and **Manufacture End To**: `4 `means whenever the input tag with connection definition as *manufactureEnd&#x20;*&#x67;oes from 2 to 4, it is an indication that manufacture just ended.
+- After creating this KPI, you need to add definitions called *manufactureStart* and *manufactureEnd* to the connecting wire, which are event triggers, triggering whenever there is start of manufacturing event and then one more trigger for which represents the end of manufacturing cycle.
+
+# Production Cycle and Cycle Time Radio (CTR) Parameter
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="159">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Manufacture Start From
+    </td>
+    <td>
+      The value from which the Manufacture Start event is triggered.    </td>
+  </tr>
+  <tr>
+    <td>
+      Manufacture Start To
+    </td>
+    <td>
+      The value to which the Manufacture Start event is triggered.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Manufacture End From
+    </td>
+    <td>
+      The value from which the Manufacture End event is triggered.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Manufacture End To
+    </td>
+    <td>
+      The value to which the Manufacture End event is triggered.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Ideal Cycle Time
+    </td>
+    <td>
+      The desired or standard production cycle time, in seconds.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer Interval
+    </td>
+    <td>
+      Timer in milliseconds. If no event, use this timer to keep displaying the output continually. Enter zero to disable.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2pAXynQ631Y8U-Vf0rBmh_image.png" size="80" width="942" height="588" caption="Production Time/CTR parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Production Cycle and Cycle Time Radio (CTR)&#x20;*&#x4B;PI, refer the [Use the Production Time and Cycle Time Ratio KPI](../../../how-to-guides/analytics-guides/use-the-production-time-and-cycle-time-ratio-kpi.mdx) guide for more details.
+</hint>
+

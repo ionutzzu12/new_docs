@@ -1,0 +1,49 @@
+---
+title: Set up a CIFS Mount Point on Linux
+slug: product-features/system/external-storage/set-up-cifs-mount-point-linux
+description: To expand the storage pool for your enterprise, you must make a shared folder.
+docTags: 
+createdAt: Wed Sep 28 2022 17:43:05 GMT+0300 (Eastern European Summer Time)
+---
+
+To expand the storage pool for your enterprise, you must make a shared folder.
+
+# Before You Begin
+
+Before you complete the following steps, you must do the following:
+
+- Set up a remote storage location.
+- Ensure you have admin/root permissions to create shared folders.
+
+# Step 1: Install Samba
+
+You will first need to install Samba.&#x20;
+
+**To install Samba:**
+
+1. Open Terminal and enter the following commands to install Samba:
+   `sudo apt-get update`
+   `sudo apt-get install samba`
+2. Enter the following command to create a password for your Samba user:
+   `sudo smbpasswd -a <user_name>`
+
+# Step 2: Make Shared Folder on Linux
+
+**To make a shared folder on Linux:**
+
+1. From the Terminal, enter the following command to make the shared folder:
+   `mkdir /home/<user_name>/<shared_folder_name>`
+2. Enter the following commands to make a backup copy of the `smb.conf` file before editing it.
+   `sudo cp /etc/samba/smb.conf ~`
+   `sudo nano /etc/samba/smb.conf`
+3. Add following lines to the end of `smb.conf` to allow reading and writing to the shared folder:
+   `[<folder_name>]`
+   `path = /home/<user_name>/<shared_folder_name>`
+   `valid users = <user_name>`
+   `read only = no`
+4. Enter the following commands to apply the changes to `smb.conf` by restarting Samba and checking the file for syntax errors:
+   `sudo service smbd restart`
+   `testparm`
+
+After you successfully set up a shared folder, you can [Mount External Storage](mount-external-storage.mdx) in Litmus Edge.&#x20;
+

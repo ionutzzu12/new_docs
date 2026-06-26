@@ -1,0 +1,83 @@
+---
+title: Send Data from a Siemens PLC
+slug: wGH590kUbkdOvup0t0fbQ
+description: You can create flows to send data from a Siemens PLC.
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:22 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use flows to send collected data from a Siemens device to Litmus Edge Manager for monitoring and analysis.
+
+# Before You Begin
+
+Make sure you do the following:
+
+- Add a Siemens device. See :Link[Connect a Device]{docId="pal6ABPZbrimdU9LvGJ30" label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} and :Link[Siemens]{docId="GE1KppZkpLkOrMEIR4z6j" label="Siemens" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} to learn more.&#x20;
+- :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} to the device.&#x20;
+- Connect your Litmus Edge instance to Litmus Edge Manager through the MQTT - Generic over SSL connector. See :Link[Activate an Edge Device]{docId="tDJ648wJgATVqzyx79UwB" label="Activate an Edge Device" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId} for more information.&#x20;
+
+# Step 1: Get Tag Data and Send It to Litmus Edge Manager
+
+**To subscribe and send data from a Siemens device to Litmus Edge Manager:**
+
+1. Navigate to **DeviceHub&#x20;**> **Tags&#x20;**&#x61;nd click the **Siemens** device. &#x20;
+2. For the tag you created, click the **Copy&#x20;**&#x69;con in the *RAW Topic* column.&#x20;
+3. Navigate to **Flows Manager&#x20;**&#x61;nd create a new flow.&#x20;
+   See :Link[Create a Flow]{docId="wh4ZihWF0PwMRYRbAZbco" label="Create a Flow" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} to learn more. &#x20;
+4. In the flow canvas, add the **DataHub Subscribe** and **DataHub Publish&#x20;**&#x6E;odes and connect them with a wire.&#x20;
+5. Double-click the **DataHub Subscribe** node.&#x20;
+   - **Topic:&#x20;**&#x50;aste the *RAW topic&#x20;*&#x79;ou copied in step 2.&#x20;
+   - **Datahub:** Configure the *Datahub Subscribe* connection if needed. See :Link[Configure Connector Nodes]{docId="wh4ZihWF0PwMRYRbAZbco" label="Create a Flow" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#step-3-configure-connector-nodes" overridedLabel="Configure Connector Nodes"} to learn more.&#x20;
+   - Click **Done**.&#x20;
+6. In Litmus Edge, navigate to **Integration**.&#x20;
+7. Click the **MQTT - Generic over SSL** connector that connects Litmus Edge and Litmus Edge Manager.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1bQCO_NSIZJ__l0j8Gt-O_image.png "Integrations Page")
+8. Click **Topics**.
+9. Upon activating your edge device, a default topic is created for *MQTT - Generic over SSL&#x20;*&#x63;onnector. Click the **Copy&#x20;**&#x69;con under *Local Topic* column for this default topic.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/bOfroktmK6JOMFF5fu_Tc_image.png "Topics in Integrations")
+10. Return to the flow canvas.&#x20;
+11. Double-click the **DataHub Publish** node.&#x20;
+    - **Topic:&#x20;**&#x50;aste the *topic&#x20;*&#x79;ou copied for the MQTT - Generic over SSL connector.
+    - Click **Done**.&#x20;
+12. Click **Deploy&#x20;**&#x61;nd expand the message window beneath the flow.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qYDcxYoCxgmAbmgRBKZPf_a.png "Flow canvas message window")
+13. Click the **Debug&#xA0;**&#x69;con to view the data output.
+    The flow will start sending the raw data from the device topic.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nPZe_m-9BMt2zS0WKSnGu_flow-7.png" size="80" width="1170" height="400" caption="DataHub Subscribe and DataHub Publish nodes" position="center" showCaption="true"></Image>
+
+# Step 2: Customize Data
+
+When the subscribe node collects data from the device topic, the flow will send the entire JSON object's contents. However, you can use the **Function&#x20;**&#x6E;ode to trim the data before sending it to Litmus Edge Manager. Trimming data using functions can improve performance.
+
+**Example of JSON Data from a Siemens Device Topic**
+
+<BlockQuote>
+  \{"description": "", "success": true, "datatype": "word", "timestamp": 1539111251938, "registerId": "C65B9F2A-CC3B-4CB4-A0BF-C26C130D0E2E", "value": 0, "deviceID": "0A9921CA-198C-4556-9556-FBEB99958B3E", "tagName": "Siemens-1"}
+</BlockQuote>
+
+**To customize the data and only send the data type and register ID:**
+
+1. In the same flows canvas, add a **Function&#x20;**&#x6E;ode and connect it between the **DataHub Subscribe** node and **DataHub Publish** node.&#x20;
+2. Double-click the **Function&#x20;**&#x6E;ode.&#x20;
+   - **On Message**: Enter the following command.&#x20;
+     `var obj = JSON.parse(msg.payload); // Changes the message string into an object for easy access to the values.     `
+     `msg.payload = "datatype: " + obj.datatype + // Changes the message to print "datatype: , registerId: "     `
+     `", registerId: " + obj.registerId; // instead of printing every value.     `
+     `return msg;`
+   - Click **Done**
+3. Click **Deploy**.
+
+# Step 3: Verify the Results in Litmus Edge Manager
+
+**To verify the results:&#x20;**
+
+1. In Litmus Edge Manager, select the appropriate company and project.&#x20;
+2. Navigate to **Edge Management** and clic&#x6B;**&#x20;Edge Devices**.&#x20;
+3. Click the **Id/ Name** for the device that connects Litmus Edge and Litmus Edge Manager.&#x20;
+4. Click the **RAW&#x20;**&#x74;ab to view messages sent to the Litmus Edge Manager topic.&#x20;
+
+The screenshot below shows the data type and register ID that was sent.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9-pK3bqNCEtmTajx77Atj_raw-data.png" size="80" width="830" height="330" position="center" caption="Result showing raw data" showCaption="true"></Image>
+

@@ -1,0 +1,162 @@
+---
+title: Machine Learning Anomaly Detection
+slug: product-features/analytics/machine-learning-models/model-types/machine-learning-anomaly-detection
+description: This use case is a customized time series version of making a CNN anomaly detection model from the TensorFlow website.
+docTags: 
+createdAt: Thu Oct 20 2022 22:05:07 GMT+0300 (Eastern European Summer Time)
+---
+
+This use case is a customized timeseries version of making a CNN anomaly detection model from the TensorFlow website.
+
+<BlockQuote>
+  import numpy as np
+  import tensorflow as tf
+  from tensorflow import keras
+  import pandas as pd
+  import seaborn as sns
+  from pylab import rcParams
+  import matplotlib.pyplot as plt
+  from matplotlib import rc
+  from pandas.plotting import register\_matplotlib\_converters
+  ​
+  register\_matplotlib\_converters()
+  sns.set(style='whitegrid', palette='muted')
+
+  \# rcParams\['figure.figsize'] = 22, 10
+
+  csv\_path = '20161003\_085624.csv'
+  df = pd.read\_csv(csv\_path)
+  ​
+  print ("\ncolumns: ", df.columns, "Data Frame Length: ", len(df), " rows\n")
+  ​
+  features\_considered = \['Temperature (C)']
+  ​
+  features = df\[features\_considered]
+  features.index = np.arange(start=0, stop=len(df), step = 1)
+  \# print(features.index)
+  print(features.head())​
+  x = features.values
+  df = features
+  print(x)
+
+  \# plt.plot(df)
+  \# plt.show()
+
+  train\_size = int(len(df) \* 0.90)
+  test\_size = len(df) - train\_size
+  train, test = df\[0\:train\_size], df\[train\_size\:len(df)]
+  print(train, test)
+  print(train.shape, test.shape)
+  ​
+  from sklearn.preprocessing import StandardScaler
+  ​
+  scaler = StandardScaler()
+  scaler = scaler.fit(train\[\['Temperature (C)']])
+  ​
+  train\['close'] = scaler.transform(train\[\['Temperature (C)']])
+  test\['close'] = scaler.transform(test\[\['Temperature (C)']])
+
+  \# print(train, test)
+
+  def create\_dataset(X, y, time\_steps=1):
+  Xs, ys = \[], \[]
+  for i in range(len(X) - time\_steps):
+  v = X.iloc\[i:(i + time\_steps)].values
+  Xs.append(v)ys.append(y.iloc\[i + time\_steps])
+  return np.array(Xs), np.array(ys)
+  ​
+  TIME\_STEPS = 30
+
+  \# reshape to \[samples, time\_steps, n\_features]
+  X\_train, y\_train = create\_dataset(train\[\['Temperature (C)']], train.close, TIME\_STEPS)
+  ​
+  X\_test, y\_test = create\_dataset(test\[\['Temperature (C)']], test.close, TIME\_STEPS)
+  print(X\_train.shape)
+  print(y\_test.shape)
+  print(X\_train.shape\[1], X\_train.shape\[2], y\_train\[1])
+
+  \# model = keras.Sequential()
+  \# model.add(keras.layers.LSTM(
+  \# units=64,
+  \# input\_shape=(X\_train.shape\[1], X\_train.shape\[2])
+  \# ))
+  \# model.add(keras.layers.Dropout(rate=0.2))
+  \# model.add(keras.layers.RepeatVector(n=X\_train.shape\[1]))
+  \# model.add(keras.layers.LSTM(units=64, return\_sequences=True))
+  \# model.add(keras.layers.Dropout(rate=0.2))
+  \# model.add(keras.layers.TimeDistributed(keras.layers.Dense(units=X\_train.shape\[2])))
+  \# model.compile(loss='mae', optimizer='adam')
+
+  verbose, epochs, batch\_size = 0, 2, 128
+  n\_timesteps, n\_features, n\_outputs = X\_train.shape\[1], X\_train.shape\[2], y\_train\[1]
+  ​
+  model = keras.Sequential()
+  model.add(tf.keras.layers.Conv1D(filters=64, kernel\_size=3, activation='relu', input\_shape=(n\_timesteps,n\_features)))
+  model.add(tf.keras.layers.Conv1D(filters=64, kernel\_size=3, activation='relu'))
+  model.add(tf.keras.layers.Dropout(0.5))
+  model.add(tf.keras.layers.MaxPooling1D(pool\_size=2))
+  model.add(tf.keras.layers.Flatten())
+  model.add(tf.keras.layers.Dense(100, activation='relu'))
+  model.add(tf.keras.layers.Dense(n\_outputs, activation='softmax'))
+  model.compile(loss='mae', optimizer='adam', metrics=\['accuracy'])
+  \# fit network
+
+  history = model.fit(
+  X\_train, y\_train,
+  epochs=2,
+  batch\_size=256,
+  validation\_split=0.1,
+  shuffle=False
+  )
+  ​
+  model.summary()
+  X\_train\_pred = model.predict(X\_train)​
+
+  \# model.save("/anomalyModel/")
+  ​
+  train\_mae\_loss = np.mean(np.abs(X\_train\_pred - X\_train), axis=1)
+  plt.figure()
+  sns.distplot(train\_mae\_loss, bins=50, kde=True);
+  ​
+  ​
+  X\_test\_pred = model.predict(X\_test)
+  ​
+  test\_mae\_loss = np.mean(np.abs(X\_test\_pred - X\_test), axis=1)
+  print(test\_mae\_loss)
+  plt.figure()
+  sns.distplot(train\_mae\_loss, bins=50, kde=True)
+  plt.figure()
+  ​
+  THRESHOLD = 0.65
+  ​
+  test\_score\_df = pd.DataFrame(index=test\[TIME\_STEPS:].index)
+  test\_score\_df\['loss'] = test\_mae\_loss
+  test\_score\_df\['threshold'] = THRESHOLD
+  test\_score\_df\['anomaly'] = test\_score\_df.loss > test\_score\_df.threshold
+  test\_score\_df\['close'] = test\[TIME\_STEPS:].close
+  ​
+  plt.plot(test\_score\_df.index, test\_score\_df.loss, label='loss')
+  plt.plot(test\_score\_df.index, test\_score\_df.threshold, label='threshold')
+  plt.xticks(rotation=25)
+  ​
+  anomalies = test\_score\_df\[test\_score\_df.anomaly == True]
+  print(anomalies.head())
+  ​
+  plt.plot(
+  test\[TIME\_STEPS:].index,
+  scaler.inverse\_transform(test\[TIME\_STEPS:].close),
+  label='temp'
+  );
+  ​
+  sns.scatterplot(
+  anomalies.index,
+  scaler.inverse\_transform(anomalies.close),
+  color=sns.color\_palette()\[3],
+  s=52,
+  label='anomaly'
+  )
+  plt.xticks(rotation=25)
+  ​
+  plt.show()
+</BlockQuote>
+

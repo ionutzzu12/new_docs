@@ -1,0 +1,278 @@
+---
+title: Modbus UDP
+slug: quickstart-guide/industrial-systems-connection-guide/modbus/modbus-udp
+description: Review the following information for setting up and configuring the Modbus UDP driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 20:32:48 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Modbus UDP driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="213,399" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **When to use**
+    </td>
+    <td>
+      UDP connection to a Modbus device
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td>
+      :Link[Modbus UDP (Gen1)]{docId="w2TU0_DlWBO1D5xYrYw-h" label="Modbus UDP (Gen1)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Modbus UDP (Gen1)"}&#x20;
+      Learn more about :Link[Gen1 and Gen2 Driver Differences]{docId="HaIxS2l_OqxFj1YVYWNc1" label="Gen1 and Gen2 Driver Differences" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Gen1 and Gen2 Driver Differences"} &#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="244,328" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Modbus
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Modbus UDP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device IP address defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      502
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Zero-Based Addressing**
+    </td>
+    <td>
+      Select Enable or Disable
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<hint type="info">
+  **Note**: The address format in this Gen 2 driver is different from the Gen 1 driver (:Link[Modbus UDP (Gen1)]{docId="w2TU0_DlWBO1D5xYrYw-h" label="Modbus UDP (Gen1)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Modbus UDP (Gen1)"}) for the same device. Learn more about :Link[Gen1 and Gen2 Driver Differences]{docId="HaIxS2l_OqxFj1YVYWNc1" label="Gen1 and Gen2 Driver Differences" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Gen1 and Gen2 Driver Differences"}.&#x20;
+</hint>
+
+<table columnWidths="100,100,167,100,103,172" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      D
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Discrete Input Contacts
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Discrete Output Coils
+    </td>
+  </tr>
+  <tr>
+    <td>
+      H
+    </td>
+    <td>
+      uint16, int16, int32, uint32, float32, float64
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Analog Output Holding Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I
+    </td>
+    <td>
+      uint16, int16, int32, uint32, float32, float64
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Analog Input Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      H\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      6553515
+    </td>
+    <td>
+      Analog Output Holding Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      6553515
+    </td>
+    <td>
+      Analog Input Registers
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="dzRSseWCId18dCkZJLQQ9">
+
+</ContentSnippet>
+

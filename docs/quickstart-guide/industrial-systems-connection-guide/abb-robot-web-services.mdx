@@ -1,0 +1,268 @@
+---
+title: ABB Robot Web Services
+slug: abb-robot-web-services
+docTags: 
+createdAt: Tue Jan 20 2026 22:14:30 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the ABB Robot Web Services driver.
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      RobotWare 6.0 (Revision K and later)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left">
+      None
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the Robot Device
+- Step 2: Set up the Robot Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the Robot Device
+
+1. Ensure the ABB Robot controller has Robot Web Services enabled with RobotWare 6.0 Revision K or later installed.
+2. Verify network connectivity to the robot controller and record its IP address.
+3. Confirm the Robot Web Services port (default is 80 for HTTP or 443 for HTTPS).
+4. If using authentication, ensure you have the necessary credentials configured on the robot controller.
+
+## Step 2: Set up the Robot Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device](../../product-features/devicehub/devices/connect-a-device.mdx) with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      Robot
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      ABB Robot Web Services
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Network Address**
+    </td>
+    <td align="left">
+      The robot controller IP address you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Port**
+    </td>
+    <td align="left">
+      80 (HTTP) or 443 (HTTPS)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **URL Path**
+    </td>
+    <td align="left">
+      /
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Authentication Type**
+    </td>
+    <td align="left">
+      None (or as configured on your robot)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Enable TLS**
+    </td>
+    <td align="left">
+      Select if using HTTPS (port 443)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Query Params**
+    </td>
+    <td align="left">
+      json=1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Request Timeout**
+    </td>
+    <td align="left">
+      2000 (ms)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Retry Count**
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Websocket Timeout**
+    </td>
+    <td align="left">
+      30 (seconds)
+    </td>
+  </tr>
+</table>
+
+## Step 3: Configure the List of Registers
+
+When you [Add a Tag](../../product-features/devicehub/tags/add-tag.mdx) to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](../../how-to-guides/devicehub-guides/device-and-tag-metadata-guide.mdx)
+- :Link[Tag Formula Variables]{label="Tag Formula Variables" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="Io7xgyrdVv_vmpnFXOACi" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="151,151,151,153">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Type
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Request
+    </td>
+    <td align="left">
+      raw, json, string, bool, uint, int, float, string\[], bool\[], uint\[], int\[], float\[]
+    </td>
+    <td align="left">
+      R/O
+    </td>
+    <td align="left">
+      REST Request for polling data from the robot via HTTP/HTTPS
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Subscription
+    </td>
+    <td align="left">
+      raw, json, string, bool, uint, int, float, string\[], bool\[], uint\[], int\[], float\[]
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      WebSocket Subscription for real-time data streaming
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Elog Subscription
+    </td>
+    <td align="left">
+      json
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      Event Log WebSocket Subscription for monitoring robot events
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected and include: raw, json, string, bool, uint, int, float, and array variants (string\[], bool\[], uint\[], int\[], float\[]).
+- **Polling Interval**: Enter a value in milliseconds. This determines how often the tag should poll the register for data. Only applicable for Request register type.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Request Type**: Select the HTTP method for REST requests:&#x20;
+  - 0: GET
+  - 1: POST
+  - 2: PUT
+  - 3: DELETE
+- **URL Path**: Enter the API endpoint path relative to the base URL configured in device settings. Leave empty to use the device-level URL path.
+- **Path Params**: Enter path parameters for the URL if required by the specific API endpoint.
+- **Query Params**: Enter query string parameters for the request. Multiple parameters should be separated with `&`. Leave empty to use device-level query parameters.
+- **Payload**: For POST/PUT requests, enter the request body data.
+- **Payload Encoding**: Select the encoding type for the payload:&#x20;
+  - 0: Plain Text
+  - 1: Base64
+- **Response Parse Pattern**: Enter a JSONPath or regex pattern to extract specific data from the API response. Use `$` to capture the entire response.
+- **Headers**: Enter custom HTTP headers in key format. Multiple headers should be separated by semicolons.
+- **Allow Multiple Matches**: Select to allow the parse pattern to return multiple matching values as an array.
+- **Allow Empty Matches**: Select to allow empty/null responses without generating errors.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power (`x`) performs the operation `10^x`
+  - log: log (`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp (`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

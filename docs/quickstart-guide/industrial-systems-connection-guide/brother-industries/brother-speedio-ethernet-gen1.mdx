@@ -1,0 +1,5330 @@
+---
+title: Brother Speedio Ethernet (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/brother-industries/brother-speedio-ethernet-gen1
+description: Review the following information for setting up and configuring the Brother Speedio Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Brother Speedio Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="221,261" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Brother CNC S700X2]{href="https://machinetool.global.brother/en-ap/sx2/index.aspx" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+<hint type="info">
+  **Note:** If you encounter a 7554 error message or similar on the controller screen after setting up your device, set **Display Slave Command Alarms** to `0`  to remove future notifications.
+</hint>
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Important**: When setting up the PLC device, you must activate **Remote Operation**.&#x20;
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="157,350" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Brother Industries Ltd
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Brother Speedio Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      10000
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="201,100,100,100,100,141" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td>
+      **Access Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      BDX
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      BDY
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LD\_HS1
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LT\_CV\_HS1
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LT\_SV\_HS1
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LD\_S1
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LT\_CV\_S1
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LT\_SV\_S1
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LC\_CV\_S1
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LC\_SV\_S1
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LD\_HS2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LT\_CV\_HS2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LT\_SV\_HS2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LC\_CV\_HS2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LC\_SV\_HS2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LD\_S2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LT\_CV\_S2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LT\_SV\_S2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LC\_CV\_S2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LC\_SV\_S2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      BX
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      BY
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LM\_HS1
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LM\_S1
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LM\_HS2
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LM\_S2
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MONTR\_P\_Operation program number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MONTR-P-Operation program number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MONTR\_P\_Edit program number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MONTR-P-Edit program number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MONTR\_T\_Total operation time
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MONTR-T-Total operation time
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MONTR\_T\_Power on time
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MONTR-T-Power on time
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MONTR\_T\_Operation time
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MONTR-T-Operation time
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CONTR\_C\_Count
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left">
+      MONTR-C-Count
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MONTR\_C\_Current value
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left">
+      MONTR-C-Current value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MONTR\_C\_Target value
+    </td>
+    <td align="left">
+      number D
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left">
+      MONTR-C-Target value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MONTR\_C\_End signal value
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left">
+      MONTR-End-Signal value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_A\_no. of calculations
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-A-No. of calculations
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_A\_Correction flag
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-A-Correction flag
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_A\_Z axis travel sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-A-Z axis travel sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_A\_Spindle rotation sum
+    </td>
+    <td align="left">
+      number DDD
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-A-Spingle rotation sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_A\_Z axis displacemen
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-A-Z axis displacemen
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_A\_Spindle displacement
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-A-Spindle displacement
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_A\_Z axis displacement sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-A-Z axis displacement sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_B\_No. of calculations
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-B-No. of calculations
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_B\_Correction flag
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-B-Correction flag
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_B\_Z axis travel sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-B-Z axis travel sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_B\_Spindle rotation sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-B-Spindle rotation sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_B\_Z axis displacemen
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-B-Z axis displacemen
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_B\_Spindle displacement
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-B-Spindle displacement
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_B\_Z axis displacement sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-B-Z axis displacement sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_B\_Spindle displacement sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-B-Spindle displacement sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_C\_No. of calculations
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-C-No. of calculations
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_C\_Correction flag
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-C-Correction flag
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM-C\_Z axis travel sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-C-Z axis travel sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_C\_Spindle rotation sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-C-Spindle rotation sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_C\_Z axis displacemen
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-C-Z axis displacemen
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_C\_Spindle displacement
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-C-Spindle displacement
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_C\_Z axis displacement sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-C-Z axis displacement sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HEACM\_C\_Spindle displacement sum
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      540
+    </td>
+    <td align="left">
+      HEACM-C-Spindle displacement sum
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_A\_Operation program No
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      Mem-A-Operation program No
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_A\_Operation state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-A-Operation state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_A\_Inner pallet state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-A-Inner pallet state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_A\_Spare part usage
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-A-Spare part usage
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_A\_Mode
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-A-Mode
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_A\_Extended operation
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-A-Extended operation
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 1
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 2
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 2
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 3
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 3
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 4
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 4
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 5
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 6
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 6
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 7
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 8
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 8
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 9
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 9
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 10
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 10
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 11
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 11
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 12
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 12
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 13
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 13
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 14
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 14
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 15
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 15
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 16
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 16
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 17
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 17
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MEM\_E\_Alarm 18
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      MEM-E-Alarm 18
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_D\_Outer (front) door state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-D-Outer (front) door state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_D\_Inner door state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-D-Inner door state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_D\_Side door state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-D-Side door state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Mode
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Mode
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Screen
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Screen
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Block skip
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Block skip
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Optional stop
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Optional stop
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Single operation
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Single operation
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Dry run
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Dry run
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Machine lock
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Machine lock
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Coolant switch
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Coolant switch
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Chip flow switch
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Chip flow switch
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Machine light switch
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Machine light switch
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_K\_Pallet select switch
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-K-Pallet select switch
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_S\_Rapid traverse override state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-S-Rapid traverse override state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_S\_Cutting feed override state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-S-Cutting feed override state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_S\_Spindle override state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-S-Spindle override state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_S\_Emergency stop
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-S-Emergency stop
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_S\_Door interlock state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-S-Door interlock state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_S\_Mode change
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-S-Mode change
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PANEL\_S\_Data protection
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PANEL-S-Data protection
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_L01\_Language
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-L01-Language
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G0 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G0 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G17 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G17 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G22 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G22 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G40 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G40 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G49 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G49 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G50 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G50 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G50.1 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G50.1 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G64 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G64 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G54 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G54 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G67 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G67 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G69 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G69 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G80 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G80 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G90 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G90 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G94 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G94 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_G01\_G98 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-G01-G98 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M5 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M5 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M9 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M9 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M221 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M221 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M222 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M222 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M223 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M223 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M224 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M224 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M230 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M230 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M269 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M269 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M401 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M401 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M495 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M495 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M239 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M239 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M250 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M250 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M403 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M403 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M405 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M405 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M407 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M407 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M409 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M409 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M431 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M431 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M441 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M441 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M443 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M443 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M459 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M459 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M481 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M481 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M483 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M483 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M485 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M485 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M487 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M487 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M270 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M270 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M435 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M435 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M419 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M419 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_M01\_M290 group
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-M01-M290 group
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P01\_Machine coordinate position X-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P01-Machine coordinate position X-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P01\_Machine coordinate position Y-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P01-Machine coordinate position Y-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P01\_Machine coordinate position Z-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P01-Machine coordinate position Z-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P01\_Machine coordinate position 4th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P01-Machine coordinate position 4th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P01\_Machine coordinate position 5th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P01-Machine coordinate position 5th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P01\_Machine coordinate position 6th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P01-Machine coordinate position 6th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P01\_Machine coordinate position 7th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P01-Machine coordinate position 7th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P01\_Machine coordinate position 8th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P01-Machine coordinate position X8th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P02\_Relative coordinate position X-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P02-Relative coordinate position X-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P02\_Relative coordinate position Y-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P02-Relative coordinate position Y-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P02\_Relative coordinate position Z-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P02-Relative coordinate position Z-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P02\_Relative coordinate position 4th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P02-Relative coordinate position 4th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P02\_Relative coordinate position 5th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P02-Relative coordinate position 5th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P02\_Relative coordinate position 6th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P02-Relative coordinate position 6th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P02\_Relative coordinate position 7th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P02-Relative coordinate position 7th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P02\_Relative coordinate position 8th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P02-Relative coordinate position 8th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P03\_Absolute coordinate position X-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P03-Absolute coordinate position X-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P03\_Absolute coordinate position Y-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P03-Absolute coordinate position Y-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P03\_Absolute coordinate position Z-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P03-Absolute coordinate position Z-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P03\_Absolute coordinate position 4th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P03-Absolute coordinate position 4th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P03\_Absolute coordinate position 5th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P03-Absolute coordinate position 5th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P03\_Absolute coordinate position 6th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P03-Absolute coordinate position 6th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P03\_Absolute coordinate position 7th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P03-Absolute coordinate position 7th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P03\_Absolute coordinate position 8th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P03-Absolute coordinate position 8th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P04\_Remaining distance X-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P04-Remaining distance X-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P04\_Remaining distance Y-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P04-Remaining distance Y-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P04\_Remaining distance Z-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P04-Remaining distance Z-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P04\_Remaining distance 4th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P04-Remaining distance 4th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P04\_Remaining distance 5th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P04-Remaining distance 5th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P04\_Remaining distance 6th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P04-Remaining distance 6th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P04\_Remaining distance 7th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P04-Remaining distance 7th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_P04\_Remaining distance 8th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-P04-Remaining distance 8th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Feed rate
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Feed rate
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Spindle speed
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Spindle speed
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Inner pallet state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Inner pallet state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Spindle tool number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Spindle tool number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Next tool number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Next tool number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Magazine number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Magazine number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Door interlock state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Door interlock state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Outer/front door state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Outer/front door state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Inner door state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Inner door state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Slide door state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Slide door state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Rapid traverse override state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Rapid traverse override state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Cutting feed override state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Cutting feed override state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PDSP\_X01\_Spindle override state
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      PDSP-X01-Spindle override state
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VER\_M01\_Model
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      VER-M01-Model
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VER\_V01\_Main version
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      VER-V01-Main version
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VER\_V01\_Local version
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      VER-V01-Local version
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VER\_V01\_Slave version
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      VER-V01-Slave version
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VER\_V01\_Main (copy) version
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      VER-V01-Main (copy) version
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VER\_V01\_Slave (copy) version
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      VER-V01-Slave (copy) version
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VER\_V01\_PLC version
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      VER-V01-PLC version
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VER\_S01\_Machine number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      VER-S01-Machine number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_A01\_Status
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      LOG-A01-Status
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_A01\_Index
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      LOG-A01-Index
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_yymmddhhmmss
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-yymmddhhmmss
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_Alarm number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-Alarm number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_Auxilliary number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-Auxilliary number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_Attribute
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-Attribute
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_Operation program number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-Operation program number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_Edit program number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-Edit program number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_Block number / Job number
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-Block number / Job number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_Mode
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-Mode
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_Screen
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-Screen
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_B\_Extended operation
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-B-Extended operation
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position X-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position X-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position Y-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position Y-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position Z-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position Z-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position 4th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position 4th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position 5th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position 5th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position 6th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position 6th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position 7th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position 7th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position 8th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position 8th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position 9th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position 9th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Machine coordinate position 10th-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+      LOG-C-Machine coordinate position 10th-axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOG\_C\_Remaining distance X-axis
+    </td>
+    <td align="left">
+      number
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      100
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

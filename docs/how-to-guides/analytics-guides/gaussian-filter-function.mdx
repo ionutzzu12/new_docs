@@ -1,0 +1,86 @@
+---
+title: Use the Gaussian Filter Function
+slug: how-to-guides/analytics-guides/gaussian-filter-function
+description: Learn how to use the Gaussian Filter function in Analytics. 
+docTags: 
+createdAt: Thu Feb 29 2024 19:07:05 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use the Gaussian Filter function to calculate a smoothed value for each point by considering its adjacent data points.&#x20;
+
+It is factored by a simple Gaussian digital filter, which depends on the distance from the mean, ensuring a natural weighting of surrounding values.
+
+# **Understanding Gaussian Function&#x20;**
+
+The following information describes this function:
+
+- Calculates the mean, standard deviation, and variance of a set of values within a specific window.
+- Determines a coefficient using the formula `1 / (sqrt(2 * PI) * deviation)`
+- Computes the exponential part with `exp(-1/2 * ((current - mean) / deviation)^2)`
+- The Gaussian Function is derived by multiplying the coefficient with the exponential part.
+- The process results in a filtered value that smooths or blurs the original data, applying a natural weight based on proximity to the mean.
+
+# **User Scenario**
+
+Review the following scenario for the Gaussian Filter function. Then, you will simulate PLC data and calculate the filtered values.
+
+In a precision manufacturing facility specializing in aerospace components, high-resolution cameras are employed to inspect the surface of parts for microscopic flaws. These inspections generate vast amounts of image data, where even the smallest imperfection can signal a potential failure in critical aerospace systems.&#x20;
+
+We apply the Gaussian Filter function to images to reduce noise and lighting changes that can hide defects. This helps the inspection algorithms to find any problems with a component.
+
+# &#x20;**Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](../../product-features/devicehub/devices/connect-a-device.mdx) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: input1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **1**
+- **Tag Name**: Enter **input1**
+- **Min\_value**: Enter **101**
+- **Max\_value**: Enter **199**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Gaussian Filter Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **input1&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **Gaussian Filter&#x20;**&#x70;rocessor.
+   The *Edit a Processor* dialog box appears.
+   - **Window Size:** Enter a value that represents the range to apply the gaussian digital function. For this example, we input a value of **30**.
+   - **Number of Deviations:&#x20;**&#x4E;umber of deviations to use for the calculations. For this example, we input a value of **1**.
+   - **TimeInterval:&#x20;**&#x49;f you know your input is going to publish at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/b8UQ_jUu5sus9-FZMkQJK_image.png "Edit a Processor dialog box")
+7. Connect the *DataHub Subscribe* processor (tag: *input1*) to the *Gaussian Filter&#x20;*&#x70;rocessor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+   The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ix7efScZDSQNWV30jVS4k_image.png "Completed Flows Canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Gaussian Filter&#x20;*&#x70;rocessor to view the output values.
+
+The Gaussian Filter output yielded a filtered value of **1.16882172100685** with a coefficient of **0.013888633443174866 &#x20;**&#x61;nd exponential of **0.6947003584251287**.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Gg0G144LZoH6JZeSXH3w-_image.png "Output of Gaussian Filter")
+

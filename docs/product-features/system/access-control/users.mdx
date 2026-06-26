@@ -1,0 +1,91 @@
+---
+title: Users
+slug: product-features/system/access-control/users
+docTags: 
+createdAt: Wed May 01 2024 23:35:54 GMT+0300 (Eastern European Summer Time)
+---
+
+The *Users&#x20;*&#x73;ection allows you to create and manage user access in Litmus Edge.&#x20;
+
+# Relationship of Roles, Groups, and Users
+
+Litmus Edge incorporates a Role-based access control (RBAC) to customize user permission settings in the form of three distinct components.
+
+- **Roles**: Each role has a collection of customizable permissions. Roles are added to groups and determine the permissions groups have. See :Link[Role Permissions]{docId="AOcSGbhJTzK7vFNuSYnoe" label="Role Permissions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Role Permissions"} for details.&#x20;
+- **Groups**: A group is made up of one or more roles. The roles in a group determine the permissions for the group.&#x20;
+- **Users**: Accounts that will be assigned to groups. The one or more groups a user is assigned to determines the roles and permissions the user has.
+
+Working together, a *Role&#x20;*&#x64;etermines the permission settings a *Group&#x20;*&#x77;ill have. A *Group&#x20;*&#x77;ill contain one or more roles that determine its permissions. A *User&#x20;*&#x77;ill be assigned to a *Group&#x20;*&#x77;here it will have access to Litmus Edge based on the Group's one or more *Roles*.
+
+<hint type="warning">
+  **Important**: The following properties should be kept in mind when adding/editing Roles/Groups/Users.
+
+  - A group can receive more than one role (and their respective permission settings) to a resource.
+  - A user can be assigned to multiple groups.
+  - If a user is not assigned to at least one group, they will not be able to log in to Litmus Edge.&#x20;
+  - In the case of conflicting permission settings: As long as there is at least one role or group with permissions to a resource, regardless of how many other roles/groups that don't have it, users will receive that resource.
+</hint>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5kJHdGV18bL1-3UvqROP6_image.png" size="80" width="804" height="322" caption="Visual representation of roles, groups, and users" position="center" showCaption="true"></Image>
+
+# Default Roles, Groups, and Users
+
+By default, the following user management items are provisioned that can't be deleted.&#x20;
+
+**Roles**
+
+- Administrator
+- Viewer
+
+**Groups**
+
+- Administrators
+- Viewers
+
+**User**
+
+- admin
+
+The system ensures that at least one user has the appropriate administrative permissions to manage roles, groups, and users.&#x20;
+
+# Default User Permissions
+
+By default, every user has the permission to accept the Litmus Edge end-user license (EULA) when logging in the first time. Users can also access their user profile to view their current user permissions and change their password. See :Link[Manage Your User Profile]{docId="6DC6V5rg7uBQ-8_-jSe3n" label="Manage Your User Profile" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage Your User Profile"} for details.&#x20;
+
+Learn more about :Link[Role Permissions]{docId="AOcSGbhJTzK7vFNuSYnoe" label="Role Permissions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Role Permissions"}.&#x20;
+
+# Backup Files and Templates
+
+All role, group, and user configurations are included in backup files. See :Link[Backup/Restore]{docId="DcXunHyrSEil63hSHCiPr" label="Backup/Restore" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Backup/Restore"} and [Backup File Contents and File Management](../device-management/backup-restore/back-up-device/backup-file-contents-file-management.mdx) for more information.&#x20;
+
+In template files, only authentication providers are included in template configurations. If you apply a template to a new edge device, you will need to map LDAP groups manually. See :Link[Manage LDAP Providers]{docId="MPyUEGi42nGviNt5z-h-E" label="Manage LDAP Providers" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage LDAP Providers"} for more information.&#x20;
+
+# Legacy User Migration
+
+For Litmus Edge instances on version 3.2 and earlier, there were three possible roles: Observer, Developer, and Administrator. When you upgrade to version 3.3 or later:
+
+- Any Administrator role is automatically provisioned to the Administrators group with the group's respective permissions.&#x20;
+- Observer and Developer roles are automatically provisioned to the Viewers group with the group's respective permissions.&#x20;
+
+# Access Users UI
+
+<hint type="info">
+  **Note**: You must have the appropriate permissions to manage roles, groups, and users. By default, the first user (admin user) provisioned in Litmus Edge has these user permissions.&#x20;
+</hint>
+
+From the Litmus Edge navigation panel, navigate to **System&#x20;**> **Access Control**.&#x20;
+The *Users&#x20;*&#x70;ane appears.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/K_1yhQpD6kQqZHns8WQm8_image.png)
+
+# Next Steps
+
+- [Add a Role](users/add-role.mdx)
+- [Manage Roles](users/manage-roles.mdx)
+- [Add a Group](users/add-group.mdx)
+- :Link[Manage Groups]{label="Manage Groups" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="d4YuRMylQwHfyi4RrOT0E" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- [Add a User](users/add-user.mdx)
+- [Manage Users](users/manage-users.mdx)
+- :Link[Manage Your User Profile]{label="Manage Your User Profile" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="6DC6V5rg7uBQ-8_-jSe3n" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Role Permissions]{label="Role Permissions" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="AOcSGbhJTzK7vFNuSYnoe" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+

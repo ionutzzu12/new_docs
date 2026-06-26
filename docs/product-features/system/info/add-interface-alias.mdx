@@ -1,0 +1,41 @@
+---
+title: Add an Interface Alias
+slug: product-features/system/info/add-interface-alias
+description: You can add an alias for Linux serial interfaces that are connected to your network from the Serial Interfaces section. 
+docTags: 
+createdAt: Mon Sep 26 2022 23:07:17 GMT+0300 (Eastern European Summer Time)
+---
+
+You can add an alias for Linux serial interfaces that are connected to your network by navigating to **System&#x20;**>**&#x20;Info** from the *Serial Interfaces* section.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/dheBDanbmokmaE6udroZp_image.png "The Serial Interfaces section")
+
+Linux serial devices assign a random file address upon connection or disconnection and can cause an issue when the system reboots.
+
+<hint type="info">
+  **Example random file addresses**: `/dev/ttyUSB0`, `/dev/ttyUSB1`, or `/dev/ttyS0`.
+</hint>
+
+The \<`/dev/ttyUSB#`> file address is used when dialing out through a port.
+
+The \<`/dev/ttyS#`> file address is used whenever the port is used for dialing in.
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - You can use alpha-numeric characters for the alias (A-Z, a-z, 0-9).
+  - The *Symlink&#xA0;*&#x69;s read only. You cannot add an alias if no symlink is present.
+  - *Path&#xA0;*&#x69;nformation is run by serial number.
+  - Added *Alias&#xA0;*&#x69;nformation is run by alias.
+  - You can copy an alias to use with DeviceHub drivers.&#x20;
+</hint>
+
+# Add a Serial Interface Alias
+
+**To add a serial interface alias:**
+
+1. Navigate to **S****ystem***.&#x20;*&#xA;The *Info&#x20;*&#x70;ane appears. &#x20;
+2. From the *Serial Interfaces* section, click the **Action menu&#x20;**&#x6E;ext to a serial interface and select **Set Alias**.
+3. From the *Create Interface Alias* dialog box, enter an alias name in th&#x65;**&#x20;Interface Alias** field.&#x20;
+4. Click **Create Alias**.
+

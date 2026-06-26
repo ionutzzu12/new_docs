@@ -1,0 +1,66 @@
+---
+title: Add a Processor from the Instances Table
+slug: product-features/analytics/instances-table/add-a-processor-from-the-instances-table
+description: Learn how to add a processor from the Instances Table. 
+docTags: 
+createdAt: Thu Oct 20 2022 20:06:40 GMT+0300 (Eastern European Summer Time)
+---
+
+You can add a processor to an existing Analytics flow by navigating to **Analytics&#x20;**>**&#x20;Instances Table**.&#x20;
+
+# Add an Input or Output Processor from the Instances Table
+
+**To add a processor from the Instances Table:&#x20;**
+
+1. Navigate to **Analytics&#x20;***>&#x20;***Instances Table**.&#x20;
+2. Click the **Add +** icon for an existing respective input or output processor.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1QoUDAA8rTFx7gVta6NMo_addprocessorinstancestable.png" size="80" width="1547" height="405" caption="Add processor icon" position="center" showCaption="true"></Image>
+3. From the add processor menu, select one of the following.&#x20;
+   - **New processor**: Select **Events&#x20;**&#x6F;r **Values**, and then select the appropriate input or output processor. See [Input Processors](../input-processors.mdx) and :Link[Output Processors]{label="Output Processors" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="OWy76JTGh_Nglz3ySUF2O" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+     - Events (individual data source): The receiving processor reacts to each individual data value immediately.&#x20;
+     - Values (combined data sources): The function processor waits for values from all of the combined data sources before reacting.&#x20;
+   - **Existing processor in group**: Select an existing input or output processor and then select **Events&#x20;**&#x6F;r **Values**.&#x20;
+     - Events (individual data source): The receiving processor reacts to each individual data value immediately.&#x20;
+     - Values (combined data sources): The function processor waits for values from all of the combined data sources before reacting.&#x20;
+
+After saving the update, the new processor is connected to the selected input or output processor.&#x20;
+
+# Add a Function Processor from the Instances Table
+
+You can connect multiple functions from existing input and output processors by navigating to **Analytics > Instances Table**.&#x20;
+
+Connecting from an input processor in an analytics flow places the selected flow's function processor in the *Outputs&#x20;*&#x63;olumn of the selected flow. Connecting from an output processor in a flow places the selected flow's function processor in the *Inputs&#x20;*&#x63;olumn of the selected flow.
+
+When you view the flows in the *Instances&#x20;*&#x70;ane, the two functions are connected.
+
+**To connect a function processor to a flow:**
+
+1. Navigate to **Analytics&#x20;***>&#x20;***Instances Table**.&#x20;
+2. Click the **Add +** icon for an existing respective input or output processor.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/PUmwy_NBxhCxKNY0zlbf8_addprocessorinstancestable.png" size="80" width="1547" height="405" caption="Add processor icon" position="center" showCaption="true"></Image>
+3. From the add processor menu, select one of the following.&#x20;
+   - **New processor**: Select **Events&#x20;**&#x6F;r **Values**, and then select the appropriate function processor. See [Input Processors](../input-processors.mdx) and :Link[Output Processors]{label="Output Processors" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="OWy76JTGh_Nglz3ySUF2O" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+     - Events (individual data source): The receiving processor reacts to each individual data value immediately.&#x20;
+     - Values (combined data sources): The function processor waits for values from all of the combined data sources before reacting.&#x20;
+   - **Existing processor in group**: Select an existing function processor and then select **Events&#x20;**&#x6F;r **Values**.&#x20;
+     - Events (individual data source): The receiving processor reacts to each individual data value immediately.&#x20;
+     - Values (combined data sources): The function processor waits for values from all of the combined data sources before reacting.&#x20;
+
+After saving the update, the function is added to either the inputs or outputs column to the flow.&#x20;
+
+Refer to the following example where the function for the selected flow appears in the *Inputs&#xA0;*&#x63;olumn for the second function, and the second function appears in the *Outputs&#xA0;*&#x63;olumn for the selected flow.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/GLhjsM27obIseuCGibYkw_image.png" size="80" width="1353" height="633" caption="Additional function is added to existing flow" position="center" showCaption="true"></Image>
+
+From the *Instances&#xA0;*&#x70;ane, the function output in the flow is connected to the input for the second function processor.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/eQTx5OTPmVxismphRme-0_analytics-flow1.png" size="80" width="867" height="254" caption="Multiple function processors connected to flow" position="center" showCaption="true"></Image>
+
+Refer to the following example where the function for the selected flow appears in the *Outputs* column for the second function, and the second function appears in the *Inputs* column for the selected flow.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/khRfPMlPAye2A5WJwSnrp_analytics-instances-table2.png" size="80" width="1342" height="627" caption="Additional function is added to existing flow" position="center" showCaption="true"></Image>
+
+From the *Instances* pane, the function output in the flow is connected to the input for the second function node.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/GNfzWylxCxztg9FlW7YN1_analytics-flow2.png" size="80" width="864" height="250" caption="Multiple function processors connected to flow" position="center" showCaption="true"></Image>
+

@@ -1,0 +1,106 @@
+---
+title: VirtualBox MacOS
+slug: quickstart-guide/installation-and-deployments/iso-installation-on-hypervisors/virtualbox-macos
+description: You can use Oracle VirtualBox on MacOS BigSur to install Litmus Edge.
+docTags: 
+createdAt: Mon Apr 18 2022 17:13:52 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Oracle VirtualBox on macOS Big Sur to install Litmus Edge.
+
+# Before You Begin
+
+- Prepare your environment for running virtualization by using Oracle VirtualBox.&#x20;
+  - Review [Verified VM Versions](../../../resources/verified-vm-versions.mdx) and confirm the correct version to download. See  [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads).&#x20;
+  - Refer to [VirtualBox Documentation](https://www.virtualbox.org/wiki/Documentation) to learn more.&#x20;
+  - The virtual machine will run on the same physical network card as the host environment. To ensure that the device can communicate with data sources such as PLC, DCS or CNC and can be accessed through the Web UI, make sure that communication can be established.
+- Adjust the system clock for the host environment prior to installing Litmus Edge. UTC is recommended. The 15-day trial period may be rejected and invalidated by the license server if the system clock is not adjusted. If this happens, contact your Litmus representative.&#x20;
+- Obtain a valid file in the ISO format (example filename: `<litmusedge-std_3.1.5.0-amd64>.iso`). You can get the ISO file from the :Link[Litmus Central portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+
+To use VirtualBox on macOS Big Sur to install Litmus Edge, you will need to do the following.&#x20;
+
+- Step 1: Create a Virtual Machine
+- Step 2: Configure Settings
+- Step 3: Log in to Litmus Edge
+
+To jump to a specific section, refer to the Table of Contents on the right side and click the corresponding step.&#x20;
+
+# Step 1: Create a Virtual Machine
+
+You will first need to create the virtual machine that will run Litmus Edge.&#x20;
+
+**To create the virtual machine:**
+
+1. Start the Oracle VirtualBox application.&#x20;
+2. Click the **New&#x20;**&#x69;con.&#x20;
+3. From the Name and operating system dialog box, configure the following.&#x20;
+   - **Name**: Enter a name for the virtual machine.&#x20;
+   - **Type**: Select **Other**.&#x20;
+   - **Version**: Select **Other/Unknown (64-bit)**.&#x20;
+4. Click **Continue**.&#x20;
+   The *Memory size* dialog box appears.
+5. From the Memory size dialog box, enter `4096` in the **MB&#x20;**&#x66;ield.&#x20;
+6. Click **Continue**.&#x20;
+   The *Hard disk* dialog box appear.&#x20;
+7. From the *Hard disk* dialog box, select **Create a virtual hard disk now** and click **Create**.
+   The *Hard disk file type* dialog box appears.
+8. From the *Hard disk file type* dialog box, Select **VDI** (**VirtualBox Disk Image**) and click **Continue**.
+   The *Storage on physical hard disk dialog box* appears.
+9. From the *Storage on physical hard disk dialog box*, select **Fixed size&#x20;**&#x61;nd click **Continue**.&#x20;
+   Th&#x65;*&#x20;File location and size* dialog box appears.
+10. From the *File location and size* dialog box, Enter `32.00` in the **Size** field and click **Create**.&#x20;
+    The progress bar appears, and then th&#x65;*&#x20;Hard disk&#x20;*&#x64;ialog box appears.
+11. From the *Hard disk* dialog box, select **Create a virtual hard disk now** and click **Create**.
+    The *VirtualBox Manager* appears.
+
+# Step 2: Configure Settings
+
+After installing the virtual machine, you will need to configure its settings.&#x20;
+
+**To configure the settings:**
+
+1. From the open Oracle VirtualBox application, select the deployed virtual machine from the left pane.
+2. Click the **Settings** icon, and then click the **General** section in the right pane.
+   The *General&#x20;*&#x64;ialog box appears.
+3. From the *General&#x20;*&#x64;ialog box, select the **System** icon at the top.
+   The *System&#x20;*&#x64;ialog box appears.
+4. From the *System&#x20;*&#x64;ialog box, configure the following.&#x20;
+   - **Enable I/O APIC**: Select the checkbox.
+   - **Hardware Clock in UTC Time**: Select the checkbox.
+   - **Processor**: Click **Processor&#x20;**&#x61;nd enter `2`.&#x20;
+5. Click **Storage**.&#x20;
+   The *Storage&#x20;*&#x64;ialog box appears.
+6. From the *Storage&#x20;*&#x64;ialog box, select the **Empty** device in the left pane.
+7. Hover over the **Optical Drive** icon and select **Choose a disk file**.
+8. Navigate to the *ISO&#x20;*&#x66;ile, and then click **Open**.
+9. Click **Network**.
+   The *Network&#x20;*&#x64;ialog box appears.
+10. From the *Network&#x20;*&#x64;ialog box, selec&#x74;**&#x20;Bridged Adapter&#x20;**&#x66;rom the *Attached to* drop-down list and the appropriate network card name.&#x20;
+11. Click **OK**.&#x20;
+    The *VirtualBox Manager* appears.
+12. From th&#x65;*&#x20;VirtualBox Manager*, Click **Start**.
+    The Terminal User Interface (TUI) opens and runs the installation you configured, and then the VirtualBox Manager appears.
+13. Click **Settings**, and then click **System**.
+14. From the *System&#x20;*&#x64;ialog box, configure the following:
+    - **Optical**: Uncheck the check box.&#x20;
+    - **Hard Disk**: Select **Hard Disk** and click the **Up** arrow to move it up in the boot order.
+    - **Enable EFI (special OSes only)**: Select the check box.&#x20;
+15. Click **OK**.&#x20;
+    The *VirtualBox Manager* appears.
+16. Click **Start**.&#x20;
+
+The VM starts up and the terminal window displays the URLs to be used to access the edge device through the Web UI. If several URLs are shown, use the first one.
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/JJVFrtma1Ce-ow2-N7VQL_image.png "URLs to access Web UI")
+
+After you create the virtual machine, you must configure the network adapters.
+
+# Step 3: Log in to Litmus Edge
+
+- See [Access the Litmus Edge Web UI](../../fLzmpdmbELjQU6mB_7GMA.mdx) for details on logging in.&#x20;
+- See :Link[Access the Terminal User Interface]{docId="TReVmtf8z-5YhmYPnmo-C" label="Access the Terminal User Interface" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Terminal User Interface"} for instructions on how to navigate and log in for the first time.
+
+# Troubleshooting
+
+If you don't see an option for a 64-bit version and only see a 32-bit version, refer to :Link[Installation and Deployments Troubleshooting]{label="Installation and Deployments Troubleshooting" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="5tPU_ZTlvlfrgCgDWb53T" version="v2" docAnchorId="#k_WhC" loadingMethod="dynamic" overridedLabel}.
+

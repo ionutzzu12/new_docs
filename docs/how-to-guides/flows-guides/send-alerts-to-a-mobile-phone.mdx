@@ -1,0 +1,86 @@
+---
+title: Send Alerts to a Mobile Phone
+slug: how-to-guides/flows-guides/send-alerts-to-a-mobile-phone
+description: You can create Flows to send SMS alerts to a mobile phone. 
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:18 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use Flows to set up automated SMS alerts that can be sent to a mobile phone.&#x20;
+
+# User Scenario&#x20;
+
+In a manufacturing plant, when certain conditions are met, such as temperature exceeding safe limits, you can send alerts from the shop floor to workers who need to respond to that critical condition.
+
+Here's how you can do it using Litmus Edge:
+
+1. Read tags from a PLC.
+2. Define alerts (conditions/rules/levels) in Flows.&#x20;
+3. Route alerts to specific cell phones or user groups.&#x20;
+
+# Strategies for Sending Alerts
+
+You can send alert messages to a mobile device with either SMS Gateway or WiFi/ Networks.
+
+## Use an SMS Gateway for Messaging
+
+- **SMPP-based SMS Gateway**: To generate alerts through SMS, you can use the SMPP (Short Message Peer-to-Peer) protocol. You have the option to use a gateway that is available in a data center, or you can deploy an open-source solution such as Jasmin SMS Gateway, which can be installed in Litmus Edge by navigating to **Applications&#x20;**> **Marketplace**.
+- **Hardware SMS Gateway**: You can deploy a device with a SIM card and use Flows to send messages to the gateway when an alert is triggered.
+- **Online SMS Gateway**: You can use online cloud-based SMS gateways like AWS SNS or Twilio for sending SMS alerts.&#x20;
+
+For instructions on how to create a Twilio flow to send an SMS alert, please refer to the section below titled "Create Twilio Flow to Send an SMS Alert".
+
+## Use WiFi/ Network for Messaging
+
+Install a Notification-receiving mobile app. Several MBaaS (Mobile Backend-as-a-Service) applications (such as Kinvey, Cloudkit for iOS, or Firebase) provide this capability.
+
+- Litmus Edge becomes the Notification Server.
+- The app connects to flows to receive notifications.
+
+# Create Twilio Flow to Send an SMS Alert
+
+The following example provides high-level guidance for configuring outgoing Twilio messaging in flows. Because each enterprise has unique requirements and configurations, customize this example for your environment.
+
+## Before You Begin
+
+You will need to sign up for a Twilio account on their :Link[website]{href="https://www.twilio.com/" newTab="true"}. Note that Twilio charges for message activity.
+
+## Step 1: Configure the Twilio Node
+
+**To configure the Twilio node:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow. See :Link[Create a Flow]{docId="wh4ZihWF0PwMRYRbAZbco" label="Create a Flow" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} to learn more.
+2. On the flow canvas, add the **Twilio out&#x20;**&#x6E;ode.&#x20;
+3. Double-click the node.&#x20;
+   The *Edit twilio out node&#x20;*&#x64;ialog box appears.
+   - **Output:&#x20;**&#x53;elect **SMS&#x20;**&#x66;rom the dropdown options.&#x20;
+   - **Name:** Enter **twilio\_alert**.
+   - **To:&#x20;**&#x45;nter the **phone number&#x20;**(no spaces or special characters) for the person who receives the text messages.&#x20;
+   - **Twilio:&#x20;**&#x43;lick the **Edit&#x20;**&#x69;con and configure the following parameters for the Twilio connection.&#x20;
+     To retrieve these values, log in to your Twilio account and access the *Programmable SMS Dashboard*.&#x20;
+     - **Account SID**: Find this **SID&#x20;**(Security ID) in the Twilio account dashboard.
+     - **From**: Use the Twilio-assigned **phone number** found in your Twilio account.
+     - **Token:** Find this **authentication token** in the Twilio account dashboard.
+       <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/YPcRj2mZCN0xxp3pkh2jP_image.png" size="70" width="763" height="544" position="center" caption="Twilio account dashboard" showCaption="true"></Image>
+     - **Name:** Enter an optional user-defined **name**.
+     - Click **Update**.
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Le1_OuhCF_g_WrXX_u7S3_image.png" size="50" width="688" height="457" position="center" caption="Edit twilio out node dialog box" showCaption="true"></Image>
+
+## Step 2: Test Connectivity
+
+**To test the connectivity:**
+
+1. Drag a **Function&#x20;**&#x61;nd **Inject&#x20;**&#x6E;odes to the canvas and wire them to the **Twilio** node.
+2. Double-click the **Function&#x20;**&#x6E;ode.&#x20;
+   - **On Message**: Enter a basic **message&#x20;**&#x74;o send as a text message.&#x20;
+     Use this code as an example:
+     `msg.payload = "Alert: This is a test message from the manufacturing floor.";     `
+     `return msg;`
+   - Click **Done**.&#x20;
+3. Click **Deploy**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/xKCJPnOrxgpGVjXVfvDGP_image.png "Completed flows canvas")
+4. Click the **Inject&#x20;**&#x6E;ode button to trigger the alert and check the respective phone for the text message.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/uzbN855y9vVHhx5UTUcUT_image.png" size="50" width="736" height="552" position="center" caption="Alert message from twilio" showCaption="true"></Image>
+

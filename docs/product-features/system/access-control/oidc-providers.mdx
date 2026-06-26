@@ -1,0 +1,92 @@
+---
+title: OIDC Providers
+slug: oidc-providers
+docTags: 
+createdAt: Wed Feb 19 2025 21:16:34 GMT+0200 (Eastern European Standard Time)
+---
+
+You can enable authentication through the OpenID Connect (OIDC) protocol to log in using your organization's identity provider. Litmus Edge acts as an OIDC client that connects to a configured OIDC provider. Litmus Edge supports both static and dynamic client registration.&#x20;
+
+The OIDC providers page allows you to:
+
+- View the list of configured OIDC providers.
+- Add, edit, and delete OIDC providers.
+- Assign Role-Based Access Control (RBAC) groups to users authenticating through OIDC.
+
+<hint type="success">
+  **Important Note:&#x20;**&#x57;hen working with OIDC providers, remember that:
+
+  - OIDC provider configurations are included in system backups.
+  - Users can export and import configurations through templates.
+  - The assigned RBAC Groups determine user access levels upon authentication.
+</hint>
+
+# Required OIDC Scopes for Microsoft Entra ID
+
+When configuring Microsoft Entra ID as an OIDC provider for Litmus Edge, ensure the following standard scopes are enabled:
+
+- openid
+- email
+- profile
+
+Litmus Edge uses these scopes to authenticate users and retrieve basic identity information. No additional custom scopes or permissions are required.
+
+# Access OIDC Providers
+
+Navigate to **System&#x20;**>**&#x20;Access Control&#x20;**>**&#x20;OIDC Providers&#x20;**&#x61;nd refer to the actions you can take:
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/PAvY9Vvb_bPG5EJrYgWS0_image.png)
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="177,581">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1]**&#x20;Add Provider**
+    </td>
+    <td>
+      See :Link[Add an OIDC Provider]{label="Add an OIDC Provider" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="b75Kv8Uhp3zkc_TOcnxrS" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2] **Name**&#x20;
+    </td>
+    <td>
+      The identifier for the OIDC provider (for example Keycloak or Okta).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3] **Client ID**&#x20;
+    </td>
+    <td>
+      The unique identifier for the client registered with the OIDC provider.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4] **RBAC Group(s)**&#x20;
+    </td>
+    <td>
+      The user roles assigned via Role-Based Access Control (RBAC).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[5] **Actions**&#x20;
+    </td>
+    <td>
+      Options to edit or delete an OIDC provider.
+    </td>
+  </tr>
+</table>
+
+
+

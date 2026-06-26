@@ -1,0 +1,121 @@
+---
+title: Use the Siemens S7 Browse Agent
+slug: how-to-guides/devicehub-guides/use-the-siemens-s7-browse-agent
+description: Learn how to use the Siemens S7 Browse Agent. 
+docTags: 
+createdAt: Tue Jan 10 2023 16:41:16 GMT+0200 (Eastern European Standard Time)
+---
+
+With the Siemens S7 Browse Agent, you can export tags and variables from a TIA Portal project and import them into Litmus Edge. The agent will export all input (I), output (Q), and memory (M) tags from the tag table and tags from all non-optimized data blocks. See :Link[Tag Data Type Conversions]{docId="JFYBq0ytsTmDuMhPIEicV" label="Tag Data Type Conversions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Tag Data Type Conversions"} to learn more.
+
+# Before You Begin
+
+- Create a TIA Portal project that includes the S7 PLC that you want to add to DeviceHub. The project should have only one PLC. If you have more than one PLC in your project, create copies of your project with only PLC in each project and run the agent separately for each project.
+- Go to the Litmus Central Portal and :Link[download]{href="https://central.litmus.io/listing/siemens-s7-browse-agent/" newTab="true"} the corresponding agent for your version of TIA Portal.
+- If the TIA Portal project is open, close the project.
+- Follow the steps below to enable TIA Openness.
+
+## Enable TIA Openness
+
+1. Type `lusrmgr.msc` in the start menu and press Enter.
+   The local user management console opens.
+2. Click **Groups**. Then, right-click **Siemens TIA Openness&#x20;**&#x61;nd select **Add to Group...**
+   The *Siemens TIA Openness Properties* window opens.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/FDOIchvbYOFq79Zsf6riy_image.png" size="80" width="946" height="723" caption="lusrmgr window" position="center" showCaption="true"></Image>
+3. On the *Siemens TIA Openness Properties* window, click **Add...**
+   The *Select Users* window opens.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HimnZADJhVDteaiPlS54I_image-1.png" size="80" width="831" height="573" caption="Adding the user to the Siemens TIA Openness group" position="center" showCaption="true"></Image>
+4. On the *Select Users* window, click **Advanced**.
+   Another window titled *Select Users&#x20;*&#x6F;pens.
+5. Click **Find Now** in the new window.
+   The search results populate.
+   Find your Windows user, select it, then click **OK**.
+   The new *Select Users* window closes, and the original Select Users window now shows your user name.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/UWKJNDWLhmDgcmHjJVTVh_image-2.png" size="80" width="458" height="253" caption="Select Users window" position="center" showCaption="true"></Image>
+6. Click **OK**.
+   The original *Select Users* window closes.
+7. On the *Siemens TIA Openness Properties* window, click **Apply**.
+8. Close the remaining windows, log out of Windows, and then log back in.
+
+# Use the Siemens S7 Browse Agent
+
+Using the Siemens S7 Browse Agent includes the following tasks:
+
+- Step 1: Add Siemens S7 Device to DeviceHub
+- Step 2: Extract the Siemens S7 Browse Agent
+- Step 3: Copy the Library File
+- Step 4: Create an API Key
+- Step 5: Configure the Siemens S7 Browse Agent
+- Step 6: Export Tags to CSV File
+- Step 7: Upload Tags to Litmus Edge
+
+## Step 1: Add Siemens S7 Device to DeviceHub
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Devices**.
+2. Click the **Connect a Device** box.
+   The *Connect Device&#x20;*&#x64;ialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/atJL37pPuLGI2bM_w2ibz_adddevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" showCaption="true"></Image>
+3. In the **Device Type** drop-down list, select **Siemens**.
+4. In the **Driver Name** drop-down list, select **Siemens S7&#x20;**&#x6F;r **Siemens S7-Advanced (Gen1)**.
+5. Configure the parameters for the device. See [Connect a Device](../../product-features/devicehub/devices/connect-a-device.mdx) and [Siemens S7](../../quickstart-guide/industrial-systems-connection-guide/siemens/gen-2-drivers/siemens-s7.mdx) or :Link[Siemens S7-Advanced (Gen1)]{docId="0UH-uAGdt2IY7GC73JGvI" label="Siemens S7-Advanced (Gen1)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.
+6. Copy the name you gave to the device and paste it somewhere for reference later.&#x20;
+
+## Step 2: Extract the Siemens S7 Browse Agent
+
+1. In Windows Explorer, extract the contents of the downloaded zip file.
+2. Open the extracted folders until you view the files *ExportCSV.16.exe* and *litmus.siemens.dll*.
+
+## Step 3: Copy the Library File
+
+1. Locate the file *Siemens.Engineering.dll&#x20;*&#x69;n your program installation folder.
+   - If you have TIA Portal V15, it is located in **Program Files > Siemens > Automation > Portal V15 > Public API > V15**.
+   - If you have TIA Portal V15.1, it is located in **Program Files > Siemens > Automation > Portal V15\_1 > Public API > V15\_1**.
+   - If you have TIA Portal V16, it is located in **Program Files > Siemens > Automation > Portal V16 > Public API > V16**.
+2. Copy *Siemens.Engineering.dll*.
+3. Paste the file into the Siemens S7 Browse Agent folder, next to the .exe file and *litmus.siemens.dll*.
+
+## Step 4: Create an API Key
+
+This is an optional step which allows the Siemens S7 Browse Agent to upload the tag CSV file to Litmus Edge.
+
+**To create an AP key:&#x20;**
+
+1. Navigate to **System&#x20;**>**&#x20;Tokens**.
+2. In the *REST API Keys* section, click the **Add REST API Key** icon.&#x20;
+3. Enter a name for the token in the **Key Name&#xA0;**&#x66;ield, and then click **Create API Key**.
+4. In the *Value&#x20;*&#x63;olumn for the key, click the **Copy&#xA0;**&#x69;con and paste it somewhere for reference later.&#x20;
+
+## Step 5: Configure the Siemens S7 Browse Agent
+
+1. From the V16 folder, double-click the ExportCSV.16.exe file to open the agent.
+   The *DeviceHub Automated Tag Generation* dialog box appears.
+2. Click the **Project Diff File** **Browse&#x20;**&#x69;con and navigate to your TIA Portal project. The default save file path is **Documents > Automation > Project\_Name > Project\_Name.ap16**, where Project\_Name is the name you gave your project.
+3. Select the project file and click **Open**.
+4. Click the **CSV File Browse&#x20;**&#x69;con, navigate to the folder you want to store the CSV file, enter **v15 tags** in the **File Name&#xA0;**&#x66;ield, and then click **Save**.
+5. Configure the following parameters:
+   - **DeviceHub Driver**: During "Step 1: Add Siemens S7 Device to DeviceHub," if you added a device using the Siemens S7-Advanced (Gen1) driver, select **Gen1**. If you used the Siemens S7 driver, select **Gen2**.
+   - **Device Name**: Paste the device name that you copied in "Step 1: Add Siemens S7 Device to DeviceHub."
+   - **Gateway Address&#x20;**(optional): Enter the Litmus Edge IP Address.
+   - **API Token&#x20;**(optional): Paste the REST API Key that you copied in "Step 4: Create an API Key."
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EbGr0A5qFXtgYXTD12amW_image.png" size="48" width="352" height="495" caption="The Siemens S7 Browse Agent" position="center" showCaption="true"></Image>
+
+## Step 6: Export Tags to CSV File
+
+1. From the *Siemens S7 Browse Agent* dialog box, click **Export**.
+2. View the *Logs&#x20;*&#x70;ane to see the export process.
+   When the **Openness access** popup window appears, select **Yes** or **Yes to all** to grant access to the agent.
+   This process may take some time. When you see *Finished&#xA0;*&#x69;n the *Logs&#x20;*&#x70;ane, the tags are exported to a CSV file.
+3. Navigate to the folder on your hard drive that you designated for the CSV file and confirm it was successfully created.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/TEmq6xf_HMZZrS71DexZs_image.png" size="42" width="500" height="260" caption="The Openness access popup" position="center" showCaption="true"></Image>
+
+## Step 7: Upload Tags to Litmus Edge
+
+If you skipped "Step 4: Create an API Key," you will need to upload the tag CSV file from Litmus Edge DeviceHub instead of from the Siemens S7 Browse Agent. See :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.
+
+1. From the *Siemens S7 Browse Agent* dialog box, click **Upload**.
+2. In Litmus Edge, navigate to **DeviceHub&#x20;**>**&#x20;Tags**.
+3. Click the Siemens S7 device.
+4. Confirm the tags from the CSV file are successfully uploaded.
+

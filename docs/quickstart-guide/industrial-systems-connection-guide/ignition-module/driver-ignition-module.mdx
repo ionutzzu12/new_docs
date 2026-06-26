@@ -1,0 +1,181 @@
+---
+title: Ignition Module Driver
+slug: driver-ignition-module
+docTags: 
+createdAt: Mon Oct 20 2025 23:58:11 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Ignition Module driver.
+
+## Set Up the Ignition Module
+
+See :Link[Ignition Integration]{label="Ignition Integration" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="Sd1vLdCR7jCNgzmqzhOS-" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to review how to set up and configure the Ignition Module driver.
+
+## Ignition Module Driver Settings in Litmus Edge
+
+When reviewing or modifying Ignition Module device settings, refer to the following parameters.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="212,449">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      Ignition
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      Ignition Module
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Network Port**
+    </td>
+    <td align="left">
+      The port for communication between Litmus Edge and Ignition. The default value is `4778`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Interface**
+    </td>
+    <td align="left">
+      Optionally, select the interface for accepting client connections. The default value is `0.0.0.0`, which means using all network interfaces for accepting connections from clients.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **User**
+    </td>
+    <td align="left">
+      The username for authentication with the Ignition Module (configured in Ignition Gateway). The default value is `admin`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Password**
+    </td>
+    <td align="left">
+      The password for authentication with the Ignition Module.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Enable TLS**
+    </td>
+    <td align="left">
+      `Disable` or `Enable`. When enabled, data is encrypted using TLS v1.3 when being sent between the module and driver.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Nats Connection Name**
+    </td>
+    <td align="left">
+      The NATS connection name for the Ignition Agent (default is `IgnitionAgent`).
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Nats Request Timeout (ms)**
+    </td>
+    <td align="left">
+      Timeout for NATS requests in milliseconds. The default value is `5000`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Browse Request Items Count**
+    </td>
+    <td align="left">
+      Maximum number of items per browse request. The default value is `500`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Write Request Items Count**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Maximum number of items per write request. The default value is `50`.
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  Ensure that the network port is open for both the Litmus Edge and Ignition instances. If you use the default value of `4778`, you do not need to reconfigure the firewall in Litmus Edge.
+</hint>
+
+## Browse tags
+
+Once connected, Ignition Tags can be added to the device using **Hierarchical Browse**. This can be done in either of the following ways:
+
+1. Navigate to **Devicehub** >**Tags** > **Add Tag** > **Browse Tags** and select the Ignition Device
+2. Navigate to **Devicehub** > **Browse**. Select the Ignition device and create a new browse session.
+
+Once a tag is added, it can be read through the tag alias topic.
+
+See [Browse and Add Tags from a Device](../../../product-features/devicehub/tags/browse-tags.mdx) for more details. See :Link[Manage Tags]{label="Manage Tags" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="qm0urCLtmYSiMHM2_5kMx" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more additional configuration of added tags.
+
+When you :Link[Add a Tag]{label="Add a Tag" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="Tuy-hh0Gi8DjVOT70wRoh" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, refer to the following register table and tag parameters.
+
+Refer to the following additional resources:
+
+- Organize Device and Tag Data by Using Metadata
+- Tag Formula Variables
+
+<hint type="warning">
+  **Important:&#x20;**&#x54;ags must preserve the name that is auto-assigned to them during browsing which matches their Tag Path exactly (for example, \[System]/Time/Timestamp). Changing this tag name will cause the Litmus and Ignition Tags to be dissociated.
+</hint>
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td align="left">
+      Value Types
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      bool, bool\[], byte, byte\[], DataSet, float32, float32\[], float64, float64\[], int16, int16\[], int32, int32\[], int64, int64\[], sbyte, sbyte\[], string, string\[], uint16, uint16\[], uint32, uint32\[], uint64, uint64\[]
+    </td>
+  </tr>
+</table>
+
+**Note:** See :Link[Supported Tag Types]{href="https://docs.litmus.io/solutions/ignition-integration#aqXd9" newTab="true" hasDisabledNofollow="false"} for detailed type conversions between Ignition and Litmus Edge.
+
+## Tag Parameters
+
+- **Name**: Enter the Ignition Tag Path (for example, \[default]Folder/TagName or \[System]/Time/Timestamp). This name must match the exact Tag Path in Ignition.
+- **Value Type**: Select a value type that corresponds to the Ignition tag type. See the Register Table for supported types.
+- **Tag Name**: The tag name auto-assigned during browsing. This must match the Tag Path and should not be changed.
+- **Description** (Optional): Enter a description for the tag.
+- **Publishing Interval**: Enter the publishing interval in seconds. This determines how frequently tag values are published.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp(`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. Change of Value only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by Change of Value settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

@@ -1,0 +1,67 @@
+---
+title: Installation and Deployments
+slug: quickstart-guide/installation-and-deployments
+description: Review the different options for installing Litmus Edge based on your specific needs and setup. 
+docTags: 
+createdAt: Thu Mar 31 2022 00:23:09 GMT+0300 (Eastern European Summer Time)
+---
+
+The Litmus Edge operating system can be deployed in several ways.
+
+# Litmus Edge Deployment Models
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/UDWFHX-Io-377aGRJKoHO_image.png "Litmus Edge Deployment Models")
+
+Litmus Edge is most commonly installed:
+
+- On a physical hardware device such as an IPC (Industrial PC)
+- As a VM (virtual machine). You can install as a VM using the following virtual environments:
+  - Oracle VirtualBox
+  - VMWare ESXi
+  - VMware Workstation Player
+  - QEMU Emulator KVM
+  - Windows Hyper-V
+- On Docker
+- On Kubernetes
+
+To determine the best approach for installation, determine how you will use Litmus Edge.
+
+# Collect Data for an Asset or Line Base
+
+If Litmus Edge is used to collect data on an asset or line base, the most common form of deployment is an installation on a physical device such as an IPC (Industrial PC) device.
+
+If you'll use Litmus Edge to collect data on an asset or line base, the most common form of deployment is an installation on a physical device such as an IPC (Industrial PC) device.
+
+The IPC is installed close to the asset or line, often within the same cabinet as the data source, such as a PLC (Programmable Logic Controller), CNC (Computer Numerical Control), robotic system, or DCS (Distributed Control System).
+
+It is connected through one of its network cards to the VLAN of the asset or line. The second network card connects the device to the plant OT (Operational Technology) network and allows for access using the Web UI (User Interface).
+
+# Collect Data For a Section or Plant
+
+If Litmus Edge is used to collect data for a section or plant level that includes several lines or assets, consider deploying it as a virtual system.
+
+This is usually done using managed virtual environments such as VMWare ESXi. The virtual machine runs inside the virtualized environment and connects to the data sources through the plant OT network.
+
+This requires routing that allows the VM to reach every data source located within isolated VLANs.
+
+# Development System
+
+The installation as virtual machine using Oracle VirtualBox is another option. This is usually a development system. For example, in a PoV (proof of value) project, or where many stakeholders test the system and it is not feasible to provide a physical device to everyone.
+
+# Mixed Installation
+
+It is also possible to use a mixed installation. This combines the deployment of physical devices on an asset or line basis and the deployment of a virtualized system as a consolidation layer.
+
+See [Verified VM Versions](../resources/verified-vm-versions.mdx)  and :Link[Validated Gateway Devices]{docId="cjKzwEtLboJtc-A5aMm4c" label="Validated Gateway Devices" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" overridedLabel="Validated Gateway Devices"} for more information.
+
+# Next Steps
+
+- :Link[OVA Installation on Virtual Machine]{docId="G1k-LrOJE5u2z3mB-772f" label="OVA Installation on Virtual Machine" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="OVA Installation on Virtual Machine"}&#x20;
+- [ISO Installation on Virtual Machine](installation-and-deployments/iso-installation-on-hypervisors.mdx)&#x20;
+- :Link[Physical Gateway Installation]{docId="blDXZrjtg_SGSXjgYT2sk" label="Physical Gateway Installation" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Physical Gateway Installation"}&#x20;
+- :Link[Docker Installation]{docId="xH3VHlG7P12KTlzHEzOnD" label="Docker Installation" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Docker Installation"}&#x20;
+- :Link[Zerotouch Installation]{label="Zerotouch Installation" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="sVg4vhfY3-S26SCaFFvFZ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+- :Link[Kubernetes Installation]{docId="Io2DlrZlL2Oo0W1qI7u8N" label="Kubernetes Installation" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Kubernetes Installation"}&#x20;
+- [Raspberry Pi Installation](installation-and-deployments/raspberry-pi-installation.mdx)
+- :Link[License Server Installation]{label="License Server Installation" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="Ko7wFLqRmWv3wg_QZJzTY" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+

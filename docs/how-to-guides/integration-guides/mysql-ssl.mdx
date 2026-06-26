@@ -1,0 +1,130 @@
+---
+title: PostgreSQL Integration Guide
+slug: how-to-guides/integration-guides/mysql-ssl
+description: Learn how to set up the PostgreSQL connector. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:29:38 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and a PostgreSQL database.&#x20;
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/rSsrTL7TMQc?si=kEe8bzOVin126stn&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# User Scenario
+
+In this guide you will deploy a PostgreSQL database container from Litmus Edge and then integrate with the database using the DB-PostgreSQL Server connector. For your specific scenario you may use an external PostgreSQL Server database to set up the integration.&#x20;
+
+For external PostgreSQL databases, refer to the following links to learn more:
+
+- :Link[PostgreSQL Docker Image]{href="https://hub.docker.com/_/postgres" newTab="true" hasDisabledNofollow="false"}
+- :Link[PostgreSQL Documentation]{href="https://www.postgresql.org/docs/" newTab="true" hasDisabledNofollow="false"}
+
+# Step 1: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add PostgreSQL Application
+
+<hint type="info">
+  **Note**: The version used in this guide for PostgreSQL is 9.6.5.
+</hint>
+
+**To add the PostgreSQL application:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**> **Marketplace**.
+2. Click **Marketplace List** and select **Default Marketplace Catalog**.
+3. Click the **PostgreSQL&#x20;**&#x61;pplication tile.&#x20;
+4. From the **Installation script version** drop-down list, select **9.6.5**.&#x20;
+5. Enter a name and description for the application. &#x20;
+6. Update the database name, username, and password as needed.&#x20;
+7. Copy the database name, username, and password and store for reference later.&#x20;
+8. Click **Launch**.&#x20;
+9. Navigate to **Applications&#x20;**> **Catalog Apps**.&#x20;
+   The Postgre application appears, pulls the image, and then starts the application. The  application shows as running.
+10. Navigate to **Applications&#x20;**> **Containers**.&#x20;
+    The postgre application Container is running.
+11. Copy the IP address for the PostgreSQL application.
+
+# Step 4: Add the DB - **PostgreSQL&#x20;**&#x43;onnector
+
+Follow the steps to [Add a Connector](../../product-features/integration/add-a-connector.mdx) and select the **DB - PostgreSQL&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Paste the IP address you copied in Step 3. &#x20;
+- **Port**: The PostgreSQL Server port. The default value is **5432**.&#x20;
+- **Username**: Paste the username configured in Step 3.&#x20;
+- **Password**: Paste the password configured in Step 3. &#x20;
+- **Database**: Paste the database name configured configured in Step 3.&#x20;
+- **Table**: Enter **devicehub**. If you are sending data to an existing table, use the corresponding name.
+- **Show Mapping**: If you want to send data to a custom table, select this checkbox and unselect *Create table*. See [Work with Tables in SQL Connectors (Create Table and Show Mapping)](work-with-tables-in-sql-connectors.mdx) to learn more. To add key/value pairs for the custom table, see :Link[Configure Key/Value Pairs]{docId="YCgpMZEdeEwIO4MeS3mto" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId version="v2" docAnchorId="#configure-keyvalue-pairs" loadingMethod="dynamic" overridedLabel="Configure Key/Value Pairs" href="work-with-tables-in-sql-connectors.mdx"}.&#x20;
+- **Create table**: If you want to send data to an existing table in the default format, or you want to create a new table in the default format, select this checkbox and unselect *Show Mapping*. See [Work with Tables in SQL Connectors (Create Table and Show Mapping)](work-with-tables-in-sql-connectors.mdx) to learn more.&#x20;
+- **Commit timeout**: Enter the transaction commit timeout in (ms).
+- **Max transaction size**: Enter the maximum number of messages before a transaction is committed, regardless of timeout parameter.&#x20;
+- **Bulk insert count**: To enable this option, enter the number of messages to group together and send as one bulk insert statement. Enabling this option can improve how quickly data is processed when dealing with high volumes of tags.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SD_JUeNePkuRKODUAyRWo_postgresql.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="BEQQ0sSzwsv9v9rIF3rhk" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../product-features/integration/manage-connectors.mdx"} and relevant error messages.&#x20;
+
+# Step 6: Create Topics for Connector
+
+You will now need to import the tags created in Step 2 as topics for the PostgreSQL connector. The topics will be created as outbound topics.&#x20;
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 7: Enable Topics
+
+To enable the topics, return to the *Topics* tab and click the **Enable all topics** icon.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Iq7BWYqGWueu4US73iBl3_image.png" size="80" width="1220" height="330" caption="Enable all topics icon" position="center" showCaption="true"></Image>
+
+# Step 8: Make PostgreSQL Queries
+
+You can now verify that you can view data through the terminal command window.&#x20;
+
+Update the credentials, database name, and table name to your specific configurations.&#x20;
+
+**To make queries in the container terminal:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**>**&#x20;Containers**.
+2. Click the **Terminal&#xA0;**&#x69;con next to the PostgreSQL container.
+   The PostgreSQL shell opens.
+3. From the PostgreSQL container terminal, enter `psql -h localhost -U postgres`**&#xA0;**&#x61;nd press **ENTER**.
+   The *psql (9.6.5)***&#xA0;**&#x76;ersion number appears.
+4. Enter `\l`**&#xA0;**&#x61;nd press **ENTER**.
+   The list of databases appears in the console.
+5. Enter `\c postgres`**&#xA0;**&#x61;nd press **ENTER**.&#x20;
+   *You are now connected to database "postgres" as user "postgres"* appears.
+6. Enter `\dt` and press **ENTER**.
+   The list of relations appears showing the devicehub schema.
+7. Enter `\d devicehub` and press **ENTER**.
+   The *public.devicehub* table appears.
+8. Enter `select * from devicehub;` and press **ENTER**.
+   The data for the devicehub table appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HOsMXyQViXIcPsygcVFOq_applications-postgresql-table.png" size="80" width="1576" height="739" caption="PostgreSQL connector messages" position="center" showCaption="true"></Image>
+

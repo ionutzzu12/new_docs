@@ -1,0 +1,38 @@
+---
+title: DB - Microsoft SQL Server SSL
+slug: product-features/integration/integration-connectors/databases/db-microsoft-sql-server-ssl
+description: Review parameters for the DB - Microsoft SQL Server SSL connector. 
+docTags: 
+createdAt: Fri Dec 01 2023 20:43:25 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the :Link[Microsoft SQL Server SSL Integration Guide]{label="Microsoft SQL Server SSL Integration Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="9fzjghisL-Liwya1dK6Mw" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+<ContentSnippet docRefId="Etotx-iXgptB2PdaxQODi">
+
+</ContentSnippet>
+
+<hint type="info">
+  **Note**: When the *Create table* checkbox is not selected, the table format (columns) that you will create must still adhere to the following format.&#x20;
+</hint>
+
+```sql
+IF NOT EXISTS(SELECT *
+              FROM sysobjects
+              WHERE NAME = '"TABLE_NAME"'
+                AND xtype = 'U')
+CREATE TABLE "TABLE_NAME"
+(
+    id          BIGINT IDENTITY(1,1) NOT NULL,
+    record_uuid CHAR(36)       NOT NULL,
+    arrived_at  DATETIME       NOT NULL,
+    device_id   VARCHAR(64)    NULL,
+    register_id VARCHAR(64)    NULL,
+    tag_name    VARCHAR(64)    NULL,
+    datatype    VARCHAR(32)    NULL,
+    value       TEXT           NULL,
+    success     BIT            NULL,
+    PRIMARY KEY (id)
+)
+```
+

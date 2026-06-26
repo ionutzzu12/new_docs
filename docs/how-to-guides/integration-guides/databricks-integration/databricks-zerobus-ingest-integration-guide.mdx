@@ -1,0 +1,182 @@
+---
+title: Databricks Zerobus Ingest Integration Guide
+slug: databricks-zerobus-ingest-integration-guide
+docTags: 
+createdAt: Fri Apr 17 2026 22:28:26 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note:** This feature is available starting with Litmus Edge 4.1.x.
+</hint>
+
+Use this guide to set up an integration between Litmus Edge and [Databricks Zerobus Ingest](https://docs.databricks.com/aws/en/ingestion/zerobus-overview). Once the integration is set up, you can use it to publish data from Litmus Edge directly into Unity Catalog Delta tables using the Zerobus ingestion pipeline.
+
+<hint type="info">
+  **Note:** This connector publishes data from Litmus Edge to Databricks only. Inbound subscriptions are not supported.
+</hint>
+
+## Before You Begin
+
+Before configuring the connector in Litmus Edge, complete the following setup steps in Databricks.
+
+<hint type="info">
+  See the following Databricks resources to learn more about Zerobus Ingest and configuring your workspace:
+
+  - [Databricks Zerobus Ingest overview](https://docs.databricks.com/aws/en/ingestion/zerobus-overview)
+  - [Create an external location](https://docs.databricks.com/aws/en/connect/unity-catalog/external-locations.html)
+  - [Manage service principals](https://docs.databricks.com/aws/en/admin/users-groups/service-principals.html)
+  - [Unity Catalog privileges and securable objects](https://docs.databricks.com/aws/en/data-governance/unity-catalog/manage-privileges/privileges.html)
+</hint>
+
+## Step 1: Create a Cloud Storage Bucket
+
+Create a cloud storage bucket or container appropriate for your Databricks deployment. For example, use an AWS S3 bucket, Azure Blob Storage container, or Google Cloud Storage bucket. This storage will serve as the external location for your Databricks Catalog.
+
+Refer to your cloud provider's documentation for creating a bucket or container and note the bucket or container URI for use in the next step.
+
+## Step 2: Create an External Location in Databricks
+
+In your Databricks workspace, create an *External Location* and link it to the cloud storage bucket created in Step 1.
+
+See [Create an external location](https://docs.databricks.com/aws/en/connect/unity-catalog/external-locations.html) for detailed instructions.
+
+## Step 3: Create a Service Principal and OAuth Secret
+
+Create a *Service Principal* in your Databricks workspace, then generate an OAuth secret for it. Litmus Edge uses these credentials to authenticate with the Databricks Zerobus Ingest endpoint.
+
+After creation, record the following values. You will need them when configuring the connector in Litmus Edge:
+
+- **Client ID**
+  The unique identifier for the service principal, in UUID format (for example `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`)
+- **OAuth Secret**
+  The secret generated for the service principal
+
+<hint type="warning">
+  **Important:** Store the OAuth secret securely. It is displayed only once at creation time.
+</hint>
+
+See [Manage service principals](https://docs.databricks.com/aws/en/admin/users-groups/service-principals.html) for detailed instructions.
+
+## Step 4: Create a Catalog
+
+In your Databricks workspace, create a new Catalog backed by the external location created in Step 2.
+
+<hint type="warning">
+  **Important:** Do not use a catalog whose Storage Location is set to `Default Storage`. The Zerobus Ingest connector requires a catalog backed by an explicit external location.
+</hint>
+
+See :Link[Create catalog]{href="https://docs.databricks.com/aws/en/catalogs/create-catalog" newTab="true" hasDisabledNofollow="false"} for detailed instructions.
+
+## Step 5: Create a Schema
+
+In the catalog, create a new Schema or use the automatically created `default` schema.
+
+See :Link[Create schemas]{href="https://docs.databricks.com/aws/en/schemas/create-schema" newTab="true" hasDisabledNofollow="false"} for detailed instructions.
+
+## Step 6: Create a Table
+
+Create a table in the schema with columns that match the data fields Litmus Edge will publish. The following example creates a table compatible with the Litmus Edge DeviceHub tag payload:
+
+```sql
+CREATE TABLE IF NOT EXISTS <catalog>.<schema>.<table> (
+    success         BOOLEAN,
+    datatype        STRING,
+    timestamp       BIGINT,
+    registerId      STRING,
+    value           DOUBLE,
+    deviceID        STRING,
+    tagName         STRING,
+    deviceName      STRING,
+    description     STRING,
+    metadata        VARIANT
+);
+```
+
+Replace `<catalog>`, `<schema>`, and `<table>` with the names you chose in Steps 4 and 5.
+
+For more information on table creation syntax and identifier naming restrictions, see:
+
+- [CREATE TABLE statement](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-create-table-using.html)
+- [Databricks identifiers](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-identifiers.html)
+
+<hint type="info">
+  **Note:** This guide uses DeviceHub tag payload as an example for the Databricks table schema and outbound topic configuration. Litmus Edge also supports streaming custom JSON structures produced by Analytics or Digital Twins to Databricks. The steps are the same, but you will need to define your Databricks SQL Table columns to match your custom payload structure.
+</hint>
+
+## Step 7: Grant Permissions to the Service Principal
+
+Grant the service principal created in Step 3 the necessary permissions on the catalog and schema. Run the following SQL statements in your Databricks workspace, replacing `<catalog>`, `<schema>`, `<table>`, and `<client-id>` with your values:
+
+```sql
+GRANT USE CATALOG ON CATALOG <catalog> TO `<client-id>`;
+GRANT USE SCHEMA ON SCHEMA <catalog>.<schema> TO `<client-id>`;
+GRANT MODIFY, SELECT ON TABLE <catalog>.<schema>.<table> TO `<client-id>`;
+```
+
+See [Unity Catalog privileges and securable objects](https://docs.databricks.com/aws/en/data-governance/unity-catalog/manage-privileges/privileges.html) for more information.
+
+## Set up the Outbound Connection (Publish to Databricks)
+
+Follow the steps below to configure Litmus Edge to publish data to Databricks.
+
+## Step 1: Add the Databricks Zerobus Ingest Connector
+
+Follow the steps to [Add a Connector]() and select the **Databricks Zerobus Ingest** connector provider.
+
+Configure the following parameters:
+
+- **Name**: The name of the connector.
+- **Workspace URL**: The URL of your Databricks workspace (for example `https://<workspace-id>.cloud.databricks.com`).
+- **Zerobus Ingest URL**: The Zerobus ingestion endpoint for your workspace. The format depends on your cloud provider:
+  - **AWS**: `<workspace-id>.zerobus.<region>.cloud.databricks.com` (see [Zerobus Ingest on AWS](https://docs.databricks.com/aws/en/ingestion/zerobus-ingest))
+  - **Azure**: `<workspace-id>.zerobus.<region>.azuredatabricks.net` (see [Zerobus Ingest on Azure](https://learn.microsoft.com/en-us/azure/databricks/ingestion/zerobus-ingest))
+- **Client ID**: The Client ID of the service principal created in the *Before You Begin* section.
+- **OAuth Secret**: The OAuth secret generated for the service principal.
+- **Catalog**: The name of the Databricks catalog created in the *Before You Begin* section.
+- **Schema**: The name of the schema within the catalog (for example `default`).
+- **Default Table**: The name of the target table within the schema.
+
+## Step 2: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.
+
+If you see a *Failed* status, review the :Link[Manage Connectors]{label="Manage Connectors" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="BEQQ0sSzwsv9v9rIF3rhk" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} page and the relevant error messages.
+
+## Step 3: Add an Outbound Topic
+
+After the connector is enabled, add one or more outbound topics to define which Litmus Edge data is published to Databricks.
+
+**To add an outbound topic:**
+
+1. Click the connector tile.
+   The connector *Dashboard* appears.
+2. Click the **Topics** tab.
+3. Click the **Add a new topic** icon.
+   The *Data Integration* dialog box appears.
+4. Configure the following parameters:
+   - **Data Direction**: Select **Local to Remote - Outbound**.
+   - **Local Data Topic**: Select the DeviceHub tag or topic from Litmus Edge that you want to publish.
+   - **Remote Data Topic** *(optional)*: Enter the name of a Databricks table to publish this topic's data to. If left empty, data is published to the **Default Table** defined at the connector level.
+   - **Enable**: Select the toggle to enable the topic.
+5. Click **OK** to add the topic.
+6. From the connector tile, verify that the connector shows a **CONNECTED** status and the topic shows an **Enabled** status.
+
+## Step 4: Verify Data in Databricks
+
+To confirm that data is flowing from Litmus Edge into Databricks:
+
+1. In your Databricks workspace, navigate to the target catalog, schema, and table.
+2. Run a query against the table to view incoming rows:
+
+```sql
+SELECT * FROM <catalog>.<schema>.<table>
+ORDER BY timestamp DESC
+LIMIT 100;
+```
+
+3. Confirm that rows appear with values from your Litmus Edge tags.
+
+<hint type="info">
+  **Tip:** You can also verify ingestion activity from the Databricks SQL Editor or by monitoring the table's data freshness in Unity Catalog.
+</hint>
+

@@ -1,0 +1,274 @@
+---
+title: Generated System Events
+slug: CfkaNlk6ON1-mZMZqEtqo
+description: Events are displayed when you complete a specific action for a component. 
+docTags: 
+createdAt: Fri Sep 30 2022 17:26:27 GMT+0300 (Eastern European Summer Time)
+---
+
+Events are displayed when you complete a specific action for a component.&#x20;
+
+<hint type="info">
+  **Note**: Some actions performed are local.&#x20;
+</hint>
+
+The event can be a success or a failure. Review below what each event may display and the possible events for each component.&#x20;
+
+<table columnWidths="147,203,302" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Component**
+    </td>
+    <td align="left">
+      **This event may display**
+    </td>
+    <td>
+      **Possible events**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Auth (Authentication)
+    </td>
+    <td align="left">
+      - Username of the user who performed the action
+      - Username of the affected user
+      - Name of the affected role
+      - Failure reason
+    </td>
+    <td>
+      - User created
+      - Failed to create user and failure reason
+      - User deleted
+      - Failed to delete user and failure reason
+      - Role created
+      - Failed to create role and failure reason
+      - Role deleted
+      - Failed to delete role and failure reason
+      - Role assigned to the user
+      - Failed to assign role to the user and failure reason
+      - Role unassigned from the user
+      - Failed to unassign role from the user and failure reason
+      - User logged in
+      - Login lockdown initiated
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Integration&#x20;
+    </td>
+    <td align="left">
+      - Username of the user who performed the action
+      - Connector type
+      - Connector name
+      - A list of affected tags
+      - Failure reason
+    </td>
+    <td>
+      - Connector created
+      - Failed to create a connector and the failure reason
+      - Connector removed
+      - Failed to remove the connector and the failure reason
+      - Connector enabled
+      - Connector disabled
+      - Connected
+      - Disconnected
+      - Tags removed
+      - Tags enabled
+      - Tags disabled
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DeviceHub
+    </td>
+    <td align="left">
+      - Username of the user who performed the action
+      - Name of the driver
+      - A list of affected tags
+      - Failure reason
+    </td>
+    <td>
+      - Device created
+      - Failed to create device and failure reason
+      - Device updated
+      - Failed to update device and failure reason
+      - Device removed
+      - Failed to remove device and failure reason
+      - Device enabled
+      - Device disabled
+      - Device connected
+      - Device disconnected
+      - Tags added
+      - Failed to create tags and failure reason
+      - Tags removed
+      - Failed to remove tags and failure reason
+      - Tags updated (added or removed)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      System&#x20;
+    </td>
+    <td align="left">
+      - Username of the user who performed the action
+      - Name of the file the backup was restored from
+      - Certificate information
+      - Failure reason
+    </td>
+    <td>
+      - Device rebooted
+      - Version information
+      - Software update applied. Confirmation is pending a reboot.
+      - Software update failed and failure reason
+      - Activation information
+      - Activation completed
+      - Activation failed and failure reason
+      - Deactivation completed
+      - Deactivation failed and failure reason
+      - Disk space limit information
+      - Low disk space. User-defined level exceeded
+      - Low disk space. System level exceeded
+      - Backup - restore information
+      - Backup restored successfully
+      - Backup restored with warning(s) and failure reason
+      - Backup restore failed and failure reason
+      - Template applied
+      - Failed to apply the template and failure reason
+      - New self-signed certificate deployed
+      - Server SSL certificate deployed
+      - Failed to deploy server certificate and failure reason
+      - CA certificate added
+      - Failed to add CA certificate and failure reason
+      - CA certificate removed
+      - Failed to remove CA certificate and failure reason
+      - Identity certificate added
+      - Failed to add identity certificate and failure reason
+      - Identity certificate removed
+      - Failed to remove identity certificate and failure reason
+      - Identity certificate renewed
+      - Identity certificate expired
+      - Device restored from a backup
+      - Device restored from a backup
+      - Template applied
+      - Failed to apply template
+      - Template applied for a specific component
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Licensing
+    </td>
+    <td align="left">
+      - Username of the user who performed the action
+      - License key, name, features, expiry date and days to expiry
+      - Failure reason
+    </td>
+    <td>
+      - Trial has started
+      - License added
+      - Failed to add license and failure reason
+      - License activated
+      - License is expiring soon
+      - License is expired
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Marketplace
+    </td>
+    <td align="left">
+      - Username of the user who performed the action
+      - Application name
+      - Failure reason
+    </td>
+    <td>
+      - Application created
+      - Failed to create an application and failure reason
+      - Application stopped
+      - Failed to delete the application and failure reason
+      - Application download started
+      - Application download completed
+      - Application download failed and failure reason
+      - Application started
+      - Application exited
+      - Application restarted
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OPC UA
+    </td>
+    <td align="left">
+      - Username of the user who performed the action
+      - uuid
+      - Message
+      - Failure reason
+    </td>
+    <td>
+      - Server started / stopped
+      - User modified
+      - Certificate or hierarchy update
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Digital Twins
+    </td>
+    <td align="left">
+      - The model or instance ID
+      - Message
+      - The model or instance name
+      - uuid
+    </td>
+    <td align="left">
+      - Model created
+      - Model deleted
+      - Model updated
+      - Instance created
+      - Instance updated
+      - Instance deleted
+      - Instance enabled
+      - Instance disabled
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Flows Manager
+    </td>
+    <td align="left">
+      - Username of the user that performed the action
+      - id
+      - Last heartbeat value
+      - Message
+      - Flow name
+      - uuid
+    </td>
+    <td align="left">
+      - Flow created
+      - Flow deleted
+      - Flow updated
+      - Flow started
+      - Flow stopped
+      - Flow memory limit updated
+      - Failures and errors
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Analytics
+    </td>
+    <td align="left">
+      - The group name
+      - Message
+      - Username of the user who performed the action
+      - uuid
+    </td>
+    <td align="left">
+      - Create new analytics group
+      - Analytics group updated
+      - Analytics group locked and unlocked
+    </td>
+  </tr>
+</table>
+

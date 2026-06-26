@@ -1,0 +1,38 @@
+---
+title: Limitations 4.1.0
+slug: AKPReCFd8Wqk8Lj0ISvgV
+docTags: 
+createdAt: Tue Apr 14 2026 19:41:42 GMT+0300 (Eastern European Summer Time)
+---
+
+The following limitations have been identified. When they are resolved, they will be reported in the latest [Product Updates](../../../zw_F2Ckm_3U4uTQEfd8G2.mdx) under *Resolved Issues*.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="606">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - The first flow created in Flows Manager cannot be stopped or restarted in Safe Mode.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integrations:**
+      - Updating the **Bulk Insert Count** from `0` to any other value causes connectors to enter a failed state.
+      - A `bulk operation limit of 1000 exceeded` error message displays when performing a bulk edit on less than 100 subscriptions.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System:**
+      - Templates created in Litmus Edge (LE) (in **System** > **Device Management** > **Templates**) that are imported into Litmus Edge Manager (LEM) cannot be applied to LE instances from LEM. As a workaround, pull the template directly from LEM and then apply it to the LE instances.
+      - Cloud Storage Sync jobs to Databricks volumes may incorrectly fail after only 30 seconds of network. Note that synchronizations are restored at the next trigger interval.
+      - Importing a template with multiple connectors failed when a configuration issue occurred with one component.
+    </td>
+  </tr>
+</table>
+

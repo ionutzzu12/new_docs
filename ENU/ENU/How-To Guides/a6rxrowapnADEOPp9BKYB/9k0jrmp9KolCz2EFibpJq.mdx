@@ -1,0 +1,111 @@
+---
+title: Use the Combination Processor Function
+slug: 9k0jrmp9KolCz2EFibpJq
+description: Learn how to use the Combination statistical function in Analytics. 
+docTags: 
+createdAt: Thu Jun 15 2023 21:21:29 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the Combination processor function to combine fields from different input processors into a single JSON string.
+
+# **Understanding Combination Types**
+
+You have the following combination types:
+
+- **Combine selected fields:** This option allows you to combine the selected number of fields from different input processors into a single JSON string.&#x20;
+- **Combine all fields:** This option allows you to combine all fields from different input processors into a single JSON string.&#x20;
+
+# **User Scenario**
+
+Review the following scenario for the combination processor function. Then, you will simulate PLC data and create combinations using input processors.
+
+In your manufacturing plant, various PLCs control the production process for assembly lines, robotic arms, conveyor belts, and environmental controls. With the Combination Processor, you can merge the data from multiple or all PLCs into a single JSON string to get a complete view of the plant's operations.
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../ENU/Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tags. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. Each tag will represent one of the combination types mentioned above.
+
+## **Tag 1: Combine\_selected\_fields**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **Combine\_selected\_fields**
+
+## **Tag 2: Combine\_all\_fields**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **Combine\_all\_fields**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tags you previously created. Follow the steps for either Step 3a or 3b, depending on whether you want to combine selected or all fields.&#x20;
+
+**To create an analytics flow with the Combination Processor function:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **Combine\_selected\_fields&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Repeat steps 2-5 to add another *DataHub Subscribe* node. Select the alias topic for the **Combine\_all\_fields&#x20;**&#x74;ag.&#x20;
+
+## &#x20;Step 3a: Configure JSON String for Selected Fields
+
+1. Click **Add processor** again and select **Combination Processor**.
+   The following information defines this function:
+   - **Combination Type:** Select **combine selected fields** from the drop-down menu.
+   - **What Timestamp to Take?:&#x20;**&#x53;elect **fresh timestamp** from the drop-down menu.
+   - **Fields to Combine:&#x20;**&#x54;he fields to combine are defined a&#x73;**&#xA0;wire definition\_fieldName.&#x20;**&#x45;nter **combineselect\_tagName, combineselect\_value, combineall\_tagName, combineall\_value,&#x20;**&#x77;ith a comma as the separator.
+2. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/NjeODEEcC4UqgicOF7Nnw_image.png "Combination Pocessor dialog box")
+3. Connect the DataHub Subscribe processor (tag: *Combine\_selected\_fields)* to the Combination processor with a wire and enter the definition of **combineselect&#x20;**&#x66;or the connection.
+4. Connect the DataHub Subscribe processor (tag: *Combine\_all\_fields*) to the Combination processor with a wire and enter a definition of **combineall&#x20;**&#x66;or the connection.
+5. On the analytics canvas, click **Save**.
+
+## Step 3b: Configure JSON String for All Fields
+
+1. Click **Add processor** again and select **Combination Processor**.
+   The following information defines this function:
+   - **Combination Type:** Select **combine all fields** from the drop-down menu.
+   - **What Timestamp to Take?:&#x20;**&#x53;elect **fresh timestamp** from the drop-down menu.
+   - **Fields to Combine:&#x20;**&#x59;ou may skip this field for this combination type.
+2. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/w26zM7NVOstD5fnXsVUlZ_image.png "Combination Pocessor dialog box")
+3. Connect the DataHub Subscribe processor (tag: *Combine\_selected\_fields)* to the Combination processor with a wire and enter the definition of **combineselect&#x20;**&#x66;or the connection.
+4. Connect the DataHub Subscribe processor (tag: *Combine\_all\_fields*) to the Combination processor with a wire and enter a definition of **combineall&#x20;**&#x66;or the connection.
+5. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following after completing either Step 3a or Step 3b.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/iV6uFsC1u7nUIw2FHvtDt_image.png "Completed Analytics Flow")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Combination* processor to view combined field JSON strings on the analytics canvas.
+
+## View Combined JSON String for Selected Fields
+
+The *Combination&#x20;*&#x70;rocessor returns a JSON string with the fields `combineselect_tagName`, `combineselect_value`, `combineall_tagName`, and `combineall_value`.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/v-7Lh-gRTywVNdGu4qxxy_image.png "Selected Fields in Output")
+
+## View Combined JSON String for All Fields
+
+The *Combination&#x20;*&#x70;rocessor returns the full JSON string with all the fields from both input processors.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/jopnvNW3f5U6Bryatv3Gp_image.png "All Fields in Output")
+

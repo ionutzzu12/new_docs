@@ -1,0 +1,47 @@
+---
+title: Configure DCOM for OPC DA Connections
+slug: KPzHfNsqpDKpaPweNyLAz
+description: Learn how to configure DCOM access in Windows 7 and Windows 10.
+docTags: 
+createdAt: Fri Sep 30 2022 19:44:53 GMT+0300 (Eastern European Summer Time)
+---
+
+This document will detail the steps needed to configure DCOM access in Windows 7 and Windows 10. These settings are required for OPC DA (OPC Classic) connections between two PCs. You will need to configure different settings for the PC with the OPC server and the PC with the OPC client.
+
+## Step 1: Set up the Client PC
+
+**To set up the client PC:&#x20;**
+
+1. Open *Control Panel* and set the view by option to **Small icons**.
+2. Select **Administrative Tools**.
+3. Open *Component Services*, then select **Console Root > Component Services > Computers > My Computer**.
+4. Right-click **My Computer&#x20;**&#x61;nd open **Properties&#x20;**&#x74;o open the popup window.
+5. Open the **Default Properties** tab and set the *Default Authentication Level* to **None**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/luhelKolGRY_h2l4HJpF3_setupclientpc01.png" size="80" width="756" height="814" caption="Default Properties tab" position="center" showCaption="true"></Image>
+6. Open the **COM Security&#x20;**&#x74;ab and select **Edit Limits…** in the *Access Permissions&#x20;*&#x73;ection to open the popup window.
+7. Allow **Local Access&#x20;**&#x61;nd **Remote Access** for the *ANONYMOUS LOGON* group.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1vFOGnhuR13zSoPN_L-wy_setupclientpc02.png" size="80" width="691" height="782" caption="COM Security tab" position="center" showCaption="true"></Image>
+8. Select **OK&#x20;**&#x6F;n both popup windows to save your changes.
+9. In *Control Panel*, open **Windows Firewall**.
+10. In the left sidebar, selec&#x74;**&#x20;Allow a program of feature through Windows Firewall**.
+11. Select **Change settings** and select both options (Private and Public) on the **File and Printer Sharing** line.&#x20;
+12. Click **OK&#x20;**&#x74;o save your changes.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KQ7pLjGSO27MpXwwamZyG_setupclientpc03.png" size="80" width="1010" height="844" caption="File and Printer Sharing option" position="center" showCaption="true"></Image>
+
+## Step 2: Set up the Server PC
+
+**To set up the server PC:**
+
+1. Open *Control Panel&#x20;*&#x61;nd set the view by option to **Small icons**.
+2. Select **Administrative Tools**.
+3. Open *Computer Management*, then select **Computer Management (Local) > System Tools > Local Users and Groups > Users**.
+4. In the menu bar, select **Action > New User**.
+5. Add a username, password, and select the options “User cannot change password” and “Password never expires.” You may need to deselect “User must change password at next logon” to enable these options.
+6. Click **Create**, then click **Close&#x20;**&#x74;o finish creating the new user.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/QX5a2tDgw-yhM6ObQH2dp_setupclientpc04.png" size="80" width="1242" height="555" caption="New user dialog box" position="center" showCaption="true"></Image>
+7. On the *Computer Management* window, select the user you just created, then select **Action > Properties**.
+8. Go to the **Member Of** tab, click **Add…** to open the *Select Groups* popup window, then click **Advanced…** to open another popup window.
+9. Click **Find Now** to populate the Search results field, select the **Administrators&#x20;**&#x67;roup, then click **OK**.
+10. Click **OK&#x20;**&#x6F;n the *Select Groups&#x20;*&#x70;opup window, then **OK&#x20;**&#x6F;n the user *Properties&#x20;*&#x77;indow.&#x20;
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8Ho7Q9klqTdqEkBB9Sg65_setupclientpc05.png "Select Groups dialog box")
+

@@ -1,0 +1,86 @@
+---
+title: Statistical Functions
+slug: iHtRSFf35U_zszyvX4UIW
+docTags: 
+createdAt: Tue Aug 06 2024 21:57:43 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Statistical Functions** processor can help you determine how well a set of data matches a certain distribution, especially normal distribution. You can do this by analyzing the data's characteristics and calculating corresponding p-values.
+
+# Statistical Functions Overview
+
+**Jarque-Bera test** :
+
+- This is simple goodness-of-fit test to check if the sample data has similar skewness and kurtosis to a normal distribution.
+- The further the JB test value is from zero, the stronger the fact that the data does not belong to the normal distribution.
+- Skewness and kurtosis are calculated from the window of data and then JB value is calculated.
+- JB = (n/6) (skewness^2 + (1/4)(kurtosis-3)^2)
+- P-value is calculated by subtracting cumulative distribution function at the JB value for the ChiSquared distribution with 1
+
+**Cramer-Von-Mises test** :
+
+- This is goodness-of-fit test which uses the summed squared differences between the sample of data, and the expected cumulative distribution function.
+- First, a window of data is collected, then mean and standard deviation is calculated.
+- Data is then sorted, and Z-scores are calculated by standardizing the data.
+- cramerVonMises = (1/12n) + SIGMA \{ ((2i-1)/(2n) - phiZ)^2 }
+- P-value is calculated, based on the value of cramerVonMises
+
+**Anderson-Darling test** :
+
+- This is a statistical test to check whether a given sample of data is from an empirical distribution function or not.
+- In this case, we are using a normal distribution - meaning, we use this test to see how far the data departs from an ideal normal distribution.
+- Compared to other tests, Anderson-Darling test gives more weight to the tails of the distribution.
+- First, a window of data is collected, then mean and standard deviation is calculated.
+- Data is then sorted, and Z-scores are calculated by standardizing the data.
+- A^2 = -n - (1/n)\* SIGMA\{ (2i-1)ln(phiZ\[i]) + (2(n-i)+1)ln(phZ\[i]) } formula is applied, where phiZ is the cumulative distribution function for the Z-scores
+- P-value is calculated, based on the value of A^2
+
+**D'Agostino Pearson test** :
+
+- With a combination of skewness and kurtosis test, D'Agostino Pearson test checks whether the shape of the window of values matches a normal distributions.
+
+**Kolmogorov-Smirnov test** :
+
+- Lilliefors test is use to check the hypothesis of normality for the Kolmogorov-Smirnov test.
+- First, a window of data is collected, then mean and standard deviation is calculated.
+- D+ and D- are calculated by taking maximum discrepancy between the empirical distribution function and the cumulative distribution function.
+- K statistic is just max(D+,D-)\*Sqrt(n)
+
+# Statistical Functions Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Window Size
+    </td>
+    <td>
+      This parameter represents the window in which the calculations will be performed.    </td>
+  </tr>
+  <tr>
+    <td>
+      Jarque Bera
+      Anderson Darling
+      Cramer Von Mises
+      D Agostino Pearson
+      Kolmogorov Smirnov
+    </td>
+    <td>
+      Select the test you want the processor to calculate.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/VzZ43EHvf8Vv-8ebKr0wi_image.png" size="80" width="944" height="318" caption="Statistical Functions parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Statistical Functions&#x20;*&#x70;rocessor, refer the [Use the Statistical Tests Function](<../../../../How-To Guides/a6rxrowapnADEOPp9BKYB/25qKvcCnYH414lWQ-Kgcg.mdx>)  guide for more details.
+</hint>
+

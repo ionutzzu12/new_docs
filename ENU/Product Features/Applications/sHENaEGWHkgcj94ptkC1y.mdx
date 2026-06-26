@@ -1,0 +1,48 @@
+---
+title: Catalog Apps
+slug: sHENaEGWHkgcj94ptkC1y
+description: The Catalog Apps pane of the Applications module shows all the applications deployed from from a marketplace catalog only. It excludes applications deployed directly from a docker run command or an uploaded Docker image. 
+docTags: 
+createdAt: Fri May 13 2022 22:02:25 GMT+0300 (Eastern European Summer Time)
+---
+
+The *Catalog Apps* pane of the *Applications&#x20;*&#x6D;odule shows all the applications deployed from a Marketplace Catalog. This views excludes applications deployed directly from a Docker run command or uploaded Docker image. The list of deployed applications is empty by default when a Litmus Edge is first activated. &#x20;
+
+Deploy additional applications from a Marketplace Catalog. See [Marketplace](QSx3kksO_pDZ_t-fpXJEk.mdx) for details.
+
+You can also deploy additional applications from Litmus Edge Manager. See :Link[Deploy an Application to Edge Devices]{docId="DruoOcegNxCGi-D_5azZw" label="Deploy an Application to Edge Devices" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details. You must activate the Litmus Edge device before you can receive any new catalogs/application or changes to an existing Catalog (such as a new application release) from a Litmus Edge Manager.
+
+A list of deployed applications displays under **Applications**. Here you can view application status, statistics, and shortcut commands. The application status is color coded:
+
+- Green for a running application.
+- Red for all other statuses including PullingImageStarted, PullingImage, PullingImageFinished, Starting, LaunchError, Degraded, Stopping, Stopped, and Exited.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/JRh6yrEIY3bUbWpckFQxj_image.png" size="82" width="1561" height="567" position="flex-start" showCaption="false" indent="2"></Image>
+
+The numbers associated with the status indicate the active and total containers for an application. When an application has multiple containers running, the status:&#x20;
+
+- Remains **Running** when one or more containers exit successfully.
+- Becomes **Degraded** when one or more containers exit unexpectedly. This identifies applications that are running with containers that exited in error.
+
+Expand an application to see the the IP address, port number, memory usage, and the up state of the application. The up state indicates how long an application has been running.
+
+You can also see graphs of the CPU, Memory, Network, and Storage usage. Hovering over the chart provides further details at a particular time point.
+
+You can seach by name to display fewer applications in **Search Applications**.
+
+<hint type="info">
+  **Limitation**: A catalog *Sync Marketplace***&#xA0;**&#x6F;peration is required if an issue is encountered when deploying &#x61;**&#xA0;***Catalog App*. The issue may arise due to the Catalog App's respective Container Registry being unavailable.
+</hint>
+
+# Access Applications Catalog Apps UI
+
+**To access Catalog Apps:&#x20;**
+
+1. Log in to Litmus Edge.
+2. From the Navigation panel, select **Applications**.
+   The *Dashboard&#x20;*&#x70;ane appears.
+3. Click **Catalog Apps**.&#x20;
+   The *Catalog Apps* pane appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/kbypzQzSfpAHmutMU-qyt_image.png" size="80" width="1562" height="544" position="flex-start" showCaption="false" indent="2"></Image>
+

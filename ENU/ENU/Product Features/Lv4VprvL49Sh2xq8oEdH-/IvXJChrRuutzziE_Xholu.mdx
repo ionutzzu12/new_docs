@@ -1,0 +1,107 @@
+---
+title: Events
+slug: IvXJChrRuutzziE_Xholu
+description: The Events pane displays a list of events that have occurred.
+docTags: 
+createdAt: Fri May 13 2022 21:56:24 GMT+0300 (Eastern European Summer Time)
+---
+
+Events are actions the edge device performs, identifies, and then logs during its operation. View a list of events that have occurred in Litmus Edge in the Events pane. Each events displays the edge device component where the event occurred, the event severity, and more. Events are tracked for the following components:
+
+- Integration
+- DeviceHub
+- System
+- Authentication (auth)
+- Marketplace
+- Licensing
+- OPC UA
+- Flows Manager
+- Digital Twins
+- Analytics
+
+<hint type="info">
+  **Note**: Delete and restart events are not tracked.
+</hint>
+
+See [Generated System Events](<../../../Product Features/System/Events/CfkaNlk6ON1-mZMZqEtqo.mdx>) for more information.
+
+Th&#x65;**&#xA0;****Events***&#xA0;*&#x70;ane includes the following tabs:
+
+- **Live Events**: Shows events as they occur in inverse chronological order.
+- **Events History**: Filter and sort the events using a number of criteria including date and time range, component name, and more.
+- **Zerotouch**: Automate the deployment, activation, and configuration of multiple Litmus Edge devices.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/nFqZxhQ2bryMdnSU03bG-_image.png" size="84" width="1407" height="599" position="flex-start" showCaption="false" indent="2"></Image>
+
+# Live Events
+
+The Live Events tab allows you to view the following columns for each event:
+
+- Timestamp for when the event occurred
+- Severity of the event
+- Component for which the event occurred
+- Message explaining the event action
+- Event Information icon allowing you to view information about the event
+- Action icon allowing you to select *History&#x20;*&#x66;or the event
+
+<hint type="info">
+  **Note:** The events logs may display `<nil>` when the tag count is large. In a future release, we will update it to show only the number of tags.
+</hint>
+
+<hint type="info">
+  **Note**: Hover over **Event Information** to view the severity, driver, connector, message, user, name, tags added and tags removed depending on the component for the event selected.
+</hint>
+
+## Disable Storage of Event Logs
+
+By default, events are stored in the database. You can use the **Storage ON** toggle at the top-right to temporarily pause event storage. When event storage is disabled, events continue to stream in **Live Events**. Consider disabling storage when you need to manage system resources.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NwAK9vj3ELi6ZPTUjaTjJ_image.png" size="40" width="641" height="222" position="flex-start" showCaption="false"></Image>
+
+## Freeze and Resume Live Events
+
+You can click **Freeze&#x20;**&#x74;o stop the logging of live system events. Click **Resume&#x20;**&#x74;o start the logging of live system events.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/LR_u7-rmddlz34lA6Pbf8_image.png" size="60" width="1120" height="378" position="flex-start" showCaption="false"></Image>
+
+# Events History&#x20;
+
+You can view events history from the **Events** pane.&#x20;
+
+## Event History for Individual Live Events
+
+To view the event history of an individual live event, click the **Action&#x20;**&#x6D;enu for the event in the **Live Events** tab and select **History**.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/YYtyoE28oz_Qo-AAD9E-B_image.png "The History option for live events")
+
+The filtering is preloaded and the events history for the selected live event appears in the *Events History* tab.
+
+## Filtered Event History
+
+You can use the *Events History* tab to enter filter criteria and view specific event history.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NJfpo73rkVvVOabjiGfL8_image.png)
+
+Enter your filter criteria for viewing event history and click **Load**. To use the search function, make sure you have loaded an event history with filtering criteria before entering search terms.&#x20;
+
+You can view the following columns for each event:
+
+- Timestamp for when the event occurred
+- Severity of the event
+- Component for which the event occurred
+- Message explaining the event action
+- Event Information icon allowing you to view information about the event
+- Action icon allowing you to select Event History for the event
+
+## Download Event History
+
+You can download your event history in a CSV file by selecting the **Events History** tab, and then clicking the **Download as CSV** icon.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/rTs_MRa_sq6oYRLl97UBw_image.png "The Download as CSV icon")
+
+## Purge Event History
+
+You can purge your event history by selecting the **Events History** tab, and then clicking the **Purge all** icon.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/0oLfg2QesYlWb_JUZw5E1_image.png "Purge all events icon")
+

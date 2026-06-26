@@ -1,0 +1,163 @@
+---
+title: License Server Installation
+slug: Vlh5uuVFq0sHG3VIZ3UDF
+description: A license server provides an efficient and secure way to install and manage licenses to multiple Edge devices (Bare-metal, Docker, VM, K8S).
+docTags: 
+createdAt: Tue Jan 17 2023 15:20:35 GMT+0200 (Eastern European Standard Time)
+---
+
+A license server provides an efficient and secure way to install and manage licenses to multiple Edge devices (Bare-metal, Docker, VM, K8S). A built-in license server is available with Litmus Edge Manager, so you don't need to complete any additional setup for it. You can also set up and install a license server separately in an air-gapped environment.
+
+After receiving a site license key from :Link[Central Portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"} a site license can then be activated and added to the license server.&#x20;
+
+- If you set up the license server with Litmus Edge Manager, see :Link[License Server Management]{docId="5U_hNNsaVs--E5HQJEQ0O" label="License Server Management" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="License Server Management"} for more information on managing site licenses.&#x20;
+- If you set up the license server without Litmus Edge Manager, see the section below *Install Licenses in License Server&#x20;*&#x66;or more information on adding licenses through the license server. You can also add site-based licenses to individual Litmus Edge instances. See the section below *Register License Server to Individual Litmus Edge Instance* to learn more.&#x20;
+
+# License Server with Litmus Edge Manager (Easy)
+
+If your organization has an instance of Litmus Edge Manager along with instances of Litmus Edge, then you can install and manage the license server in Litmus Edge Manager. See :Link[License Server Management]{docId="5U_hNNsaVs--E5HQJEQ0O" label="License Server Management" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="License Server Management"} and [Activate an Edge Device](<../../Product Features/System/Activation/YEdmQhGcCCVbGd4L5f0l5.mdx>) for more information.
+
+# Set Up License Server without Litmus Edge Manager (Advanced)
+
+You can set up a license server without Litmus Edge Manager by completing the steps below.&#x20;
+
+## Before You Begin
+
+To set up the license server, you will need to do the following:
+
+- Install Docker Engine 19.03+ on an Ubuntu or similar Linux system. It can be a VM or Bare-metal. It must be installed separately from any Litmus Edge and Litmus Edge Manager.
+- Make sure the host system has the correct system time and is connected to any NTP Server for proper time sync. Any change in the system time on the host system will invalidate the license.
+- Have administrative permissions to execute Docker commands on the host system.
+- Ensure the Docker Engine is configured to run a Docker run command.
+- Obtain access to a License Server Docker image, which is available from :Link[Central Portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+- Configure firewall inbound port access to the host and docker container from an external Edge device: 8443 TCP, 8445 TCP.&#x20;
+
+## Step 1: Generate API Key (Optional)
+
+<hint type="info">
+  **Note:&#x20;**&#x59;ou can deploy the license server without UUID/generating the API Key. This step is optional.
+</hint>
+
+To generate the API key, enter the following command in a command prompt window:
+
+```shell
+# generate a random apikey_secret
+# copy the apikey to a safe storage
+apikey_secret=$(uuidgen) && echo $apikey_secret
+```
+
+<hint type="info">
+  **Note**: After the key is generated, make sure to copy it and store it securely.&#x20;
+</hint>
+
+## Step 2: Set Server IP and DNS
+
+To set the server IP and DNS, enter the following command in a command prompt window:
+
+```shell
+# set the server ip/dns. It should be accessible from the edge device on port 8445
+server_url=172.17.0.1:8445
+```
+
+The server URL is the IP address or the DNS address of the host system. The server IP/DNS you configure in the command should be accessible from the edge device on port 8445.
+
+## Step 3: Download License Server Docker Image
+
+**To download the license server Docker image:&#x20;**
+
+1\.  Download the service account `.json` file from the :Link[Central Portal]{href="https://portal.litmus.io/" newTab="true"}.
+2\. Open a command prompt window on the host system.
+3\. Enter the following Linux command to authenticate.
+
+```shell
+cat <file_name>.json | docker login -u _json_key --password-stdin https://us-docker.pkg.dev
+```
+
+The `<file_name>.json` parameter is the service account file requested from step 1.&#x20;
+
+<hint type="success">
+  **Example:** If the `.json` file is named abc123.json, enter: `cat abc123.json | docker login -u _json_key --password-stdin https://us-docker.pkg.dev`
+</hint>
+
+Refer to [Google's Setting Up Authentication: Service Account Key](https://cloud.google.com/artifact-registry/docs/docker/authentication#json-key) for more information.
+
+4\. Pull the License Server Docker image with the following command.&#x20;
+
+```shell
+docker pull us-docker.pkg.dev/litmus-sales-enablement/ls/litmus-licensing-server:latest
+```
+
+## Step 4: Run License Server
+
+To deploy the license server, enter the following Docker command:&#x20;
+
+```shell
+# Run License Server docker container
+docker run --name=lls -d -v lls:/var/lib -p 8443:8443 -p 8445:8445 -e LITMUS_LICENSING_API_KEY=$apikey_secret -e LITMUS_LICENSING_SERVER_URL=$server_url us-docker.pkg.dev/litmus-sales-enablement/ls/litmus-licensing-server:latest
+```
+
+If the Docker is not in a running state, an error message will be generated. The `$apikey_secret` and `$server_url` are the variables created in Step 1 (API key) and Step 2 (Server IP and DNS).&#x20;
+
+# Install Licenses in License Server
+
+Once you have set up the license server without Litmus Edge Manager, you can start installing licenses in the License Server.&#x20;
+
+<hint type="info">
+  **Note**: If you have already set up a license server through Litmus Edge Manager, see :Link[License Server Management]{docId="5U_hNNsaVs--E5HQJEQ0O" label="License Server Management" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="License Server Management"} and [Activate an Edge Device](<../../Product Features/System/Activation/YEdmQhGcCCVbGd4L5f0l5.mdx>) to learn how to manage licenses through Litmus Edge Manager.&#x20;
+</hint>
+
+## Before You Begin
+
+Request the activation key you will need from the :Link[Central Portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+
+## Install a License in Litmus Edge
+
+**To install a license in Litmus Edge:**
+
+1. In a web browser, log in to the license server you previously installed in the following format: \[license server URL]:\[port number]. For example: `10.19.12.48:8443`.&#x20;
+2. If this is the first time you are logging in to the license server, enter the following default credentials:
+   - **Username**: admin
+   - **Password**: password
+3. Click **Add License**.&#x20;
+   The *Add License&#x20;*&#x64;ialog box appears.&#x20;
+4. In the **License Key** field, enter or paste the activation key you received from Litmus. If you will be upgrading the core license, select the **Upgrade Core License&#x20;**&#x63;heck box.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/1KPvxbPOvLRbV9c8EKwS1_add-license.png" size="80" width="977" height="307" position="flex-start" caption="Add License dialog box" showCaption="true"></Image>
+5. Click **Generate Request**.&#x20;
+6. Click the **Copy&#x20;**&#x69;con for the activation request. Then, click the URL (`https://litmus.activate.id`) to visit the *Licensing Portal&#x20;*&#x70;age.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/67WZpA72901_ErJb8eu8t_activation-request.png" size="80" width="973" height="363" position="flex-start" caption="Copy icon and URL link" showCaption="true"></Image>
+7. In the **Activation Request** box, paste the activation request you copied in the previous step. Then, click the **I'm not a robot** check box.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/yZ-kkn0n1mtRn_PlWcJqN_licensing-portal.png" size="80" width="952" height="408" position="flex-start" caption="Licensing Portal page" showCaption="true"></Image>
+8. Click **Make License**.&#x20;
+9. Copy the license key that is created and return to the *License server* page.&#x20;
+10. From the *Add License* dialog box, click **Next**.&#x20;
+11. In the **Activation Data** field, paste the license key you copied in step 9.&#x20;
+    <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/HGaCreP6I3e1-o_XDSFKx_activation-data.png" size="80" width="981" height="311" position="flex-start" caption="Activation Data field" showCaption="true"></Image>
+12. Click **Add**.&#x20;
+    The license is added to the license server.&#x20;
+
+# Register License Server to Individual Litmus Edge Instance
+
+If you set up a license server without Litmus Edge Manager, you have the option of registering the license server to individual Litmus Edge instances.&#x20;
+
+<hint type="info">
+  **Note**: If you have already set up a license server through Litmus Edge Manager, see :Link[License Server Management]{docId="5U_hNNsaVs--E5HQJEQ0O" label="License Server Management" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="License Server Management"} and [Activate an Edge Device](<../../Product Features/System/Activation/YEdmQhGcCCVbGd4L5f0l5.mdx>) to learn how to manage licenses through Litmus Edge Manager.&#x20;
+</hint>
+
+**To register the license server to an individual Litmus Edge instance:&#x20;**
+
+1. From the *License Server* page, click **Authorize Device**.&#x20;
+   The *Authorize Device* dialog box appears.&#x20;
+2. In the **Device Label** field, enter a name for the Litmus Edge instance.&#x20;
+3. Click **Generate Configuration**.&#x20;
+   A configuration key is generated.&#x20;
+4. Click **Copy & Close**.&#x20;
+   The configuration key is copied and the dialog box closes.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/431ihAIG4c4XX0B9u_gbC_authorize-device.png" size="80" width="980" height="325" position="flex-start" caption="Authorize Device dialog box" showCaption="true"></Image>
+5. In Litmus Edge, navigate to **System&#x20;**> **License**.&#x20;
+6. In the *License Server Settings* section, click **Set Server**.&#x20;
+   The *Set License Server Configuration* dialog box appears.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/invuCEWMNR3qhmCd10gpI_set-server.png" size="80" width="1048" height="652" position="flex-start" caption="Set Server button" showCaption="true"></Image>
+7. In the **Configuration&#x20;**&#x66;ield, paste the configuration key you copied.&#x20;
+8. Click **Save**.&#x20;
+   The license is added to the Litmus Edge instance and the instance is added to the *Devices&#x20;*&#x73;ection in the *License Server* page.
+

@@ -1,0 +1,285 @@
+---
+title: SNMP Manager
+slug: DhwPECIjVil2HJiaRpQBO
+docTags: 
+createdAt: Mon Jul 22 2024 22:39:22 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the SNMP Manager driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="263,277" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Hirschmann Greyhound]{href="https://www.belden.com/products/greyhound1040" newTab="true" hasDisabledNofollow="false"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the Device
+
+Find your SNMP agent's configuration and note down its settings.
+
+# Step 2: Set up the Device in Litmus Edge DeviceHub
+
+## Upload required MIB files
+
+<hint type="info">
+  See [SNMP Manager Reference](<../../../ENU/QuickStart Guide/Industrial Systems Connection Guide/Network Utility/snmp-manager/snmp-manager-reference.mdx>) to review the MIB files which are already included in the driver.
+</hint>
+
+1. Enable the Litmus Edge FTP server and add a user. See [Manage FTP and System Services](<../../../ENU/Product Features/System/Device Management/zX-bB0k3Mdx_rsAGhlgpt/XZJuKvHqQIp615-bZWvja.mdx>) for more information.
+2. Create a folder in the devicehub/ folder and note down the name of the folder.
+3. Upload the required MIB files to the folder you created.
+
+## Add the device in DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="199,343" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Network Utility
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      SNMP Manager
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Transport**
+    </td>
+    <td>
+      UDP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      Enter the IP address of your SNMP agent
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port&#x20;**
+    </td>
+    <td>
+      161
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **SNMP Version**
+    </td>
+    <td>
+      Select based on your SNMP agent's setting
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Enable TLS**
+    </td>
+    <td>
+      Select based on your SNMP agent's setting
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Enable Trap Listener**
+    </td>
+    <td>
+      Select based on your SNMP agent's setting
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **MIB Folder Path**
+    </td>
+    <td>
+      Enter the name of the folder you created in the FTP server
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Browse Root**
+    </td>
+    <td>
+      1.3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Browse Order**
+    </td>
+    <td>
+      Alphabetical (by Name)
+    </td>
+  </tr>
+</table>
+
+If you set **SNMP Version&#x20;**&#x74;o **V1&#x20;**&#x6F;r **V2C**, enter the value for the **Community String&#x20;**&#x70;arameter based on your SNMP agent's settings.
+
+If you set the **SNMP Version&#x20;**&#x74;o **V3**, all the parameters will have values selected based on your SNMP agent's settings. The following parameters will be available:
+
+- Username
+- Context Name
+- Authentication Protocol
+- Authentication Passphrase
+- Privacy Protocol
+- Privacy Passphrase
+
+If Traps are enabled:
+
+<table columnWidths="199,343" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Trap Transport**
+    </td>
+    <td>
+      UDP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Trap Interface**
+    </td>
+    <td>
+      0.0.0.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Traps Port**
+    </td>
+    <td>
+      162
+    </td>
+  </tr>
+</table>
+
+Advanced Options:
+
+<table columnWidths="199,343" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Request Timeout**
+    </td>
+    <td>
+      2000
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Rquest Retries**
+    </td>
+    <td>
+      3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Max OID Count**
+    </td>
+    <td>
+      25
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="ZQLh2fGSiFmwvvt3baCtt">
+
+</ContentSnippet>
+
+<table columnWidths="92,131,83,85,116,103" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Access Type**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      Integer32, Counter32, Gauge32, Uinteger32, TimeTicks, Counter64, Opaque(Float), Opaque(Double), Opaque(Count64), Opaque(Integer64), Opaque(Uinteger64), Opaque, OctetString, OctetString(Ascii), ObjectIdentifier, IPAddress, BitString
+    </td>
+    <td>
+      R/W
+    </td>
+  </tr>
+</table>
+
+
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

@@ -1,0 +1,328 @@
+---
+title: DNP3 Master
+slug: ML6FoDX1WZAkSBCdICui-
+docTags: 
+createdAt: Fri May 24 2024 16:55:59 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the DNP3 Master driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="232,277" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      DNP3-compatible outstations
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<hint type="warning">
+  **Caution**: Make sure that the value you enter for *Master Address* is unique.&#x20;
+</hint>
+
+<table columnWidths="183,297" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      DNP3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      DNP3 Master
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port&#x20;**
+    </td>
+    <td>
+      20000
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Master Address**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Outstation Address**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="ZQLh2fGSiFmwvvt3baCtt">
+
+</ContentSnippet>
+
+<table columnWidths="100,135,112,95,115,103" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      G0
+    </td>
+    <td>
+      ATTRIBUTE
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Device Attributes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      G1
+    </td>
+    <td>
+      BIN
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Binary Inputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      G10
+    </td>
+    <td>
+      BIN
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Binary Outputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      G20
+    </td>
+    <td>
+      UINT16, UINT32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Counters
+    </td>
+  </tr>
+  <tr>
+    <td>
+      G30
+    </td>
+    <td>
+      INT16, UINT16, INT32, UINT32, INT64, UINT64, FLT32, FLT64
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Analog Inputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      G40
+    </td>
+    <td>
+      INT16, UINT16, INT32, UINT32, INT64, UINT64, FLT32, FLT64
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Analog Outputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      G50
+    </td>
+    <td>
+      DNP3TIME
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Time
+    </td>
+  </tr>
+  <tr>
+    <td>
+      G110
+    </td>
+    <td>
+      OSTR
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Octet strings
+    </td>
+  </tr>
+  <tr>
+    <td>
+      T-Params
+    </td>
+    <td>
+      UINT8, UINT16, UINT32, UINT64, INT8, INT16, INT32, INT64, ENUM16, FLT32, FLT64, TIME, UC10, UC20, UC30, UC40
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      Tunneling: Parameters
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="-Wji3pm0LG5Zlfx_OqklJ">
+
+</ContentSnippet>
+

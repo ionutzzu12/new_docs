@@ -1,0 +1,40 @@
+---
+title: Configuration Nodes
+slug: fPe1RUpmyvV6pFO8iWzh4
+description: When you save a flow or the entire workspace, a pop-up message notifies you if there are unused nodes, which you can delete. 
+docTags: 
+createdAt: Wed Jun 22 2022 23:20:24 GMT+0300 (Eastern European Summer Time)
+---
+
+- When you select **Configuration Nodes** from the menu, the *Config&#x20;*&#x74;ab opens beneath the canvas to display used and unused nodes.
+- When you delete a node from a flow, it may not be deleted from the back end.
+- Server-based nodes that require network / connectivity settings, such as MQTT nodes, are found here if they have been deleted from a flow.
+- You may want to remove these types of unused nodes from the back-end because they may continue to try connecting to a port and degrade performance.
+- Not all deleted nodes appear in the **Config** tab.
+- When you save a flow or the entire workspace, a pop-up message notifies you if there are unused nodes.
+
+# Remove Unused Nodes
+
+You can remove unused nodes from a Flows View.
+
+Server-based nodes that require network / connectivity settings, such as MQTT nodes, are found here if they have been deleted from a flow.
+
+**To identify and remove unused nodes:**
+
+1. From the Navigation panel, select **Flows Manager**.
+   The *Overview&#x20;*&#x70;ane appears.
+2. Click the **Go To Flow Definition** icon next to a selected flow.
+   The selected flow view opens in a separate browser tab.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ys0dngOkWx-8g7tDna7Nc_015f6cewiyzca3ktr6jxi1aimage.png "Go To Flow Definition icon")
+3. From the Flow view, click the **Menu** icon and select **Configuration nodes**.
+   The *config&#x20;*&#x74;ab appears in the sidebar.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/fduEchIZANz5UAssQXXsb_02znkxu1yizonwxe9d7nkmvimage.png" size="80" width="1664" height="718" caption="Configuration nodes menu option" position="center" showCaption="true"></Image>
+4. Expand the message window beneath the flow.&#x20;
+5. Click the **Config** icon.
+   The *Config&#x20;*&#x74;ab appears in the sidebar palette.
+6. Click **unused**.
+   The unused nodes appear for the selected flow. You can also view the unused nodes for all flows.
+   Identify unused nodes by the dotted-line border and a 0 for the number of instances.
+7. Double-click nodes and click **Delete&#x20;**&#x74;o remove them.&#x20;
+
+

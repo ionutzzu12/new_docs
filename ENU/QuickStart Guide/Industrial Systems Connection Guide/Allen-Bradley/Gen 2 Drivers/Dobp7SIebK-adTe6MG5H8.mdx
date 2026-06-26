@@ -1,0 +1,200 @@
+---
+title: AB Logix Serial
+slug: Dobp7SIebK-adTe6MG5H8
+docTags: 
+createdAt: Thu Feb 13 2025 20:56:57 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the AB Logix Serial driver.
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="220,386">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Serial
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      CompactLogix, ControlLogix, FlexLogix, Micro800
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      AB Flex Serial (Gen1), AB CompactLogix FreeTag (Gen1), AB ControlLogix Freetag (Gen1), AB Micro850 FreeTag (Gen1)
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+1. Ensure the PLC device is configured for serial communication.
+2. Note the serial port configuration parameters including baud rate, data bits, stop bits, and parity settings.
+3. Identify the local serial port (for example, `/dev/ttyS0`) on your Litmus Edge gateway that will connect to the PLC.
+4. Ensure proper physical connectivity between the PLC's serial port and the gateway's serial port.
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device](<../../../../ENU/ENU/Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>) with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="176,430">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      AB Logix Serial
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **PLC Type**
+    </td>
+    <td align="left">
+      Select the appropriate PLC type (CompactLogix, ControlLogix, FlexLogix, or Micro 800)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Device File**
+    </td>
+    <td align="left">
+      The local serial connection file path, for example `/dev/ttyS0`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Baud Rate**
+    </td>
+    <td align="left">
+      Update to match your device configuration. The default is `19200`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Data Bits**
+    </td>
+    <td align="left">
+      8
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Stop Bits**
+    </td>
+    <td align="left">
+      1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Parity**
+    </td>
+    <td align="left">
+      None
+    </td>
+  </tr>
+</table>
+
+## Step 3: Configure the List of Registers
+
+When you [Add a Tag](<../../../../Product Features/DeviceHub/Tags/LXlEhL0D9yVC0yvh2v7mo.mdx>) to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](<../../../../How-To Guides/DeviceHub Guides/PzaTaUTahhNy1jTUcGCbc.mdx>)
+- [Tag Formula Variables](<../../../../ENU/Product Features/DeviceHub/IAXxRo2Zf3JHMykbup5Ai/2xZj7CTcVSSWeflmm0gdV.mdx>)&#x20;
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="83,283,119,121">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Type
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      bool, sint, int, dint, lint, byte, uint, udint, ulint, real, lreal, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      Read/Write tags to PLC
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected and include: bool, sint, int, dint, lint, byte, uint, udint, ulint, real, lreal, and string.
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag. This should match the tag name configured in your PLC program.
+- **Description** (Optional): Enter a description for the tag.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power (`x`) performs the operation `10^x`
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp(`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b)
+</hint>
+

@@ -1,0 +1,64 @@
+---
+title: Use the PLC-Status Topic to Verify Connection Status
+slug: XUheZUgR8boInXNJ65ewR
+description: Learn how to use the PLC-Status topic. 
+docTags: 
+createdAt: Thu Sep 07 2023 20:25:54 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Notes**:
+
+  - You need to follow the following guidelines for topic names: :Link[Subject-Based Messaging]{href="https://docs.nats.io/nats-concepts/subjects" newTab="true"}.&#x20;
+  - When publishing structured data such as JSON, you must convert to a byte array (string) first. To do this in a flow, you can use the **json&#x20;**&#x6E;ode.&#x20;
+</hint>
+
+The PLC-status topic is used to verify the connection of DeviceHub devices.&#x20;
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/5weVIPyCpRI?si=6awrSV-ke7bE_V93&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# User Scenario
+
+You'd like to verify the connection status of a PLC to Litmus Edge from a remote location.&#x20;
+
+# Set up and Use the PLC-Status Topic
+
+**To set up and use the PLC-status topic:&#x20;**
+
+1. Follow the steps to [Connect a Device](<../../ENU/Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>). For this user scenario, a Simulator Generator device is used.&#x20;
+2. Navigate to **DeviceHub**.&#x20;
+3. In the Generator device tile, click th&#x65;**&#x20;Display Copy Options&#x20;**&#x69;con and select the PLC status topic. This will copy the PLC status topic. You will refer to this topic later on.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/QMy8hxZv4CM5FZLn_sfsH_copy-plc-status.png" size="80" width="671" height="373" caption="Copy the PLC status topic" position="center" showCaption="true"></Image>
+4. Navigate to **Flows Manager**.&#x20;
+5. For a Flows Manager, click the **Go To Flow Definition** icon.&#x20;
+   The Flow canvas opens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/YJuq2bpVLRQFztDx388IL_go-to-flow-definition.png" size="80" width="1010" height="490" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+6. On the Flow canvas, drag the **Datahub Subscribe** node and **debug&#x20;**&#x6E;ode onto the canvas. Then, connect the two nodes.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/rFBhmtBOhyKLZca06yEtQ_plc-status-nodes.png" size="80" width="870" height="494" caption="Nodes needed for PLC status" position="center" showCaption="true"></Image>
+7. Double-click the **DataHub Subscribe** node.
+   The *Edit DataHub Subscribe node* dialog box appears.
+   - In the **Topic&#x20;**&#x66;ield, paste the PLC status topic you copied in step 3.&#x20;
+   - If needed, configure the Datahub Subscribe connection. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="bezDaqGGrrny6TWDnL9CK" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel href="../../../Product Features/Flows Manager/ddBsmAZtGH9krDnb5AEyU.mdx"} to learn more.&#x20;
+   - Click **Done**, and then click **Deploy**.&#x20;
+8. Expand the message window beneath the flow. &#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JX5Q6gfezPd36MMFlrwFH_message-bar.png" size="80" width="1920" height="937" caption="The message window" position="center" showCaption="true"></Image>
+9. Click the **Debug&#x20;**&#x69;con to view debug messages.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JC4cy7D-QXdzNqDI_czdP_debug-icon.png" size="80" width="1920" height="643" caption="The Debug icon" position="center" showCaption="true"></Image>
+10. Confirm the **Debug&#x20;**&#x6E;ode is activated.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ape1kZ4p0O1vNuxlL6wr4_activate-debug.png" size="80" width="1062" height="648" caption="The activate debug button" position="center" showCaption="true"></Image>
+11. The debug window displays a `"success": true` message, which means the device is successfully connected to Litmus Edge. If the device is not connected, did not respond in time, or is not properly configured in Litmus Edge, `"success": false` will display. &#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/k9cbCEQNSQyQzuHN7_1j2_success-true.png" size="80" width="1616" height="767" caption="Success true message" position="center" showCaption="true"></Image>
+
+The rest of the payload displays the following information from the device:
+
+- **Data type**: The data type used to verify the PLC status.&#x20;
+- **Value**: The bit value that displays the status of the device. The value 0 means the device is on/connected.&#x20;
+- **Device Name**: The device name you configured in Litmus Edge.&#x20;
+- **Timestamp**: Date and time data for the PLC status message.&#x20;
+- **Device ID**: The device ID for the DeviceHub device generated in Litmus Edge.&#x20;
+- **Description**: The default description for the PLC status topic (Poll Register).&#x20;
+

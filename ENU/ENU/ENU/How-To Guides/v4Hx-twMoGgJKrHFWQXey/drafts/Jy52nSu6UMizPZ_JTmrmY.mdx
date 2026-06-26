@@ -1,0 +1,65 @@
+---
+title: Send Email Notifications
+slug: Jy52nSu6UMizPZ_JTmrmY
+description: You can create flows to send email notifications upon request or when certain events occur. 
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:16 GMT+0200 (Eastern European Standard Time)
+---
+
+You can create Flows to send email notifications upon request or when certain events occur.&#x20;
+
+# Before You Begin
+
+You will need to set up an app password for your Gmail or Outlook account to send emails. See :Link[Sign in with app passwords]{href="https://support.google.com/mail/answer/185833?hl=en&sjid=13614292537098763549-NC" newTab="true" hasDisabledNofollow="false"} for setting up your Gmail account and :Link[Using app passwords]{href="https://support.microsoft.com/en-us/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9" newTab="true" hasDisabledNofollow="false"} for setting up your Outlook account.
+
+# Step 1: Create Flow
+
+**To create the flow that sends emails on demand:&#x20;**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow. See [Create a Flow](<../../../../../Product Features/Flows Manager/ddBsmAZtGH9krDnb5AEyU.mdx>) to learn more.
+2. Drag an **Inject&#x20;**&#x6E;ode, **Function** node, and **Email** node onto the canvas and connect them.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/MOQbjqqYJOXleN5MywhT1_image.png "Flows canvas with email node")
+3. Double-click the **Function&#x20;**&#x6E;ode.&#x20;
+   The *Edit function node&#x20;*&#x64;ialog box appears.
+   - **On Message**: Enter code to define the subject and email text.&#x20;
+     `msg = {     `
+     `payload : "This is the email alert message!", // Payload defines the email text.     `
+     `topic : "Subject line: Notification Email" // Topic defines the email subject line.     `
+     `};     `
+     `return msg;`
+   - Click **Done**.&#x20;
+
+# Step 2: Email Node Configuration Settings
+
+**To configure the email node:**
+
+1. In the same flows canvas, double-click the **Email&#x20;**&#x6E;ode.
+   The *Edit email node&#x20;*&#x64;ialog box appears.&#x20;
+   - **Outlook Email Node Configuration:&#x20;**&#x59;ou can use the following Outlook configuration settings:
+     - **To**: The address to send email. &#x20;
+     - **Server**: smtp.office365.com
+     - **Port**: 587
+     - **UserId**: The email address to send from.
+     - **Password**: Sign in with your generated app password from Outlook.
+     - **Use secure connection:&#x20;**&#x55;ncheck this option.
+     -
+       <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/g4ovUJ4WbBmE4CfYeAAQi_image.png" size="70" width="451" height="475" position="center" caption="Edit email node dialog box outlook" showCaption="true"></Image>
+   - **Gmail Node Configuration:&#x20;**&#x59;ou can use the following Gmail configuration settings:
+     - **To**: The address to send email.
+     - **Server**: smtp.gmail.com
+     - **Port**: 465
+     - **UserId**: The email address to send from.
+     - **Password**: Sign in with your generated app password from Gmail.
+     - **Use secure connection:&#x20;**&#x43;hecking this option ensures that Gmail does not throw a warning about unsecured applications attempting to connect to your account.
+       <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/u2vTG2LQzOIgOUQUk9n2w_image.png" size="70" width="628" height="660" position="center" caption="Edit email node dialog box gmail" showCaption="true"></Image>
+   - Click **Done.**&#x20;
+2. Click **Deploy**.
+3. Click the **Inject&#x20;**&#x6E;ode button to send the email.&#x20;
+   An email notification will be sent to the email address that has been inputted.
+
+# Step 3: Review Email Output
+
+An example email alert sent to the recipient's Gmail account.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HOi-buz1MOBZ8BIpb7LEc_image.png" size="70" width="462" height="298" position="center" caption="Output of email notification" showCaption="true"></Image>
+

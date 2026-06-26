@@ -1,0 +1,258 @@
+---
+title: AWS SiteWise
+slug: 0AnBZRlnPP8SMEgk5huhT
+description: Review parameters for the AWS SiteWise connector. 
+docTags: 
+createdAt: Thu Dec 14 2023 18:09:05 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the [AWS SiteWise Integration Guide](<../../../../ENU/How-To Guides/0ipIHeVO-TC7ihQIXzCRX/Q2ySlhERW-cOJbGvjsLWt.mdx>).&#x20;
+
+## Overview
+
+AWS SiteWise integration enables an Edge System connection with Amazon AWS IoT SiteWise.
+
+## Supported Communication Directions
+
+- Outbound: Publish data from Edge to AWS IoT SiteWise
+- Inbound: Subscribe to data from AWS IoT SiteWise
+
+## Variable Definitions
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="227,100">
+  <tr>
+    <td>
+      **Variable**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Name for the connector
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Region
+    </td>
+    <td>
+      AWS Region. See :Link[AWS IoT SiteWise endpoints and quotas]{href="https://docs.aws.amazon.com/general/latest/gr/iot-sitewise.html" newTab="true" hasDisabledNofollow="false"} to learn more.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Access Key
+    </td>
+    <td>
+      AWS Access Key
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Secret Key Access
+    </td>
+    <td>
+      AWS Secret Access Key
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Subscribe interval
+    </td>
+    <td>
+      Time between fetching inbound messages (in seconds)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Number of batch messages
+    </td>
+    <td>
+      Maximum amount of outbound messages sent in one batch
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Throttling limit
+    </td>
+    <td>
+      Maximum throughput counted in messages per second
+    </td>
+  </tr>
+</table>
+
+## High-Precision Timestamps (offsetInNanos)
+
+The AWS IoT SiteWise connector supports high-precision timestamps in the standard deviceHub payload. You can provide a timestamp object containing both `timeInSeconds` and `offsetInNanos` fields. This enables nanosecond-level precision for asset property values sent to AWS IoT SiteWise.
+
+### Payload Format
+
+To use high-precision timestamps, include the timestamp object in your payload:
+
+```json
+{  "datatype": "float64",  "description": "",  "deviceID": "C250EEBF-2611-47F8-B8B9-A27F084DA3D7",  "deviceName": "sim",  "metadata": {},  "registerId": "FDD88267-AABD-4118-A2EE-24E2D89CEFB5",  "success": true,  "tagName": "tag1",  "timestamp": {     "timeInSeconds": 1765387245162,    "offsetInNanos": 0  },  "value": 0}
+```
+
+where:
+
+- `timeInSeconds` is the main timestamp in seconds (Unix epoch time).
+- `offsetInNanos` (optional) specifies a nanosecond offset for higher precision. Set to `0` if not needed.
+
+### Considerations
+
+High-precision timestamps allow for more accurate event ordering and data analysis in time-sensitive applications. High-precision timestamps also allow for data transformation. Use Analytics to convert DeviceHub standard timestamps, enrich data, or filter records before sending to AWS IoT SiteWise.
+
+Note the following:
+
+- `timeInSeconds` and `offsetInNanos` both map directly to the `BatchPutAssetPropertyValue` in AWS IoT SiteWise.
+- `offsetInNanos` defaults to `0` when omitted.
+
+## Configurations
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="111,274,69">
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(240, 241, 242)" darkBackgroundColor="rgb(240, 241, 242)">
+      **Variable**
+    </td>
+    <td align="left" lightBackgroundColor="rgb(240, 241, 242)" darkBackgroundColor="rgb(240, 241, 242)">
+      **Detail**
+    </td>
+    <td align="left" lightBackgroundColor="rgb(240, 241, 242)" darkBackgroundColor="rgb(240, 241, 242)">
+      **Required**
+    </td>
+  </tr>
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Name
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Connector name
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Region
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Geographic area where Amazon Web Services resources are hosted
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Access key id
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Unique identifier in AWS IoT SiteWise used for authentication and, enabling secure and authorized access to the SiteWise service for applications and entities
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Secret access key&#x20;
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      A confidential authentication credential in AWS IoT SiteWise used to securely access and interact with the SiteWise service
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Subscribe interval&#x20;
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Defines the time in seconds between consecutive data update notifications for a subscribed asset property. Specifies the frequency at which the system checks and receives updates on the specified property within the IoT SiteWise platform.
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      No
+    </td>
+  </tr>
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Number of batch messages&#x20;
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      The quantity of grouped data transmissions
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      No
+    </td>
+  </tr>
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Throttling limit
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Set a limit on the number of outbound messages per second. Ensures that no messages are lost when sending data to a server that has restrictions on the rate of incoming messages.
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      No
+    </td>
+  </tr>
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      Persistent storage
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages are retained and eventually sent when the connection is restored.
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)">
+      No
+    </td>
+  </tr>
+  <tr>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)" colSpan="1" rowSpan="1">
+      Queue mode
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)" colSpan="1" rowSpan="1">
+      Select the sequence of data transfer: FIFO or LIFO. FIFO (First In First Out) sends the earliest message first. LIFO (Last In First Out) sends the last message first.
+    </td>
+    <td align="left" lightBackgroundColor="rgb(255, 255, 255)" darkBackgroundColor="rgb(255, 255, 255)" colSpan="1" rowSpan="1">
+      No
+    </td>
+  </tr>
+</table>
+
+## Compatibility Validation
+
+This information for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="186,247,100">
+  <tr>
+    <td>
+      **Product**
+    </td>
+    <td>
+      **Version**
+    </td>
+    <td>
+      **Date**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      aws.amazon.com
+    </td>
+    <td>
+      AWS SDK for Go v2 (v1.21.0)
+    </td>
+    <td>
+      2023-07-31
+    </td>
+  </tr>
+</table>
+

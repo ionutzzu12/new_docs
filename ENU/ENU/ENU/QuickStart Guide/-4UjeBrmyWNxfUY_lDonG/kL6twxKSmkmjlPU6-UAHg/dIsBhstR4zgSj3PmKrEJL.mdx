@@ -1,0 +1,117 @@
+---
+title: EUROMAP 63
+slug: dIsBhstR4zgSj3PmKrEJL
+description: Review the following information for setting up and configuring the Euromap63 (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the EUROMAP 63 driver.
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="209,361" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      File-based
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Engel Server Software
+      Kraussmaffei MC4 and MC5 Controllers
+      The EUROMAP 63 standard defines the data exchange with injection molding machines through files.
+      When configuring tags for this driver, you must enter the case-sensitive register name exactly as defined in the PLC. See the *Free Tags* section below to learn more.&#x20;
+    </td>
+  </tr>
+</table>
+
+# Supported Commands
+
+The Euromap63 driver supports the following commands in the specification.&#x20;
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="237,100">
+  <tr>
+    <td>
+      **Euromap63 command**
+    </td>
+    <td>
+      **Use in Litmus Edge**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      GETID
+    </td>
+    <td>
+      Browse available tags.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      REPORT
+    </td>
+    <td>
+      Retrieves tag values from the injection molding machine.
+    </td>
+  </tr>
+</table>
+
+# Set up and Configure the EUROMAP 63 Driver
+
+**To set up and configure th****e&#x20;****EUROMAP 63&#x20;****driver:**
+
+1. Create a shared folder. See [Create a Shared Folder in Windows 10](<../../../../../Product Features/System/External Storage/Network Storage/Set up a CIFS Mount Point on Windows 10/0XImZn0oIa8oHH9A6FAUS.mdx>) to learn more.&#x20;
+2. In Litmus Edge, follow the steps to [Mount External Storage](<../../../Product Features/Lv4VprvL49Sh2xq8oEdH-/-eJWLAK8nFnkQRDqbsVJc/HryaEQTXolf1kd7iapXDv.mdx>) and configure the following parameters.&#x20;
+   - **Mount Point Name**: Enter the name of the shared folder you created previously.&#x20;
+   - **Share**: Enter the share name in the following format: `//[IP address of the PC running the simulator]/[shared folder name]`. For example: **//192.168.53.34/Euromap63folder**.&#x20;
+   - **Read Only**: Clear the checkbox.&#x20;
+   - **Username**: Enter the username you configured.&#x20;
+   - **Password**: Enter the password you configured.&#x20;
+3. In Litmus Edge, follow the steps to [Connect a Device](<../../../Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>) and configure the following parameters. Configure other parameters as needed.&#x20;
+   - **Device Type**: Select **Euromap63**.
+   - **Driver Name**: Select **EUROMAP 63**.
+   - **Path**: Enter the path of the shared folder in the following format: `/data/[shared folder name]`—for example: **/data/Euromap63folder**.&#x20;
+4. Follow the steps to :Link[Browse Tags]{label="Browse Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="akkXnVv6EdVzAZ40SHbWM" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} and add tags to the DeviceHub device.&#x20;
+
+
+
+If you need to manually [Add a Tag](<../../../../../Product Features/DeviceHub/Tags/LXlEhL0D9yVC0yvh2v7mo.mdx>) to the device, refer to the following tag parameters and available value types.&#x20;
+
+Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](<../../../../../How-To Guides/DeviceHub Guides/PzaTaUTahhNy1jTUcGCbc.mdx>)
+- [Tag Formula Variables](<../../../../Product Features/DeviceHub/IAXxRo2Zf3JHMykbup5Ai/2xZj7CTcVSSWeflmm0gdV.mdx>)
+
+## Free Tags
+
+This driver doesn't have a list of available register names in the DeviceHub *Add Tag* form. To add tags, you must enter the case-sensitive register name exactly as it is defined in the PLC.
+
+A **Connected** status for the device won't display until a tag with a correct register name is created.
+
+## Available Value Types
+
+- `int`
+- `float`
+- `int64`
+- `float64`
+- `string`
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

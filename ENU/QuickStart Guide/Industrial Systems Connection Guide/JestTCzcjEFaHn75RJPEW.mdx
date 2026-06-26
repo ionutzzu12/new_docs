@@ -1,0 +1,76 @@
+---
+title: Modbus
+slug: JestTCzcjEFaHn75RJPEW
+description: Review the different Modbus drivers and their uses. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:40:36 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note**: By default, the Modbus drivers monitor holding address 0 for connection status. If the Modbus device does not have holding address 0, then it will not show the "connected" status. You will still be able to read data from the device.
+</hint>
+
+Here are the major differences for the Modbus drivers:
+
+<table columnWidths="266,269" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      **Use**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      [Enron Modbus](<Modbus/Gen 2 Drivers/UDmZBhCVDl0gKGv5h9tza.mdx>)
+    </td>
+    <td>
+      Serial connection or TCP connection to an Enron Modbus device.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - [Modbus ASCII](<Modbus/Gen 2 Drivers/q2qi2Ao-DeRRxTGBJDmfq.mdx>)
+      - [Modbus ASCII Advanced](<Modbus/Gen 2 Drivers/5MOgLqyvq37jvESKpfNsp.mdx>)
+    </td>
+    <td>
+      Serial connection to a device using Modbus ASCII. Use the Advanced driver for a multi-drop network with multiple Station IDs.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - [Modbus RTU](<Modbus/Gen 2 Drivers/rFwqcoKHrGdEzTmaTuH5z.mdx>)
+      - [Modbus RTU Advanced](<Modbus/Gen 2 Drivers/dtsYuTYJfGoB8x-t6a8Va.mdx>)
+      - [Modbus Multi-Station RTU to TCP Converter](<Modbus/Gen 2 Drivers/modbus-multi-station-rtu-to-tcp-converter.mdx>)&#x20;
+    </td>
+    <td>
+      Serial connection to a device using Modbus RTU. Use the Advanced driver for a multi-drop network with multiple Station IDs. Use the Multi-Station Driver if you want to reuse tag names across Station IDs.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - [Modbus RTU over TCP](<Modbus/Gen 2 Drivers/mYWS-RCr0OXkFrRsSPJNl.mdx>)
+    </td>
+    <td>
+      TCP connection to a Modbus server which has one or more Modbus RTU connections.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - [Modbus TCP](<Modbus/Gen 2 Drivers/ZPKEOx6Ca4erJ1JrojhnQ.mdx>)
+    </td>
+    <td>
+      TCP connection to a Modbus device.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - [Modbus UDP](<Modbus/Gen 2 Drivers/gGMrjvzv_gdru0eLZWAVx.mdx>)
+    </td>
+    <td>
+      UDP connection to a Modbus device.
+    </td>
+  </tr>
+</table>
+

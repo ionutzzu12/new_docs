@@ -1,0 +1,65 @@
+---
+title: Rise and Fall
+slug: ueqv5GifrEpW_lJnbECso
+docTags: 
+createdAt: Tue Aug 06 2024 21:59:00 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Rise and Fall** processor calculates the difference in upper and lower thresholds between consecutive values.
+
+# Rise and Fall Overview
+
+- **Rise**: Once you enter a lower threshold and an upper threshold, this function will show you the timestamp at which the current value starts to rise from the lower threshold.
+- **Fall**: Once you enter a lower threshold and an upper threshold, this function will show you the timestamp at which the current value starts to fall from the upper threshold.
+- Also provides rise time and fall time in seconds.
+
+# Rise and Fall Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Kpi
+    </td>
+    <td>
+      This parameter allows you to specify whether you want to calculate the rise, fall, or both for the given data.    </td>
+  </tr>
+  <tr>
+    <td>
+      Upper
+    </td>
+    <td>
+      This is the value above which the data is considered to be rising or falling.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Lower
+    </td>
+    <td>
+      This is the value below which the data is considered to be rising or falling.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Tolerance
+    </td>
+    <td>
+      Any changes in the data that are under this tolerance will be ignored when calculating the rise and fall.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1nBTJ31CaSREZGrzlOGDd_image.png" size="80" width="944" height="448" caption="Rise and Fall parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Rise and Fall&#x20;*&#x70;rocessor, refer the [Use the Rounding Function](<../../../../How-To Guides/a6rxrowapnADEOPp9BKYB/q5K2MucPiFTGYBkY1AsEK.mdx>) guide for more details.
+</hint>
+

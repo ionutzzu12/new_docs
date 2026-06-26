@@ -1,0 +1,372 @@
+---
+title: Add Multiple Tags
+slug: wlNiYXs_TrrRPdqYqUdIV
+description: Learn how to add tags to connected devices. 
+docTags: 
+createdAt: Thu Jun 16 2022 18:16:56 GMT+0300 (Eastern European Summer Time)
+---
+
+You can add tags to connected devices by navigating to **DeviceHub&#x20;**> **Tags**. To learn more about registers for specific devices, see the [Industrial Systems Connection Guide](<../../../../QuickStart Guide/-4UjeBrmyWNxfUY_lDonG.mdx>).&#x20;
+
+# Before You Begin
+
+Before creating tags, make sure you have connected a device. Refer to [Connect a Device](<../../../ENU/Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>).&#x20;
+
+# Important
+
+Refer to the following information on Free Tags and OPC UA Drivers:
+
+- Certain device drivers do not have a list of register names in the *Add Tag* form. These are referred to as Free Tags.
+- You must enter case-sensitive register names exactly how they are defined in the device.
+- Devices do not display a *Connected&#x20;*&#x73;tatus until a tag with a correct register name is created. See [Device Connectivity Issues](<../../../../Troubleshooting/DeviceHub Troubleshooting/ZJkSHfyflFNt-o6pvz7J6.mdx>) for more information.&#x20;
+- For OPC UA, map the OPC server tags to the client. Enter the Register Name using this format where the semicolon is required: `ns=1;s=tagname`  . For example: `ns=2;s=Channel1.Device1.Tag1`.
+
+# Add Multiple Tags
+
+You can add multiple tags at once by downloading a CSV template file, filling out the file with tag details, and uploading the CSV file.&#x20;
+
+<hint type="warning">
+  **Important**: When saving the CSV file, you must ensure that commas are used as column delimiters and not semicolons. If semicolons are used as column delimiters, you won't be able to upload the CSV file successfully. See [Tag Upload through CSV Issues](../../../Troubleshooting/Zaqb1mFQhFKoDUx4iyiLH/5xK4bihkLAk0YWc82ZvK9.mdx) to learn more.&#x20;
+</hint>
+
+## Step 1: Download a Sample CSV Template
+
+You will need to download a template CSV file that has the required fields for the tags you will add.&#x20;
+
+**To download a sample CSV template:**
+
+1. From the *Tags&#x20;*&#x70;ane, select **Download All Tags as CSV**.
+   The sample tags CSV is downloaded to your local drive
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/JQpZ91yKz88wEJgEnI-F8-20251008-194330.png" size="80" width="1537" height="311" position="flex-start" showCaption="false" indent="2"></Image>
+
+## Step 2: Populate the CSV Template File
+
+You can now populate the CSV template with the tags that will be added. A row/record for each tag must be populated with attribute values, as described below.&#x20;
+
+- Refer to the [Industrial Systems Connection Guide](<../../../../QuickStart Guide/-4UjeBrmyWNxfUY_lDonG.mdx>) and review the *Tag Parameters* section for your device. If tags for the device have additional fields that are not included in the template file, add them as required.&#x20;
+- The order of the attribute columns in the template file may be in any order.&#x20;
+
+Refer to the following sections for information on populating the CSV template file.&#x20;
+
+### Example of a Tag CSV File
+
+<File src="https://archbee-doc-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1cyPXw9P8CGjZPpvdm55F_tag-sample.csv" label="Tag_sample.csv">
+
+</File>
+
+<table columnWidths="149,126,150,153,123,160,0,96,106,182,154,129" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **deviceId**
+    </td>
+    <td>
+      **deviceName**
+    </td>
+    <td>
+      **driverName**
+    </td>
+    <td>
+      **name**
+    </td>
+    <td>
+      **tagName**
+    </td>
+    <td>
+      **description**
+    </td>
+    <td>
+      **valueType**
+    </td>
+    <td>
+      **registerID**
+    </td>
+    <td>
+      **publishCov**
+    </td>
+    <td>
+      **tagFormula**
+    </td>
+    <td>
+      **metaData**
+    </td>
+    <td>
+      **pollingInterval**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      A581B3E2-12CC-4A69-92C0-2C09DAFC5148
+    </td>
+    <td>
+      Test\_Device
+    </td>
+    <td>
+      AB CompactLogix Ethernet FreeTag
+    </td>
+    <td>
+      TestRegisterName
+    </td>
+    <td>
+      TestTagName
+    </td>
+    <td>
+      SampleDescription
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+    </td>
+    <td>
+      TRUE
+    </td>
+    <td>
+      value+timestamp+100
+    </td>
+    <td>
+      \{"MetaDataKey1":"MetaDataValue1"}
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+### Tag Attribute Rules
+
+- The `deviceName` is required to find the corresponding device. The `deviceId` can be omitted. If the `deviceId` is not included, a `device name not found error` displays, but the tags will still be successfully added.&#x20;
+- Attribute values are required unless noted as optional.
+  - If an optional value is null, it is ignored. This allows for the loading of register definitions for multiple device types from a single file.
+  - If the value is null and the device driver defines it as mandatory, the tag is not imported.
+  - If an optional value is present in the CSV file, but it is not supported by the device driver, it is treated as an error and the tag is not imported.
+- Attribute columns in the CSV can be in any order.
+
+<table columnWidths="138,112,329,86,100,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Attribute Name**
+    </td>
+    <td>
+      **Data Type**
+    </td>
+    <td>
+      **Description**
+    </td>
+    <td>
+      **Required**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      deviceId
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      ID of the device. Use the **Copy** icon to get this value from the device tile in **DeviceHub&#x20;**> **Devices**.
+      If a device identified by the `deviceId` is not found, `deviceName` is used.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      deviceName
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      The name you configure for the device.&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      driverName
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      Driver name is for validating optional attributes against `registration.json`. This type should directly correspond to the name of the driver package.
+      Use the **Copy** icon to get this value from the device tile in **DeviceHub&#x20;**> **Devices**.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      name
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      PLC register name or full PLC register address.
+      Depends on `valueType`
+      This name is case sensitive.
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      tagName
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      The name you configure for the tag.&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      description
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      The description you configure for the tag.&#x20;
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      valueType
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      Type of the register value.
+      Available selections depend on the **Register Table&#x20;**&#x6F;f the device. Examples: bit, word
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      registerID
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      A unique register Id generated for this tag.
+      Leave this value blank as it is generated when the tag is created.&#x20;
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      publishCoV
+    </td>
+    <td>
+      boolean
+    </td>
+    <td>
+      A flag that indicates whether the **Only Publish on Change of Value** setting is enabled.
+      If left bank, the value `FALSE` is set by default.&#x20;
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      tagFormula
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      A formula that will transform the tag payload value to a new final value.
+      This column is empty when no formula entered.
+      Available formula parameters are:
+      - `value` - current tag value
+      - `timestamp` - current tag unit time in milliseconds      Available math functions include `sin`, `cos`, `sqrt`, `tan`, `power`, `log`, and `exp `      Example formula:      &#x9;`sin(value) + 1`
+      For additional functions on tag values such as rounding and data conversions, you can use [Analytics](<../../../../Product Features/ETlaRb27Q09oTONoE4bcY.mdx>) or the [Flows Manager](<../../../../Product Features/pEXVb0gXlLgDPGGkqJ2mk.mdx>). See [Analytics Guides](<../../../../How-To Guides/a6rxrowapnADEOPp9BKYB.mdx>) and [Flows Guides](<../../../../How-To Guides/v4Hx-twMoGgJKrHFWQXey.mdx>) to learn more.&#x20;
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      metaData
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      A JSON-formatted string containing one or more Metadata key-value pairs&#x20;
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      pollingInterval
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      Polling interval in seconds.
+      Defines how often the tag polls the driver for a value. `0` means auto polling disabled. `1` means poll every 1 second. If left blank, a value of `1` applies.&#x20;
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+</table>
+
+### CSV Formatting and Escaping Rules
+
+As CSV format is not standardized, several different methods could be used for escaping special characters. The Litmus Edge CSV specification adheres to the rules used by Microsoft Excel, as listed below:
+
+- Field separators must be a semicolon (`;`).
+- Fields can have white spaces around them. This space is removed during processing.
+- Fields can be escaped with double quotes (`"`) or single quotes (`'`). Leading or trailing white spaces inside the quotes are preserved.
+- Any separator characters within a quoted field is treated as part of the field value.
+- Any quotation character in a field value must be escaped with a backslash (`\`) character.
+- Fields are parsed based on their data type: **string** values are read "as is" and **numeric&#xA0;**&#x76;alues are parsed with a numeric parser.
+- Empty fields are treated as null values.
+
+## Step 3: Upload Populated CSV File of Tags
+
+Once the CSV template file is populated, you can upload it to add all tags that were added to the file.&#x20;
+
+**To upload a populated CSV file:**
+
+1. From the *Tags&#x20;*&#x70;ane, click **Add Tag**, and then selec&#x74;**&#x20;Upload CSV**.
+   The *Upload Tags* dialog box appears.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ACgIeDaqE3Tay5uu1pgVe_r8p-dmba2tno3kfje76hupload-csv.png" size="100" width="1585" height="413" position="center" caption="Upload CSV icon" showCaption="true" indent="2"></Image>
+
+2. Click **Select CSV**.
+3. Select the file to upload and click **Open**.&#x20;
+4. From th&#x65;*&#x20;Upload Tags* dialog box, click **Upload**. Upon a successful upload, the tags appear in the *Tags&#x20;*&#x70;ane.
+   If the details in the CSV file do not match the expected configuration, error messages indicate the issues.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-qIuXV2E4sl-tgxV6m6eQ_upload-error.png" size="80" width="867" height="196" position="flex-start" caption="Bulk Upload Error Message" showCaption="true"></Image>
+

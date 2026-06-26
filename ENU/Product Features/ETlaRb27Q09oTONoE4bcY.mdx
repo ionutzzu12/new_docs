@@ -1,0 +1,113 @@
+---
+title: Analytics
+slug: ETlaRb27Q09oTONoE4bcY
+description: You can use the Analytics module to create and manage analytics flows. Analytics flows enable you to process and analyze data at the edge.
+docTags: 
+createdAt: Thu Mar 31 2022 00:10:36 GMT+0300 (Eastern European Summer Time)
+---
+
+The Analytics module lets you create and manage analytics flows. An analytics flow is a series of connected processors that process and analyze data at the edge.
+
+The Analytics module also supports Machine Learning models for prediction, classification, and anomaly detection.
+
+## Core Components
+
+An analytics flow consists of three processor types and two connection types.
+
+### Processor Types
+
+- **Input**: Retrieves data from a tag/topic, database, or generator. See [Input Processors](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/input-processors.mdx>) for details.
+- **Function**: Processes input data using built-in:
+  - KPIs (Key Performance Indicators). See [Key Performance Indicators](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/iBT27zDrQQLYav94tDgZX.mdx>) for details.
+  - Statistical functions. See [Statistical Functions](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/statistical-functions.mdx>) for details.
+- **Output**: Writes function results to a tag/topic or database. See [Output Processors](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/output-processors.mdx>) for details.
+
+### Connection Types
+
+<table isTableHeaderOn="true" columnWidths="128,221.5,265.5" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Connection
+    </td>
+    <td align="left">
+      Applicable connections
+    </td>
+    <td align="left">
+      Behavior
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Events**
+    </td>
+    <td align="left">
+      Input/function and function/output
+    </td>
+    <td align="left">
+      The receiving processor reacts to each incoming data value immediately
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Values**
+    </td>
+    <td align="left">
+      Input/function only
+    </td>
+    <td align="left">
+      The function processor waits for values from all connected input sources before reacting
+    </td>
+  </tr>
+</table>
+
+### Machine Learning Models
+
+The Analytics module supports [TensorFlow](https://www.tensorflow.org/guide/saved_model) saved models. A saved model contains a complete TensorFlow program, including trained weights and computation. You can use models for prediction, classification, and anomaly detection.
+
+## How the Components Work Together
+
+Data moves through a flow from input to function to output:
+
+- **Input processors** retrieve data and pass it downstream.
+- **Function processors** receive data from one or more inputs and apply KPI or statistical processing.
+- **Output processors** receive the processed results and write them to a tag/topic or database.
+
+The connection type controls how a function processor handles incoming data. An **Events** connection triggers the function processor on each individual incoming value. A **Values** connection makes the function processor wait until all connected inputs have provided a value before processing. For example, if a function processor compares values from input processors A and B, it waits for a value from both before running the comparison.
+
+You can build a flow manually by adding processors and connecting them, or use the automated flow creation option. See [Create an Analytics Flow](<../ENU/ENU/Product Features/ETlaRb27Q09oTONoE4bcY/YtxdmN9RNvz-jldaHUl6J/jSA9xZtjDdpJOB7IZpWAH.mdx>) and [Add Processors and Processor Connections](<../ENU/ENU/Product Features/ETlaRb27Q09oTONoE4bcY/YtxdmN9RNvz-jldaHUl6J/k_P8mfL-X_bZhHDbE4Tnx.mdx>) for details.
+
+## Tracking, Visibility, and Reporting
+
+The Analytics UI contains three panes:
+
+- **Instances**, where you can create and manage processors and flows, view the Debug panel, and organize flows into groups.
+- **Instances Table**, where you can view a tabular summary of all instance flows.
+- **Models**, where you can upload and remove Machine Learning models.
+
+## Limitations and Considerations
+
+<hint type="warning">
+  **Important**: If you see the error `"Http failure response for /analytics/v2/version: 0 Unknown Error"`, disable any ad-blockers active in your browser.
+</hint>
+
+## Implementation Steps
+
+### Access the Analytics Module
+
+1. Log in to Litmus Edge.
+2. From the Navigation panel, select **Analytics**.
+3. At the top right, choose between the classic and new UI. The following shows the new UI.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eUzTQsr0ZznPFWp_E8DJw_image.png" size="100" width="1892" height="910" darkWidth="1892" darkHeight="910" position="flex-start" showCaption="false" indent="2"></Image>
+
+## Related Topics
+
+- [Analytics Guides](<../How-To Guides/a6rxrowapnADEOPp9BKYB.mdx>)&#x20;
+- [Analytics Flows and Processors](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/YtxdmN9RNvz-jldaHUl6J.mdx>)&#x20;
+- [Analytics Flow Groups](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/pJzKJ6h_RSpkYM2LV79rY.mdx>)&#x20;
+- [Instances Table](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/8SsdnE5AothhqC78r56YZ.mdx>)&#x20;
+- [Machine Learning Models](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/-CDVNJeiGRTjHy9y5ubXa.mdx>)&#x20;
+- [Input Processors](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/input-processors.mdx>)&#x20;
+- [Output Processors](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/output-processors.mdx>)&#x20;
+- [Statistical Functions](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/statistical-functions.mdx>)&#x20;
+- [Key Performance Indicators](<../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/iBT27zDrQQLYav94tDgZX.mdx>)&#x20;

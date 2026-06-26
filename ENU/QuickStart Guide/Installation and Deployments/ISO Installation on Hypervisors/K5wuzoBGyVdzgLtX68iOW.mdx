@@ -1,0 +1,170 @@
+---
+title: KVM
+slug: K5wuzoBGyVdzgLtX68iOW
+description: You can use KVM using QEMU emulator version 2.11.1 to install Litmus Edge.
+docTags: 
+createdAt: Thu Apr 14 2022 20:29:09 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use KVM with QEMU emulator version 2.11.1 (Debian 1:2.11+dfsg-1ubuntu7.34) or later to install Litmus Edge.
+
+<hint type="danger">
+  **Caution**: This installation has been validated using QEMU version `2.11.1` on host OS Ubuntu `20.04` and `22.04`. While newer versions of QEMU configurations may work, they have not been officially tested or guaranteed. Use newer versions at your own discretion, and ensure proper testing in your environment.
+</hint>
+
+# Before You Begin
+
+- You must have access to QEMU emulator version 2.11.1 (Debian 1:2.11+dfsg-1ubuntu7.34) or a later version, and OS Ubuntu 20.04 or 22.04.
+- Make sure you have the appropriate user permissions to use the QEMU Virtual Machine Manager.&#x20;
+
+To use QEMU Emulator KVM to install Litmus Edge, you will need to do the following.&#x20;
+
+- Step 1: Create a Virtual Machine
+- Step 2: Configure Settings
+- Step 3: Install KVM
+- Step 4: Log in to Litmus Edge
+
+To jump to a specific section, refer to the Table of Contents on the right side and click the corresponding step.&#x20;
+
+# Step 1: Create a Virtual Machine
+
+You will first need to create the virtual machine that will run Litmus Edge.&#x20;
+
+**To create the virtual machine:**
+
+1. From the QEMU emulator, open the Virtual Machine Manager.&#x20;
+2. Click **File** and select **New Virtual Machine**.
+   The *Create a new virtual machine - step 1* dialog box appears.
+
+## Create a new virtual machine - step 1
+
+**To complete step 1:**
+
+1. From the *Create new virtual machine - step 1* dialog box, select **Local install media** (**ISO image or CDROM**).&#x20;
+2. Click **Forward**.&#x20;
+   The *Create a new virtual machine - step 2* dialog box appears.
+
+## Create a new virtual machine - step 2
+
+**To complete step 2:**
+
+1. From the *Create a new virtual machine - step 2* dialog box, select **Use ISO image**.&#x20;
+2. Click **Browse**.&#x20;
+   The *Choose storage volume* dialog box appears.
+3. Click **Browse Local**.&#x20;
+4. Navigate to the ISO file and click double-click the file.
+   The path for the image appears in the field.
+5. Click **Forward**.&#x20;
+   The *Create new virtual machine - step 3* dialog box appears.&#x20;
+
+## Create a new virtual machine - step 3
+
+**To complete step 3:**
+
+1. From the *Create new virtual machine - step 3* *dialog box*, enter 4096 in the **Memory (RAM)** field.
+2. Enter `2` in the **CPUs&#x20;**&#x66;ield.&#x20;
+3. Click **Forward**.&#x20;
+   The *Create new virtual machine - step 4* dialog box appears.
+
+## Create a new virtual machine - step 4
+
+**To complete step 4:**
+
+1. From the *Create new virtual machine - step 4* dialog box, select **Create a disk image for the virtual machine**.
+2. Enter `20.0` in the field.&#x20;
+3. Click **Forward**.&#x20;
+   The *Create a new virtual machine - step 5* dialog box appears.
+
+## Create a new virtual machine - step 5
+
+**To complete step 5:**
+
+1. From the *Create a new virtual machine - step 5* dialog box, enter a name for the virtual machine.&#x20;
+2. Under *Storage*, select **Customize configuration before install**.
+3. Click the **Expand** (**v**) icon next to *Network selection*.
+   The network selection box drops down.
+4. From the options. select **Host device enp2s0: macvtap**.
+   The source mode selection box drops down.
+5. From the options, select **Bridge**.&#x20;
+6. Click **Finish**.&#x20;
+   The `<VMName>` on QEMU/KVM dialog box appears.
+
+# Step 2: Configure Settings
+
+After installing the virtual machine, you will need to configure its settings.&#x20;
+
+**To configure the settings:**
+
+1. Navigate to the **Overview** tab in the left panel.&#x20;
+2. From the Firmware drop-down list, Select **UEFIx86\_64: /usr/share/OVMF/\_CODE.fd**. &#x20;
+3. Click **Apply**.&#x20;
+4. From the left panel, select **IDE Disk 1**.&#x20;
+5. From the *IDE Disk 1* pane, click the Expand (**v**)  icon next to *Advanced options*.
+   The disk fields drop down.&#x20;
+6. From the *Disk bus* drop-down list, select **SATA**.&#x20;
+7. Click **Apply**. &#x20;
+8. Click **Begin Installation**.&#x20;
+   The *Creating Virtual Machine* dialog box appears and begins the installation.
+9. Click the dialog box to open the KVM OS installation application.
+
+# Step 3: Run the Operating System Installer
+
+You will run the operating system installer that will install Litmus Edge.&#x20;
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - During the installation, the progress bar may decrease at times due to partitioning.
+  - The time to complete the installation is based on the size of the hard disk drive. Large disk drives will cause the installation to take longer to partition the disk and therefore longer to complete setting up the virtual machine.&#x20;
+</hint>
+
+**To install KVM:**
+
+1. From the Welcome screen, enter `No` and then press **ENTER**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JTK6YxuDdSivoy_q26kEE_andnwrjv7o5j51j-miyfckvm-welcome-tui.png" size="80" width="787" height="614" caption="KVM OS Installer start up screen. " position="center" showCaption="true"></Image>
+2. Select **Install Operating System**, and then select **Ok**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/uOpPhO79dsLz-rV28jWL2_hxtpsbxtroefiuvvpoufckvm-install-os.png" size="80" width="787" height="616" caption="Install Operating System option" position="center" showCaption="true"></Image>
+3. Select the partition to install, and then select **Ok**. This list is device specific. Typically, the installation location is sda. If the device/gateway has embedded MMC (eMMC) components, the partition name may be listed as mmcblk instead of sda. Make sure you select the correct hard-drive location.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/s_2m0aF0fmidjyihhLBQq_ibvcwkm7ac5ozcsj37yyqkvm-select-partition.png" size="80" width="785" height="616" caption="Select partition option" position="center" showCaption="true"></Image>
+4. Verify the OS installation location by selecting **Yes**. If you select **No**, you are returned to the beginning of the installation.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CqkLfkX4IncPKoPd4by_F_pyshkwyl6mjewquv0ihinkvm-verify-installation-location.png" size="80" width="784" height="613" caption="Installation verification" position="center" showCaption="true"></Image>
+5. &#x20;A second verification ensures that you are overwriting the correct device partition during the formatting process. Select **Yes** to continue formatting the device and installing the operating system.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HoYDSSm6-xSdiJFZ9e3lt_eoooly6ntj92hnjrngllakvm-warning.png" size="80" width="783" height="612" caption="Warning message for installatio" position="center" showCaption="true"></Image>
+6. The installer indicates its progress, followed by a success message.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/28-CQZ6Lg7y07nRvjYSVw_-nywnx6hragmfwrlmdudnkvm-installing.png" size="80" width="783" height="609" caption="Installation progress bar" position="center" showCaption="true"></Image>
+7. Select **Yes** to power off the device.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JLunY6zS1Z2m9o_SrOMOg_ionlcldxbewdfwzpt6rxkvm-power-off.png" size="80" width="783" height="611" caption="Power off notification" position="center" showCaption="true"></Image>
+8. Reboot the device.
+   The terminal window displays the URL which must be used to access the device using the Web UI.
+
+<hint type="info">
+  **Note**: If several URLs are displayed, the first one is used for accessing the device through the Web UI.
+</hint>
+
+# Step 4: Configure TUI Settings
+
+**To configure the TUI settings:**
+
+1. Press Left Control+ Left Alt to release the pointer on the TUI.
+   The TUI settings appear.
+2. Navigate to the TUI settings.&#x20;
+3. From the *Keyboard Layout&#x20;*&#x73;etting, select US, and then select **Apply**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EdrMC9G971MPj1P-y3buX_hxt8rxwkqpyjw2dcql9ackvm-keyboard-layout.png" size="80" width="784" height="610" caption="Keyboard settings" position="center" showCaption="true"></Image>
+4. From the *Authentication&#x20;*&#x73;etting, enter the following credentials and log in.&#x20;
+   **Username**: `admin`
+   **Password**: `litmusedge`
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zoBmVrQSJYEu9sufN07S1_afafd7la7jd26ixy7tkvm-authentication.png" size="80" width="782" height="607" caption="Login screen" position="center" showCaption="true"></Image>
+5. Scroll to the bottom of the license agreement and proceed.&#x20;
+6. From the *Change Password* screen, enter the existing and new password and select **Change**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Inrr8XqonxDYbuAE3Oy7Y_ldndusxc5kpsyjf95wxl7kvm-change-password.png" size="80" width="785" height="611" caption="Change password screen. " position="center" showCaption="true"></Image>
+7. From the *Authentication&#x20;*&#x73;creen, enter `admin` as the username, your new password, and select **Log in**.&#x20;
+
+
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/rFMZo6CKyPcjODXQORnAq_qu5ir3z2qphfvxbuhycqykvm-authentication2.png" size="80" width="787" height="612" caption="Authentication screen" position="center" showCaption="true"></Image>
+8. From the System settings screen, select **Configure Interfaces**, and then select **Next**.
+
+# Step 5: Log in to Litmus Edge
+
+- See [Access the Litmus Edge Web UI](../../LH9wLRWVmLRpp4M4yCy-f.mdx) for details on logging in.&#x20;
+- See [Access the Terminal User Interface](<../../../ENU/QuickStart Guide/LH9wLRWVmLRpp4M4yCy-f/h0KyQCpKLpGAqZ06S-LRP.mdx>) for instructions on how to navigate and log in for the first time.
+

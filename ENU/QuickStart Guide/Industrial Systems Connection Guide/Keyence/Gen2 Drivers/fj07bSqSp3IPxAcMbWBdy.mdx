@@ -1,0 +1,1095 @@
+---
+title: Keyence Nano
+slug: fj07bSqSp3IPxAcMbWBdy
+description: Review the following information for setting up and configuring the Keyence Nano Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Keyence Nano driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="219,272" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Keyence KV-5000]{href="https://www.keyence.com.sg/products/controls/plc-building-block-type/kv-5000_3000/models/kv-5000/" newTab="true"}
+      :Link[Keyence KV-7500]{href="https://www.keyence.com.sg/products/controls/plc-building-block-type/kv-7000/models/kv-7500/" newTab="true"}
+      :Link[Keyence KV-8000]{href="https://www.keyence.com/products/controls/plc-building-block-type/kv-8000/" newTab="true" hasDisabledNofollow="false"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it when needed.&#x20;
+2. **Device**: Keyence KV-5000 Series
+3. **Communication I/F**: Ethernet. Refer to the following figures.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZJS7Az-QzXe41kRUHpEJ7_keyence-nano-ethernet.png" size="80" width="373" height="420" caption="Keyence Nano Ethernet reference" position="center" darkWidth="373" darkHeight="420" showCaption="true" indent="2"></Image>
+
+4. Launch the KV-Studio Software, and then click **Tools > Ethernet IP Settings**.
+5. Set up the IP address.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8yrnI9S-IHaPDD1phYgLg_keyence-nano-ethernet-ip-address.png" size="80" width="568" height="444" caption="IP address setup" position="center" darkWidth="568" darkHeight="444" showCaption="true" indent="2"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Use the following parameters/values when you [Connect a Device](<../../../../ENU/ENU/Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>) with this driver:
+
+<table columnWidths="172,369" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Keyence
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Keyence Nano
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      8501
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Enable Alias Topics**
+    </td>
+    <td>
+      Enabled
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Enable Data Store**
+    </td>
+    <td>
+      Enabled
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NX8GF7p9LaUR-bDJ1bGzP">
+
+</ContentSnippet>
+
+<table columnWidths="93,115,80,84.11928429423459,83.0934393638171,87.26871118303656,261.51856515891177" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td>
+      **Access Type**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MR
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      399915
+    </td>
+    <td align="left">
+      Internal Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LR
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99915
+    </td>
+    <td align="left">
+      Latch Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CR
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99915
+    </td>
+    <td align="left">
+      Control Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RLY
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99915
+    </td>
+    <td align="left">
+      Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Timer bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Counter bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+      Data memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999915
+    </td>
+    <td align="left">
+      Temporary data memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+      Control memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+      Data memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      FM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+      File Register bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CTC\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ZF\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      52428715
+    </td>
+    <td align="left">
+      File Register (SQ) bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      524287
+    </td>
+    <td align="left">
+      Link Register bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VB\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63999
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CTC
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CTH
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Z
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      12
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TRM
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_Preset
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Counter preset
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_Curr
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Counter current
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_Preset
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Timer preset
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T-Curr
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Timer Current
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B\_Word
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+      Link Delay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RLY\_Word
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999
+    </td>
+    <td align="left">
+      Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VB
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3999
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ZF
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      524287
+    </td>
+    <td align="left">
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CR\_Word
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999
+    </td>
+    <td align="left">
+      Control Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LR\_Word
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999
+    </td>
+    <td align="left">
+      Latch Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MR\_Word
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3999
+    </td>
+    <td align="left">
+      Internal Auxiliary relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      FM
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Data memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CM
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Control memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VM
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Link Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TM
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Temporary data memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DM
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, ascii, float, double, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Data memory
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

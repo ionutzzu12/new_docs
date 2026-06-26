@@ -1,0 +1,97 @@
+---
+title: Configure a Local NTP Server
+slug: xo_5Rv30E9cizQcpDUfAW
+description: In a scenario where devices are not connected to the internet, time synchronization must be achieved using a local Network Time Protocol (NTP) server.
+docTags: 
+createdAt: Tue Sep 27 2022 17:31:49 GMT+0300 (Eastern European Summer Time)
+---
+
+Devices rely on an internet time server and a clock source, such as a GPS satellite, to synchronize time across devices. However, in an offline scenario where devices are not connected to the internet, time synchronization must be achieved using a local Network Time Protocol (NTP) server.
+
+If you require a local NTP server:
+
+- Check with your IT team. An NTP server may already be provisioned.
+- If an NTP server is not already available, create a Windows-based NTP server by following the steps below.
+
+# Before You Begin
+
+- A Windows server running Windows 7, 8, or 10 is required. Procedures listed on this page have been tested using Windows 10. Other Windows versions may have a slightly different workflow.
+- You must have Administrator privileges to configure the Windows server.
+- Requires a basic understanding of Windows registry. Caution should be used when updating the registry.
+
+# Configure a Local NTP Server
+
+To configure a local NTP Server, you will need to do the following:
+
+- Step 1: Configure Windows Time Service
+- Step 2: Update Windows Registry to Create Local NTP Service
+- Step 3: Update Windows Registry to Configure Time Provider
+- Step 4: Update Windows Registry to Configure Announce Flags
+- Step 5: Start Local Windows NTP Time Service
+
+To jump to a specific section, refer to the Table of Contents on the right side and click the corresponding step.&#x20;
+
+## Step 1: Configure Windows Time Service
+
+**To configure the Windows Time Service:**
+
+1. In the File Explorer, navigate to: **Control Panel\System and Security\Administrative Tools**.
+2. Double-click **Services**. Alternatively, enter **services.msc** in the Windows Run dialog (Windows Key + R).
+3. In the *Services&#x20;*&#x6C;ist, right-click **Windows Time&#x20;**&#x61;nd click **Stop**. The Windows Time service may already be stopped. In this case, skip this step and proceed to the steps below.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cjJr7UgFPDTOamN6aT1Kl_ntpconfigwindowsservices.png" size="80" width="925" height="889" caption="The Windows Time service" position="center" showCaption="true"></Image>
+
+## Step 2: Update Windows Registry to Create Local NTP Service
+
+**To create a local NTP service:**
+
+1. Launch **Windows Run** (Windows Key + R).
+2. Enter **regedit&#x20;**&#x61;nd click **OK**.
+3. Navigate to the registry key: **Computer\HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Parameters**. If you don't see *LocalNTP REG\_DWORD* in the list, continue with the following steps. If you do see it, keep the Registry Editor open and proceed to the next task.&#x20;
+4. Right-click in the Registry Editor, select **New**, select **DWORD**, and enter **LocalNTP&#x20;**(note that this name is case sensitive).&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cmhgvasxB62biEFYcjzMn_ntpconfigwindowsregistrycreatenew.png" size="80" width="997" height="525" caption="Create New DWORD item" position="center" showCaption="true"></Image>
+5. Double-click **LocalNTP**, change the *Value data&#x20;*&#x74;o **1**, select a *Base&#x20;*&#x6F;&#x66;**&#x20;Hexadecimal**, and click **OK**.
+6. Keep the Registry Editor open for the next task.&#x20;
+
+## Step 3: Update Windows Registry to Configure Time Provider
+
+**To configure the time provider:**
+
+1. Navigate to the registry key: **Computer\HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders**
+2. Select **NtpServer**, double-click **Enabled**, change the *Value Data* to **1**, select a *Base&#xA0;*&#x6F;f **Hexadecimal**, and click **OK**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/7eVoLNT4X_CP6ixehEqW8_ntpconfigwindowsregistrytimeprovider.png" size="80" width="999" height="531" caption="Edit DWORD Value dialog box" position="center" showCaption="true"></Image>
+3. Close the Registry Editor.&#x20;
+
+## Step 4: Update Windows Registry to Configure Announce Flags
+
+**To configure the announce flags:**
+
+1. Navigate to the registry key: **Computer\HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Config**
+2. Double-click **AnnounceFlags**, change the *Value data* to **5**, select a *Base&#xA0;*&#x6F;f **Hexadecimal**, and click **OK**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8CnwDhfbjT24Nak72vZE1_ntpconfigwindowsregistryannounceflags.png" size="80" width="1000" height="529" caption="Edit DWORD Value dialog box" position="center" showCaption="true"></Image>
+3.
+
+## Step 5: Start Local Windows NTP Time Service
+
+**To start the local Windows NTP Time Service:&#x20;**
+
+1. In the File Explorer, navigate to: **Control Panel\System and Security\Administrative Tools**.
+2. Double-click **Services**.
+3. In the Services list, right-click **Windows Time&#x20;**&#x61;nd select **Properties**.
+4. In the *Windows Time Properties (Local Computer)* dialog box, select a *Startup type&#x20;*&#x6F;f **Automatic**, click **Start&#x20;**&#x66;or *Service status*, and click **OK**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Cz2NNmyhLtuRqKM0NQDua_ntpconfigstartwindowstime.png "The Windows Time Properties dialog box")
+
+The local NTP Time Server configuration is now complete. You can now synchronize the time of other computers and devices on your local network.
+
+# Synchronize Time on Devices
+
+In order for devices on your local network to communicate with this new local time server, you must know the IP address of the Windows NTP Time Server.
+
+**To synchronize the time on devices:**
+
+1. *On the Windows server* that you just configured as an NTP server, go to the **Windows Command Prompt**, enter: **ipconfig**.
+2. Locate the **IP address of the NTP server**.
+3. Go to either the Litmus Edge Web UI or the Terminal User Interface (TUI) and enter the address of the local NTP server.&#x20;
+   - To use the Litmus Edge Web UI, update the *NTP Servers*. See :Link[Configure DNS/NTP Servers]{docId="yPNrkJy9ey-VtjcOlcl-p" label="Configure DNS/NTP Servers" spaceId version="v2" docAnchorId="#ntp-servers" href="../../../../../ENU/Product Features/System/b95PhFWmFc516r6yCWwJ0/uw-tkNCQ7k2v6VmOwmUot.mdx"} to learn more.&#x20;
+   - To use the TUI, update the *Configure Time* setting. See :Link[Access the Terminal User Interface]{docId="Yd6Qn1sTcvqqNCavVDoVD" label="Access the Terminal User Interface" spaceId version="v2" docAnchorId="#configure-time" href="../../../../../ENU/QuickStart Guide/LH9wLRWVmLRpp4M4yCy-f/h0KyQCpKLpGAqZ06S-LRP.mdx"} to learn more.&#x20;
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/osabnYypK518ViRg9nPUg_loopedgetuitimentpconfiguration.png" size="80" width="745" height="514" caption="Configure NTP section in Terminal User Interface" position="center" showCaption="true"></Image>
+

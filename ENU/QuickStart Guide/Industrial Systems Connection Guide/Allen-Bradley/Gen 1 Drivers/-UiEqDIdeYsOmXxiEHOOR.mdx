@@ -1,0 +1,107 @@
+---
+title: AB ControlLogix Unsolicited (Gen1.3)
+slug: -UiEqDIdeYsOmXxiEHOOR
+description: Review the following information for setting up and configuring the AB ControlLogix Unsolicited (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB ControlLogix Unsolicited (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="216,303" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[ControlLogix]{href="http://ab.rockwellautomation.com/" newTab="true"}
+      :Link[CompactLogix]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/small-controllers/compactlogix-family.html" newTab="true"}
+      When configuring tags for this driver, you must enter the case-sensitive register name exactly as defined in the PLC. See the  section below to learn more.&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="195,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB ControlLogix Unsolicited (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="AWa1-gOs6_B9p9uMjYJPE">
+
+</ContentSnippet>
+
+- `bool`
+- `sint`
+- `int`
+- `dint`
+- `real`
+- `lint`
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

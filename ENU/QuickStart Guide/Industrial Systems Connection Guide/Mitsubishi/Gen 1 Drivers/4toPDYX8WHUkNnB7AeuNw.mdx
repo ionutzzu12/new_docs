@@ -1,0 +1,440 @@
+---
+title: Mitsubishi FX2N-10GM/20GM Serial (Gen1.3)
+slug: 4toPDYX8WHUkNnB7AeuNw
+description: Review the following information for setting up and configuring the Mitsubishi FX2N-10GM/20GM Serial (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi FX2N-10GM/20GM Serial (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="233,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[MELSEC-F]{href="https://www.mitsubishielectric.com/fa/products/cnt/plc_fx/items/index.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="ZPTCmzo7MNjZIP6UvGpD8">
+
+</ContentSnippet>
+
+**To configure your device:**
+
+1. Record the following information and refer to it as needed.&#x20;
+   - **Device**: Mitsubishi FX2n-10GM
+   - **Communication I/F**: Serial. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/WubzK4HSWY0Ersg2jwWVw_mitsubishi-fx2n-10-20gm-serialreference.png" size="80" width="627" height="872" position="flex-start" caption="Reference image of device" showCaption="true" indent="2"></Image>
+
+2. Use FX PCS-VPS/WIN-E software to configure the device for Ethernet device.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="201,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Mitsubishi
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Mitsubishi FX2N-10GM/20GM Serial (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      9600
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Odd, None
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="104,104,133,106,111,182" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      OOO
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      67
+    </td>
+    <td align="left">
+      Input Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      OOO
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      67
+    </td>
+    <td align="left">
+      Output Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      9000
+    </td>
+    <td align="left">
+      9175
+    </td>
+    <td align="left">
+      Special Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X\_W
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      OOO
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      67
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y\_W
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      OOO
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      67
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M\_W
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM\_W
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      9000
+    </td>
+    <td align="left">
+      9175
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6999
+    </td>
+    <td align="left">
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      9000
+    </td>
+    <td align="left">
+      9599
+    </td>
+    <td align="left">
+      Special Data Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7
+    </td>
+    <td align="left">
+      Index Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Z
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7
+    </td>
+    <td align="left">
+      Index Register
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

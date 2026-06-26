@@ -1,0 +1,85 @@
+---
+title: Kafka SSL Integration Guide
+slug: kYdRPgSxvbI4lPH7eOZi3
+description: Learn how to set up the Kafka SSL connector. 
+docTags: 
+createdAt: Wed Jan 17 2024 23:11:39 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and a Kafka broker that uses SSL authentication.&#x20;
+
+# Before You Begin
+
+You will need the following:
+
+- Access to a Kafka broker that uses SSL authentication. &#x20;
+- The CA certificate and other required authentication parameters needed to access the broker.&#x20;
+
+Refer to the following links to learn more:
+
+- :Link[Apache Kafka Download]{href="https://kafka.apache.org/downloads" newTab="true" hasDisabledNofollow="false"}&#x20;
+- :Link[Encrypt and Authenticate with TLS]{href="https://docs.confluent.io/platform/current/kafka/authentication_ssl.html" newTab="true" hasDisabledNofollow="false"}
+- :Link[OpenSSL Downloads]{href="https://www.openssl.org/source/" newTab="true" hasDisabledNofollow="false"}
+
+# Step 1: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add the Kafka SSL Connector
+
+Follow the steps to [Add a Connector](<../../Product Features/Xgrv-_ps5irJcZlfL22DG/dDu4AKvRbiI_S8SeXkpia.mdx>) and select the **Kafka SSL&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Brokers list separated by comma**: Enter the Kafka broker URL. For example: 192.168.56.1.&#x20;
+- **SASL mechanism**: Select an option: NONE, SASL\_PLAINTEXT, SCRAM-SHA-256, SCRAM-SHA-512.&#x20;
+- **Username&#x20;**(Optional): If needed, enter the username to access the broker.&#x20;
+- **Password**: (Optional): If needed, enter the password associated with the username.&#x20;
+- **CA Certificate**: Paste or upload the CA certificate associated with the broker. &#x20;
+- **Certificate**: Paste or upload the SSL certificate.&#x20;
+- **Private key**: Enter or paste the SSL private key.&#x20;
+- **Topic**: Enter the name of the default topic used for publishing data.&#x20;
+- **Throttling Limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EHmzDvQKlohZ24GOFrqdR_kafkassl.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="63kxR1I00fk_3LVndQZCp" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/Xgrv-_ps5irJcZlfL22DG/bzjTf5H1klbPPmGVLysLD.mdx"} and relevant error messages.&#x20;
+
+# Step 5: Create Topics for Connector&#x20;
+
+You will now need to import the tags you added in Step 3 to the connector as topics.&#x20;
+
+<hint type="info">
+  Topics must already exist on the Kafka server to avoid errors. Using non-existent Kafka topics will result in errors in logs, failed connection and/or persisted storage.
+</hint>
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 6: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+# Step 7: Verify Connection
+
+Access the Kafka broker and verify that Litmus Edge is successfully sending data.&#x20;

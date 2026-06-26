@@ -1,0 +1,72 @@
+---
+title: Use the Change of Value KPI
+slug: g6KlUlH5icy8iot7LhcLL
+docTags: 
+createdAt: Tue Aug 06 2024 22:40:25 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Change of Value** KPI displays the complete message payload when the current value differs from the previous value. If there is no substantial change, no output is displayed.
+
+# User Scenario
+
+Review the following scenario for the change of value KPI processor function. Then, using an input processor, you will simulate PLC data and use this KPI to detect a change of value in the input field.
+
+In an industrial setting, the Change of Value KPI is used to monitor the voltage levels in an electrical grid. The input processor continuously collects voltage data and feeds it to the Change of Value KPI processor. The KPI triggers an output when there is a substantial change in voltage, alerting the operators to potential issues. Otherwise, if things are normal, no output is expected. It allows the engineers to promptly respond to voltage fluctuations, preventing equipment damage and outages.
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../ENU/Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: voltage**
+
+- **Name**: Select **S - Random value generator.**
+- **Value Type:** Select **float64.**
+- **Polling Interval**: Enter **1.**
+- **Tag Name**: Enter **voltage.**
+- **Min Value:&#x20;**&#x45;nter **99.**
+- **Max Value:** Enter **103.**
+
+# Step 3: Create Analytics Flow
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Change of Value Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the *Topic* field, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **voltage&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **Change of Value&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Map Field Name:&#x20;**&#x45;nter the field you want to observe like *value* or *timestamp*, depending entirely on the input message you are sending to this KPI.
+   - **Delta of Tolerance:&#x20;**&#x45;nter a delta of **1&#x20;**&#x69;f you want to allow ignoring a change of *+/- 1* from your previous value. If you enter delta as **0**, even the smallest change will be detected by this KPI.
+   - **Time Interval:** If the tag publishes at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/i6gSWzDzq6JF7cGjvtXK8_image.png" size="80" width="759" height="548" position="center" caption="Edit a Processor dialog box" showCaption="true"></Image>
+7. Connect the *DataHub Subscribe* processor (tag: *voltage*) to the *Change of Value&#x20;*&#x70;rocessor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tzRQf-RW-j3XPZ1oD2sFL_image.png" size="80" width="683" height="187" position="center" caption="Completed Flows Canvas" showCaption="true"></Image>
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Change of Value&#x20;*&#x70;rocessor to view the output values.
+
+The output displays the message payload when the value field is **+/- 1&#x20;**&#x66;rom your previous value.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SzOmxc9srdY3iRYoziLrn_image.png "Output of Change of Value processor")
+

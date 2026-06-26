@@ -1,0 +1,617 @@
+---
+title: InfluxDB v3 Integration Guide
+slug: eyah_YkrCNvHe-3EosiUF
+docTags: 
+createdAt: Fri May 08 2026 19:20:37 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note:** This feature is available starting with Litmus Edge 4.1.x.
+</hint>
+
+The following guide shows you how to set up an integration between Litmus Edge and [InfluxDB v3](https://docs.influxdata.com/influxdb3/core/). Once the integration is set up, you can use it to publish time-series data from Litmus Edge directly into an InfluxDB v3 measurement using the official InfluxDB v3 Go SDK and Line Protocol.
+
+<hint type="info">
+  **Note:** The InfluxDB v3 connector only supports outbound (publish) data flow — data travels from Litmus Edge to InfluxDB. Inbound subscriptions are not supported by this connector.
+</hint>
+
+# Before You Begin
+
+Before configuring the connector in Litmus Edge, complete the following setup steps in InfluxDB.
+
+<hint type="info">
+  **Note:** This guide uses DeviceHub tag data as an example. Litmus Edge also supports streaming custom JSON structures produced by Analytics or Digital Twins to InfluxDB. The steps are the same, but the field schema written to the measurement will reflect your custom payload structure.
+</hint>
+
+Refer to the following InfluxDB 3 Core resources for more information:
+
+- [InfluxDB 3 Core](https://docs.influxdata.com/influxdb3/core)
+- [Create and manage API tokens](https://docs.influxdata.com/influxdb3/core/admin/tokens/)
+- [Query data with SQL](https://docs.influxdata.com/influxdb3/core/query-data/sql/)
+
+## Step 1: Note Your Host URL
+
+Identify the URL of your InfluxDB v3 instance. You will need this URL when configuring the connector in Litmus Edge. The format depends on your deployment type:
+
+<table isTableHeaderOn="true" columnWidths="302,696" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Deployment Type
+    </td>
+    <td align="left">
+      Example Host URL
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Cloud Serverless (AWS)
+    </td>
+    <td align="left">
+      `https://us-east-1-1.aws.cloud2.influxdata.com`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Cloud Serverless (Azure)
+    </td>
+    <td align="left">
+      `https://eastus-1.azure.cloud2.influxdata.com`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Cloud Dedicated
+    </td>
+    <td align="left">
+      `https://cluster-id.influxdb.io`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Self-hosted Clustered
+    </td>
+    <td align="left">
+      `https://influxdb.internal.company.com`
+    </td>
+  </tr>
+</table>
+
+## Step 2: Note Your Organization (Cloud Serverless Only)
+
+If you are using InfluxDB Cloud Serverless, note your organization name or ID. You can find this in the InfluxDB UI under your account settings.
+
+<hint type="info">
+  **Note:** The Organization field does not apply to Cloud Dedicated or self-hosted deployments. Leave it blank when configuring those deployment types.
+</hint>
+
+## Step 3: Create or Identify a Database
+
+Identify the name of the target database in your InfluxDB instance. If the database does not yet exist, create it before proceeding.
+
+See [Create a database](https://docs.influxdata.com/influxdb3/core/admin/databases/) in the InfluxDB 3 Core documentation.
+
+## Step 4: Create an API Token
+
+Create an API token in InfluxDB with `write` permissions scoped to the target database. Litmus Edge uses this token to authenticate all write requests.
+
+<hint type="warning">
+  **Important:** The API token is displayed only once at creation time. Store it securely before closing the dialog.
+</hint>
+
+- Cloud Serverless: Navigate to **Load Data > API Tokens** in the InfluxDB UI and click **Generate API Token**.
+- CLI: Use `influx auth create --write-bucket <database-name>`.
+
+After creation, copy the token value immediately.
+
+See [Create and manage API tokens](https://docs.influxdata.com/influxdb3/core/admin/tokens/) for detailed instructions.
+
+# Set up the Outbound Subscription (Publish to InfluxDB)
+
+Follow the steps below to configure Litmus Edge to publish data to InfluxDB v3.
+
+## Step 1: Add the InfluxDB v3 Connector
+
+Follow the steps to [Add a Connector]() and select the **DB - InfluxDB v3** connector provider.
+
+Configure the following parameters:
+
+- Name: Enter a name for the connector.
+- Host URL: Enter the full URL of your InfluxDB v3 instance noted in **Before You Begin — Step 1**.
+- Connection Type: Select the transport protocol for your InfluxDB endpoint. Use `tcp` for standard HTTPS connections.
+- Organization *(Cloud Serverless only)*: Enter your InfluxDB organization name or ID noted in **Before You Begin — Step 2**. Leave blank for Cloud Dedicated and self-hosted Clustered deployments.
+- Database: Enter the name of the target InfluxDB v3 database noted in **Before You Begin — Step 3**.
+- API Token: Paste the API token created in **Before You Begin — Step 4**.
+
+## Step 2 (Optional): Configure SSL/TLS
+
+If you selected `ssl` as the **Connection Type** in Step 1, configure the certificate fields below. All fields are optional. Provide only what your SSL setup requires. Each field accepts a file upload or pasted text.
+
+- CA Certificate: The Certificate Authority certificate used to verify the InfluxDB server's identity.
+- Certificate: The client certificate for mutual TLS (mTLS) authentication.
+- Private Key: The private key corresponding to the client certificate.
+
+## Step 3 (Optional): Configure Static Tags
+
+Enable the **Show Static Tags** checkbox to define one or more static key-value pairs. The key-value pairs are appended as InfluxDB tags to every record written by this connector regardless of the payload source.
+
+To add a static tag:
+
+1. Check the **Show Static Tags** checkbox to expand the static tags table.
+2. Enter a tag name in the **Key** field and its value in the **Value** field.
+3. Click **+ Add** to add the tag to the table.
+4. Repeat for each additional static tag you want to apply.
+
+## Step 4 (Optional): Configure Advanced Parameters
+
+Expand the **Advanced Parameters** section to adjust write behavior:
+
+- Write Precision: The timestamp precision used for all writes. Options: `ns` (nanoseconds), `us` (microseconds), `ms` (milliseconds), `s` (seconds). Default: `ms`.
+- Batch Size: The number of records to accumulate before sending a batch write to InfluxDB. Range: `1` to `10000`. Default: `5000`.
+- Batch Interval (ms): The maximum time in milliseconds to wait before flushing a batch even if the batch size has not been reached. Range: `100` to `60000`. Default: `1000`.
+
+## Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it. If you see a `Failed` status, review the [Manage Connectors]() page and the relevant error messages.
+
+## Step 6: Add an Outbound Topic
+
+After the connector is enabled, add one or more outbound topics to define which Litmus Edge tag data is published to InfluxDB.
+
+**To add an outbound topic:**
+
+1. Click the connector tile.
+   The connector Dashboard appears.
+2. Click the **Topics** tab.
+3. Click the **Add a new subscription** icon.
+   The Data Integration dialog box appears.
+4. Configure the following parameters:
+   - Data Direction: Select **Local to Remote - Outbound**.
+   - Local Data Topic: Select the DeviceHub tag or topic from Litmus Edge that you want to publish.
+   - Remote Data Topic (optional): Enter the name of the InfluxDB measurement to write this topic's data to. If the measurement does not exist, InfluxDB will create it automatically on the first write. If left empty, the connector expects a **DeviceHub** payload and automatically constructs the measurement name as `deviceName.deviceID`.
+   - Enable: Select the toggle to enable the topic.
+5. Click **OK** to add the topic.
+6. From the connector tile, verify that the connector shows a **CONNECTED** status and the topic shows an **Enabled** status.
+
+## Step 7: Verify Data in InfluxDB
+
+To confirm that data is flowing from Litmus Edge into InfluxDB:
+
+1. In your InfluxDB UI, navigate to **Data Explorer** or open the **SQL Query Editor**.
+2. Run a query against the target measurement to view incoming data. Replace `<measurement>` with the measurement name you configured in Step 6.
+
+<CodeblockTabs indent="2">
+  ```sql
+  SELECT *
+  FROM <measurement>
+  ORDER BY time DESC
+  LIMIT 100;
+  ```
+</CodeblockTabs>
+
+3. Confirm that rows appear with field values from your Litmus Edge tags.
+
+<hint type="info">
+  **Tip:** You can also verify ingestion activity by navigating to **Load Data** > **Buckets**, selecting your database, and inspecting the measurement schema to confirm fields and tags are written as expected.
+</hint>
+
+# Data Mapping
+
+The payload type determines how your Litmus Edge data is mapped to an InfluxDB measurement. InfluxDB organizes data in a measurement (table) using two concepts:
+
+- Fields: The numeric, boolean, or string values you want to analyze or chart (for example, temperature, speed, pressure)
+- Tags: Indexed string metadata used to filter and group data (for example, device name, site, machine ID)
+
+## DeviceHub Payload
+
+When your local topic publishes a standard DeviceHub tag payload, the connector maps each field automatically as shown in this example payload:
+
+```json
+{
+  "success": true,
+  "datatype": "int64",
+  "timestamp": 1683901827473,
+  "registerId": "7782779E-1582-4773-AB02-0A8CE8BD3597",
+  "value": 0,
+  "deviceID": "629145EB-2549-4BC1-8ECB-ACD86BC44061",
+  "tagName": "Air_Pressure_1",
+  "deviceName": "PLC_4",
+  "description": "",
+  "metadata": {
+    "Device_Location": "North_Wing",
+    "City": "Toronto",
+    "Country": "Canada",
+    "Category": "Pressure"
+  }
+}
+```
+
+<table isTableHeaderOn="true" columnWidths="212,182,228,375" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Payload Field
+    </td>
+    <td align="left">
+      InfluxDB Type
+    </td>
+    <td align="left">
+      Name in Measurement
+    </td>
+    <td align="left">
+      Notes
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `success`
+    </td>
+    <td align="left">
+      Field
+    </td>
+    <td align="left">
+      `success`
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `datatype`
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `datatype`
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `timestamp`
+    </td>
+    <td align="left">
+      Timestamp
+    </td>
+    <td align="left">
+      `timestamp`
+    </td>
+    <td align="left">
+      Written as a Unix timestamp
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `registerId`
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `registerId`
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `value`
+    </td>
+    <td align="left">
+      Field
+    </td>
+    <td align="left">
+      `value`
+    </td>
+    <td align="left">
+      Supports int, float, string, bool
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `deviceID`
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `deviceID`
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `tagName`
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `tagName`
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `deviceName`
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `deviceName`
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `description`
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `description`
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `metadata.*`
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `metadata.<key>`
+    </td>
+    <td align="left">
+      All metadata sub-fields are flattened and written as individual tags
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note:** If no **Remote Data Topic** (measurement name) is specified on the outbound topic, the connector automatically constructs the measurement name as `deviceName.deviceID` using values from the payload. If the payload does not contain `deviceName` or `deviceID`, the record is not published and an error is logged.
+</hint>
+
+## Custom Payload Automatic Mapping
+
+When your local topic publishes a custom JSON payload (for example, from Analytics or Digital Twins) and **User-defined Tags & Fields** is disabled, the connector applies automatic mapping rules:
+
+- The JSON is flattened. Nested keys are written using dot notation (e.g. `machineData.sensors.temperatureCelsius`)
+- All string values are mapped to Tags
+- All numeric (int, float) and boolean values are mapped to Fields
+- The timestamp is set at the time the record is sent rather than taken from the payload
+
+Example payload:
+
+```json
+{
+  "customerId": "ACME-IND-01",
+  "customerName": "Acme Industrial Solutions",
+  "siteLocation": "Detroit_Plant_A",
+  "machineData": {
+    "machineId": "CNC_001",
+    "type": "Lathe",
+    "status": "Operational",
+    "sensors": {
+      "temperatureCelsius": 45.2,
+      "vibrationRMS": 0.02,
+      "spindleSpeedRPM": 1500
+    },
+    "productionMetrics": {
+      "partsProduced": 120,
+      "efficiencyPercentage": 92.5
+    }
+  },
+  "maintenance": {
+    "lastService": "2026-01-15",
+    "nextServiceDue": "2026-03-15"
+  }
+}
+```
+
+<table isTableHeaderOn="true" columnWidths="369,159,158,311" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Payload Field
+    </td>
+    <td align="left">
+      Value Type
+    </td>
+    <td align="left">
+      InfluxDB Type
+    </td>
+    <td align="left">
+      Name in Measurement
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `customerId`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `customerId`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `customerName`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `customerName`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `siteLocation`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `siteLocation`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `machineData.machineId`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `machineData.machineId`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `machineData.type`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `machineData.type`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `machineData.status`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `machineData.status`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `machineData.sensors.temperatureCelsius`
+    </td>
+    <td align="left">
+      Float
+    </td>
+    <td align="left">
+      Field
+    </td>
+    <td align="left">
+      `machineData.sensors.temperatureCelsius`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `machineData.sensors.vibrationRMS`
+    </td>
+    <td align="left">
+      Float
+    </td>
+    <td align="left">
+      Field
+    </td>
+    <td align="left">
+      `machineData.sensors.vibrationRMS`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `machineData.sensors.spindleSpeedRPM`
+    </td>
+    <td align="left">
+      Float
+    </td>
+    <td align="left">
+      Field
+    </td>
+    <td align="left">
+      `machineData.sensors.spindleSpeedRPM`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `machineData.productionMetrics.partsProduced`
+    </td>
+    <td align="left">
+      Int
+    </td>
+    <td align="left">
+      Field
+    </td>
+    <td align="left">
+      `machineData.productionMetrics.partsProduced`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `machineData.productionMetrics.efficiencyPercentage`
+    </td>
+    <td align="left">
+      Float
+    </td>
+    <td align="left">
+      Field
+    </td>
+    <td align="left">
+      `machineData.productionMetrics.efficiencyPercentage`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `maintenance.lastService`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `maintenance.lastService`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `maintenance.nextServiceDue`
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Tag
+    </td>
+    <td align="left">
+      `maintenance.nextServiceDue`
+    </td>
+  </tr>
+</table>
+

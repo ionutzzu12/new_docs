@@ -1,0 +1,219 @@
+---
+title: VIPA 300s Ethernet (Gen1.3)
+slug: aynQKwp_zfKqiWzQM1ABj
+description: Review the following information for setting up and configuring the VIPA 300s Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the VIPA 300s Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="242,283" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Vipa 300s PLC series]{href="https://www.vipa.com/en/products/control-systems/300s/" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it when needed.&#x20;
+   - **Device**: VIPA CPU 315-4NE12
+   - **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/lnML14DwOAVMK_3t23QL3_vipa-300s-ethernet.png" size="80" width="386" height="352" position="flex-start" caption="Reference image of device" showCaption="true" indent="2"></Image>
+
+2. Launch Primary Setting Tool and set up Set PG/PC interface to use the network adapter.&#x20;
+3. Browse the devices in the subnet and set up the network parameters for the device, and then download into the device.
+4. Launch SIMATIC Manager and configure *HW Config*.
+5. From the project, select **CPU318-2 DP** as the CPU module with two CP 343-1 modules.
+6. In NetPro, set up *Set PG/PC Interface* and use the adapter in the same subnet with the device.
+7. Double-click the module icon and set up the network parameters.
+8. Download the setting into the device.
+9. Open the OB1 block and make connection with the device.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="172,353" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Vipa
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Vipa 300s Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      102
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot Number**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="100,194,130,107,110,100" selectedRows="" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit, byte, char, word, int, dword, dint, real, string
+    </td>
+    <td align="left">
+      DDDDd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q
+    </td>
+    <td align="left">
+      bit, byte, char, word, int, dword, dint, real, string
+    </td>
+    <td align="left">
+      DDDDd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit, byte, char, word, int, dword, dint, real, string
+    </td>
+    <td align="left">
+      DDDDd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB
+    </td>
+    <td align="left">
+      bit, byte, char, word, int, dword, dint, real, string
+    </td>
+    <td align="left">
+      DDDDDd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      327677
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="OERW2Mm6RYszRwsnw6rqn">
+
+</ContentSnippet>
+

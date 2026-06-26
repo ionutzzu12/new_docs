@@ -1,0 +1,39 @@
+---
+title: Time Synchronization Issues
+slug: DvVC4R0wslrykvlqTV3IB
+docTags: 
+createdAt: Fri Nov 24 2023 17:40:24 GMT+0200 (Eastern European Standard Time)
+---
+
+Time synchronization is required for precise time resolution for time-stamping collected measurements. Also, Litmus Edge uses the current time for license activation. Therefore, if the time is substantially off, the trial license may be considered invalid and cause the trial to end prematurely.
+
+NTP (Network Time Protocol) servers offer the easiest, most reliable, and accurate time-synchronization method.
+
+<hint type="warning">
+  **Important**: If you are installing Litmus Edge:
+
+  - Adjust the system clock through the BIOS before installing Litmus Edge. Otherwise the 15-day trial period may be rejected and invalidated by the license server.
+  - In the event that your license becomes invalidated, contact your Litmus representative.
+  - See [ISO Installation on an Industrial PC (IPC)](<../../QuickStart Guide/Installation and Deployments/wFBeS1LB1Aa29Xheeso9E.mdx>). &#x20;
+</hint>
+
+# Synchronize Using Public NTP Servers
+
+Litmus Edge comes pre-configured with servers in the public NTP pool. This requires internet access. See [The NTP Pool Project](https://www.pool.ntp.org/en/) to learn more.&#x20;
+
+If Litmus Edge is in an environment without internet access or if you want to specify your own NTP servers, you can do it using the Web UI or the Terminal User Interface (TUI), as shown below. See the *Configure Time* section in [Access the Terminal User Interface](<../../ENU/QuickStart Guide/LH9wLRWVmLRpp4M4yCy-f/h0KyQCpKLpGAqZ06S-LRP.mdx>). &#x20;
+
+# Configure NTP Time Servers using the TUI
+
+Refer to the *Configure Time* section. See [Access the Terminal User Interface](<../../ENU/QuickStart Guide/LH9wLRWVmLRpp4M4yCy-f/h0KyQCpKLpGAqZ06S-LRP.mdx>).&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/s0ZDPhvGqlSUP_wJEXnt2_image.png" size="80" width="669" height="263" caption="Configure NTP Time Servers in TUI" position="center" showCaption="true"></Image>
+
+# Configure NTP Time Servers through the Web Interface
+
+See the *NTP Servers* section in :Link[Configure DNS/NTP Servers]{docId="yPNrkJy9ey-VtjcOlcl-p" label="Configure DNS/NTP Servers" spaceId version="v2" docAnchorId="#ntp-servers" href="../../ENU/Product Features/System/b95PhFWmFc516r6yCWwJ0/uw-tkNCQ7k2v6VmOwmUot.mdx"}.&#x20;
+
+# Synchronize Using a Local NTP Server
+
+See [Configure a Local NTP Server](<../../Product Features/System/Network/Configure DNS/NTP Servers/xo_5Rv30E9cizQcpDUfAW.mdx>).&#x20;
+

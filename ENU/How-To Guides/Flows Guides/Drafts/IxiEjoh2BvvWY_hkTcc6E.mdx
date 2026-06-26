@@ -1,0 +1,58 @@
+---
+title: Use a DeviceHub Manage Topic to Start and Stop a Device
+slug: IxiEjoh2BvvWY_hkTcc6E
+docTags: 
+createdAt: Wed Jun 07 2023 18:16:52 GMT+0300 (Eastern European Summer Time)
+---
+
+Same as Manage Topic use case doc
+
+
+
+As an alternative method to using the Start and Stop icons on a device tile in DeviceHub, you can manage the device to stop or start the calls to the device using a topic in flows.
+
+This method is available if a device is not physically connected to the same network as Litmus Edge.
+
+Before you begin:
+
+- You must add a device in DeviceHub.
+- You should have a basic knowledge of Flows.
+
+**To create a flow:**
+
+1. From the navigation panel, select **Flows Manager**.
+2. From a connected device tile, click the **Expand&#xA0;**&#x69;con, and then click the **Copy&#x20;**&#x69;con next to the `devicehub.manage.<deviceId>` selection.
+3. Click the **Expand&#x20;**&#x69;con next to a selected Flow.
+4. Drag two **Inject&#x20;**&#x6E;odes and a **DataHub Publish** node to the canvas.
+5. Wire the two **Inject&#x20;**&#x6E;odes to the **DataHub Publish&#x20;**&#x6E;ode.
+6. Double-click the **DataHub Publish&#x20;**&#x6E;ode.
+7. From the **Edit DataHub Publish node&#xA0;**&#x64;ialog box, do the following:
+   1. Paste the **device ID&#xA0;**&#x79;ou copied from the device in the **Topic&#xA0;**&#x66;ield.
+   2. Enter a name for the topic in the **Name&#xA0;**&#x66;ield.
+   3. Click **Done**.
+8. Double-click the first **Inject&#xA0;**&#x6E;ode.
+9. From the first **Edit Inject node&#xA0;**&#x64;ialog box, do the following:
+   1. Select string from the Payload drop-down list.
+   2. Enter \{"command": "pause"} in the Payload field.
+   3. Enter Pause in the Name field.
+   4. Click Done.&#x20;
+10. Double-click the second **Inject&#xA0;**&#x6E;ode.
+11. From the second **Edit Inject node&#xA0;**&#x64;ialog box, do the following:
+    1. Select string from the Payload drop-down list.
+    2. Enter `{"command": "resume"}` in the Payload field.
+    3. Enter Resume in the Name field.
+    4. Click **Done**, and then click **Deploy**.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/H-YYmkPhp5KB4VA-TaPsL_flows-topic-to-start-and-stop-a-device.png "Inject and DataHub Publish nodes")
+
+To test the Flow:
+
+1. Click the **Activate&#xA0;**&#x62;utton on the **Pause&#xA0;**&#x49;nject node.
+2. From the **Flows&#xA0;**&#x76;iew browser tab, return to the **DeviceHub&#xA0;**&#x62;rowser tab.
+3. The selected device is paused/stopped and shows disconnected.
+4. From the **DeviceHub&#xA0;**&#x62;rowser tab, return to the **Flows&#xA0;**&#x76;iew browser tab.
+5. Click the **Activate&#xA0;**&#x62;utton on the **Resume&#xA0;**&#x49;nject node.
+6. From the **Flows&#xA0;**&#x76;iew browser tab, return to the **DeviceHub&#xA0;**&#x62;rowser tab.
+7. The selected device is started and shows connected.
+
+ 

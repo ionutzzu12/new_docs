@@ -1,0 +1,734 @@
+---
+title: Mitsubishi Q06 Serial (Gen1.3)
+slug: ExNipykk8qLTcq7ggXMVs
+description: Review the following information for setting up and configuring the Mitsubishi Q06 Serial (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi Q06 Serial (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="228,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[MELSEC-Q]{href="https://www.mitsubishielectric.com/fa/products/cnt/plcq/items/index.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="XLia8YLDcxASLgOKnWai3">
+
+</ContentSnippet>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="204,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Mitsubishi
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Mitsubishi Q06 Serial (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      115200
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Odd, None
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="106,106,135,108,113,173" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+      Input Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+      Output Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      61439
+    </td>
+    <td align="left">
+      Internal Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      L
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Latch Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      F
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Annunciator
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Edge Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      23087
+    </td>
+    <td align="left">
+      Timer Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      23087
+    </td>
+    <td align="left">
+      Retentive Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      23087
+    </td>
+    <td align="left">
+      Retentive Timer Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      23087
+    </td>
+    <td align="left">
+      Counter Contact
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      23087
+    </td>
+    <td align="left">
+      Counter Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SB
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+      Special Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+      Step Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DX
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+      Direct Input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DY
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+      Direct Output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+      Timer Contact
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4212735
+    </td>
+    <td align="left">
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ZR
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1042431
+    </td>
+    <td align="left">
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Z
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      15
+    </td>
+    <td align="left">
+      Index Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SW
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+      Special Link Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      FFddddd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      313767
+    </td>
+    <td align="left">
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      23087
+    </td>
+    <td align="left">
+      Counter Current
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      23087
+    </td>
+    <td align="left">
+      Retentive Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      23087
+    </td>
+    <td align="left">
+      Timer Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25983
+    </td>
+    <td align="left">
+      Link Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D\_Bit
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      421273515
+    </td>
+    <td align="left">
+      Data Register bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ZR\_Bit
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      104243115
+    </td>
+    <td align="left">
+      File Register bit
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

@@ -1,0 +1,178 @@
+---
+title: Manage Processors and Analytics Flows
+slug: 7K2CnzS4H6ky2feqlOMQq
+description: Learn how to manage processors and flows on the Analytics canvas.
+docTags: 
+createdAt: Tue Oct 18 2022 21:03:55 GMT+0300 (Eastern European Summer Time)
+---
+
+You can manage Analytics processors and flows on the Analytics canvas by navigating to **Analytics&#x20;**>**&#x20;Instances**.&#x20;
+
+# Analytics Canvas Management Options
+
+Refer to the management options below on the Analytics canvas.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9OCwnYcPCgLWTraPabAji_image.png" size="80" width="1245" height="467" caption="Analytics canvas management options" position="center" showCaption="true"></Image>
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="185">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1] **Search for processor instance**
+    </td>
+    <td>
+      Use the drop-down list to highlight selected processors on the canvas. Click **X&#x20;**&#x69;n the *Search for processor instance* field to clear the search.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2] **Canvas menu**
+    </td>
+    <td>
+      Opens canvas menu options.&#x20;
+      - [Add Processors and Processor Connections](k_P8mfL-X_bZhHDbE4Tnx.mdx)&#x20;
+      - **Add flow**: See [Create Flow Groups](<../../../../../Product Features/Analytics/Analytics Flow Groups/N35E9btOKaFdmaQcrgv4p.mdx>).&#x20;
+      - **Paste flow**: After you copy a flow, this option becomes available.&#x20;
+      - **Clear group**: Deletes all flows, processors, and the flow group.&#x20;
+      - **Remove all processors**: Deletes all flows and processors in the flow group.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3] **Show debug window**
+    </td>
+    <td>
+      Displays the debug panel. Click the **View processor output** icon for an input or function processor to view its output. The debug panel cannot display output from output processors. These processors are used to publish data to a tag, database, or StdOut immediately upon receipt. Once published, the data is no longer available for display in the UI.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4] **Import/Export menu**
+    </td>
+    <td>
+      You can import analytics flows as JSON files and export flows. When exporting flows, you have the option of selecting individual flow groups or all groups.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[5] **Save**
+    </td>
+    <td>
+      Saves the flow group.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[6] **Refresh**
+    </td>
+    <td>
+      Refreshes all analytics flows in the selected group. It provides a quicker version of your browser refresh function.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[7] **Re-arrange processors**
+    </td>
+    <td>
+      Adjust the layout and position of processors on canvas.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[8] **Canvas zoom in and out**
+    </td>
+    <td>
+      Change the zoom level for better visibility of flows.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[9] **Canvas view**
+    </td>
+    <td>
+      You have two canvas view options.&#x20;
+      - **Standard**: Allows you to view each processor in the flow at full size.
+      - **Compact**: Collapses the processors in the view. Icons for each processor appear in green, yellow, or red to indicate the status. You can hover over processor to access functionality.
+    </td>
+  </tr>
+</table>
+
+# Processor and Flow Management Options
+
+Refer to the management options below for processors and flows.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CCF5_hy5h1Fg4aMXJ7Vbg_image.png" size="80" width="1040" height="217" caption="Management options for processors and flows" position="center" showCaption="true"></Image>
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="186">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1] **Status Icon**
+    </td>
+    <td>
+      Hover over to view status and ID of processor.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2] **Enable/disable processor**
+    </td>
+    <td>
+      Activates or deactivates the selected processor's functionality.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3] **View processor output**
+    </td>
+    <td>
+      To view output, you must first display the debug window. The debug panel cannot display output from output processors. These processors are used to publish data to a tag, database, or StdOut immediately upon receipt. Once published, the data is no longer available for display in the UI.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4] **Processor menu**
+    </td>
+    <td>
+      The options available depend on the specific processor.&#x20;
+      - **Toggle passthrough**: Normally, a function processor passes to the output processor only the result of the function while dropping the data it had received from the input processor (such as Device ID and Timestamp). When you enable *Toggle passthrough*, this passes through the input data, along with the function result.&#x20;
+      - **Copy topic**: You can copy the output topic from an output processor. Use the copied topic to view messages in the Flows Manager module by adding it to the DataHub Subscribe or Access Subscribe node.
+      - **Edit**: Update the details for the processor.&#x20;
+      - **Copy Flow**: After you copy a flow, you can paste it from the canvas menu.&#x20;
+      - **Remove processor**
+      - **Remove flow**
+      - **Invoke processor**: Allows you to schedule a Database Batch processor to start and stop providing input at a specified date and time.&#x20;
+      - **Reset processor**
+      - **Instance Identifier**: Allows you to copy the *Instance ID* and *Flow IDs*.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[5] **Removing a release cannot be undone**
+    </td>
+    <td>
+      Click a connection between two processers to edit the connection name or click **Break Link** to remove the linkage.&#x20;
+    </td>
+  </tr>
+</table>
+
+# View the Canvas Legend&#x20;
+
+You can open the canvas legend to display color-coded information about processor and connection types that can be included in an analytics flow. &#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/A2ajakTOKUbCnFFpQuh7u_image.png" size="80" width="1932" height="876" caption="Open canvas legend drawer" position="center" showCaption="true"></Image>
+

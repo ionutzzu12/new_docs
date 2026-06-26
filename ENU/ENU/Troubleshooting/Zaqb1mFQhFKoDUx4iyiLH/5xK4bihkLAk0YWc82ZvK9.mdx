@@ -1,0 +1,33 @@
+---
+title: Tag Upload through CSV Issues
+slug: 5xK4bihkLAk0YWc82ZvK9
+docTags: 
+createdAt: Fri Nov 24 2023 17:38:33 GMT+0200 (Eastern European Standard Time)
+---
+
+Depending on the region setting in Windows, you may have issues uploading tags with a CSV file because of the delimiter used. If CSV files are saved by using a semicolon as the delimiter instead of a comma, the tags won't be uploaded successfully. Refer to the table below.&#x20;
+
+<table columnWidths="319,324" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Error message**
+    </td>
+    <td>
+      **Steps to resolve**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **header field deviceId not exists**
+      The CSV file may use semicolons as the delimiter instead of commas.&#x20;
+    </td>
+    <td>
+      1. In Microsoft Excel, navigate to **File&#x20;**> **Options&#x20;**> **Advanced**.&#x20;
+      2. Unselect the checkbox fo&#x72;**&#x20;Use system separators**.&#x20;
+      3. In the **Decimal separator** field, enter a period (.).&#x20;
+      4. In the **Thousands separator** field, enter a comma (,).&#x20;
+      Learn more about :Link[Advanced Options]{href="https://support.microsoft.com/en-gb/office/advanced-options-33244b32-fe79-4579-91a6-48b3be0377c4" newTab="true"} from the Microsoft documentation.&#x20;
+    </td>
+  </tr>
+</table>
+

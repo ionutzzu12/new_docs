@@ -1,0 +1,62 @@
+---
+title: Add a Tag
+slug: LXlEhL0D9yVC0yvh2v7mo
+description: Learn how to add tags to connected devices. 
+docTags: 
+createdAt: Thu Jun 16 2022 18:16:56 GMT+0300 (Eastern European Summer Time)
+---
+
+You can add tags to connected devices by navigating to **DeviceHub&#x20;**> **Tags**. To learn more about registers for specific devices, see the [Industrial Systems Connection Guide](<../../../QuickStart Guide/-4UjeBrmyWNxfUY_lDonG.mdx>).&#x20;
+
+# Before You Begin
+
+Before creating tags, make sure you have connected a device. Refer to [Connect a Device](<../../../ENU/ENU/Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>).&#x20;
+
+# Important
+
+Refer to the following information on Free Tags and OPC UA Drivers:
+
+- Certain device drivers do not have a list of register names in the *Add Tag* form. These are referred to as Free Tags.
+- You must enter case-sensitive register names exactly how they are defined in the device.
+- Devices do not display a *Connected&#x20;*&#x73;tatus until a tag with a correct register name is created. See [Device Connectivity Issues](<../../../Troubleshooting/DeviceHub Troubleshooting/ZJkSHfyflFNt-o6pvz7J6.mdx>) for more information.&#x20;
+- For OPC UA, map the OPC server tags to the client. Enter the Register Name using this format where the semicolon is required: `ns=1;s=tagname`  . For example: `ns=2;s=Channel1.Device1.Tag1`.
+
+# Add an Individual Tag
+
+You can manually add individual tags to a device.&#x20;
+
+**To add an individual tag:**
+
+1. Navigate to **DeviceHub&#x20;**> **Tags**.&#x20;
+2. From the *Tags&#x20;*&#x70;ane, click **Add Tag**, and then select **Add Tag**.
+   The *Add Tag* dialog box appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/mzDFHJyqTCJx7aZJXffPH-20251008-191956.png" size="80" width="1538" height="450" position="flex-start" showCaption="false" indent="2"></Image>
+
+3. Click the **Select a Device** field, and then select an option from the drop-down list. Only devices that had been added to Litmus Edge appear in the drop-down list. The fields displayed in the *Add Tag* dialog box depend on the device driver type.
+4. From the *Add Tag* dialog box, complete the parameters for the tag. Refer to the [Industrial Systems Connection Guide](<../../../QuickStart Guide/-4UjeBrmyWNxfUY_lDonG.mdx>) for parameters specific to your device driver and review the *Tag Parameters* section.&#x20;
+5. The following optional parameters apply to all device drivers. Configure them as needed.&#x20;
+   - **Tag Formula**: Enter a formula for the tag to process the generated data. See [Tag Formula Variables](<../../../ENU/Product Features/DeviceHub/IAXxRo2Zf3JHMykbup5Ai/2xZj7CTcVSSWeflmm0gdV.mdx>) to learn more.&#x20;
+     Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+     - sin
+     - cos
+     - tan
+     - sqrt
+     - power: power(`x`) performs the operation `10^x`.
+     - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+     - exp: exp(`x`) performs the operation `e^x`.
+     - For additional functions on tag values such as rounding and data conversions, you can use [Analytics](../../ETlaRb27Q09oTONoE4bcY.mdx) or the [Flows Manager](../../pEXVb0gXlLgDPGGkqJ2mk.mdx). See [Analytics Guides](<../../../How-To Guides/a6rxrowapnADEOPp9BKYB.mdx>) to learn more.&#x20;
+   - **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+   - **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data. See [Organize Device and Tag Data by Using Metadata](<../../../How-To Guides/DeviceHub Guides/PzaTaUTahhNy1jTUcGCbc.mdx>) to learn more.&#x20;
+6. When done configuring the tag, click **Add Tag**.&#x20;
+
+<hint type="warning">
+  **Important**: The current topic name generation rule uses a byte-specific replacement protocol to create topic names. In this system:
+
+  - If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+  - **ASCII Special Characters:** Symbols and spaces are replaced with a single underscore (“\_”) since they are represented in 1 byte.
+  - **Accented and Extended Unicode Characters:** Characters with accents (e.g., “ó”) are replaced by a double underscore (“\_\_”), reflecting their 2-byte representation. The 3-byte and 4-byte Unicode characters are replaced with three (“\_\_\_*”) and four (“\_*\_\_\_”) underscores, respectively.
+</hint>
+
+The tag appears in the *Tags&#x20;*&#x70;ane.&#x20;
+

@@ -1,0 +1,431 @@
+---
+title: Siemens S7-200 Ethernet
+slug: zTN3bxYZ5a75CkT5vdPel
+description: Review the following information for setting up and configuring the Siemens S7-200 Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Siemens S7-200 Ethernet driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="247,313" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[S7-200]{href="https://cache.industry.siemens.com/dl/files/582/1109582/att_22063/v1/s7200_system_manual_en-US.pdf" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure your device for Ethernet access.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="172,336" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Siemens
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Siemens S7-200 Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      102
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Local TSAP (hex)**
+    </td>
+    <td>
+      The Local TSAP value you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Remote TSAP (hex)**
+    </td>
+    <td colSpan="1" rowSpan="1">
+      The Remote TSAP value you defined in Step 1
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="132,132,132,132,133" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit, byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      317
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q
+    </td>
+    <td align="left">
+      bit, byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      317
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AI
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      31
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AQ
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      31
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      317
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      20477
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      287
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5497
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      31
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      31
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      549
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HC
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real, string
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="A0mW7eFUiB6dsJkAOu4YV">
+
+</ContentSnippet>
+

@@ -1,0 +1,225 @@
+---
+title: AB ControlLogix (Gen1)
+slug: O4iiYn-7bKIGo1NohPBXY
+description: Review the following information for setting up and configuring the AB ControlLogix (Gen1) driver. 
+docTags: 
+createdAt: Fri May 05 2023 23:21:13 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="warning">
+  **Important**: This driver was deprecated in Litmus Edge version 3.5.2.  We recommend using the Gen 2 [AB CompactLogix Ethernet FreeTag](<../Gen 2 Drivers/DrloAMF92cdH0H1Zcu490.mdx>).&#x20;
+</hint>
+
+Review the following information for setting up and configuring the AB ControlLogix (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="226,418" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Rockwell Automation ]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/large-controllers/controllogix.html" newTab="true"}:Link[Allen-Bradley ControlLogix]{href="http://ab.rockwellautomation.com/" newTab="true"}
+      Certain device drivers do not have a list of register names in the DeviceHub Add Tag form. These are *Free Tag* PLCs. For Free Tag requirements, see :Link[Device Connectivity Status]{docId="okFkYcmKRIrYz8gtRQMh9" label="Device Connectivity Status" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Device Connectivity Status"}.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaced with Gen 2 driver**
+    </td>
+    <td>
+      [AB CompactLogix Ethernet FreeTag](<../Gen 2 Drivers/DrloAMF92cdH0H1Zcu490.mdx>)
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+The instructions listed here provide only the basic configuration steps. Refer to the Rockwell Automation Allen-Bradley PLC documentation for current, complete details.
+
+1. Set the PLC IP address.
+2. Create new tags (Controller and Program tags supported).
+3. Export tag data to a CSV file: **Tools > Export > Tags and Logic Comments**.
+
+The CSV consists of PLC settings along with the Tags which can be read using Litmus Edge.
+
+**To configure the PLC:**
+
+1. Note down the following information and refer to it as needed.&#x20;
+   **Device**: AB ControlLogix 1756-L55
+   **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zEQd-2740g_Zsc2OX0rYu_ab-controllogix.png" size="100" width="866" height="281" caption="AB ControlLogix" position="center" showCaption="true" indent="2"></Image>
+
+2. Launch RSLinx 5000 v16 Software, and then click **Configure Drivers**.
+3. Add a new RS-232-DF1 driver.
+4. Set up the communication port and parameters, and then click **Auto-Configure**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/7QyA_xCTHD9zAx2Q5k1Q5_ab-controllogix-parameters482x338.png" size="100" width="482" height="338" caption="AB ControlLogix parameters" position="center" showCaption="true" indent="2"></Image>
+
+5. Right-click the **Ethernet communication module > Module Configuration&#xA0;**&#x74;o set up its network parameters.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AxeVXfbt4vsV69LkCoZDY_ab-controllogix-network.png" size="100" width="785" height="294" caption="AB ControlLogix network" position="center" showCaption="true" indent="2"></Image>
+
+6. Add an Ethernet Device driver.
+7. Click **Configure&#xA0;**&#x61;nd select the IP for the device.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/XLMpMQXePiGDMqEvPduxP_ab-controllogix-configure.png" size="100" width="968" height="450" caption="AB ControlLogix configure" position="center" showCaption="true" indent="2"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB ControlLogix (Gen1)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot Number**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+<hint type="info">
+  **Note**: The **Browse** icon displayed on the device tile means that this PLC uses Browse Tags. See :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#X8Me2" overridedLabel="Add Tags"}  for more information. :Link[Add a Tag]{docId="XgWOkQbTPevII7OR82LL0" label="Add a Tag" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId}
+</hint>
+
+When you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to the connected device, use the following tag/register mapping table.
+
+<table columnWidths="115,628" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      BOOL
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      SINT
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      INT
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      BIT(INT)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      DINT
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      REAL
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      LINT
+    </td>
+  </tr>
+</table>
+

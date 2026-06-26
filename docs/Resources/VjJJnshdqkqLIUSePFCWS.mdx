@@ -1,0 +1,486 @@
+---
+title: Litmus Edge Appliance and Docker Models Compared
+slug: VjJJnshdqkqLIUSePFCWS
+description: Compare the appliance model and Docker model. 
+docTags: 
+createdAt: Fri Jun 23 2023 18:04:43 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the table below to see which components the Litmus Edge Docker model doesn't have compared to the standard Litmus Edge appliance version.&#x20;
+
+<table columnWidths="236,115,133,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Feature**
+    </td>
+    <td>
+      **Litmus Edge Appliance Version**
+    </td>
+    <td>
+      **Litmus Edge Docker Version**
+    </td>
+    <td>
+      **Notes**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Dashboard
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Dashboard > Device Up Time
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Dashboard > Service Status
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes but limited (see note)
+    </td>
+    <td>
+      For the Docker version, only the following services display a status:
+      - DeviceHub
+      - Flows Manager
+      - Analytics
+      - Integrations
+      - OPC UA
+      - DM (Data Management)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DeviceHub > Drivers
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DeviceHub > Tags
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DeviceHub > Device Discovery&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DeviceHub > Utilities&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Digital Twins > Models&#x20;
+      Digital Twins > Instances&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Litmus Edge version 3.3.1 and later
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DataHub > Configurations
+      DataHub > DB Management
+      DataHub > DB Users
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Flows Manager
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Analytics > Instances&#x20;
+      Analytics Models&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Integrations
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Applications
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      OPC UA
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Info&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Certificates&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Network&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      For the Docker version this is managed at the host system.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Wifi
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      For the Docker version this is managed at the host system.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Remote&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      For the Docker version this is managed at the host system.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Device Management&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes but limited (see note)
+    </td>
+    <td>
+      The Docker version only has Cloud Activation, and doesn't have the following:
+      - Reboot
+      - Factory  Reset
+      - Software Update
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > LDAP/AD&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Users
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Tokens
+      - NATS Proxy&#x20;
+      - REST API Keys&#x20;
+      - Access Accounts
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      NATS Proxy available for Litmus Edge 3.3.1 version and later
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Services&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      For the Docker version, this is managed at the host system.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > External Storage
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      For the Docker version, this is managed at the host system.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Policy Management&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Licenses&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes but limited (see note)
+    </td>
+    <td>
+      A 15-day trial license is available for the VM version but isn't available for the Docker version.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Events
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Zerotouch&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      Litmus Edge version 3.5.2 and later
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Support&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes but limited (see note)
+    </td>
+    <td>
+      The *File Downloads* section isn't available for the Docker version.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Backup/Restore
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      System > Template
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes but limited (see note)
+    </td>
+    <td>
+      Default connectors are not included in the VM and Docker versions.&#x20;
+      The Marketplace template component is not available in the Docker version.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      User Profile&#x20;
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
+

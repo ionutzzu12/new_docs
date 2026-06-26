@@ -1,0 +1,68 @@
+---
+title: Restore a Device
+slug: ugnam2T7aO0f1wjDjSglm
+description: You can use the backup.data file stored locally to restore a device. 
+docTags: 
+createdAt: Fri Oct 07 2022 17:45:33 GMT+0300 (Eastern European Summer Time)
+---
+
+You can restore a Litmus Edge device from the backup.dat file you have stored on your local drive by navigating to **System&#x20;**> **Device Management > Backup/Restore**.&#x20;
+
+<hint type="warning">
+  **Important**: You must have a valid license to enable this page. See [Licenses](<../../../../../docs/Product Features/System/DTXnDPBaCvEGTyNLqNKbs/jkNzfvwwXqsxqTa0tUWfB.mdx>).&#x20;
+</hint>
+
+If you need to replace a damaged device, see :Link[Replace a Damaged Device]{docId="ZwKHTM4RO5xGIOWhlwUSh" label="Replace a Damaged Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Replace a Damaged Device"}.&#x20;
+
+There are two ways to restore a device:&#x20;
+
+- Restore a device manually&#x20;
+- Back up a device to the Cloud
+
+# Important
+
+- You should regularly back up Litmus Edge. See [Back Up a Device](k3lgAyGNXqAdzZG78Seh7.mdx). &#x20;
+- The backup can only be restored to the same device or to a replacement device.
+- The backup can only be restored to a device with the same license key.
+- The restore operation overwrites all configurations collected since the last backup.
+
+# Restore a Device Manually
+
+**To manually restore a device:**
+
+1. In Litmus Edge, navigate to **System&#x20;**> **Device Management**.
+2. Click the **Backup/Restore** tab.&#x20;
+3. From the *Backup/Restore Configuratio*n section, click **Restore**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Jeh1do0Zu4xyjAl3xotrJ_restore-button.png)
+4. Navigate to the backup.dat file you stored on your local drive, and click **Open**.
+   A warning message indicates that the system reboots after the restore has completed.
+5. Click **OK**.
+   Once restored, the Litmus Edge device restarts with the configuration backed up on the selected file.
+   When the device reboots, refresh the Litmus Edge application.
+
+# Restore a Device from the Cloud
+
+You have the option of restoring a device from the Cloud.&#x20;
+
+<hint type="success">
+  **Tip**: You can also restore a device from Litmus Edge Manager from the **Backup&#xA0;**&#x74;ab for the device details.
+</hint>
+
+## Before You Begin
+
+- Make sure you have obtained a license for backup and restore.
+- Make sure you have activated the device with Litmus Edge Manager. See :Link[Activate an Edge Device]{docId="z0zdAs4CF_mliE_pvm8eq" label="Activate an Edge Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Activate an Edge Device"} for more information.
+
+**To restore a device from the cloud:**
+
+1. In Litmus Edge, navigate to **System&#x20;**> **Device Management**.
+2. Click the **Backup/Restore** tab.&#x20;
+3. From the *Restore/Backup to the Cloud* section, select a saved backup file and click the **Restore from Cloud** icon.&#x20;
+   A warning message indicates that the system reboots after the restore has completed.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/k322CM8o_GWDsCApt75X6_restorefromcloud.png" size="80" width="1720" height="391" caption="Restore from Cloud icon" position="center" showCaption="true"></Image>
+4. Click **OK**.
+
+Once restored, the Litmus Edge device restarts with the saved backup selected.
+
+When the device reboots, refresh the Litmus Edge application.
+

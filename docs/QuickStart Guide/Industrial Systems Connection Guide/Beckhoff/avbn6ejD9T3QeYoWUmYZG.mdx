@@ -1,0 +1,185 @@
+---
+title: Beckhoff TwinCAT3 Ethernet Symbolic (Gen1.3)
+slug: avbn6ejD9T3QeYoWUmYZG
+description: Review the following information for setting up and configuring the Beckhoff TwinCAT3 Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Beckhoff TwinCAT3 Ethernet Symbolic (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="215,283" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Beckhoff TwinCat 3]{href="https://www.beckhoff.com/en-ca/products/automation/twincat/tc1xxx-twincat-3-base/tc1200.html" newTab="true"}
+      When configuring tags for this driver, you must enter the case-sensitive register name exactly as it is defined in the PLC. See the *Free Tags* section below to learn more.&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - Make sure the Litmus Edge IP address is configured in TWINCAT.
+  - The Beckhoff PLC is also a PC with its own OS, and an IP address can be set up like a PC.
+</hint>
+
+**To configure your device:**
+
+1. &#x20;Note down the following information and refer to it as needed.&#x20;
+   &#x20;    **Device**: TwinCAT 3 Beckhoff PLC
+   &#x20;    **Communication I/F**: Ethernet
+2. Launch a new project in TcXaeShell.&#x20;
+3. Click **Routes&#x20;**&#x74;o add the target that is going to connect to the PLC.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HaponcqXFtWYQjLP27IRQ_twincat-01-update.png" size="100" width="1460" height="633" position="center" showCaption="false" indent="2"></Image>
+
+4. Click **Add...**&#x43;onfigure the following parameters. Please note that only clients in the *Routes&#x20;*&#x6C;ist can connect to the PLC.&#x20;
+   **Route Name (Target)**: Enter a name for the route.&#x20;
+   **AmsNetId**: Enter the AmsNetId for the route. If the PLC is running as a soft connection, and Litmus Edge and the panel PC are on the same network, the *AmsNetId* and *Address info* values should be the same with `.1.1` at the end.&#x20;
+   **Transport Type**: Review and confirm the transport type for the route.&#x20;
+   **Address Info**: Enter the IP address of the corresponding target system in the network. If the PLC is running as a soft connection, and Litmus Edge and the panel PC are on the same network, the *AmsNetId&#x20;*&#x61;nd *Address info* values should be the same with `.1.1` at the end.
+   **Target Route**: Select **Static**.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-7FWVIf21WcYjwoyXpa0o_twincat-02-01.png" size="100" width="1326" height="768" position="center" showCaption="false" indent="2"></Image>
+
+5. Click the **Restart TwinCAT&#x20;**&#x69;con. Then, click the **Login&#x20;**&#x69;con to start the simulator.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HNFglQwMydR6a1sq3g0P6_twincat-03.png" size="100" width="964" height="330" position="center" showCaption="false" indent="2"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="156,295" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Beckhoff
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Beckhoff TwinCAT3 Ethernet Symbolic (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      48898
+      Enter the network port for the Beckhoff device defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Ads port**
+    </td>
+    <td>
+      851
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Ams ID**
+    </td>
+    <td>
+      AMS ID for the Beckhoff device
+      Enter the following: `[Beckhoff device Ams ID].1.1`
+      For example, if your Beckhoff Ams ID is 37.136.43.210, enter `37.136.43.210.1.1`.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Local Ams ID**
+    </td>
+    <td>
+      Local AMS ID for the Litmus Edge device
+      Enter the following: `[Litmus Edge IP address].1.1`
+      For example, if your Litmus Edge IP address is 192.168.0.152, enter `192.168.0.152.1.1`.
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="AWa1-gOs6_B9p9uMjYJPE">
+
+</ContentSnippet>
+
+- `bool`
+- `sint`
+- `byte`
+- `int`
+- `word`
+- `dint`
+- `dword`
+- `lint`
+- `lword`
+- `real `
+- `lreal`
+- `ltime`
+- `string`
+- `wstring`
+- `date`
+- `time`
+- `dateandtime`
+- `timeofday`
+
+<ContentSnippet docRefId="gEbWNlruKt_gmj4HBbNjV">
+
+</ContentSnippet>
+

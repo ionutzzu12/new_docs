@@ -1,0 +1,69 @@
+---
+title: Limitations 4.0.13
+Limitations 4.0.13
+slug: limitations-4013-limitations-4013
+docTags: 
+createdAt: Mon Jun 15 2026 22:46:23 GMT+0300 (Eastern European Summer Time)
+---
+
+The following limitations have been identified. When they are resolved, they will be reported in the latest :Link[Product Updates]{label="Product Updates" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="g8yvKvCMemAPwKgq7jS7Y" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} under *Resolved Issues*.&#x20;
+
+<table columnWidths="648" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub:**
+      - DeviceHub user role permissions cannot be modified after they are saved. As a workaround, remove and recreate the role.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DataHub:**
+      - On Litmus Edge Docker containers in versions 4.0.12 and 4.0.13, Edge Cascading fails to apply configuration changes due to a NATS server restart failure. As a workaround, restart the Docker container to restart the NATS server.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - FileReader processor is unable to read files that are generated from Flows Manager. As a workaround, in Flows use the exec node to run `chmod` commands to update file and directory access.
+      - The first flow created in Flows Manager cannot be stopped or restarted in Safe Mode.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - Attempting to deploy an application may result in a `409 Conflict` launch error.
+      - The container terminal incorrectly prints `\x08` instead of deleting characters when the Backspace key is pressed.
+      - When a non-privileged user attempts to launch a privileged application, a `failed to create an application,undefined` error message incorrectly displays instead of `Failed to create an application. rejected by administrative policy: privileged and some directories require additional permission`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integration:**
+      - Updating the **Bulk Insert Count** from `0` to any other value causes connectors to enter a failed state.
+      - A `bulk operation limit of 1000 exceeded` error message displays when performing a bulk edit on less than 100 subscriptions.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System:**
+      - Static routes are lost when a network connection is manually disconnected or briefly interrupted. The Web UI retains the route configuration, but the backend routes are deleted. As a workaround, add the routes again manually.
+      - After a system reset of an `.iso` deployment, certain services (such as DeviceHub API, Analytics API, and Message Broker) fail to initialize and remain in a failed state regardless of subsequent reboots.
+      - LDAP searches can return an excessive number of records resulting in a `Size Limit Exceeded` error.
+      - When the system generates a high volume of events from a single database file, the UI may become unresponsive in **System** > **Events**. Additionally, CSV files may not generate and download. As a workaround, use APIs to query events.
+      - Importing a template with multiple connectors fails when a configuration issue occurred with one component.
+      - With High Availability, changes in **Network** > **Interfaces** are not reflected on the backup node.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Docker:**
+      - On Litmus Edge Docker containers activated against a Litmus Edge Manager site license, the Backup and Updates features may incorrectly appear as unlicensed. Node-locked licensed containers are not affected.
+    </td>
+  </tr>
+</table>
+

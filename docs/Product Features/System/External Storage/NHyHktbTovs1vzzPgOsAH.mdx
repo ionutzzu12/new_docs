@@ -1,0 +1,39 @@
+---
+title: Mount External Storage
+slug: NHyHktbTovs1vzzPgOsAH
+description: Learn how to mount external storage in Litmus Edge. 
+docTags: 
+createdAt: Wed Sep 28 2022 17:45:41 GMT+0300 (Eastern European Summer Time)
+---
+
+You can mount and view the details for the external storage you set up in Litmus Edge using CIFS (Common Internet File System) or FTP (File Transfer Protocol) by navigating to **System&#x20;**>**&#x20;External Storage**.&#x20;
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - You have the option to use multi-level folder paths when mounting external storage.&#x20;
+  - The status of mounted storage is monitored. If the external storage is down, then the storage is automatically unmounted. The storage is automatically mounted when the storage reconnects.&#x20;
+</hint>
+
+**To mount external storage:**
+
+1. Navigate to **System&#x20;***>&#x20;***External Storage**.&#x20;
+2. Click **Add new mount point**.&#x20;
+   The *Create Mountpoint&#x20;*&#x64;ialog box appears.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2LLZPD_1XktA5qfv1MK5B_add-mount-point.png)
+3. Enter the details for the mount point.&#x20;
+   - **Mount Point Name**: Enter a name for the mount point. The system automatically creates the folder in **/data/** on the Litmus Edge device.
+   - **Type**: Select **CIFS&#x20;**&#x6F;r **FTP**.&#x20;
+   - **Share**: Enter the shared folder name. Enter the URI of your remote storage location (//\<Host\_IP\_Address or hostname>/\<Shared\_Folder\_Name>). To find your systems IP address, type **cmd&#xA0;**&#x69;nto the Windows search bar. Type **ipconfig&#xA0;**&#x69;nto the window and use the IPv4 address for your Ethernet or wireless adapter.&#x20;
+   - **Read Only**: Uncheck the *Read Only&#x20;*&#x63;heck box. If you select this check box, writing to the network storage is disabled.&#x20;
+   - **Mount on Boot** (Optional): If you check the *Mount on Boot* check box, the remote storage is mounted whenever you boot the Litmus Edge device.&#x20;
+   - **Username**: Enter the user name for the network location (the Windows username or the Linux Samba username you created previously).
+   - **Password**: Enter the password for the network location (the password for the Windows username or the Linux Samba username you created previously). All special characters except comma(,) may be used for the password.
+   - **Domain**: If you select **CIFS**, you have the option to enter a domain name. This information is not necessary to connect in most cases. It is the name of the machine where the network folder resides. Type **hostname&#xA0;**&#x69;n the Windows command line or Linux terminal to view this information.
+4. When done configuring the external storage, click **Create**.&#x20;
+5. Click the **Action menu** for the new mount point and select **Mount**.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9YvmDP_YwuWuIiZu2ZfJw_image.png)
+
+
+

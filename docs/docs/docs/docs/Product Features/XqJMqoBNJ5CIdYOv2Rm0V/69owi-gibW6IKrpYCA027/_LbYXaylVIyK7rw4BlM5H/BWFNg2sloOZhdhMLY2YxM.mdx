@@ -1,0 +1,25 @@
+---
+title: Log in with Authentication
+slug: BWFNg2sloOZhdhMLY2YxM
+description: After configuring LDAP, you must select a Provider ID when logging in.
+docTags: 
+createdAt: Tue Sep 27 2022 22:09:16 GMT+0300 (Eastern European Summer Time)
+---
+
+After configuring LDAP, you must select a Provider ID when logging in to Litmus Edge.
+
+The username is from the LDAP server. The password must match the Bind DN Password from the configuration. See [Add an LDAP/AD Provider](phJW51ZvfKdDt8JrA4Ufj.mdx) for more information.
+
+The Internal authentication Provider appears in the ID selection list. If you do not select another ID, Litmus Edge uses the non-configurable default provider ID.
+
+Litmus Edge uses a self-signed Certificate. Follow the browser guidelines for how to bypass a self-signed security error message. See :Link[Browser Issues]{docId="F_4FUf7kbozItSH_LMXp4" label="Browser Issues" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId} for more information.
+
+**To log in with authentication:**
+
+1. Enter the Litmus Edge IP address into a browser add/URL bar. For example: `https://172.20.20.109`.
+2. From the log in window, enter the authentication details:
+   - **Username**: Enter the LDAP Server user name.&#x20;
+   - **Enter Password**: Enter the password from the Bind DN configuration.&#x20;
+   - **Provider ID**: Select **openldap**.
+3. Click **Log In**.
+

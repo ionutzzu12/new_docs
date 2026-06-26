@@ -1,0 +1,66 @@
+---
+title: Combination Processor
+slug: combination-processor
+docTags: 
+createdAt: Tue Aug 06 2024 22:34:28 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Combination&#x20;**&#x70;rocessor is used to combine fields from different input processors into a single JSON string.
+
+# Combination Processor Overview
+
+- This Processor can be used to combine fields from different input processors, into a single JSON string.
+- A definition is needed to be added on the connecting wire after creating this processor.
+- The fields to combined, will need to be defined as **wire definition**\_**fieldName.**
+
+# Combination Processor Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Combination Type
+    </td>
+    <td>
+      This parameter allows you to choose between combining selected fields or combining all fields from the different input processors.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      What Timestamp to Take?
+    </td>
+    <td>
+      Use this parameter to select the timestamp from a specific input processor to be included in the combined output.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Fields to Combine
+    </td>
+    <td>
+      In this parameter, you need to enter the fields that you want to combine into a single JSON string, separated by commas.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Pass Through Value
+    </td>
+    <td>
+      This parameter enables you to specify how anomalous data should be handled, such as replacing the current value with an anomaly field if detected.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/jZ3tTiwMGHSn_DF7KN8C1_image.png" size="80" width="960" height="670" caption="Combination Processor parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Combination Processor*, refer the :Link[Use the Combination Processor Function]{label="Use the Combination Processor Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="q66voi16uWawJIJkhVY-N" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

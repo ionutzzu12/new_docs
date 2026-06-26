@@ -1,0 +1,81 @@
+---
+title: Back Up a Device
+slug: k3lgAyGNXqAdzZG78Seh7
+description: Learn how to complete a device backup. 
+docTags: 
+createdAt: Fri Oct 07 2022 17:45:34 GMT+0300 (Eastern European Summer Time)
+---
+
+You can backup your Litmus Edge with its configurations by navigating to **System&#x20;**>**&#x20;Device Management > Backup/Restore**.
+
+<hint type="warning">
+  **Important**:&#x20;
+
+  - You must have a valid license to enable this page. See :Link[Licenses]{label="Licenses" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="br8TIoomY44n8jGvYfbKi" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+  - If you create a backup on an instance of Litmus Edge running on a virtual machine, you can't use the same backup to restore an instance of Litmus Edge running on a physical device.&#x20;
+</hint>
+
+There are two ways to back up a device: Manually and Cloud.&#x20;
+
+# Back Up a Device Manually
+
+You can back up a device manually and save a copy of the device to your local drive.&#x20;
+
+## Before You Begin
+
+Review the following resources before manually backing up a device.&#x20;
+
+- :Link[Prepare for Backup]{docId="Afy0J78gZCeYNd_u_HAst" label="Prepare for Backup" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId}
+- [Backup File Contents and File Management](<Back Up a Device/sj5y7dCT-DqXGqir-KS7s.mdx>)
+
+## How To Back Up a Device Manually
+
+**To manually back up a device:**
+
+1. In Litmus Edge, navigate to **System&#x20;***>&#x20;***Device Management**.
+2. Click th&#x65;**&#x20;Backup/Restore** tab.&#x20;
+3. From the *Backup/Restore Configuration&#x20;*&#x73;ection, click **Backup**.
+   A backup.dat file is saved to the Downloads folder.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/QsTEsysGGUbQHZIrS84Av_backup-button.png)
+4. Move the **backup.dat&#xA0;**&#x66;ile to a designated folder on your local drive.
+5. Rename the **backup.dat&#xA0;**&#x66;ile according to your naming convention.
+
+## Recommended Alternative: Use Litmus Edge Manager to Backup Device
+
+As instructed above, backing up a Litmus Edge device is a *manual&#xA0;*&#x70;rocess. Litmus Edge Manager offers an *automatic&#xA0;*&#x62;acking up feature for your Litmus Edge devices. This option automatically creates a new backup every time a Litmus Edge device’s configuration setting changes. This includes setting changes such as saving a flow, adding a new user, or adding a new Analytics processor.
+
+See :Link[Backup]{docId="axfcH6DH6avOvjLq5W7Rz" label="Backup" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId} from the Litmus Edge Manager documentation to learn more.&#x20;
+
+# Back Up a Device to the Cloud
+
+Backup to the Cloud facilitates backups to Litmus Edge Manager. Backups allow you to save a Litmus Edge device configuration to the cloud and later restore the configuration for the same device.
+
+You can save the current device configuration to the cloud. This enables you to store full license and configuration information within a backup JSON file. You can later restore the full license and configuration to the same Litmus Edge device.
+
+- Use this option to save a Litmus Edge device configuration so that you can later revert to a previous configuration.
+- Use this option to store a local backup of the Litmus Edge device configuration.
+
+## Before You Begin
+
+Before completing the steps below, make sure you do the following:
+
+- Obtain a license for backup and restore.
+- Activate the device with Litmus Edge Manager. See :Link[Activate an Edge Device]{docId="z0zdAs4CF_mliE_pvm8eq" label="Activate an Edge Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} for more information.
+
+## How To Back Up a Device to the Cloud
+
+<hint type="warning">
+  **Important****:** When you configure a device backup to the Cloud, you have the option of selecting the backup time interval. This selection determines the frequency at which the backup mechanism checks the device configuration for changes. If no changes are made, no backup file will be sent.
+</hint>
+
+**To save a device configuration to the cloud:**
+
+1. In Litmus Edge, navigate to **System&#x20;***>&#x20;***Device Management**.
+2. Click the **Backup/Restore** tab.&#x20;
+   The *Backup/Restore&#x20;*&#x70;ane appears.&#x20;
+3. From the *Restore/Backup to the Cloud* section, click **Configure&#x20;**&#x61;nd select an option from the drop-down list: None, 1 Day, 1 Hour, 10 minutes, custom interval in minutes.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/hXB4Sq9alfIRHMm6s6w9O_configure-button.png)
+4. After you have made your selection or entered an interval in minutes into the **Interval&#xA0;**&#x66;ield, click **Set Custom**.
+5. From th&#x65;*&#x20;Restore/Backup to the Cloud* section, click **Save**.
+   The backup configuration is saved to the cloud according to your selections. The backup files appear as files in the *Restore/Backup to the Cloud* section for the interval you have selected.
+

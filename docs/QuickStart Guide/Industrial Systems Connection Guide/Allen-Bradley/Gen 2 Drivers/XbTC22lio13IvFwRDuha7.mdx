@@ -1,0 +1,606 @@
+---
+title: AB DF1 Ethernet
+slug: XbTC22lio13IvFwRDuha7
+description: Review the following information for setting up and configuring the AB DF1 Ethernet driver. 
+docTags: 
+createdAt: Mon Jun 26 2023 20:05:26 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB DF1 Ethernet driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="219,275" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[PLC-5]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/discontinued-products/plc-5-controllers.html" newTab="true"}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td>
+      :Link[AB PLC5 (Gen1)]{label="AB PLC5 (Gen1)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="wGo4tEMyczOgC96hXoJ61" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="226,401" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB DF1 Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      2222
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Plc Type**
+    </td>
+    <td>
+      PLC5
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Source ID (SRC Byte)**
+    </td>
+    <td>
+      0&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Destination ID (DST Byte)**
+    </td>
+    <td>
+      0&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Read Timeout**
+    </td>
+    <td>
+      1000 (ms)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Retry Count**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Keep Alive**
+    </td>
+    <td>
+      60 (TCP Keep-Alive)
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<hint type="info">
+  **Note:&#x20;**&#x54;he register table below represents the PLC address format. In Litmus Edge, you will need to enter the tag address in decimal format. This means you must convert the PLC addresses for the Input and Output Data Files from octal format to decimal format.
+</hint>
+
+<table columnWidths="100,100,106,106,100,100,131" selectedRows="" isTableHeaderOn="true" selectedColumns="" selectedTable="false">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      O
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Output
+    </td>
+  </tr>
+  <tr>
+    <td>
+      O\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOoo
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Output
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Input
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOoo
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Input
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Status
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Status
+    </td>
+  </tr>
+  <tr>
+    <td>
+      B
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      3276015
+    </td>
+    <td>
+      Binary
+    </td>
+  </tr>
+  <tr>
+    <td>
+      T\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td>
+      T
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Control
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Control
+    </td>
+  </tr>
+  <tr>
+    <td>
+      N
+    </td>
+    <td>
+      uint, int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Integer
+    </td>
+  </tr>
+  <tr>
+    <td>
+      F
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Float
+    </td>
+  </tr>
+  <tr>
+    <td>
+      D
+    </td>
+    <td>
+      bcd
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      BCD
+    </td>
+  </tr>
+  <tr>
+    <td>
+      A
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      ASCII
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ST
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      String
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="wqYdkDMQTUxX2R0cwB2EU">
+
+</ContentSnippet>
+

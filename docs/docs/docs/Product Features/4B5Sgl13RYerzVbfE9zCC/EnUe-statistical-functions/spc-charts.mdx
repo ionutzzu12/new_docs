@@ -1,0 +1,74 @@
+---
+title: SPC Charts
+slug: spc-charts
+docTags: 
+createdAt: Mon Oct 21 2024 21:05:57 GMT+0300 (Eastern European Summer Time)
+---
+
+The **SPC Chart&#x20;**&#x70;rocessor function helps analyze process data over a specified window and generate insights into the process performance and capability. It calculates various statistical measures and assesses adherence to quality specifications using control charts and pre-defined rules.
+
+# **SPC Charts Overview**
+
+- First, the **target\_mean** (default 100), **window size** (default 50), and **timer interval** need to be set.
+- The **timer interval** parameter ensures that even if the connected input tag is not polling, the SPC chart will still publish data at the specified interval.
+  - If the input is expected to publish at the expected rate, set the timer interval to **0** to disable the timer.
+- The **current mean** and **standard deviation (stdDev)** are calculated based on the input data within the defined window.
+- **Upper Specification Limit (USL)** and **Lower Specification Limit (LSL)** are computed based on the **current\_mean** and **standard deviation**.
+- The **process capability (Cp)** is calculated as the ratio of the difference between USL and LSL over six times the standard deviation (6σ).
+- **CPu** (Upper Capability Index) and **CPl** (Lower Capability Index) are calculated to assess how centered the process is within the specification limits.
+- CPu = (USL - avg) / 3σ, CPl = (avg - LSL) / 3σ
+- **Process performance (Cpk)** is calculated by determining the smallest value between CPu and CPl.
+- Optionally, if valid data is present, the **Cpm** and **Cpkm** (which use the target mean) will be computed.
+- The chart will also output any **Nelson Rule violations** with a **true** flag indicating which rule number has been violated.
+- The rules are as follows
+- Rule1: One point is more than 3 standard deviations away from the mean.
+- Rule2: Nine (or more) points in a row are on the same side of the mean.
+- Rule3: Six (or more) points in a row are continually increasing or decreasing.
+- Rule4: Fourteen (or more) points in a row alternate in direction, increasing then decreasing.
+- Rule5: Two (or three) out of three points in a row are more than 2 standard deviations away from the mean in the same direction.
+- Rule6: Four (or five) out of five points in a row are more than 1 standard deviation away from the mean in the same direction.
+- Rule7: Fifteen points in a row are all within 1 standard deviation of the mean on either side of the mean.
+- Rule8: Eight points in a row exist, but none within 1 standard deviation of the mean, and the points are in both directions from the mean.
+
+# SPC Charts Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Window Size
+    </td>
+    <td>
+      Defines the number of data points considered for calculations. The window size affects the computation of the current mean, standard deviation, and specification limits.    </td>
+  </tr>
+  <tr>
+    <td>
+      Target Mean
+    </td>
+    <td>
+      This represents the desired average value for the process. It serves as a reference point for evaluating process performance against expectations.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Time Interval
+    </td>
+    <td>
+      Specifies the frequency at which the SPC chart publishes data.
+    </td>
+  </tr>
+</table>
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/GTO9WkoMPYQLB41P4Iwph_image.png)
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *SPC Charts&#x20;*&#x70;rocessor, refer the :Link[Use the SPC Charts Function]{label="Use the SPC Charts Function" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="pprra0-TsCmS3Me-Hlkdb" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

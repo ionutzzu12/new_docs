@@ -1,0 +1,55 @@
+---
+title: Tags
+slug: v_j35-Rcple3NFDsiSHfU
+description: Tags are the single units of data collection from a device and map to the device's registers from which you want DeviceHub to collect data.
+docTags: 
+createdAt: Fri May 13 2022 22:50:40 GMT+0300 (Eastern European Summer Time)
+---
+
+Tags are the single units of data collection from a device. After connecting a device to Litmus Edge, you add tags to that device. Tags map to the device's registers from which you want DeviceHub to collect data. Every device has memory registers that store sensor and system values. These registers can be analog and digital, input, and output. Register information is accessed as tags and these tags are published as *Topics&#x20;*&#x74;o the internal *Message Broker*.&#x20;
+
+# Raw Topics and Alias Topics
+
+When you :Link[Connect a Device]{docId="D4_KwNQkfuTMiAcfqY9v5" label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}, you have the option of generating raw topics or alias topics. Raw or processed data can be analyzed at the edge using [Analytics](<../../../Product Features/4B5Sgl13RYerzVbfE9zCC.mdx>) or flows in :Link[Flows Manager]{docId="DGBgCf3RY2fiO_dUaZkvI" label="Flows Manager" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Flows Manager"}. You can publish data to Litmus Edge Manager through raw topics. Alias topics consist of *devicename* and *tagname&#x20;*&#x69;nstead of DeviceID and TagID. Alias topics can be used for publishing and subscribing with an internal message broker.&#x20;
+
+If you select **Enable alias** **topics** when adding or modifying a device:
+
+- The Topic ID is replaced with a name (for example, `devicehub.alias.PLC1.floatTag`)
+- DeviceHub stops publishing to raw topics and publishes only to alias topics.&#x20;
+- Litmus Edge substitutes all special characters in aliases with "\_" (underscore).&#x20;
+- Message broker allows subscribe and publish of Raw/Alias topics.&#x20;
+- When alias topics are enabled for a device, you can't use batch write topics. To use batch write topics, ensure that **Enable alias topics** check box is not selected in device configuration. See :Link[Default Topics and Descriptions]{docId="D3Gdt3dD_AtluCj2RS_0p" label="Default Topics and Descriptions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Default Topics and Descriptions"} for more information.
+
+# Adding Tags
+
+You can add tags as follows:
+
+- **Add a single tag**: Add a single tag for the selected device. See :Link[Add a Tag]{label="Add a Tag" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="M1eMHMddeLvQ61KpA3eQ_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+- **Add multiple tags**: Upload multiple tags at once from a CSV file. See [Add Multiple Tags](<../../../Product Features/DeviceHub/Tags/-BzydHyRluMWCfJxaOoEy.mdx>).
+- **Browse Tags**: Search for and add predefined device tags. See [Browse and Add Tags from a Device](<../../../Product Features/DeviceHub/Tags/Browse and Add Tags from a Device/QBxKz4Vf4rNFwqvjC2xTU.mdx>).
+
+See :Link[Default Topics and Descriptions]{docId="D3Gdt3dD_AtluCj2RS_0p" label="Default Topics and Descriptions " spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" overridedLabel="Default Topics and Descriptions"} for information about topic formats.
+
+# Access Tags UI
+
+You can access *Tags&#x20;*&#x66;rom the *DeviceHub*.&#x20;
+
+**To access Tags:**
+
+1. Log in to Litmus Edge.
+2. From the Navigation panel, navigate to **DeviceHub&#x20;**> **Tags**.
+   Th&#x65;*&#x20;Tags* pane appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/vqV7bVoNRvuC6ZjsqnyFq_image.png" size="80" width="1536" height="751" position="flex-start" showCaption="false" indent="1"></Image>
+
+# Next Steps
+
+- :Link[Add a Tag]{label="Add a Tag" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="M1eMHMddeLvQ61KpA3eQ_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+- [Add Multiple Tags](<../../../Product Features/DeviceHub/Tags/-BzydHyRluMWCfJxaOoEy.mdx>)&#x20;
+- [Browse and Add Tags from a Device](<../../../Product Features/DeviceHub/Tags/Browse and Add Tags from a Device/QBxKz4Vf4rNFwqvjC2xTU.mdx>)&#x20;
+- :Link[Manage Tags]{docId="2a_3FiiQN_DdD_XFpa4iV" label="Manage Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage Tags"}&#x20;
+- :Link[Tag Formula Variables]{docId="6ZXvF0-VbRxDrma6paaqU" label="Tag Formula Variables" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Default Topics and Descriptions]{docId="D3Gdt3dD_AtluCj2RS_0p" label="Default Topics and Descriptions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Default Topics and Descriptions"}&#x20;
+- :Link[DeviceHub Guides]{docId="YJnv21UfiwYVI88Z6i6dK" label="DeviceHub Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[DeviceHub Troubleshooting]{docId="VJy_5sbNLBY5XSy6T-66k" label="DeviceHub Troubleshooting" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+

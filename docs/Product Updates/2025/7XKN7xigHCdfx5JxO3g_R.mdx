@@ -1,0 +1,459 @@
+---
+title: Litmus Edge 4.0.4
+slug: 7XKN7xigHCdfx5JxO3g_R
+docTags: 
+createdAt: Fri Aug 22 2025 18:52:10 GMT+0300 (Eastern European Summer Time)
+---
+
+4Release Date: September 5, 2025
+
+Review the current list of :Link[Limitations]{label="Limitations" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="je71xiIA0odbz3TU85cj_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+<hint type="info">
+  **Note:** A Litmus Edge :Link[Developer Edition 2-Hour Trial]{label="Developer Edition 2-Hour Trial" spaceId="wQD1Hy26GI4GkT5CfHoGL" docId="W8K6yGZ9hbPijPypt5f-e" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} is now available for you to easily explore and develop in the product.
+</hint>
+
+## New Features
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **DeviceHub:**
+      DeviceHub introduces tag browsing, new drivers and driver versions, and additional features.
+      Tag browsing
+      - Tag browsing introduces optimized loading times for tag searches and improved navigation that makes it easier for you to find and add tags. Tag browsing replaces **Browse Tags** and **Server Search** functionality and improves on the previous search in several ways:
+        - **Unified search:** Search through one UI rather than through two separate methods which simplifies the overall search experience.
+        - **Persistent results:** Search results load once and persist for faster searches.
+        - **Spreadsheet support:** Download your search results for further processing in Excel.
+        - **Multi-tasking:** Perform other tasks in Litmus Edge during searches.
+      Drivers
+      - A new Generic device driver can be used to listen on TCP, UPD, Serial ports with advanced configurations for secure connections, data payload parsing, reading, writing, streaming, and more to allow Litmus Edge to connect to any device on the industrial plant floor.
+      - You can now enable or disable new payload fields (`statusCode`, `sourceTimestamp`, and `serverTimestamp`) when you select the **Publish additional attributes** checkbox in the *Connect a Device&#x20;*&#x64;ialog when adding or editing a device.
+      - This release introduces the following drivers.
+        - **ABB**
+          - ABB Robot Web Services
+        - **AB (Allen-Bradley)**
+          - AB Logix Ethernet
+          - AB Logix Serial
+          - AB Micro800 Ethernet&#x20;
+        - **Beckhoff**
+          - Beckhoff TwinCAT 3 ADS Ethernet
+        - **Euromap**
+          - Euromap63
+        - **GE**
+          - GE Ethernet Absolute
+          - GE Ethernet Symbolic
+        - **Generic**
+          - Generic Device
+        - **Historian**
+          - Historian MySQL Server Client
+          - Historian PostgreSQL Server Client
+          - Historian Microsoft SQL Server Client
+        - **Ignition**
+          - Ignition Module
+        - **Keyence**
+          - Keyence Nano
+        - **Modbus**
+          - Modbus Multi-Station RTU to TCP Converter
+        - **ODVA**
+          - ODVA CIP Ethernet
+        - **Omron**
+          - Omron HostLink
+          - Omron Fins Serial
+          - Omron Fins Ethernet
+          - Omron NJ Ethernet
+        - **Siemens**
+          - Siemens S7-200 Serial
+          - Siemens S7-200 Ethernet
+          - Siemens Sinumerik 808D Ethernet
+      Additional features
+      - With the OPC UA Client Advanced driver, now the `timestamp` in tag payloads reflects the OCP UA `serverTimestamp` when **Driver Mode** is set to **Subscription&#x20;**&#x61;nd **Additional Parameters** are enabled.
+      - You can now use the new Browse Registers Procedure to filter **200K+** tags with improved loading screens and cached results.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Flows Manager:**
+      - You can now debug and fix an unresponsive flow by enabling **Safe Mode**. Debug and change the flow in safe mode and then redeploy the corrected flow. Previously, you could not stop a flow for debugging purposes.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Digital Twins:**      - Now you can define parameters in **Digital Twins** > **Models** > **Parameters** for a Digital Twin model. After defining a parameter, you can use it as part of a topic expression for each dyanmic attribute. When creating an instance, you can update parameter values by instance to define the topic for each dynamic attribute.&#x20;
+      - Digital Twins tranformations now support `JSONpath` and `JSONata` for applying transformation schemas to dynamic attribute payloads. You can also use a JSONata playground to test out your transformations before adding them to a model.
+      - You can now subscribe to specific static and dynamic attribute data on unique topics, published at user-defined intervals for static attributes and event-based for dynamic attributes. To enable this feature, select **Publish Attributes** when you add or update an instance.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Analytics****:**
+      Analytics introduces new processor nodes, AI Model and AI vision, variables and parameters support, and enhancements to existing features.
+      - New **AI Processor&#x20;**&#x6E;odes and models are introduced. Use the nodes to:
+        - Integrate your LLMs and SLMs with Litmus Edge.
+        - Define and manage AI model connections.
+        - Choose from providers such as OpenAI, Cloudflare AI Gateway          , Grok 3          , Ollama, Google Gemini, Nvidia, and Anthropic.
+        - Use system and user prompts for flexible AI interaction.
+        - Trigger AI chat calls based on user input generation.
+        - Link multiple AI processors for advanced workflows.
+      - Analytics now support user-defined variables. Create and manage variables by navigating to **Analytics** > **Variables**, through the API, or with Javascript and Tengo Script processors.
+      - You can now define and reuse static parameter values in Analytics. Use parameters to easily update and maintain consistency with your terminology.
+      - The new **JavaScript&#x20;**&#x70;rocessor function allows you to write JavaScript.
+      - The new **SPC Charts&#x20;**&#x66;unction is available with statistical calculations.
+      - The new **Image Preview** processor allows you to view image files and base64 images in Analytics UI.
+      - The new **JSONata&#x20;**&#x70;rocessor allows user to apply JSONata transformations to Analytics data flows.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Integrations:**
+      - Use the new **MQTT AWS IoT Sitewise Edge** integration connector to stream data to AWS SiteWise as part of Litmus Edge deployments through AWS IoT SiteWise Edge Gateway Data Source.
+      - A new integration connector supports MQTT v5 and enables Litmus Edge to connect and use version 5 features in your MQTT brokers.
+      - You can now import topics from DeviceHub, Digital Twins, and Analytics in the Integration Connector.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Applications:**
+      - New filters support granular searches of Marketplace applications. Filters at the top of the page on **Applications** > **Marketplace** enable you to filter by category and sort results by newest or oldest applications. You can also apply additional search parameters depending on the applications that you are searching on.
+      -        You can now specify **Create**, **Update**, and **Delete** settings for the **Modify** permission. For example, you can now allow a user to maintain (but not remove) running Marketplace applications and containers.
+      - Synchronizing Marketplace catalogues has been improved. Now you can:
+        - View the last sync date and time for catalogues
+        - Select specific catalogues and sync only those catalogues
+        - Sync all catalogues
+      - The Marketplace Catalog app in Litmus Edge Manager now supports adding fully compliant Docker Compose files to new application releases in Litmus Edge.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **System:**
+      - You can now manage labels for all your Edge instances through custom key-value pairs (for example, `environment: production`). This feature supports adding, modifying, and deleting labels.
+      - Enhanced user analytics are available with Posthog integration.
+      - You can now authenticate users in Litmus Edge using the OpenID Connect (OIDC) protocol.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Terminal User Interface (TUI):**
+      - A new **Factory Reset** option allows you to reset a Litmus Edge device when the web UI is unavailable.
+    </td>
+  </tr>
+</table>
+
+## Enhancements and Improvements
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **DeviceHub:**
+      DeviceHub provides improvements to drivers, logging, usability, tags, and more.
+      Drivers
+      - Now you can convert Shift-JIS encoded strings to Unicode using the Keyence Serial driver to read Japanese data.
+      - Several enhancements have been made to the SNMP Manager driver including device and tag settings.
+      - You can now configure the Omron FINS Ethernet driver to use either TCP or UDP as a connection protocol. The driver also supports multiple data types, including *BOOL*, *INT*, *WORD*, *DWORD*, and more.
+      - The OPC UA driver now includes support for **Alarms** and **Events** to enable real-time monitoring.
+      - The OPC UA Client Advanced driver now supports browsing and reading extensions objects without non-atomic reads.
+      - You can now set retry counts and timeouts for the Modbus RTU over TCP driver aligning its functionality with the Enron Modbus driver.
+      - You can now define the station ID at the tag level for the MODBUS TCP driver.
+      - You can now configure the response timeout for all Modbus drivers.
+      - The Sparkplug B Client driver has improved features including automatic tag metadata and support for NBirth, DBirth, NDeath, and DDeath topics.
+      - You can now update point type browsing for the FB107 driver.
+      - You can now access Logix controllers without Ethernet modules for AB Logix Ethernet driver.
+      - You can now set the persistence layer size limit during connector creation and updates. The default size is set to 10MB for each connector.
+      - The MSSQL driver performance is improved with connection handling, DECIMAL support, and updated configuration nomenclature.
+      - You can now browse MQTT brokers using the MQTT client driver.
+      - A new Write Response topic is now available for various drivers that allows you to view a success/failure responses for write requests that the driver sends.
+      - Write responses are now supported for the following drivers: AB, Generator, Mitsubishi, MQTT, Omron, Siemens, and SNMP.
+      - A subscription register type has been add to the OSI Agent Advanced driver.
+      &#x20;
+      Logging
+      - A new improved logging system has been introduced for the following drivers: Danfoss FC/TSC, DH Agent, Emerson, Euromap, Historian, Modbus, Network Utilities, OPC UA, OSI PI, Omron, OPC UA, OSI Agent, PROFINET, and SQL.
+      Usability
+      - You can now edit existing metadata key/value pairs directly using the **Edit&#x20;**(pencil) icon.
+      - You can now select from a dropdown menu to browse for tags where on-going and completed tasks are sorted by latest timestamps.
+      - Improved usabilty for Asset Discovery.
+      - Now an error displays on the Edit Device dialog box when entering an incorrect formula in theTag Formula field.
+      - An error message displays when creating a new item with unsaved changes in the MetaData section, along with clear buttons for active input fields.
+      Tags&#x20;
+      - You can now view tags organized in `NDATA` and `DDATA` folders with TagNames indicating their types for browsing the Sparkplug B driver.
+      - You can now copy the masked tag token directly from available topics.
+      - Browsing is easier through improved tag retrieval, better loading times, and background processing.
+      Additional updates
+      - You can now display system events and UI notifications for browsing tasks.
+      - You can now use `Int64` and `UInt64` data types, along with `H_String` and `I_String` registers for Modbus TCP Power Meter applications.
+      - You now have improved handling for time types (TIME, DATE, DT, TOD) as `u64`, formatted into appropriate strings.&#x20;
+      - The Asset Discovery feature now lets you discover devices on the **Profinet** protocol. This includes a new REST API for Profinet, integration with the Asset Discovery UI, RBAC, and license permissions.
+      - The **Asset Discovery** feature has been added for Litmus Edge Docker builds to discover PLCs and industrial assets on the network.
+      - You can now discover `mDNS` devices through Asset Discovery.
+      - You can now define metadata keys using the hyphens symbol `-`.    </td>
+  </tr>
+  <tr>
+    <td>
+      **Digital Twins:**
+      The following improvements have been made to Digital Twins.
+      General
+      - You can now use a new topic structure for Digital Twin subscriptions and enable wildcard access at the model level with the format `digitaltwins.<modelnam>.<instancename>`.
+      - Now you can update existing configuration setting using templates and also export and import DataHub configurations. Error handling during imports has been improved.
+      - You can now import Digital Twins Instance Topics into the Integration connectors with a complete list view, selection capability, and detailed import success/failure notification.
+      - Table view, sorting, and organization have been improved.
+      - You can now download or export a CSV containing existing dynamic attributes. You can also download a sample CSV file with default attributes to get started quickly.&#x20;
+      - System events now include event details related to configuration changes to Digital Twin models and instances.
+      - You can now output nested and flattened payloads in parallel. This provides you flexibility when sending data to multiple sources with different parsing capabilities, for example a cloud streaming service and SQL or legacy database.
+      - Models pushed from Litmus Edge Manager can no longer be edited in Litmus Edge. A new flag also identifies models sourced from Litmus Edge Manager.
+      Error handling and messages
+      - An error message now displays for instance-level CSV import failures.
+      - The Instance Name now displays on the Instance page along with the UUID and the Model Name.
+      - Error notifications now display in the schema editor for invalid function names.
+      - Error handling has been improved to prevent creating invalid `JSONata` transformations through API operations.
+      - Pop-up restrictions replace missing scope errors for viewer role actions on Digital Twins models.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Flows Manager:**
+      - Minor UI improvements have been implemented.
+      - You can now selectively delete flow-related files in the UI.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Analytics:**
+      - You can now manually trigger the Inject Processor using a new button on the Inject, FileReader, and FileWriter nodes.
+      - Navigation is improved in Analytics as page transitions now automatically save configurations and the connect wire process no longer prompts for definitions by default.
+      - Usability enhancements have been introduced in the UI.
+      - The FileWriter and FileReader processors now support CSV and Parquet as output and input file types.
+      - You can now parse UTC time values in Parquet files using FileReader.
+      - The code editor now ensures that code is properly aligned.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Applications****:**
+      - You can now group containers by Application on the Catalog Apps page for expanded views, status indicators, and quick action options.
+      - The error message now displays more details for failed catalog synchronizations.
+      - You can now filter Catalog Applications logs by container tag to provide targeted insights for each container.&#x20;
+      - You can now update Marketplace applications where the old version stays active until the new version is fully downloaded.
+      - You can now see all ports for connected Docker containers.
+      - You can now update Docker images to the latest version with an enhanced button that triggers a `docker pull image` command.
+      - You can now view **Publisher** and **Category** metadata on application tiles in the Marketplace.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Integrations:**
+      Improvements have been made to connectors, subscriptions, security, and to product usability.
+      Connectors
+      - An updated **Create&#x20;**-> **Create Connector** button was added to the Add a connector dialog box for creating new connectors.
+      - Integration connectors have been enhanced in the following ways:
+        - Optimized streaming throughput and data handling
+        - Improved resources management and lower CPU and memory usage
+        - Persistent Storage Management options per connector
+        - Improved logging and error handling
+        - Template enhancements allow for scalable create and update connector workflows
+      - You now have an increased limit to maximum parallel publish count for NATS connector to `100,000`.
+      - The **Add Connector** dialog box now has an improved display for limit hits in numeric fields.
+      - You can now view providers organized into groups in the **Create Connector** form. Each group includes a name, logo, and a detailed list of providers.
+      - You can now access **Cloud Storage&#x20;**&#x66;eatures from the **Integrations** menu in Litmus Edge Docker builds.
+      - Performance and animations improved in the **Add Connector** UI.
+      Subscriptions
+      - You can now enable, disable, or remove all subscriptions simultaneously with enhanced backend endpoints to handle over 30,000 subscriptions.
+      - You can now enable and disable all subscriptions using UI icons.
+      - Consistent warning banner styles now display across subscriptions and instance dialog boxes.
+      Security
+      - You can now choose **OAuth 2.0** as an authentication option for REST API integration connector when connecting to external applications.
+      - Now you can use **OAuth M2M&#x20;**&#x61;uthentication for connecting cloud storage jobs to Databricks.
+      - Handling of credentials has been improved in the UI and with API use.
+      Usability
+      - You can now schedule jobs to run on a specific day and time in a week in Cloud Storage Sync.
+      - **Cloud Storage Sync** has improvements to the UI and performance, including:&#x20;
+        - Provider logos in the selection drop-down.
+        - README displays for each cloud provider.
+        - Support for parallel uploads to Databricks, allowing up to four files to be transferred simultaneously.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **OPCUA:**
+      - Warning messages are improved for invalid Security Mode and Policy combinations during configuration.
+      - Improvements include:&#x20;
+        - Support for importing up to 100k nodes in the OPC UA hierarchy
+        - Support for seven aggregation functions
+        - Improved LDAP and AD login options
+        - Updated DeviceHub type conversions
+      - A new **Statistics** tab in the server UI replaces the **Connections** tab.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **System:**
+      The following improvements have been made to Systems.
+      General
+      - You can now easily add multiple topics by separating topic names with commas in **System** > **Access Control** > **Tokens** and **Write Topics**.
+      - You can now access existing events from various components in the edge device in your Litmus Edge Manager.
+      - A notification now displays to indicate that your license is about to expire.
+      - **NFS file systems&#x20;**&#x68;ave improved recognition for Litmus Edge deployments in Kubernetes clusters.
+      - The external storage feature has been enhanced with new events for adding, editing, and removing external storage mounts.
+      - The Docker template option has been renamed to **Docker Binding IP&#x20;**&#x66;or clarity when exporting templates.
+      - In the **Packet Capture** page:
+        - File details now display including interface, start time, stop time, and size, and options to download or remove the file.&#x20;
+        - Files now remain available for download for one hour. This allows for multiple downloads within that period before you need to manually delete to start a new capture.
+      - You can now use the enhanced gRPC streaming feature to transfer up to 1,000,000 tags for backup and restore purposes.
+      - You can now successfully import templates and restore backups, even if certain components are not running.
+      - You can now modify the MTU (Maximum Transmission Unit) setting directly in the **Update Network Interface** dialog.
+      - You can now track user logout events similar to user login.
+      Templates
+      - Now a dialog box displays all items in a template upon upload to prevent the import of incorrect templates.
+      - You can now export and import cloud storage configurations.
+      Security
+      - You can now regenerate OAuth client secrets, manage secret rotation, and set new expiry dates for expired clients directly from the Access Control Tokens interface.
+      - You can now configure OIDC providers with the addition of **Client ID&#x20;**&#x61;nd **Client Secret&#x20;**&#x66;ields in the Edit OIDC Provider dialog box.
+      Logging
+      - You now have unified structured logging across all edge device components.
+      - You can now track FTP Service changes with new event logging for server start/stop, user addition, and user removal.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **User Interface:**
+      - The login page has an improved UI.
+    </td>
+  </tr>
+</table>
+
+## Resolved Issues
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **DeviceHub:**
+      - Fixed issue where large Metadata Tag Values were truncated.
+      - Fixed issue with pagination not displaying the correct number of pages after applying a search filter in the Tags table view.
+      - Fixed issue where an error occurred when attempting to create a tag for a device with an expiring license.
+      - Fixed issue where web UI responsiveness decreased over time when modifying Watchdog settings for 50+ devices.
+      BACnet
+      - Fixed issue where the BACnet driver could not write analog values for a tag.
+      DNP3 Ethernet with FB Extensions
+      - Fixed issue with Emerson DNP3 FBX driver where an application alarm contained a null value.
+      - Fixed issue with Emerson DNP3 FBX driver where calibration events contained a null value.
+      - Fixed issue where the Emerson DNP3 with FB Extension driver did not reconnect after power cycling a device.
+      - Fixed issue where tagging a TIME device using tunneling incorrectly used FB device value, ensuring accurate data representation for FB3000 device.
+      - Fixed issue where tag values were incorrect with the DNP3 Ethernet with FB Extensions driver when the network connection was disconnected and connected again.
+      - Fixed issue where TIME data type values were parsed incorrectly when retrieved from FB3000 devices by the DNP3 Ethernet with FB Extensions driver.
+      - Fixed issue where DNP3 Ethernet with FB Extensions did not publish the latest event for HAE records.
+      Euromap
+      - Fixed issue where the Euromap63 Gen1 driver read old tag files instead of the latest, causing operational disruptions.
+      GE Fanuc
+      - Fixed issue where the Fanuc CNC Ethernet (Gen1) `cnc_rdcommand` function would consistently return a command value of `0` in the payload.
+      OPC UA
+      - Fixed OPC UA Client Advanced driver issue where a `BadCertificateUntrusted` error occurred after 45 minutes of connection.
+      - Fixed issue with pagination not displaying the correct number of pages after applying a search filter in the *Tags* table view.
+      Modbus:
+      - Fixed issue where a Modbus TCP driver published incorrect data when zero-based addressing was disabled.
+      ROC800
+      - Fixed issue where the ROC800 Ethernet driver would return null for History registers when Opcode 139 requested more than 60 points.
+      - Fixed issue where the ROC800 Ethernet Event register excluded the old value for W\&M events from the payload.
+      - The ROC800 Ethernet driver now makes proper index requests based on the opcode 6 code from ROC800 devices.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Digital Twins:**
+      - Fixed issue where setting a high number interval caused a Digital Twin model to crash.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Analytics:**
+      - Fixed issue where enabling **Pass Through Value&#x20;**&#x69;n Analytics resulted in an array output instead of a string.
+      - Fixed issue where the define connection feature did not allow users to assign custom names when creating Events/Values Connections.
+      - Fixed issue where the Switch node incorrectly displayed data type errors when using `int` or `uint`.
+      - Fixed issue where no data being returned after applying a filter to a Database Batch Input.
+      - Fixed issue where copying an Analytics flow resulted in all connection names reverting to default values.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Applications:**
+      - Fixed issue where **Last Run Time** and **Next Run Time** did not reflect the sync timer interval defined in Cloud Storage Sync.
+      - Fixed issue causing `500 server` errors on Applications pages and `registry ID not found` errors.
+      - Fixed issue where users could not disconnect a running container from a Docker network using the **ipvlan&#x20;**&#x64;river.
+      - Fixed issue where the **links** field in Docker Compose files returned `nil`.
+      - Fixed issue where you could not delete Docker containers stuck in a restarting state after deploying Grafana release `8.5.0`.
+      - Fixed issue preventing deployment of Marketplace apps from AWS ECR.
+      - Fixed issue where containers launched from the Marketplace with `unless-stopped` restart policy were incorrectly starting after a reboot.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Integration**:
+      - Fixed issue preventing users from defining empty local topics for inbound subscriptions.
+      - Fixed issue where the **MSSQL&#x20;**&#x63;onnector failed to transition to a `Failed` state when disconnected.
+      - Fixed issue where AWS Sitewise connector intermittently failed to publish multiple messages due to low `Number of Batch Messages`.
+      - The Kafka connector now alerts you when there is a failure in sending data to the cluster, instead of displaying a misleading `CONNECTED` status.﻿      - Search for local topics when adding a new subscription topic to an integration connector now returns only alias or raw topics, and excludes write, pollonce, and batchwrite topics.﻿
+      - Now an accurate connection status displays for the Azure Event Hubs connector.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **OPC UA Server:**
+      - Fixed issue with OPCUA hierarchy API that intermittently resulted in the generation of duplicate tags.
+      - Fixed issue with long overlapping OPCUA node names.
+      - Fixed import issue where number of failed tags was negative. This occurred when importing a large number of tags.
+      - Fixed import issue where a memory leak occurred when importing tags with arrays containing many values.
+      - You can now directly import Analytics topics from DataHub into the OPC UA hierarchy.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **System:**
+      - Fixed issue where an OPC UA server would not start on a Docker instance running on an ARM processor.
+      - Fixed issue where Litmus Edge did not start because an invalid certificate was generated from Litmus Edge Manager. In this case, a '`Failed to start Nginx Server`' message displayed.
+      - Fixed issue where Password Policy setting descriptions were missing on the Access Control page.
+      - Fixed issue where the **OK&#x20;**&#x62;utton was missing, allowing users to bypass the time zone difference warning and successfully log in.
+      - Resolved the following vulnerabilities in Zerotouch binary.
+        - CVE-2024-45337        - CVE-2024-45338
+      - Fixed issue where multiple hostnames could only be added in one entry if the first hostname was a fully qualified domain name (FQDN).
+      - Fixed issue where users encountered a `dm error: couldn't get wg info: file does not exist` error upon activation after upgrading from latest LTS version.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **User Interface:**
+      - Activating Litmus Edge with an invalid activation code resulted in two different error pop-ups causing confusion about the specific error reason.
+      - When changing your password, a `New password and current password must be different` error message displayed even after modifying the **Current Password**.
+    </td>
+  </tr>
+</table>
+
+# Docker Deployment of Litmus Edge
+
+## New Features
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Support Bundle:**
+      - You can now download a support bundle for the Litmus Edge Docker version.
+    </td>
+  </tr>
+</table>
+

@@ -1,0 +1,86 @@
+---
+title: AMQP TCP Integration Guide
+slug: 13mJzzlY1UQbL93_BFgGV
+description: Learn how to set up the AMQP TCP connector. 
+docTags: 
+createdAt: Tue Jan 16 2024 20:33:02 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and an AMQP broker.&#x20;
+
+# Before You Begin
+
+You will need access to an AMQP-TCP broker.&#x20;
+
+Refer to the following to learn more:
+
+- :Link[Downloading and Installing RabbitMQ]{href="https://www.rabbitmq.com/download.html" newTab="true" hasDisabledNofollow="false"}
+- :Link[Server Operator Documentation]{href="https://www.rabbitmq.com/admin-guide.html" newTab="true" hasDisabledNofollow="false"}
+
+# Step 1: Add a Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add the AMQP TCP Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/2-UCRLFSRK14ramqhVm36.mdx>) and select the **AMQP TCP&#x20;**&#x70;rovider.&#x20;
+
+<hint type="info">
+  **Note**: For configuring exchange options, see [AMQP TCP](<../../../Product Features/Integration/Integration Connectors/Message Brokers/kLZCcffY7TDU_ZMT_vWCJ.mdx>) and refer to the *Exchange Options* section to learn more.&#x20;
+</hint>
+
+Enter the details for the connector.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Enter the IP address for the AMQP broker.&#x20;
+- **Port**: Enter the port number for the AMQP broker. The default value is **5671**.&#x20;
+- **Virtual host** (Optional): Enter the virtual host path, which specifies the namespace for permissions, exchanges, queues, and bindings on the server.
+- **Username&#x20;**(Optional): Enter the username for authentication with the AMQP broker. The default value is **guest**.&#x20;
+- **Password&#x20;**(Optional): Enter the password for authentication with the AMQP broker. The default value is **guest**. &#x20;
+- **Exchange&#x20;**(Optional): Enter the northbound (third-party) topic to publish to through the connector.
+- **exchangeType**: Select the exchange type (direct, fanout, topic, x-custom).&#x20;
+- **Exchange durable**: Select the checkbox to allow the exchange to survive restarts.&#x20;
+- **Exchange auto delete**: Select the checkbox to make the server no longer remain declared when there are no remaining bindings.&#x20;
+- **Exchange internal**: Select the checkbox to enable the *internal&#x20;*&#x66;lag.&#x20;
+- **Exchange no wait**: Select the checkbox to instruct the exchange to not wait for a response.&#x20;
+- **Routing key**: The AMQP routing key that the exchange might use to determine how to route messages to the queue.
+- **ISO8601 timestamp**: Select this checkbox to convert message timestamps to the ISO8601 format before sending.
+- **Throttling limit&#x20;**(Optional): The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cHakg20AyPvVyoMl4BLi0_amqptcp.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="p4fwhKRt2q2hsjboZv6hk" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/sg--6i_X4_uGD7by2g88L/A4IRTEnfEkJidIw7T_Lsd.mdx"} and relevant error messages.&#x20;
+
+# Step 5: Create Topics for Connector
+
+You will now need to create outbound topics for the connector from the tags created in Step 2.
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 6: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+# Step 7: Verify Successful Connection
+
+Access the AMQP broker and ensure that data is being sent from Litmus Edge to the broker.&#x20;

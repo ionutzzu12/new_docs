@@ -1,0 +1,744 @@
+---
+title: AB DF1 (Gen1.3)
+slug: gGxuBwS5fJ8ZOnIJZplbE
+description: Review the following information for setting up and configuring the AB DF1 (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB DF1 (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="225,367" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[MicroLogix]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/micro-controllers/micrologix-family/micrologix-1400-controllers.html" newTab="true"}
+      :Link[SLC 500]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/small-controllers/slc-500-controllers.html" newTab="true"}
+      Allen-Bradley DF1 drivers use CRC checksum.
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="ZPTCmzo7MNjZIP6UvGpD8">
+
+</ContentSnippet>
+
+The setup shown here is for the Rockwell Automation Allen-Bradley DF1 (Gen1.3) PLC. Refer to the following parameters.&#x20;
+
+**Communication Mode:**
+
+DF1 Full Duplex protocol 19200, None, 8, 1 (default)
+
+Error Check: CRC
+
+**To configure your device:&#x20;**
+
+1. Record the following information and refer to it as needed.&#x20;
+   **Device**: AB DF1 SLC 5/04
+   **Communication I/F**: RS232. Refer to the following figure.
+
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Zx0ExTUn_RHbbI5EVM1bj_abdf1reference.png" size="80" width="523" height="795" position="flex-start" caption="AB DF1 reference" showCaption="true" indent="2"></Image>
+
+2. Launch RSLinx Classic and then click **Configure Drivers**.
+3. Add an RS-232 DF1 devices driver and then click **Configure**.
+4. Set up communication parameters, click **Auto-Configure** to test. Then click **OK**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NOjKDxWnJPl-iHG06B1f2_ab-df1-auto.png" size="100" width="766" height="357" position="flex-start" caption="Communication parameters" showCaption="true" indent="2"></Image>
+
+5. Launch RSLogix 500 V8.10.00 and then navigate to **Comms > System Comms**.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="189,317" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB DF1 (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      19200
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Odd, None
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="100,100,118,101,104,220" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td>
+      **Access Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Input bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      O
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Output bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Status bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B3
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Bit data file (B3)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Bfn
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDDdd
+    </td>
+    <td align="left">
+      10000
+    </td>
+    <td align="left">
+      25525515
+    </td>
+    <td align="left">
+      Bit data file
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T4.ACC
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Timer Preset Value (T4)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T4.PRE
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Timer Accumulator Value (T4)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Tfn.ACC
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Timer Accumulator Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Tfn.PRE
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Timer Preset Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS.ACC
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Counter Accumulator Value (CS)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS.PRE
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Counter Preset Value (CS)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Cfn.ACC
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Counter Accumulator Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Cfn.PRE
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Counter Preset Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R6
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Control Register (R6)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R6.POS
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Control Register pointer position (R6)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R6.LEN
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Control Register pointer length (R6)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rfn
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Control Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rfn.POS
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Control Register pointer position
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rfn.LEN
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Control Register pointer length
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      N7
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Integer data file (N7)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Nfn
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255999
+    </td>
+    <td align="left">
+      Integer data file
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Lfn
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255999
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      F8
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Floating point data file (F8)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Ffn
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255999
+    </td>
+    <td align="left">
+      Floating point data file
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

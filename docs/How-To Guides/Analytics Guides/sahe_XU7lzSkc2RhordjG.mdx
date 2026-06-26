@@ -1,0 +1,144 @@
+---
+title: Use the Rounding Function
+slug: sahe_XU7lzSkc2RhordjG
+description: Learn how to use the Rounding statistical function in Analytics. 
+docTags: 
+createdAt: Thu Jun 15 2023 21:22:12 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the Rounding processor to round off the collected data to the nearest decimal place.
+
+# Understanding Rounding Methods
+
+You have the following rounding options:
+
+- **roundNearest:&#x20;**&#x54;his method returns a rounded value based on the number of decimal digits configured. For instance, if you set two decimal digits and the value is 1.5677, the rounded value will be 1.57.
+- **roundUp:&#x20;**&#x41; method that rounds up the value to the specified number of decimal digits. For example, if you specify two decimal digits and the value is 1.3221, the rounded up value would be 1.33.
+- **roundDown:&#x20;**&#x41; method that rounds down the value to the specified number of decimal digits. For example, if you specify two decimal digits and the value is 1.3221, the rounded value is 1.32.
+- **roundEven:&#x20;**&#x54;his method rounds to the nearest even integer in cases of rounding ties (when both integers are equidistant, e.g. 1.5). In any other case, it acts as a round nearest function. If the value is 1.3221 and 1.5, the rounded even value is 1 and 2, respectively, as the nearest even integer.
+
+# **User Scenario**
+
+Review the following scenario for rounding off the tag values. Then, you will simulate data from a PLC and make the following rounding conversions.
+
+Some of your manufacturing sites with multiple PLCs collect data with high precision. You can round off the collected data for easier aggregation, computation, visualization, comprehension, and communication.
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../docs/Product Features/DeviceHub/T8nX0itgnIY8ltxcJAFsG/t1scfzE7ZGrTKq0YgKW8g.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox. 
+
+# **Step 2: Add Tags**
+
+After connecting the device, :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the device. Create the following rounding tags. Each tag will represent one of the round function options noted above. 
+
+## **Tag 1: RoundNearest**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type**: Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **RoundNearest**
+- **Min\_value**: Enter **1.523**
+- **Max\_value**: Enter **1.523**
+
+## **Tag 2: RoundUp**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type**: Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **RoundUp**
+- **Min\_value**: Enter **1.523**
+- **Max\_value**: Enter **1.523**
+
+## **Tag 3: RoundDown**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type**: Select **float64** 
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **RoundDown**
+- **Min\_value**: Enter **1.523**
+- **Max\_value**: Enter **1.523**
+
+## **Tag 4: RoundEven**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type**: Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **RoundEven**
+- **Min\_value**: Enter **1.523**
+- **Max\_value**: Enter **1.523**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tags you previously created. 
+
+**To create an analytics flow with the Rounding function:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.&#x20;
+4. In the **Topic&#x20;**&#x66;ield, click the *search&#x20;*&#x69;con, select the device you previously created, and then select the alias topic for the **RoundNearest&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.&#x20;
+6. Click **Add processor** again and select **Rounding**.
+   The following information describes this function:
+   - For **Digits**, enter the number of digits for which you would like to round.
+   - Entering `0` ignores all floating point values and gives the integer value.
+   - For **Method**, select **roundNearest.**
+7. Click **Save**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/REU_V4_1fss0zw5KnSw8-_image.png" size="70" width="565" height="481" position="center" caption="Rounding Pocessor dialog box" showCaption="true"></Image>
+8. Connect the two processors, select **Events**, and enter a definition of **roundnearest&#xA0;**&#x66;or the connection.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/VB-r6QBH3UaMmbMOMDwkY_image.png "Processor flow for roundnearest tag")
+9. Repeat steps 2-8 for the round-up tag and configure the following:
+   - In the *DataHub Subscribe* processor, select the alias topic for the **RoundUp&#x20;**&#x74;ag. 
+   - In the *method dropdown*, select **roundUp.** 
+   - When you connect the two processors, select **Events&#xA0;**&#x61;nd enter a definition of **roundup&#xA0;**&#x66;or the connection.  
+10. Repeat steps 2-8 for the round-down tag and configure the following: 
+    - In the *DataHub Subscribe* processor, select the alias topic for the **RoundDown&#x20;**&#x74;ag.
+    - In the *method dropdown*, select **roundDown**. 
+    - When you connect the two processors, select **Events&#xA0;**&#x61;nd enter a definition of **rounddown&#xA0;**&#x66;or the connection. 
+11. Repeat steps 2-8 for the round-even tag and configure the following:
+    - In the *DataHub Subscribe* processor, select the alias topic for the **RoundEven&#x20;**&#x74;ag. 
+    - In the *method dropdown*, select **roundEven**. 
+    - When you connect the two processors, select **Events&#xA0;**&#x61;nd enter a definition of **roundeven&#xA0;**&#x66;or the connection. 
+12. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3tnb2XOJos_nUZUHoYMcQ_image.png "Completed Rounding Function in Analytics flows canvas")
+
+# Step 4: View Rounded Data
+
+You can view data on the analytics canvas by clicking the **View&#xA0;**&#x69;con in each *Rounding&#xA0;*&#x70;rocessor. 
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/TutbPg6uvAhfg2OFFry83_image.png "View icons for Rounding processors")
+
+## Round Data for RoundNearest Tag
+
+The *roundNearest* method returns **1.52** as the answer when **1.523&#x20;**&#x69;s used as an input value.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/YqBVPeUJotXwJfHSGWmRN_image.png "Rounding to nearest decimal")
+
+## Round Data for RoundUp Tag
+
+The *roundUp&#x20;*&#x6D;ethod returns **1.53** as the answer when **1.523&#x20;**&#x69;s used as an input value.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/4oD4Qw82NVdEms6TtAcjM_image.png "Rounding up to nearest decimal")
+
+## Round Data for RoundDown Tag
+
+The *roundDown&#x20;*&#x6D;ethod returns **1.52&#x20;**&#x61;s the answer when **1.523&#x20;**&#x69;s used as an input value.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ssd57nRfs3ukrdeMB42f0_image.png "Rounding down to nearest decimal")
+
+## Round Data for RoundEven Tag
+
+The *roundEven&#x20;*&#x6D;ethod returns **2** as the answer when **1.523&#x20;**&#x69;s used as an input value.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/xcv9AA8SXU0w9Yw8PTH30_image.png "Rounding even to nearest decimal")
+

@@ -1,0 +1,238 @@
+---
+title: 3.17.0
+slug: 4QkuEgfU7ekh-tpzQzKbk
+description: In some cases, you may need to use the terminal user interface (TUI) as you may have no direct network access to the device. In this case, you can connect locally to the device using a keyboard, mouse, and monitor. 
+docTags: 
+createdAt: Tue May 24 2022 17:49:32 GMT+0300 (Eastern European Summer Time)
+---
+
+In some cases, you may need to use the terminal user interface (TUI) as you may have no direct network access to the device. In this case, you can connect locally to the device using a keyboard, mouse, and monitor. This will allow you to perform the required network setup to make the device accessible through the Web UI.
+
+Using the TUI on the gateway device makes it possible to configure Litmus Edge if network access is not possible and you have physical access to the device.
+
+# Connect a Keyboard and Monitor
+
+The Gateway device has back-panel connectors for the monitor and a keyboard. These allow you to access the configuration options of the installed Litmus Edge operating system.
+
+You can:
+
+- Connect a keyboard (for example, a USB connection).
+- Connect a monitor (for example, an HDMI, Micro HDMI, or VGA connection).
+
+# Log in to the TUI after Initial Installation
+
+When the system startup is complete, the TUI welcome screen displays the IP addresses and network interface settings. See the section below, *Navigating the TUI*, for tips on using the keyboard to navigate.
+
+The eth0 Ethernet interface is required on first boot.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/PGJBXDQvvt0pS53OSwQu8_le-tui-bootup-v3150.png" size="80" width="872" height="290" caption="Litmus Edge Terminal with IP Address" position="center" showCaption="true"></Image>
+
+**To log in to the TUI after the initial installation:**
+
+1. Press **F2** to enter the setup.
+2. When logging in for the first time, you need to select the keyboard layout. The *us* layout is sufficient for most English keyboards. To select another layout, scroll up/down the list using the up/down arrows on your keyboard.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/BNURNY7A1jxyXmWgBmKo__01-r4l7y6hhvvvrocarm40ttuikeyboard.png" size="80" width="765" height="310" caption="Keyboard selection" position="center" showCaption="true"></Image>
+3. Press **Enter** to apply the layout and display the login screen. If this is the first time anyone is logging in to this edge device, the credentials are: `admin` / `litmusedge`.&#x20;
+4. Enter your credentials. If this is the first time anyone is logging in to this edge device, the credentials are: `admin` / `litmusedge`. Use the **Tab&#x20;**&#x6B;ey to move fields.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tFb7jGQ7P4jIChnHCCkrr_02-4m3cv6nvxc3h8grzolvotuilogin.png" size="80" width="432" height="201" caption="Login screen" position="center" showCaption="true"></Image>
+5. Tab to *Log In* and press **Enter**.
+
+If this is the first time logging in to Litmus Edge, refer to the following *Log in to Litmus Edge for the First Time* section.&#x20;
+
+# Log in to Litmus Edge for the First Time
+
+If you are logging in to Litmus Edge for the first time, the end-user license agreement (EULA) is displayed.
+
+**To log in to Litmus Edge for the first time:**
+
+1. Use the down arrow key to scroll through the agreement.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CcZLQJx46b3BKALDyr0L2_03-hvglcqekd50ujv3nz6b8sloopedgetui-eula.png" size="80" width="952" height="700" caption="Terms and conditions" position="center" showCaption="true"></Image>
+2. Press **Enter** to accept the agreement. The *Change Password* screen is displayed.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/inZ1c6pI0_uj_BibGk9dc_04-e5qucx7hye2lnjpwlvz4rtuichangelogin.png" size="80" width="750" height="252" caption="Change password screen" position="center" showCaption="true"></Image>
+3. Enter the old password (`litmusedge`) when logging in for the first time.
+4. Enter the new password and confirm it by entering that password again. See :Link[Policy Management]{docId="KVpb8qgtzJfiDVZh0rj6B" label="Policy Management" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" overridedLabel="Policy Management"}   &#x20;for more information.
+5. Tab to select **Change**, and then press **Enter**.
+
+# Navigating the TUI
+
+- The TUI logs you out if no activity occurs within a few minutes.
+- To log in again, press **F2**.
+
+The TUI is limited to keyboard input. Here are some tips for navigating the TUI with the keyboard:
+
+- **F2**: Enter setup to configure settings.
+- **F5**: Refresh the screen.
+- **Tab**: Move the cursor from one field to the next.
+- **Arrows keys**:
+  - Move the cursor to select an item in a list, such as the TUI Configuration Options.
+  - Use the **Arrow keys** to select an item, tab to **Next** at the bottom of the screen, then press **Enter** to advance to the screen of the selected option.
+- **Enter**:
+  - Accept the data and move to the next field.
+  - Submit the form and display the next screen in the workflow.
+
+## Example of TUI Navigation
+
+When selecting an option:
+
+- Use the **Arrow keys** to move through the list of TUI Configuration Options.
+- Use the **Tab&#xA0;**&#x6B;ey to select the item highlighted by the cursor. The cursor moves to the *Next&#x20;*&#x62;utton.
+- Press **Enter** when the cursor is on the *Next&#x20;*&#x62;utton to advance to the screen of the selected option.
+
+# Configure Litmus Edge Using the TUI
+
+The TUI has many of the same options that are available through the web browser interface.
+
+Many of these settings need to be set when first deploying a device. Several options can be set later.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/yvtMpgxLIu6p5TLYEp_4v_image.png)
+
+## Configure Interfaces
+
+Select the interface configuration type and enter the details.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vtp6y8K5nLJDrgzYV_MzL_loopedgetuiconfigureinterface-1.png" size="80" width="400" height="155" caption="Litmus Edge Terminal Interface Configurations" position="center" showCaption="true"></Image>
+
+**In the following example, you can set a static IP address by providing the following information**:
+
+- **CIDR**: This Classless Inter-Domain Routing (CIDR) notation identifies a block of IP addresses, similar to network subnetting. This example of CIDR notation (`192.168.0.15/24`) means that the first 24 bits of the IP address are used for network routing.
+- **Gateway**: The default gateway address on a network can be found using the `ipconfig` command.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/F3s2WX4XK4I2GnRbcmZ-8_tuiinterfaces.png" size="80" width="444" height="264" caption="Litmus Edge Terminal Interface CIDR/Gateway Configuration" position="center" showCaption="true"></Image>
+
+## Configure DNS
+
+Use this dialog to enter space-separated IP addresses of the DNS servers.
+
+- At least one server is required.
+- If internet access is enabled, only the first three servers are used.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/93mjWnIAnhjuXen7xLYO-_tuidns.png" size="80" width="750" height="213" caption="Litmus Edge Terminal DNS configuration" position="center" showCaption="true"></Image>
+
+## Configure Docker Subnet
+
+Enter the default subnet for Docker and select **Apply**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/QinUG4bqQltaHYQwbiJw1_loopedgetuidockersubnet.png" size="80" width="482" height="185" caption="Litmus Edge Terminal Docket Subnet configuration" position="center" showCaption="true"></Image>
+
+## Configure Time
+
+Network Time is the recommended configuration.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/i80K5jrP14fUL2ZdfJtQu_tuitime.png" size="80" width="761" height="216" caption="Litmus Edge Terminal Time Configuration" position="center" showCaption="true"></Image>
+
+Enter NTP (Network Time Protocol) servers and select **Apply**.
+
+Two or more NTP servers is recommended.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KyzrGfb0u0J4R4Zc6XSQP_tuintp.png" size="80" width="669" height="263" caption="Litmus Edge Terminal NTP server configuration" position="center" showCaption="true"></Image>
+
+## Set Time Zone
+
+The time zone setting is significant because it is used for data collected by the system and log timestamps. See :Link[System Troubleshooting]{label="System Troubleshooting" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="7uuWhyApGbJItuaYprTe9" version="v2" docAnchorId="#LjDhs" loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+It is best practice to use UTC for your time zone.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/paQ691VickYOivEjhceN7_tuitimezone.png" size="80" width="744" height="310" caption="Litmus Edge Terminal Time zone configuration" position="center" showCaption="true"></Image>
+
+## Change Country
+
+Country is the physical location of the device. This affects the frequency band of the WLAN adapter.
+
+Choosing the appropriate frequency band of the WLAN adapter is a legal requirement.
+
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nwJ6JI7UbDLQP_9kxoDhP_tuicountry.png" size="80" width="716" height="311" caption="Litmus Edge Terminal Country Configuration" position="center" showCaption="true"></Image>
+
+## Change Keyboard Layout
+
+Use this menu to change the keyboard layout to match the keyboard layout of your country.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/7vVMDs0jwyUQSwI4fUtmN_tuikeyboard.png" size="80" width="765" height="310" caption="Litmus Edge Terminal Keyboard Configuration" position="center" showCaption="true"></Image>
+
+## Manage Cloud Activation
+
+Use this option to activate the Litmus Edge device with Litmus Edge Manager.
+
+This TUI option should only be used when someone at another location is accessing Litmus Edge Manager through a web browser. Contact Litmus to provide the activation code to the TUI user.
+
+The validity period of the activation code is usually several minutes. See :Link[Activate a License]{docId="4uvQE-ASVDnqmgGT7OqxJ" label="Activate a License" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Activate a License"} for more information.
+
+Enter the activation code and select **Activate**.
+
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Lw0CM0KoOl7LFizDs6hHE_tuicloud.png" size="80" width="763" height="166" caption="Litmus Edge Terminal Cloud Activation" position="center" showCaption="true"></Image>
+
+If your edge device had already been cloud-activated, the activation details are shown.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ypuniQ2iQXMG0m3HoZUFK_loopedgetuicloudconfiguration1.png" size="80" width="664" height="283" caption="Litmus Edge Terminal Activation details" position="center" showCaption="true"></Image>
+
+To deactivate the edge device, select **Deactivate**.
+
+## Manage License
+
+Use this option to enter a license key.
+
+<hint type="info">
+  **Notes**: For Litmus Edge version 3.11.0 and later, you can't enter a site-based license key through the TUI. To enter a site-based license or to complete offline license activation, you will need to use the Web UI for Litmus Edge or Litmus Edge Manager. Refer to the following for more information.&#x20;
+
+  - :Link[Licenses]{label="Licenses" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="br8TIoomY44n8jGvYfbKi" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for Litmus Edge
+  - :Link[Licenses]{label="Licenses" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="Zurp8hVnSYJMgcZ1mceUQ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for Litmus Edge Manager
+</hint>
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qcpjZwPzHxC5O2CzMjEbT_tuilicense.png "Litmus Edge Terminal License Configuration")
+
+## Manage Services
+
+Select or deselect the required service and select **Apply**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/DGy5Bb4nx8UpAFGweSQgS_tuiservselect.png" size="80" width="387" height="192" caption="Litmus Edge Terminal Services Configuration" position="center" showCaption="true"></Image>
+
+## Change Password
+
+See :Link[Policy Management]{docId="KVpb8qgtzJfiDVZh0rj6B" label="Policy Management" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" overridedLabel="Policy Management"}&#x20;for more information.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cM1YEc5IH8bRGIoTl2wYp_tuichangelogin.png "Litmus Edge Terminal Change Password configuration")
+
+## Configure Static Routes
+
+<hint type="info">
+  **Note**: The ability to configure static routes is available for Litmus Edge version 3.11.0 and later.&#x20;
+</hint>
+
+See Mange Static Routes for more information.&#x20;
+
+<hint type="warning">
+  **Warning**: Incorrect static routes can break network connections. Please add or modify with caution.
+</hint>
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SuHm6ZZSNenkmdjZ2334u_image.png "Configure Static Routes section")
+
+## Reboot
+
+**If you decide to not reboot:**
+
+Use the arrow keys to select **Cancel**, then press **Enter**.
+
+The operating system reboots and returns to the initial screen where you can once again press **F2** to log in, then choose TUI Configuration Options.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Osqy_5uEZ0vPkXLzchiCz_tuireboot.png" size="80" width="356" height="161" caption="Litmus Edge Terminal Reboot configuration" position="center" showCaption="true"></Image>
+
+## Shutdown
+
+**If you decide to not shut down the operating system**:
+
+Use the arrow keys to select **Cancel**, then press **Enter**.
+
+When you shut down Litmus Edge, the TUI interface closes.
+
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_cUL_L5QiuuoawJFUqqqy_tuishutdown.png" size="80" width="358" height="165" caption="Litmus Edge Terminal Shutdown" position="center" showCaption="true"></Image>
+
+## Factory Reset
+
+If you decide to reset your edge device when web UI is unavailable.&#x20;
+
+Use the arrow keys to navigate, then press **Confirm**.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/gi7OrjmpLWppRgt-lBNkl_image.png)
+

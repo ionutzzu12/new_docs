@@ -1,0 +1,85 @@
+---
+title: Use the Poll-Once Topic to Manually Retrieve Register Values
+slug: idxUcZPf73U6DBiuYS4bF
+description: Learn how to use the Poll-once topic. 
+docTags: 
+createdAt: Thu Sep 07 2023 20:25:52 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Notes**:
+
+  - You need to follow the following guidelines for topic names: :Link[Subject-Based Messaging]{href="https://docs.nats.io/nats-concepts/subjects" newTab="true"}.&#x20;
+  - When publishing structured data such as JSON, you must convert to a byte array (string) first. To do this in a flow, you can use the **json&#x20;**&#x6E;ode.&#x20;
+</hint>
+
+You can use the Poll-once topic to retrieve a register value when an event occurs. The Poll-once topic will manually trigger the polling of register values.&#x20;
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/DzNKDvVbWQQ?si=wiwA1AVJce2HtU1y&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# User Scenario
+
+You don’t need to have real-time monitoring for a PLC, and you only need to get register values when a specific event is triggered, thereby reducing unnecessary network traffic. You therefore use the Poll-once topic to retrieve these event-triggered register values.&#x20;
+
+# Set Up and Use the Poll-Once Topic
+
+**To set up and use the Poll-once topic:&#x20;**
+
+1. Follow the steps to [Connect a Device](<../../Product Features/DeviceHub/T8nX0itgnIY8ltxcJAFsG/t1scfzE7ZGrTKq0YgKW8g.mdx>). For this user scenario, a Simulator Generator device is used.&#x20;
+2. Follow the steps to :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} and create one tag with the following parameters.&#x20;
+   - **Name**: S - Random value generator
+   - **Value Type**: int64
+   - **Polling Interval**: 0
+   - **Tag Name**: Enter a name for the tag.&#x20;
+   - **Address**: 1
+3. Click the **Copy&#x20;**&#x69;con for the tag's RAW Topic. Save (paste) this RAW Topic somewhere secure. You will refer to this later.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/niA_RXhl80A9b7uEhFe5I_copy-raw-topic.png "Copy RAW Topic icon")
+4. Click the **Action menu** for the tag and selec&#x74;**&#x20;View Poll Topic**.&#x20;
+   The *Poll Once* dialog box displays.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/POapcnnq3be93g79SoLTW_poll-once-topic.png "The View Poll Topic option")
+5. Click the **Copy&#x20;**&#x69;con for the tag. You will refer to this later.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HHoEtz9ldE7A9QrzodN7d_poll-once-icon.png" size="80" width="786" height="316" position="center" showCaption="false"></Image>
+6. Navigate to **Flows Manager**.&#x20;
+7. For a Flows Manager, click the **Go To Flow Definition** icon.&#x20;
+   The Flow canvas opens in a new browser tab.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/7V-lMFoDbKs0kJVZDJlgK_go-to-flow-definition.png" size="80" width="1010" height="490" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+8. On the Flow canvas, drag the **inject&#x20;**&#x6E;ode and **DataHub Publish** node onto the canvas. Then, connect the two nodes.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/DezwjDs5jwEmTUqko9Bqq_inject-and-publish-nodes.png" size="80" width="862" height="555" caption="The inject and DataHub Publish nodes" position="center" showCaption="true"></Image>
+9. Double-click the **DataHub Publish&#x20;**&#x6E;ode.&#x20;
+   The *Edit DataHub Publish* node dialog box displays.&#x20;
+   - In the **Topic&#x20;**&#x66;ield, paste the Poll-once topic you copied in step 5.&#x20;
+   - If needed, configure the Datahub Publish connection. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="KYuZm3Zwx8ZYXCjdm6hn6" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel href="../../../Product Features/Flows Manager/HBH_feHBlPPJpVuXPyCAK.mdx"} to learn more.&#x20;
+   - Click **Done**.&#x20;
+10. Drag the **DataHub Subscribe** node and **debug&#x20;**&#x6E;ode onto the canvas.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/E9uIt7zH_PdKJpsS1HOYl_subscribe-and-debug-nodes.png" size="80" width="801" height="462" caption="The DataHub Subscribe and debug nodes" position="center" showCaption="true"></Image>
+11. Double-click the **DataHub Subscribe** node.&#x20;
+    The *Edit DataHub Subscribe* node dialog box displays.&#x20;
+    - In the **Topic&#x20;**&#x66;ield, paste the Raw Topic you copied in step 2.&#x20;
+    - Click **Done**, and then **Deploy**.&#x20;
+12. Expand the message window beneath the flow.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Zh___1Jnu2LMvcPHcAmSQ_poll-once-message-bar.png" size="80" width="1713" height="892" caption="The message window" position="center" showCaption="true"></Image>
+13. Click the **Debug&#x20;**&#x69;con to view messages from the debug node.
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tnKgBHcMjkJX1PYETh0Yt_poll-once-debug-icon.png" size="80" width="1712" height="625" caption="The debug icon" position="center" showCaption="true"></Image>
+14. Click the **Inject&#x20;**&#x62;utton. This triggers the timestamp message, which will then trigger the poll-once tag to be activated.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/DNQ7i4TPmQUvsbGOiS2O4_poll-once-inject-button.png" size="80" width="820" height="500" position="center" caption="The Inject button" showCaption="true"></Image>
+15. Confirm the **Debug&#x20;**&#x6E;ode is activated. &#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KCp1K7jEKyfaQioiTaG-x_poll-once-debug-button.png" size="80" width="801" height="462" caption="The Activate Debug button" position="center" showCaption="true"></Image>
+16. The debug window displays a `"success" :true` message, which means the poll-once tag successfully polled the device and displayed the data for the tag.      &#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cO5Ut4NUShhaFKWyEG-uZ_poll-once-success-message.png" size="80" width="1920" height="937" position="center" showCaption="false"></Image>
+
+The rest of the payload displays the following information for the tag:
+
+- **Data Type**: The data type configured for the tag you created in step 1.&#x20;
+- **Timestamp**: Date and time data for the poll-once message.&#x20;
+- **Register ID**: The register ID for the tag generated in Litmus Edge.&#x20;
+- **Value**: The value generated for the tag when the poll was triggered. Since the tag was configured with *S - Random value generator*, a random value is generated.&#x20;
+- **Device ID**: The device ID for the DeviceHub device generated in Litmus Edge.&#x20;
+- **Tag Name**: The name you configured for the tag.&#x20;
+- **Device Name**: The name you configured for the device.&#x20;
+- **Description**: The description you entered for the tag. Since no description was entered for the tag in this use case, no value was displayed.&#x20;
+- **Metadata**: The meta data configured for the tag. Since no meta data was configured for the tag in this use case, no value was displayed.&#x20;
+

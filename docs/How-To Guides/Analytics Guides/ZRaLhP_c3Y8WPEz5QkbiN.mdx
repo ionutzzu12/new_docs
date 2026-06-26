@@ -1,0 +1,103 @@
+---
+title: Use the Statistical Tests Function
+slug: ZRaLhP_c3Y8WPEz5QkbiN
+description: Learn how to use the Statistical Tests function in Analytics. 
+docTags: 
+createdAt: Mon Mar 04 2024 17:35:32 GMT+0200 (Eastern European Standard Time)
+---
+
+The Statistical Tests Function can help you determine how well a set of data matches a certain distribution, especially normal distribution. You can do this by analyzing the data's characteristics and calculating corresponding p-values.
+
+# Understanding Different Types of Statistical Tests
+
+You have the option of the using the following types of statistical tests.&#x20;
+
+## **Jarque-Bera Test**
+
+The Jarque-Bera test measures how a dataset's skewness and kurtosis compare to that of a normal distribution, with its value indicating the likelihood of non-normality.
+
+**Formula:&#x20;**`JB = (n/6) (skewness^2 + (1/4)(kurtosis-3)^2)`
+
+## **Cramer-Von Mises Test**
+
+This test assesses the fit of a data sample to a specified cumulative distribution by analyzing the squared differences, with a low p-value indicating a poor fit.
+
+**Formula:&#x20;**`cramerVonMises = (1/(12*n)) + sum(((2*i - 1)/(2*n) - Phi(Z))^2)`
+
+## &#x20;**Anderson-Darling Test**
+
+The Anderson-Darling test focuses on the tails of the distribution to evaluate if the data conforms to a specified distribution, typically giving more weight to outliers.&#x20;
+
+&#x20;**Formula:** `A^2 = -n - (1/n) * sum((2*i - 1) * log(Phi(Z_i)) + (2*(n - i) + 1) * log(1 - Phi(Z_(n-i))))`
+
+## **D'Agostino Pearson Test**
+
+This test combines skewness and kurtosis to examine if the shape of a dataset's distribution aligns with a normal distribution, looking for deviations in symmetry and sharpness of the highest point.
+
+## **Kolmogorov-Smirnov Test**
+
+The Kolmogorov-Smirnov test, particularly the Lilliefors modification, evaluates the normality of a dataset by comparing the empirical distribution function with the cumulative normal distribution.
+
+**Formula:&#x20;**`K = max(D+, D-) * sqrt(n)`
+
+# User Scenario
+
+Review the following scenario for the Statistical Tests function. Then, you will simulate PLC data and calculate the corresponding test values for the collected data.
+
+In a chemical manufacturing plant, quality control engineers use the Statistical Tests Function to ensure that the mixture ratios of raw materials are consistent with the required standards for product batches. By analyzing characteristics such as consistency and concentration, the tests determine if the batch data deviates from normal distribution, which is critical for product quality.
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../docs/Product Features/DeviceHub/T8nX0itgnIY8ltxcJAFsG/t1scfzE7ZGrTKq0YgKW8g.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: input1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **1**
+- **Tag Name**: Enter **input1**
+- **Min\_value**: Enter **101**
+- **Max\_value**: Enter **199**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Statistical Function Processor:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **input1&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select th&#x65;**&#xA0;Statistical Function&#x20;**&#x70;rocessor.
+   The *Edit a Processor* dialog box appears.
+   - **Window Size:** Enter a value that represents the range to apply the statistical tests. For this example, we input a value of **100**.
+   - Select the **Jarque Bera**, **Anderson Darling**, **Cramer Von Mises**, **D Agostino Pearson**, and **Kolmogorov Smirnov&#x20;**&#x63;heckboxes.
+   - Click **Save**.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KnDyLPuOuCVTJ6vi_1ziM_image.png "Edit a Processor dialog box")
+7. Connect the *DataHub Subscribe* processor (tag: *input1*) to the *Statistical Function&#x20;*&#x70;rocessor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+   The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/n_LFV-QX0X5sDt39mBi_u_image.png "Completed Flows Canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Statistical Function&#x20;*&#x70;rocessor to view the output values.
+
+The tests suggest the sample data may not fit a normal distribution, as indicated by the p-values and test statistics provided.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/w0THUofe39JmlPorybmFe_image.png "Output of Statistical Test Function")
+

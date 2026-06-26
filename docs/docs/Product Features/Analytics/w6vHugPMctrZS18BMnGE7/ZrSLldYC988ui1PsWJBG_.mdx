@@ -1,0 +1,42 @@
+---
+title: Add Processors and Processor Connections
+slug: ZrSLldYC988ui1PsWJBG_
+description: An analytics flow consists of at least one of the following: an input processor, a function, and an output processor. 
+docTags: 
+createdAt: Thu Sep 29 2022 17:41:21 GMT+0300 (Eastern European Summer Time)
+---
+
+You can add an analytics processor to the Analytics canvas by navigating to **Analytics&#x20;**>**&#x20;Instances**. An analytics flow consists of at least one of the following: an input processor, a function, and an output processor.&#x20;
+
+To create an entire flow with processors and connections, see [Create an Analytics Flow](S7d7-6tJBt2yCHLK6AGTB.mdx).&#x20;
+
+# Add a Processor&#x20;
+
+**To add a processor:**
+
+1. Navigate to **Analytics&#x20;***>&#x20;***Instances**.&#x20;
+   The *Instances&#x20;*&#x70;ane appears.&#x20;
+2. Use the *Analytics Groups* drop-down list to select the group you want to add the processor to.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9OHzVMs7ocuASYixUaeVY_groupsdropdownlist.png" size="80" width="687" height="415" caption="Analytics Groups drop-down list" position="center" showCaption="true"></Image>
+3. Open the **Action menu** and select **Add a processor**.&#x20;
+   The *Create a Processor&#x20;*&#x64;ialog box appears.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9IdXeksmKIjAjeeRAamO6_addprocessoricon.png "Add a processor icon")
+4. Use the drop-down list to select a processor. Processors are categorized by *Inputs*, *Functions*, and *Outputs*.&#x20;
+5. Based on your selection, configure the parameters for the processor.&#x20;
+6. Click **Save**.&#x20;
+
+# Add a Processor Connection
+
+To connect two individual processors, click the orange circle in a processor and drag the connection to the green circle of the other processor. You will need to select the type of connection to add:&#x20;
+
+- **Events** (individual data source): The receiving processor reacts to each individual data value immediately.&#x20;
+- **Values** (combined data sources): The function processor waits for values from all of the combined data sources before reacting.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/T-4IX3MWfx-tJljsPw6IN_image.png" size="80" width="1054" height="237" caption="Add a connection between two processors" position="center" showCaption="true"></Image>
+
+If you receive a red error icon on one of the connected processors, hover over the connection error to view the error message.
+
+<hint type="info">
+  **Note**: Some function processors require multiple inputs. Each of these is represented by an input processor and the corresponding connection.
+</hint>
+

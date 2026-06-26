@@ -1,0 +1,135 @@
+---
+title: Generic MQTT Integration Guide (HiveMQ)
+slug: Hw7zvUmgoG6Ge9CUEgFgI
+description: Learn how to set up the Generic MQTT-TCP connector using HiveMQ. 
+docTags: 
+createdAt: Mon Nov 28 2022 23:04:44 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and an MQTT broker using HiveMQ.&#x20;
+
+HiveMQ's MQTT broker is designed for cloud native deployments to make optimal use of cloud resources. The use of MQTT reduces network bandwidth required for moving data.
+
+# Before You Begin
+
+You must download :Link[MQTT Explorer]{href="http://mqtt-explorer.com/" newTab="true"}.
+
+Visit the :Link[MQTT Dashboard]{href="http://www.mqtt-dashboard.com/" newTab="true"} to find the settings required in the MQTT Explorer application.
+
+# Step 1: Connect MQTT Explorer
+
+1. Open MQTT Explorer.
+2. Click the **Add&#x20;**&#x69;con to create a new connection.&#x20;
+3. In the **Name** field, enter a name for the connection.&#x20;
+4. Click the toggle for **Encryption (tls)** so it's not selected.&#x20;
+5. In the **Host&#x20;**&#x66;ield, enter **broker.hivemq.com**.&#x20;
+6. In the Port field, verify that **1883&#x20;**&#x69;s entered.&#x20;
+7. Click **CONNECT**.
+
+# Step 2: Add the Generic MQTT Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/2-UCRLFSRK14ramqhVm36.mdx>) and select the **MQTT - Generic&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Enter **broker.hivemq.com**.&#x20;
+- **Port**: Confirm that the default value **1883** is entered.&#x20;
+- **Client ID**: Enter **1**.&#x20;
+- **Username**: Leave this field blank.&#x20;
+- **Password**: Leave this field blank.&#x20;
+- **QoS**: Select **0**.&#x20;
+- **Parallel Publish Count**: Enter **100**. The number of messages being published simultaneously. Once the defined limit has been reached, subsequent messages are silently dropped.&#x20;
+- **Integration Topic**: Enter **mqtt\_topic**.&#x20;
+- **LWT topic**: The topic for MQTT's Last Will and Testament feature. You can leave this value blank.
+- **LWT payload**: The payload for MQTT's Last Will and Testament feature. You can leave this value blank.
+- **LWT payload type**: The payload type for MQTT's Last Will and Testament feature. The options are *string&#x20;*&#x61;nd *base64*.&#x20;
+- **LWT QoS**: The Quality of Service value for MQTT's Last Will and Testament feature. The default value is **1**.&#x20;
+- **LWT retained**: Select this check box to retain the value for MQTT's Last Will and Testament feature.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 3: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/lr3QYFh3sAl8wRZdPk1vN_mqttgeneric.png" size="60" width="369" height="345" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="p4fwhKRt2q2hsjboZv6hk" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/sg--6i_X4_uGD7by2g88L/A4IRTEnfEkJidIw7T_Lsd.mdx"} and relevant error messages.&#x20;
+
+# Step 4: Add Outbound/Inbound Topic to Connector
+
+**To add the outbound and inbound topics to the MQTT Connector:**
+
+1. Navigate to **Integration**.&#x20;
+2. Click the *MQTT - Generic&#x20;*&#x63;onnector tile.&#x20;
+3. Click the **Topics&#x20;**&#x74;ab.&#x20;
+4. Click the **Add a new subscription** icon.&#x20;
+   Th&#x65;*&#x20;Data Integration&#x20;*&#x64;ialog box appears.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Aj9tTx4BUmgxzEsVkWk3l_addnewsubicon.png" size="80" width="1279" height="325" caption="Add a new subscription icon" position="center" showCaption="true"></Image>
+5. Configure the following parameters.&#x20;
+   - **Data Direction**: Select **Local to Remote - Outbound**.&#x20;
+   - **Local Data Topic**: Enter a local data topic name.&#x20;
+   - **Remote Data Topic**: Confirm the topic where the data is pushed. This is th&#x65;*&#x20;Integration Topic&#x20;*&#x76;alue for the connector.&#x20;
+   - **Enable**: Select the toggle to enable the topic.&#x20;
+6. Click **OK&#x20;**&#x74;o add the topic.&#x20;
+7. Click the **Add a new subscription** icon again to add the inbound topic.
+8. Configure the following parameters.&#x20;
+   - **Data Direction**: Select **Remote to Local - Inbound**.
+   - **Local Data Topic**: Enter a local data topic name. For example: **local\_topic**. &#x20;
+   - **Remote Data Topic**: Confirm the topic where the data is pushed. This is th&#x65;*&#x20;Integration Topic&#x20;*&#x76;alue for the connector.&#x20;
+   - **Enable**: Select the toggle to enable the topic.&#x20;
+9. Click **OK&#x20;**&#x74;o add the topic.&#x20;
+
+# Step 5: Verify Connection in MQTT Explorer
+
+You can verify the connection in MQTT Explorer by subscribing to the topics for the connector.
+
+## Step 5a: Add Topic to MQTT Explorer
+
+You will need to add the topic name you configured for the connector in MQTT Explorer.&#x20;
+
+**To add the topic to MQTT Explorer:&#x20;**
+
+1. Open MQTT Explorer.&#x20;
+2. Click **DISCONNECT**.&#x20;
+3. Select the connection you created earlier.&#x20;
+4. Click **ADVANCED**.&#x20;
+5. In the **Topic&#x20;**&#x66;ield, enter the Integration Topic value you configured in Step 2. In this guide, the value is **mqtt\_topic**.&#x20;
+6. Verify the QoS value is **0**.&#x20;
+7. Click **+ADD**.&#x20;
+8. Click **BACK**.&#x20;
+9. Click **SAVE**, and then **CONNECT**.&#x20;
+
+## Step 5b: Verify Connection in Flows Manager
+
+You can test the connection by sending a message through the Flows Manager.&#x20;
+
+**To test the connection in Flows Manager:**
+
+1. In Litmus Edge, navigate to **Flows Manager**.&#x20;
+2. Click the **Go To Flow Definition** icon for a selected Flows Manager.&#x20;
+   The *Flow canvas* opens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Y6H9bnSXYEshKVHY7EUCY_gotoflowdefinition.png" size="80" width="1203" height="421" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+3. From the flow canvas, drag the **DataHub Publish** node (DataConnector section) and **Inject&#x20;**&#x6E;ode (Common section) to the canvas.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RZawqMsuHHTpvY8MEgnBf_datahub-pub-and-inject-nodes.png" size="80" width="850" height="587" caption="The DataHub Publish and Inject nodes" position="center" showCaption="true"></Image>
+4. Connect the two nodes.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AAATdRNUdC-pGwdpwlufS_inject-publish-nodes-connected.png" size="80" width="840" height="603" caption="The Inject node and DataHub Publish node connected" position="center" showCaption="true"></Image>
+5. Double-click the **DataHub Publish** node.&#x20;
+   The *Edit DataHub Publish Node* dialog box appears.
+6. In the **Topic&#x20;**&#x66;ield, enter the topic name you configured for the outbound topic you created for the connector.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/p4lMLgTf0dqt3oN_Gjtf4_outbound-topic-name.png" size="80" width="1236" height="476" caption="The local topic name for the outbound topic" position="center" showCaption="true"></Image>
+7. If needed, configure the Datahub Publish connection. See :Link[Configure Connector Nodes]{docId="KYuZm3Zwx8ZYXCjdm6hn6" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel="Configure Connector Nodes" href="../../../Product Features/Flows Manager/HBH_feHBlPPJpVuXPyCAK.mdx"} to learn more.&#x20;
+8. Click **Done**.&#x20;
+9. Double-click the **Inject&#x20;**&#x6E;ode.&#x20;
+   The *Edit Inject Node* dialog box appears.
+10. In the **msg.payload** field, select **string&#x20;**&#x61;nd ente&#x72;**&#x20;test MQTT connection**.&#x20;
+11. In the **msg.topic&#x20;**&#x66;ield, enter the topic name you configured for the outbound topic you created for the connector.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/f30O7kK1iIVIBwHiTqDzi_inject-node-properties.png" size="70" width="577" height="365" caption="Inject node properties" position="center" showCaption="true"></Image>
+12. Click **Done**, and then **Deploy**.&#x20;
+13. Click the Inject node button to send the "test MQTT connection" message to the topic.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tm_kY2RGCzwGf8VZZ4s1p_inject-button.png" size="80" width="869" height="584" position="center" showCaption="false"></Image>
+14. Verify that the message displays in MQTT Explorer.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/S8w5UzAv62c8Y4rLGQjl-_mqtt-explorer-message.png" size="80" width="999" height="677" caption="Message sent from the Flows Manager to the MQTT topic" position="center" showCaption="true"></Image>
+

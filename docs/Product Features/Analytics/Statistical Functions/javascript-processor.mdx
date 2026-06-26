@@ -1,0 +1,49 @@
+---
+title: JavaScript Processor
+slug: javascript-processor
+docTags: 
+createdAt: Tue Aug 06 2024 22:05:02 GMT+0300 (Eastern European Summer Time)
+---
+
+This processor function enables users to use JavaScript as a programming language for manipulating and managing data coming from input tags.
+
+Define your script in the Code Editor. The editor is a user-friendly interface for writing and editing JavaScript, supporting syntax highlighting and real-time validation. Write the JavaScript code you want to execute. Learn more :Link[here]{href="https://www.w3schools.com/js/" newTab="true" hasDisabledNofollow="false"}.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ISdwmzXAwwVLFUiWXqNO3_image.png)
+
+At the right you can access:
+
+- **Playground**
+  Test, write, and validate processors in real-time before deploying them.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/blxh7gPWDxR9zAZlBwrfT_image.png" size="80" width="1918" height="964" position="flex-start" showCaption="false" indent="2"></Image>
+
+- **Validate**
+  Validate your code.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/c0PPDqsXX8klBwb9ZmShI_image.png" size="80" width="767" height="406" position="flex-start" showCaption="false" indent="2"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *JavaScript Processor&#x20;*&#x70;rocessor, refer the :Link[Use the JavaScript Processor Function]{label="Use the JavaScript Processor Function" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="kBYzWz6vRqFnLb4NFIV-8" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+
+# JavaScript Overview
+
+- This processor uses JavaScript scripting
+- **Simple Use case**: The output you receive from DeviceHub message or from Analytics, might not be helpful, and you want to change the name of a field within that message
+- In general, if you want to add, remove or modify ANY field in the input, this scripting processor is very useful. For example:
+  - Instead of "value" you want your data to show "furnace pressure"
+  - Instead of having all fields of the message, you only want to have "success", "deviceId" and "value" and skip everything else
+  - You want to add a custom field to the message, based on the "value" field, such as: if value = 2, "error": "overheating"
+  - You only want to change the timestamp to human readable format instead of Unix timestamp, but keep otherwise keep the message as-it-is
+- **Single Input:** Every message from the input, is stored as an array called "values"
+  - Using "for i, message in values\{}" statement, allows to access this input and manipulate it
+  - Here "i" represents what is the *definition* defined in the connection wire, more useful for multi-inputs, to identify and distinguish between each inputs, so for single input, "i" can be replaced with "\_"
+  - "message" contains the entire message in the input, and you can perform your manipulations to this "message" parameter
+  - **Note:** "i" and "message" can be any custom variable name
+- **Multiple Input:** Suppose you have 3 different inputs attached to this scripting processor, with the connecting wires named A, B and C
+  - "for i, message in values\{}" will now have 3 inputs
+  - "i" represents from which connection wire is the input coming from
+  - with if-else statements, every input can be manipulated in isolation, or a common manipulation can be applied to all inputs
+  - You can choose to output "result" only for one input, or all of the inputs
+

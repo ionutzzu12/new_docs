@@ -1,0 +1,54 @@
+---
+title: Use the Mazak MTConnect Demo Agent to Connect a Device
+slug: -HGYZ0bidocYJaqF41rSQ
+description: Learn how to connect a Mazak MTConnect Demo Agent. 
+docTags: 
+createdAt: Tue Jan 10 2023 19:35:02 GMT+0200 (Eastern European Standard Time)
+---
+
+MTConnect is a read-only protocol commonly used by CNC machines.
+
+Mazak provides a publicly accessible tool that can be used to test your device setup. See :Link[Mazak MTConnect Demo Agents]{href="http://mtconnect.mazakcorp.com/" newTab="true"} for more information.&#x20;
+
+# Step 1: Add MTConnect Device
+
+**To add the MTConnect Device:&#x20;**
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Devices**.&#x20;
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device&#x20;*&#x64;ialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/atJL37pPuLGI2bM_w2ibz_adddevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" showCaption="true"></Image>
+3. In the **Device Type** drop-down list, select **MTConnect**.&#x20;
+4. In the **Driver Name** drop-down list, select **MTConnect Ethernet (Gen1)**.&#x20;
+5. Configure the following parameters.
+   - **Name**: Enter a name for the device.&#x20;
+   - **Description**: Enter a description for the device.&#x20;
+   - **Network Address**: Enter the device IP address. To get the IP address, you can use the command prompt to ping the device at Mazak with the following command: `C:\Users\<your username> ping mtconnect.mazakcorp.com`. Copy and paste the IP address in the response.&#x20;
+     - The Network Address is the IP address of the device running the MTConnect protocol. For Litmus Edge only, the IP is used without "http\://" even if it is an HTTP-based protocol. The MTConnect connection can also be accessed from a browser. See [http://mtconnect.mazakcorp.com:5717](http://mtconnect.mazakcorp.com:5717/) to view the XML Document Tree.
+   - **Network Port**: Enter 5717. The Network Port is the port for which the MTConnect server is listening. It is the same port used by the URL. The above link for the XML Document Tree uses the same port as your device.&#x20;
+   - **Device Name**: Enter the device name.&#x20;
+     - The Device Name is unique to MTConnect but crucial. MTConnect operates using an XML-based schema to be able to locate which tags to read. You must provide the name of the device as the schema can potentially hold the data for multiple devices.
+     - To find the device name, you can run the probe URL. See [http://mtconnect.mazakcorp.com:5717/probe](http://mtconnect.mazakcorp.com:5717/probe) to view the XML schema. You can locate the name for the device to be connect under a \<Device id> tag. The value to be used is for the name key.
+     -
+       <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zlVJHGAWbiQxI7uSey9_N_mtconnect-device-id.png" size="80" width="819" height="288" caption="Device ID parameter" position="center" showCaption="true"></Image>
+   - **Enable Alias Topics**: Select the check box.&#x20;
+   - **Enable Data Store**: Select the check box.
+6. Click **Add Device**.&#x20;
+   MTConnect is a browsing-based driver and requires at least one tag to be added before showing as Connected.
+
+# Step 2: Browse for Tags
+
+**To browse for tags:**
+
+1. Navigate to **DeviceHub&#x20;**> **Tags**.
+2. Click the **Add&#xA0;**&#x69;con, and then select **Browse Tags**.
+   The *Browse Tags* dialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-IzCEVGfswGJSotXHToyy_browsetags.png" size="80" width="1402" height="470" caption="Browse Tags option" position="center" showCaption="true"></Image>
+3. Select the MTConnect device.
+   The tags list drops down.&#x20;
+   It may be necessary to manually refresh the tag browser if it does not show the expected result. This can happen if the device was created with the wrong IP address, port, or device name. In this case, the first browsing will return no results, but a dummy browsing list is created when refreshed. You can edit the device and correct the mistake, and then try to browse tags again. If the dummy browsing list appears again, refresh the browse list.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/TB-gOVdYhqHO_PoFwU9rS_mtconnect-browse-tags.png" size="80" width="1099" height="679" caption="Browse tags list" position="center" showCaption="true"></Image>
+4. Select the tags to add.&#x20;
+5. Click **Add**.
+6. Navigate to Devices. The MTConnect device shows as CONNECTED in the *Devices&#x20;*&#x70;ane.
+

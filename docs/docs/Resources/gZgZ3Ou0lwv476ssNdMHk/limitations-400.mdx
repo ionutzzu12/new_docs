@@ -1,0 +1,32 @@
+---
+title: Limitations 4.0.0
+slug: limitations-400
+docTags: 
+createdAt: Tue Jul 15 2025 20:45:03 GMT+0300 (Eastern European Summer Time)
+---
+
+The following limitations have been identified. When they are resolved, they will be reported in the latest [Product Updates](../../../PRG2HhcKbiTOc5byVdQHv.mdx) under *Resolved Issues*.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Integrations:**
+      - Updating the **Bulk Insert Count** from `0` to any other value causes connectors to enter a failed state.
+      - With AWS Sitewise integrations, data is delayed and sent in bulk rather than at the polling interval defined for the driver. This occurs when some DeviceHub tags have a null value.
+      - A `bulk operation limit of 1000 exceeded` error message displays when performing a bulk edit on less than 100 subscriptions.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **System:**
+      - In some case, a `Failed to check firmware upgrade status. Max retry attempts exceeded error` displays in Litmus Edge Manager after upgrading a Litmus Edge device, even though the device is upgraded successfully.
+      - Litmus Edge may closed unexpectedly if you delete all analytics groups in the system and then attempt to create new processors.
+    </td>
+  </tr>
+</table>
+

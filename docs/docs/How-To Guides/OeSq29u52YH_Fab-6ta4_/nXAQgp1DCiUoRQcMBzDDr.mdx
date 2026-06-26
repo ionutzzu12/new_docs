@@ -1,0 +1,58 @@
+---
+title: Use the Manage Topic to Stop a Device
+slug: nXAQgp1DCiUoRQcMBzDDr
+description: Learn how to use the Manage topic. 
+docTags: 
+createdAt: Thu Sep 07 2023 20:25:53 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Notes**:
+
+  - You need to follow the following guidelines for topic names: :Link[Subject-Based Messaging]{href="https://docs.nats.io/nats-concepts/subjects" newTab="true"}.&#x20;
+  - When publishing structured data such as JSON, you must convert to a byte array (string) first. To do this in a flow, you can use the **json&#x20;**&#x6E;ode.&#x20;
+</hint>
+
+The Manage topic allows you to control the status of a DeviceHub device.&#x20;
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/zUhR_e9DpvM?si=MpcUUDKSUobwJbe2&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# User Scenario
+
+You'd like to remotely disconnect a PLC from Litmus Edge.&#x20;
+
+# Set Up and Use the Manage Topic
+
+**To set up and use the Manage topic:**
+
+1. Follow the steps to [Connect a Device](<../../Product Features/DeviceHub/T8nX0itgnIY8ltxcJAFsG/t1scfzE7ZGrTKq0YgKW8g.mdx>). For this user scenario, a Simulator Generator device is used.&#x20;
+2. Navigate to **DeviceHub**.
+3. In the Generator device tile, click the **Display Copy Options** icon and select the Manage topic. This will copy the Manage status topic.  You will refer to this topic later on.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Xrjcj8WXfmFsYunbDWeNN_copy-manage-topic.png" size="80" width="671" height="373" caption="Copy the manage topic" position="center" showCaption="true"></Image>
+4. Navigate to **Flows Manager**.&#x20;
+5. For a Flows Manager, click the **Go To Flow Definition** icon.&#x20;
+   The Flow canvas opens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/eS8eKsky9erOo1BgLHWsU_go-to-flow-definition.png" size="80" width="1010" height="490" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+6. On the Flow canvas, copy the **DataHub Publish** node and **inject&#x20;**&#x6E;ode onto the canvas. Then, connect the two nodes.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/hxeBGHjI4zRRnTQbC11Lj_manage-nodes.png" size="80" width="767" height="503" caption="The nodes needed for the manage topic" position="center" showCaption="true"></Image>
+7. Double-click the DataHub Publish node.&#x20;
+   - In the **Topic&#x20;**&#x66;ield, paste the Manage topic you copied in step 3.&#x20;
+   - If needed, configure the Datahub Publish connection. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="KYuZm3Zwx8ZYXCjdm6hn6" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel href="../../../Product Features/Flows Manager/HBH_feHBlPPJpVuXPyCAK.mdx"} to learn more.&#x20;
+   - Click **Done**.&#x20;
+8. Double-click the **inject&#x20;**&#x6E;ode.&#x20;
+   The *Edit inject* node dialog box displays.&#x20;
+9. For **msg.payload**, select **string**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/kq5hmoJOK102KwP524Kd-_string-payload.png" size="80" width="565" height="883" caption="Select a string payload" position="center" showCaption="true"></Image>
+10. For **msg.payload**, enter `{"command" : "stop"}`.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/r2q-Y9AvRkXGIstxxuL4m_stop-command.png" size="60" width="561" height="890" caption="Command to stop device" position="center" showCaption="true"></Image>
+11. Click **Done**, and then click **Deploy**.
+12. Click the **inject&#x20;**&#x62;utton. This triggers the payload message you configured for the node.&#x20;
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5Asv74QwMTjgwjEd4worC_activate-inject-button.png "The inject button")
+13. Return to the Litmus Edge browser window and navigate to **DeviceHub**. The device now shows a *Stopped&#x20;*&#x73;tatus.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/wsChus5eqPIHIu0c5pHIC_device-stopped.png" size="60" width="431" height="360" caption="Stopped status" position="center" showCaption="true"></Image>
+
+To restart the device, you can use the following command: `{"command" : "start"}`.

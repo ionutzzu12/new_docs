@@ -1,0 +1,58 @@
+---
+title: Configure DNS/NTP Servers
+slug: zF6AgpACj3xG8ULiaghBx
+description: You can configure DNS/NTP servers from the DNS / NTP Servers tab.
+docTags: 
+createdAt: Tue Sep 27 2022 16:21:26 GMT+0300 (Eastern European Summer Time)
+---
+
+You can configure DNS/NTP Servers by navigating to **System&#x20;**>**&#x20;Network** > **DNS / NTP Servers**.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/FzjlXJjwoqN1o_GS7Fn4N_image.png "The DNS / NTP Servers tab")
+
+# Before You Begin
+
+Before making changes to the DNS/NTP Servers, make sure your configuration is using the same network on which your device is located.
+
+# Fallback DNS Resolvers
+
+The Litmus Edge software package installation includes a default configuration for the Fallback DNS Resolvers that is only suitable for the open Internet. You must delete and replace the default entries with your own network information.
+
+To remove a fallback DNS resolver, click the **Trash&#x20;**&#x69;con next to the one you want to remove.&#x20;
+
+To add a DNS resolver, enter the IP address for a DNS Resolver in the *Add DNS Resolvers* field and click **Add**.&#x20;
+
+# NTP Client Status
+
+The information provided in this section assists in assessing activation and license provisioning.&#x20;
+
+The following information is available:
+
+- **Status**: The current status of the NTP Client.&#x20;
+- **Server**: The location of the server.
+- **Stratum**: The hierarchy within the NTP network.&#x20;
+- **System Time**: The difference between the device time and the NTP system time.&#x20;
+
+# NTP Servers
+
+The Litmus Edge software package installation includes a default configuration for the NTP server ports that is only suitable for the open Internet. You must delete and replace the default entries with your own network information.
+
+To remove an NTP server, click the **Trash&#x20;**&#x69;con next to the one you want to remove.&#x20;
+
+To add an NTP server, enter the server port for an NTP server in the *Add NTP Server* field and click **Add**. For example: **0.pool.ntp.org**.&#x20;
+
+# Hosts File
+
+You can add a new host binding. The host binding supplies configuration metadata, allowing you to set properties on an element or component for the host. You can then generate events on the host.
+
+To add a host binding, click the **Add&#x20;**&#x69;con, enter the details, and then click **Create**.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KNnPJaykJ-VeUmGsSuxLH_image.png)
+
+- **IP address**: Enter the IP address for the host.&#x20;
+- **Names**: Enter one or more names for the elements or components that generate events.&#x20;
+
+To remove a host binding, click the **Action menu** for the host binding and select **Remove**.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/bwvODiKj6uoB4BZLx9EG4_image.png "The Remove option for a host file")
+

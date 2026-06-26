@@ -1,0 +1,77 @@
+---
+title: Subscribe to Topics with Flows
+slug: PUgLM2xrJLAFEYxNNtdsJ
+description: You can use Flows to subscribe to individual topics or use wildcards to subscribe to multiple topics.
+docTags: 
+createdAt: Thu Dec 14 2023 18:01:02 GMT+0200 (Eastern European Standard Time)
+---
+
+You have the following options for subscribing to topics in Flows.&#x20;
+
+# Subscribe to a Single Topic
+
+The following steps describe how to subscribe to a single topic from a connected DeviceHub device. See the following to learn more:
+
+- [Connect a Device](<../../docs/Product Features/DeviceHub/T8nX0itgnIY8ltxcJAFsG/t1scfzE7ZGrTKq0YgKW8g.mdx>)
+- :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+
+**To subscribe to a single topic:**
+
+1. Get the topic name to configure the *DataHub Subscribe* node in Flows.
+   - Go to **DeviceHub** and select the **Tags&#xA0;**&#x70;ane from the navigation menu.
+   - Click the **Copy&#xA0;**&#x69;con next to the *RAW Topic* from which you wish to receive data.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nJmhVP4Ac7_GWSdBcd0Lm_aa.png "Litmus Edge DeviceHub Page")
+2. In the navigation menu, click **Flows Manager**.
+3. To access an existing flow canvas, click the **Go To Flow Definition&#x20;**&#x69;con next to the flow status. For creating a new flow, refer to *Step 2: Create Individual Flow&#x20;*&#x69;n [Create a Flow](<../../Product Features/Flows Manager/HBH_feHBlPPJpVuXPyCAK.mdx>)  to learn more.
+   The *Flow* canvas opens in a new browser tab.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-Sz2k0jom4DrMqIgt_IBY_c.png "Go To Flow Definition icon")
+4. Drag the **DataHub Subscribe node** and **debug node** on the canvas and connect them.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/FwWYGnQPIqeg0rCCSTgFN_aaaa.png "The Debug and DataHub Subscribe nodes")
+5. Double-click the **DataHub Subscribe&#x20;**&#x6E;ode to open the *Edit DataHub Subscribe* node dialog box. Configure the node by following these steps:
+   - Paste the topic name previously copied into the *Topic&#xA0;*&#x66;ield. 
+   - If needed, configure the Datahub Subscribe connection. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="KYuZm3Zwx8ZYXCjdm6hn6" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel href="../../Product Features/Flows Manager/HBH_feHBlPPJpVuXPyCAK.mdx"} to learn more.&#x20;
+   - Enter a name in the *Name&#xA0;*&#x66;ield and click **Done**.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CvHmyQFBjpNVpzaQmK76v_aws.png "The debug node connected to existing flow")
+6. To save the flow, click **Deploy**. 
+7. Expand the message window beneath the flow.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/PdO3lIPUKNYpR9eiOS-2g_wda.png "The message window")
+8. Click the **Debug&#xA0;**&#x69;con to view the data output.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EU6xcVQGYQIVH7p2AgVFy_wwww.png "The debug icon")
+9. Review the data payload in the message window.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/L_YueXsA7xy9G7MW7WIYY_waq.png "Successful write message")
+
+# Subscribe to Multiple Topics using Wildcards
+
+Use **Wildcards&#x20;**&#x74;o subscribe to multiple topics at once.
+
+## **Wildcard Usage**
+
+`>`**&#x20;Wildcard Character**: Use the `>` wildcard character to subscribe to messages from multiple tags. Example: `devicehub.alias.>` will subscribe to every topic in the DeviceHub.
+
+`*`**&#x20;Wildcard Character**: Use the `*` wildcard character to match a single topic between `.` characters in tags. Example: `devicehub.alias.*.*` matches topics with two-character sequences after each of the two`.` characters.
+
+<hint type="info">
+  **Note:&#x20;**&#x55;sing just the `>` wildcard character subscribes to all topics, which can cause slowdowns when sending data to databases or clouds. Consider using [Function Nodes](<../../docs/Product Features/d6Gdnkct4qETfXoFXUIfx/E65djR_qzTvuR2DavbbSN.mdx>) to trim data or file nodes for efficiency.
+</hint>
+
+## **Use Wildcards to Subscribe to Multiple Topics**
+
+To subscribe to multiple topics in flows, replace the topic name in step five of "Subscribe to a Single Topic" with the information about topic wildcards as below.&#x20;
+
+**To use wildcards to subscribe to multiple topics:&#x20;**
+
+1. Complete steps 1-5 from "Subscribe to a Single Topic" above.&#x20;
+2. Replace the topic name with the desired wildcard-based topic.&#x20;
+   **Syntax Examples:**
+   `devicehub.alias.>` (Subscribe to all topics in DeviceHub)
+   `devicehub.alias.{Device_ID}.>` (Subscribe to all tags from a specific DeviceHub device)
+   `devicehub.alias.*.test_tag` (Subscribe to all tags named test\_tag from every DeivceHub device)
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/xngWzX0aI46LdbNvKhToy_aawwaa.png" size="50" width="538" height="321" position="center" caption="Edit Datahub Subscribe node dialog box" showCaption="true"></Image>
+3. Click **Done** and save the flow by clicking the **Deploy&#xA0;**&#x62;utton at the top-right corner of the screen.
+4. Expand the message window beneath the flow.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qUN5U9gp0rXYkLw_78Q8K_wda.png "The message window")
+5. Click the **Debug&#xA0;**&#x69;con to view the data output.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ty5MlM2L2Y6XYo16cioXI_wwww.png "The debug icon")
+6. Review the data payload in the message window.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Nq0jhivSWKhi8iRUJYOJQ_image.png "Data output from all Topics")
+

@@ -17,7 +17,7 @@ In Symbolic mode, the driver uses the symbolic tag names in its requests to the 
 
 ## Logical Mode
 
-In Logical mode, the driver uses numeric handles instead of symbolic names. Usually, this allows for reading more tags per request than in symbolic mode, especially if symbolic names are long. However, the driver must be restarted every time the PLC program changes. It performs better overall than Symbolic mode as long as the PLC program does not change.
+In Logical mode, the driver uses ID-based requests for FlexLogix, CompactLogix, and ControlLogix PLCs for all firmware versions. The driver uses numeric handles instead of symbolic names. Usually, this allows for reading more tags per request than in symbolic mode, especially if symbolic names are long. However, the driver must be restarted every time the PLC program changes. It performs better overall than Symbolic mode as long as the PLC program does not change.
 
 ## Routing
 

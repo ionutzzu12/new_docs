@@ -1,6 +1,6 @@
 ---
 title: Add Topics to Connectors
-slug: exGLb3i9-XO52r47YxJff
+slug: thhUxP2jErgIbdk8sKjWH
 description: You have several options to add topics to integration connectors. 
 docTags: 
 createdAt: Thu Dec 14 2023 17:24:53 GMT+0200 (Eastern European Standard Time)
@@ -46,10 +46,11 @@ If you are adding individual outbound topics, you will need to connect the Devic
 7. Enter a short description in the **Description** field.
 8. (If available) From the **Qos** dropdown menu, select a :Link[Quality of Service]{href="https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/" newTab="true"} value.
    Available values: `default`, `0`, `1`, `2`
-9. Click the **Enable** toggle to enable the connection.
-10. Click **OK**.
+9. (MQTT v5 connectors only) Select the **Retain** checkbox to instruct the broker to retain the last published message on this topic. New subscribers will immediately receive the most recently retained message when they connect.
+10. Click the **Enable** toggle to enable the connection.
+11. Click **OK**.
     If the connector is CONNECTED, the *Confirmation&#x20;*&#x64;ialog box appears.
-11. Click **Yes**. Follow the prompt to restart the connector.
+12. Click **Yes**. Follow the prompt to restart the connector.
     The new topic appears on the Topics pane and is enabled.
 
 # Import Tags from DeviceHub

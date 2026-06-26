@@ -10,7 +10,7 @@ You must configure providers in Litmus Edge to activate LDAP/AD authentication
 
 You can add an LDAP/AD Provider by navigating to **System&#x20;**>**&#x20;Access Control&#x20;**>**&#x20;LDAP/AD Auth**.&#x20;
 
-Review the :Link[Set Up LDAP Using an OpenLDAP Container]{label="Set Up LDAP Using an OpenLDAP Container" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="7_drtJbAJs8mgw1-GflNB" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} how-to guide.&#x20;
+Review the [Set Up LDAP Using an OpenLDAP Container](<../../../../../How-To Guides/Applications Guides/twgBvWNM8nJsRDNn147S8.mdx>) how-to guide.&#x20;
 
 <hint type="warning">
   **Important**:
@@ -21,7 +21,7 @@ Review the :Link[Set Up LDAP Using an OpenLDAP Container]{label="Set Up LDAP Usi
 
 To configure LDAP for Litmus Edge, you must find the DN information from the LDAP server.
 
-An LDAP Bind DN supplies the user and the user location in the LDAP directory tree. The LDAP client configuration file contains this information. See :Link[Find LDAP Distinguished Names (DN)]{docId="h_J7DdyqTgvCz9zY7_L-i" label="Find LDAP Distinguished Names (DN)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} for more information.
+An LDAP Bind DN supplies the user and the user location in the LDAP directory tree. The LDAP client configuration file contains this information. See [Find LDAP Distinguished Names (DN)](T5vi8hBbYle-tdqjfaWTn.mdx) for more information.
 
 **To add an LDAP provider:**
 
@@ -48,9 +48,9 @@ An LDAP Bind DN supplies the user and the user location in the LDAP directory tr
 1. Configure the *Connection&#x20;*&#x73;ettings.&#x20;
    - **Host**: Enter the fully qualified domain name or IP address of your LDAP server.&#x20;
    - **Port**: Enter the LDAP host port number in the Port field. The default LDAPS (Secure LDAP) port is 636. The default LDAP port is 389.
-   - **Use TLS**: Select the checkbox to enable TLS authentication. When TLS is not enabled, Litmus Edge expects to find a configured Custom Certificate. See :Link[Add a Custom CA Certificate]{docId="gN8Q8wL-9zFFfVbe-45X5" label="Add a Custom CA Certificate" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+   - **Use TLS**: Select the checkbox to enable TLS authentication. When TLS is not enabled, Litmus Edge expects to find a configured Custom Certificate. See [Add a Custom CA Certificate](<../../../../../docs/Product Features/System/Network/4gQPy4G4j1Ur8UD9gMMFL/4mhpScz_KMaS2wUr-Irre.mdx>).&#x20;
    - **TLS Root CA**: If you select TLS authentication, paste the root SSL/TLS certificate or click **Upload&#x20;**&#x61;nd load the file.&#x20;
-   - **Bind DN**: Enter the bind DN identifier. The bind DN identifies the user and the location of the user in the LDAP directory tree. See :Link[Find LDAP Distinguished Names (DN)]{docId="h_J7DdyqTgvCz9zY7_L-i" label="Find LDAP Distinguished Names (DN)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+   - **Bind DN**: Enter the bind DN identifier. The bind DN identifies the user and the location of the user in the LDAP directory tree. See [Find LDAP Distinguished Names (DN)](T5vi8hBbYle-tdqjfaWTn.mdx).
    - **Bind DN Password**: Enter the password used to authenticate against LDAP.&#x20;
 2. When done, click **Next**.&#x20;
    The *User&#x20;*&#x73;ection displays.&#x20;
@@ -58,7 +58,7 @@ An LDAP Bind DN supplies the user and the user location in the LDAP directory tr
 # User
 
 1. Configure the *User&#x20;*&#x73;ettings.&#x20;
-   - **User Search Base DN**: Enter a value. This Base DN (Distinguished Name) is the point in the LDAP directory tree that the LDAP service uses to initiate a user search. The Base DN is the latter part of the Bind DN. See :Link[Find LDAP Distinguished Names (DN)]{docId="h_J7DdyqTgvCz9zY7_L-i" label="Find LDAP Distinguished Names (DN)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+   - **User Search Base DN**: Enter a value. This Base DN (Distinguished Name) is the point in the LDAP directory tree that the LDAP service uses to initiate a user search. The Base DN is the latter part of the Bind DN. See [Find LDAP Distinguished Names (DN)](T5vi8hBbYle-tdqjfaWTn.mdx).
    - **Search Scope**: Select an option from the drop-down list.
      - **Base&#xA0;**&#x6C;imits the search to the base object. 
      - **One&#xA0;**&#x72;estricts the search to "one level", or in other words, the immediate children of the base object. 

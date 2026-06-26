@@ -1,6 +1,6 @@
 ---
 title: Litmus Edge 4.1.0
-slug: CDWyc8EwTXmoUXvEX4ASN
+slug: q3l8QrSJ8zj-_YJ7vGWUR
 docTags: 
 createdAt: Tue May 12 2026 20:49:45 GMT+0300 (Eastern European Summer Time)
 ---
@@ -122,12 +122,11 @@ Review the current list of [Limitations](../../../../Resources/LXg9sXwzv0ejmaKrW
         - **System Performance** charts for CPU and storage are now visible directly on the dashboard.
         - **Storage Volumes** now list their mount paths and sizes rather than just a total count.
         - The new dark theme with color-coded indicators makes it easier to spot issues quickly.
-      - Containers page now displays exposed ports in the following format: `Host Port` → `Container Port`, for example `3500` → `3000/tcp`.
     </td>
   </tr>
   <tr>
     <td align="left" colSpan="1" rowSpan="1">
-      **Integration:**
+      **ntegration:**
       - The AWS IoT SiteWise connector now supports high-precision timestamps through `timestamp.timeInSeconds` and `timestamp.offsetInNanos` fields in DeviceHub payloads.
       - Integration connector tiles now display human-readable provider names. Connector instances show the provider name, for example InfluxDB v3, instead of an internal identifier making it easier to identify configured connectors.
       - Added retain support for MQTT v5 outbound publishing. When defining outbound subscriptions in the MQTT v5 cloud connector, a **Retain** option is now available to allow published messages to be retained by the broker for new subscribers.
@@ -236,21 +235,12 @@ Review the current list of [Limitations](../../../../Resources/LXg9sXwzv0ejmaKrW
       - Fixed issue where `HTTPS_PROXY` environment variable was not respected by Device Manager and Licensing components.
       - Fixed issue where OIDC providers did not display in **System** > **Access Control** > **Template Details** > **Template Content** > **Auth**.
       - Fixed template file mismatch caused by Unicode character incorrectly added to download file.
-      - Fixed issue where several options (for example dns and ntp) were missing under dm (Device Manager) in **System** > **Device Management** > **Templates**.&#x20;
       - Fixed an issue where Litmus Edge was not fully accessible via jump servers, SSH tunnels, or port forwarding on non-standard ports.
       - Fixed issue where localhost did not resolve to 127.0.0.1 in the default Litmus Edge and Litmus Edge Docker configurations.
       - Fixed issue where LDAP searches may have returned an excessive number of records that resulted in a Size Limit Exceeded error.
       - Fixed issue where certain services (such as DeviceHub API, Analytics API, and Message Broker) fail to initialize and remain in a failed state regardless of subsequent reboots. This occurred after a system reset of an `.iso` deployment.
-      - Fixed issue where UI could become unresponsive in **System** > **Events** when the system generated a high volume of events from a single database file. Additionally, CSV files may not have generated and downloaded.
       - High Availability:
         - Backup nodes now display idle status information instead of appearing offline.
-        - Network interface changes are now correctly reflected on backup nodes.
-        - Fixed issue where the backup node was not accessible after deleting a High Availability configuration.
-        - Fixed issue where the primary node incorrectly showed sync status as `Stopped`.
-        - Fixed issue where HA configuration persisted on the primary node after the backup node was promoted to primary status. Now the original primary node no longer displays HA configuration after being disconnected and connected again.
-        - Fixed issue where API keys and activation configuration from Litmus Edge Manager were overwritten during HA synchronization.
-        - Fixed issue where Proxy URLs configured on the primary node were not copied to the High Availability backup node.
-        - Marketplace Applications and Flows now properly fail over and are migrated to the backup instance when the primary fails.
         - Fixed issue where the original primary node incorrectly continued to display its role as primary after being brought back online following a failover event.
     </td>
   </tr>

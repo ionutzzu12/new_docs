@@ -93,12 +93,12 @@ Configure the following outbound ports on Litmus Edge:
 
 ## Data Transmission: Default MQTT SSL Connector
 
-After a Litmus Edge-Litmus Edge Manager connection has been established, Litmus Edge Manager can receive  :Link[metrics]{docId="XZ4oKukesfg7rDekrLhPU" label="Metrics" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="metrics"} data or :Link[events]{docId="Qh9PnCUT-G1k_Lz9p4-m3" label="Events" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="events"} data (enabling event forwarding is needed) from a Litmus Edge instance. For Litmus Edge Manager to receive the data, the Litmus Edge instance must enable its Default Generic MQTT SSL Connector (:Link[Integration]{docId="WrN1886Y83l5nDrf5_zCO" label="Integration" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Integration"}). Once the connector is enabled, the Litmus Edge instance attempts to reach a connection at Litmus Edge Manager's inbound port 8883/TCP.
+After a Litmus Edge-Litmus Edge Manager connection has been established, Litmus Edge Manager can receive  :Link[metrics]{docId="XZ4oKukesfg7rDekrLhPU" label="Metrics" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="metrics"} data or :Link[events]{docId="Qh9PnCUT-G1k_Lz9p4-m3" label="Events" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="events"} data (enabling event forwarding is needed) from a Litmus Edge instance. For Litmus Edge Manager to receive the data, the Litmus Edge instance must enable its Default Generic MQTT SSL Connector ([Integration](<../../Product Features/lBL7doO8dZVjlOPVnrAkz.mdx>)). Once the connector is enabled, the Litmus Edge instance attempts to reach a connection at Litmus Edge Manager's inbound port 8883/TCP.
 
 <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AQnP0LEX1-NqrSSDzDUiD_le-lem-connection.png" size="80" isUploading="false" width="1936" height="1129" darkWidth="1936" darkHeight="1129" position="flex-start" showCaption="false"></Image>
 
 <hint type="info">
-  **Note:** Ports 443 and 51820 are required for establishing the initial connection. Port 8883 is used for ongoing data transmission once the connection is in place. For additional details about each port, see :Link[Firewall Port Configuration Requirements]{label="System Requirements" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="gLtPRe4J7Pwurbmrvqca7" version="v2" docAnchorId="#firewall-port-configuration-requirements" loadingMethod="dynamic" overridedLabel="Firewall Port Configuration Requirements"}.
+  **Note:** Ports 443 and 51820 are required for establishing the initial connection. Port 8883 is used for ongoing data transmission once the connection is in place. For additional details about each port, see :Link[Firewall Port Configuration Requirements]{label="System Requirements" spaceId docId="gLtPRe4J7Pwurbmrvqca7" version="v2" docAnchorId="#firewall-port-configuration-requirements" loadingMethod="dynamic" overridedLabel="Firewall Port Configuration Requirements" href="../GhaNpfCdRlH0OiNIyk1du.mdx"}.
 </hint>
 
 ## Limitations and Considerations
@@ -110,5 +110,5 @@ After a Litmus Edge-Litmus Edge Manager connection has been established, Litmus 
 ## Related Topics
 
 - :Link[Activate an Edge Device]{docId="tDJ648wJgATVqzyx79UwB" label="Activate an Edge Device" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
-- :Link[Firewall Port Configuration Requirements]{label="System Requirements" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="gLtPRe4J7Pwurbmrvqca7" version="v2" docAnchorId="#firewall-port-configuration-requirements" loadingMethod="dynamic" overridedLabel="Firewall Port Configuration Requirements"}
-- :Link[Integration]{docId="WrN1886Y83l5nDrf5_zCO" label="Integration" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Integration"}
+- :Link[Firewall Port Configuration Requirements]{label="System Requirements" spaceId docId="gLtPRe4J7Pwurbmrvqca7" version="v2" docAnchorId="#firewall-port-configuration-requirements" loadingMethod="dynamic" overridedLabel="Firewall Port Configuration Requirements" href="../GhaNpfCdRlH0OiNIyk1du.mdx"}
+- [Integration](<../../Product Features/lBL7doO8dZVjlOPVnrAkz.mdx>)

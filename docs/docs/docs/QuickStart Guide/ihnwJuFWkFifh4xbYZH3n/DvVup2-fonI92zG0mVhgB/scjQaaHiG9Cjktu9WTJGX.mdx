@@ -1,6 +1,6 @@
 ---
 title: BacnetIP
-slug: scjQaaHiG9Cjktu9WTJGX
+slug: ktq6T_I9MICjwCLcsKZgP
 description: Review the following information for setting up and configuring the BacnetIP device. 
 docTags: 
 createdAt: Tue Oct 25 2022 22:20:53 GMT+0300 (Eastern European Summer Time)
@@ -41,8 +41,8 @@ Review the following information for setting up and configuring the BacnetIP dev
 
 - You will need to open UDP port 47808 on your firewall to successfully browse tags.&#x20;
 - If you are using the **Docker version** of Litmus Edge:
-  - You will need to use the `--net=host` option in the Docker run command for the :Link[Asset Discovery Tool]{label="Asset Discovery Tool" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="KyNanYFCLw7kXRJL5e0L5" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to successfully work.&#x20;
-  - When using the  :Link[Asset Discovery Tool]{label="Asset Discovery Tool" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="KyNanYFCLw7kXRJL5e0L5" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}, you will need to use the IP address 0.0.0.0. You can't use the IP address of the host machine.&#x20;
+  - You will need to use the `--net=host` option in the Docker run command for the [Asset Discovery Tool](<../../../../Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs/MaX_pC0gEhsHxrTX-Gb71.mdx>) to successfully work.&#x20;
+  - When using the  [Asset Discovery Tool](<../../../../Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs/MaX_pC0gEhsHxrTX-Gb71.mdx>), you will need to use the IP address 0.0.0.0. You can't use the IP address of the host machine.&#x20;
   - If the `--net=host` option is not enabled:
     - Device Discovery will not work.&#x20;
     - Browse tags will not work **unless&#x20;**&#x79;ou map `47808:47808/UDP`.&#x20;
@@ -59,7 +59,7 @@ To set up and configure this device in Litmus Edge, you will need to do the foll
   **Important**: When setting up the PLC device, the BACnet driver and your Litmus Edge instance must be on the same subnet. If they aren't on the same subnet, the BACnet driver won't be able to connect to Litmus Edge.&#x20;
 </hint>
 
-To find the network parameters of the driver, you have the option of using the :Link[Device Discovery Tool]{docId="KyNanYFCLw7kXRJL5e0L5" label="Device Discovery Tool" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Device Discovery Tool"}. Otherwise, set up the device for Ethernet access and collect the network parameters.&#x20;
+To find the network parameters of the driver, you have the option of using the [Device Discovery Tool](<../../../../Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs/MaX_pC0gEhsHxrTX-Gb71.mdx>). Otherwise, set up the device for Ethernet access and collect the network parameters.&#x20;
 
 **To use the device discovery tool:**
 
@@ -67,14 +67,14 @@ To find the network parameters of the driver, you have the option of using the :
 2. Click the **Connect a Device** box.&#x20;
    The *Connect Device&#x20;*&#x64;ialog box appears.&#x20;
 
-<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EsdTOzwz08SbFyIjrMSkH_connectdevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" showCaption="true" indent="2"></Image>
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EsdTOzwz08SbFyIjrMSkH_connectdevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" darkWidth="1046" darkHeight="528" showCaption="true" indent="2"></Image>
 
 3. Click the **Device Type** drop-down list and select **BACnet**.
 4. Click the **Driver Name** drop-down list, and select **BacnetIP**.
 5. Click **Device Discovery**.&#x20;
    Th&#x65;*&#x20;Device Discovery* dialog box appears.&#x20;
 
-<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/hhgwr9rUjmT4zyBcKvsDb_connectdevicebacnet.png" size="80" width="1170" height="608" caption="Device Discovery option" position="center" showCaption="true" indent="2"></Image>
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/hhgwr9rUjmT4zyBcKvsDb_connectdevicebacnet.png" size="80" width="1170" height="608" caption="Device Discovery option" position="center" darkWidth="1170" darkHeight="608" showCaption="true" indent="2"></Image>
 
 6. In th&#x65;**&#x20;Network address** field, open the drop-down list and select the appropriate ethernet port. The available options are based on the interfaces configured in Litmus Edge. To review interfaces, navigate to **System&#x20;**> **Network&#x20;**> **Interfaces**.&#x20;
 7. In the **Retry count** field, review the default value (5) and update it if needed. This configures the number of times Litmus Edge will attempt to discover devices.&#x20;
@@ -160,7 +160,7 @@ To find the network parameters of the driver, you have the option of using the :
   **Note**: When browsing for tags, only tags with the property of **Present\_Value** will be identified.&#x20;
 </hint>
 
-<table columnWidths="124,124,124,124,124,124" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+<table columnWidths="124,124,124,124,124,124,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
   <tr>
     <td>
       **Name**

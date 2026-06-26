@@ -1,12 +1,12 @@
 ---
 title: Set Up Edge Cascading with the NATS Connector
-slug: RcIL63iebcEOVvpo2W3mm
+slug: 0BleHpCaJYy-ZqpbDmAVg
 description: Learn how to set up Edge Cascading. 
 docTags: 
 createdAt: Mon Nov 07 2022 19:52:19 GMT+0200 (Eastern European Standard Time)
 ---
 
-Review the following guide for setting up Edge Cascading, which is an integration of multiple Litmus Edge instances with a NATS connector.&#x20;
+Edge Cascading is an integration of multiple Litmus Edge instances with a NATS connector.&#x20;
 
 # Video
 
@@ -16,7 +16,9 @@ Review the following guide for setting up Edge Cascading, which is an integratio
 
 # Before You Begin
 
-- Ensure that every Litmus Edge instance that will be used to set up the NATS Proxy connection is on version 3.3.1 or newer.&#x20;
+Before you begin:
+
+- Ensure that every Litmus Edge instance used to set up the NATS Proxy connection is on version 3.3.1 or newer.&#x20;
 - Determine which Litmus Edge instance to use as the NATS server (host the API access account) and the instances to use as the NATS clients (host the NATS connector). The NATS server and clients can both send and receive data through the NATS proxy connection.&#x20;
 - If your network has a firewall, make sure it allows port 4222.
 - If you are deploying Litmus Edge in a Docker container, use the following command to run the container on port 4222. Replace `--name LE`  with the name of your container.
@@ -27,7 +29,10 @@ docker run --name LE -d --cap-add=NET_ADMIN -p 8443:443 -p 4222:4222 -v data-vol
 
 # Set up Edge Cascading with One NATS Client and One NATS Server
 
-Review the following workflow to set up two Litmus Edge instances with Edge Cascading. Litmus Edge A (Server) is the NATS Server and Litmus Edge B (Client) is the NATS Client. You will be able to view data from the NATS Server.&#x20;
+The following workflow shows two Litmus Edge instances setup with Edge Cascading where the:
+
+- Litmus Edge 1 instance represents the NATS server.
+- Litmus Edge 2 instance represents the NATS Client that connects to the OT layer. You will be able to view data from the NATS Server.
 
 ![](https://app.archbee.com/api/optimize/AdrlsWCC5-Zz9U2yVwEC6-CQ9H1ARq3U7mBePPoiS9O-20241122-205157.jpg)
 
@@ -37,8 +42,8 @@ You will need to enable the NATS Proxy connection in Litmus Edge A (Server). The
 
 **To enable NATS Proxy:**
 
-1. In Litmus Edge A (Server), navigate to **System&#x20;***>&#x20;***Tokens**.&#x20;
-2. In the *NATS Proxy* section, click the **Disabled&#x20;**&#x74;oggle to **Enabled**.&#x20;
+1. In Litmus Edge 1 (Server), navigate to **System** > **Access Control** > **Tokens**.&#x20;
+2. In the **NATS Proxy** section, click the **Disabled&#x20;**&#x74;oggle to **Enabled**.&#x20;
 
 <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/c531axHt08fwIWFyydnTC_natstoggle.png" size="80" width="1128" height="363" position="flex-start" caption="Enable/Disable toggle for NATS Proxy" showCaption="true" indent="2"></Image>
 

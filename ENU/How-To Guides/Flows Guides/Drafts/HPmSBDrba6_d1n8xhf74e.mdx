@@ -1,0 +1,58 @@
+---
+title: Set up Apache NiFi with Access Flows
+slug: HPmSBDrba6_d1n8xhf74e
+description: Apache NiFi is designed to automate the flow of data between software systems. NiFi is primarily a data flow tool which can be used with other systems in a publish/subscribe architecture.
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:20 GMT+0200 (Eastern European Standard Time)
+---
+
+Apache NiFi is designed to automate the flow of data between software systems. NiFi is primarily a data flow tool which can be used with other systems in a publish/subscribe architecture. It pulls data from multiple data sources and transforms it to populate a key-value store.
+
+Visit the :Link[Apache NiFi Downloads]{href="https://nifi.apache.org/download.html" newTab="true"} page to download the NiFi application.&#x20;
+
+# Step 1: Connect Device to DeviceHub
+
+Follow the steps to [Connect a Device](<../../../Product Features/DeviceHub/Devices/2QO5xh8wBeO2UG92F3hbM.mdx>) with the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Name**: Enter a name
+
+# Step 2: Add Tag to Device
+
+**To add the tag to the device:**
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Tags**.&#x20;
+2. Click the device you created.&#x20;
+3. Click the **Add&#x20;**&#x69;con and select **Add a Tag**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/4xlDAgAl9EuDT-hjHq_N4_writetag.png "Add a Tag option")
+4. Configure the following parameters.
+   - **Name**: S - Random value generator
+   - **Value Type**: Select **float64**.&#x20;
+   - **Polling Interval**: Enter **1**.
+   - **Tag Name**: Enter **tag1**.
+5. Click **Add Tag**.&#x20;
+6. For the new tag, click the **Copy&#x20;**&#x69;con under *RAW Topic&#x20;*&#x61;nd set aside.&#x20;
+
+# Step 3: Add Access Account and Add Topics
+
+You will need to create an API access account.&#x20;
+
+**To create the access account:**
+
+1. Navigate to **System&#x20;***>&#x20;***Tokens**.&#x20;
+2. From the *Access Accounts* section, click the **Add&#x20;**&#x69;con. The *Create API Account&#x20;*&#x64;ialog box appears.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/NVtrGVuV7qCbClj9j5_dO_createaccessaccount.png" size="80" width="1902" height="659" caption="Add Access Account icon" position="center" showCaption="true"></Image>
+3. Enter **access&#x20;**&#x61;s the name for the account and ensure the *Enable Account&#x20;*&#x63;heckbox is selected.&#x20;
+4. Click **Create Account**.&#x20;
+5. Click the **Action menu** for the account you just created and select **Edit topics**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_PNVW1neviVz4jtjO5zXh_edittopics.png" size="80" width="1708" height="418" caption="Edit topics option" position="center" showCaption="true"></Image>
+6. In the **Read Topics** field, paste the tag raw topic you previously copied and click **Add Read Topic**.
+7. In the **Read Topics** field, enter **test&#x20;**&#x61;nd click **Add Read Topic**.
+8. In the **Write Topics** field, enter **test&#x20;**&#x61;nd click **Add Write Topic**.
+9. Click **Update**, and then **OK**.&#x20;
+
+# Step 4: Run the NiFi Container
+
+
+

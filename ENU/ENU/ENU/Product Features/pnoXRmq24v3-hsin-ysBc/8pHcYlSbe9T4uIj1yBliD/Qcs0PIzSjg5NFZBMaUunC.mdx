@@ -1,0 +1,85 @@
+---
+title: Uptime and Downtime by Value
+slug: Qcs0PIzSjg5NFZBMaUunC
+description: Learn more about the Uptime and Downtime by Value KPI. 
+docTags: 
+createdAt: Fri Oct 21 2022 17:40:51 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the **UpTime and DownTime by Value** KPI processor to compare your current value with a desired value. The KPI sorts them as either uptime or downtime based on the specified condition ( greater(>), less(\<), equal(==) or notEqual(!=) ) and a delta to round off mistakes.
+
+# Uptime and Downtime by Value Overview
+
+- If you would like to compare your current value with a desired value, to count as UpTime or DownTime.
+- By setting the **condition**, you can define: Downtime if current value is greater(>), less(\<), equal(==) or notEqual(!=) than **desired value.**
+- You can enter a delta too, if you want to forgive some sort of round off error.
+- The **timer interval** parameter is useful if the connected input tag is offline, but you still want this KPI to "look" for a value every few seconds, defined by the aforementioned timer.
+  - If you know your tag is going to reliably publish at the expected interval, it is better to disable this timer by entering 0 in the field.
+
+# Uptime and Downtime by Value Parameter
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="159">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device Reset
+    </td>
+    <td>
+      This parameter resets the KPI when the connected device is reset.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Unit
+    </td>
+    <td>
+      Display UpTime/DownTime in Seconds, Minutes, Hours, Days, or Weeks.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Condition
+    </td>
+    <td>
+      Specify the type of comparison to be made; it categorizes as downtime if the current value is greater (>), less (\<), equal (==), or notEqual (!=) to the desired value.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Desired Value
+    </td>
+    <td>
+      Enter the desired value to compare with the current values.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Delta of Tolerance
+    </td>
+    <td>
+      Allows a margin of error by adding or subtracting this delta from the desired value.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer Interval
+    </td>
+    <td>
+      Timer in milliseconds. If no event, use this timer to keep displaying the output continually. Enter zero to disable.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/pXS-gmfJnzu6CtxARoX-O_image.png" size="80" width="936" height="561" caption="Up/DownTime by Value parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Uptime and Downtime by Value&#x20;*&#x4B;PI, refer the :Link[Use the Uptime and Downtime by Value KPI]{label="Use the Uptime and Downtime by Value KPI" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="sASOpC8juiaP9scMvbvUa" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

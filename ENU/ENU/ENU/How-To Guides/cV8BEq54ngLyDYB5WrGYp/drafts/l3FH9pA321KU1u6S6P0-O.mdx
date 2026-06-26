@@ -1,0 +1,84 @@
+---
+title: Send Bulk Data from a File to a Database
+slug: l3FH9pA321KU1u6S6P0-O
+description: You can create flows to send bulk data from a file to a database app from the Applications Marketplace. 
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:19 GMT+0200 (Eastern European Standard Time)
+---
+
+You can create flows to send bulk data from a file to a database app from the Applications Marketplace.&#x20;
+
+The flow in this use case executes a bulk insert SQL operation using data from the file. The flow then removes the file from the system after the data is inserted into the database.
+
+# Before You Begin
+
+Before completing the steps below, you will need to do the following:
+
+- Set up a database app in the Applications Marketplace. See [Applications Guides](<../../../../../How-To Guides/2gBf9IAyFKEgmcLu56zga.mdx>) and [Deploy a Marketplace Application](<../../../Product Features/fZ5kfjS0rj8nf2ikyzKYK/8zy5wi9TB-0PVged4h_6W/9Gf7CrJm9IsKZTK1T5uee.mdx>) to learn more.&#x20;
+- Check Database Connectivity.
+
+# Step 1: Create Flow to Write Data from a File to a Database
+
+**To create the flow to write data from a file to a database:&#x20;**
+
+1. Navigate to **Flows Manager**.&#x20;
+2. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow. See [Create a Flow](<../../../../Product Features/yOXP8Qb_U_AFnbdqxZSd4/7xvHQOytaduG1w9sa5Jh8.mdx>) to learn more.
+3. In the flow canvas, add one **Inject&#x20;**&#x6E;ode, two **Exec&#x20;**&#x6E;odes, three **Function&#x20;**&#x6E;odes, and one **Write File** node. Connect them as shown below.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_H7GejtZdzx-mATkmhV2Z_flow-23.png" size="80" width="1000" height="250" position="center" showCaption="false"></Image>
+4. Double-click the first **Exec&#x20;**&#x6E;ode.&#x20;
+5. In the **Command&#x20;**&#x66;ield, enter the following command.&#x20;
+   `ls -tr /ftp-data`
+   The *ls* command lists files in the */ftp-data/* folder that we wrote a file to earlier. The *-tr* option lists files by time last modified, with the latest file at the end of the list.
+6. Click **Done**.&#x20;
+7. Double-click the first **Function&#x20;**&#x6E;ode.&#x20;
+8. In the **On Message** tab, enter the following lines of code.&#x20;
+   `var temp = (msg.payload).split("\n"); // Saves a temporary list of filenames.   `
+   `temp.pop(); // Remove an extra line from the split command in the previous line.   `
+   `msg.filename = "/ftp-data/"+temp[0]; // Sets the file to read from to be the one that we saved previously.   `
+   `return msg;`
+9. Click **Done**.&#x20;
+10. Double-click the second **Function&#x20;**&#x6E;ode.&#x20;
+11. In the **On Message** tab, enter the following lines of code.&#x20;
+    `var msg1 = { payload:msg.payload }; // Sets the first Function node return value as the message text, the contents of the input file.    `
+    `var msg2 = { payload:msg.filename }; // Sets the second return value as the filename we are reading from.    `
+    `delete msg.payload; // Deletes the msg.payload object from memory since we copied it and no longer need it.    `
+    `delete msg.filename; // Deletes the msg.filename object from memory.    `
+    `return [msg1,msg2]; // Returns msg1 in the first flow output, and msg2 in the second flow output.`
+12. Click **Done**.&#x20;
+13. Double-click the third **Function&#x20;**&#x6E;ode. You must update the following variables to match your database: sql, user, password, connStr. Optionally, you can change the table name and column names. The code below marks lines as *Required* or *Optional* to change.
+    `var temp = msg.payload;    `
+    `var arr = temp.split("\n");    `
+    `arr.pop(); // Removes unnecessary extra line from the file.    `
+    `var sql = global.get('mssql'); // Required.    `
+    `var user = 'sa'; // Required    `
+    `var password = 'yourStrong(!)Password'; // Required.    `
+    ``var connStr = `mssql://${user}:${password}@192.168.9.19:1433/plcdata`; //Required.    ``
+    `/* Optionally change table/column names to your own.*/    `
+    `sql.connect(connStr)    `
+    `.then(() => {    `
+    `var table = new sql.Table('alldata'); // Optional, replace alldata with the table name you like.    `
+    `table.create = false;    `
+    `table.columns.add('plctimestamp', sql.VarChar(255), {nullable: true}); // Optional, replace plctimestamp with the column name that you want.    `
+    `table.columns.add('tag', sql.VarChar(255), {nullable: true}); // Optional, replace tag with the column name that you want.    `
+    `table.columns.add('value', sql.VarChar(255), {nullable: true}); // Optional, replace value with the column name that you want.    `
+    `for (let i = 0; i < arr.length; i++) { // <name> through each line of the input file.    `
+    `var q = JSON.parse(arr[i]); // Stores a line of the input file into a variable.    `
+    `table.rows.add(""+q.timestamp+"",q.tagName, "" + q.value + ""); // Takes the timestamp, tagname, and value from the line in the input file to insert into the database table.    `
+    `}    `
+    `var request = new sql.Request(); // Creates a new SQL request object.    `
+    `return request.bulk(table); // Inserts the table and rows into the database through the SQL request object.    `
+    `})    `
+    `.then(data => { // If the insert operation was successful, we return the result in msg for debug purposes.    `
+    `msg.payload = data;    `
+    `return msg;    `
+    `})    `
+    `catch(err => { // If the insert operation had an error, we return in the error in a msg for debug purposes.    `
+    `msg.payload = err;    `
+    `return msg;    `
+    `});`
+14. Click **Done**.&#x20;
+15. Double-click the second **Exec&#x20;**&#x6E;ode.&#x20;
+16. In the **Command&#x20;**&#x66;ield, enter `rm` to delete the file that we wrote to the database and no longer need.&#x20;
+17. For **Append**, select the check mark for **msg.payload**.&#x20;
+18. Click **Done**.&#x20;
+

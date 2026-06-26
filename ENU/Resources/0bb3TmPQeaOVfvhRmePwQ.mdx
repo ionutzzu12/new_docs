@@ -1,0 +1,494 @@
+---
+title: CIDR Conversion Table
+slug: 0bb3TmPQeaOVfvhRmePwQ
+description: Review how many networks and IP addresses are allowed with each CIDR length and equivalent subnet masks.
+docTags: 
+createdAt: Mon May 30 2022 19:48:21 GMT+0300 (Eastern European Summer Time)
+---
+
+CIDR notation accomplishes the same task as network subnet masking. CIDR defines which IP addresses, and how many host IP addresses are allowed on the network. The following table details how many networks and IP addresses are allowed with each CIDR length and equivalent subnet masks.
+
+**What does CIDR mean?**
+
+CIDR stands for **Classless Inter-Domain Routing**. It enables network administrators to group blocks of IP addresses into single routing networks. CIDR accomplishes the same task as traditional subnet masking.
+
+To understand what CIDR notation means, take the IP address 192.168.0.15 and the /24 CIDR, for example. 192.168.0.15 defines the address prefix, and /24 defines the number of bits reserved for the netmask. This means that the first 24 bits of the IP address are reserved for network routing. Thus, writing 192.168.0.15/24 means the same thing as using the 255.255.255.0 subnet mask for the 192.168.0.15 IP address. This means that the last 8 bits of the IP address are reserved for host IP addresses, thus IP addresses 192.168.0.15 through 192.168.0.255 are allowed as host IP addresses on the network.
+
+**CIDR Conversion Table**
+
+
+<table columnWidths="112,150,191,181" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **CIDR Length**
+    </td>
+    <td>
+      **Mask**
+    </td>
+    <td>
+      **Number of Networks**
+    </td>
+    <td>
+      **Number of Hosts**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /1
+    </td>
+    <td>
+      128.0.0.0
+    </td>
+    <td>
+      128 A
+    </td>
+    <td>
+      2,147,483,392
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /2
+    </td>
+    <td>
+      192.0.0.0
+    </td>
+    <td>
+      64 A
+    </td>
+    <td>
+      1,073,741,696
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /3
+    </td>
+    <td>
+      224.0.0.0
+    </td>
+    <td>
+      32 A
+    </td>
+    <td>
+      536,870,848
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /4
+    </td>
+    <td>
+      240.0.0.0
+    </td>
+    <td>
+      16 A
+    </td>
+    <td>
+      268,435,424
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /5
+    </td>
+    <td>
+      248.0.0.0
+    </td>
+    <td>
+      8 A
+    </td>
+    <td>
+      134,217,712
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /6
+    </td>
+    <td>
+      252.0.0.0
+    </td>
+    <td>
+      4 A
+    </td>
+    <td>
+      67,108,856
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /7
+    </td>
+    <td>
+      254.0.0.0
+    </td>
+    <td>
+      2 A&#x20;
+    </td>
+    <td>
+      33,554,428
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /8
+    </td>
+    <td>
+      255.0.0.0
+    </td>
+    <td>
+      1 A
+    </td>
+    <td>
+      16,777,214
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /9
+    </td>
+    <td>
+      255.128.0.0
+    </td>
+    <td>
+      128 B
+    </td>
+    <td>
+      8,388,352
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /10
+    </td>
+    <td>
+      255.192.0.0
+    </td>
+    <td>
+      64 B
+    </td>
+    <td>
+      4,194,176
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /11
+    </td>
+    <td>
+      255.224.0.0
+    </td>
+    <td>
+      32 B
+    </td>
+    <td>
+      2,097,088
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /12
+    </td>
+    <td>
+      255.240.0.0
+    </td>
+    <td>
+      16 B
+    </td>
+    <td>
+      1,048,544
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /13
+    </td>
+    <td>
+      255.248.0.0
+    </td>
+    <td>
+      8 B
+    </td>
+    <td>
+      524,272
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /14
+    </td>
+    <td>
+      255.252.0.0
+    </td>
+    <td>
+      4 B
+    </td>
+    <td>
+      262,136
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /15
+    </td>
+    <td>
+      255.254.0.0
+    </td>
+    <td>
+      2 B
+    </td>
+    <td>
+      131,068
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /16
+    </td>
+    <td>
+      255.255.0.0
+    </td>
+    <td>
+      1 B
+    </td>
+    <td>
+      65,025
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /17
+    </td>
+    <td>
+      255.255.128.0
+    </td>
+    <td>
+      128 C
+    </td>
+    <td>
+      32,512
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /18
+    </td>
+    <td>
+      255.255.192.0
+    </td>
+    <td>
+      64 C
+    </td>
+    <td>
+      16,256
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /19
+    </td>
+    <td>
+      255.255.224.0
+    </td>
+    <td>
+      32 C
+    </td>
+    <td>
+      8,128
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /20
+    </td>
+    <td>
+      255.255.240.0
+    </td>
+    <td>
+      16 C
+    </td>
+    <td>
+      4,064
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /21
+    </td>
+    <td>
+      255.255.248.0
+    </td>
+    <td>
+      8 C
+    </td>
+    <td>
+      2,032
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /22
+    </td>
+    <td>
+      255.255.252.0
+    </td>
+    <td>
+      4 C
+    </td>
+    <td>
+      1,016
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /23
+    </td>
+    <td>
+      255.255.254.0
+    </td>
+    <td>
+      2 C
+    </td>
+    <td>
+      508
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /24
+    </td>
+    <td>
+      255.255.255.0
+    </td>
+    <td>
+      1 C
+    </td>
+    <td>
+      254
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /25
+    </td>
+    <td>
+      255.255.255.128
+    </td>
+    <td>
+      2 subnets
+    </td>
+    <td>
+      124
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /26
+    </td>
+    <td>
+      255.255.255.192
+    </td>
+    <td>
+      4 subnets
+    </td>
+    <td>
+      62
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /27
+    </td>
+    <td>
+      255.255.255.224
+    </td>
+    <td>
+      8 subnets
+    </td>
+    <td>
+      30
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /28
+    </td>
+    <td>
+      255.255.255.240
+    </td>
+    <td>
+      16 subnets
+    </td>
+    <td>
+      14
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /29
+    </td>
+    <td>
+      255.255.255.248
+    </td>
+    <td>
+      32 subnets
+    </td>
+    <td>
+      6
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /30
+    </td>
+    <td>
+      255.255.255.252
+    </td>
+    <td>
+      64 subnets
+    </td>
+    <td>
+      2
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /31
+    </td>
+    <td>
+      255.255.255.254
+    </td>
+    <td>
+      none
+    </td>
+    <td>
+      none
+    </td>
+  </tr>
+  <tr>
+    <td>
+      /32
+    </td>
+    <td>
+      255.255.255.255
+    </td>
+    <td>
+      none
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+**Class A, B, and C Networks**:
+
+The above table uses Class A, B, and C to define network types. Network classes define how many addresses are allowed on the network, with class A being the largest and class C being the smallest. Specific size details are defined in the following class definitions:
+
+**Class A**: Allows 16777216 host addresses on the network. The starting host address is 0.0.0.0 and the ending address is 127.0.0.0. These networks use the 255.0.0.0 subnet mask, or /8 CIDR notation.
+
+**Class B**: Allows 65536 host addresses on the network. The starting host address is 128.0.0.0 and the ending address is 191.255.0.0. These networks use the 255.255.0.0 subnet mask, or /16 CIDR notation.
+
+**Class C**: Allows 256 host addresses on the network. The starting host address is 192.0.0.0 and the ending address is 223.255.255.0. These networks use the 255.255.255.0 subnet mask, or /24 CIDR notation.
+

@@ -1,0 +1,347 @@
+---
+title: Function Nodes
+slug: Nqhs17FtLgDskzyFWa0hF
+description: Function nodes are powerful tools in flows. Learn more about using them. 
+docTags: 
+createdAt: Tue Jun 28 2022 18:37:46 GMT+0300 (Eastern European Summer Time)
+---
+
+Function nodes are powerful tools in flows.
+
+Refer to the following sections for information on flow node capabilities:
+
+- Contexts and Globals
+- Reading JSON Objects
+- Combining Inputs
+- Binary Data
+- Hex Values
+
+# Contexts and Globals
+
+Flow&#x73;**&#xA0;***Function&#xA0;*&#x6E;odes support different context levels for variables. The different contexts allow you to share data among unconnected nodes and among different flows entirely.
+
+## The Three Levels
+
+There are three levels for Function node variables that range from less visible to more visible. More visibility makes pieces of information available to more nodes and more flows.
+
+### Level 1: Context
+
+The context level makes a variable visible to different functions within a node. The example below shows what a context level variable can do that a regular variable cannot.
+
+1\. Connect nodes together.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_AvYRaOUYvVtvTIy_3s4D_image.png" size="80" width="580" height="88" caption="Flows Manager : Level 1 Context Node Arrangement" position="center" showCaption="true"></Image>
+
+2\. Double-click th&#x65;**&#xA0;Inject** node and change the payload to **string**. Enter **The payload** as your string.
+
+3\. Double-click the **Function&#xA0;**&#x6E;ode and enter the following lines:
+
+```javascript
+function f1 () { // Declares a function with name, f1.
+context.set("cv", " and the context variable.");
+ // Sets our context variable, named cv, to a string message.
+}
+
+function f2 (msg) { // Declares a function named f2 
+                    // that takes msg as a parameter.
+msg.payload = msg.payload + context.get("cv");
+ // Adds the message in our context variable to the msg payload.
+return msg;
+}
+
+f1(); // Calls f1 to set the context variable.
+return f2(msg); // Returns the result of calling f2.               
+```
+
+4\. Clic&#x6B;**&#xA0;Done**. Click **Deploy**, and then click the button on left side of the Inject node.
+
+5\. See the output below in the **debug** tab:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-mCvp2WmWDNfSo1yigCt5_image.png" size="80" width="327" height="156" caption="Flow Manager view debug message" position="center" showCaption="true"></Image>
+
+Meanwhile, if you try to do the same thing with a regular variable:
+
+```javascript
+function f1 () {
+var contextVariable =  " and the context variable.";
+}
+
+function f2 (msg) {
+msg.payload = msg.payload + contextVariable;
+return msg;
+}
+
+f1();
+
+return f2(msg);
+```
+
+You can see the below output in the debug window:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/BcdulqpEvMrjq_wmZg8cw_image.png" size="80" width="372" height="154" caption="Flow Manager view debug message" position="center" showCaption="true">Level 1: Context</Image>
+
+### Level 2: Flow
+
+The Flows level makes a variable visible to all nodes in the flow. The example below shows how to use this context level:
+
+1\. Connect nodes together like the picture below:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/sK1OYdbIndGF4WSyh5GJb_image.png" size="80" width="595" height="150" caption="Flows Manager : Level 2 Flow Node Arrangement" position="center" showCaption="true"></Image>
+
+2, Double-click the **Inject** node and change the payload to **string**. Enter **The payload** as your string.
+
+3\. Double-click the upper Function node and enter the following lines:
+
+```javascript
+flow.set("fv", " here is our flow context variable.");
+ // Set a flow context variable, named fv, to be a string message.
+
+msg.payload = "A variable for this whole flow: ";
+ // Sets the msg payload to be a short string message.
+
+return msg;
+```
+
+4\. Click **Done**. Double-click the lower Function node and enter the following lines:
+
+```javascript
+msg.payload = flow.get("fv");
+ // Sets our message to the string stored in fv.
+
+return msg;
+```
+
+5\. Click **Done**, and then click **Deploy**.
+
+6\. Click the button on left side of the upper Inject node, then click the lower Inject node button.
+You can see the output below in the debug tab:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SSM_ECsqtidnF9RePQHpS_image.png" size="80" width="293" height="225" caption="Flow Manager view debug message" position="center" showCaption="true"></Image>
+
+<hint type="success">
+  **Tip**: You can use the flow context variable in any node in the Flow, even if nodes are unconnected.
+</hint>
+
+### Level 3: Global
+
+This global level example below makes a variable visible to all nodes in every flow that you create.
+
+1\. Connect nodes together like the picture below:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RgUN6FDBfUEbk9CjEyW2p_image.png" size="80" width="649" height="72" caption="Flows Manager : Level 3 Global Node Arrangement" position="center" showCaption="true"></Image>
+
+2\. Double-click the **Inject** node and change the payload to **string**. Enter **A global message!** as your string.
+
+3\. Double-click the **Function** node and enter the following lines:
+
+```javascript
+global.set("global_var", msg.payload);
+ // Stores the message payload from the Inject node in a 
+global variable named global_var.
+
+return msg;
+```
+
+4\. Click **Done**. In a new flow, connect nodes together like in step 1.
+
+5\. Double-click the **Function** node and enter the following lines:
+
+```javascript
+global.set("global_var", msg.payload);
+
+return msg;
+```
+
+6\. Click **Done**, and then click **Deploy**.
+
+7\. Return to the first flow that you made and click the **Inject** node button.
+
+8\. On the second flow, click the **Inject** node button.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Y7kuSMyinMmNaAWA-oO7k_image.png" size="80" width="254" height="233" caption="Flow Manager view debug message" position="center" showCaption="true"></Image>
+
+<hint type="success">
+  **Tip**: You can use the flow context variable in any node in the Flow, even if nodes are unconnected.
+</hint>
+
+You can also access global context variables throug&#x68;**&#x20;Inject** nodes by selecting **global** from the dropdown menu.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zlPmDBaFfLFr9sQNhqtKN_image.png" size="80" width="556" height="360" caption="Editing Inject node's msg.payload into global. " position="center" showCaption="true"></Image>
+
+# Reading JSON Objects
+
+1\. From the Flow Definition view, connect a **DataHub Subscribe** node, a **Function** node, and a **Debug** node.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nJV3hQuEGerf58oKP-o9s_image.png" size="80" width="830" height="121" caption="DataHub Subscribe with a raw topic connected to a Function node. The Function node connects to a Debug node" position="center" showCaption="true"></Image>
+
+2\. Navigate to **DeviceHub** > **Tags**.
+
+3\. Click th&#x65;**&#xA0;Copy** icon next to an existing tag to copy a **Raw Topic**. Add a tag if there are none.
+
+4\. Double-click th&#x65;**&#xA0;DataHub Subscribe node** and paste the copied topic.
+
+5\. Double-click the **Function&#xA0;**&#x6E;ode. Enter the following lines of code:
+
+```javascript
+var obj = JSON.parse(msg.payload);
+ // Stores JSON text as an object.
+var temp = JSON.stringify(obj.registerId);
+ // Gets the registerId from our object and makes it a string.
+msg.payload = temp; // Assigns the registerId string to our output message payload string.
+return msg;
+```
+
+6\. Click **Done**.
+
+7\. Click **Deploy**.
+
+8\. Expand the message window beneath the flow and click the **Debug** icon.
+A message appears in the *Messages&#x20;*&#x70;ane.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/W1eM_qbUG5CCKIHJ1i6iI_image.png" size="76" width="327" height="156" caption="Flow Manager view debug message" position="center" showCaption="true"></Image>
+
+# Combining Inputs
+
+Th&#x65;**&#xA0;join** function node combines two different inputs into a single output. This node combines outputs from multiple flows into a single message.
+
+**To make a flow that combines two different inputs**:
+
+1\. From the Flow Definition view, connect two input sources, such as **Inject** nodes, to a **Join** node and a **Debug** node.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/f65B4X52bmJXVxjYASDEZ_image.png" size="80" width="568" height="139" caption="Two inject nodes connected to Join nodes. The Join node connects to Debug node." position="center" showCaption="true"></Image>
+
+2\. Double-click each **Inject** node and select **string** from the drop-down menu adjacent to `msg.payload`. For each node, enter any message (**Litmus** and **Automation** in this example) that you want to combine with the other. Click **Done**.
+
+3\. Double-click the **Join** node and select **manual** mode from the drop-down menu.
+**Field information**:
+
+- **Mode:** 
+  - **automatic&#xA0;**&#x6D;ode makes assumptions about your flow.
+  - **manual&#xA0;**&#x6D;ode lets you configure settings specific to your flow.
+- **Combine each** - Sets the msg property to combine. It is typically `msg.payload`.
+- **to create** - Sets the data type for the output: a String, an Array, a key/value Object, or a merged Object.
+  - **joined using** - Specific to String outputs. Sets the character to join the strings on. \n is a newline character that appears at the end of messages, this is ideal for most cases.
+  - **using** - Specific to key/value Objects. Sets the part of the msg object to serve as the property key for the output object.
+- **After a number of message parts** - Sets the amount of messages for the join node to receive before sending the combined output.
+- **After a timeout following the first message** - Sets the amount of time (in seconds) to wait for messages after receiving the first one before sending the combined output.
+
+<hint type="info">
+  **Note**: Join nodes do not send a message unless the **msg.complete** property is set. If needed, you can always set this property to *true* with a **Function** node.
+</hint>
+
+4\. For this example, enter 2 for the **After a number of message parts** field. Click **Done**.
+
+5\. Click **Deploy**.
+
+6\. Expand the message window beneath the flow and click the **Debug&#x20;**&#x69;con.
+
+7\. Click both buttons to the left of the **Inject** nodes to view the output in the **debug** tab at the bottom of the flow screen.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZWziH4bKpgb9s_d1TORYX_image.png" size="80" width="255" height="150" caption="Flow Manager view debug message" position="center" showCaption="true"></Image>
+
+# Binary Data
+
+**Function** Nodes can convert data into binary for viewing and performing operations on individual bits of data.
+
+**To create a flow that converts data into binary and can show individual bits of data:**
+
+1\. From the Flow Definition view, connect an **Inject** node, &#x61;**&#xA0;Function&#xA0;**&#x6E;ode, and a **Debug** node.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tFu8mSycBnBeNGUhqiPXE_image.png" size="80" width="529" height="83" caption="Inject node connect to a Function node that connects to a Debug node" position="center" showCaption="true"></Image>
+
+2\. Double-click the **Function** node and enter the following lines of code:
+
+
+```javascript
+function decimalToBinary (decimal) { 
+// Declares a function, named decimalToBinary, that converts decimal to binary.
+return decimal.toString(2); 
+// Converts decimal into binary by passing in 2 (for base 2) into toString.
+}
+ 
+function getBit (number, bit) { 
+// Declares a function to get a single bit from a number.
+/*  ANDs the number with 00000001 shifted by the bit you want to 
+get. In this example,
+*  we get the second bit from 3 (0000011 in binary), by ANDing 
+with 00000010 to get the 2nd bit. */
+var bit = number & (1 << bit);
+ 
+/* If we output bit as is, it shows up as "10". The following 
+if statement
+* ensures that our output is "1" or "0". */
+if (bit == 0) {
+return 0;
+}
+return 1;
+}
+ 
+var decimal = msg.payload; 
+// Assigns the number from the msg payload to a variable, called decimal.
+var binary = decimalToBinary(decimal); 
+// Stores the result from the decimalToBinary function in a 
+variable, called binary.
+var secondBit = getBit(binary, 1); 
+// Gets the bit in the 1 position (the 2nd bit). The rightmost bit is the 0 position.
+ 
+/* Construct a string message with our results and output the 
+message. */
+msg.payload = "decimal: " + decimal + ", binary: " +
+binary + ", secondBit: " + secondBit;
+ 
+return msg;
+```
+
+3\. Click **Done**.
+
+4\. Double-click the **Inject** node and select **number** from the drop-down menu adjacent to `msg.payload`. This example uses **3**, but you can enter any number that you wish.
+
+5\. Click **Done**.
+
+6\. Click **Deploy**.
+
+7\. Expand the message window beneath the flow and click the **Debug&#x20;**&#x69;con.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/4-uMofYANI5sEiUwzqq-O_image.png" size="80" width="334" height="170" caption="Flow Manager view debug message" position="center" showCaption="true"></Image>
+
+# Hex Values
+
+**Function** nodes can convert hexadecimal (hex) values into normal decimal integers. This is useful when performing operations on hex values.
+
+**To create a flow to convert hex values to integers:**
+
+1\. From the Flow Definition view, connect an **Inject** node, a **Function** node, and a **Debug** node.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9RYqTA8GWLvssGn3q7BGw_image.png" size="80" width="680" height="89" caption="Inject node connect to a Function node that connects to a Debug node" position="center" showCaption="true"></Image>
+
+2\. Double-click the **Function** node and enter the following lines of code:
+
+```javascript
+function hexToInt(hex) { // Declares a function, named hexToInt, for converting hex to integers.
+return parseInt(hex, 16); 
+// Converts the hex into an integer by passing in 16 (for base 16) to parseInt.
+}
+ 
+var hex = msg.payload; // Saves the msg payload to pass into our function.
+var decimal = hexToInt(hex); // Calls the function to convert the hex into a decimal integer.
+ 
+msg.payload = "Hex: " + hex + ", Decimal: " + decimal; 
+// Formats the text for output.
+ 
+return msg;
+```
+
+3\. Click **Done**.
+
+4\. Double-click the **inject** node and select **string** from the drop-down menu adjacent to `msg.payload`. Enter in any hex value to convert to an integer. This example uses **0x00A8**, which is 168 as a decimal integer.
+
+5\. Click **Done**.
+
+6\. Click **Deploy**.
+
+7\. Expand the message window beneath the flow and click the **Debug&#x20;**&#x69;con.
+
+8\. Click the button to the left of the **inject** node.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2K0gVs62LE_rt5pBb3XWm_image.png" size="60" width="276" height="147" caption="Flow Manager view debug message" position="center" showCaption="true"></Image>
+

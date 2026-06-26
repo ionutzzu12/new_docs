@@ -1,0 +1,118 @@
+---
+title: OSI Agent
+slug: 5ycu1Ev5xV6zBy-KOcdWt
+description: Review the following information for setting up and configuring the OSI Agent driver. 
+docTags: 
+createdAt: Wed Mar 22 2023 22:34:07 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the OSI Agent driver.&#x20;
+
+<hint type="warning">
+  **Important**:&#x20;
+
+  - The DH Historian Agent can only have one OSI PI agent and one OSI PI server connection with one username/password configured for the OSI PI server.
+  - The username/password in the DeviceHub configuration is to access the DH Historian Agent, not the OSI PI server.
+  - If you would like to manage access to tags/data being sent through the OSI PI agent and server, you can set up multiple Litmus Edge connections through the NATS connector. See [Set Up Edge Cascading with the NATS Connector](<../../../../../How-To Guides/Integration Guides/QPNa7ib7Z49qjis5jkbGZ.mdx>) to learn more. &#x20;
+</hint>
+
+# Set Up the OSI Agent
+
+See :Link[DH Historian Agent]{label="DH Historian Agent" spaceId="SHlZRB8sbLUIhUOl3qzzX" docId="YMPR6YQtY8t2-KoFYC35y" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to review how to set up and configure the OSI Agent driver.&#x20;
+
+# OSI Agent Driver Settings in Litmus Edge
+
+If you review or edit the settings of the OSI Agent device, refer to the following parameters.&#x20;
+
+<table columnWidths="124,440" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      OSI
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      OSI Agent
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      The port configured in the DH Historian Agent. The default value is 4777.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Interface**
+    </td>
+    <td>
+      You have the option of selecting the interface for accepting client connections. The default value is 0.0.0.0, which means using all network interfaces for accepting connections from clients.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **User**
+    </td>
+    <td>
+      The username configured in the DH Historian Agent.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Password**
+    </td>
+    <td>
+      The password configured in the DH Historian Agent.
+    </td>
+  </tr>
+</table>
+
+If you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} in Litmus Edge, select the **R** register name, and then refer to the following supported data types and tag parameters. &#x20;
+
+## Supported Data Types
+
+- `uint32`
+- `uint64`
+- `float64`
+- `string`
+- `byte[]`
+- `float32[]`
+- `bool`
+- `byte`
+- `float64[]`
+- `string[]`
+- `uint16`
+- `int64`
+- `uint16[]`
+- `sbyte`
+- `int16`
+- `int16[]`
+- `int32[]`
+- `int64[]`
+- `uint64[]`
+- `float32`
+- `bool[]`
+- `uint32[]`
+- `int32`
+- `sbyte[]`
+
+<ContentSnippet docRefId="xeM8u-sH5j77fWJyr7VOA">
+
+</ContentSnippet>
+

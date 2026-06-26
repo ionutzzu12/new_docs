@@ -1,0 +1,102 @@
+---
+title: Create a Chart
+slug: rNwt7I3_plefy6qs2KXXk
+description: You can use Flows to create charts. In this page, you will learn how to create a temperature chart.
+docTags: 
+createdAt: Wed Jun 07 2023 22:01:38 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Flows to create different types of visualizations such as Line charts, Bar charts, Pie charts, Polar area charts, and Radar charts.
+
+# **Use**r Sce**nario**
+
+Review the following scenario for creating a Line chart using Flows Manager.
+
+In a food processing plant, engineers need to monitor and optimize refrigeration units. They can create a line chart visualization with two lines: one showing the temperature in Celsius and the other converting these readings to Fahrenheit. This real-time chart helps in maintaining precise temperature control, which is critical for food safety standards. Such visualization helps in quick decision-making if temperatures deviate from the desired range, ensuring product quality and regulatory compliance.
+
+# Step 1: Create the Chart
+
+**To create a temperature conversion line chart:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow.&#x20;
+   See [Create a Flow](<../../Product Features/yOXP8Qb_U_AFnbdqxZSd4/7xvHQOytaduG1w9sa5Jh8.mdx>) to learn more.&#x20;
+2. Drag a **Datahub Subscribe&#x20;**&#x6E;ode, two **Function&#x20;**&#x6E;odes, and a **Chart** node to the canvas and wire them together.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/0O8FWw3dLapqt9JMkS5GO_image.png" size="70" width="607" height="192" position="center" caption="Flows canvas with chart node" showCaption="true"></Image>
+3. Double-click the **Datahub Subscribe** node.
+   The *Edit Datahub Subscribe node&#x20;*&#x64;ialog box appears.
+   - **Datahub:&#x20;**&#x43;onfigure the Datahub connection if needed. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="w5OhQrB_Yi_BmcZabhEBj" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel href="../../Product Features/yOXP8Qb_U_AFnbdqxZSd4/7xvHQOytaduG1w9sa5Jh8.mdx"} to learn more.&#x20;
+   - **Topic:&#x20;**&#x45;nter **Fahrenheit**.
+   - **Name:&#x20;**&#x45;nter **Temperature**.
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/f7Y4NiMev08RYgD7Tgf2s_image.png" size="60" width="403" height="256" position="center" caption="Edit Datahub Subscribe node dialog box" showCaption="true"></Image>
+4. Double-click one of the **Function&#x20;**&#x6E;odes.
+   The *Edit function node&#x20;*&#x64;ialog box appears.
+   - **Name:&#x20;**&#x45;nter **Farenheit**.
+   - **On Message:&#x20;**&#x45;nter the following lines of code to return the temperature in Fahrenheit:
+     `msg.topic = 'Fahrenheit '; // Defines the variable`
+     `return msg;`
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/NXr8w48TTEVRtQoVeDbjH_image.png" size="70" width="512" height="247" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+5. Double-click the other **Function&#x20;**&#x6E;ode.
+   The *Edit function node&#x20;*&#x64;ialog box appears.
+   - **Name:&#x20;**&#x45;nter **Celsius**.
+   - **On Message:&#x20;**&#x45;nter the following lines of code to return the temperature in Celsius:
+     `var faren = msg.payload; // Temperature from the device in Fahrenheit.     `
+     `var cel = parseFloat(5 / 9 * (parseInt(faren) - 32)).toFixed(2); // Converts Fahrenheit to Celsius up to two decimal places.     `
+     `msg.payload = cel; // Sets the display value on the chart to be our Celsius calculation.     `
+     `msg.topic = 'Celsius'; // Gives the name "Celsius" to the second line of the chart.     `
+     `return msg;`
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/yuAZE6HrMFOuxAPBZWvah_image.png" size="70" width="510" height="303" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+6. Double-click the **Chart&#x20;**&#x6E;ode.&#x20;
+   The *Edit chart node&#x20;*&#x64;ialog box appears.
+   - **Label:&#x20;**&#x45;nter **Temperature**.
+   - **Type:&#x20;**&#x53;elect **Line chart** from the dropdown option.
+   - **Other Options:&#x20;**&#x54;here are a number of options for the Chart Types, Labels, Legends, and Series Colours. Feel free to experiment with different options according to your projects.&#x20;
+   - **Group:** Click the **Edit&#x20;**&#x69;con to add a new dashboard group.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_dM0yzgTY3QOse5yQ8t_6_image.png" size="60" width="547" height="932" position="center" caption="Edit chart node dialog box" showCaption="true"></Image>
+7. Make the following changes in the *Edit dashboard group node&#x20;*&#x64;ialog box.
+   - **Name:&#x20;**&#x45;nter **Temperature**.
+   - **Display group name:&#x20;**&#x53;elect the checkbox.&#x20;
+   - **Tab:&#x20;**&#x43;lick the **Edit&#x20;**&#x69;con to add a new dashboard tab.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CWS6KV0ZZs22eqaqEhwKc_image.png" size="60" width="550" height="461" position="center" caption="Edit dashboard group node dialog box" showCaption="true"></Image>
+8. Make the following changes in the *Edit dashboard tab node&#x20;*&#x64;ialog box.
+   - **Name:&#x20;**&#x45;nter **Temperature**.
+   - **Icon:&#x20;**&#x45;nter **dashboard**.
+   - Click **Add&#x20;**&#x6F;r **Update**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/fk885meXJCCBJ4JsH9P_V_image.png" size="60" width="561" height="541" position="center" caption="Edit dashboard tab node dialog box" showCaption="true"></Image>
+9. Click **Add&#x20;**&#x6F;r **Update** from the *Edit dashboard group node&#x20;*&#x64;ialog box. Then click **Done&#x20;**&#x66;rom the *Edit chart node* dialog box and return to the flows canvas.
+10. Add an **Inject&#xA0;**&#x6E;ode, a **Function&#xA0;**&#x6E;ode, and a **Datahub Publish** node onto the canvas and wire them together.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZEqaMul3Qi3MsnNYwNiHP_image.png "Completed flows canvas ")
+11. Double-click the **Function&#x20;**&#x6E;ode.
+    The *Edit function node&#x20;*&#x64;ialog box appears.
+    - **On Message:&#x20;**&#x45;nter the following lines of code to generate random float numbers as Fahrenheit temperature.
+      `var run = (Math.random() * (86 - 80.75) + 80.75).toFixed(2); //generate random float numbers`
+      `msg.payload = run;`
+      `return msg;`
+    - Click **Done**.
+      <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5j9_bLsTC60k73AV6vXYF_image.png" size="70" width="483" height="261" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+12. Double-click the **Datahub Publish** node.
+    The *Edit Datahub Publish node* dialog box appears.&#x20;
+    - **Datahub:&#x20;**&#x43;onfigure the Datahub connection if needed. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="w5OhQrB_Yi_BmcZabhEBj" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel href="../../Product Features/yOXP8Qb_U_AFnbdqxZSd4/7xvHQOytaduG1w9sa5Jh8.mdx"} to learn more.&#x20;
+    - **Topic:&#x20;**&#x45;nter **Fahrenheit**.
+    - **Name:&#x20;**&#x45;nter **Temperature**.
+    - Click **Done**.
+      <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/mzLrptQ5IzSK2_-M6nEO1_image.png" size="60" width="380" height="252" position="center" caption="Edit Datahub Publish node dialog box " showCaption="true"></Image>
+13. Click **Deploy**.
+
+# Step 2: View Line Chart as Output
+
+**To view the line chart as output:**
+
+1. Drag the **Sidebar&#x20;**&#x75;p from the bottom of the canvas and select the **Dashboard&#x20;**&#x69;con.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/4amOfjJokKGZSup_LsFty_image.png "Dashboard icon on flows canvas")
+2. You can see the dashboard group and tab you created from the *Chart&#x20;*&#x6E;ode. Click the **Expand&#x20;**&#x69;con to view the generated chart in the *Node-RED Dashboard&#x20;*&#x62;rowser window.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6jDyPZfZw5jDNsmH-VghP_image.png" size="70" width="789" height="282" position="center" caption="Dashboard expand window" showCaption="true"></Image>
+3. The line chart shows how Fahrenheit temperatures convert to Celsius temperature in real time.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2OteieOGghiCG1W9peOc2_image.png" size="70" width="986" height="572" position="center" caption="Line chart output" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x59;ou may need to wait sometime to collect enough data for a proper line chart.
+</hint>
+

@@ -1,0 +1,603 @@
+---
+title: Microsoft SQL Server Client
+slug: w8t8w4vpI2AWU8z7Lxns9
+docTags: 
+createdAt: Tue Dec 10 2024 18:15:26 GMT+0200 (Eastern European Standard Time)
+---
+
+# Overview
+
+To set up and configure this device in Litmus Edge, you must:
+
+- Step 1: Obtain the appropriate SQL Server connection details
+- Step 2: Set up the Microsoft SQL Server Client Device in Litmus Edge DeviceHub
+- Step 3: Configure a Tag with defined SQL Queries
+
+# Step 1: Obtain SQL Server connection details
+
+You require the following connection information to connect to Microsoft SQL Server. Find this information on Microsoft SQL Server Management Studio or from the appropriate server admin.
+
+- **Address:** IP address/domain for the SQL server
+- **Port:** Port to connect to the SQL server
+- **Database:** SQL database name
+- **Username and Password:** Authentication credentials to connect to SQL server
+
+# Step 2: Set up the SQL Server Client Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+<table isTableHeaderOn="true" columnWidths="142,421" selectedRows="" selectedTable="false" selectedColumns="">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      Historian
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Driver**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Microsoft SQL Server Client
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Name**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      User-defined name for the device in Litmus Edge
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Description**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      (Optional) Description for device
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Network Address**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      SQL address you found in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Network Port&#x20;**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      SQL port you found in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Instance**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      (Optional) Server Instance path
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Database**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Name of database in SQL server
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Username**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Enter username of SQL account
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Password**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Enter password of SQL account
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Encryption**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Select desired encryption mode.&#x20;
+      - None: No encryption
+      - Optional: Doesn't require certificate
+      - Mandatory: Verify certificate
+      - Strict: Verify certificate and use TDS 8.0
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Validate Query**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Parse Queries and Validate Syntax (MySQL Syntax Only)
+    </td>
+  </tr>
+</table>
+
+There are additional advanced configuration that can be defined for the SQL device by setting **Advanced** to `Show`. These settings are optional.
+
+<table isTableHeaderOn="true" columnWidths="145,418" selectedRows="" selectedTable="false" selectedColumns="">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **App name**
+    </td>
+    <td align="left">
+      Client application ID
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Host Name**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Client Workstation ID
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Request Timeout**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Request timeout in seconds. Default 10 seconds.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Connection Timeout**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Connection timeout in seconds. Default 5 seconds.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Keep Alive**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Interval in seconds to keep the TCP connection alive. Enter 0 to disable.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Packet Size**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Maximum packet size for SQL query results
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure a Tag with defined SQL Queries
+
+When you [Add a Tag]() to the connected device, see the following Register Table and Tag Parameters sections. You can also [Browse and Add Tags from a Device]() for the device.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+<table isTableHeaderOn="true" columnWidths="193,468" selectedRows="" selectedTable="false" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Table - Multi-Row Value
+    </td>
+    <td align="left">
+      JSON
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      Record - Single-Row Value
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      JSON, BOOL, BYTES, FLOAT32, FLOAT64, INT8, INT16, INT32, INT64, STRING, UINT8, UINT16, UINT32, UINT64
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should query the SQL server
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.&#x20;
+- **Data Query:** Enter the desired SQL query.
+- **Only Publish On Change:&#x20;**&#x53;elect **Disabled** or **Enabled**. Select **Enabled** for Microsoft SQL Server Change Data Capture (CDC) feature.
+- **Parse Timestamp:&#x20;**&#x53;elect **Column Index**, **Column Name** or **None**.
+  - Timestamp value from a specific column Index or Name, will be used as the `timestamp` value in the DeviceHub payload
+  - Only available when **Name** is set to **Record - Single-Row Value**
+- **Timestamp Index/Name:&#x20;**&#x44;efine the column index or name from the SQL table
+- **Parse Value:&#x20;**&#x53;elect **Column Index**, **Column Name** or **None**.
+  - Value from a specific column Index or Name, will be used as the `value` in the DeviceHub payload
+  - Only available when **Name** is set to **Record - Single-Row Value**
+  - Value Type defined above must match the SQL Column datatype
+- **Value Index/Name:&#x20;**&#x44;efine the column index or name from the SQL table
+- **Endianness:** Select the endianness, either Little or Big.
+  - **Little-Endian:&#x20;**&#x54;he "little end" (the least significant byte) is stored first at the lowest memory address.
+  - **Big-Endian:&#x20;**&#x54;he "big end" (the most significant byte) is stored first at the lowest memory address.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>
+
+# Enabling Change Data Capture (CDC):
+
+CDC lets our product read only what changed in your Microsoft SQL Server tables instead of re-reading everything. For more information on CD please refer to [Microsoft SQL CDC documentation.](https://learn.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-data-capture-sql-server?view=sql-server-ver17)
+
+In order to enable CDC, make sure **Only Publish On Change** is set to Enabled.
+
+Each CDC-enabled Tag uses three queries you provide:
+
+<Paragraph listStyleType="decimal" indent="2">
+  Data Query: SQL query to return desired results.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="2" indent="2">
+  Init Query: returns the initial CDC position so we know where to start.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="3" indent="2">
+  Change Query: returns only the changes since the last position.
+</Paragraph>
+
+# Examples:
+
+This example shows the following SQL table in our Microsoft SQL server:
+
+### SQL table:
+
+Database: `OTdata`
+
+Table Name: `Metrics`
+
+<table isTableHeaderOn="true" columnWidths="120,50,139,68.28140703517587,59.63819095477387,50,166.08040201005025" selectedRows="" selectedTable="false" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Timestamp**
+    </td>
+    <td align="left">
+      **ID**
+    </td>
+    <td align="left">
+      **Metric Name**
+    </td>
+    <td align="left">
+      **Value**
+    </td>
+    <td align="left">
+      **Area**
+    </td>
+    <td align="left">
+      **Line**
+    </td>
+    <td align="left">
+      **Machine**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      2025-06-18 08:20:00.000
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      Temperature
+    </td>
+    <td align="left">
+      56
+    </td>
+    <td align="left">
+      A1
+    </td>
+    <td align="left">
+      L1
+    </td>
+    <td align="left">
+      Temperature sensor
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      2025-06-18 08:20:00.000
+    </td>
+    <td align="left">
+      2
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Pressure
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      500
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      A1
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      L3
+    </td>
+    <td align="left">
+      Boiler
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      2025-06-18 08:20:00.000
+    </td>
+    <td align="left">
+      3
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Power
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      4000
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      A1
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      L4
+    </td>
+    <td align="left">
+      Laser cutter
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      2025-06-19 08:20:00.000
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Temperature
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      53
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      A1
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      L1
+    </td>
+    <td align="left">
+      Temperature sensor
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      2025-06-19 08:20:00.000
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      5
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Pressure
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      550
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      A1
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      L3
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Boiler
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      2025-06-19 08:20:00.000
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      6
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Power
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      4005
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      A1
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      L4
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Laser cutter
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      2025-06-20 08:20:00.000
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      7
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Temperature
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      51
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      A1
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      L1
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Temperature sensor
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      2025-06-20 08:20:00.000
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      8
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Pressure
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      600
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      A1
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      L3
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Boiler
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      2025-06-20 08:20:00.000
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      9
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Power
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      4010
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      A1
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      L4
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Laser cutter
+    </td>
+  </tr>
+</table>
+
+### Tag Configuration 1:
+
+Name: `Table - Multi-Row Value`
+
+Query: `SELECT * FROM [OTdata].[Metrics]`
+
+Result:
+
+```json
+{
+  "success": true,
+  "datatype": "JSON",
+  "timestamp": 1683901823577,
+  "registerId": "DBE0C6D2-A91D-49D1-9CB7-DBF3C6D9C919",
+  "value": {
+    "Fields":["Timestamp","ID","Metric Name", "Value", "Area", "Line", "Machine" ],
+    "Types":["DATE","INT","VARCAR","INT","VARCAR","VARCAR","VARCAR"],
+    "Data":[
+      ["2025-06-18 08:20:00.000",1,"Temperature", 56, "A1", "L1","Temperature sensor"],
+      ["2025-06-18 08:20:00.000",2,"Pressure", 500, "A1", "L1","Boiler"],
+      ["2025-06-18 08:20:00.000",3,"Power", 4000, "A1", "L4","Laser cutter"],
+      ...
+      ["2025-06-18 08:20:00.000",9,"Power", 4010, "A1", "L4","Laser cutter"],
+    ]
+  },
+  "deviceID": "7C01E851-FE46-463A-90EC-98AA3F12BE09",
+  "tagName": "table_all",
+  "deviceName": "MSSQL_DB",
+  "description": "",
+  "metadata": {}
+}
+```
+
+### Tag Configuration 2:
+
+Name: `Record - Single-Row Value`
+
+Value Type: `INT`
+
+Query: `SELECT * FROM [OTdata].[Metrics]`
+
+Parse Timestamp: `Column Index`
+
+Timestamp Index: `0`
+
+Parse Value: `Column Name`
+
+Value Index: `Value`
+
+Result:
+
+```json
+{
+  "success": true,
+  "datatype": "JSON",
+  "timestamp": 1750407600000,
+  "registerId": "DBE0C6D2-A41D-46D1-2CB7-DBF3C6D9C919",
+  "value": 4010,
+  "deviceID": "7C01E851-FE46-463A-90EC-98AA3F12BE09",
+  "tagName": "table_last_entry",
+  "deviceName": "MSSQL_DB",
+  "description": "",
+  "metadata": {}
+}
+```
+

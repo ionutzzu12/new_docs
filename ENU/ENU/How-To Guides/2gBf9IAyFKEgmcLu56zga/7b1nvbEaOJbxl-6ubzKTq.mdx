@@ -1,0 +1,156 @@
+---
+title: Use Sample Python Application in Marketplace
+slug: 7b1nvbEaOJbxl-6ubzKTq
+description: Learn how to use a Marketplace SDK with Python. 
+docTags: 
+createdAt: Wed Dec 07 2022 16:30:11 GMT+0200 (Eastern European Standard Time)
+---
+
+In this example, the sample Python application consumes data from a topic, performs analysis on the data, and pushes the data to a new topic.
+
+Then a Docker image is built, the image is transferred to an edge device using FTP, access is provided to a topic, the container is run from the Docker image, and the application is tested using Flows. Download the set of files below as a reference.&#x20;
+
+<File src="https://archbee-doc-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/m4gX6EoUtLe0nMudBhQj3_marketplace-sdk-python.zip" label="marketplace-sdk-python.zip" uploadAsPublic="false">
+
+</File>
+
+# Before You Begin
+
+Make sure you have access to the following:
+
+- A Linux system and Docker engine.
+- Python so that you can access the files in the marketplace-sdk-python.zip file.
+
+# Step 1: Build the Docker Image
+
+The **\_main.py\_** file in the marketplace-sdk-python files consists of the logic that must be written to manipulate the data. The code is well commented and can be used as a reference. You can also make changes in the container from the Litmus Edge terminal.
+
+From a Linux computer, execute the following command:
+
+<BlockQuote>
+  docker build -t python-sdk
+</BlockQuote>
+
+# Step 2: Transfer the Image to an Edge Device
+
+**To transfer the image to an edge device:&#x20;**
+
+1. Log in to Litmus Edge, navigate to **System&#x20;**> **Device Management** > **System Services**.
+   The *Services&#x20;*&#x70;ane appears.&#x20;
+2. From the *FTP Service***&#xA0;**&#x73;ection, Click **Start**.
+   The *FTP Service* is started.&#x20;
+3. Click **Add User**.
+   The *Add User&#x20;*&#x64;ialog box appears.&#x20;
+4. Enter a user name and click **Add User**.
+   The *Create User* dialog box appears.
+5. Click the **Copy&#x20;**&#x69;con next to the password, save it somewhere safe, and then click **Close**.
+   The user is added to the FTP Users list.
+6. From the Linux system, use an FTP client such as File-zilla to connect to the FTP server on port 21.
+7. Navigate to the **docker images&#xA0;**&#x66;older in **ftp-data/docker-images** and add the **.tar** file (docker saved image.tar) that is the locally saved version of your container.
+8. Return to the *Services&#xA0;*&#x62;rowser tab and navigate to **Applications** >**&#x20;Images**.
+   The *Images&#x20;*&#x70;ane appears.&#x20;
+9. From the *Images&#x20;*&#x70;ane, click the **Add&#x20;**&#x69;con.
+   The *Import Image&#x20;*&#x64;ialog box appears.
+10. Select the **FTP&#xA0;**&#x6F;ption.
+11. Click the **Image File Path&#xA0;**&#x66;ield and select the **.tar&#xA0;**&#x66;ile from the drop-down list.
+12. Click **Import**.
+    The image is uploaded to the *Images&#x20;*&#x6C;ist.
+
+# Step 3: Create an API Account
+
+**To create an API account:**
+
+1. In Litmus Edge, navigate to **System&#x20;**> **Access Control** > **Tokens**.
+2. &#x20;
+3. From the *Access Accounts* section, click the **Add&#x20;**&#x69;con.&#x20;
+   The *Create API Account* dialog box appears.
+4. Enter the account name and click **Create Account**.
+   The new account appears in the *Access Accounts* section on the *Tokens&#x20;*&#x70;ane.
+
+# Step 4: Create Topics
+
+**To create topics:**
+
+1. In Litmus Edge, navigate to **System&#x20;**> **Access Control** > **Tokens**.&#x20;
+2. From the *Access Accounts&#x20;*&#x73;ection, click the **Action menu** next to a selected account and select **Edit topics**.
+   The account form drops down.
+3. Perform one or both of the following:
+   - From the *Read Topics***&#xA0;**&#x73;ection, enter a name in the **Topic Name&#xA0;**&#x66;ield, and then click **Add Read Topic**. These are the subscribe topics you will use later.&#x20;
+   - From the *Write Topics***&#xA0;**&#x73;ection, enter a name in the **Topic Name&#xA0;**&#x66;ield, and then click **Add Write Topic**. These are the publish topics you use later.&#x20;
+4. Repeat as needed.
+5. When you are done adding topics, click **Update**.
+6. Click **OK**.
+
+# Step 5: Copy the API Key
+
+**To copy the API key:&#x20;**
+
+1. In Litmus Edge, navigate to **System&#x20;**> **Access Control** > **Tokens**.&#x20;
+2. From the *Access Accounts* section, click the **Action menu** next to a selected account and select **View API Key**.
+3. Click the **Copy&#x20;**&#x69;con next to the API Key.
+   The API Key is copied to your clipboard.&#x20;
+4. Click **Close**.
+
+# Step 6: Run the Application
+
+When you run the application, refer to the following command:
+
+<BlockQuote>
+  docker run -d python-sdk&#x20;
+  \-- mode=\<product>-access&#x20;
+  \-- api-key=\<API-key>&#x20;
+  \-- \<product>-access-address=10.30.50.1:9094&#x20;
+  \-- inbound-topic=\<subscribe-topic>&#x20;
+  \-- outbound-topic=\<publish-topic
+</BlockQuote>
+
+**To run the application:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**>**&#x20;Containers**.
+2. Click **Run**.
+3. Copy and paste the command above in the command line.&#x20;
+4. For the above docker entry:
+   - Replace `<product>` with your product name.
+   - Replace `<API-key>` with your API key.
+   - Replace `<subscribe-topic>` with the topic you want to subscribe to.
+   - Replace `<publish-topic>` with the topic you want to publish.
+5. Click **Run**.&#x20;
+
+# Step 7: Validate the Application
+
+**To validate the application:**
+
+1. In Litmus Edge, navigate to **Flows Manager**.&#x20;
+2. Click the **Go To Flow Definition** icon for a selected **Flows Manager**.&#x20;
+   Th&#x65;*&#x20;Flow canvas&#x20;*&#x6F;pens in a new browser tab.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/6PlxhptXn4xZ_4ZdrIAuf_gotoflowdefinition.png" size="80" width="944" height="366" position="flex-start" caption="Go To Flow Definition icon" showCaption="true"></Image>
+3. Drag the **inject&#x20;**&#x6E;ode and the **Datahub Publish** node to the canvas and wire them together.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/wURLUHU_Ta3CGQVbWtgi1_injectpublishnodes.png" size="80" width="664" height="625" position="flex-start" caption="Inject and DataHub Publish nodes" showCaption="true"></Image>
+4. Double-click the **Inject&#xA0;**&#x6E;ode.
+   The *Edit Inject* node dialog box appears.
+5. From the **Repeat&#x20;**&#x64;rop-down list, select **interval**.
+6. In the Name field, enter **Timestamp message generator**.&#x20;
+7. Click **Done**.&#x20;
+8. Double-click the **Datahub Publish&#xA0;**&#x6E;ode.
+   The *Edit Datahub Publish node&#x20;*&#x64;ialog box appears.
+9. From the *Edit Datahub Publish node* dialog box, configure the following:
+   - **Datahub**: Make sure **Add new Datahub Connect...** is selected.&#x20;
+   - **Topic**: Enter the subscribe topic name you created earlier.&#x20;
+   - **Name**: Enter **Connector**.&#x20;
+10. Click **Done**.&#x20;
+11. Drag the **Datahub Subscribe** node and the **debug&#x20;**&#x6E;ode to the canvas and wire them together.
+    <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZMn_UDwkN7Q4Eo3q5ncEI_debugsubscribe.png" size="80" width="707" height="591" position="flex-start" caption="The DataHub subscribe and Debug nodes" showCaption="true"></Image>
+12. Double-click the **Datahub Subscribe&#xA0;**&#x6E;ode.
+    The *Edit Datahub Subscribe* node dialog box appears.
+13. From the *Edit Datahub Publish node* dialog box, configure the following:
+    - **Datahub**: Make sure **Add new Datahub Connect...** is selected.&#x20;
+    - **Topic**: Enter the publish topic name you created earlier.&#x20;
+    - **Name**: Enter **Listener**.&#x20;
+14. Click **Done**.&#x20;
+15. Click **Deploy**.&#x20;
+16. Expand the message window beneath the flow and click the **Debug&#x20;**&#x69;con. Verify that messages are displaying.
+    <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7sPDx4TLHetId9TeVwaZy_flows-message-bar-and-debug-icon.png" size="80" width="1920" height="280" position="flex-start" caption="The Debug pane" showCaption="true"></Image>
+17. Return to the Flows Manager browser window and navigate to **Applications&#x20;**>**&#x20;Containers**.
+18. Click the **View&#x20;**&#x69;con to show the container logs.
+    A log of streaming messages sent and received appears.
+

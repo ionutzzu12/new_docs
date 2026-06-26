@@ -1,0 +1,185 @@
+---
+title: Litmus Edge 4.0.13
+slug: litmus-edge-4013
+docTags: 
+createdAt: Mon Jun 15 2026 20:56:35 GMT+0300 (Eastern European Summer Time)
+---
+
+Release Date: June 17, 2026
+
+Review the current list of :Link[Limitations]{label="Limitations" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="abyVi2mV7twfAkPHPMSCP" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}. For information on changes to APIs, see the :Link[LitmusEdge 3.16.x to 4.0.x]{href="https://api.litmus.io/view/2s9Y5R1RvG#f4804d0e-07a6-4bbc-862e-a346cdc53870" newTab="true" hasDisabledNofollow="false"} and&#x20;
+:Link[Litmus Edge Manager 2.26.x to 2.31.x]{href="https://api.litmus.io/view/2s9Y5R1RvG#b7e9be00-4246-4091-8e34-bbe527228b46" newTab="true" hasDisabledNofollow="false"} change logs.
+
+## New Features
+
+<table isTableHeaderOn="true" columnWidths="998" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **DeviceHub:**
+      - The following new drivers are available in this release:
+        - **Automation Direct**
+          - AutomationDirect Productivity Series Ethernet&#x20;
+        - **GE Fanuc**
+          - GE FanucGE Ethernet Global Data (Gen2) experimental&#x20;
+        - **IDEC**
+          - IDEC Serial&#x20;
+        - **Yokogawa**
+          - Yokogawa DX Ethernet&#x20;
+          - Yokogawa MX Ethernet&#x20;
+    </td>
+  </tr>
+</table>
+
+## Enhancements
+
+<table isTableHeaderOn="true" columnWidths="998" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Applications:**
+      - Containers page now displays exposed ports in the following format: `Host Port` → `Container Port`, for example `3500` → `3000/tcp`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub:**
+      - Allen-Bradley CompactLogix Ethernet Advanced and Allen-Bradley Logix Ethernet: Renamed the Access Mode option from **CompactLogix** to **Logical**. Logical mode now uses ID-based requests for FlexLogix, CompactLogix, and ControlLogix PLCs for all firmware versions. The **Global** variables folder is now pinned to the top of the browse results.&#x20;
+      - Improved AB DF1 Ethernet driver browse and datatype support. Default datatypes are now correctly assigned during browse for Output, Input, Integer, ASCII, and Hex/BCD registers. Added INT datatype support for Output, Input, Timer, Counter, Control, and Register data files.&#x20;
+      - Improved B\&R PVI Ethernet driver performance. The driver has been optimized to reliably support up to 10,000 tags to enable high-density deployments with large B\&R PLC installations.&#x20;
+      - Improved CODESYS v2 Symbolic (Gen1.3) driver. Fixed connectivity issues, added support for browsing devices with or without SYM/SDB files, and introduced user-configurable options for Motorola byte order and protocol settings.&#x20;
+      - Improved EUROMAP 63 driver session file handling to automatically clean up `.REQ` files when the controller does not respond to prevent shared folder clutter.&#x20;
+      - Added float data type support for the GE Ethernet Absolute driver. `R`, `AI`, `AQ`, and `W` registers now support float data types to enable accurate reading of floating-point values from GE PLCs.&#x20;
+      - Added password authentication support for the S7CommPlus driver. PLCs configured with legacy access control in TIA Portal can now be connected by specifying a password in the device settings. Device settings have also been reorganized with advanced options moved to a collapsible section for a cleaner configuration experience.&#x20;
+      - Improved Toyopuc Ethernet driver addressing for bit registers. `bit` (boolean) tags now use discontinuous addressing, requiring both a Word and Bit address component to match PLC programming software conventions. Existing configurations are automatically migrated during upgrade.&#x20;
+      - Improved other Toyopuc Ethernet driver issues. Fixed read/write issues for EB register addresses above 32767, corrected maximum address ranges across multiple register types to align with PLC specifications, and added support for JL and JS registers (PC10G Nano).&#x20;
+      - Improved Toyopuc Ethernet driver file name configuration with updated values (P1, P2, and P3) in the File Number dropdown selector.&#x20;
+      - Added User ID configuration to the Yokogawa DX Ethernet driver to support communication with controllers that require user authentication.&#x20;
+      - Fixed inconsistent field ordering in driver configuration settings. Device and tag settings fields across multiple drivers (including Allen-Bradley, Siemens, GE, Yokogawa, and others) now display in a consistent and predictable order.&#x20;
+      - A new count field is available at the tag level for all register types to enable batch reads of consecutive registers as arrays. Added array read support for the following drivers:&#x20;
+        - Keyence Nano Ethernet
+        - Saia Ethernet
+      - Added data type support for the Generator driver. The following data types are now available: `bool`, `int32`, `float32`, `uint32`, and `json`.
+      - Added tag browsing support for the PLC5 driver.&#x20;
+      - Improved AutomationDirect Productivity Series Ethernet driver polling performance by implementing request grouping, reducing the number of requests needed to read tags.&#x20;
+      - The following drivers now display a deprecation warning indicating they will be removed in a future release: Mitsubishi QJ71E71, OSI Agent, Allen-Bradley CompactLogix Ethernet FreeTag, and Allen-Bradley CompactLogix Ethernet Advanced.
+      - Added help text for the **Name** and **Tag Name** fields in tag settings to describe their purpose and usage.&#x20;
+      - Renamed the **Optional Parameters** section to **Advanced Parameters** in the Connect Device and Edit Device dialogs.
+      - Added help text for the following Generic Device driver tag settings fields to clarify expected values: **Payload**, **Value Length**, **Response Terminator**, and **Response Max Length**.&#x20;
+      - Configuration field tooltips are now displayed in the Create and Edit Subscription dialogs.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Events:**
+      - The Events list table has been migrated to AG Grid for improved performance and responsiveness with large event datasets.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Integration:**
+      - The AWS IoT SiteWise connector now supports high-precision timestamps through `timestamp.timeInSeconds` and `timestamp.offsetInNanos` fields in DeviceHub payloads.&#x20;
+      - Added HTTP proxy support to the Zerobus Ingest connector. You can now configure HTTP proxy flags to route Zerobus Ingest traffic through a proxy server.
+      - Added retain support for MQTT v5 outbound publishing. When defining outbound subscriptions in the MQTT v5 cloud connector, a **Retain** option is now available to allow published messages to be retained by the broker for new subscribers.&#x20;
+      - The Enable and Disable buttons for integration connectors are now available during transitional states such as **Connecting**. This allows manual recovery when a connector is stuck.&#x20;
+      - Updated the display name of the AWS IoT Core Gen 2 MQTT connector to **MQTT - AWS IoT Core Gen 2** for consistency.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **System:**
+      - Improved NATS proxy performance and reduced memory usage on edge devices. Message delivery latency has been reduced and memory buffers have been right-sized for constrained edge deployments.&#x20;
+      - When you log in to a High Availability backup node, a status banner indicates that the node is in standby mode and most features are unavailable. If the node is promoted to primary or HA configuration is removed, the page redirects to the dashboard.&#x20;
+    </td>
+  </tr>
+</table>
+
+## Resolved Issues
+
+<table isTableHeaderOn="true" columnWidths="998" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Analytics:**
+      - Fixed Analytics output pane and debug button behavior. Resolved an issue where the processor output message pane would auto-collapse when paused and the Debug button was unresponsive. This enables you to inspect and debug processor data on the Analytics canvas again.&#x20;
+      - Fixed file permission issue with Analytics File Writer output. Files generated by the Analytics File Writer processor are now accessible to other system components such as Flows and the File Browser solution. This allows you to move, delete, and manage output files without encountering permission errors.&#x20;
+      - Fixed issue where Moving Average, Moving Max, and Moving Min processors could produce an unexpected error when the data type or window size was not configured. The processors now return an error state instead of exiting unexpectedly.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - Fixed issue where the Docker terminal did not correctly display UTF-8 box characters and UI symbols, for example arrows and return symbols.&#x20;
+      - Fixed issue where text characters in user-defined container names were dropped, causing the displayed name to differ from the name the user entered.&#x20;
+      - Fixed issue where deleting a container image from a browser tab with a stale image ID returned an error indicating the image did not exist.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub:**
+      - Fixed issue where the CSV export option (Dump tag data) in **DeviceHub** > **Devices** > **Data&#x20;**&#x77;as only available to users in the Administrator group. Now users with Read or Modify privileges for DeviceHub can perform a CSV export. &#x20;
+      - Fixed Euromap 63 driver compatibility with KM MC4 controllers. Removed special characters (including underscores) from generated JOB and SESS file names to resolve connection failures with controllers that do not accept special characters in file names.&#x20;
+      - Fixed Allen Bradley CompactLogix driver issue with bad tags disrupting valid tag reads. Resolved a regression where a single misconfigured or invalid tag in a Multiple Service request would cause other properly defined tags to fail. Invalid tags are now isolated so they no longer impact the reading of valid tags.&#x20;
+      - Fixed issue where the Open Protocol Ethernet driver rejected controller keepalive messages that did not include a revision number. The driver now accepts keepalive messages without a revision for PF8 Series controllers.
+      - Fixed issue where bulk-deleting tags caused the tag count to display a negative value and prevented new tags from being added. The tag count now correctly reflects the number of active tags after a bulk delete.&#x20;
+      - Fixed keyboard navigation issues in the Create Device dialog. Pressing `Enter` then `Tab` after selecting a device type no longer causes the **Device Type** field to revert and lose focus. The down arrow key now moves through device type options one at a time instead of skipping every other option
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Digital Twins:**
+      - Fixed issue where Digital Twin Dynamic Attributes published null values on transformations run after the first transformation. This caused the Digital Twin instance to become inactive.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      - **Integration:**
+      - Fixed issue where the **Insecure Skip Verify** option in REST integration settings was not applied. HTTPS connections now correctly skip TLS certificate verification when this option is enabled. This fix also applies to the OAuth token fetch step.&#x20;
+      - Fixed issue where the AWS IoT SiteWise connector forwarded messages with null tag values which caused ingestion erorrs and high log volume. The connector now drops messages where the tag value is null and produces an `invalid payload: value is required` error in the logs.&#x20;
+      - Fixed issue where InfluxDB v2 cloud connector failed to automatically reconnect. The connector now correctly recovers and resumes data streaming after the InfluxDB service is restarted, eliminating the need to manually disable and re-enable the connector.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **OPC UA:**
+      - Fixed issue where the OPC UA server failed to publish tag values in JSON format.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **System:**
+      - Fixed issue where component names in the Template UI were normalized. This caused names that differed only by case to appear identical. &#x20;
+      - Fixed issue where downloading a template before the page finished loading produced an incomplete file. The download button is now disabled until configuration data is fully loaded.&#x20;
+      - Fixed issue where several options (for example dns and ntp) were missing under dm (Device Manager) in **System** > **Device Management** > **Templates**.&#x20;
+      - Fixed issue where templates could not be created or downloaded.&#x20;
+      - Fixed issue where cloud backup from Litmus Edge to Litmus Edge Manager failed with a 401 error because an encrypted vault reference was sent as the authentication token.&#x20;
+      - Fixed issue where the UI could become unresponsive in **System** > **Events** when the system generated a high volume of events from a single database file. Additionally, CSV files may not have generated and downloaded.&#x20;
+      - High Availability:
+        - Fixed issue where API keys and activation configuration from Litmus Edge Manager were overwritten during HA synchronization.&#x20;
+        - Marketplace Applications and Flows now properly fail over and are migrated to the backup instance when the primary fails.&#x20;
+        - Fixed issue where HA configuration persisted on the primary node after the backup node was promoted to primary status. Now the original primary node no longer displays HA configuration after being disconnected and connected again.&#x20;
+        - Network interface changes are now correctly reflected on backup nodes.&#x20;
+        - Fixed issue where the primary node incorrectly showed sync status as `Stopped`.&#x20;
+        - Fixed issue where the backup node was not accessible after deleting a High Availability configuration.&#x20;
+        - Fixed issue where Proxy URLs configured on the primary node were not copied to the High Availability backup node.&#x20;
+        - Fixed issue where several components including Device Hub, Digital Twin, and Cloud Connectors were not reliably replicated from the primary to the backup node. The HA sync mechanism has been redesigned to use each component's own backup and restore APIs.&#x20;
+        - Fixed issue where HA sync timestamps were inconsistent which caused confusion about whether synchronization was working.&#x20;
+        - Fixed issue where Docker images synced from the primary node were not visible on a promoted backup node and a race condition in the HA transport layer could leave the connection broken until a service restart.&#x20;
+        - Fixed issue where the HA database sync timer ran on all devices including devices where HA was not configured.&#x20;
+      - Addressed vulnerabilities in third-party components.
+    </td>
+  </tr>
+</table>
+

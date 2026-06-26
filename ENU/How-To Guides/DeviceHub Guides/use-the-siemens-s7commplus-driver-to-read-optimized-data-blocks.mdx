@@ -1,0 +1,63 @@
+---
+title: Use the Siemens S7CommPlus Driver to Read Optimized Data Blocks
+slug: use-the-siemens-s7commplus-driver-to-read-optimized-data-blocks
+docTags: 
+createdAt: Wed Apr 16 2025 20:02:46 GMT+0300 (Eastern European Summer Time)
+---
+
+The Siemens S7CommPlus driver allows users to read tags in their Siemens S7-1200 and S7-1500 PLCs using symbolic addressing. Tags in optimized Data Blocks, non-optimized Data Blocks, and named registers can be accessed.
+
+<hint type="info">
+  **Note:&#x20;**&#x53;upport for tags and Data Blocks in Software Units is available from the Litmus Edge *3.16.7&#x20;*&#x72;elease. Software Units are only available in the S7-1500 series.&#x20;
+</hint>
+
+# Configure your Siemens S7-1200 or S7-1500 PLC in TIA Portal
+
+1. Open your TIA Portal project.&#x20;
+2. In the project tree, right-click your PLC and select **Properties…&#x20;**&#x66;rom the popup menu. ****
+   The *Properties&#x20;*&#x77;indow opens.
+3. To obtain the device’s IP address (if you do not already have it):
+   - From the left pane, select **PROFINET** **interface > Ethernet addresses**.
+   - In the right pane, go t&#x6F;**&#x20;Internet protocol****&#x20;version 4 (IPv4)**, find the IP address of the PLC, and copy it aside.
+4. From the left pane, select **PROFINET interface** > **Advanced options** > **Port \[X1 P1]** > **Port interconnection.**
+5. In the right pane, enter “Any partner” in the **Partner port** field.
+
+You do not need to edit any Protection & Security settings from the default settings in TIA Portal. The driver will automatically select the approriate authentication mode.
+
+You do not need to disable optimized block access in any Data Block properties. The driver can access optimized Data Blocks.
+
+## Authentication Modes
+
+The Siemens S7CommPlus protocol has three levels of authentication, which are described below. The driver will automatically select the appropriate authentication mode based on the PLC's firmware version and protection setting.
+
+- P1 Authentication: Provides basic, unencrypted access, suitable for S7-1200 PLCs with firmware versions below V4.0. This level is designed for environments where top-tier security isn't a priority.&#x20;
+- P2 Authentication: Incorporates symmetric key-based security for S7-1200 PLCs with firmware V4.0 to V4.4 and S7-1500 PLCs with firmware V2.0 to V2.8. This middle tier offers a balanced approach, securing systems against moderate security threats.&#x20;
+- P3 Authentication: Offers the highest level of security using TLS handshake protocols for S7-1200 PLCs with firmware versions V4.5 and above, and S7-1500 PLCs from V2.9 onwards. If TLS is disabled, the system automatically defaults to P2 authentication, ensuring continuous security.&#x20;
+
+# Browse and add tags in Litmus Edge DeviceHub
+
+Browsing and adding tags to the Siemens S7CommPlus includes the following tasks:
+
+## Step 1: Add Siemens S7CommPlus Device to DeviceHub
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Devices**.
+2. Click the **Connect a Device** box.
+   The *Connect Device&#x20;*&#x64;ialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/atJL37pPuLGI2bM_w2ibz_adddevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" showCaption="true"></Image>
+3. In the **Device Type** drop-down list, select **Siemens**.
+4. In the **Driver Name** drop-down list, select **Siemens S7CommPlus**.
+5. Configure the parameters for the device. See [Connect a Device](<../../Product Features/DeviceHub/Devices/2QO5xh8wBeO2UG92F3hbM.mdx>) and [Siemens S7CommPlus](<../../QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 2 Drivers/NQXc69J_j89lxzKpO289P.mdx>) to learn more.
+6. Copy the name you gave to the device and paste it somewhere for reference later.&#x20;
+
+## Step 2: Browse for Tags
+
+For browsing tags in Litmus Edge, please refer to the following guidelines based on your version:
+
+- If you are using Litmus Edge version **3.16.x** or **below**, please refer to the :Link[Browse for Tags (3.16.x and below)]{label="Browse for Tags (3.16.x and below)" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="1NErbMshbySrHgZ829non" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} page for instructions on how to browse for tags.
+- If you are a using a version greater than **3.16.x**, please refer to the [Browse for Tags (after 3.16.x)](<../../Product Features/DeviceHub/Tags/Browse and Add Tags from a Device/2idsCBX7gC37G-QBuBrF6.mdx>) page for instructions on how to browse for tags.
+- Ensure to use the correct *DeviceHub&#x20;*&#x64;evice with your configuration.
+
+Make sure to check your version before proceeding to ensure you are following the correct steps.
+
+&#x20;
+

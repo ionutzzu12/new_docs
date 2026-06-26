@@ -1,0 +1,73 @@
+---
+title: Moving Window
+slug: moving-window
+docTags: 
+createdAt: Tue Aug 06 2024 22:04:23 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Moving Window&#x20;**&#x70;rocessors perform calculations over a sliding or moving window of data from your PLC device.
+
+# Moving Window Overview
+
+Single inputs are to be provided with the **events&#xA0;**&#x74;ype connection and then the respective functions are calculated as the names suggest.
+
+Use one of the following processors for your inputs:
+
+- **Moving Average&#xA0;**&#x67;ives you the average of the inputs values in the Flow.
+- **Moving Maximum&#xA0;**&#x67;ives you the maximum value among the inputs in the Flow.
+- **Moving Minimum&#xA0;**&#x67;ives you the minimum value among the inputs in the Flow.
+
+The following information describes these processors:
+
+- For **Field Name**, you can enter the field name for which you want to apply the function. The field name must be available in all the inputs. For example, **value&#xA0;**, **deviceID**, or **success**.
+- For **Processing Type**, you can select from **float**, **signed&#xA0;**(signed integer) or **unsigned&#xA0;**(unsigned integer).
+- For **Window Size**, enter the number of values you want the function to consider.
+- Connect the input to the function using the **events&#xA0;**&#x63;onnection.
+- Connect the function to the output using the **events&#xA0;**&#x63;onnection.
+
+# Moving Window Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Processing Type
+    </td>
+    <td>
+      This parameter refers to the data type of the value being processed.&#x20;    </td>
+  </tr>
+  <tr>
+    <td>
+      Window Size
+    </td>
+    <td>
+      This parameter determines the size of the window in which calculations are performed. The window size represents the number of seconds over which the calculations are carried out.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Field Name
+    </td>
+    <td>
+      This parameter is usually left unchanged. It is used if the incoming data is of message type, and/or if a non-default "value" field name is being used.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_AnSfYXTxVM1ND_X43dJl_image.png" size="80" width="960" height="570" caption="Moving Average parameters" position="center" showCaption="true"></Image>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZJD7rsm7To9cvonMHYSY2_image.png" size="80" width="960" height="570" caption="Moving Maximum parameters" position="center" showCaption="true"></Image>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/v5MO2jAOtEm6-oC3W2muc_image.png" size="80" width="960" height="570" caption="Moving Minimum parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Moving Window&#x20;*&#x70;rocessor, refer the :Link[Use the Moving Window Processor Function]{label="Use the Moving Window Processor Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="FLjjcYIC4elmXEHpRmD6j" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

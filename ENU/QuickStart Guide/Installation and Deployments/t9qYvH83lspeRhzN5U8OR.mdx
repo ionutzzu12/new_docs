@@ -1,0 +1,91 @@
+---
+title: Raspberry Pi Installation
+slug: t9qYvH83lspeRhzN5U8OR
+description: Learn how to install Litmus Edge with Raspberry Pi. 
+docTags: 
+createdAt: Tue Jan 09 2024 17:48:38 GMT+0200 (Eastern European Standard Time)
+---
+
+You can install Litmus Edge on a Raspberry Pi (version 5) by using :Link[balenaEtcher]{href="https://etcher.balena.io/" newTab="true" hasDisabledNofollow="false"} (recommended for Windows, macOS, and Ubuntu) or terminal commands (for advanced users on Linux-based systems).&#x20;
+
+<hint type="info">
+  **Note**: You can't upgrade Litmus Edge versions on Raspberry Pi. You must reinstall newer Litmus Edge versions. See :Link[Backup/Restore]{label="Backup/Restore" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="CP790FCcDlj_Lhyvm1Og7" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more about backing up your data and managing templates before reinstalling a newer version.&#x20;
+</hint>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/kTXM_GkgQ5_5XYygKzZPk_rpi4.jpg" size="80" width="3047" height="2171" position="flex-start" caption="Raspberry Pi 4 Model B" showCaption="true"></Image>
+
+# Before You Begin
+
+- Make sure you use Raspberry Pi version 4 or 5. We recommend a minimum of 8 GB of RAM being ideal for optimal performance.
+- Contact support\@litmus.io to get a Litmus Edge license.&#x20;
+- Download the appropriate Litmus Edge image file (`litmusedge-std_[version number]-arm64.gz`) from the :Link[Litmus Central Portal]{href="https://central.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+- You will need to format an SD card (minimum of 16GB). See the steps below.
+
+## Format SD Card
+
+1. Remove the SD card from the Raspberry Pi and insert it into your computer.
+2. Format the SD card to one partition using the FAT32 file system with a formatting tool such as :Link[GParted]{href="https://gparted.org/" newTab="true" hasDisabledNofollow="false"} or :Link[Windows Disk Management]{href="https://support.microsoft.com/en-us/windows/create-and-format-a-hard-disk-partition-bbb8e185-1bda-ecd1-3465-c9728f7d7d2e" newTab="true" hasDisabledNofollow="false"}.
+
+# Installation Using balenaEtcher
+
+balenaEtcher is a user-friendly, graphical tool for writing images to SD cards, compatible with Windows, macOS, and Ubuntu.&#x20;
+
+**To install using balenaEtcher:**
+
+1. :Link[Download]{href="https://etcher.balena.io/#download-etcher" newTab="true"} and open balenaEtcher on your computer.&#x20;
+2. Click **Flash from file**, then select the Litmus Edge image file you downloaded.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NS7CYlyrzwl7Kz53IIDoK_balenaetcher01.png" size="80" width="800" height="505" position="flex-start" caption="Flash from file option" showCaption="true" indent="2"></Image>
+
+3. Click **Select target** and select your SD card.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/RLWy2F3jmnns0y1D5SoN0_balenaetcher02.png" size="80" width="798" height="478" position="flex-start" caption="Select target option" showCaption="true" indent="2"></Image>
+
+4. Click **Flash&#x20;**&#x74;o start, then wait for balenaEtcher to finish.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/hjGoIbphhOYq-sMKpTPg4_balenaetcher03.png" size="80" width="798" height="478" position="flex-start" caption="Flash option" showCaption="true" indent="2"></Image>
+
+5. Once balenaEtcher shows the completed screen, safely eject the SD card from your computer.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/2I5fEwktOXVyGxCspykim_balenaetcher04.png" size="80" width="798" height="478" position="flex-start" caption="Flash completed screen" showCaption="true" indent="2"></Image>
+
+6. Insert the SD card into the Raspberry Pi and power up the Raspberry Pi.&#x20;
+7. Litmus Edge will boot and the Litmus Edge Terminal User Interface (TUI) will appear if a monitor is connected to the Raspberry Pi.&#x20;
+
+## Log in to Litmus Edge
+
+Once the Litmus Edge TUI loads, you can log in to Litmus Edge.&#x20;
+
+- See :Link[Access the Terminal User Interface]{docId="2mLZrcuWvl1CjW3LyyU7H" label="Access the Terminal User Interface" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Terminal User Interface"} for instructions on how to navigate and log in for the first time.
+- See :Link[Access the Litmus Edge Web UI]{docId="XpYOmIihhYhkjaGiw7mn1" label="Access the Litmus Edge Web UI" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Litmus Edge Web UI"} for details on logging in.&#x20;
+
+# Installation Using Terminal&#x20;
+
+Complete the following steps to install Litmus Edge using terminal commands.&#x20;
+
+**To import the LE image from the terminal:**
+
+1. Open a terminal window.
+2. Use `df -h` to identify the mount point of your SD card.
+3. Copy and run the commands below with your SD card's path and the downloaded Litmus Edge image file name. Replace `/dev/sde` with the correct mount path, and replace `litmusedge-std_3.11.0-arm64.gz` with the correct file name and Litmus Edge version based on the file you downloaded.&#x20;
+   - The first two commands are used to set environment variables for the SD card mount and LE image file paths.
+   - The third command unzips the image and writes it to the SD card.
+
+```linux
+SDCARD_SLOT=/dev/sde
+GZ_SDCARD_IMAGE=litmusedge-std_3.11.0-arm64.gz
+gzip -cd ${GZ_SDCARD_IMAGE} | sudo dd of=${SDCARD_SLOT} bs=4M conv=notrunc,noerror status=progress ; sync
+```
+
+&#x20;    4\. Once the *gzip* command completes, safely eject the SD card from your computer.
+&#x20;    5\. Insert the SD card into the Raspberry Pi and power up the Raspberry Pi.
+&#x20;    6\. Litmus Edge will boot and the Litmus Edge Terminal User Interface (TUI) will appear if
+&#x20;        monitor is connected to the Raspberry Pi.&#x20;
+
+## **Log in to Litmus Edge**
+
+Once the Litmus Edge TUI loads, you can log in to Litmus Edge.&#x20;
+
+- See :Link[Access the Terminal User Interface]{docId="2mLZrcuWvl1CjW3LyyU7H" label="Access the Terminal User Interface" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Terminal User Interface"} for instructions on how to navigate and log in for the first time.
+- See :Link[Access the Litmus Edge Web UI]{docId="XpYOmIihhYhkjaGiw7mn1" label="Access the Litmus Edge Web UI" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Litmus Edge Web UI"} for details on logging in.&#x20;
+

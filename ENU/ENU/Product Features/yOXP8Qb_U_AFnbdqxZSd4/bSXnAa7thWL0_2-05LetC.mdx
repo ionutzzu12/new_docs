@@ -1,0 +1,232 @@
+---
+title: Manage the Flow Canvas
+slug: bSXnAa7thWL0_2-05LetC
+description: Learn how to manage the flow canvas. 
+docTags: 
+createdAt: Mon Oct 17 2022 17:10:43 GMT+0300 (Eastern European Summer Time)
+---
+
+Once you click the **Go To Flow Definition** icon for a Flows Manager, you can manage the flow canvas.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zV7CQ5mBS8ivB2ygnfXjP_image.png "Go To Flow Definition")
+
+# Filter Nodes
+
+You can search for individual nodes by using the search bar.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_nmqM2d3zcZYO7jwNTNiw_image.png" size="80" width="886" height="456" caption="Filter nodes search bar" position="center" showCaption="true"></Image>
+
+# Deploy Flows
+
+There are several options available when deploying a flow. The options in the *Deploy&#x20;*&#x64;rop-down list indicate the type of save that is currently active for a deploy action.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/wSrt1ki2gtseCzqlae62k_image.png "Deploy flow options")
+
+- **Full**: This option allows you to save the flow logic for all tabbed flows in the workspace. Everything in the workspace is deployed.
+
+<hint type="info">
+  **Note**: If many flows containing complex logic have been created, a full save may not be your best deploy option.
+</hint>
+
+
+
+- **Modified Flows**: This option only saves and deploys flows that contain changed nodes.
+- **Modified Nodes**: This is the fastest option for individual node changes, as it only saves and deploys the updated nodes.
+- **Restart Flows**: This option restarts the currently deployed flows.
+
+# Flow Canvas Menu
+
+Open the menu in the top-right corner to view options for the flow canvas.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Vd3hqXC9oggjfTGGIEjEO_image.png "Flow Canvas menu")
+
+- **Edit**: Edit options for nodes and the canvas.&#x20;
+- **View**: View options for the canvas.&#x20;
+- **Arrange**: Options to arrange nodes on the canvas.&#x20;
+- **Import**: See the "Import Nodes" section below.&#x20;
+- **Export**: See the "Export Nodes" section below.&#x20;
+- **Search flows**
+- **Configuration nodes**: See the "Configuration Nodes" section below.&#x20;
+- **Flows**: Add, rename, or delete flows.&#x20;
+- **Subflows**: See the "Subflows" section below.&#x20;
+- **Groups**: Options to group, ungroup, and merge selections on the canvas.&#x20;
+- **Settings**: See :Link[Manage User Settings]{docId="xMwDcHiFEPrjN3prnCtLD" label="Manage User Settings" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage User Settings"}.
+
+## Import Nodes
+
+Importing nodes allows you to easily deploy flow logic for a variety of devices and use cases.
+
+The import operation relies on a previous export to the library, download, or clipboard copy. Using import from the menu offers three tabs:**&#xA0;Clipboard**, **Local**, and **Examples**.
+
+The *Clipboard&#x20;*&#x74;ab provides a way to paste code saved to the clipboard or select a JSON file from your hard drive to import. To import a JSON file saved from a previous export, use the *Local&#x20;*&#x74;ab.
+
+You can import the nodes from the following ways:&#x20;
+
+- Copy and paste one or more nodes and their connecting wires to a flow
+- Nodes that were downloaded to your hard drive
+- Nodes were exported to the library
+- Nodes that appear in the examples tab
+
+### Before You Begin
+
+- Make sure you have exported nodes to examples, creating a JSON file.
+- Make sure you have selected a flow tab into which the nodes will be imported.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8eD84Jrn1i6DdpllpuWum_image.png" size="80" width="712" height="601" caption="Import nodes dialog box" position="center" showCaption="true"></Image>
+
+### Import Nodes Options
+
+- **Clipboard import**: Copy and paste the flow or select a JSON file to import. You can paste one or more nodes and their connecting wires to a flow.
+- **Local import**: Select a JSON file from the list.&#x20;
+- **Examples import**: Select a JSON file from the list.&#x20;
+
+After selecting the nodes to import, select if the import should go to the **current flow** or a **new flow**. When you import to a new flow, the system automatically creates a new flow tab and displays the nodes and wires freely so you can place them in the new flow.
+
+## Export Nodes
+
+Exporting nodes allows you to download a file of flows.&#x20;
+
+Using **Export&#x20;**&#x66;rom the menu offers two tabs: **Clipboard** and **Local**.
+
+The *Clipboard&#x20;*&#x74;ab temporarily saves node data to the clipboard. To save node data for a longer term, use the *Library&#x20;*&#x74;ab.
+
+<hint type="info">
+  **Note**: When exporting, passwords are not exposed.
+</hint>
+
+You can export one or more nodes and their connecting wires and then paste them to a flow.
+
+### Before You Begin
+
+Select the nodes and connecting wires within a flow tab.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/lmKvcn2tCxiOV5xJZhfwa_image.png" size="80" width="713" height="605" caption="Export nodes dialog box" position="center" showCaption="true"></Image>
+
+\[1] Select if you want to export **selected nodes**, the **current flow**, or **all flows**.&#x20;
+
+\[2] Select to view the nodes in list view or in JSON format. If you view in JSON format, you have the option of viewing the code in **compact&#x20;**&#x6F;r **formatted&#x20;**&#x73;tyle.&#x20;
+
+### Export Nodes Options
+
+- **Copy to the clipboard**: You can export the selected nodes and wires for just the selected nodes, the current flow, or all flows. Click **Copy to clipboard** to copy the code to your clipboard.&#x20;
+- **Download the code**: To download the code, click **Download**. A JSON file is downloaded to your hard drive.&#x20;
+- **Export to library**: To export to the local drive, click the **Local&#x20;**&#x74;ab, enter a file name for the JSON file in the *Export as* field, and then click **Export to library**. You can use the JSON file located in the library to import the nodes and connecting wires to another flow.
+
+# Configuration Nodes
+
+Selecting Configuration nodes opens the *Config&#x20;*&#x74;ab beneath the canvas to display used and unused nodes.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/bhuOtAm2F_OaeXTE1ASG1_image.png "Configuration nodes tab")
+
+When you delete a node from a flow, it may not be deleted from the back-end.
+
+Server-based nodes that require network / connectivity settings, such as MQTT nodes, are found here if they have been deleted from a flow.
+
+You may want to remove these types of unused nodes from the back-end because they may continue to try connecting to a port and degrade performance. To view unused nodes, click **unused&#x20;**&#x74;o filter the nodes displayed.&#x20;
+
+Not all deleted nodes appear in the **Config** tab.
+
+When you save a flow or the entire workspace, a pop-up message notifies you if there are unused nodes.
+
+# Subflows
+
+Subflows serve as sub-routines to place complex logic into code blocks, which then can be called from the main flow. As with any structured programming language, this modular approach simplifies troubleshooting, modifications, and basic understanding.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/0YNh2_6gfK0e2Q-lU3OCu_image.png" size="80" width="888" height="327" caption="Subflow tab" position="center" showCaption="true"></Image>
+
+You have two options for creating a subflow.&#x20;
+
+To create a subflow, select **Subflows&#x20;**>**&#x20;Create Subflow**.&#x20;
+
+To create a subflow from an existing flow, drag and select the nodes to include, and then select **Subflows&#x20;**> **Selection to Subflow**.&#x20;
+
+# Flow Tabs Menu
+
+Use the flow tabs menu to add new tabs, manage existing tabs, and show/hide tabs.&#x20;
+
+Click the **+** icon to add a new tab.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ca4hkZml3ldDcOE-XueH6_image.png "Flow Tabs menu")
+
+# Additional Options
+
+Review the following additional options for the flow canvas.&#x20;
+
+<hint type="info">
+  **Note**: To view messages, drag the vertical window bar up.&#x20;
+</hint>
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_Zea8tth32y3PFx66cxWW_image.png "Additional options for the flow canvas")
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="175">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1]&#x20;
+    </td>
+    <td>
+      Toggle the navigator to navigate the entire canvas. Also zoom in and out of the canvas.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2] **Info**
+    </td>
+    <td>
+      Review information for flows.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3] **Help**
+    </td>
+    <td>
+      Search help for using the canvas and flows.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4] **Debug messages**
+    </td>
+    <td>
+      Review debug messages for flows that are running.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[5] **Configuration nodes**
+    </td>
+    <td>
+      See the "Configuration Nodes" section above.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[6] **Context Data**
+    </td>
+    <td>
+      Context data provides essential background information for flows.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[7] **Dashboard**
+    </td>
+    <td>
+      The Flows dashboard allows you to visualize data and information pertaining to your flows. You can organize the dashboard into tabs and groups, and then add widgets and links to display specific information. You can then make aesthetic choices for the look and feel of your dashboard.
+      The following tabs allow you to customize how you view the data.&#x20;
+      - **Layout**: Allows you to add tabs or links and to launch the Node-RED dashboard where you can review your dashboard.
+      - **Site**: Allows you to configure the Node-RED options.
+      - **Theme**: Allows you to select the style, font color, and font for the dashboard.
+      - **Angular**
+    </td>
+  </tr>
+</table>
+

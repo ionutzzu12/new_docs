@@ -1,0 +1,113 @@
+---
+title: Analytics
+slug: pnoXRmq24v3-hsin-ysBc
+description: You can use the Analytics module to create and manage analytics flows. Analytics flows enable you to process and analyze data at the edge.
+docTags: 
+createdAt: Thu Mar 31 2022 00:10:36 GMT+0300 (Eastern European Summer Time)
+---
+
+The Analytics module lets you create and manage analytics flows. An analytics flow is a series of connected processors that process and analyze data at the edge.
+
+The Analytics module also supports Machine Learning models for prediction, classification, and anomaly detection.
+
+## Core Components
+
+An analytics flow consists of three processor types and two connection types.
+
+### Processor Types
+
+- **Input**: Retrieves data from a tag/topic, database, or generator. See [Input Processors]() for details.
+- **Function**: Processes input data using built-in:
+  - KPIs (Key Performance Indicators). See [Key Performance Indicators]() for details.
+  - Statistical functions. See [Statistical Functions]() for details.
+- **Output**: Writes function results to a tag/topic or database. See [Output Processors]() for details.
+
+### Connection Types
+
+<table isTableHeaderOn="true" columnWidths="128,221.5,265.5" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Connection
+    </td>
+    <td align="left">
+      Applicable connections
+    </td>
+    <td align="left">
+      Behavior
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Events**
+    </td>
+    <td align="left">
+      Input/function and function/output
+    </td>
+    <td align="left">
+      The receiving processor reacts to each incoming data value immediately
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Values**
+    </td>
+    <td align="left">
+      Input/function only
+    </td>
+    <td align="left">
+      The function processor waits for values from all connected input sources before reacting
+    </td>
+  </tr>
+</table>
+
+### Machine Learning Models
+
+The Analytics module supports [TensorFlow](https://www.tensorflow.org/guide/saved_model) saved models. A saved model contains a complete TensorFlow program, including trained weights and computation. You can use models for prediction, classification, and anomaly detection.
+
+## How the Components Work Together
+
+Data moves through a flow from input to function to output:
+
+- **Input processors** retrieve data and pass it downstream.
+- **Function processors** receive data from one or more inputs and apply KPI or statistical processing.
+- **Output processors** receive the processed results and write them to a tag/topic or database.
+
+The connection type controls how a function processor handles incoming data. An **Events** connection triggers the function processor on each individual incoming value. A **Values** connection makes the function processor wait until all connected inputs have provided a value before processing. For example, if a function processor compares values from input processors A and B, it waits for a value from both before running the comparison.
+
+You can build a flow manually by adding processors and connecting them, or use the automated flow creation option. See [Create an Analytics Flow](<../ENU/Product Features/Analytics/RaFIraWmqCZ30gcFqliRC/GCmaECX8skxpoutpOSxn2.mdx>) and [Add Processors and Processor Connections]() for details.
+
+## Tracking, Visibility, and Reporting
+
+The Analytics UI contains three panes:
+
+- **Instances**, where you can create and manage processors and flows, view the Debug panel, and organize flows into groups.
+- **Instances Table**, where you can view a tabular summary of all instance flows.
+- **Models**, where you can upload and remove Machine Learning models.
+
+## Limitations and Considerations
+
+<hint type="warning">
+  **Important**: If you see the error `"Http failure response for /analytics/v2/version: 0 Unknown Error"`, disable any ad-blockers active in your browser.
+</hint>
+
+## Implementation Steps
+
+### Access the Analytics Module
+
+1. Log in to Litmus Edge.
+2. From the Navigation panel, select **Analytics**.
+3. At the top right, choose between the classic and new UI. The following shows the new UI.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eUzTQsr0ZznPFWp_E8DJw_image.png" size="100" width="1892" height="910" darkWidth="1892" darkHeight="910" position="flex-start" showCaption="false" indent="2"></Image>
+
+## Related Topics
+
+- [Analytics Guides]()&#x20;
+- [Analytics Flows and Processors](Analytics/RaFIraWmqCZ30gcFqliRC.mdx)&#x20;
+- [Analytics Flow Groups]()&#x20;
+- [Instances Table]()&#x20;
+- [Machine Learning Models]()&#x20;
+- [Input Processors]()&#x20;
+- [Output Processors]()&#x20;
+- [Statistical Functions]()&#x20;
+- [Key Performance Indicators]()&#x20;

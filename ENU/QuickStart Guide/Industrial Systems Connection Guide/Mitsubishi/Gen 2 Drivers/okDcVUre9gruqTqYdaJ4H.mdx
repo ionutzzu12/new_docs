@@ -1,0 +1,1033 @@
+---
+title: Mitsubishi Q/L Ethernet
+slug: okDcVUre9gruqTqYdaJ4H
+description: Review the following information for setting up and configuring the Mitsubishi Q/L Ethernet driver. 
+docTags: 
+createdAt: Thu Feb 23 2023 20:34:55 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi Q/L Ethernet driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="236,279" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      ﻿:Link[MELSEC-L]{href="https://www.mitsubishielectric.com/fa/products/cnt/plcl/items/index.html" newTab="true"}
+      :Link[MELSEC-Q]{href="https://www.mitsubishielectric.com/fa/products/cnt/plcq/items/index.html" newTab="true"}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td>
+      :Link[Mitsubishi Melsec-L-Binary (Gen1.3)]{docId="tF8gbRnwo0SKN4Tg8D5X-" label="Mitsubishi Melsec-L-Binary (Gen1.3)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+      :Link[Mitsubishi Melsec-L-ASCII (Gen1.3)]{docId="A0-WBacMLe8ivvs2RcEG1" label="Mitsubishi Melsec-L-ASCII (Gen1.3)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+      :Link[Mitsubishi Melsec-Q-Binary (Gen1.3)]{docId="l-rQ2_e4m1paafnCQz-cb" label="Mitsubishi Melsec-Q-Binary (Gen1.3)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+      :Link[Mitsubishi Melsec-Q-ASCII (Gen1.3)]{docId="s668hvff2nJiMdrJF7ISt" label="Mitsubishi Melsec-Q-ASCII (Gen1.3)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Note**: Only one connection is allowed per port defined in the PLC. See the steps below to view and edit the open ports on the PLC.
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+1. Open the PLC project in GXWorks 2.
+2. From the Navigation panel, click **Parameter > PLC Parameter**. 
+   The PLC Parameter Setting window will open.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CtnzGvEWogGGQSxaK_k_A_mitsubishi-melsec-l-binary-parameters.png" size="80" width="834" height="582" position="center" caption="Built-in Ethernet Port Setting" darkWidth="834" darkHeight="582" showCaption="true" indent="2"></Image>
+
+3. Select the **Built-in Ethernet Port Setting** tab, and note down the **IP Address**, **Subnet Mask Pattern**, **Default Router IP Address**, and **Communication Data Code**.
+   To allow the driver to write tag values to the PLC, the check box for **Enable online change (FTP, MC Protocol)&#x20;**&#x6E;eeds to be checked.
+4. Press the **Open Setting&#x20;**&#x62;utton to view the open ports using MC Protocol. If necessary, add more ports.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vpIdKW5_xiy7LU8Iztj7E_image.png)
+
+<hint type="info">
+  **Note:** If you modify any CPU or module parameters, you must power cycle the PLC after downloading the changes.
+</hint>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<hint type="info">
+  **Note**: If you are using this driver to connect to a QJ71E71 Ethernet module, please be sure to verify the Network ID and Station ID with your device settings.&#x20;
+</hint>
+
+<table columnWidths="170,314" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Mitsubishi
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Mitsubishi Q/L Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      5002
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network ID**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      255
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Encoding**
+    </td>
+    <td>
+      Select Ascii or Binary
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<hint type="info">
+  **Note**: The address format in this Gen 2 driver is different from the replaced Gen 1 drivers for the same device.&#x20;
+</hint>
+
+<table columnWidths="166,166,166,166,166,168" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      X
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      HHHH
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16383
+    </td>
+    <td>
+      Input Relay
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Y
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      HHHH
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16383
+    </td>
+    <td>
+      Output Relay
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      61439
+    </td>
+    <td>
+      Internal Relay
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SM
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2047
+    </td>
+    <td>
+      Special relay
+    </td>
+  </tr>
+  <tr>
+    <td>
+      L
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32767
+    </td>
+    <td>
+      Latch Relay
+    </td>
+  </tr>
+  <tr>
+    <td>
+      F
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32767
+    </td>
+    <td>
+      Annunicator
+    </td>
+  </tr>
+  <tr>
+    <td>
+      V
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32767
+    </td>
+    <td>
+      Edge Relay
+    </td>
+  </tr>
+  <tr>
+    <td>
+      B
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      HHHH
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      61439
+    </td>
+    <td>
+      Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td>
+      TS
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Timer Contact
+    </td>
+  </tr>
+  <tr>
+    <td>
+      TC
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Timer Coil
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SS
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Retentive Timer Contact
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SC
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Retentive Timer Coil
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CS
+    </td>
+    <td>
+       bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Counter Contact
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CC
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Counter Coil
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SB
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      HHHH
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32767
+    </td>
+    <td>
+      Special Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16383
+    </td>
+    <td>
+      Step Relay
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DX
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16383
+    </td>
+    <td>
+      Direct Input
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DY
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      HHHH
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16383
+    </td>
+    <td>
+      Direct Output
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SD
+    </td>
+    <td>
+      word, dword, int, dint, real, dreal
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2047
+    </td>
+    <td>
+      Special Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SD\_string
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2047
+    </td>
+    <td>
+      Special Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SD\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      204715
+    </td>
+    <td>
+      Special Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CN
+    </td>
+    <td>
+      word, dword, int, dint, real, dreal
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Counter Current Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CN\_string
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Counter Current Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      D
+    </td>
+    <td>
+      word, dword, int, dint, real, dreal
+    </td>
+    <td>
+      DDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      4184063
+    </td>
+    <td>
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      D\_string
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      DDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      4184063
+    </td>
+    <td>
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      D\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      418406315
+    </td>
+    <td>
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      W
+    </td>
+    <td>
+      word, dword, int, dint, real, dreal
+    </td>
+    <td>
+      DDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      4184063
+    </td>
+    <td>
+      Link Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      W\_string
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      DDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      4184063
+    </td>
+    <td>
+      Link Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      W\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      418406315
+    </td>
+    <td>
+      Link Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      TN
+    </td>
+    <td>
+      word, dword, int, dint, string
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Timer Current Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SN
+    </td>
+    <td>
+      word, dword, int, dint, string
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25471
+    </td>
+    <td>
+      Retentive Timer Current Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      word, dword, int, dint, real, dreal
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0&#x20;
+    </td>
+    <td>
+      32767
+    </td>
+    <td>
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R\_string
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32767
+    </td>
+    <td>
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      3276715
+    </td>
+    <td>
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ZR
+    </td>
+    <td>
+      word, dword, int, dint, real, dreal
+    </td>
+    <td>
+      DDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      4184063
+    </td>
+    <td>
+      Serial Num File Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ZR\_string
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      DDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      4184063
+    </td>
+    <td>
+      Serial Num File Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ZR\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      418406315
+    </td>
+    <td>
+      Serial Num File Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Z
+    </td>
+    <td>
+      word, dword, int, dint, real, dreal
+    </td>
+    <td>
+      DD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      20
+    </td>
+    <td>
+      Index Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Z\_string
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      DD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      20
+    </td>
+    <td>
+      Index Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SW
+    </td>
+    <td>
+      word, dword, int, dint, real, dreal
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2047
+    </td>
+    <td>
+      Special Link Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SW\_string
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2047
+    </td>
+    <td>
+      Special Link Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SW\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      204715
+    </td>
+    <td>
+      Special Link Register
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="YDCyG6aQRqQZJgZgHsvpo">
+
+</ContentSnippet>
+

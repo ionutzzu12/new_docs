@@ -1,0 +1,40 @@
+---
+title: DataHub
+slug: BXa7PkLpxXk07XA7F8odz
+description: The DataHub module allows you to store data polled from the connected devices with data storage enabled. A variety of data formats are supported.
+docTags: 
+createdAt: Thu Mar 31 2022 00:10:59 GMT+0300 (Eastern European Summer Time)
+---
+
+The DataHub module allows you to store data polled from connected DeviceHub devices with data storage enabled.&#x20;
+
+To store data, you must select the **Enable Data Store** option for the device you want to store data for. You have the option of storing data for a specific period to support analytics on the historic data in the **Retention Hours** field. See :Link[Enable Data Store]{label="Connect a Device" spaceId docId="WL56idZTpJY5A20Turkbd" version="v2" docAnchorId="#0YCTg" loadingMethod="dynamic" overridedLabel="Enable Data Store" href="DeviceHub/Devices/2QO5xh8wBeO2UG92F3hbM.mdx"} to learn more.&#x20;
+
+Litmus Edge stores the polled data in a NoSQL timeseries database.
+
+<hint type="info">
+  **Limitation**: When using DataHub for storing data polled from connected devices, it's important to note the following limitations:
+
+  - InfluxDB initialization for large databases takes a long time with high CPU utilization. Ensure the Litmus Edge device has sufficient computing resources.
+  - DataHub does not store custom-formatted driver output like JSON or arrays to ensure efficient NoSQL timeseries database handling.
+  - DataHub handles string values differently than integers. As a result, when querying stored data, the way string and integer values are handled can impact the structure and results of your query.
+    Sample Influx Query:
+    - **For String Values:&#x20;**`SELECT "value_str" FROM "temperature_readings" WHERE ("value_str"::field = 'pressure') AND $timeFilter`
+    - **For Integer Values:** `SELECT "value" FROM "temperature_readings" WHERE ("value"::field = 555) AND $timeFilter`
+</hint>
+
+You have the option of configuring an internal or external InfluxDB timeseries database.&#x20;
+
+The DataHub has the following sub pages:
+
+- **Configuration***:&#x20;*&#x54;oggle the timeseries database, change source type, and perform additional customizations.&#x20;
+- **DB Management**: Expand a database view to display your connected devices, remove specific data storage for a connected device, and delete the timeseries database.
+- **DB Users**: Add and delete database users, reset a user's password, add privileges to a user, as well as view the user list.
+- **Edge Cascading**: Configure Edge Cascading v2 to connect multiple Litmus Edge instances in hub-and-spoke or multi-tier configurations.
+
+# Next Steps
+
+- :Link[Configure the Timeseries DB]{docId="zxHD0Ssi9VOCQ6EV2-XQY" label="Configure the Timeseries DB" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[DB Management]{docId="ezlssFWqFr04-uDJR3Lie" label="DB Management" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="DB Management"}&#x20;
+- [DB Users](DataHub/Q5ytvNs0SNl_95rD0QkYH.mdx)&#x20;
+

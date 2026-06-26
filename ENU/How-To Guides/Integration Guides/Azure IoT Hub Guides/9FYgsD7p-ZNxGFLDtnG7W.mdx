@@ -1,0 +1,101 @@
+---
+title: Send Data to Azure IoT Hub with a Device Certificate
+slug: 9FYgsD7p-ZNxGFLDtnG7W
+description: Learn how to send data to Azure IoT Hub with a device certificate. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:16:58 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an outbound data integration between Litmus Edge and Azure IoT Hub using a Device Certificate.&#x20;
+
+# Additional Resources
+
+Refer to the following resources for more information.&#x20;
+
+- [Send device-to-cloud and cloud-to-device messages with IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messaging?WT.mc_id=Portal-Microsoft_Azure_IotHub#message-format)
+- [Sending device-to-cloud messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support#sending-device-to-cloud-messages) 
+- [Using the MQTT protocol directly (as a module)](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support#using-the-mqtt-protocol-directly-as-a-module)
+
+# Before You Begin
+
+You must first :Link[Set up an Azure IoT Hub]{docId="3wKCm6kQgusuW7SaCKQBs" label="Set up an Azure IoT Hub" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId}. When you add the IoT device to the hub, select **X.509 Self-Signed** as the **Authentication type&#xA0;**&#x77;hen you add the IoT device in Azure.&#x20;
+
+# Step 1: Add a Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add the Azure IoT Hub using Device Certificates Connector
+
+Follow the steps to [Add a Connector](<../../../ENU/Product Features/LR02cKZrqRt_aoIMAeuRN/Oltgmv6mo5teuzS_GsNx1.mdx>) and select the **MQTT - Azure IoT Hub using Device Certificates** provider. Define the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: The IP address or server FQDN of the MQTT broker (must be reachable from your edge device).&#x20;
+- **Port**: The MQTT broker's port number. The default value is 8883.&#x20;
+- **Device ID**: Copy the **Device ID** of your edge device from th&#x65;*&#xA0;IoT Devices* page in the Azure portal and paste it here.
+- **Certificate**: Copy or save the certificate from the **mydevicekeycer.pem** file and paste or upload it here.&#x20;
+- **Private Key**: Copy the key from the *myprivatekey.pem* file and paste it here.&#x20;
+- **Parallel Publish Count**: The maximum number of concurrently published messages. The default value is 16.&#x20;
+- **Integration Topic**: The default topic to publish or subscribe to: devices/\[deviceId]/messages/events/. Replace `[deviceId]` with the Device ID copied from Azure.&#x20;
+- **LWT Topic**: The topic for MQTT's Last Will and Testament feature.&#x20;
+- **LWT payload**: The payload for MQTT's Last Will and Testament feature.&#x20;
+- **LWT payload type**: The payload type for MQTT's Last Will and Testament feature. The options are *string&#x20;*&#x61;nd *base64*.&#x20;
+- **LWT QoS**: The Quality of Service value for MQTT's Last Will and Testament feature.&#x20;
+- **LWT retained**: Select this check box to retain the value for MQTT's Last Will and Testament feature.&#x20;
+- **Throttling Limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/NfPoJRPuMEBWYUqX9yT81_azureiotdevice.png" size="60" width="369" height="345" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="J6qfhKwKx_UlYL64y_gjl" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../../ENU/Product Features/LR02cKZrqRt_aoIMAeuRN/tCiWQXqqwmrfdnUMGcl3j.mdx"} and relevant error messages.&#x20;
+
+# Step 5: Create Outbound Topics for Connector&#x20;
+
+You will now need to create topics from the tags you added in Step 2. &#x20;
+
+Before creating the topics copy the *Raw Topic* parameter for all tags you want to use for topics. See [Manage Tags](<../../../ENU/ENU/Product Features/8-fdjJigzbmwAY5lchMaV/aRWN1PcQfYOOZ1CGDKEiJ/lOtNsq3poatUb0ieOFjOS.mdx>) for more information.
+
+**To create topics:**
+
+1. Click the connector tile.
+   The connector *Dashboard&#x20;*&#x61;ppears.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Add topics to the connector with the details below. See the *Add a Topic to a Connector* section in :Link[Manage Connectors]{docId="J6qfhKwKx_UlYL64y_gjl" label="Manage Connectors" spaceId version="v2" docAnchorId="#add-a-topic-to-a-connector" href="../../../ENU/Product Features/LR02cKZrqRt_aoIMAeuRN/tCiWQXqqwmrfdnUMGcl3j.mdx"} for more information.&#x20;
+   - **Data Direction**: Select **Local to Remote - Outbound**.&#x20;
+   - **Local Data Topic**: Paste th&#x65;*&#x20;Raw Topic* for the tag created in Step 2. &#x20;
+   - **Remote Data Topic**: Enter **integration.raw\.outboundtest**.&#x20;
+   - **Enable**: Click the toggle to enable the topic.&#x20;
+4. Click **Yes&#x20;**&#x74;o add the topic.&#x20;
+5. After adding all required topics, navigate to the *Integration&#x20;*&#x70;ane.
+6. From the connector tile, ensure the connector is not disabled and still shows a CONNECTED status. &#x20;
+
+# Step 6: View Outbound Messages
+
+You can create a flow in Litmus Edge to view the outbound messages of the connector.&#x20;
+
+**To view outbound messages:**
+
+1. Follow the steps to [Create a Flow](<../../../ENU/Product Features/yOXP8Qb_U_AFnbdqxZSd4/7xvHQOytaduG1w9sa5Jh8.mdx>) and add the following nodes.
+   - **DataHub Subscribe**:&#x20;
+   - **Debug**
+2. Connect the two nodes.&#x20;
+3. Double-click the **DataHub Subscribe&#xA0;**&#x6E;ode.
+   The *Edit DataHub Subscribe node* dialog box appears.
+4. Paste the local topic you created in Step 4. &#x20;
+5. If needed, configure the *Datahub Subscribe* connection. See the "Step 3: Configure Connector Nodes" section in :Link[Create a Flow]{docId="w5OhQrB_Yi_BmcZabhEBj" label="Create a Flow" spaceId version="v2" docAnchorId="#sQhVJ" href="../../../ENU/Product Features/yOXP8Qb_U_AFnbdqxZSd4/7xvHQOytaduG1w9sa5Jh8.mdx"} to learn more.&#x20;
+6. Click **Done**, and then click **Deploy**.
+7. Check the *Debug messages* tab. See the *Additional Options* section in [Manage the Flow Canvas](<../../../ENU/Product Features/yOXP8Qb_U_AFnbdqxZSd4/bSXnAa7thWL0_2-05LetC.mdx>) for more details.&#x20;
+8. Verify that outbound messages are displaying.&#x20;
+

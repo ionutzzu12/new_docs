@@ -1,0 +1,180 @@
+---
+title: ESXi ISO (VMWare vSphere 6.7.0)
+slug: PO1DCSFCD_rqucyVsk_YB
+description: You can install Litmus Edge on a virtual machine using the ESXi Hypervisor (VMWare vSphere 6.7.0).
+docTags: 
+createdAt: Wed Apr 13 2022 23:08:30 GMT+0300 (Eastern European Summer Time)
+---
+
+You can install Litmus Edge on a virtual machine using the ESXi Hypervisor (VMWare vSphere 6.7.0) with an ISO file.&#x20;
+
+A typical Litmus Edge virtual file for ESXi deployment adheres to a naming convention as follows: **\<product>-std\_3.1.5.0-amd64.iso**.&#x20;
+
+# Before You Begin
+
+
+
+- Prepare your environment for running virtualization by using VMWare ESXi - Hypervisor.&#x20;
+  - Review [Verified VM Versions](../../../../Resources/UqSB7fAd1_MJXRTHvpgGO.mdx) and confirm the correct version to download. See :Link[VMWare]{href="https://www.vmware.com/worldwide.html" newTab="true" hasDisabledNofollow="false"}.&#x20;
+  - The virtual machine will run on the same physical network card as the host environment. To ensure that the device can communicate with data sources such as PLC, DCS or CNC and can be accessed through the Web UI, make sure that communication can be established.
+- Adjust the system clock for the host environment prior to installing Litmus Edge. UTC is recommended. The 15-day trial period may be rejected and invalidated by the license server if the system clock is not adjusted. If this happens, contact your Litmus representative.&#x20;
+- Obtain a valid file in the ISO format (example filename: `<litmusedge-std_3.1.5.0-amd64>.iso`). You can get the ISO file from the :Link[Litmus Central portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+
+To install Litmus Edge on VMWare vSphere 6.7.0, you will need to do the following., you will need to do the following.&#x20;
+
+- Step 1: Create a Virtual Machine
+- Step 2: Log in to Litmus Edge
+
+To jump to a specific section, refer to the Table of Contents on the right side and click the corresponding step.&#x20;
+
+# Step 1: Create a Virtual Machine
+
+You will first need to create the virtual machine that will run Litmus Edge.&#x20;
+
+**To install the ESXi-Hypervisor virtual machine:**
+
+1. Start the VMWare (VMWare vSphere 6.7.0) application.
+   The VMWare ESXi application appears.
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eaoN_NfLc-N7lNsgnKeSP_01l1qe23vfpm0jufvc45azvmware-esxi-hypervisor-app.png "ESXi Application window")
+2. From the left panel, select **Virtual Machines**.
+3. Click **Create/Register VM**.
+   The *New virtual machine wizard > Select creation type* window appears.
+
+## Select Creation Type
+
+Select **Create a new virtual machine** and click **Next**.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Ai_VcCP_U84et6rBPDgTw_02tyxtalj5puatejerctgqsimage.png" size="80" width="1163" height="719" position="flex-start" caption="Select creation type screen" showCaption="true"></Image>
+
+## Select a Name and Guest OS
+
+This section allows you to provide a name for the virtual machine and identify the guest operating system.&#x20;
+
+Enter the details for the name and guest OS.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/sd71Fogpc-D_8X5nBD7Hx_03ujvx7krxx6i39eob4bhtbimage.png" size="80" width="1161" height="730" position="flex-start" caption="Name and guest OS" showCaption="true"></Image>
+
+- **Name**: Enter a name for the virtual machine.&#x20;
+- **Compatibility**: Your selection must be compatible with your ESXi version Guest OS family (Linux).
+- **Guest OS family**: The operating system is based on Linux.
+- **Guest OS version**: The kernel used for the operating system is a 64-bit Yocto Kernel.
+
+## Select Storage
+
+You will need to select a datastore for the virtual machine's configuration files and all of its virtual disks.&#x20;
+
+Select a datastore and click **Next**.&#x20;
+
+<hint type="info">
+  **Note:** The datastore must have at least 50 GB of free capacity.
+</hint>
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AQbPSIhsDzlL3oqsYoF3g_04dmp0yordjzcla2jfvfkdimage.png" size="80" width="1163" height="726" position="flex-start" caption="Select storage screen" showCaption="true"></Image>
+
+## Customize Settings
+
+You will need to configure the virtual machine hardware and virtual machine additional options.&#x20;
+
+<hint type="info">
+  **Note**: Your specific setup may require different or additional configurations. Follow up with your IT department for these requirements.
+</hint>
+
+Configure the *Virtual Hardware* parameters.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/PhPonIdjpfRlUoViMSybO_05wo-ce0lmzfo6nbiamlulnimage.png" size="80" width="1170" height="699" position="flex-start" caption="Customize settings screen" showCaption="true"></Image>
+
+### CPU parameter
+
+Select **4**. This value is recommended to improve the performance of the VM. If the host system permits or the VM is a production deployment, more cores should be allocated.
+
+### Memory parameter
+
+Enter **8** GB or set the memory size to the desired allocation. At least 2048 MB should be allocated to prevent significant reduction in performance. If the host system permits, more memory is better.
+
+### Hard disk 1 parameter
+
+Enter a minimum of **25** GB in the *Hard disk* field. Depending on your storage requirements, you may have to select a higher value.&#x20;
+
+<hint type="info">
+  **Note**: The VM should boot up successfully with the hard disk *Controller location* configured with an SCSI controller. If there are issues with the VM booting up, follow up with your IT department. Review this configuration by expanding this section.&#x20;
+</hint>
+
+### Network Adapter 1 parameter
+
+<hint type="info">
+  **Notes:**
+
+  - By default, VMs are defined with two network cards. They are configured for the first network card as a Bridged Network and the second network card as NAT.
+  - Based on the ESXi host environment, if a NAT network exists, a second network adapter must be added and set to NAT.
+  - If a NAT network exists, move to the next section. Otherwise, skip it.
+</hint>
+
+**To confirm the network adapter:**
+
+1. Click **Add network adapter**.
+2. From the *New Network Adapter* drop-down list, select **NAT Network**.
+
+### CD/DVD Drive 1 parameter
+
+**To configure the CD/DVD Drive:**
+
+1. From the *CD / DVD Drive 1* drop-down list, select **Datastore ISO file**.
+   The *Datastore&#x20;*&#x62;rowser appears.
+2. Select the ISO file, and then click **Select**.
+
+Click the *VM Options* tab.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/_E0BzCHSw3ns5mr5xgnWV_06dzxeziqfmomu48gttr-sdimage.png" size="80" width="1161" height="695" position="flex-start" caption="The VM Options section" showCaption="true"></Image>
+
+**To configure the VM options:**
+
+1. Select the **VM Options** tab.
+2. Expand **Boot Options** and select **BIOS** from the *Firmware&#x20;*&#x64;rop-down list. BIOS is needed for the installer to load.&#x20;
+3. Click **Next**.&#x20;
+4. Click **Finish**.&#x20;
+   The new virtual machine link appears in the Virtual Machine list.
+
+# Step 2: Run Operating System Installer
+
+You will run the operating system installer that will install Litmus Edge.&#x20;
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - During the installation, the progress bar may decrease at times due to partitioning.
+  - The time to complete the installation is based on the size of the hard disk drive. Large disk drives will cause the installation to take longer to partition the disk and therefore longer to complete setting up the virtual machine.&#x20;
+</hint>
+
+**To configure the operating system installer:**
+
+1. Click the new virtual machine link.
+   The virtual machine details pane appears.
+2. Click the Terminal shell to start the virtual machine. Some errors appear in the terminal window. You can disregard them.&#x20;
+   The *Welcome to Operating System Installer* appears in the Terminal shell.
+3. From the *Welcome to Operating System Installer* screen, enter `yes` and press **ENTER**.
+   *Select a drive to Install (sda)* appears.
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4-lPs7p50SYVyucvAqU_C_terminal-01.png)
+4. Enter `sda` and press **ENTER**.
+   *To Confirm Installation and format partitions* appears.
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4iKDWmJzsHtmkK6mEXtO2_terminal-02.png)
+5. Enter `yes` and press **ENTER**.
+   The installation begins. During the installation, another error appears regarding an invalid partition table. You can disregard it.
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/z_DUSbp_NvUdvcgqGol4o_terminal-03.png)
+6. When the installation completes, close the terminal shell.
+7. From the *virtual machine details* pane, click **Edit**.&#x20;
+   The *Edit settings* dialog box appears.
+8. Select the **VM Options** tab.
+9. Expand **Boot Options** and select **EFI&#x20;**&#x66;rom the **Firmware** drop-down list.
+10. Click **Save**.
+    The virtual machine details pane appears.
+11. Click **Power on**, and then click the **Terminal** shell.
+    The *Welcome&#x20;*&#x77;indow appears.
+12. Note the IP address required for log in.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/z9v_AJAWPL4PSUHx7mKjs_image.png" size="80" width="1087" height="813" position="flex-start" caption="Terminal User Interface: Welcome to Litmus Edge" showCaption="true"></Image>
+
+# Step 3: Log in to Litmus Edge
+
+- See :Link[Access the Litmus Edge Web UI]{docId="XpYOmIihhYhkjaGiw7mn1" label="Access the Litmus Edge Web UI" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Litmus Edge Web UI"} for details on logging in.&#x20;
+- See :Link[Access the Terminal User Interface]{docId="2mLZrcuWvl1CjW3LyyU7H" label="Access the Terminal User Interface" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Terminal User Interface"} for instructions on how to navigate and log in for the first time.
+

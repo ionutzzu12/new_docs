@@ -1,0 +1,83 @@
+---
+title: Add a Registry
+slug: n6cWbV1wuXg2Dv2FCXB2x
+description: You can add a Registry so that you can pull images to add to your own set of running Docker containers.
+docTags: 
+createdAt: Mon Sep 26 2022 16:02:59 GMT+0300 (Eastern European Summer Time)
+---
+
+You can add a Registry so that you can pull images to add to your own set of running Docker containers.
+
+A registry is a public or private repository of Docker images used for storing and delivering applications.
+
+Litmus Edge supports Docker Registry v2.
+
+The following registries are available:
+
+- AWS ECR
+- Azure Container
+- Docker
+- GCR Docker
+
+Each registry uses different configuration information.
+
+To enable retrieval of applications from containers, you first must give Litmus Edge access to the repository.
+
+<hint type="info">
+  **Note**: If you add a registry for Azure in Docker configuration with a username/password, the format is `https://<your-registry-name>.azurecr.io/v2/`.&#x20;
+</hint>
+
+# Add a Registry
+
+**To add a registry:**
+
+1. Navigate to **Applications&#x20;**> **Registry**.
+   The *Container Registry* pane appears.&#x20;
+2. Click the **Add&#xA0;**&#x69;con. Th&#x65;*&#x20;Create Registry* dialog box appears.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6TmkLIIAns6ZhuV2MKMTo_registryaddicon.png "The Add Registry icon")
+3. Select an option from the **Type&#xA0;**&#x64;rop-down list. The following options are available:
+   - AWS\_ECR
+   - AZURE\_CONTAINER\_REGISTRY
+   - DOCKER\_REGISTRY
+   - GOOGLE\_CONTAINER\_REGISTRY
+4. From the **Create Registry&#xA0;**&#x64;ialog box, refer to the respective type depending on your selection and enter the details for the registry.&#x20;
+
+## AWS ECR
+
+- **Name**&#x20;
+- **Registry Description** (Optional)&#x20;
+- **AWS Region** (Optional)&#x20;
+- **AWS Key ID**&#x20;
+- **AWS Secret Key**
+
+## Azure Container Registry
+
+- **Name**
+- **Registry Description** (Optional)&#x20;
+- **Service principal name**
+- **Service subscription identifier**
+- **Client ID&#x20;**
+- **Client Secret&#x20;**
+- **Resource Group**
+- **Registry Name**
+- **Address**: Enter the location of the registry.
+
+## Docker Registry
+
+- **Name**
+- **Registry Description** (Optional)&#x20;
+- **Docker Login Server**: Enter `https://index.docker.io/v1` .
+- **Docker Login User&#x20;**(Optional)&#x20;
+- **Docker Login Password** (Optional)&#x20;
+- **Docker CA Certificate** (Optional): Paste a CA Certificate in the **Docker CA Certificate&#xA0;**&#x66;ield. If Litmus Edge is already connected to Litmus Edge Manager, the CA Certificate used for that connection is applied.
+- **Docker Skip TLS Verification** (Optional) Select the check box to bypass the TLS security.
+
+## Google Container Registry
+
+- **Name**
+- **Google container registry address**
+- **Repository Description** (Optional)
+- **JSON key file**: Browse to add a key file.&#x20;
+
+When done entering the details for the registry, click **Save**.&#x20;
+

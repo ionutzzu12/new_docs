@@ -1,0 +1,364 @@
+---
+title: Siemens Sinumerik Ethernet (Gen1.3)
+slug: 6SOTy3fDUNGQrwCvpGTSw
+description: Review the following information for setting up and configuring the Siemens Sinumerik Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Siemens Sinumerik Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="235,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Sinumerik]{href="https://www.siemens.com/global/en/products/automation/systems/cnc-sinumerik/automation-systems.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below for Toolbox v4.6.
+
+**To configure your device:**&#x20;
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Siemens 808D Advanced M
+   - **Communication I/F**: Ethernet.&#x20;
+2. Press **Set password**.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/scpCTBUZfZsnGhHKsJWoz_siemens-sinumerik-ethernet-password.png" size="80" width="732" height="460" position="flex-start" caption="Set password option" showCaption="true" indent="2"></Image>
+
+3. Enter **SUNRISE&#x20;**&#x66;or authorization to configure the device.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/gd5TgwLQr9BPnOCTCK5zx_siemens-sinumerik-ethernet-authorize.png" size="80" width="712" height="424" position="flex-start" caption="Enter password" showCaption="true" indent="2"></Image>
+
+4. Press **Sys Data**.&#x20;
+5. Press **Serv displ.&#x20;**
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Ca1d5HwKYKdCsKpH3PWmO_siemens-sinumerik-ethernet-servdispl.png" size="80" width="695" height="665" position="flex-start" caption="Serv. displ. option" showCaption="true" indent="2"></Image>
+
+6. Press **Service Network**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/GQq7bNeKjbnDd-jJAKfyR_siemens-sinumerik-ethernet-servicenetwork.png" size="80" width="697" height="447" position="flex-start" caption="Service network option" showCaption="true" indent="2"></Image>
+
+7. Enter the network parameters.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/q8xsMzBpJ4I_UCjVL9Abh_siemens-sinumerik-ethernet-parameters.png" size="80" width="649" height="508" position="flex-start" caption="Network configuration screen" showCaption="true" indent="2"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Siemens
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Siemens Sinumerik Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      102
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot**
+    </td>
+    <td>
+      2
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="100,215,123,101,104,100" selectedRows="" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      100000007
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2557
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2557
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10239
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10239
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10239
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10000000
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="A0mW7eFUiB6dsJkAOu4YV">
+
+</ContentSnippet>
+

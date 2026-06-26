@@ -1,0 +1,129 @@
+---
+title: Manage a Flows Manager
+slug: cACvX6231_o3sWzegH5Mm
+description: Learn how to manage the Flows Manager. 
+docTags: 
+createdAt: Mon Oct 17 2022 16:33:28 GMT+0300 (Eastern European Summer Time)
+---
+
+You can manage flows managers by navigating to **Flows Manager** >**&#x20;Overview**.&#x20;
+
+# Manage Individual Flows Managers
+
+Refer to the image and callouts below for management options.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JrakYdkN59lwxsjht1AdD_image.png "Management options for flows managers")
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1] **Flows Manager status**
+    </td>
+    <td>
+      The Flows Manager can have the following statuses.&#x20;
+      - **Running**: The flow has been deployed and is currently running as defined.&#x20;
+      - **Stopped**: The flow has been stopped by the user.&#x20;
+      - **Warning**: The flow encountered a problem. It has either timed out or is not running as defined.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2] **Go To Flow Definition**
+    </td>
+    <td>
+      Opens the flow canvas. See :Link[Create a Flow]{docId="w5OhQrB_Yi_BmcZabhEBj" label="Create a Flow" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Create a Flow"} to learn more.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3] **Update Memory Limit**
+    </td>
+    <td>
+      Change the current memory limit. The options are: 256 MB, 512 MB, 1024 MB, 2048 MB, and 4096 MB.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4] **Start Flow**
+    </td>
+    <td>
+      Starting a Flows Manager affects all associated individual flows and tabs in the flow canvas.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[5] **Stop Flow**
+    </td>
+    <td>
+      Stopping a Flows Manager affects all associated individual flows and tabs in the flow canvas.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[6] **Upload Modules**
+    </td>
+    <td>
+      Refer to the "Upload Modules" section below to learn how to upload a preexisting module or custom modules from an individual flow.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[7] **Download Flow File**
+    </td>
+    <td>
+      Download all associated flows and tabs for the Flows Manager.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[8] **Download Logs**
+    </td>
+    <td>
+      Download a log to review the activity of the Flows Manager and troubleshoot issues.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[9] **Remove Flow**
+    </td>
+    <td>
+      Removing a Flows Manager affects all of the associated tabs and cannot be undone.
+    </td>
+  </tr>
+</table>
+
+# Upload Modules
+
+You can upload a pre-existing module or custom modules from an individual flow.&#x20;
+
+Module files contain a collection of nodes that can be uploaded simultaneously to the Flow canvas.&#x20;
+
+<hint type="warning">
+  **Important**:&#x20;
+
+  - Make sure the module file you upload contains all dependencies.&#x20;
+  - If your custom node modules are version specific, make sure they work with `nodejs 10.16.3.`
+  - If custom node modules have any binding or require C/C++ compilation, the upload may not work.
+</hint>
+
+**To upload modules:&#x20;**
+
+1. In your project directory, create a folder named `node_modules`.&#x20;
+2. Add the nodes files you want included in the `node_modules` folder.&#x20;
+3. Compress the `node_modules` folder into a ZIP file.
+   To create the ZIP file, you can right-click the folder in *Windows File Explorer*, and then select **Send to&#x20;**> **Compressed (zipped) folder**. &#x20;
+4. In Litmus Edge, navigate to **Flows Manager**.&#x20;
+5. Click the **Upload Modules** icon for the flows manager you want to update.&#x20;
+6. Select the ZIP file of the folder you compressed and select **Open**.&#x20;
+7. After the upload, stop and start the flows manager to implement the changes.&#x20;
+
+If you don't see the expected new nodes after uploading and then stopping/starting, check the flow log to troubleshoot the issue.&#x20;
+

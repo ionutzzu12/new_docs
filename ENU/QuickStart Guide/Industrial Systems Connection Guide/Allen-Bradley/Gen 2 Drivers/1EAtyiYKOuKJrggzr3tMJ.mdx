@@ -1,0 +1,665 @@
+---
+title: AB EthernetIP Ethernet
+slug: 1EAtyiYKOuKJrggzr3tMJ
+description: Review the following information for setting up and configuring the AB EthernetIP Ethernet driver. 
+docTags: 
+createdAt: Wed Jun 29 2022 20:46:50 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB EthernetIP Ethernet driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="220,369" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[MicroLogix]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/micro-controllers/micrologix-family/micrologix-1400-controllers.html" newTab="true"}
+      :Link[SLC 500]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/small-controllers/slc-500-controllers.html" newTab="true"}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td>
+      [AB MicroLogix (Gen1)](<../Gen 1 Drivers/kgIedf16WrbaKLY0Ru7lX.mdx>)
+      Learn more about :Link[Gen1 and Gen2 Driver Differences]{docId="p2cAu3turrk4m8omNkYk3" label="Gen1 and Gen2 Driver Differences" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Gen1 and Gen2 Driver Differences"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Start the RSLogix 500 application.
+2. Select **File** > **Open**, then select your PLC project.
+3. In *Controller Organizer*, right-click the device and select **Properties** from the popup menu.
+   The *Module Properties* dialog box appears.
+4. Select the **Port Configuration** tab.
+5. Copy the IP address from the **IP address** field.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="171,643" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB EthernetIP Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<table columnWidths="100,100,106,106,100,100,131" selectedRows="" isTableHeaderOn="true" selectedColumns="" selectedTable="false">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      O(Bit)
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Outputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I(Bit)
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Inputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Slot O(Bit)
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      SSEEdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      3115
+    </td>
+    <td>
+      Outputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Slot I(Bit)
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      SSEEdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      3115
+    </td>
+    <td>
+      Inputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S(Bit)
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Status Bits
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S
+    </td>
+    <td>
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Status Words
+    </td>
+  </tr>
+  <tr>
+    <td>
+      B(Bit)
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Bit data file Bfn
+    </td>
+  </tr>
+  <tr>
+    <td>
+      B
+    </td>
+    <td>
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Bit data file, 16-bit access
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer
+    </td>
+    <td>
+      T
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td>
+      TfnPRE
+    </td>
+    <td>
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Timer Preset Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      TfnACC
+    </td>
+    <td>
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Timer Accumulator Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Counter
+    </td>
+    <td>
+      C
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CfnPRE
+    </td>
+    <td>
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Counter Preset Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CfnACC
+    </td>
+    <td>
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Counter Accumulator Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Control
+    </td>
+    <td>
+      R
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Control Data Element
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R6LEN
+    </td>
+    <td>
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Control Data Element Number of characters specified to be sent or received
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R6POS
+    </td>
+    <td>
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Control Data Element: Number of characters actually sent or received
+    </td>
+  </tr>
+  <tr>
+    <td>
+      N(Bit)
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Integer File Nfn, but access
+    </td>
+  </tr>
+  <tr>
+    <td>
+      N
+    </td>
+    <td>
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Integer File is a general purpose file consisting of 16-bit signed integer data words
+    </td>
+  </tr>
+  <tr>
+    <td>
+      F
+    </td>
+    <td>
+      real
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Floating point data file (F8) consisting of 32-bit IEEE-754 floating point data elements
+    </td>
+  </tr>
+  <tr>
+    <td>
+      L
+    </td>
+    <td>
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      The Long Word File is a general purpose file consisting of 32-bit signed integer data words
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ST
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      The String File is a file that stores ASCII characters. See String (ST) Data File for more information
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="rHogbfm9lrwlp-tHjFcJL">
+
+</ContentSnippet>
+

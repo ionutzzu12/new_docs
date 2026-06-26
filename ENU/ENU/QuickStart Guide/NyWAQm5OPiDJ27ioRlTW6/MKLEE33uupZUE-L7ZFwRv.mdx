@@ -1,0 +1,208 @@
+---
+title: Software Updates
+slug: MKLEE33uupZUE-L7ZFwRv
+description: You have several options for updating your version of Litmus Edge. 
+docTags: 
+createdAt: Fri Jun 03 2022 21:52:05 GMT+0300 (Eastern European Summer Time)
+---
+
+The upgrade process preserves your data and existing configurations. However, we recommend that you create a backup. After you install Litmus Edge software on a device, you can use this upgrade process throughout the lifetime of your device.
+
+You have several options to upgrade Litmus Edge. If you need to download an updated version of Litmus Edge, visit :Link[Central Portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.&#x20;
+
+<hint type="warning">
+  **Important:** For a seamless upgrade experience, you must follow the correct upgrade path. Skipping a significant LTS version may cause issues with the upgrade process.
+
+  When you upgrade, you must upgrade to version 3.16.10, 3.16.11, or 4.0.12. For specific upgrade paths, see :Link[Upgrade Paths]{label="Software Updates" spaceId docId="QHMndGmiQARRCW_5taI4N" version="v2" docAnchorId="#upgrade-paths" loadingMethod="dynamic" overridedLabel="Upgrade Paths" href="MKLEE33uupZUE-L7ZFwRv.mdx"}.
+</hint>
+
+# Important
+
+Before you upgrade, note that you can:&#x20;
+
+- Upgrade to an internal prerelease version. However, if you do so remember that you will not be able to upgrade again from that prerelease version.
+- Upgrade to the same version you're currently on, if needed. For example, if your current version is 3.3.1, you can upload the 3.3.1 UPD file again to your Litmus Edge instance.
+- Use a template to apply configuration and setup settings from an existing edge device to a fresh installation or to update another device. See :Link[Templates]{docId="Me1x3I4rPT_IIgNPCY1GA" label="Templates" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="Templates"} for more information.
+
+You cannot:
+
+- Downgrade to a lower version.
+- Upgrade if your controller is IDE. You must have a SATA controller to upgrade.&#x20;
+
+<hint type="danger">
+  **Caution:** Software upgrades on unvalidated VirtualBox versions may result in a corrupted and unrecoverable Litmus Edge instance.  &#x20;Litmus Edge supports Oracle VirtualBox versions up to version 7.2.0.
+</hint>
+
+# Upgrade Paths
+
+Refer to the following table for specific upgrade paths depending on your current version. The general upgrade path is earlier Litmus Edge version > 3.5.6 > 3.11.6 > 3.16.11 latest Litmus Edge version.
+
+<hint type="warning">
+  **Important**: Before upgrading, review the list of planned :Link[Deprecated Drivers]{label="Industrial Systems Connection Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="vyCb88Feafh1OWHoczALG" version="v2" docAnchorId="#s86Wy" loadingMethod="dynamic" overridedLabel="Deprecated Drivers"} so that you can migrate to any recommended replacement drivers.&#x20;
+</hint>
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="219,100">
+  <tr>
+    <td>
+      **Current version**
+    </td>
+    <td>
+      **Latest version (****4.0.12****)**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3.2.x
+    </td>
+    <td>
+      3.2.3 > 3.2.8 > 3.2.11 > 3.2.12 > 3.5.6 > 3.11.6 > 3.16.11
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3.3.1 and 3.3.2
+    </td>
+    <td>
+      3.5.6 > 3.11.6 > 3.16.11
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3.5.4 and 3.5.5
+    </td>
+    <td>
+      3.5.6 > 3.11.6 > 3.16.11
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3.5.6
+    </td>
+    <td>
+      3.11.6 > 3.16.11
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3.11.0 to 3.11.5
+    </td>
+    <td>
+      3.11.6 > 3.16.11
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3.16.x
+    </td>
+    <td>
+      3.16.11
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3.16.11
+    </td>
+    <td>
+      4.0.12
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      4.0.x
+    </td>
+    <td colSpan="1" rowSpan="1">
+      4.0.12
+    </td>
+  </tr>
+</table>
+
+# Litmus Edge-Litmus Edge Manager Compatibility
+
+Refer to the following table to review which versions of Litmus Edge and Litmus Edge Manager are compatible.&#x20;
+
+<ContentSnippet docRefId="uqSHGB-eQtulFqgIitUuR">
+
+</ContentSnippet>
+
+# Upgrade Litmus Edge
+
+You have three options for upgrading Litmus Edge.
+
+- Uploading a local file. This is the recommended method.
+- Upgrading through Litmus Edge Manager.
+- Downloading an upgrade file. Choose this when the first two methods are unavailable.
+
+<hint type="warning">
+  Uploading the Litmus Edge UPD file in a Chrome browser can sometimes cause an `Out of Memory` error. If this occurs, use a different browser or the **Download with URL** option in Litmus Edge.
+</hint>
+
+## Backup Checklist
+
+For backup purposes, you have the option of downloading a backup while doing an upgrade. All configurations and settings are maintained and carried over after upgrading to a new version.&#x20;
+
+- [ ] Download all tags in a CSV file from **DeviceHub&#x20;**>**&#x20;Tags**. See ﻿:Link[Manage Tags]{docId="zI_Q9s4qPtDlwPJ6Br99N" label="Manage Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#h9Bhu" loadingMethod="dynamic" overridedLabel}.
+- [ ] Download flows files from **Flows Manager**. See :Link[Manage a Flows Manager]{docId="8p2hbUfyuw7ermPdql0mD" label="Manage a Flows Manager" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+- [ ] Export all flows from your **Analytics** groups. See ﻿:Link[Manage Processors and Analytics Flows]{docId="B30RrpFQJwtA393xwErAF" label="Manage Processors and Analytics Flows" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more information.
+- [ ] Export the OPC UA hierarchy configuration JSON file from the **OPC&#x20;**>**&#x20;Hierarchy** pane. See ﻿:Link[Manage Nodes]{docId="GayYPkSSjCIRn0kAeZ6Na" label="Manage Nodes" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more information.&#x20;
+- [ ] Create a Template from the **Template** tab in **System&#x20;**> **Backup / Restore**. See the *Download a Template* section in :Link[Manage Templates]{docId="rgdBftNL5Yk6ZtxMy9TeX" label="Manage Templates" spaceId version="v2" docAnchorId="#download-a-template" loadingMethod="dynamic" overridedLabel href="../../../Product Features/System/Device Management/Ya9BVzLSP2Gihgd3PVLru.mdx"}. &#x20;
+- [ ] Create a support bundle from the **Support** section in **System&#x20;**>**&#x20;Support**. See :Link[Support]{docId="KUxIKPNG0ZYvmK4wHfsVd" label="Support" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+- [ ] Make a backup of your system from the **Backup / Restore Configuration** section in **Settings&#x20;**>**&#x20;Backup / Restore**. See ﻿:Link[Back Up a Device]{docId="qpUpvf6R5mHnloXhHsMux" label="Back Up a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}. &#x20;
+
+## Option 1: Upload Local File
+
+This is the recommended upgrade method.&#x20;
+
+### Before You Begin
+
+- Verify the current software version running on Litmus Edge in **System** > **Info** under the *General&#x20;*&#x73;ection.
+- Download the correct version of the UPD file you want to upgrade to from the :Link[Central Portal]{href="https://portal.litmus.io/" newTab="true"}. If needed, review the *Upgrade Paths* section above.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/OSHlEj20xPjHShZnVR79a_image.png" size="80" width="1046" height="520" position="flex-start" caption="Litmus Edge software version" showCaption="true" indent="1"></Image>
+
+### Upload a New Version of Litmus Edge Software
+
+Once you have the correct UPD file, complete the following steps to upload it to your Litmus Edge instance.&#x20;
+
+**To upload a new version of Litmus Edge:**
+
+1. In Litmus Edge, navigate to **System&#x20;**> **Device Management**.
+   The *Device Management* pane appears.
+2. From th&#x65;*&#x20;Software Update* section, click **Upload File**.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ju7tgwvSHPyGVazdpW_w7_upload-file-button.png" size="80" width="838" height="124" position="flex-start" caption="Software Update section" showCaption="true" indent="2"></Image>
+
+3. Select the UPD file and click **Open**.
+4. Click **Ok**. Follow the prompts to download a backup before proceeding with the upgrade. You have the option to skip the downloading of a backup but is not recommended.&#x20;
+   The software loads and installs. The progress of the upload will display. Once finished, the system reboots.
+5. Once the system has restarted, close your browser and open the browser again.&#x20;
+6. Clear your browser cache.&#x20;
+7. Log in to Litmus Edge and navigate to **System > Info**. Verify the software version is the updated version.&#x20;
+
+## Option 2: Upgrade Through Litmus Edge Manager
+
+If you have access to Litmus Edge Manager, see the following for upgrading remotely:
+
+- :Link[Add New Software Update Tasks]{docId="i24b2ShVA4EeOxUPftj_M" label="Add New Software Update Tasks" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+
+## Option 3: Download Upgrade File
+
+If the two options above are not available, then you can download the upgrade file from a URL.&#x20;
+
+### Before You Begin
+
+Visit :Link[Central Portal]{href="https://portal.litmus.io/" newTab="true"} to download the correct UPD file locally to your computer and get the Checksum value you will need. Then, upload the file to your preferred file storage service. You will use the URL to access the file when entering the *Download URL* in Litmus Edge.&#x20;
+
+### Download the Upgrade File in Litmus Edge
+
+**To download the upgrade file in Litmus Edge:**
+
+1. In Litmus Edge, navigate to **System&#x20;**> **Device Management**.
+   The *Device Management* pane appears.
+2. In the *Software Update* section, click **Download from URL**.&#x20;
+   The *Download Software Update* dialog box appears.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZnYdkUidCkhbgVbBsdGfh_download-from-url-link.png" size="80" width="838" height="124" position="flex-start" caption="Download from URL link" showCaption="true" indent="2"></Image>
+
+3. Enter or paste the *Download URL* and *Checksum&#x20;*&#x76;alue in the required fields. Then, click **Start download**. When the download successfully completes, the file displays in the *Update Files* section.&#x20;
+4. For the downloaded file, click **Update**. Follow the prompts to download a backup before proceeding with the upgrade. You have the option to skip the downloading of a backup but is not recommended.&#x20;
+

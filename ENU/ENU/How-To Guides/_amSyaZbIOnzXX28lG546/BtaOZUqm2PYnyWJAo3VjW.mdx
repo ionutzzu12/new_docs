@@ -1,0 +1,538 @@
+---
+title: Install the Mosquitto MQTT Broker on Ubuntu
+slug: BtaOZUqm2PYnyWJAo3VjW
+description: Learn how to install the Mosquitto MQTT Broker on Ubuntu.
+docTags: 
+createdAt: Thu Nov 24 2022 22:43:13 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for installing the Mosquitto MQTT broker on Ubuntu. Once installed, you can connect to the following connectors in Litmus Edge:
+
+- MQTT - Generic TCP&#x20;
+- MQTT - Generic over SSL.&#x20;
+
+# Before You Begin
+
+Make sure you do the following:
+
+- Verify the Ubuntu OS is 19.10.
+- Use a Virtual Machine on VirtualBox 6.0 to install Ubuntu.
+- Verify that the Virtual Machine has two configured network adapters that are set as follows:
+  - Adapter 1 is set to Bridged Adapter
+  - Adapter 2 is set to NAT
+
+# Step 1: Install Net Tools
+
+**To install net tools:**
+
+1. From a command prompt, enter **sudo apt install net-tools**, and press **ENTER**.
+2. If asked to provide your password, enter the password and press **ENTER**.
+3. Enter **ifconfig&#x20;**&#x61;nd press **ENTER**.&#x20;
+   For this use case, the IP needed is for the Bridged Adapter (enp0s3). It is 192.168.1.11.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RVl-v-2RvP4W7HM5Ana0g_ifconfig.png" size="80" width="933" height="499" caption="ifconfig command" position="center" showCaption="true"></Image>
+
+# Step 2: Install MQTT Broker
+
+**To install the MQTT broker:**
+
+1. From a command prompt, ente&#x72;**&#xA0;sudo apt-get update** and press **ENTER**.
+2. If asked to provide your password, enter the password and press **ENTER**.
+3. Enter **sudo apt-get install mosquitto** and press **ENTER**.
+4. Enter **Y** and press **ENTER&#xA0;**&#x74;o continue.
+   The MQTT broker is installed.
+
+# Step 3: Install MQTT Client
+
+You can install the MQTT client to test the MQTT broker configuration.
+
+**To install the MQTT client:**
+
+1. Enter **sudo apt-get install mosquitto-clients** and press **ENTER**.
+2. Enter **Y** and press **ENTER&#xA0;**&#x74;o continue.
+   The MQTT client is installed.
+
+# Step 4: Test Initial Installation
+
+You can verify that the MQTT broker and client are correctly installed.
+
+**To test the initial installation:**
+
+1. Enter **mosquitto\_sub -t "test"** and press **ENTER**.
+2. Right-click the **Terminal&#xA0;**&#x69;con and select **New Window&#xA0;**&#x74;o open a second terminal window.
+3. Select the second terminal window.
+4. Enter **mosquitto\_pub -m "message from mosquitto\_pub client" -t "test"** and press **ENTER**.
+5. Select the first terminal window to view the message sent from the second terminal window.
+   You should see: `message from mosquitto_pub client`
+6. Press **Ctrl+C** to exit the first terminal window.
+
+# Step 5: Set Up Username and Password
+
+**To set up a username and password:**
+
+1. Enter **sudo mosquitto\_passwd -c /etc/mosquitto/passwd \<username>** and press **ENTER**.
+   For example: **sudo mosquitto\_passwd -c /etc/mosquitto/passwd JohnSmith**
+2. Enter a password for the username at the prompt and press **ENTER**.
+3. Re-enter the password and press **ENTER**.
+4. Enter **sudo nano /etc/mosquitto/conf.d/default.conf** and press **ENTER** to edit the *default.conf* file.
+   The default.conf file opens in the nano editor. You can enforce refusal of connections from anonymous users and provide the path of the file holding all users and passwords from this file.
+5. Copy or enter the following two lines into the file.
+   `allow_anonymous false   `
+   `password_file /etc/mosquitto/passwd`
+6. Press **Ctrl+O&#xA0;**&#x74;o save the changes.
+7. Verify the file name.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JdxgfopQmykax_2WwU6b__verify-mosquitto-filename.png" size="80" width="666" height="67" caption="Mosquitto broker file name" position="center" showCaption="true"></Image>
+8. Press **ENTER**.
+   The changes are verified.&#x20;
+9. Press **Ctrl+X&#xA0;**&#x74;o exit the nano editor.
+10. From the terminal window, enter **sudo ufw allow 1883** and press **ENTER**.
+    The rule is applied. This rule ensures that the firewall allows connections on port 1883. This is the default port for the Mosquitto MQTT broker and is used for a connection using the username and password.
+11. Enter **sudo systemctl restart mosquitto** and press **ENTER**.
+    Mosquitto restarts so the new configuration and rule can be used.
+
+# Step 6: Test Username and Password Requirements
+
+**To test the username and password requirements:**
+
+1. Enter **mosquitto\_sub -t "test" -u "\<username>" -P "\<userpassword>"** and press **ENTER**.
+   For example: `mosquitto_sub -t "test" -u "JohnSmith" -P "XYZcorp@1"`
+2. Open a second terminal window if you have closed it and select it.
+3. Enter **mosquitto\_pub -t "test" -m "message from mosquitto\_pub client"** and press **ENTER&#xA0;**&#x74;o try to connect a publisher without using the correct username and password.
+   The connection is refused. You should see: `connection error: Connection Refused: not authorized`.
+4. Enter **mosquitto \_pub -t "test" -m "message from mosquitto\_pub client" -u "\<username>" -P "\<password>"** and press **ENTER&#xA0;**&#x74;o connect using the correct username and password.
+5. Select the first terminal window.
+   View the message: *message from mosquitto\_pub client***&#xA0;**&#x69;n the first Terminal window.
+6. Press **Ctrl+C** to exit the subscription stage in the first Terminal window.
+
+# Step 7: Enable SSL/TSL
+
+You can create certificates and keys in the Ubuntu system home directory.
+
+<hint type="info">
+  **Important**: If you decide not to use the bash file for the following task and instead use either the commands individually or follow other guides available, you must use the FQDN (Fully qualified domain name) for the CN (Common Name). Never use the IP address.&#x20;
+</hint>
+
+Refer to the following content for step 2.&#x20;
+
+```none
+#!/usr/bin/env bash
+#(@)generate-CA.sh - Create CA key-pair and server key-pair 
+signed by CA
+
+# Copyright (c) 2013-2016 Jan-Piet Mens <jpmens()gmail.com>
+# All rights reserved.
+# 
+# Redistribution and use in source and binary forms, with 
+or without
+# modification, are permitted provided that the following 
+conditions are met:
+# 
+# 1. Redistributions of source code must retain the above 
+copyright notice,
+#    this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the 
+above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the 
+distribution.
+# 3. Neither the name of mosquitto nor the names of its
+#    contributors may be used to endorse or promote 
+products derived from
+#    this software without specific prior written permission.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
+LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN 
+IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+#
+# Usage:
+#	./generate-CA.sh		
+creates ca.crt and server.{key,crt}
+#	./generate-CA.sh hostname	
+creates hostname.{key,crt}
+#	./generate-CA.sh client email	
+creates email.{key,crt}
+#
+# Set the following optional environment variables before 
+invocation
+# to add the specified IP addresses and/or hostnames to the 
+subjAltName list
+# These contain white-space-separated values
+#
+#	IPLIST="172.13.14.15 192.168.1.1"
+#	HOSTLIST="a.example.com b.example.com"
+
+set -e
+
+export LANG=C
+
+kind=server
+
+if [ $# -ne 2 ]; then
+	kind=server
+	host=$(hostname -f)
+	if [ -n "$1" ]; then
+		host="$1"
+	fi
+else
+	kind=client
+	CLIENT="$2"
+fi
+
+[ -z "$USER" ] && USER=root
+
+DIR=${TARGET:='.'}
+# A space-separated list of alternate hostnames (subjAltName)
+# may be empty ""
+ALTHOSTNAMES=${HOSTLIST}
+ALTADDRESSES=${IPLIST}
+CA_ORG='/O=OwnTracks.org/OU=generate-CA/emailAddress=nobody@example.net'
+CA_DN="/CN=An MQTT broker${CA_ORG}"
+CACERT=${DIR}/ca
+SERVER="${DIR}/${host}"
+SERVER_DN="/CN=${host}$CA_ORG"
+keybits=2048
+openssl=$(which openssl)
+MOSQUITTOUSER=${MOSQUITTOUSER:=$USER}
+
+# Signature Algorithm. To find out which are supported by 
+your
+# version of OpenSSL, run `openssl dgst -help` and set your
+# signature algorithm here. For example:
+#
+#	defaultmd="-sha256"
+#
+defaultmd="-sha512"
+
+function maxdays() {
+	nowyear=$(date +%Y)
+	years=$(expr 2032 - $nowyear)
+	days=$(expr $years '*' 365)
+
+	echo $days
+}
+
+function getipaddresses() {
+	/sbin/ifconfig |
+		grep -v tunnel |
+		sed -En '/inet6? /p' |
+		sed -Ee 's/inet6? (addr:)?//' |
+		awk '{print $1;}' |
+		sed -e 's/[%/].*//' |
+		egrep -v '(::1|127\.0\.0\.1)'	
+# omit loopback to add it later
+}
+
+
+function addresslist() {
+
+	ALIST=""
+	for a in $(getipaddresses); do
+		ALIST="${ALIST}IP:$a,"
+	done
+	ALIST="${ALIST}IP:127.0.0.1,IP:::1,"
+
+	for ip in $(echo ${ALTADDRESSES}); do
+		ALIST="${ALIST}IP:${ip},"
+	done
+	for h in $(echo ${ALTHOSTNAMES}); do
+		ALIST="${ALIST}DNS:$h,"
+	done
+	ALIST="${ALIST}DNS:localhost"
+	echo $ALIST
+
+}
+
+days=$(maxdays)
+
+if [ -n "$CAKILLFILES" ]; then
+	rm -f $CACERT.??? $SERVER.??? $CACERT.srl
+fi
+
+if [ ! -f $CACERT.crt ]; then
+
+	#    ____    _    
+	#   / ___|  / \   
+	#  | |     / _ \  
+	#  | |___ / ___ \ 
+	#   \____/_/   \_\
+	#                 
+
+	# Create un-encrypted (!) key
+	$openssl req -newkey rsa:${keybits} -x509 -nodes 
+$defaultmd -days $days -extensions v3_ca -keyout 
+$CACERT.key -out $CACERT.crt -subj "${CA_DN}"
+	echo "Created CA certificate in $CACERT.crt"
+	$openssl x509 -in $CACERT.crt -nameopt multiline 
+-subject -noout
+
+	chmod 400 $CACERT.key
+	chmod 444 $CACERT.crt
+	chown $MOSQUITTOUSER $CACERT.*
+	echo "Warning: the CA key is not encrypted; store it 
+safely!"
+fi
+
+
+if [ $kind == 'server' ]; then
+
+	#   ____                           
+	#  / ___|  ___ _ ____   _____ _ __ 
+	#  \___ \ / _ \ '__\ \ / / _ \ '__|
+	#   ___) |  __/ |   \ V /  __/ |   
+	#  |____/ \___|_|    \_/ \___|_|   
+	#                                  
+
+	if [ ! -f $SERVER.key ]; then
+		echo "--- Creating server key and signing 
+request"
+		$openssl genrsa -out $SERVER.key $keybits
+		$openssl req -new $defaultmd \
+			-out $SERVER.csr \
+			-key $SERVER.key \
+			-subj "${SERVER_DN}"
+		chmod 400 $SERVER.key
+		chown $MOSQUITTOUSER $SERVER.key
+	fi
+
+	if [ -f $SERVER.csr -a ! -f $SERVER.crt ]; then
+
+		# There's no way to pass subjAltName on the 
+CLI so
+		# create a cnf file and use that.
+
+		CNF=`mktemp /tmp/cacnf.XXXXXXXX` || 
+{ echo "$0: can't create temp file" >&2; exit 1; }
+		sed -e 's/^.*%%% //' > $CNF <<\!ENDconfig
+		%%% [ JPMextensions ]
+		%%% basicConstraints        
+= critical,CA:false
+		%%% nsCertType              
+= server
+		%%% keyUsage                
+= nonRepudiation, digitalSignature, keyEncipherment
+		%%% nsComment               
+= "Broker Certificate"
+		%%% subjectKeyIdentifier    
+= hash
+		%%% authorityKeyIdentifier  
+= keyid,issuer:always
+		%%% subjectAltName          
+= $ENV::SUBJALTNAME
+		%%% # issuerAltName           
+= issuer:copy
+		%%% ## nsCaRevocationUrl       
+= http://mqttitude.org/carev/
+		%%% ## nsRevocationUrl         
+= http://mqttitude.org/carev/
+		%%% certificatePolicies     
+= ia5org,@polsection
+		%%% 
+		%%% [polsection]
+		%%% policyIdentifier	    
+= 1.3.5.8
+		%%% CPS.1		    
+= "http://localhost"
+		%%% userNotice.1	    
+= @notice
+		%%% 
+		%%% [notice]
+		%%% explicitText            
+= "This CA is for a local MQTT broker installation only"
+		%%% organization            
+= "OwnTracks"
+		%%% noticeNumbers           
+= 1
+!ENDconfig
+
+		SUBJALTNAME="$(addresslist)"
+		export SUBJALTNAME		
+# Use environment. Because I can. ;-)
+
+		echo "--- Creating and signing server 
+certificate"
+		$openssl x509 -req $defaultmd \
+			-in $SERVER.csr \
+			-CA $CACERT.crt \
+			-CAkey $CACERT.key \
+			-CAcreateserial \
+			-CAserial "${DIR}/ca.srl" \
+			-out $SERVER.crt \
+			-days $days \
+			-extfile ${CNF} \
+			-extensions JPMextensions
+
+		rm -f $CNF
+		chmod 444 $SERVER.crt
+		chown $MOSQUITTOUSER $SERVER.crt
+	fi
+else
+	#    ____ _ _            _   
+	#   / ___| (_) ___ _ __ | |_ 
+	#  | |   | | |/ _ \ '_ \| __|
+	#  | |___| | |  __/ | | | |_ 
+	#   \____|_|_|\___|_| |_|\__|
+	#                            
+
+	if [ ! -f $CLIENT.key ]; then
+		echo "--- Creating client key and signing 
+request"
+		$openssl genrsa -out $CLIENT.key $keybits
+
+		CNF=`mktemp /tmp/cacnf-req.XXXXXXXX` || 
+{ echo "$0: can't create temp file" >&2; exit 1; }
+		# Mosquitto's use_identity_as_username 
+takes the CN attribute
+		# so we're populating that with the 
+client's name
+		sed -e 's/^.*%%% //' > 
+$CNF <<!ENDClientconfigREQ
+		%%% [ req ]
+		%%% distinguished_name	
+= req_distinguished_name
+		%%% prompt			
+= no
+		%%% output_password		
+= secret
+		%%% 
+		%%% [ req_distinguished_name ]
+		%%% # O                       
+= OwnTracks
+		%%% # OU                      
+= MQTT
+		%%% # CN                      
+= Suzie Smith
+		%%% CN                        
+= $CLIENT
+		%%% # emailAddress            
+= $CLIENT
+!ENDClientconfigREQ
+
+		$openssl req -new $defaultmd \
+			-out $CLIENT.csr \
+			-key $CLIENT.key \
+			-config $CNF
+		chmod 400 $CLIENT.key
+	fi
+
+	if [ -f $CLIENT.csr -a ! -f $CLIENT.crt ]; then
+
+		CNF=`mktemp /tmp/cacnf-cli.XXXXXXXX` || 
+{ echo "$0: can't create temp file" >&2; exit 1; }
+		sed -e 's/^.*%%% //' > $CNF 
+<<\!ENDClientconfig
+		%%% [ JPMclientextensions ]
+		%%% basicConstraints        
+= critical,CA:false
+		%%% subjectAltName          
+= email:copy
+		%%% nsCertType              
+= client,email
+		%%% extendedKeyUsage        
+= clientAuth,emailProtection
+		%%% keyUsage                
+= digitalSignature, keyEncipherment, keyAgreement
+		%%% nsComment               
+= "Client Broker Certificate"
+		%%% subjectKeyIdentifier    
+= hash
+		%%% authorityKeyIdentifier  
+= keyid,issuer:always
+!ENDClientconfig
+
+		SUBJALTNAME="$(addresslist)"
+		export SUBJALTNAME		
+# Use environment. Because I can. ;-)
+
+		echo "--- Creating and signing client 
+certificate"
+		$openssl x509 -req $defaultmd \
+			-in $CLIENT.csr \
+			-CA $CACERT.crt \
+			-CAkey $CACERT.key \
+			-CAcreateserial \
+			-CAserial "${DIR}/ca.srl" \
+			-out $CLIENT.crt \
+			-days $days \
+			-extfile ${CNF} \
+			-extensions JPMclientextensions
+
+		rm -f $CNF
+		chmod 444 $CLIENT.crt
+	fi
+fi
+```
+
+**To enable SSL/TSL:&#x20;**
+
+1. From a terminal window, enter **nano&#xA0;**&#x61;nd press **ENTER**.
+2. Copy the content above and paste it into the nano editor.
+3. Press **Ctrl+O&#xA0;**&#x74;o save the changes.
+4. Enter **generate-CA.sh&#xA0;**&#x74;o provide the file name and press **ENTER**.
+   The file is created.&#x20;
+5. Press **Ctrl+X&#xA0;**&#x74;o exit the nano editor.
+   The file is in your default directory.
+6. Enter **sudo chmod 774 \<filename>** and press **ENTER** to set permissions.
+   For example: `sudo chmod 774 generate-CA.sh`
+7. Enter **sudo ./\<filename>** and press **ENTER&#xA0;**&#x65;xecute the bash file and create the certificates.
+   For example: Example: `sudo ./generate-CA.sh`
+   The bash file is executed.
+   You should see:`  JohnSmith@JohnSmith-virtualBox: ~$ ./generate-CA.sh    `
+   `Generating a RSA private key`
+   The certificates and key files are in your home directory.
+8. Enter **sudo cp ca.crt /etc/mosquitto/ca\_certificates** and press **ENTER&#xA0;**&#x74;o copy the ca.crt to the correct folder.
+9. Enter **sudo cp \<your FQDN>.crt /etc/mosquitto/certs** and press **ENTER&#xA0;**&#x74;o copy the file containing the FQDN.crt to the correct folder.
+   For example: `sudo cp JohnSmith-VirtualBox.crt /etc/mosquitto/certs`
+10. Enter **sudo cp \<your FQDN>.key /etc/mosquitto/certs** to copy the server certificate which has the file name \<your FQDN>.key.
+    For example: `sudo cp JohnSmith-VirtualBox.key /etc/mosquitto/certs`
+11. Enter **sudo nano /etc/mosquitto/conf.d/default.conf** and press **ENTER&#xA0;**&#x74;o allow for SSL encryption.
+    The default.conf file opens.
+12. Move your cursor down using the arrow keys and paste the following lines:
+    `# Plain MQTT protocol    `
+    `listener 1883    `
+    `    `
+    `# End of plain MQTT configuration    `
+    `    `
+    `# MQTT over TLS/SSL    `
+    `listener 8883    `
+    `cafile /etc/mosquitto/ca_certificates/ca.crt    `
+    `certfile /etc/mosquitto/certs/<your FQDN>.crt    `
+    `keyfile /etc/mosquitto/certs/<your FQDN>.key    `
+    `require_certificate false    `
+    `    `
+    `# End of MQTT over TLS/SLL configuration`
+13. Press **Ctrl+O&#xA0;**&#x74;o save the changes.
+14. Press **ENTER**, and then press **Ctrl+X&#xA0;**&#x74;o exit the nano editor.
+15. Enter **sudo ufw allow 8883** and press **ENTER&#xA0;**&#x74;o allow SSL encrypted connections on port 8883.
+    The rule is applied.
+16. Enter **sudo systemctl restart mosquitto** and press **ENTER&#xA0;**&#x74;o run the Mosquitto broker using the new configuration and rule.
+
+# Step 8: Test Certificates, Username, and Password Requirements
+
+**To test the certificates, username, and password requirements:**
+
+1. Enter **mosquitto\_sub --cafile /etc/mosquitto/ca\_certificates/ca.crt -h \<Host IP> -t "test" -p8883 -d -u "\<username>" -P "\<password>"** and press **ENTER** to create a subscription.
+   For example: `mosquitto_sub --cafile /etc/mosquitto/ca_certificates/ca.crt -h 192.168.1.11 -t "test" -p 8883 -d -u "JohnSmith" -P "XYZcorp@1"`
+2. Open a second terminal window if previously closed and select it.
+3. Enter **mosquitto\_pub -h \<Host IP> -t "test" -m "hello" -p 8883 -d -u "\<username>" -P "\<password>" --cafile /etc/mosquitto/ca\_certificates/ca.crt** and press **ENTER&#xA0;**&#x74;o publish a message.
+   For example: `mosquitto_pub -h 192.168.1.11 -t "test" -m "hello" -p 8883 -d -u "JohnSmith" -P "XYZcorp@1" --cafile /etc/mosquitto/ca_certificates/ca.crt`
+4. Select the first Terminal window to view the message **hello**.
+5. Press **Ctrl+C&#xA0;**&#x74;o exit the subscription stage in the first terminal window.
+

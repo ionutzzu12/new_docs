@@ -1,0 +1,699 @@
+---
+title: Omron Fins Ethernet
+slug: Q6ndrkQi3UmgKbSbeRZ0f
+description: Review the following information for setting up and configuring the Omron Fins Ethernet driver. 
+docTags: 
+createdAt: Wed Feb 15 2023 21:41:40 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the Omron Fins Ethernet driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="232,361" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[CJ1]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/cj1/index.html" newTab="true"}
+      :Link[CJ2]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/cj2/index.html" newTab="true"}
+      :Link[CS]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/cs1/index.html" newTab="true"}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td>
+      :Link[Omron Fins Ethernet (Gen1)]{docId="J5MsWRqIr38eqwudRLmWB" label="Omron Fins Ethernet (Gen1)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="170,616" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Omron
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Omron Fins Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      9600
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<table columnWidths="106,89,107,86,94,171" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CIO\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      614315
+    </td>
+    <td align="left">
+      Channel I/O
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CIO
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6143
+    </td>
+    <td align="left">
+      Channel I/O
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CIO\_string
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6143
+    </td>
+    <td align="left">
+      Channel I/O
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Work Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      51115
+    </td>
+    <td align="left">
+      Work Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W\_string
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Work Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      H
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Holding Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      H\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      51115
+    </td>
+    <td align="left">
+      Holding Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      H\_string
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Holding Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      A\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      95915
+    </td>
+    <td align="left">
+      Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      A
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      959
+    </td>
+    <td align="left">
+      Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      flag, int, bcd, word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      flag, int, bcd, word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Data Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Data Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D\_string
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Data Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM0
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM0\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM0\_string
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM1
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM1\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM1\_string
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM2
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM2\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM2\_string
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory string
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM3
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM3\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM3\_string
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory string
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="YDCyG6aQRqQZJgZgHsvpo">
+
+</ContentSnippet>
+

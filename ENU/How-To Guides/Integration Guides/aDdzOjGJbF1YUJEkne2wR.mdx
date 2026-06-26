@@ -1,0 +1,106 @@
+---
+title: PostgreSQL SSL Integration Guide
+slug: aDdzOjGJbF1YUJEkne2wR
+description: Learn how to set up the PostgreSQL with SSL connector. 
+docTags: 
+createdAt: Wed Jan 17 2024 15:53:34 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and a PostgreSQL database using SSL authentication.&#x20;
+
+# Before You Begin
+
+You will need the following:
+
+- Access to a PostgreSQL database that uses SSL authentication.
+- The CA Certificate and any other required authentication parameters to access the database.&#x20;
+
+Refer to the following links to learn more:
+
+- :Link[PostgreSQL Docker Image]{href="https://hub.docker.com/_/postgres" newTab="true" hasDisabledNofollow="false"}
+- :Link[PostgreSQL Documentation]{href="https://www.postgresql.org/docs/" newTab="true" hasDisabledNofollow="false"}
+- :Link[Secure TCP/IP Connections with SSL]{href="https://www.postgresql.org/docs/16/ssl-tcp.html" newTab="true" hasDisabledNofollow="false"}
+
+# Step 1: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add the DB - **PostgreSQL SSL&#x20;**&#x43;onnector
+
+Follow the steps to [Add a Connector](<../../ENU/Product Features/LR02cKZrqRt_aoIMAeuRN/Oltgmv6mo5teuzS_GsNx1.mdx>) and select the **DB - PostgreSQL SSL&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Enter the hostname for the PostgreSQL database.&#x20;
+- **Port**: The PostgreSQL Server port. The default value is **5432**.&#x20;
+- **SSL Mode**: Select the SSL Mode (require, verify-ca, verify-full).&#x20;
+- **CA Certificate**: Paste or upload the CA certificate associated with the database.&#x20;
+- **Certificate**: Paste or upload the SSL certificate.&#x20;
+- **Private Key**: Enter or paste the SSL private key.&#x20;
+- **Username**: Enter the appropriate username.&#x20;
+- **Password**: Enter the password for the username. &#x20;
+- **Database**: Enter the database name.&#x20;
+- **Table**: Enter the table name.
+- **Show Mapping**: If you want to send data to a custom table, select this check box and unselect *Create table*. See :Link[Work with Tables in SQL Connectors (Create Table and Show Mapping)]{docId="-wCyOWPX89ub6mU6TYvIa" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. To add key/value pairs for the custom table, see :Link[Configure Key/Value Pairs]{docId="-wCyOWPX89ub6mU6TYvIa" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#configure-keyvalue-pairs" loadingMethod="dynamic" overridedLabel="Configure Key/Value Pairs"}.&#x20;
+- **Create table**: If you want to send data to an existing table in the default format, or you want to create a new table in the default format, select this checkbox and unselect *Show Mapping*. See :Link[Work with Tables in SQL Connectors (Create Table and Show Mapping)]{docId="-wCyOWPX89ub6mU6TYvIa" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+- **Commit timeout**: Enter the transaction commit timeout in (ms).
+- **Max transaction size**: Enter the maximum number of messages before a transaction is committed, regardless of timeout parameter.&#x20;
+- **Bulk insert count**: To enable this option, enter the number of messages to group together and send as one bulk insert statement. Enabling this option can improve how quickly data is processed when dealing with high volumes of tags.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/iMtx0yTin43zijwoyX-k0_postgressl.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="J6qfhKwKx_UlYL64y_gjl" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../ENU/Product Features/LR02cKZrqRt_aoIMAeuRN/tCiWQXqqwmrfdnUMGcl3j.mdx"} and relevant error messages.&#x20;
+
+# Step 5: Create Topics for Connector
+
+You will now need to import the tags created in Step 2 as topics for the PostgreSQL connector. The topics will be created as outbound topics.&#x20;
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 6: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+# Step 7: Make PostgreSQL Queries
+
+You can now verify that you can view data in the PostgreSQL database.&#x20;
+
+Update the credentials, database name, and table name to your specific configurations.&#x20;
+
+**To make PostgreSQL queries:**
+
+1. From the PostgreSQL terminal window, enter `psql -h locahost -U postgres`**&#xA0;**&#x61;nd press **ENTER**. If you configured a different username, replace `postgres`.&#x20;
+   The *psql (9.6.5)***&#xA0;**&#x76;ersion number appears.
+2. Enter `\l`**&#xA0;**&#x61;nd press **ENTER**.
+   The list of databases appears in the console.
+3. Enter `\c postgres`**&#xA0;**&#x61;nd press **ENTER**.&#x20;
+   *You are now connected to database "db-example" as user "postgres"* appears.
+4. Enter `\dt` and press **ENTER**.
+   The list of relations appears showing the devicehub schema.
+5. Enter `\d devicehub` and press **ENTER**.
+   The *public.devicehub* table appears.
+6. Enter `select * from devicehub;` and press **ENTER**.
+   The data for the devicehub table appears.
+

@@ -1,0 +1,201 @@
+---
+title: Hyper-V
+slug: EaYLiXmjJDh6fCEGv2r0_
+description: You can install Litmus Edge on a virtual machine using Windows Hyper-V.
+docTags: 
+createdAt: Thu Apr 14 2022 16:39:33 GMT+0300 (Eastern European Summer Time)
+---
+
+You can install Litmus Edge on a virtual machine using Windows Hyper-V. See the [Introduction to Hyper-V on Windows 10](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/) for more information.
+
+A typical Litmus Edge virtual file for Hyper-V deployment adheres to a naming convention as follows: **\<product-std\_3.1.5.0-amd64>.iso**.
+
+# Video
+
+<Iframe code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/jr8HBpCfV0o?si=OYm3Cty7r-uNTJrP&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; referrerpolicy=&#x22;strict-origin-when-cross-origin&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# Before You Begin
+
+- Adjust the system clock for the host environment prior to installing Litmus Edge. UTC is recommended. The 15-day trial period may be rejected and invalidated by the license server if the system clock is not adjusted. If this happens, contact your Litmus representative.
+- Obtain a valid file in the ISO format (example filename: `<litmusedge-std_3.1.2.0-amd64>.iso`). You can get the ISO file from Litmus or download it from the :Link[Litmus Central portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+
+To use Hyper-V to install Litmus Edge, you will need to do the following.&#x20;
+
+- Step 1: Turn Hyper-V Feature On
+- Step 2: Start the Hyper-V Service
+- Step 3: Create Virtual Machine
+- Step 4: Configure the Virtual Machine
+- Step 5: Install the Edge Device
+- Step 6: Run the Virtual Machine
+- Step 7: Log in to Litmus Edge
+
+To jump to a specific section, refer to the Table of Contents on the right side and click the corresponding step.&#x20;
+
+# Step 1: Turn Hyper-V Feature On
+
+You must first turn on the Hyper-V feature.&#x20;
+
+**To turn the Hyper-V feature on:**
+
+1. In Windows, navigate to **Control Panel&#x20;**>**&#x20;Programs** >**&#x20;Programs and Features**.
+2. Click **Turn Windows features on or off**.
+3. Select **Hyper-V** from the list and click **OK**.
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/D_5NB_ELlM8NMaLKl9jKw_image.png)
+
+# Step 2: Start Hyper-V Service
+
+You can now start the Hyper-V Service.&#x20;
+
+**To start the Hyper-V Service:**
+
+1. Open the **Hyper-V Manager**.
+2. Select the disk to install the virtual machine in and click **Start Service**.
+   The Hyper-V service is running.
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/6Vt_dWEQeOJrw544ynhMm_image.png)
+
+# Step 3: Create Virtual Machine
+
+Once the Hyper-V service is running, you can create the virtual machine. You have two options for creating it. If you don't see the *Quick Create* option in your version of Windows, you must follow the steps in the *Create New Virtual Machine* section.&#x20;
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/EwU6hyZXiqQ9jpkXR9_VX_image.png)
+
+## Create Virtual Machine with Quick Create
+
+Complete the following steps if you see the *Quick Create&#x20;*&#x6F;ption. If you don't see this option, see the *Create New Virtual Machine* section below.&#x20;
+
+**To create the virtual machine:**
+
+1. Select the disk to create the virtual machine in and click **Quick Create**.
+   The *Create Virtual Machine* dialog box appears.
+2. Click **Local installation source**.&#x20;
+   The *Change installation source* button appears.
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/HTMwC2934uhxMu2hgFfKn_hyper-v-04.png)
+3. Unselect the checkbox for **This virtual machine will run Windows**.&#x20;
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Ke4SoCQWieWyugl1iRHhJ_hyper-v-05.png)
+4. Click **Change installation source**.
+   The *New&#x20;*&#x64;ialog box appears.
+5. Navigate to the downloaded ISO file, select the file, and click **Open**.
+   The name of the selected ISO file appears.
+6. Click **More options**.&#x20;
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/IiqKHITiheO7LPcnHL0j3_hyper-v-06.png)
+7. Enter a name for the virtual machine and confirm that the network selection is **Default Switch**.&#x20;
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/yDzeqKniyRVX6b_OAmSyE_hyper-v-07.png)
+8. Click **Create Virtual Machine**.&#x20;
+
+The new virtual machine is created with the name you added and appears in the *Virtual Machines* pane.
+
+## Create New Virtual Machine
+
+If the *Quick Create* option is not available, complete the following steps.&#x20;
+
+<hint type="warning">
+  **Important**: To ensure you successfully configure the virtual machine, you must select **Generation 2** when configuring th&#x65;*&#x20;Specify Generation* section.&#x20;
+</hint>
+
+**To create a new virtual machine:**
+
+1. Right-click the disk to install the virtual machine in and select **New&#x20;**> **Virtual Machine**.
+   The *New Virtual Machine* Wizard appears.
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/UNUj36T_YTmg2PcD6CvrX_hyper-v-08.png)
+2. Review the *Before You Begin* section and click **Next**.&#x20;
+3. Configure the parameters for the virtual machine.&#x20;
+   - **Specify Name and Location**: Enter a name and configure the location for the virtual machine.&#x20;
+   - **Specify Generation***:* You must select **Generation 2**.&#x20;
+   - **Assign Memory**: Assign a minimum of 4096 MB.
+   - **Configure Networking**: If you are not using a specific ethernet adapter, select **Default Switch**.&#x20;
+   - **Connect Virtual Hard Disk**: Select **Attach a virtual hard disk later**.&#x20;
+   - **Installation Options**: Configure the installation options and click **Next**.&#x20;
+4. Review the summary and click **Finish**.&#x20;
+   The virtual machine will display in the *Virtual Machines* section.&#x20;
+5. Select the new virtual machine and click **Settings...**
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/H9ur7T39_IC23YIrn8yNF_hyper-v-10.png)
+6. Select **SCSI Controller**. Then, click **DVD Drive** and **Add**.&#x20;
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/qWQFJuH_L7l76Xq11sy-r_hyper-v-11.png)
+7. For *Media*, select **Image file&#x20;**&#x61;nd select the Litmus Edge ISO file.&#x20;
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/CHDJRDPR6bO7GhxXyiETZ_hyper-v-12.png)
+8. Click **Apply&#x20;**&#x61;nd then **OK**.&#x20;
+
+Continue with the following steps to further configure the virtual machine.&#x20;
+
+# Step 4: Configure Virtual Machine
+
+**To configure the virtual machine:**
+
+1. From the *Virtual Machines* pane in the Hyper-V Manager, click the virtual machine name.
+   The virtual machine name appears in the *Actions&#x20;*&#x70;ane and includes sub-menus.
+2. From the *Actions&#x20;*&#x70;ane, click **Settings** under the virtual machine name.
+   The *Settings for new VM* dialog box appears.
+3. From the *Settings for new VM* dialog box, configure the following.&#x20;
+   - **Firmware**: Make sure that **DVD drive with Image File** is in first place for the *Boot order*.
+   - **Security**: Select the **Enable Trusted Platform Module** checkbox and deselect the remaining checkboxes.
+   - **Memory**: Enter at least 4096 MB in the *RAM&#x20;*&#x66;ield.
+   - **Processor**: Enter `2` in the *Virtual Processors* field.
+   - **Network**: Selec&#x74;**&#x20;Default Switch** from the *Virtual Switch* drop-down list.
+4. Click **Apply**, and then click **OK** to close the *Settings&#x20;*&#x64;ialog box.
+5. Click the **Connect** sub-menu.
+   The *Starting the new VM* dialog box appears.
+   A message appears that the VM is turned off and prompts to you to start.
+6. Click **Start**.
+
+The installation for the virtual machine begins.
+
+# Step 5: Run Operating System Installer
+
+You will run the operating system installer that will install Litmus Edge.&#x20;
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - During the installation, the progress bar may decrease at times due to partitioning.
+  - The time to complete the installation is based on the size of the hard disk drive. Large disk drives will cause the installation to take longer to partition the disk and therefore longer to complete setting up the virtual machine.&#x20;
+</hint>
+
+**To install the edge device:**
+
+1. After the device initiates the installer, respond to the questions in the terminal user interface (TUI).
+   `Welcome to Operating System Installer. Are you installing over Serial (for advanced users)? Yes/No :`
+2. Enter `No`, and then press **ENTER**.
+3. Select **Install Operating System**, and then select **OK**.&#x20;
+   Use the arrow keys to navigate to selections.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/hAvMk3gpWB-Dxe1YMKVOW_03-adgvjjf47i2hzl20tkborhyper-v-install-operating-system.png" size="80" width="408" height="168" position="flex-start" caption="Install Operating System option" showCaption="true"></Image>
+4. Select the partition to install, and then select **OK**.
+   This list is device specific. Typically, the installation location is *sda*. If the device/gateway has embedded MMC (eMMC) components, the partition name may be listed as *mmcblk&#xA0;*&#x69;nstead of *sda*. Make sure you select the correct hard drive location.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/OOtH9jOK2QNXQ3uSMds6z_04-hehzjn84ofmpxgmzul2yhyper-v-installation-location.png" size="80" width="501" height="169" position="flex-start" caption="Select partition step" showCaption="true"></Image>
+5. Verify the OS installation location by selecting **Yes**. If you select **No**, you are returned to the beginning of the installation.
+6. A second verification ensures that you are overwriting the correct device partition during the formatting process. Select **Yes** to continue formatting the device and installing the operating system.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/KVVbH9JUtLlRQrUWgfHU8_06-m6rjzhbsiooaca44b96gehyper-v-format.png" size="80" width="490" height="129" position="flex-start" caption="Format devices warning message" showCaption="true"></Image>
+7. The installer indicates its progress, followed by a success message. Select **Yes&#x20;**&#x74;o power off the device.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/k_1ZIv3HUMEBKhBJR7hCv_08-szxw4-5ucqmtk7jkhp3hmhyper-v-power-off.png" size="80" width="817" height="168" position="flex-start" caption="Power off option" showCaption="true"></Image>
+8. Close the *Virtual Machine* dialog box.
+9. From the *Actions&#x20;*&#x70;ane, click th&#x65;**&#x20;Settings&#x20;**&#x73;ub-menu again under the new virtual machine name.
+   Th&#x65;*&#x20;Settings for new VM* dialog box appears.
+10. From the *Settings for new VM* dialog box, configure the following.&#x20;
+    - **SCSI Controller**: Select **DVD Drive&#x20;**&#x61;nd click **Remove** to delete this drive.
+    - **Firmware**: Make sure that **Hard Drive with Image File&#x20;**&#x69;s in first place of the *Boot&#x20;*&#x6F;rder.
+11. Click **Apply**, and then click **OK&#x20;**&#x74;o close the *Settings&#x20;*&#x64;ialog box.
+
+The virtual machine is ready to run from the hard drive.
+
+# Step 6: Run Virtual Machine
+
+Now that the edge device is installed, you can run the virtual machine.&#x20;
+
+**To run the virtual machine:**
+
+1. From the *Actions&#x20;*&#x70;ane in the Hyper-V Manager, click **Connect...&#x20;**&#x75;nder the new virtual machine name.
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/PIm6jLCDUNfZOf6YOplcU_hyper-v-14.png)
+2. From the virtual machine window, click **Start**, and then select **Continue** from the pop-up window.
+
+The virtual machine boots up and displays the IP address to access using a web browser.
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7bObinl0lpfVu_v9NO5qb_image.png)
+
+# Step 7: Log in to Litmus Edge
+
+- See :Link[Access the Litmus Edge Web UI]{docId="XpYOmIihhYhkjaGiw7mn1" label="Access the Litmus Edge Web UI" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Litmus Edge Web UI"} for details on logging in.&#x20;
+- See :Link[Access the Terminal User Interface]{docId="2mLZrcuWvl1CjW3LyyU7H" label="Access the Terminal User Interface" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Terminal User Interface"} for instructions on how to navigate and log in for the first time.
+

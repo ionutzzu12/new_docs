@@ -1,0 +1,53 @@
+---
+title: Set up an Azure IoT Hub
+slug: HEhrG898B6vDoufnBT0z5
+description: Learn how to set up an Azure IoT Hub. 
+docTags: 
+createdAt: Tue Nov 15 2022 19:32:32 GMT+0200 (Eastern European Standard Time)
+---
+
+Azure IoT Hub integration enables Litmus Edge to publish data directly to the Microsoft Azure cloud. You will need to set up the Azure IoT Hub before setting up the connector in Litmus Edge.&#x20;
+
+# Before you begin
+
+You must have an Azure account.
+
+# Step 1: Create an IoT Hub
+
+You can create the IoT Hub in the Microsoft Azure portal.&#x20;
+
+**To create an IoT Hub:**
+
+1. Open the :Link[Microsoft Azure portal]{href="https://portal.azure.com" newTab="true"}.&#x20;
+2. Log in with your Azure account.
+3. Click **Create a resource**.
+   The *Everything&#x20;*&#x64;ialog box appears.&#x20;
+4. Enter **IoT Hub** in the **Search&#x20;**&#x62;ar.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tfQXkjCKsFhnw1Qqx8HrQ_azure-everything.png" size="80" width="674" height="216" caption="Azure Everything dialog box" position="center" showCaption="true"></Image>
+5. Click **IoT Hub**, and then click **Create**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/eB20WhcJX_rRlXPbiJm2W_azure-iot-create.png" size="80" width="678" height="756" caption="IoT Create button" position="center" showCaption="true"></Image>
+6. From the *Basics&#xA0;*&#x74;ab, select an option from the **Subscription&#xA0;**&#x64;rop-down list.
+7. Do one of the following:
+   - Select an option from the **Resource Group&#xA0;**&#x64;rop-down list.
+   - Click **Create new&#xA0;**&#x61;nd create a new resource group.
+8. Select an option from the **Region&#x20;**&#x64;rop-down list.&#x20;
+9. Enter a name for the IoT Hub in the **IoT Hub Name** field.&#x20;
+10. Click the **Size and scale&#xA0;**&#x74;ab.
+11. Select an option from the **Pricing and scale tier&#x20;**&#x64;rop-down list.&#x20;
+12. Enter a value in the **Number of S1 IoT Hub units** field to determine the number of connected devices to host on Azure and send messages to and from Litmus Edge.
+13. Click the **Review + Create&#xA0;**&#x74;ab to finalize creating the IoT Hub and begin adding devices.
+
+# Step 2: Add IoT Device to Hub
+
+After creating the IoT Hub, you will need to add an IoT device to the hub.&#x20;
+
+**To add an IoT device to the hub:**
+
+1. From the Azure portal, open the Command-Line-Interface (CLI).&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/OZckHstKlDBD9Qi550oKD_azure-cli.png" size="30" width="133" height="56" caption="Command-Line-Interface icon" position="center" showCaption="true"></Image>
+2. In the Azure CLI, enter the following two commands. Make sure to replace with `YourIotHubName` and `MyNodeDevice` with the names of your respective IoT Hub and device.&#x20;
+   `az extension add --name azure-iot`
+   `az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice`
+3. From the Azure portal, click your IoT Hub.&#x20;
+4. Under *Explorers*, click **IoT devices&#xA0;**&#x74;o verify that you successfully added the new device.
+

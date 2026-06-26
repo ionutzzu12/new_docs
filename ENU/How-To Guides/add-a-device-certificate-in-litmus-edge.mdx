@@ -1,0 +1,108 @@
+---
+title: Add a Device Certificate in Litmus Edge
+slug: add-a-device-certificate-in-litmus-edge
+docTags: 
+createdAt: Fri Oct 11 2024 19:18:03 GMT+0300 (Eastern European Summer Time)
+---
+
+A device certificate (or SSL certificate) is a digital certificate that provides proof of the device's identity (Litmus Edge instance). A device certificate for your Litmus Edge instance is not required as the connection is already secured with an automatically generated self-signed certificate. Refer to the *Self-Signed Certificates* and *Device Certificates* sections in :Link[Certificates]{docId="9csb4OK-t4Xec0HlsPTur" label="Certificates" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Certificates"} for more information.&#x20;
+
+# SSL Certificate Workflow
+
+At a manufacturing plant, you need to ensure secure communication between any industrial devices. You can follow the steps below to add it to our Litmus Edge system. This will help you maintain a secure connection and protect sensitive data within your manufacturing environment.
+
+Refer to the image and descriptions below to review the process of adding an SSL certificate to Litmus Edge (LE) or Litmus Edge Manager (LEM).&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/TDjY2wKQ3hBMWPmr8CNLn_diagram-2-oct10th2024.png)
+
+- **Step 1**: You will need to request an SSL certificate from your IT team.&#x20;
+- **Step 2**: Your IT team will make a request for the SSL certificate from a certificate authority (CA) (for example, DigiCert).&#x20;
+- **Step 3**: The CA will return the following to your IT team.&#x20;
+  - The root CA certificate file
+  - Any required intermediate certificates
+  - The SSL certificate file
+- **Step 4**: The IT team will send you the following.&#x20;
+  - The root certificate file
+  - Any required intermediate certificates
+  - The SSL certificate file
+  - The private key file
+- **Step 5**: You will apply the following in either Litmus Edge (see steps below) or Litmus Edge Manager (see :Link[SSL Setting Features]{label="Domain/SSL" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="MC8Z1bK3yWcKQq4-kupCv" version="v2" docAnchorId="#62dLw" loadingMethod="dynamic" overridedLabel="SSL Setting Features"}).&#x20;
+  - The CA chain file (root CA file and all intermediate certificates)
+  - The SSL certificate&#x20;
+  - The private key file
+
+You can add a device certificate in Litmus Edge by navigating to **System&#x20;**> **Certificates**.&#x20;
+
+# Before You Begin
+
+Before you complete the steps below, make sure you do the following.
+
+- Verify you have admin credentials for Litmus Edge.&#x20;
+- Have access to a Linux system.&#x20;
+- Verify that the the certificate you upload is an Nginx certificate.&#x20;
+- Submit the *Certificate Signing Request&#x20;*&#x69;n Litmus Edge to a certificate authority and subsequently receive the device certificate with all required parameters (CA Chain and Private Key). See :Link[Manage Certificate Signing Requests]{docId="zjZczP0fNW4Km6106lUuR" label="Manage Certificate Signing Requests" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage Certificate Signing Requests"} for details.&#x20;
+- Confirm with your IT department if you require a custom CA certificate to be uploaded to Litmus Edge before you add a device certificate. If you need to upload a custom CA certificate, see :Link[Add a Custom CA Certificate]{docId="EK7QmmQSRt5JnF1grQJKM" label="Add a Custom CA Certificate" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add a Custom CA Certificate"} for details.&#x20;
+
+# Step 1: Create a Backup of Your Device
+
+You will first need to create a backup of your device in case you need to recover its configuration settings.&#x20;
+
+Follow the steps to :Link[Backup a Device]{docId="qpUpvf6R5mHnloXhHsMux" label="Backup a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Backup a Device"}.&#x20;
+
+# Step 2: Generate Key Certificates
+
+You will need to collect the following parameters to create the device certificate.&#x20;
+
+- **SSL Certificate**: The public key certificate associated with the device certificate. You will receive the SSL certificate from the certificate authority after submitting the Litmus Edge certificate signing request. &#x20;
+- **CA Chain**: The certificate authority's chain of certificates that validates the device certificate's public and private keys. When validating this parameter, make sure it includes all intermediate certificate authorities.&#x20;
+- **Private Key**: The private key certificate associated with the device certificate. You will receive the private key from the certificate authority after submitting the Litmus Edge certificate signing request. To successfully submit the private key, ensure the following:
+  - The private key is an RSA private key. If the private key is not RSA, you will need to convert it using openssl. You can use the following command: `openssl rsa -in <old_file_name> -out  <new_file>`.&#x20;
+  - The private key is not encrypted. If the private key is encrypted, follow up with your IT department to decrypt it.&#x20;
+
+The steps below are an example to generate certificates locally. You can obtain them from your organization’s IT department.
+
+<hint type="info">
+  **Note**: This action must be performed in a Linux system outside Litmus Edge.
+</hint>
+
+**To generate key certificates:&#x20;**
+
+1. Log in to a Linux system.
+2. Enter the following command:
+   `docker run --name servercerts -v /Users/Projects/docs/data/certificates/cert:/certs   `
+   `-e CA_EXPIRE=365 -e SSL_EXPIRE=365 -e SSL_KEY=server-key.pem -e SSL_CERT=server-cert.pem   `
+   `-e SSL_CSR=server.csr -e SSL_SUBJECT=localhost paulczar/omgwtfssl`
+3. Open the private key file in an editor of your choice to check if the key file is RSA.
+   The first line should look like this:
+   ` -----BEGIN RSA PRIVATE KEY----`
+
+# Step 3: Add the Device Certificate
+
+You will now need to add the device certificate in Litmus Edge.&#x20;
+
+**To add a device certificate:**
+
+1. Navigate to **System&#x20;**> **Network**.
+2. Click the **Certificates&#xA0;**&#x74;ab.
+3. From the *Device Certificates* section, click the **Add&#x20;**&#x69;con.
+   The *Add Certificates* dialog box appears.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cRz0CgNF8-3p93jTTDd0r_add-device-certificate.png)
+4. For **SSL Certificate**, **CA Chain**, and **Private Key** fields, do one of the following:
+   - Click the **Upload&#x20;**&#x69;con and select the certificate/key file.&#x20;
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RmBfNgqzAMPLQ3lOlb2kq_uploadcertificateparameters.png" size="80" width="1164" height="583" caption="Upload icon" position="center" showCaption="true"></Image>
+   - Paste the certificate/key into the field.&#x20;
+5. Click **Submit**.
+
+# Step 4: Restart the System
+
+The final step is to restart the system and verify the certificate appears in the *Certificates&#x20;*&#x70;ane.&#x20;
+
+**To restart the system:**
+
+1. From the *Certificates&#xA0;*&#x70;ane, navigate to **System** >**&#x20;Device Management**.
+   The *Device Management* pane appears.&#x20;
+2. From the ***Manage&#xA0;***&#x73;ection, click **Reboot**.
+   The system reboots.&#x20;
+3. Once the system has restarted, log in and navigate to **System&#x20;**>**&#x20;Network&#x20;**>**&#x20;Certificates**.
+   Verify the certificate appears.&#x20;
+

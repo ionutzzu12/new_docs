@@ -1,0 +1,127 @@
+---
+title: Visualize Data Using Grafana
+slug: rqemgKxWFFome0j_wLGjY
+description: Learn how to visualize data using Grafana. 
+docTags: 
+createdAt: Fri Apr 14 2023 19:46:08 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Grafana to visualize data in Litmus Edge.&#x20;
+
+# Step 1: Install Docker Container
+
+You have two options to install the Docker container.&#x20;
+
+## Option 1: Deploy Grafana from Litmus Edge Manager
+
+If you have access to Litmus Edge Manager (LEM), you can use LEM to deploy Grafana in your Litmus Edge instance.&#x20;
+
+**To deploy Grafana from Litmus Edge Manager:**
+
+1. In Litmus Edge Manager, follow the steps to :Link[Manage Applications]{docId="1cjuL2kjJIQEBN2kVHjp6" label="Manage Applications" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}. For Grafana, follow the steps to :Link[Deploy an Application to Edge Devices]{docId="DruoOcegNxCGi-D_5azZw" label="Deploy an Application to Edge Devices" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+   - For *Step 2: Application Settings*, if the default port number is already in use, you will need to enter another port.
+2. In Litmus Edge, navigate to **Applications&#x20;**> **Containers**.
+   The *Containers&#x20;*&#x70;ane appears.&#x20;
+3. Verify that the Grafana Docker Container is running.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/WaAOMIYw3jqvo2U3FPKiX_image.png" size="80" width="1710" height="176" caption="Operational Grafana Docker Container" position="center" showCaption="true"></Image>
+
+## Option 2: Run Grafana Container in Litmus Edge
+
+If you don't have access to Litmus Edge Manager, you can run the Grafana container in Litmus Edge.&#x20;
+
+**To run the Grafana container in Litmus Edge:**
+
+1. Navigate to **Applications&#x20;**> **Containers**.
+   The *Containers&#x20;*&#x70;ane appears.&#x20;
+2. From the *Containers* pane, click **Run**.&#x20;
+   The *Enter command to run&#x20;*&#x66;ield appears.&#x20;
+3. Enter the following Docker run command and click **Run**.
+
+```linux
+docker run -d --name=grafana --restart=always -u root -v grafana-storage:/var/lib/grafana -v grafana-config:/etc/grafana -p 3000:3000 grafana/grafana
+```
+
+&#x20;         If needed, replace `-p 3000:3000` with a different port.&#x20;
+
+&#x20;     4\. Verify that the Grafana Docker Container is running.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nDu33rzpXZih5O3N3dqYJ_image.png "Operational Grafana Docker Container")
+
+# Step 2: Access Grafana
+
+To connect to Grafana, you will use your Litmus Edge IP address and the port configured in the Grafana container.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/fd8bBffMy8AnzthY0OC16_image.png" size="80" width="1350" height="363" caption="Grafana port" position="center" showCaption="true"></Image>
+
+**To access Grafana:&#x20;**
+
+1. In a new browser window, enter the URL to connect to Grafana using this format: \[Litmus Edge IP address]:\[port]. For example, if your Litmus Edge instance uses the IP address https\://192.168.0.146, and the Grafana container uses port 3000, enter **192.168.0.146:3000**.
+   The Grafana login screen appears.&#x20;
+2. Enter **admin&#x20;**&#x61;s the username and password, and then change the password.
+   The *Grafana Home&#x20;*&#x73;creen appears.&#x20;
+
+# Step 3: Set up Database
+
+Grafana needs a database to extract from to display results. Litmus Edge allows you to configure the internal timeseries database (tsdata) to connect to Grafana.
+
+You also have the option to set up a database to your specific requirements.&#x20;
+
+## Step 1: Create DB User
+
+You will need to create a user that has read access to the database.
+
+**To create a DB user:**
+
+1. In Litmus Edge, navigate to **DataHub&#x20;**> **DB Users**.&#x20;
+2. Click the **Add user** icon.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/87yrHqM7VDvqiMyQcsDE5_add-user.png" size="80" width="1031" height="383" caption="The Add user icon" position="center" showCaption="true"></Image>
+3. Configure the user details.&#x20;
+   - **Username**
+   - **Password**: Copy and save this for later use.&#x20;
+   - **Database**: Select **tsdata**.&#x20;
+   - **Privilege**: Select **Read**.&#x20;
+4. Click **Add User**.&#x20;
+
+## Step 2: Ensure Database Has a Measurement
+
+The database will not connect successfully to Grafana unless at least one measurement is in the database.&#x20;
+
+To confirm if the database has a measurement, navigate to **DataHub&#x20;**> **DB Management** and click the arrow to expand the tsdata database.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/QHmEBSDbk3KSmAlPxduy__image.png" size="80" width="1133" height="456" caption="Expand the tsdata database" position="center" showCaption="true"></Image>
+
+If there are no measurements listed, follow the steps below.&#x20;
+
+### Step 2a: Connect Device
+
+Follow the steps to [Connect a Device](<../../../Product Features/DeviceHub/Devices/2QO5xh8wBeO2UG92F3hbM.mdx>) and do the following:
+
+- Select the Device Type **Simulator&#x20;**&#x61;nd the Driver Name **Generator**.&#x20;
+- Select the **Enable Data Store** check box in the device configuration.&#x20;
+- Enter a value in the **Retention Hours** field.&#x20;
+
+### Step 2b: Add Tag to Device
+
+Follow the steps to :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} and add at least one tag to the device you created.&#x20;
+
+After connecting the device and adding the tag, navigate to **DataHub&#x20;**> **DB Management** and click the arrow to expand the tsdata database again to confirm a measurement is now available.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/w3I4oxDdUWezec3DTR1eS_image.png" size="80" width="1133" height="465" caption="tsdata measurement" position="center" showCaption="true"></Image>
+
+# Step 4: Add a Data Source in Grafana
+
+You will need to add a data source in Grafana that connects to the database you created. See the :Link[Influx data source]{href="https://grafana.com/docs/grafana/latest/datasources/influxdb/" newTab="true"} documentation from Grafana to learn more.&#x20;
+
+When configuring the data source, do the following:
+
+- Select the **InfluxDB** time-series database.&#x20;
+- In the **URL&#x20;**&#x66;ield, enter `http://10.30.50.1:8086`. 10.30.50.1 is the IP address of Litmus Edge on the internal docker network by default.&#x20;
+- In the **Database&#x20;**&#x66;ield, enter `tsdata`.&#x20;
+- In the **User&#x20;**&#x66;ield, enter the username you configured for the DB user in Litmus Edge. &#x20;
+- In the **Password&#x20;**&#x66;ield, paste or enter the password you configured for the DB user in Litmus Edge.&#x20;
+
+# Step 5: Add a Dashboard in Grafana
+
+Now that the database is successfully connected to Grafana, you can start visualizing the data by using a dashboard. See the :Link[Create a dashboard ]{href="https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/" newTab="true"}documentation from Grafana to learn more.&#x20;
+

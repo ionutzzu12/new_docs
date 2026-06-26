@@ -1,0 +1,84 @@
+---
+title: Site and Node-Locked License Overview for Litmus Edge
+slug: 9xnhAhQ2kQlYEnzkHVPos
+description: Review the differences between site and node-locked licenses.
+docTags: 
+createdAt: Thu Mar 09 2023 22:50:23 GMT+0200 (Eastern European Standard Time)
+---
+
+For a Litmus Edge instance to be able to fully access and use all features, it must carry a license. This license can be a site license or a node-locked license.&#x20;
+
+For information about Litmus Edge Manager licenses, see :Link[Site and Node-Locked License Overview for Litmus Edge Manager]{docId="Jvibd0MBSj97ZcPDfhab9" label="Site and Node-Locked License Overview for Litmus Edge Manager" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+# Understanding and Adding a Site License for Litmus Edge
+
+For a Litmus Edge to carry a site license, you will need a connection with a license server. The Litmus Edge can connect to Litmus Edge Manager (which contains an embedded license server that the Litmus Edge will automatically connect to) or a standalone license server. See [License Server Installation](<../ENU/QuickStart Guide/NyWAQm5OPiDJ27ioRlTW6/LjAvdcvRlU9s3MbVum-Iz.mdx>) for details.
+
+The license server contains Litmus Edge site licenses. While a connection between a Litmus Edge and a license server (whether standalone or within a Litmus Edge Manager) is established, the license server will continue to provide a site license to a Litmus Edge instance. If the connection between the Litmus Edge and the license server is lost, the Litmus Edge instance will lose its license as well.
+
+A site license, depending on its constituent features, may act both as a Litmus Edge site license and also a Litmus Edge Manager site license.
+
+To retrieve a site license from a license server for Litmus Edge, see [Set a License Server](<../ENU/ENU/Product Features/System/iHQKLbDMiX3GEgZ1pBTFr/j9YIvESKKiKALBjUoR8oW/3fxmqSmDrv3WUpUrC662I.mdx>).
+
+## Litmus Edge Manager License Server for Litmus Edge
+
+The Litmus Edge Manager License Server provides site licenses to Litmus Edge instances. This server can also provide the Litmus Edge Manager with its own site license. See :Link[License Server Management]{docId="5U_hNNsaVs--E5HQJEQ0O" label="License Server Management" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more information on how to customize the site licenses that Litmus Edge instances will receive from Litmus Edge Manager.
+
+# Understanding and Adding a Node-Locked License for Litmus Edge
+
+For a Litmus Edge to carry a node-locked license, you will need a license key. The key will be a 16-digit code (`####-####-####-####`) that is valid for certain number of years, based on the license SKU definition. The node-locked license key can be requested from Litmus account executives.&#x20;
+
+To access the Litmus Edge system, a core license must be present in Litmus Edge. You can expand the features available to you by adding appropriate node-locked licenses.&#x20;
+
+<hint type="warning">
+  **Important**: Each node-locked license key is bound to a Litmus Edge MAC address. If the MAC address is changed, the license key will be invalidated.
+</hint>
+
+A Litmus Edge node-locked license key cannot be used as a Litmus Edge Manager node-locked license key.
+
+To add a node-locked license for Litmus Edge, see one of the following:
+
+- [Activate a Node-Locked License Online](<../Product Features/System/Activation/Licenses/Online Node-Locked License Activations/FgyvwsFVYPsXAiZyD3Mle.mdx>)
+- [Activate a Node-Locked License Offline](<../ENU/ENU/ENU/Product Features/System/iHQKLbDMiX3GEgZ1pBTFr/j9YIvESKKiKALBjUoR8oW/SSfTZ7pDrrfVO7Cu8iGi7/C0s5rsUkwZpQoqZ71t8uQ.mdx>)
+
+# Litmus Edge Site Licenses and Node-Locked Licenses Compared
+
+<table columnWidths="311" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Site License**
+    </td>
+    <td>
+      **Node-Locked**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Requires a continuous connection to a license server or a Litmus Edge Manager to activate and use the license.
+    </td>
+    <td>
+      Online activation requires Litmus Edge to briefly access the internet to activate the license. After activation, no internet access for Litmus Edge is needed to retain and use the license.
+      Offline activation doesn't require Litmus Edge to have an internet connection to use the license. However, you will need access to the internet (for example, on a different web browser window) during activation to retrieve the license.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Activated through a license server and can be shared across multiple Litmus Edge instances.
+      The site license SKU defines the features that are available in each activated Litmus Edge.&#x20;
+    </td>
+    <td>
+      Depending on the specific details of your license, a node-locked license can be added to multiple Litmus Edge instances.
+      The license is registered to every Litmus Edge instance it is activated with.&#x20;
+      The node-locked license SKU defines the features that are available in Litmus Edge.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Can be upgraded with additional features/capabilities.
+    </td>
+    <td>
+      Can be upgraded with additional features/capabilities.
+    </td>
+  </tr>
+</table>
+

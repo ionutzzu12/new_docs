@@ -1,0 +1,39 @@
+---
+title: Base Conversion
+slug: base-conversion
+docTags: 
+createdAt: Tue Aug 06 2024 22:34:49 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Base Conversion** processor allows you to convert a number from one numeral system to another.&#x20;
+
+You have the following base conversion options:
+
+- decimal -> binary&#x20;
+- decimal -> hexaDecimal&#x20;
+- decimal -> octaDecimal&#x20;
+- binary -> decimal
+- octaDecimal -> decimal&#x20;
+- hexaDecimal -> decimal
+
+## Base Conversion Overview
+
+- With this function, you can convert the base from decimal to binary, decimal to HexaDecimal, decimal to OctaDecimal, and the other way around as well.
+- For conversion of various units to decimal, it is expected that the input is a string:
+  - Your input needs to have a field named **value** if you are converting from binary/ octadecimal/ hexadecimal to decimal.
+- If 12 is the input in decimal place, the output of decimal -> hexadecimal would be "c"
+- If 12 is the input in decimal place, the output of decimal -> binary would be "1100"
+
+## Base Conversion Parameters
+
+| **Parameters**     | **Details**                                                                                                                                                                                               |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Conversion         | This parameter specifies the type of conversion you want to perform, such as decimal to binary, decimal to hexadecimal, decimal to octal, binary to decimal, octal to decimal, or hexadecimal to decimal. |
+| Pass Through Value | This parameter allows you to specify how to handle anomalous data. You can choose to replace the current value with an anomaly field if any anomalous data is detected during the conversion process.     |
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ya-zCQWvSuWtWjc4r20Wg_image.png" size="80" width="960" height="588" caption="Base Conversion parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Base Conversion&#x20;*&#x70;rocessor, refer the :Link[Use the Base Conversion Function]{label="Use the Base Conversion Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="anfrojM7dVGb7UbK-WmzO" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

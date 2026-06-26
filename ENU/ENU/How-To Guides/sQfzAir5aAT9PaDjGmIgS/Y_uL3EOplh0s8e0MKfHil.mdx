@@ -1,0 +1,165 @@
+---
+title: Use the Change Processor Function
+slug: Y_uL3EOplh0s8e0MKfHil
+description: Learn how to use the Moving Window statistical function in Analytics. 
+docTags: 
+createdAt: Mon Jan 22 2024 18:23:51 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use the Change Processor Function to alter incoming messages based on specific parameters and requirements. You can assign new values, update existing information, or restructure data for better organization.&#x20;
+
+This guide explains the different operational modes in the Change Processor Function using a real-world scenario with tags and devices in Litmus Edge.
+
+# Understanding Different Modes in Change Processor Function
+
+The Change Processor Function offers several operational modes, each tailored for specific types of modifications:
+
+1. **Set Mode**: This mode lets you directly replace a specified field's value. When the Change mode is set to "set," the input value overwrites the existing content in the designated message field.
+2. **Change Mode**: This mode enables complex string manipulations. It operates differently depending on the data type of the input field:
+   - For **string or JSON** fields, it will search for all occurrences of the specified Value within the field and replace them with the Replace Value. Both Value and Replace Value will be treated as strings during this operation.
+   - For other data types, the processor looks for an exact match between the Value and the field. If a match is found, the field content will be replaced with the Replace Value.
+3. **Delete Mode**: This mode is used to remove specified values from the input field entirely. When set to "delete," it eliminates the designated content.
+4. **Move Mode**: This mode takes the modified content from one field and relocates it to another field within the same message.&#x20;
+
+# **User Scenario**
+
+Review the following scenario for the change processor function. Then, you will simulate PLC data and modify incoming messages using different modes of change processor function.
+
+In a manufacturing facility, a sensor sends messages \['heat', 'humidity', 'temperature'] with machine status reports. A technician can use the Change Processor Function to optimize this data in the following way:
+
+- In **Set Mode**, they update the *deviceName* field from "Test Device" to "Validation Device" during production runs.&#x20;
+- In **Change Mode**, they replace all occurrences of "heat" with "Heating Problem" in maintenance reports.&#x20;
+- In **Delete Mode**, they remove outdated *deviceID* field that no longer apply.&#x20;
+- In **Move Mode**, they transfer the updated values from the *Value* field to a new *Updated Values* field.&#x20;
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../../Product Features/DeviceHub/Devices/2QO5xh8wBeO2UG92F3hbM.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. Only one tag will be used for simulating the different Switch processor outputs mentioned above.
+
+## **Tag 1: TT1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **string**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **TT1**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created. Choose the appropriate step from 3a, 3b, 3c, or 3d based on the desired mode of the Change Processor Function.
+
+**To create an analytics flow with the Change Processor function:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **TT1&#x20;**&#x74;ag.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png" size="80" width="1142" height="604" position="center" caption="Create a Processor dialog box" showCaption="true"></Image>
+5. Click **Save**.
+
+## Step 3a: Configure Set Mode
+
+1. Click **Add processor** again and select **Change**.
+   The following information defines this function:
+   - **Mode**: Select **set&#x20;**&#x66;rom the drop-down menu.
+   - **Input Field**: Enter **deviceName**.
+   - **Input Value Type:&#x20;**&#x53;elect **string&#x20;**&#x66;rom the drop-down menu.
+   - **Input Value:** Enter **Test Validation**.
+2. Click **Save**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/IWXANVuT9NscCW9fVk0X2_image.png" size="60" width="741" height="978" position="center" showCaption="false"></Image>
+3. Connect the DataHub Subscribe processor (tag: *TT1)* to the Change processor with a wire and use the **events&#x20;**&#x63;onnection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CjqEFCOejalceQ1HuS56c_image.png" size="80" width="631" height="271" position="center" caption="Completed Switch flow canvas" showCaption="true"></Image>
+
+## Step 3b: Configure Change Mode
+
+1. Click **Add processor** again and select **Change**.
+   The following information defines this function:
+   - **Mode**: Select **change** from the drop-down menu.
+   - **Input Field**: Enter **value**.
+   - **Input Value Type:&#x20;**&#x53;elect **string&#x20;**&#x66;rom the drop-down menu.
+   - **Input Value:** Enter **heat**.
+   - **Replace With Value Type:&#x20;**&#x53;elect **string&#x20;**&#x66;rom the drop-down menu.
+   - **Replace With Value:&#x20;**&#x45;nter **Heating Problem.**
+2. Click **Save**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/w551R_h0MhZjBfu5hToI6_image.png" size="60" width="751" height="980" position="center" showCaption="false"></Image>
+3. Connect the DataHub Subscribe processor (tag: *TT1*) to the Change processor with a wire and use the **events&#x20;**&#x63;onnection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CjqEFCOejalceQ1HuS56c_image.png" size="80" width="631" height="271" position="center" caption="Completed Switch flow canvas" showCaption="true"></Image>
+
+## Step 3c: Configure Delete Mode&#x20;
+
+1. Click **Add processor** again and select **Change**.
+   The following information defines this function:
+   - **Mode**: Select **delete&#x20;**&#x66;rom the drop-down menu.
+   - **Input Field**: Enter **deviceID**.
+   - **Input Value Type:&#x20;**&#x53;elect **unit&#x20;**&#x66;rom the drop-down menu.
+2. Click **Save**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/pdxuL5mBTcdZgNj48xhUg_image.png" size="60" width="750" height="980" position="center" showCaption="false"></Image>
+3. Connect the DataHub Subscribe processor (tag: *TT1*) to the Change processor with a wire and use the **events&#x20;**&#x63;onnection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CjqEFCOejalceQ1HuS56c_image.png" size="80" width="631" height="271" position="center" caption="Completed Completed Switch flow canvasflow canvas" showCaption="true"></Image>
+
+## Step 3d: Configure Move Mode&#x20;
+
+1. Click **Add processor** again and select **Change**.
+   The following information defines this function:
+   - **Mode**: Select **move&#x20;**&#x66;rom the drop-down menu.
+   - **Input Field**: Enter **value**.
+   - **Input Value Type:&#x20;**&#x53;elect **string&#x20;**&#x66;rom the drop-down menu.
+   - **Move To Field:&#x20;**&#x45;nter **Updated Value.**
+2. Click **Save**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/kyNUTkI9HXtiWPMUbQp6M_image.png" size="60" width="753" height="980" position="center" showCaption="false"></Image>
+3. Connect the DataHub Subscribe processor (tag: *TT1*) to the Change processor with a wire and use the **events&#x20;**&#x63;onnection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CjqEFCOejalceQ1HuS56c_image.png" size="80" width="631" height="271" position="center" caption="Completed Completed Switch flow canvasflow canvas" showCaption="true"></Image>
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Change&#x20;*&#x70;rocessor to view the output values.
+
+## View Set Mode Output
+
+The Set mode assigns the **Test Validation&#x20;**&#x73;tring to the *deviceName&#x20;*&#x66;ield.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/gZr4Bn7N50JjPTrZZo7Bs_image.png)
+
+## View Change Mode Output
+
+The Change mode switches the occurrence of *heat&#x20;*&#x73;tring in the *Value&#x20;*&#x66;ield with the **Heating Problem**.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Fe_iuSB1m6qtm1_8L-LIN_image.png)
+
+## View Delete Mode Output
+
+The Delete mode removes the *deviceID&#x20;*&#x66;ield from the message.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/fgEA61CfQtYvr_HOhj8l4_image.png)
+
+## View Move Mode Output
+
+The Move mode transferred the *Value&#x20;*&#x66;ield to the new **Updated Values** field in the message.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6oMx7iBXvYdQWUgNbAnYJ_image.png)
+

@@ -1,0 +1,433 @@
+---
+title: Koyo Ethernet (Gen1.3) (3.24.0)
+slug: koyo-ethernet-gen13-3240
+docTags: 
+createdAt: Mon Oct 16 2023 17:34:22 GMT+0300 (Eastern European Summer Time)
+---
+
+[https://litmusautomation.atlassian.net/wiki/spaces/PROD/pages/4451893249/Koyo+Ethernet+Gen+1.3+driver+testing](https://litmusautomation.atlassian.net/wiki/spaces/PROD/pages/4451893249/Koyo+Ethernet+Gen+1.3+driver+testing)
+
+Review the following information for setting up and configuring the Koyo Ethernet (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="229,391" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Koyo DirectLogic Series&#x20;
+      :Link[Automation Direct DirectLogic PLC Series]{href="https://www.automationdirect.com/adc/overview/catalog/programmable_controllers/directlogic_plcs_(micro_to_small,_brick_-a-_modular)?gclid=CjwKCAjwq-WgBhBMEiwAzKSH6CBiyKAdShGTwXSUtgzDLhYfK7y-0u1z0p6V5wzVcfCztV1oL9k03BoCJugQAvD_BwE#bodycontentppc" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use DirectSoft6 V6.1 software to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="174,394" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Koyo
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Koyo Ethernet (Gen1)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      428784
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<table columnWidths="83,110,107,88,87,100,100" isTableHeaderOn="true" selectedRows="" selectedColumns="" selectedTable="false">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CCM\_31
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      HHHH
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      17056
+    </td>
+    <td>
+      V
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CCM\_32
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      HHH
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      512
+    </td>
+    <td>
+      GX, X, SP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CCM\_33
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      HHH
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      832
+    </td>
+    <td>
+      GY,Y,C,S,T,CT
+    </td>
+  </tr>
+  <tr>
+    <td>
+      V
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      17055
+    </td>
+    <td>
+      V-memory
+    </td>
+  </tr>
+  <tr>
+    <td>
+      GX
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2047
+    </td>
+    <td>
+      Global I/O
+    </td>
+  </tr>
+  <tr>
+    <td>
+      X
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      1023
+    </td>
+    <td>
+      Real Word Inputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SP
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      1023
+    </td>
+    <td>
+      Special Purpose Relays
+    </td>
+  </tr>
+  <tr>
+    <td>
+      GY
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2047
+    </td>
+    <td>
+      More Global I/O
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Y
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      1023
+    </td>
+    <td>
+      Real Word Outputs
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      1023
+    </td>
+    <td>
+      Control Relays
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      1023
+    </td>
+    <td>
+      Stage Status Bits
+    </td>
+  </tr>
+  <tr>
+    <td>
+      T
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Timer Status Bits
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CT
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Counter Status Bits
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="A0mW7eFUiB6dsJkAOu4YV">
+
+</ContentSnippet>
+

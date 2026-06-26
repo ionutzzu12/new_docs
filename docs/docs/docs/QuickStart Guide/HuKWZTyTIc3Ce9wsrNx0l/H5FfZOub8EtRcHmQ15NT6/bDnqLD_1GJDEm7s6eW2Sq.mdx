@@ -1,0 +1,48 @@
+---
+title: ESXi OVA
+slug: bDnqLD_1GJDEm7s6eW2Sq
+description: You can use VMware ESXi to install Litmus Edge with an OVA file.
+docTags: 
+createdAt: Wed Apr 06 2022 18:12:03 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use VMware ESXi to install Litmus Edge with an OVA file.
+
+# Before You Begin
+
+- Prepare your environment for running virtualization by using VMWare ESXi.&#x20;
+  - Review :Link[Verified VM Versions]{docId="zp1pb5sr6FQFVd-rwiWeG" label="Verified VM Versions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" overridedLabel="Verified VM Versions"} and confirm the correct version to download. See :Link[VMWare]{href="https://www.vmware.com/worldwide.html" newTab="true" hasDisabledNofollow="false"}.&#x20;
+  - The virtual machine will run on the same physical network card as the host environment. To ensure that the device can communicate with data sources such as PLC, DCS or CNC and can be accessed through the Web UI, make sure that communication can be established.
+- Adjust the system clock for the host environment prior to installing Litmus Edge. UTC is recommended. The 15-day trial period may be rejected and invalidated by the license server if the system clock is not adjusted. If this happens, contact your Litmus representative.
+
+To use ESXi to install Litmus Edge, you will need to do the following.&#x20;
+
+- Step 1: Create a Virtual Machine
+- Step 2: Log in to Litmus Edge&#x20;
+
+To jump to a specific section, refer to the Table of Contents on the right side and click the corresponding step.&#x20;
+
+# Step 1: Create Virtual Machine
+
+You will first need to create the virtual machine that will run Litmus Edge.&#x20;
+
+**To create the virtual machine:**
+
+1. Log in to VMware ESXi and click **Create a new virtual machine**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/rld5GE2jkKtFYzr39rU7Y_esxi01.png" size="80" width="1207" height="749" caption="Select creation type screen" position="center" showCaption="true"></Image>
+2. Enter a name for the virtual machine in the field, select the OVA file, and then click **Next**.
+3. Apply storage settings, and then click **Next**.&#x20;
+4. Agree to license, and the click **Next**.&#x20;
+5. Apply deployment settings, and then click **Next**.&#x20;
+6. Apply network settings, and then click **Next**.&#x20;
+7. Review your settings, and then click **Finish**.&#x20;
+
+<hint type="danger">
+  **Known Issue:&#x20;**&#x57;hen importing ESXi image using vSphere client (Windows). Refer to the solution from [VMware Customer Connect](https://kb.vmware.com/s/article/2151537).
+</hint>
+
+# Step 2: Log in to Litmus Edge
+
+- See [Access the Litmus Edge Web UI](<../../../../../QuickStart Guide/i861oBtdL-QNxXTt1b3ga.mdx>) for details on logging in.&#x20;
+- See [Access the Terminal User Interface](<../../../../QuickStart Guide/i861oBtdL-QNxXTt1b3ga/5PyFNXl3KcBVdtEAu9mNi.mdx>) for instructions on how to navigate and log in for the first time.
+

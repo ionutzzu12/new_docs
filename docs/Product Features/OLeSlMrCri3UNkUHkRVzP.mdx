@@ -1,0 +1,146 @@
+---
+title: Dashboard
+slug: OLeSlMrCri3UNkUHkRVzP
+description: The dashboard contains statistics about the whole system. This information is on the operational network and is completely offline.
+docTags: 
+createdAt: Thu Mar 31 2022 00:08:24 GMT+0300 (Eastern European Summer Time)
+---
+
+The Dashboard gives you a real-time view of your Litmus Edge instance. The Dashboard displays system statistics, connected device and tag counts, message broker activity, and the health of running modules all in one place. This information is on the operational network and is completely offline.
+
+Once you connect devices to Litmus Edge, you can use the Dashboard to monitor the overall health and activity of your system.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Ve7Y2RP2Ri8NyeuALaVJY_image.png" size="80" width="1908" height="848" darkWidth="1908" darkHeight="848" position="flex-start" caption="The Litmus Edge dashboard" showCaption="true"></Image>
+
+# Dashboard Data
+
+<table isTableHeaderOn="true" columnWidths="274,341" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Action**
+    </td>
+    <td align="left">
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[1] **Device Time** and **Up Time**
+    </td>
+    <td align="left">
+      *Device Time* displays the time zone configured for the Litmus Edge instance. See [Set Timezone](). *Up Time* displays how long the instance has been running without a disconnection.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[2] **Devices & Tags**
+    </td>
+    <td align="left">
+      The number of connected devices and tags on your system.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[3] **Message Broker & Routing**
+    </td>
+    <td align="left">
+      Collected data is normalized or standardized and then published to the local message broker. This section displays the message rate of this process.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[4] **Data Processing & Analytics**
+    </td>
+    <td align="left">
+      The number of flows, analytics flows, and groups that are running.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[5] **Edge Applications**
+    </td>
+    <td align="left">
+      The number of installed applications. These applications are localized applications and containers.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[6] **Integrations**
+    </td>
+    <td align="left">
+      The total number of integrations and remotely connected networks.
+    </td>
+  </tr>
+</table>
+
+# Dashboard Charts
+
+The Dashboard includes preset charts that display system performance data over time. Hover your cursor horizontally over the charts to view data for additional dates.
+
+## CPU Utilization
+
+Displays the usage of processing resources over time for the IUD Gateway, industrial PCs, all virtual machines, and the user.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/FOVSTWAfQlgxjOgZSSqKu_image.png" size="80" width="796" height="482" darkWidth="796" darkHeight="482" position="flex-start" caption="CPU Utilization over last 5 minutes" showCaption="true"></Image>
+
+## Memory Load
+
+Displays the memory usage for the system over time.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/5QqGATtMHdhMUP9W7AcCf_image.png" size="80" width="773" height="475" darkWidth="773" darkHeight="475" position="flex-start" caption="Memory Load over last 5 minutes" showCaption="true"></Image>
+
+## Network Utilization
+
+Displays the received and transmitted network speed in MBPS (MegaBits Per Second) over time.
+
+<Image src="https://images.archbee.com/SSUUxKZUk9bFTEPNn_6Zo/gapI9EwdKCVI5Z4sRmViV_image.png?format=webp" size="80" width="800" height="484" position="flex-start" darkWidth="800" darkHeight="484" showCaption="false"></Image>
+
+# Module Status
+
+At the bottom of the dashboard, status indicators show the health of the modules included in your plan. Hover over each indicator to see the module version. Each indicator displays a colored circle reflecting the online status of the selected module.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/3UI0IV9u42L7ERFWoN-pL_image.png" size="80" width="1747" height="218" darkWidth="1747" darkHeight="218" position="flex-start" caption="Hovering Flows Manager displays Version: 1.5.1" showCaption="true"></Image>
+
+<table isTableHeaderOn="true" columnWidths="145,470" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Color**
+    </td>
+    <td align="left">
+      **Health**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Green
+    </td>
+    <td align="left">
+      Services are up
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Red
+    </td>
+    <td align="left">
+      Services are down
+    </td>
+  </tr>
+</table>
+
+Next to the indicators you can view your Storage utilization.
+
+# Considerations
+
+- The Dashboard operates on the operational network and is completely offline.
+- Charts display data for the last 5 minutes by default.
+- The Dashboard becomes meaningful once you have connected devices and tags in DeviceHub.
+
+# Related Topics
+
+- [DeviceHub]()
+- [Flows Manager]()
+- [Analytics]()
+- [Applications]()
+- [Integration]()
+- [Set Timezone]()

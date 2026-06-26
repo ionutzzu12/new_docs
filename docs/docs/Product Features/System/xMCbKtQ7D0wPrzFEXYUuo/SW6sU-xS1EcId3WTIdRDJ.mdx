@@ -1,0 +1,57 @@
+---
+title: Manage Static Routes
+slug: SW6sU-xS1EcId3WTIdRDJ
+description: Learn how to manage static routes in Litmus Edge. 
+docTags: 
+createdAt: Thu Dec 14 2023 16:32:05 GMT+0200 (Eastern European Standard Time)
+---
+
+You can manage static routes by navigating to **System&#x20;**> **Network&#x20;**&#x61;nd clicking the **Routes&#x20;**&#x74;ab.&#x20;
+
+This feature allows you to control the routing of messages in a complex network with multiple interfaces and gateways.
+
+The **Routes&#x20;**&#x70;ane allows you to do the following:
+
+- Review the list of current static routes.&#x20;
+- Add new static routes.&#x20;
+- Edit  and remove static routes.&#x20;
+
+You can review any static route changes in **System&#x20;**> **Events**.&#x20;
+
+You can also configure static routes in the Terminal User Interface (TUI) or through REST API. See [Access the Terminal User Interface](<../../../QuickStart Guide/i861oBtdL-QNxXTt1b3ga/5PyFNXl3KcBVdtEAu9mNi.mdx>) to learn more.&#x20;
+
+# Important
+
+- After adding a static route, the change takes place immediately without the need to reboot Litmus Edge.&#x20;
+- Only IPv4 and IPv6 routes are supported.&#x20;
+- Only Admin users are able to add static routes. See [Access Control](<../../../../Product Features/System/p7VvH_IUspONeYl_U0xR5.mdx>) to learn more.&#x20;
+
+# Add Static Route
+
+<hint type="warning">
+  **Warning**: Incorrect static routes can disconnect your network access to this device. Please add or modify routes with caution. See the *Troubleshooting&#x20;*&#x73;ection below.&#x20;
+</hint>
+
+**To add a static route:&#x20;**
+
+1. Navigate to **System&#x20;**> **Network** and click the **Routes&#x20;**&#x74;ab.&#x20;
+2. Click **Add**.
+   The *Add Static Route* dialog box displays.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/OH-gwzAs7oVMgTZKQIuDl_add-static-route.png)
+3. Configure the parameters for the static route.&#x20;
+   - **Destination Address / Subnet**: Enter the destination address/subnet using CIDR notation for the IPv4 address and subnet mask. Use the following format: 0.0.0.0/0
+   - **Gateway**: Enter the next hop for the route as an IPv4 address in the following format: 0.0.0.0&#x20;
+   - **Metric**: Enter a number (unsigned 32-bit integer) between 1 and 4294967295. This value is the cost metric of this static route. When a destination address has multiple routes, the route with the lower metric will be prioritized.
+   - **LAN Interface**: Select the appropriate network interface for routing the message.&#x20;
+4. Click **Add**.&#x20;
+
+# Manage Static Routes
+
+To manage port rules, click the **Action menu&#x20;**&#x66;or a static route.&#x20;
+
+- **Edit**: Update the route.&#x20;
+- **Delete**: Remove the route. &#x20;
+
+# Troubleshooting
+
+If you configure an incorrect static route and lose network access to the Litmus Edge Web UI, you will need to access the Litmus Edge Terminal User Interface (TUI) locally to re-configure the static routes correctly. See [Access the Terminal User Interface](<../../../QuickStart Guide/i861oBtdL-QNxXTt1b3ga/5PyFNXl3KcBVdtEAu9mNi.mdx>) to learn more.&#x20;

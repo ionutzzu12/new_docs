@@ -1,0 +1,114 @@
+---
+title: Establishing an LE-LEM Connection from Litmus Edge
+slug: xvOMHvZEtLRDcSEe1ot2o
+description: Learn how to successfully set up a connection between Litmus Edge and Litmus Edge Manager.
+docTags: 
+createdAt: Thu Jan 26 2023 21:37:40 GMT+0200 (Eastern European Standard Time)
+---
+
+A Litmus Edge (LE)-Litmus Edge Manager (LEM) connection is a persistent, secure channel between Litmus Edge and Litmus Edge Manager. It enables centralized remote management of the gateway, including activation, credential provisioning, and forwarding of metrics and events to Litmus Edge Manager.
+
+The connection uses two ports for establishment: port 443/TCP for the initial activation handshake and port 51820/UDP for the permanent bi-directional remote access tunnel. An optional third port (8883/TCP) supports ongoing MQTT data transmission after the connection is in place.
+
+<hint type="info">
+  **Note:** For details on the Litmus Edge Manager port customization for this connection, see :Link[Establishing a Litmus Edge-Litmus Edge Manager Connection: From the Litmus Edge Manager Side]{docId="07fCvAm4NfT3dW1_5LWJF" label="Establishing a Litmus Edge-Litmus Edge Manager Connection: From the Litmus Edge Manager Side" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="Establishing a Litmus Edge-Litmus Edge Manager Connection: From the Litmus Edge Manager Side"}.
+</hint>
+
+## Core Components
+
+<table isTableHeaderOn="true" columnWidths="339,659" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Component
+    </td>
+    <td align="left">
+      Role
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Litmus Edge**
+    </td>
+    <td align="left">
+      The edge gateway. Initiates all connections outbound to Litmus Edge Manager
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Litmus Edge Manager**
+    </td>
+    <td align="left">
+      The centralized management platform. Receives and approves connections
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Port 443/TCP (HTTPS)**
+    </td>
+    <td align="left">
+      Initial activation channel
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Port 51820/UDP (Remote Access)**
+    </td>
+    <td align="left">
+      Permanent bidirectional management tunnel
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Port 8883/TCP (MQTT SSL)**
+    </td>
+    <td align="left">
+      Ongoing metrics and event data transmission (optional)
+    </td>
+  </tr>
+</table>
+
+## Connection Sequence
+
+The following steps describe how Litmus Edge initiates and establishes its connection with Litmus Edge Manager. From the Litmus Edge side, the key actions are entering the activation URL and code (step 1) and confirming the permanent connection once it is established (step 7).
+
+1. Litmus Edge user enters activation URL and activation code. See *Step 2: Create an Activation Request in Litmus Edge* section of :Link[Activate an Edge Device]{docId="tDJ648wJgATVqzyx79UwB" label="Activate an Edge Device" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details.
+2. Litmus Edge attempts to establish an initial connection with inbound port 443/TCP (HTTPS) of Litmus Edge Manager.
+3. Litmus Edge Manager receives the connection at its inbound port 443/TCP (HTTPS).
+4. Litmus Edge sends an activation request that is received and approved by Litmus Edge Manager. See *Step 3: Approve the Activation Request in Litmus Edge Manager* section of :Link[Activate an Edge Device]{docId="tDJ648wJgATVqzyx79UwB" label="Activate an Edge Device" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details.
+   - Litmus Edge sends activation requests on port 443/TCP of Litmus Edge Manager.
+   - Litmus Edge Manager user accepts the activation request in UI.
+   - Litmus Edge Manager responds to the activation request with Litmus Remote credentials.
+5. Litmus Edge attempts to establish a permanent connection with inbound port 51820/UDP (Remote Access) of Litmus Edge Manager.
+6. Litmus Edge Manager receives the connection at inbound port 51820/UDP (Remote Access).
+7. Litmus Edge confirms the permanent connection with Litmus Edge Manager.
+8. The permanent connection becomes a secure two-way (bi-directional) connection. Both Litmus Edge and Litmus Edge Manager use Litmus Edge Manager's inbound port 51820/UDP (Remote Access) to communicate with each other.
+
+## Port Requirements: Litmus Edge
+
+Configure the following outbound ports on Litmus Edge:
+
+- Open outbound port 443/TCP to reach Litmus Edge Manager (activation).
+- Open outbound port 51820/UDP to reach Litmus Edge Manager (permanent connection).
+- Open outbound port 8883/TCP to reach Litmus Edge Manager (MQTT data, if enabled).
+
+## Data Transmission: Default MQTT SSL Connector
+
+After a Litmus Edge-Litmus Edge Manager connection has been established, Litmus Edge Manager can receive  :Link[metrics]{docId="XZ4oKukesfg7rDekrLhPU" label="Metrics" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="metrics"} data or :Link[events]{docId="Qh9PnCUT-G1k_Lz9p4-m3" label="Events" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="events"} data (enabling event forwarding is needed) from a Litmus Edge instance. For Litmus Edge Manager to receive the data, the Litmus Edge instance must enable its Default Generic MQTT SSL Connector (:Link[Integration]{docId="WrN1886Y83l5nDrf5_zCO" label="Integration" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Integration"}). Once the connector is enabled, the Litmus Edge instance attempts to reach a connection at Litmus Edge Manager's inbound port 8883/TCP.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AQnP0LEX1-NqrSSDzDUiD_le-lem-connection.png" size="80" isUploading="false" width="1936" height="1129" darkWidth="1936" darkHeight="1129" position="flex-start" showCaption="false"></Image>
+
+<hint type="info">
+  **Note:** Ports 443 and 51820 are required for establishing the initial connection. Port 8883 is used for ongoing data transmission once the connection is in place. For additional details about each port, see :Link[Firewall Port Configuration Requirements]{label="System Requirements" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="gLtPRe4J7Pwurbmrvqca7" version="v2" docAnchorId="#firewall-port-configuration-requirements" loadingMethod="dynamic" overridedLabel="Firewall Port Configuration Requirements"}.
+</hint>
+
+## Limitations and Considerations
+
+- Ports 443 and 51820 must be reachable outbound before activation can begin. The connection cannot be established if either port is blocked.
+- The MQTT data channel (port 8883) is independent from the management connection and must be explicitly enabled via the Default Generic MQTT SSL Connector.
+- Litmus Edge does not require any inbound ports for its management connection with Litmus Edge Manager.
+
+## Related Topics
+
+- :Link[Activate an Edge Device]{docId="tDJ648wJgATVqzyx79UwB" label="Activate an Edge Device" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+- :Link[Firewall Port Configuration Requirements]{label="System Requirements" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="gLtPRe4J7Pwurbmrvqca7" version="v2" docAnchorId="#firewall-port-configuration-requirements" loadingMethod="dynamic" overridedLabel="Firewall Port Configuration Requirements"}
+- :Link[Integration]{docId="WrN1886Y83l5nDrf5_zCO" label="Integration" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Integration"}

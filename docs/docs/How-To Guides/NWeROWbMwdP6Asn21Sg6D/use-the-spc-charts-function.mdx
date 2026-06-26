@@ -1,0 +1,74 @@
+---
+title: Use the SPC Charts Function
+slug: use-the-spc-charts-function
+docTags: 
+createdAt: Mon Dec 16 2024 22:36:01 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use the SPC Charts processor function to analyze tag data, assess performance, and ensure adherence to quality standards using statistical process control (SPC) methods.&#x20;
+
+It calculates key metrics such as the current mean, standard deviation, and process capability (Cp, Cpk, CpU, CpL). Additionally, it evaluates specification limits (USL and LSL), computes performance metrics like Cpm and Cpkm, and flags any violations of Nelson Rules to help you identify trends and potential issues in your manufacturing process.
+
+# User Scenario
+
+Review the following scenario for the SPC Chart processor function. Then, you will simulate process data, configure the SPC Chart parameters, and interpret the statistical outputs to monitor and optimize process quality.&#x20;
+
+In an assembly line manufacturing precision components, maintaining consistent dimensions within specified tolerances is critical for product reliability. Using the SPC Chart processor function, operators monitor the process performance and identify deviations from quality standards. For example, a violation of Nelson Rule 1 flags a critical issue where a measurement exceeds three standard deviations, prompting immediate corrective action.&#x20;
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs/FbhaHiALYdPY4aeQGjHB0.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **Tag1**
+- **Min\_value**: Enter **1**
+- **Max\_value**: Enter **10**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the SPC Charts Processor function:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for **Tag1**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **SPC Charts&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Window Size:&#x20;**&#x45;nter the number of values you want the function to consider.
+   - **Target Mean:&#x20;**&#x54;his represents the desired average value for the process. It serves as a reference point for evaluating process performance against expectations.
+   - **Time Interval:&#x20;**&#x53;pecifies the frequency at which the SPC chart publishes data.
+7. Click **Save**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/PfYcnhBp_E9hfLSw41jcJ_image.png" size="80" width="715" height="631" position="center" showCaption="false"></Image>
+8. Connect the DataHub Subscribe processor (tag: *Tag1*) to the SPC Charts processor with a wire and use the **events** connection.
+9. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/mpOFt-4SL0zINYrAS8G-T_image.png "Completed analytics flow ")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *SPC Charts&#x20;*&#x70;rocessor to view the output values.
+
+Before you can see any output, the input window size needs to be filled. After that, the output will include the metrics along with its timestamp.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/v0uci9dNOvUwH1aQUOpNs_image.png "SPC Charts output")
+

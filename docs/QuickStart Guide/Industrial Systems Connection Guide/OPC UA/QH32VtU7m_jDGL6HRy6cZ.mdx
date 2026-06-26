@@ -1,0 +1,161 @@
+---
+title: OPC UA Client
+slug: QH32VtU7m_jDGL6HRy6cZ
+description: Review the following information for setting up and configuring the OPC UA Client. 
+docTags: 
+createdAt: Fri Jun 03 2022 17:19:31 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note**: This driver will be deprecated in a future Litmus Edge release. We recommend using [OPC UA Client Advanced](SY2kmVD6oUnszF1B8dsDm.mdx).
+</hint>
+
+Review the following information for setting up and configuring the OPC UA Client.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="220,418" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Functionality&#x20;**
+    </td>
+    <td>
+      - Used to subscribe data from OPC UA servers.
+      - Only sends a message to the broker if the value changes at the server level.
+      - Subscription interval is defined at the driver level and does not have a polling interval at the tag level.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaced with Gen 2 driver**
+    </td>
+    <td>
+      [OPC UA Client Advanced](SY2kmVD6oUnszF1B8dsDm.mdx)
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note**: The OPC UA client does not connect to the server with the Basic256Sha256-SE security policy.
+</hint>
+
+# Supported Servers
+
+## OPC UA Client
+
+- It provides better performance compared to other OPC UA Clients.
+- OPC UA Client with new design supports both poll and subscription mode.
+
+# Set up the Driver in DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="177,286" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      OPC UA
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      OPC UA Client
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device IP address
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      4840
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Certificate**
+    </td>
+    <td>
+      Auto-generated
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Private Key**
+    </td>
+    <td>
+      Auto-generated
+    </td>
+  </tr>
+</table>
+
+# Configure the List of Registers
+
+Browse for tags to add to this FreeTag device. See :Link[Browse Tags]{docId="akkXnVv6EdVzAZ40SHbWM" label="Browse Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+Alternatively, when you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"}, for **Name** map the OPC server tags to the client using this format: `ns=1;s=tagname`.
+
+Example: `ns=2;s=Demo.Static.Scalar.Boolean`
+
+The following value types are supported:&#x20;
+
+- `int32`
+- `bool`
+- `sbyte`
+- `byte`
+- `int16`
+- `uint16`
+- `int32`
+- `uint32`
+- `int64`
+- `uint64`
+- `float32`
+- `float64`
+- `string`
+- `dump`
+- `desc`
+
+Refer to the following tag parameters.&#x20;
+
+<ContentSnippet docRefId="2g9BRAblDJ2H3SwW5-8-E">
+
+</ContentSnippet>
+

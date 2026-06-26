@@ -1,0 +1,58 @@
+---
+title: Add a Node
+slug: v5wQ47xTBz5YHOkvviB_O
+description: You can manually add nodes to the OPC UA hierarchy. 
+docTags: 
+createdAt: Mon Sep 26 2022 17:14:20 GMT+0300 (Eastern European Summer Time)
+---
+
+You can manually add nodes to the OPC UA hierarchy by navigating to **OPC&#x20;**>**&#x20;Hierarchy**. &#x20;
+
+# Add a Node
+
+**To add a node:**
+
+1. Navigate to **OPC&#x20;**> **Hierarchy**.&#x20;
+2. From *Hierarchy* pane, click the **Add&#x20;**&#x69;con. If a parent node already exists, you can select it prior to clicking the *Add&#x20;*&#x69;con.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/NoFMmXYDAOGQuiQRZCqdt_addnodeicon.png "The Add node icon")
+3. From the Add node dialog box, select one of the following options:
+   - Folder
+   - Device
+   - Tag
+4. Refer to the respective type depending on your selection and enter the details for the node.&#x20;
+
+## Folder
+
+Enter a descriptive name and click **Add**.&#x20;
+
+## Device
+
+Enter a descriptive name and click **Add**.&#x20;
+
+## Tag
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - Topics you enter can come from sources other than DeviceHub devices.&#x20;
+  - The payload structure for tags must include at least the `value` and `success` strings of JSON objects. For example:
+    - `{`
+      `"value": 11.11,`
+      `"success": true`
+      `}`
+</hint>
+
+- **Node name**: Enter a descriptive name.&#x20;
+- **Topic**: Enter a topic name.&#x20;
+- **Data Type**: Select a data type. Refer to [Data Type Mapping](xNJdq-2iZx5re1dmjT2rP.mdx) to learn more.&#x20;
+
+When done configuring the node, click **Add**.&#x20;
+
+After clicking *Add*, click the **Save&#x20;**&#x69;con.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/TrvN5hVsKrOfhBB48SvGo_image.png "Save icon for nodes")
+
+# Restart OPC UA server
+
+After saving the new node, you must restart the OPC UA server. See :Link[Manage the OPC UA Server]{docId="5xSM0SOtrLEij9ChIywJs" label="Manage the OPC UA Server" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage the OPC UA Server"} to learn more.&#x20;
+

@@ -1,0 +1,106 @@
+---
+title: Litmus Edge 4.0.1
+slug: 122V7mubp2AtV_4lUasHA
+docTags: 
+createdAt: Tue Sep 23 2025 19:16:28 GMT+0300 (Eastern European Summer Time)
+---
+
+Release Date: September 26, 2025
+
+Review the current list of [Limitations](../../Resources/LXg9sXwzv0ejmaKrWZT1M.mdx).
+
+<hint type="info">
+  **Note:** A Litmus Edge [Developer Edition 2-Hour Trial](<../../QuickStart Guide/Installation and Deployments/developer-edition-2-hour-trial.mdx>) is now available for you to easily explore and develop in the product.
+</hint>
+
+## New Features
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **DeviceHub:**
+      - This release introduces the new following drivers:
+        - JTEKT Toyopuc CMP-Link Ethernet (Gen 2)
+        - Torque Tool Open Protocol Ethernet
+      - The OPC UA Client Advanced Driver now supports locale settings.
+      - The Allen Bradley DF1 Serial driver now supports Micrologix PLCs.
+    </td>
+  </tr>
+</table>
+
+## Enhancements and Improvements
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **DeviceHub:**
+      - SQL driver query fields have increased character limits to allow for larger and more complex queries.
+      - Various improvements have been made for the ARM 64 builds.
+      - MQTT Generic and MQTT Generic over SSL connector have been removed from Litmus Edge with this release and replaced the Gen2 connectors.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Analytics:**
+      - Now JSON and Array datatype parameters and variables are exported from template downloads as JSON objects and arrays. This make it easier for you to edit JSON parameters.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Applications:**
+      - You can now easily add multiple headers in text format in the **HTTPs Proxy** dialog.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Integrations:**
+      - Validation has been improved when entering a source path for a cloud storage sync job.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **System:**
+      - Improved user experience with 2FA setup.
+      - Added missing logs in Docker support bundle.
+    </td>
+  </tr>
+</table>
+
+## Resolved Issues
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **DeviceHub**
+      - Fixed a response timeout issue where a delay intended for an ethernet connection recovery was also applied to serial connections. Now the delay no long occurs for serial connections.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Digital Twins:**
+      - Fixed issue where a `Model_deleted` event was incorrectly recorded when a delete of a model was prevented because of associated instances.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Applications:**
+      - Fixed an issue where deleting a Docker Compose application deployed from Litmus Edge Manager Marketplace removed the associated network in Litmus Edge.
+    </td>
+  </tr>
+</table>
+

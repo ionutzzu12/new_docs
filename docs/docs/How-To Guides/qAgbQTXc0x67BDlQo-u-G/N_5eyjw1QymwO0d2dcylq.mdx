@@ -1,0 +1,136 @@
+---
+title: AWS SiteWise Integration Guide
+slug: N_5eyjw1QymwO0d2dcylq
+description: Learn how to set up the AWS SiteWise connector. 
+docTags: 
+createdAt: Thu Jan 25 2024 23:35:04 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and AWS SiteWise.&#x20;
+
+# Before You Begin
+
+You need to create an AWS account. See :Link[Setting up an AWS account]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/set-up-aws-account.html" newTab="true" hasDisabledNofollow="false"} to learn more.&#x20;
+
+Refer to the following AWS resources to learn more about AWS SiteWise:
+
+- :Link[What is AWS IoT SiteWise]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/what-is-sitewise.html" newTab="true" hasDisabledNofollow="false"}
+- :Link[Key Components]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/feature-overview.html" newTab="true" hasDisabledNofollow="false"}
+- :Link[Ingesting data to AWS IoT SiteWise]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/industrial-data-ingestion.html" newTab="true" hasDisabledNofollow="false"}
+- :Link[Interacting with other AWS services]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html" newTab="true" hasDisabledNofollow="false"}
+
+# Step 1: Collect AWS SiteWise Connection Parameters
+
+You will need the following parameters to configure the connection in Litmus Edge.
+
+- **Region**: You need to get the region name for your AWS account. See :Link[AWS IoT SiteWise endpoints and quotas]{href="https://docs.aws.amazon.com/general/latest/gr/iot-sitewise.html" newTab="true" hasDisabledNofollow="false"} and :Link[Specify which AWS Regions your account can use]{href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html" newTab="true" hasDisabledNofollow="false"} to learn more.&#x20;
+- **Access Key**: Copy and paste the access key somewhere securely. See :Link[Managing access keys for IAM users]{href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html" newTab="true" hasDisabledNofollow="false"} and :Link[Identity and access management for AWS IoT SiteWise]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security-iam.html" newTab="true" hasDisabledNofollow="false"} to learn more.&#x20;
+- **Secret Access Key**: Copy and paste the secret access key somewhere securely. See :Link[Managing access keys for IAM users]{href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html" newTab="true" hasDisabledNofollow="false"} and :Link[Identity and access management for AWS IoT SiteWise]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security-iam.html" newTab="true" hasDisabledNofollow="false"} to learn more.&#x20;
+
+# Step 2: Add AWS SiteWise Connector in Litmus Edge
+
+Once you have collected the required AWS connection parameters, follow the steps to [Add a Connector](<../../../Product Features/Integration/GcX9UZAhKiYSz8LSe4xaJ.mdx>) and select the **AWS SiteWise Connector** provider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Region**: Enter the region name you collected in Step 1 that is associated with your AWS account.
+- **Access key**: Paste the access key collected in Step 1.&#x20;
+- **Secret access key**: Paste the secret access key collected in Step 1.&#x20;
+- **Subscribe interval**: Enter the subscription interval in seconds. Subscribe interval defines the time in seconds between consecutive data update notifications for a subscribed asset property, specifying the frequency at which the system checks and receives updates on the specified property within the IoT SiteWise platform.&#x20;
+- **Number of batch messages**: Enter the number of batch messages to publish. This value refers to the quantity of grouped data transmissions. &#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 3: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Zb90FCTloAnIiMZ0bPDtV_awssitewise.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="PvlzNrGBVl3QhocUrjZBZ" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/lBL7doO8dZVjlOPVnrAkz/o3YwIl-aYuomiu2keYIsw.mdx"} and relevant error messages.&#x20;
+
+# Step 4: Set up Connection (Outbound or Inbound) with AWS SiteWise
+
+You have the option of setting up an outbound or inbound connection.&#x20;
+
+## Set up Outbound Connection
+
+To set up an outbound connection, you will need to create a DeviceHub device and tags. The tags will be used to send data to AWS SiteWise.&#x20;
+
+### Step a: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+### Step b: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+### Step c: Create Outbound Topics for Connector
+
+You will now need to import the tags you added to the connector as topics.&#x20;
+
+<hint type="info">
+  **Note**: If there any existing inbound topics already created for the connector, disable them before creating the outbound topics.&#x20;
+</hint>
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+### Step d: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+### Step e: Verify Connection
+
+You can now access your AWS account to verify that data is successfully being sent from Litmus Edge. See :Link[Ingesting data to AWS IoT SiteWise]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/industrial-data-ingestion.html" newTab="true" hasDisabledNofollow="false"} to learn more.&#x20;
+
+## Set up Inbound Connection
+
+You have the option of subscribing to data from AWS SiteWise.&#x20;
+
+### Step a: Create Inbound Topics for Connector
+
+You will create topics for the connector that will subscribe to data from associated AWS SiteWise topics.&#x20;
+
+<hint type="info">
+  **Note**: If there any existing outbound topics already created for the connector, disable them before creating the outbound topics.&#x20;
+</hint>
+
+**To create inbound topics:&#x20;**
+
+1. Navigate to **Integration**.&#x20;
+2. Click the connector tile.&#x20;
+3. Click the **Topics&#x20;**&#x74;ab.&#x20;
+4. Click the **Add a new subscription** icon.&#x20;
+   The *Data Integration* dialog box appears.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1Zn9Nd06yDILd3feonCbz_awssitewiseinboundtopic.png "Add a new subscription icon")
+5. Configure the following parameters.&#x20;
+   - **Data Direction**: Select **Remote to Local - Inbound**.&#x20;
+   - **Local Data Topic**: Enter a topic name that will be used for subscribing to data in Litmus Edge.&#x20;
+   - **Remote Data Topic**: Copy and paste the associated topic name from AWS SiteWise.&#x20;
+   - **Enable**: Select the toggle to enable the topic.&#x20;
+6. Click **Yes&#x20;**&#x74;o add the topic.&#x20;
+7. From the connector tile, ensure the connector is not disabled and still shows a CONNECTED status. Also verify the topic shows an *Enabled&#x20;*&#x73;tatus.&#x20;
+
+### Step b: Verify Connection in Litmus Edge
+
+You have several options for verifying the connection in Litmus Edge. When subscribing to the data, you will need to use the *Local Data Topic* name configured in the previous step.&#x20;
+
+You can visualize the incoming data using one of the dedicated [Applications](<../../../Product Features/jP-Ua-hPAdzeVpas5X8Zq.mdx>) such as :Link[Grafana]{docId="poe3FWu3nH33s-hVvYIBE" label="Visualize Data Using Grafana" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel="Grafana"}.&#x20;
+
+You can also view the data in the [Flows Manager](<../../../Product Features/tAQ2y6xPYLoNqxyFDrrb-.mdx>) and [Analytics](<../../../Product Features/Cquvomk4GSCEJym0wUtlK.mdx>) areas of Litmus Edge.&#x20;
+
+- If you are creating a flow from the [Flows Manager](<../../../Product Features/tAQ2y6xPYLoNqxyFDrrb-.mdx>), subscribe to the *Local Data Topic* name. See [Subscribe to Topics with Flows](<../../../How-To Guides/Flows Guides/fcDH-92dTEX87B88yTk_H.mdx>) to learn more.&#x20;
+- If you are using [Analytics](<../../../Product Features/Cquvomk4GSCEJym0wUtlK.mdx>), select the DataHub Subscribe processor and use the *Local Data Topic* name. See [Create an Analytics Flow](<../../../Product Features/Analytics/Analytics Flows and Processors/HB_-yW2A2ghEBv7WsbRMY.mdx>) and [Add Processors and Processor Connections](<../../../Product Features/Analytics/Analytics Flows and Processors/GExwUFwj-jxEsanA9dyh-.mdx>) to learn more.&#x20;
+

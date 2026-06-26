@@ -1,0 +1,374 @@
+---
+title: Syslog Server
+slug: syslog-server
+docTags: 
+createdAt: Thu Jun 20 2024 20:28:26 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Syslog Server&#x20;driver.&#x20;
+
+See [Syslog Server Reference](<../../../../../QuickStart Guide/Industrial Systems Connection Guide/Network Utility/Syslog Server/syslog-server-reference.mdx>) for more information.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="263,277" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Hirschmann Greyhound]{href="https://www.belden.com/products/greyhound1040" newTab="true" hasDisabledNofollow="false"}
+    </td>
+  </tr>
+</table>
+
+# Configure Syslog Server
+
+Configure the following parameters. Update the default values to your specific setup.&#x20;
+
+<table columnWidths="124,381" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Network Utility
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Syslog Server
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Log Protocol**
+    </td>
+    <td>
+      Select BSD Syslog (RFC3164) or Syslog (RFC5424)
+    </td>
+  </tr>
+</table>
+
+Configure the remaining settings as needed if they are enabled.
+
+## UDP Settings
+
+<hint type="info">
+  **Note:&#x20;**&#x49;f you choose UDP mode, the device will begin listening on the interface you specified. Its status will be *DISCONNECTED&#x20;*&#x75;ntil it receives a valid syslog message from any client. You can modify how long the device remains *CONNECTED* after receiving a message by adjusting the *UDP Timeout&#x20;*&#x73;etting.
+</hint>
+
+<table columnWidths="124,381" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **UDP Interface**
+    </td>
+    <td>
+      0.0.0.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **UDP Port**
+    </td>
+    <td>
+      514
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **UDP Max PDU**
+    </td>
+    <td>
+      4096
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **UDP Timeout**
+    </td>
+    <td>
+      30 seconds
+    </td>
+  </tr>
+</table>
+
+## TCP Settings
+
+<table columnWidths="124,381" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **TCP&#x20;****Interface**
+    </td>
+    <td>
+      0.0.0.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **TCP&#x20;****Port**
+    </td>
+    <td>
+      6514
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **TCP&#x20;****Parsing**
+    </td>
+    <td>
+      Select one of the following:
+      - Non-Transparent Framing (RFC6587)
+      - Octet Counting (RFC5425)
+      - Single Message (RFC5426)
+    </td>
+  </tr>
+</table>
+
+## TLS Settings
+
+<table columnWidths="124,381" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **UDP Interface**
+    </td>
+    <td>
+      0.0.0.0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **UDP Port**
+    </td>
+    <td>
+      6514
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **TLS Parsing**
+    </td>
+    <td>
+      Select one of:
+      - Non-Transparent Framing (RFC6587)
+      - Octet Counting (RFC5425)
+      - Single Message (RFC5426)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Server Certificate**
+    </td>
+    <td>
+      Update or copy as needed
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Server Private Key**
+    </td>
+    <td>
+      Update or copy as needed
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Min TLS Version**
+    </td>
+    <td>
+      Select one of:
+      - TLS 1.0
+      - TLS 1.1
+      - TLS 1.2
+      - TLS 1.3
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Require Client Certificate**
+    </td>
+    <td>
+      If enabled, upload the certificate.&#x20;
+    </td>
+  </tr>
+</table>
+
+## Advanced Settings
+
+<table columnWidths="194,381" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Allow Multi Match**
+    </td>
+    <td>
+      Enable or Disable
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stringify In Fields**
+    </td>
+    <td>
+      Enable or Disable
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replace Empty Fields**
+    </td>
+    <td>
+      Complete as needed
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Minimum Clients**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Max Workers**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note**: The *Minimum Clients* setting is not applicable when UDP is enabled. If UDP is enabled, do not change this setting.&#x20;
+</hint>
+
+# Configure the List of Registers
+
+When you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to the Syslog Server, refer to the following register table and tag parameters.&#x20;
+
+## Register Table
+
+<table columnWidths="231,136,140,115,119,117" isTableHeaderOn="true" selectedRows="" selectedColumns="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td align="left">
+      **Access Type**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Match (String Publish)
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Match (JSON Publish)
+    </td>
+    <td align="left">
+      json
+    </td>
+    <td align="left">
+      R/W
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Ignore Match (No Publish)
+    </td>
+    <td align="left">
+      null
+    </td>
+    <td align="left">
+      R/W
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Severity**: Select the severity limit.&#x20;
+- **Facility**: Select the facility.&#x20;
+- **Wildcard**: Select the wildcard character. &#x20;
+- **Hostname**: Configure the hostname (String Match).&#x20;
+- **Appname**: Configure the appname (String Match).&#x20;
+- **Msg ID**: Configure the MessageID (String Match).&#x20;
+- **Message**: Configure the Message (String Match).&#x20;
+- **Structured Data**: Configure the Structured Data (Field Match).&#x20;
+- **Client Address**: Configure the Client CIDR Address (Address Match).&#x20;
+- **Order**: Enter a value for match process ordering.&#x20;
+- **Format**: Configure the JSON Publish Format. This is not available if you select the Name *Ignore Match (No Publish)*.&#x20;
+

@@ -1,0 +1,52 @@
+---
+title: Configure Network Interfaces
+slug: HBG6s_wDcll06NDx3_5th
+description: You can configure network interfaces from the Interfaces tab.
+docTags: 
+createdAt: Tue Sep 27 2022 16:21:29 GMT+0300 (Eastern European Summer Time)
+---
+
+You can configure the network interfaces by navigating to **System&#x20;**>**&#x20;Network** > **Interfaces**.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/mFhHCHRxEIAyI8Xqpce6W_image.png)
+
+# Important
+
+The Litmus Edge software package installation includes a default configuration for the selected device's interface. You must configure the default entries with your own network information.
+
+For IPv4 address assignment type, you can choose from a few different options.
+
+- **None**: Disables IPv4 addresses on the network interface.
+- **DHCP**: Auto-assigns an IPv4 address to the network interface.
+- **Static**: Manually enter Gateway information for your network interface. Valid Gateways depend on your router configuration.
+- **CIDR**: CIDR notation determines which IP addresses are allowed on the network. Entering your Gateway address and **/24** usually suffices because it allows close to 256 different IPv4 addresses, starting from your Gateway address. For example, if 192.168.7.17 is your Gateway, 192.168.7.17/24 denotes a good CIDR because it allows 238 (256 - 18) different IP addresses. For full details about CIDR, see the :Link[CIDR Conversion Table]{docId="SxjjRrAGVIcXKWO-Orgoq" label="CIDR Conversion Table" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="CIDR Conversion Table"}.
+
+For IPv6 address assignment type, you should use **Auto&#xA0;**&#x69;nstead of **DHCP&#xA0;**&#x74;o automatically assign an IPv6 address.
+
+# Before You Begin
+
+Make sure your configuration is using the same network on which your device is located.
+
+# Update Network Interfaces
+
+**To update the network interfaces:**
+
+1. Navigate to **System&#x20;**> **Network**.&#x20;
+2. Click the **Interfaces&#x20;**&#x74;ab.&#x20;
+3. Review the list of interfaces. Please note the following:
+   - Devices are automatically detected by the system and should be listed under Interfaces. The *eth0&#xA0;*&#x63;onfiguration contains the default settings for the WAN (outgoing traffic). Do not change the settings for the WAN.
+   - A USB to an Ethernet dongle is not recognized as a device due to security measures.
+4. Click **Update&#x20;**&#x66;or an interface.&#x20;
+5. Update the details for the interface.&#x20;
+   - **WAN**: If the selected interface is *eth0*, select the **WAN&#x20;**&#x63;heck box. Optionally, select the check box if the selected interface is *eth1*.&#x20;
+   - **IPv4 Type**: Use the drop-down list to select *None*, *DHCP*, or *Static*.&#x20;
+   - **IPv4 Gateway** (Optional): If you select *Static*, enter an IP address range.&#x20;
+   - **IPv6 Type**: Use the drop-down list to select *None*, *Auto*, *DHCP*, or *Static*. It is recommended that you use *Auto&#xA0;*&#x69;nstead of *DHCP&#xA0;*&#x74;o automatically assign an IPv6 address.
+   - **IPv6 Gateway** (Optional): If you select *Static*, enter an IP address range.&#x20;
+6. Click **Update**.&#x20;
+7. Reboot your device to apply any changes to network configuration.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/5AdZR074q7En4jdaNRixe_image.png" size="80" width="880" height="588" darkWidth="880" darkHeight="588" position="flex-start" showCaption="false" indent="2"></Image>
+
+
+

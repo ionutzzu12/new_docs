@@ -1,0 +1,716 @@
+---
+title: Mitsubishi QJ71E71 (Gen1)
+slug: SPHoh8O2IEoPuotZUHVYK
+description: Review the following information for setting up and configuring the Mitsubishi QJ71E71 (Gen1) PLC. 
+docTags: 
+createdAt: Tue May 09 2023 15:39:56 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="warning">
+  **Important**: This driver was deprecated in Litmus Edge version 3.3.2. We recommend using :Link[Mitsubishi QJ71E71]{docId="D8Oz8DBdub41-h7Q3na7h" label="Mitsubishi QJ71E71" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+</hint>
+
+Review the following information for setting up and configuring the Mitsubishi QJ71E71 (Gen1) PLC.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="252,361" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      **Ethernet**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Mitsubishi QJ71E71
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaced with Gen 2 driver**
+    </td>
+    <td>
+      :Link[Mitsubishi QJ71E71]{label="Mitsubishi QJ71E71" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="D8Oz8DBdub41-h7Q3na7h" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Note**: Only one connection is allowed per port defined in the PLC. See the steps below to view and edit the open ports on the PLC.
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it as needed. ****
+   **Device**: Mitsubishi Q02CPU+Q71E71-100****
+   **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/eRudfJaBjVu9Tagi4HBbC_mitsubishi-qj71e71-binary-reference.png" size="80" width="580" height="490" caption="Reference image of device" position="center" showCaption="true" indent="2"></Image>
+
+2. Launch GX Works2 v1.560J software, click **Create a project**, and then click **Connection1&#xA0;**&#x69;n the navigation panel.
+3. Set up communication parameters, and then click **Connect**.
+4. Set up the network parameters. The *Station Number* cannot be duplicated.
+5. Click **Operation Setting&#xA0;**&#x74;o set up IP for modules.
+6. Click **Online > Write to PLC**, and then reboot the device to activate the settings.
+7. Click **Connection1&#xA0;**&#x69;n the navigation panel.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Use the following parameters/values when you :Link[Connect a Device]{docId="_2EDTlzj-mOkIWGexTiF0" label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} with this driver:
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Mitsubishi
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Mitsubishi QJ71E71-(Gen1)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      5002
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Show Device Security**
+    </td>
+    <td>
+      Enabled
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Enable Alias Topics**
+    </td>
+    <td>
+      Enabled
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Enable Data Store**
+    </td>
+    <td>
+      Enabled
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+When you :Link[Add a Tag]{docId="XgWOkQbTPevII7OR82LL0" label="Add a Tag" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} to the connected device, use the following tag/register mapping table.
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Type
+    </td>
+    <td align="left">
+      Address Format
+    </td>
+    <td align="left">
+      Min Address
+    </td>
+    <td align="left">
+      Max Address
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Input Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Output Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Internal Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      L
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32237
+    </td>
+    <td align="left">
+      Latch Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      F
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32237
+    </td>
+    <td align="left">
+      Annunciator
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32237
+    </td>
+    <td align="left">
+      Edge Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32237
+    </td>
+    <td align="left">
+      Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25471
+    </td>
+    <td align="left">
+      Timer Contact
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25471
+    </td>
+    <td align="left">
+      Timer Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25471
+    </td>
+    <td align="left">
+      Retentive Timer Contact
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25471
+    </td>
+    <td align="left">
+      Retentive Timer Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25471
+    </td>
+    <td align="left">
+      Counter Contact
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25471
+    </td>
+    <td align="left">
+      Counter Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SB
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32237
+    </td>
+    <td align="left">
+      Special Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+      Step Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DX
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+      Direct Input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DY
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+      Direct Output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter current
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+    <td align="left">
+      Link Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25471
+    </td>
+    <td align="left">
+      Timer Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25471
+    </td>
+    <td align="left">
+      Retentive Timer Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2047
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ZR
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999999
+    </td>
+    <td align="left">
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Z
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      20
+    </td>
+    <td align="left">
+      Index Register
+    </td>
+  </tr>
+</table>
+

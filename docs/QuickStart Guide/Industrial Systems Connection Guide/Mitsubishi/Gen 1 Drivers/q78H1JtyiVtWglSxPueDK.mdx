@@ -1,0 +1,660 @@
+---
+title: Mitsubishi R04-Ethernet-Binary (Gen1.3)
+slug: q78H1JtyiVtWglSxPueDK
+description: Review the following information for setting up and configuring the Mitsubishi R04-Ethernet-Binary (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi R04-Ethernet-Binary (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="232,317" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[MELSEC iQ-R]{href="https://www.mitsubishielectric.com/fa/products/cnt/plcr/items/index.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Note**: Only one connection is allowed per port defined in the PLC. See the steps below to view and edit the open ports on the PLC.
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Mitsubishi R04CPU
+   - **Communication I/F**: Ethernet
+2. Connect the device to your PC using a USB.
+3. Launch GXWorks 3 v1.035M software.
+4. From the navigation panel, navigate to **System Parameters&#x20;**>**&#x20;Read Mounting status**, and then check for the CPU to display.
+5. From the navigation panel, click **Module Configuration&#xA0;**&#x74;o see if the base rack and CPU display.
+6. Click **Module Parameters&#xA0;**&#x61;nd enter the desired IP Address, Subnet Mask, and Default Gateway.
+7. If you want to write back to PLC tags with Litmus Edge, make sure the **Enable/Disable Online Change** setting is set to **Enable All (SLMP)**.
+8. Click **External Device Configuration (Detailed Setting)&#xA0;**&#x74;o set up the connection (Ethernet Built-in port).
+9. Draw SLMP Connection Module from the *Module list* to the left.
+10. Set up of the port number depends on how many devices need to connect with the PLC.
+11. Click **Close with Reflecting the Setting**, click **Apply**, and then click **Write to PLC**.&#x20;
+12. Power the PLC off and on again to activate the setting.&#x20;
+13. From the navigation panel, navigate to **Connection Destination&#x20;**>**&#x20;connection**, click **Find CPU (Built-in Ethernet port) on Network**, and then select the target device.
+14. Click **Connection Test**.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="179,337" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Mitsubishi
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Mitsubishi R04-Ethernet-Binary (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      5007
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      255
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="103,103,131,105,110,189" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      12287
+    </td>
+    <td align="left">
+      Input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      12287
+    </td>
+    <td align="left">
+      Output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      16777215
+    </td>
+    <td align="left">
+      Internal Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      L
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Latch Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      268435455
+    </td>
+    <td align="left">
+      Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      F
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Annunciator
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SB
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      268435455
+    </td>
+    <td align="left">
+      Link Special Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Edge Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8993439
+    </td>
+    <td align="left">
+      Timer Contact
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8493439
+    </td>
+    <td align="left">
+      Timer Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8993439
+    </td>
+    <td align="left">
+      Retentive Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8993439
+    </td>
+    <td align="left">
+      Retentive Timer Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8993439
+    </td>
+    <td align="left">
+      Counter Contact
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8993439
+    </td>
+    <td align="left">
+      Counter Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Special Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8993439
+    </td>
+    <td align="left">
+      Timer Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8993439
+    </td>
+    <td align="left">
+      Retentive Timer Current
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8993439
+    </td>
+    <td align="left">
+      Counter Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10117631
+    </td>
+    <td align="left">
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      HHHHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10117631
+    </td>
+    <td align="left">
+      Link Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SW
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      HHHHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10117631
+    </td>
+    <td align="left">
+      Special Link Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Special Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Z
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      23
+    </td>
+    <td align="left">
+      Index Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ZR
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      File Register
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="A0mW7eFUiB6dsJkAOu4YV">
+
+</ContentSnippet>
+

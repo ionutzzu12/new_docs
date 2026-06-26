@@ -1,0 +1,165 @@
+---
+title: AB ControlLogix FreeTag (Gen1.3)
+slug: 5YtW_BqQ__6Gq9WHVRBtA
+description: Review the following information for setting up and configuring the AB ControlLogix FreeTag (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB ControlLogix FreeTag (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="223,264" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[ControlLogix]{href="http://ab.rockwellautomation.com/" newTab="true"}
+      When configuring tags for this driver, you must enter the case-sensitive register name exactly as it is defined in the PLC. See the *Free Tags* section below to learn more.&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="ZPTCmzo7MNjZIP6UvGpD8">
+
+</ContentSnippet>
+
+**To configure your device:**
+
+1. Note down the following information and refer to it as needed.&#x20;
+   **Device**: AB ControlLogix FreeTag 1756-L55
+   **Communication I/F**: RS232. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/SSp4v8C87SjqfCgvoTLwD_ab-controllogix-freetag.png" size="100" width="864" height="279" position="flex-start" caption="AB ControlLogix FreeTag" showCaption="true" indent="2"></Image>
+
+2. Launch RSLinx Classic, and then click **Configure Drivers**.
+3. Add a new RS-232-DF1 driver.
+4. Set up the communication port and set up parameters as follows, and then click **Auto-Configure**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/tqIEohWhk6dy_BhOWLt9g_ab-controllogix-freetag-auto-configure482x338.png" size="80" width="482" height="338" position="flex-start" caption="Configure parameters" showCaption="true" indent="2"></Image>
+
+5. Right-click the Ethernet communication module and select **Module Configuration&#xA0;**&#x74;o set up its network parameters.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="202,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB ControlLogix FreeTag (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      19200
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Odd, None
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="AWa1-gOs6_B9p9uMjYJPE">
+
+</ContentSnippet>
+
+- `bool`
+- `sint`
+- `int`
+- `bit(int)`
+- `dint`
+- `real`
+- `lint`
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

@@ -1,0 +1,262 @@
+---
+title: Create and Import Models
+slug: xmZ5KC6Bcpmm11fvtqds9
+description: Learn how to create and import digital twins models. 
+docTags: 
+createdAt: Thu Sep 08 2022 22:10:53 GMT+0300 (Eastern European Summer Time)
+---
+
+A model defines the structure of a digital twin: its static attribute placeholders, dynamic attribute fields, data transformations, topic expression parameters, and schema. You create a model first, then create instances from it. Each instance inherits the model's structure and lets you fill in the real values for a specific physical asset.
+
+<hint type="info">
+  **Note**: Digital Twins requires a Scale or Growth Litmus license.
+</hint>
+
+Navigate to **Digital Twins** > **Models** to access the Models pane.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/E-epMowGO9BvS7Rxt8Y97_image.png" size="80" width="1266" height="482" position="flex-start" caption="The Models pane" darkWidth="1266" darkHeight="482" showCaption="true"></Image>
+
+## Before you begin
+
+Review :Link[Digital Twins]{label="Digital Twins" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="hUBjpplOI8vjn5qZA_0VG" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to understand how models and instances relate before creating your first model.
+
+## Create a model
+
+You can create a model from scratch or import one from a JSON file exported from another Litmus Edge instance.
+
+### Create a new model
+
+**To create a new model:**
+
+1. From the *Models* pane, click the **Create a model** tile.
+   The *Create a Model* dialog appears.
+2. Click the **Type** drop-down list and select a model type.
+3. In the **Name** field, enter a name for the model.
+4. Optionally, enter a short description in the **Description** field.
+5. Optionally, select the **UNS Enabled** checkbox and select a UNS connector from the drop-down menu.
+6. Click **Add**.
+   The new model tile appears in the *Models* pane.
+
+### Import an existing model
+
+To import a model exported from another Litmus Edge instance, click the **Import Model** icon, select the `<model name>.json` file, and click **Open**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/LAj9ItVAwnDjSPV0mYRoF_image.png" size="80" width="1920" height="482" position="flex-start" caption="Import Model icon" darkWidth="1920" darkHeight="482" showCaption="true"></Image>
+
+### Model versions
+
+Each model starts at version v.0. The version increments each time you save the model. The current version appears on the model tile and on the model configuration page. Instances track which model version they were created from, which matters when you use **Upgrade Instances** to push model changes to existing instances.
+
+- Model tile
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/krxXpLExxunVPtAqY2bLV_image.png" size="30" width="318" height="197" position="flex-start" indent="2" darkWidth="318" darkHeight="197" showCaption="false"></Image>
+
+- Model and instance configuration page.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/kldvD6HCJ7jf8cqQr8WdL_image.png" size="80" width="1416" height="527" position="flex-start" indent="2" darkWidth="1416" darkHeight="527" showCaption="false"></Image>
+
+## Configure the model
+
+After creating the model, configure it with static attributes, dynamic attributes, transformations, parameters, and a schema.
+
+### Model image
+
+Click the **Upload image** icon to add an image to the model tile. This is visual only and does not affect how the model functions.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4AzYhxnH9mc8UZT2XjMT2_image.png" size="80" width="1367" height="691" position="flex-start" darkWidth="1367" darkHeight="691" showCaption="false"></Image>
+
+### Static attributes
+
+Static attributes are fixed metadata fields such as `Manufacturer`, `Plant`, `Area`, or `Device Description`. In the model, you define the attribute names and set placeholder values. Each instance then overrides those placeholders with the actual values for the specific asset it represents.
+
+**To add static attributes:**
+
+1. From the *Static Attributes* tab, click the **Add item** icon.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/qlVit9OKpjz42ARH1psCk_image.png" size="80" width="1367" height="691" darkWidth="1367" darkHeight="691" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. In the **Attribute Name** field, select an existing attribute from the drop-down list or enter a new name.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/y7ERtDw55L9exI0NM3uIu_image.png" size="50" width="808" height="690" position="flex-start" indent="2" darkWidth="808" darkHeight="690" showCaption="false"></Image>
+
+3. In the **Attribute Value** field, enter a placeholder value.
+
+### Import static attributes
+
+You can import static attributes from a CSV file. This is useful when you have many attributes or want to populate several instances at once.
+
+Before importing, create a CSV file with the following headers:
+
+**Required headers**
+
+- `ModelName`
+- `Key`
+- `Value`
+
+**Optional header**
+
+- `InstanceName` (when included, the import sets attribute values directly on the named instance rather than on the model)
+
+**To import static attributes:**
+
+1. Navigate to **Static Attributes** and select **Import Attributes**.
+2. In the dialog, navigate to and open the CSV file.
+
+### Export static attributes
+
+To export existing static attributes to a CSV file for offline editing, navigate to **Static Attributes** and select **Export Attributes**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/EAuobbI5JQ4vZMg-5utYc_image.png" size="80" width="1368" height="695" darkWidth="1368" darkHeight="695" position="flex-start" showCaption="false"></Image>
+
+### Dynamic attributes
+
+Dynamic attributes represent real-time data fields for the asset, such as temperature readings, current values, and pressure. Each dynamic attribute is mapped to a data topic in an instance, and the live data from that topic appears in the instance payload.
+
+Dynamic attributes support JSON, boolean, array, string, and number data types. If you don't specify a data type, JSON applies. Each dynamic attribute can also reference a transformation schema to shape the data before it enters the payload.
+
+**To add a dynamic attribute:**
+
+1. Click the **Add item** icon.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/jSWE_v3cX4Csif8evqGzz_image.png" size="80" width="1368" height="689" position="flex-start" indent="2" darkWidth="1368" darkHeight="689" showCaption="false"></Image>
+
+2. In the **Name** field, enter a name for the attribute.
+3. Optionally, enter a value in **Unit** and select a **Data Type**.
+4. If the data type is JSON, optionally select **Skip Key** to exclude the attribute key from the payload while keeping its value. For example, the value persists as `value='20'` without the key name.
+5. Optionally, define a topic expression using static strings and parameter placeholders in curly brackets. For example: `devicehub.alias.{device}.tagname`. The `{device}` part is resolved per instance based on the instance's parameter value for `device`. See :Link[Configure parameters]{label="Configure parameters" overridedLabel="Configure parameters" spaceId docId="0ShkvWAHCwyO4nyF0w00Z" version="v2" docAnchorId="#EQJfv" loadingMethod="dynamic" newTab="false"} below.
+6. Optionally, select a transformation schema from the **SchemaID** field.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Ow4FsT_yg0PiL_SmRe_yu_image.png" size="80" width="1368" height="436" position="flex-start" indent="2" darkWidth="1368" darkHeight="436" showCaption="false"></Image>
+
+### Import and export dynamic attributes
+
+To import dynamic attributes, download the sample CSV file, populate it with your attributes, then click the model tile, navigate to **Dynamic Attributes**, and click **Import Attributes**.
+
+To export existing dynamic attributes to a CSV file, click **Export Attributes**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/TCAn59tmxQvpk7B8As8BC_image.png" size="80" width="1368" height="414" position="flex-start" darkWidth="1368" darkHeight="414" showCaption="false"></Image>
+
+### Transformations
+
+Transformations convert raw JSON data from a topic into a format that is easier for northbound systems to consume. A transformation applies to a specific dynamic attribute, and the result replaces the raw data in the instance payload.
+
+You can use two types:
+
+- **JSON:** filters the payload to a specific set of key-value pairs. Use this to strip unwanted fields from a data source.
+- **JSONata:** applies conditional logic, computed values, and dynamic filtering using the [JSONata](https://docs.jsonata.org/overview.html) query language. Use this for alerts, computed outputs, or reformatting timestamps.
+
+You can also use the following system variables in transformations: `{EDGE_DT_SYSTEM_TIME}`, `{EDGE_DT_MODEL_VERSION}`, and `{EDGE_DT_MODEL_NAME}`.
+
+A playground in the transformation editor lets you test a schema against sample data before attaching it to an attribute.
+
+**To add a transformation schema:**
+
+1. Click the **Transformation** tab, then click the **Add a Schema** icon.
+   The *Add* dialog appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eLiUKNvqAqvwrKOtQ3HDF_image.png" size="80" width="1367" height="533" position="flex-start" indent="2" darkWidth="1367" darkHeight="533" showCaption="false"></Image>
+
+2. Enter a name for the schema.
+3. From the *Schema Type* drop-down menu, select **JSON** or **JSONata**.
+4. In the code window, paste the JSON or JSONata schema.
+5. Optionally, select system variables from the code drawer to insert them into the schema.
+6. Use the playground to test the schema against sample data.
+7. Click **Add**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/H2kgVlG9Be7fgHSNzExg4_image.png" size="80" width="1324" height="787" position="flex-start" indent="2" darkWidth="1324" darkHeight="787" showCaption="false"></Image>
+
+8. To edit or delete a schema, click the **Action menu** for the schema and select an option.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/VonmoFKsYNALacvIp9-KG_image.png" size="80" width="1367" height="514" darkWidth="1367" darkHeight="514" position="flex-start" showCaption="false" indent="2"></Image>
+
+9. Apply the transformation to one or more dynamic attributes.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/9dPM_X8SKkeSuSmH8SqlF_image.png" size="80" width="1418" height="464" position="flex-start" indent="2" darkWidth="1418" darkHeight="464" showCaption="false"></Image>
+
+### Configure parameters
+
+Parameters are named variables that you define in a model and set per instance. They allow a single topic expression to resolve differently for each instance.
+
+For example, define a parameter named `device` and use it in a dynamic attribute topic expression: `devicehub.alias.{device}.Temperature`. Each instance then sets its own value for `device`, so the topic resolves to the correct tag for that specific machine.
+
+<hint type="info">
+  **Note:** Parameter names and values are case-sensitive and cannot contain spaces. Allowed characters are uppercase and lowercase letters (A–Z), digits (0–9), hyphens (`-`), and underscores (`_`).
+</hint>
+
+**To create a parameter:**
+
+1. Navigate to the **Parameters** tab and click **Add Item**.
+2. Enter a parameter name and a placeholder value.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/vz7aOACClOwFX7YSF3_WV_image.png" size="80" width="1716" height="500" position="flex-start" indent="2" darkWidth="1716" darkHeight="500" showCaption="false"></Image>
+
+3. Click **Save Row**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Mb1bOMo5UAyDrd89phXo1_image.png" size="80" width="1715" height="478" position="flex-start" indent="2" darkWidth="1715" darkHeight="478" showCaption="false"></Image>
+
+4. Add the parameter to a topic expression on a dynamic attribute. For example, `devicehub.alias.{device}.Temperature`.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/CJg3VJFUo_we7yju6S1b-_image.png" size="80" width="1713" height="546" darkWidth="1713" darkHeight="546" position="flex-start" showCaption="false" indent="2"></Image>
+
+5. Select an instance of the model and click **Open Parameters**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/fc5rKU5pvYhvA81LBw4s3_image.png" size="80" width="1512" height="553" position="flex-start" indent="2" darkWidth="1512" darkHeight="553" showCaption="false"></Image>
+
+6. In the *Instance Parameters* dialog, set the value for the parameter for that instance.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ciQXOhO6bjFyjKp4x-jSc_image.png" size="80" width="1249" height="744" position="flex-start" indent="2" darkWidth="1249" darkHeight="744" showCaption="false"></Image>
+
+7. Navigate to the **Instance Dynamic Attributes** page to confirm the topic resolved correctly for that instance.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/1nfhKjBSrS16ovkUceek4_image.png" size="80" width="1792" height="302" position="flex-start" indent="2" darkWidth="1792" darkHeight="302" showCaption="false"></Image>
+
+<hint type="info">
+  **Note:** When a dynamic attribute has a topic expression defined, the topic is not editable in the instance directly. To change the topic, edit the model's topic expression or update the instance parameter value.
+</hint>
+
+### Schema
+
+The *Schema* tab lets you define a custom data structure for the model. Use it to group static and dynamic attributes into a named hierarchy for downstream systems that expect a specific JSON structure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/w2jWB0PmYjwlZH_ZnBLuQ_image.png" size="80" width="1418" height="572" position="flex-start" darkWidth="1418" darkHeight="572" showCaption="false"></Image>
+
+**To create a schema:**
+
+1. Click the **Action menu** icon for `root` and select **Add Node**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/bzfhCUhaDuytz8Rx5eeVS_image.png" size="80" width="1418" height="590" position="flex-start" indent="2" darkWidth="1418" darkHeight="590" showCaption="false"></Image>
+
+2. Add attributes to the schema using either method:
+   - Drag attributes from the left-hand list onto the canvas under the appropriate category.
+   - Click the **Action menu** for a category and select **Add item to Node**, then select the attribute.
+3. Click **Save Model**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/31uNHcIQd4kUcCSpSCB7b_image.png" size="80" width="1418" height="590" position="flex-start" indent="2" darkWidth="1418" darkHeight="590" showCaption="false"></Image>
+
+**Additional schema options:**
+
+- **Export Schema:** export the current schema to a JSON file.
+- **Sync Attributes:** appends all current attributes to the schema hierarchy. The `static_attributes` and `dynamic_attributes` nodes are recreated if they already exist. Confirm the sync when prompted.
+- **Clear Schema:** removes all nodes from the schema builder. Changes apply when you save the model.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ek_7X8MOUaQz84sUSJODU_image.png" size="80" width="1418" height="550" position="flex-start" darkWidth="1418" darkHeight="550" showCaption="false" indent="2"></Image>
+
+## Apply model updates to instances
+
+When you update a model, existing instances do not automatically inherit the changes. Use **Upgrade Instances** to push model changes to selected instances.
+
+**To apply model updates:**
+
+1. Click **Upgrade Instances**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/w7qQIdsrHtyK2pXC_-mvW_image.png" size="80" width="1415" height="678" position="flex-start" indent="2" darkWidth="1415" darkHeight="678" showCaption="false"></Image>
+
+2. Select the instances to upgrade and click **Upgrade**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/FX9n4ks-5B46lAE4UBYw4_image.png" size="50" width="584" height="311" position="flex-start" indent="2" darkWidth="584" darkHeight="311" showCaption="false"></Image>
+
+## Next steps
+
+- :Link[Manage Models]{label="Manage Models" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="gbLAQ-PAf5uQZsUtCsq8t" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Add an Instance]{label="Add an Instance" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="TA1FgH-D1Ap2dU0qrjfMo" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- [Manage instances](lLli_lfwS-RIqTlmzLTCO.mdx)&#x20;

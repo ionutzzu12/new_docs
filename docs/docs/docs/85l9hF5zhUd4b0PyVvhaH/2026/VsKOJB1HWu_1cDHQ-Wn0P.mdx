@@ -1,0 +1,210 @@
+---
+title: Litmus Edge 4.0.5
+slug: VsKOJB1HWu_1cDHQ-Wn0P
+docTags: 
+createdAt: Thu Jan 22 2026 19:12:21 GMT+0200 (Eastern European Standard Time)
+---
+
+Release Date: January 28, 2026
+
+Review the current list of [Limitations](../../../../Resources/LXg9sXwzv0ejmaKrWZT1M.mdx).
+
+## New Features
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **DeviceHub:**
+      This release introduces the following drivers:
+      - **AutomationDirect&#x20;**
+        - EBC Ethernet. This new driver is experimental.
+      - **Cutler-Hammer**. New ELC Gen2 drivers for improved connectivity to ELC controllers
+        - Cutler-Hammer ELC Ethernet
+        - Cutler-Hammer ELC Serial
+      - **GE Fanuc**
+        - GE Fanuc RX3i Serial (Gen1.3). Connects to GE Fanuc RX3i PLCs over serial communication
+      - **Opto Devices**
+        - Opto22 CONT Protocol Ethernet. Supports string read/write and better handling of pointer tags
+      - **Siemens**
+        - S5 Ethernet. Gen2 driver connects to Siemens S5 PLCs over ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DataHub:**
+      - The new Edge Cascading v2 feature allows you to link multiple Litmus Edge instances across OT, DMZ, and IT layers to securely route stream data between ISA‑95 or network layers. Edge Cascading v2 also offers:
+        - **Simple hub/spoke configuration in UI**
+          Configure each Edge as hub, spoke, or both directly in the UI with options for accounts, streams, and per‑link topic allowed‑lists.
+        - **Token‑based secure connections**
+          Use generated account tokens to authenticate spokes to hubs with TLS support to secure traffic end‑to‑end.
+        - **Built‑in observability and reliability**
+          View cascading status and message broker logs in the UI
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - A new Analytics UI introduces improving usability and development tools:
+        - **Modernized UI with Full-Screen Mode**
+          Canvas and toolbars have been fully redesigned for a cleaner, more intuitive experience. Includes support for Dark Mode.
+        - **New Interactive Playground**
+          Test, write, and validate JavaScript, Tengo Script, and JSONata processors in real-time before deploying them.
+        - **Improved Debugging Windows**
+          Redesigned debug and message windows provide clearer context to help you troubleshoot more efficiently.
+        - **Flexible UI Adoption**
+          Instantly switch between the new and classic analytics UI.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integration:**
+      - Added a new **MQTT - AWS IoT Core Gen 2** connector that enables a secure MQTT communication with AWS IoT Core via MQTT
+      - Added a new **MQTT - AWS IoT SiteWise Edge Gen 2** connector based on the latest connector v2 architecture. This enables secure MQTT communication with AWS IoT SiteWise MQTT Broker.
+      - Added a new **Azure IoT Hub using SAS Key over SSL Gen 2** connector based on the latest connector v2 architecture. This enables secure MQTT communication with Azure IoT Hub Gen 2 connector.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **System:**
+      - **Granular Privileged Container Control**
+        Control which users can launch Docker containers in privileged mode with the new `ModifyPrivileged` privilege. Grant users the rights they need for templates, backups, restores, and upgrades without granting full system access. Find the new privilege under Marketplace in **System** > **Access Control** > **Manage Role** > **Edit**.
+    </td>
+  </tr>
+</table>
+
+## Enhancements and Improvements
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub:**      - **Mitsubishi**
+        Added support to **Mitsubishi FX3G Binary Ethernet (Gen1.3)** driver for:
+        - Additional registers: `X`, `Y`, `M`, `T`, `C`, `SM`, `S`, `R`, `SD`, `D`, `CV`, `CV2`, `TV`
+        - String file registers: DSH/DSL and RSH/RSL
+        - bit, word, dword, float, and string types
+      - **ODVA**
+        Improved the **CIP Ethernet** driver’s browsing so that assemblies, such as specific instances in Assembly class 04, are now correctly discovered and accessible.
+      - **OPC UA**
+        Improved **OPC UA Advanced** driver browsing by adding a **Default Root** browse parameter (with a recommended default) and simplifying related device settings.
+      - **Siemens**
+        **Siemens TI505 Ethernet (Gen1.3)**
+        - Extended support for `WX`, `WY`, `C/CR`, `V`, `K`, `TCP/TCC`, `STW`, `DSP/DSC`, `DCP/DCC` registers
+        - Includes .bit and string register variants
+        - Broader address range and data type coverage
+      - **Toyopuc**
+        The **Toyopuc Ethernet Driver** was renamed to **Toyopuc Ethernet.**
+      - The **Toyopuc Ethernet** (renamed ) and **Keyence Nano Ethernet** drivers are improved with expanded device and protocol support. Improvements include:
+        - Array read/write for all register types
+        - Improved byte order and string handling (Unicode and Shift-JIS support)
+        - Multi-point reads and FL-net linking (up to four layers)
+        - New **Max Request Size** setting for performance tuning
+      - Added write response topic support for Allen‑Bradley, Emerson ROC/FB107, Emerson DNP3, Mitsubishi, Modbus, Omron, Siemens, MQTT Client, Generator, and SNMP Manager drivers.
+      - Improved the DeviceHub REST driver so it can correctly parse JSON responses even when the Content-Type header is missing or set to an unknown value. This ensues that array values are read reliably.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Digital Twins:**
+      - Added support to export JSON schemas for Digital Twin instances.
+      - Updated the syntax for Digital Twin system variables in transformations and static attributes to use `{EDGE_DT_SYSTEM_TIME}`, `{EDGE_DT_MODEL_VERSION}`, and `{EDGE_DT_MODEL_NAME}`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - Enhanced the Analytics Inject processor to support scheduling payload injections at specific times on selected days of the week, enabling more precise and flexible automation.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications****:**
+      - Images with repository or tag values defined as **\<none>** now display in **Applications** > **Images**. This matches the behavior in Docker and provides you with an accurate view of the number of images in your environment.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Integration:**
+      - Added an optional **Create Topic** setting to the Kafka Gen 2 connector so it can automatically create missing topics when enabled. This matches the behavior previously available in Kafka v1.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System****:**
+      - New events are available in **System** > **Events** that capture whether templates are applied successfully, whether backups were successful, and when an edge device reboots.&#x20;
+      - OIDC-authenticated users are automatically added to the **Viewers** group on first login. You can modify group membership afterward without changing OIDC provider settings.
+      - Litmus Edge Proxy URLs now persist when performing a backup and restore or when including **Proxy** in a template download.
+      - Two-Factor Authentication (2FA) now supports accounts authenticated through LDAP, AD, and OAuth in addition to local users.
+      - The Groups field is now required when adding or modifying an OIDC Provider through the API to match the behavior in the UI.
+      - Improvements have been made to the **Proxy Configuration** page.
+      - Addressed the following vulnerability related to Zerotouch installations.
+        - CVE-2025-61729
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **High Availability:**
+      - High Availability now includes Auth and DM database backups and provides usability improvements including messaging on why backup nodes became active, timestamps for backups, and error details on the last failed sync. Note that this feature remains as a beta version.
+    </td>
+  </tr>
+</table>
+
+## Resolved Issues
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub****:**
+      - Fixed an issue with the AB CompactLogix Ethernet Advanced driver where tags newly added in Logix Designer were not appearing in new browse jobs.
+      - Fixed an issue where configuring extremely large polling intervals for certain drivers could cause abnormally high CPU usage. Very large polling intervals are now handled safely.
+      - Fixed a DeviceHub bug that prevented adding `C/T/D_bit` tags to devices.
+      - Fixed a panic error in the Torque tool Open Protocol Ethernet driver that caused connections to be rejected when reading torque data.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - Fixed issue where a container crashed with an `Exited 1` code, and a `container.deleted` event was generated even though the container was visible and not deleted.
+      - Fixed an issue where volumes were deleted and recreated during an application upgrade resulting in data loss.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Analytics:**
+      - Fixed an issue in the Analytics Tengo Script processor where `globals.variableGet()` could not correctly read JSON and array values using nested paths, ensuring JSON-based variables now resolve as expected.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Integration:**
+      - Fixed an issue where inbound subscriptions with dashes (`-`) in the local topic name were incorrectly converted to underscores (`_`). Topics now preserve dashes as expected.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **System****:**
+      - Fixed issue where a checkbox could not be cleared after it was selected when modifying permissions in **System** > **Access Control** > **Manage Roles**.
+      - Various fixes for support bundle downloads.
+      - Fixed issue where updates to user role permissions did not persist even though a confirmation message indicated that changes were applied.
+      - Fixed issue where duplicate routes were generated when adding a static route.
+      - The correct number of search results now displays at the bottom right in **System** > **Events** > **Events History**.
+      - Fixed an issue preventing cloud activation after a 2 hour trial license expired.
+      - Improved the NATS proxy so that permission errors on incoming topics no longer cause high CPU usage in the access service. This makes messaging more resilient under misconfigured permissions.
+    </td>
+  </tr>
+</table>
+

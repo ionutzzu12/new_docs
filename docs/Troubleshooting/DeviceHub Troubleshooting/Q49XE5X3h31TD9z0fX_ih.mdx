@@ -1,0 +1,78 @@
+---
+title: Device Connectivity Issues
+slug: Q49XE5X3h31TD9z0fX_ih
+docTags: 
+createdAt: Fri Nov 24 2023 17:38:36 GMT+0200 (Eastern European Standard Time)
+---
+
+At times, a device may display as **Disconnected&#x20;**&#x6F;r a tag may generate a `success=false` message.
+
+Refer to the following error messages and the following table explains conditions that might cause a device to disconnect or a tag to generate a false value, the reasons it disconnected, and the steps to connect the device:
+
+<table columnWidths="319,324" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Error message**
+    </td>
+    <td>
+      **Steps to resolve**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Free Tag: Explicit register name required**
+      Certain device drivers do not have a list of register names in the DeviceHub Add Tag form.
+      When a list of registers is not provided, the case-sensitive register name must be entered exactly as it is defined in the PLC.
+      The device does not display a **Connected** status until a tag with a correct register name is created.
+    </td>
+    <td>
+      Add a tag with a case sensitive register name. See :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} to learn more.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **HID Device in Wait State**
+      Some HID (Human Interface Devices), such as barcode scanners, are always disconnected and only show a connected status when they send data to Litmus Edge.
+    </td>
+    <td>
+      This is a temporary state and no intervention is required. The device connects when there is data to receive.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Incorrect PLC Configuration**
+      If configuration changes have been made to a PLC, the best way to ensure accurate status is to delete and recreate the device in DeviceHub.
+    </td>
+    <td>
+      1. Delete the device. See :Link[Manage Devices]{docId="B-6bwx9UwQBrQP8l-ddIt" label="Manage Devices" spaceId version="v2" docAnchorId="#oRNLz" href="../../Product Features/DeviceHub/Devices/ufbuuLkTV89wmniANk1-M.mdx"} for more information.
+      2. Create a new device with the correct PLC configuration. See [Connect a Device](<../../docs/Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs/FbhaHiALYdPY4aeQGjHB0.mdx>) and the [Industrial Systems Connection Guide](<../../QuickStart Guide/ihnwJuFWkFifh4xbYZH3n.mdx>) for more information.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Incorrect Tag Information**
+      To prevent the PLC from going into fail-safe mode or from crashing the process when a tag has incorrect information, Litmus Edge disconnects communication with the PLC.
+      For example, a tag may contain an incorrect address.
+    </td>
+    <td>
+      1. Monitor all the tags in flows to identify the bad tag.
+      2. Find the tag with a success flag set to *false*.
+      3. Delete the tag from DeviceHub. See :Link[Manage Tags]{docId="EGV2XcoFLhv0WK6NebNQv" label="Manage Tags" spaceId version="v2" docAnchorId="#iKAzE" href="../../docs/docs/Product Features/UeMlHt5tdnpQAOmR99fVv/Rwfa_L_7a-1E6DUb6n9Zf/EG-ZEQNrAwPTVHFkZNKS4.mdx"} for more information.
+      4. If there is no data on the flows, restart the PLC. If a node in a flow indicates "waiting for messages" and nothing is displayed in the debug console, this means that Litmus Edge has stopped communicating with the PLC, so there is no data.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      `success=false` message
+      This could be caused for several reasons:
+      - Wrong configuration for address or data type.&#x20;
+      - The tag doesn't exist in the PLC.&#x20;
+      - The PLC is not able to respond in time to the poll request.&#x20;
+    </td>
+    <td>
+      If there are intermittent false messages and a majority of tag messages are `success=true`, this could be due to the PLC not being able to respond in time to the poll requests. You can increase the poll interval in the DeviceHub tag configuration to give more time to the PLC to respond to requests. You can also add a filter to remove the false messages.&#x20;
+      If the configuration of the tag is incorrect, the status of the DeviceHub device will eventually show a `DISCONNECTED` status to prevent the PLC from going into an error state. To resolve this, you can delete the incorrect tag and refresh the device. If this doesn't resolve the issue, you can reboot the gateway.&#x20;
+    </td>
+  </tr>
+</table>
+

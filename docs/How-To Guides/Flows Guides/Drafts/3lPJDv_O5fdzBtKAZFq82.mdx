@@ -1,0 +1,47 @@
+---
+title: Save Data from Flow to a USB Device
+slug: 3lPJDv_O5fdzBtKAZFq82
+description: You can use flows to save data to a USB device.
+docTags: 
+createdAt: Wed Jun 07 2023 21:45:12 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use flows to save data to a USB device.
+
+Flows can be used for various storage operations. A common use case involves saving data to a flash drive connected to the Litmus Edge device.&#x20;
+
+## Before you Begin
+
+- Ensure that your Litmus Edge instance is successfully subscribed to the DeviceHub topic of interest. See :Link[Subscribe to Topics]{label="Subscribe to Topics" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="sBmPiLWNSt_6mt_Vqb8ym" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+- Check that the USB device you wish to use is mounted on the Edge Device and obtain its mount directory (location in the file system).
+
+## Save Flow Data to USB Device
+
+**To save flow data to a USB device:**
+
+1. From the navigation tab, click **Flows Manager**.
+2. In the Flow list, click the **Expand&#x20;**&#x69;con next to a chosen Flow.
+   The selected Flow opens in a new tab.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/LkWUhz2D5jiwyIq4JX2Fr_2023-09-2713-24-22.png "Expand Flow icon")
+3. From the node palette on the left-hand side of the screen, drag a **DataHub Subscribe&#x20;**&#x6E;ode and a **write file** node to the canvas.
+4. Connect the two nodes.
+5. Double click the **write file** node.
+   The *Edit write file node* dialog box appears.
+6. Enter `<pathname>/testfile.txt` (or `<pathname>/` followed by any suitable file name) in the **Filename** field, where `<pathname>` is the directory where the USB device is mounted. This text field specifies the file that the Flow data will be written to.
+7. Ensure that the **Action** drop-down menu is set to the desired option. (For this example, 'append to file' works best.)
+8. Click **Done**.
+9. Double click the **DataHub Subscribe** node.
+   The *Edit Datahub Subscribe node* dialog box appears.
+10. Choose an appropriate **Datahub** from the drop-down menu.
+11. Navigate to **Tags** under the **DeviceHub&#x20;**&#x70;ane from the navigation panel.
+12. Copy the topic you would like to save to the USB drive from the *RAW Topic* column.
+13. Paste the tag you copied in the previous step into the **Topic** field of the *Edit Datahub Subscribe node* dialog box. Optionally, also enter a name for the node.
+14. Click **Done**.
+15. On the upper right corner of the canvas, click **Deploy**.
+
+**Example:** `/media/usb/filename` where the filename is in the format, `/<pathname>/<filename>.<extension>`
+
+In the following example, data from a local topic defined in DataHub is being saved to a USB drive using a **write file&#x20;**&#x6E;ode.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cswtpLd95RHcylPAPQ7UF_edit-file-node-example.png "Saving to a USB device")
+

@@ -1,0 +1,101 @@
+---
+title: Create, Write to, and Read from a Log File
+slug: -aiimji2iGaX5cNeGAnej
+description: You can use Flows to create a log file on the Litmus Edge device, populate it, and read its contents. 
+docTags: 
+createdAt: Wed Jun 07 2023 22:07:30 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Flows to create a log file on the Litmus Edge device, populate it, and read its contents.&#x20;
+
+<hint type="info">
+  **Note:&#x20;**&#x46;ile names used in node configurations are case sensitive.
+</hint>
+
+# Create a Log File
+
+Before any data can be written, you need to create create a file first.
+
+**To create a file in a flow:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow.&#x20;
+   See [Create a Flow](<../../docs/Product Features/tAQ2y6xPYLoNqxyFDrrb-/EfWU7FhzSuuhmZvRB11Ad.mdx>) to learn more.&#x20;
+2. Drag a **write file** node and an **inject&#x20;**&#x6E;ode to the canvas and wire them together.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/DUnpLEQg8JpkbWXkvSTEU_image.png "Flows canvas with write file node")
+3. Double-click the **write** **file** node.
+   The *Edit write file&#x20;*&#x6E;ode dialog box appears.
+   - **Filename:** Enter a **filename&#x20;**&#x70;refaced with a forward slash ( `/` ).&#x20;
+     - The forward slash is required in the filename.
+       Example: `/ftp-data/testlogfile.log`
+     - The file is created on the Litmus Edge device.
+     - If a subdirectory already exists, you can supply the full path to the file.
+       Example: `/ftp-data/testlogfile` or `/logfiles/testlogfile`.
+   - **Action:** Select **append to file** from the drop-down menu and click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RJ7EBYF7NHe1EnyUzQuWQ_image.png" size="70" width="508" height="477" position="center" caption="Edit write file node dialog box" showCaption="true"></Image>
+4. Click **Deploy&#x20;**&#x74;o save the flow.&#x20;
+5. Click the button on the left side of the **inject&#x20;**(timestamp) node to inject the current timestamp into the **write file** node, which creates the file locally if it does not already exist.&#x20;
+   In this example, the `/ftp-data/testlogfile.log` file is saved.
+
+# Read a File
+
+You can use a **Read file&#x20;**&#x6E;ode to access a file that you have created or written to.
+
+**To read a file:&#x20;**
+
+1. From the Flows canvas, drag a **read file** node, **inject&#x20;**&#x6E;ode, and **debug&#x20;**&#x6E;ode to the canvas and wire them together.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/I3RXPC_Qezq9u1ppGCYy0_image.png "Flows canvas with read file node")
+2. Double-click the **read file&#x20;**&#x6E;ode.
+   Th&#x65;*&#x20;Edit read file node&#x20;*&#x64;ialog box appears.
+   - **Filename:** Enter the **filename&#x20;**&#x70;refaced with a forward slash ( `/` ).&#x20;
+     A forward slash is required to be the first character of the filename.
+     Example: `/ftp-data/testlogfile.log`
+   - **Output:** From the drop-down menu, select the standard **single utf8 string&#x20;**&#x66;ormat.
+   - Click **Done.**
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/m7gvFU9YU7LiUWBXNeUs8_image.png" size="70" width="503" height="405" position="center" caption="Edit read file node dialog box" showCaption="true"></Image>
+3. Click **Deploy.**
+4. Drag the **Sidebar&#x20;**&#x75;p from the bottom of the canvas and select the **Debug** icon.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/NR-2HuY85vCMwwDX8RM7y_image.png "Debug icon on flows canvas")
+5. Click the **inject&#x20;**&#x6E;ode button to trigger the flow.
+   The debug area shows the timestamp that has been written to the `/ftp-data/testlogfile.log` file.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/N6VKJpRNTt4o11ntJuFpU_image.png "Output of reading a file")
+
+# Write to a Pre-Existing File
+
+In the Create a Log File steps, the inject node triggered file creation. The following steps show how to write to an existing file.
+
+**To continue writing to the file that was created in&#x20;**:Link[Create a Log File]{label="Write to and Read from a Log File" spaceId docId="iDli7_LJjny2pHz0NW9H_" version="v2" docAnchorId="#create-a-log-file" loadingMethod="dynamic" overridedLabel="Create a Log File" href="-aiimji2iGaX5cNeGAnej.mdx"}**:**
+
+1. From the Flows canvas, double-click the **write file** node.
+   The *Edit write file&#x20;*&#x6E;ode dialog box appears.
+   - **Filename:** Enter a **filename&#x20;**&#x70;refaced with a forward slash ( `/` ).&#x20;
+     We use the same file we created before: `/ftp-data/testlogfile.log`
+   - **Action:** Select **append to file** from the drop-down menu.
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/UdiLRuIatRa6nZjvIiV3O_image.png" size="70" width="510" height="488" position="center" caption="Edit write file node dialog box" showCaption="true"></Image>
+2. Click **Deploy.**
+3. Click the **inject&#x20;**&#x6E;ode button to inject the current timestamp into the **write file&#x20;**&#x6E;ode, which appends the output to the pre-existing file.
+4. Drag the **Sidebar&#x20;**&#x75;p from the bottom of the canvas and select the **Debug&#x20;**&#x69;con.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/t5B0Bbra-BOIsEySwdOjl_image.png "Debug icon on flows canvas")
+5. Click the **inject&#x20;**&#x6E;ode button from the *read file* node configuration to verify that the write task to the pre-existing file was successful.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/bF9Hx9_Tz-cgijJJF_Zvb_image.png "Output of reading a file")
+
+# Write a Message to a File
+
+You can inject a string message into a pre-existing or a new file from the Flows.
+
+**To write a message (text string) to a file:**
+
+1. In your Flow canvas, double-click the **inject** node.
+   The *Edit inject node* dialog box appears.
+   - **msg.payload:** From the drop-down menu, select **String**.
+   - Enter text of your choice in the blank text field.
+     In this example, we have entered: `Hello World`.
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/F0bgpuXGMXR2_HpNnKz3Z_image.png" size="70" width="572" height="333" position="center" caption="Edit inject node dialog box " showCaption="true"></Image>
+2. Click **Deploy**.
+3. Click the **inject&#x20;**&#x6E;ode button to inject the message into the **write file&#x20;**&#x6E;ode, which appends the output to the pre-existing file.
+4. Drag the **Sidebar&#x20;**&#x75;p from the bottom of the canvas and select the **Debug&#x20;**&#x69;con.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/t5B0Bbra-BOIsEySwdOjl_image.png "Debug icon on flows canvas")
+5. Click the **inject&#x20;**&#x6E;ode button from the *read file* node configuration to verify that the message was written to the file.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ba3EJG8wXOXut7FQSS6bG_image.png "Output of reading a file")
+

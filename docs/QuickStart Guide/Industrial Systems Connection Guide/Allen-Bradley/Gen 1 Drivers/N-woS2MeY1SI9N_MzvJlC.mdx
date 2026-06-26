@@ -1,0 +1,156 @@
+---
+title: AB Micro850 (Gen1.3)
+slug: N-woS2MeY1SI9N_MzvJlC
+description: Review the following information for setting up and configuring the AB Micro850 (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB Micro850 (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="231,325" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Micro800]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/micro-controllers/micro800-family/micro800-plug-in-modules.html" newTab="true"}
+      When configuring tags for this driver, you must enter the case-sensitive register name exactly as defined in the PLC. See the *Free Tags* section below to learn more.&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Allen-Bradley
+   - **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/WCDrI7sm2UjoP1nUjVkY3_ab-micro850.png" size="80" width="604" height="345" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. Launch RSLinx Classic, and connect the device to a PC using USB cable. The device is added to the browser.
+3. Right-click the device and then select **Module Configuration**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/PAvXurV3Acmsjt3gZGH8j_ab-micro850-browse482x338.png" size="80" width="482" height="338" position="flex-start" caption="Module Configuration option" showCaption="true" indent="2"></Image>
+
+4. From *Port Configuration*, set up the device Ethernet parameters.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Sib9aU1z13qakcOoSP_lK_ab-micro850-ethernet-parameters.png" size="60" width="276" height="367" position="flex-start" caption="AB Micro850 parameters" showCaption="true" indent="2"></Image>
+
+5. Create an AB\_ETHP-1 driver. Select an adapter on the same subnet as the device. If you cannot find it in the local subnet, select **Remote Subnet**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/3TbiMQQ5ZH9y7I1kigRxR_ab-micro850-adapter.png" size="70" width="382" height="294" position="flex-start" caption="Configure Driver dialog box" showCaption="true" indent="2"></Image>
+
+6. Launch CCS (Connected Component Workbench).&#x20;
+7. Click the **Discover&#x20;**&#x69;con to browse the device.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/hDE__igxxrA_kWyUZcwel_ab-micro850-ccs-browse.png" size="80" width="418" height="426" position="flex-start" caption="Connection Browser dialog box" showCaption="true" indent="2"></Image>
+
+8. Double-click the device.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/DeTwluyUmHzpgdVBFTwO-_ab-micro850-details.png" size="80" width="880" height="573" position="flex-start" caption="AB Micro850 details" showCaption="true" indent="2"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB Micro850 (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot Number**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="AWa1-gOs6_B9p9uMjYJPE">
+
+</ContentSnippet>
+
+- `bool`
+- `sint`
+- `int`
+- `dint`
+- `real`
+- `lint`
+- `byte`
+- `word`
+- `dword`
+- `lword`
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

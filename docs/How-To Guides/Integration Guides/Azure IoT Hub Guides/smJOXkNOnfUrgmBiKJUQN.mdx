@@ -1,0 +1,81 @@
+---
+title: Send Data to Azure IoT Hub with an SAS Key
+slug: smJOXkNOnfUrgmBiKJUQN
+description: Learn how to send data to Azure IoT Hub with an SAS key. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:16:59 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an outbound data integration between Litmus Edge and Azure IoT Hub using an SAS Key.&#x20;
+
+# Before You Begin
+
+You must first [Set up an Azure IoT Hub](O7bEwhB6DATved5WmyCFt.mdx).&#x20;
+
+# Step 1: Add a Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add the Azure IoT Hub using SAS Key Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/GcX9UZAhKiYSz8LSe4xaJ.mdx>) and select the **MQTT - Azure IoT Hub using SAS Key** provider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Enter the IP address or server FQDN of the MQTT broker (must be reachable from your edge device).&#x20;
+- **Port**: The MQTT broker's port number. The default value is 8883.&#x20;
+- **Client ID**: Copy the *Device ID* of your edge device from th&#x65;*&#xA0;IoT Devices* page in the Azure portal and paste it here.
+- **SAS Key**: Copy the primary or secondary shared access key from the *IoT Devices* page in the Azure portal and paste it here.&#x20;
+- **Parallel Publish Count**: The maximum number of concurrently published messages. The default value is 16.&#x20;
+- **Integration Topic**: The default topic to publish or subscribe to: devices/\[deviceId]/messages/events/. Replace `[deviceId]` with the Device ID copied from Azure.&#x20;
+- **Token TTL**: The token expiry time in minutes. The default value is 1440.&#x20;
+- **LWT Topic**: The topic for MQTT's Last Will and Testament feature.&#x20;
+- **LWT payload**: The payload for MQTT's Last Will and Testament feature.&#x20;
+- **LWT payload type**: The payload type for MQTT's Last Will and Testament feature. The options are *string&#x20;*&#x61;nd *base64*.&#x20;
+- **LWT QoS**: The Quality of Service value for MQTT's Last Will and Testament feature.&#x20;
+- **LWT retained**: Select this check box to retain the value for MQTT's Last Will and Testament feature.&#x20;
+- **Throttling Limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RQot-5j1JSnlVxY_dW-ZT_azureiotsas.png" size="60" width="369" height="345" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="PvlzNrGBVl3QhocUrjZBZ" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../../docs/Product Features/lBL7doO8dZVjlOPVnrAkz/o3YwIl-aYuomiu2keYIsw.mdx"} and relevant error messages.&#x20;
+
+# Step 5: Create Outbound Topics for Connector
+
+You will now need to create topics from the tags you added in Step 2. &#x20;
+
+Before creating the topics copy the *Raw Topic* parameter for all tags you want to use for topics. See [Manage Tags](<../../../docs/docs/Product Features/UeMlHt5tdnpQAOmR99fVv/Rwfa_L_7a-1E6DUb6n9Zf/EG-ZEQNrAwPTVHFkZNKS4.mdx>) for more information.
+
+**To create topics:**
+
+1. Click the connector tile.
+   The connector *Dashboard&#x20;*&#x61;ppears.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Add topics to the connector with the details below. See :Link[Add Topics to Connectors]{label="Add Topics to Connectors" spaceId docId="peBcVmbma1qUezfYZUXFB" version="v2" docAnchorId="#IQNU7" loadingMethod="dynamic" overridedLabel href="../../../docs/Product Features/lBL7doO8dZVjlOPVnrAkz/exGLb3i9-XO52r47YxJff.mdx"} for more information.&#x20;
+   - **Data Direction**: Select **Local to Remote - Outbound**.&#x20;
+   - **Local Data Topic**: Paste th&#x65;*&#x20;Raw Topic* for the tag created in Step 2.&#x20;
+   - **Remote Data Topic**: Verify the format of the remote data topic is **devices/\[DeviceID]/messages/events/**. Replace \[DeviceID] with the Device ID parameter configured for the connector.  **devices/MyDevice/messages/devicebound/%24.to=%2Fdevices%2Fmessages%2Fdevicebound**.
+   - **Enable**: Click the toggle to enable the topic.&#x20;
+4. Click **Yes&#x20;**&#x74;o add the topic.&#x20;
+5. After adding all required topics, navigate to the *Integration&#x20;*&#x70;ane.&#x20;
+6. From the connector tile, ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 6: Manage Data in Azure
+
+Once data is sent to the Azure IoT Hub, you can manage it as needed. Refer to the :Link[Azure IoT Hub Documentation]{href="https://learn.microsoft.com/en-us/azure/iot-hub/" newTab="true"} to learn more.&#x20;
+

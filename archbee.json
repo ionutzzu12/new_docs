@@ -1,0 +1,3581 @@
+{
+  "docsPath": "docs/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "path": "EUWXnSL1NUA2BgbErxLhr.mdx",
+        "children": [
+          {
+            "path": "Overview/mfVUPw5seXUkPlApZkYW5.mdx",
+            "children": []
+          },
+          {
+            "path": "Overview/epPr3YFnvVx8U9V48_kKD.mdx",
+            "children": []
+          },
+          {
+            "path": "docs/EUWXnSL1NUA2BgbErxLhr/jaYEUSAgss6kyC_JGBQUF.mdx",
+            "children": [],
+            "isHidden": false
+          }
+        ],
+        "isFoldedByDefault": true
+      },
+      {
+        "categoryName": "QuickStart Guide",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "QuickStart Guide/GhaNpfCdRlH0OiNIyk1du.mdx",
+            "children": [
+              {
+                "path": "QuickStart Guide/System Requirements/xvOMHvZEtLRDcSEe1ot2o.mdx",
+                "children": [],
+                "isHidden": false
+              }
+            ]
+          },
+          {
+            "path": "QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l.mdx",
+            "children": [
+              {
+                "path": "docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/CQ3NSXCJ3Zb34awVL0GCH.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Installation and Deployments/ISO Installation on Hypervisors/m1utgWaLmNEQwRLuDmYdO.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Installation and Deployments/ISO Installation on Hypervisors/2hpNbq3xH8cKFxql7Bgd9.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "QuickStart Guide/Installation and Deployments/ISO Installation on Hypervisors/VmOOteHje50KTWa0QyGo_.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/CQ3NSXCJ3Zb34awVL0GCH/Cd3ordDJBNjNsEcjLx6wL.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Installation and Deployments/ISO Installation on Hypervisors/qQm06n2SiemGgixXw-jCf.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/CQ3NSXCJ3Zb34awVL0GCH/a-7vkdgJMz3YGC1Vkasvs.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/BrUnn4D4cAyNl9AbVTIch.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/H5FfZOub8EtRcHmQ15NT6.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/H5FfZOub8EtRcHmQ15NT6/bDnqLD_1GJDEm7s6eW2Sq.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Installation and Deployments/OVA Installation on Virtual Machine/lQoVl0q_uK1Jflyd6m9Yh.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "QuickStart Guide/Installation and Deployments/jcnqEg5pQoMJ3ECI3Qt7x.mdx",
+                "children": [
+                  {
+                    "path": "docs/QuickStart Guide/Installation and Deployments/jcnqEg5pQoMJ3ECI3Qt7x/Sb4N3zE3dyrDNHigvbj2C.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              },
+              {
+                "path": "QuickStart Guide/Installation and Deployments/Rd082Cu-4iZIuIqOch7Y1.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/F9leHUqYPpBreoO7sCxES.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/aOIF7CNLKoKs0pY7Rv_18.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "QuickStart Guide/Installation and Deployments/developer-edition-2-hour-trial.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/SkujcBCZeDe3fmlkXDUT9.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/QuickStart Guide/HuKWZTyTIc3Ce9wsrNx0l/jeWtCYzfX-VdU2FuB7KDG.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "QuickStart Guide/i861oBtdL-QNxXTt1b3ga.mdx",
+            "children": [
+              {
+                "path": "docs/QuickStart Guide/i861oBtdL-QNxXTt1b3ga/5PyFNXl3KcBVdtEAu9mNi.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/i861oBtdL-QNxXTt1b3ga/5PyFNXl3KcBVdtEAu9mNi/BpV4GS8GAV-3L9FwOEJ3O.mdx",
+                    "children": [],
+                    "isHidden": true
+                  }
+                ],
+                "isHidden": false
+              }
+            ]
+          },
+          {
+            "path": "QuickStart Guide/ihnwJuFWkFifh4xbYZH3n.mdx",
+            "children": [
+              {
+                "path": "QuickStart Guide/Industrial Systems Connection Guide/deprecated-drivers.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/zDyd6mzO4sCBay_gRsr95.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/zDyd6mzO4sCBay_gRsr95/abb-totalflow-db2-serial-gen13.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/ABB/2yAJiMhfIqh529ki_ednN.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "QuickStart Guide/Industrial Systems Connection Guide/gU13n-Sz8shWL0I1OlnNb.mdx",
+                "children": [
+                  {
+                    "categoryName": "Gen 1 Drivers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/XxfUj-fzm2JvDft8WGml3.mdx",
+                        "children": [],
+                        "isHidden": true
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/gw9TxAwEJpJWk3LsG89cA.mdx",
+                        "children": [],
+                        "isHidden": true
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/zyGmKs3gihUJZDCwjtZKF.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/5YtW_BqQ__6Gq9WHVRBtA.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/u54YhkDlfhCIOj_JQmyET.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/_vkY65IzCLQPzpjQn4IvB.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/oTeRGe_lztwZUlmeNOIB_.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/hS_hBAmfancn1ybjFEDcP.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/N-woS2MeY1SI9N_MzvJlC.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/vGVmPCpS_nk2jbJ1_1ihA.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/VHQkUT8MMXprJNxxdjsK1.mdx",
+                        "children": [],
+                        "isHidden": true
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/C_Ob5gmg5rfN8GssSZdS7.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/HSdwc1x83wI3N-YKTKGpj.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 1 Drivers/aqgYAWhbXDiedQklk07TS.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "categoryName": "Gen 2 Drivers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 2 Drivers/_BJ9zOR8ulJdAAsqXr5wj.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 2 Drivers/PBoF2y5NhirJ-XS9CYRDZ.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 2 Drivers/pjoneDDuQjjemlT__r04n.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 2 Drivers/tnVZeIW5Z-5bCgT2-qYkz.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 2 Drivers/ElxCaHdbetoFSt_Im4aT3.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 2 Drivers/ab-logix-ethernet.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 2 Drivers/ay-GnVlc1osNMQ2HPILai.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Allen-Bradley/Gen 2 Drivers/ab-micro800-ethernet.mdx",
+                        "children": [],
+                        "isHidden": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/automation-direct.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Automation Direct/ag7mwXFCW31cf83euHJGW.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/bandr.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/bandr-pvi-ethernet.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ],
+                "isHidden": false
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/DvVup2-fonI92zG0mVhgB.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/DvVup2-fonI92zG0mVhgB/scjQaaHiG9Cjktu9WTJGX.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/DvVup2-fonI92zG0mVhgB/bacnetmstp.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/zRrsT5KdT9MUG8Jfaxuqu.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/zRrsT5KdT9MUG8Jfaxuqu/KAuNUh2bKsESSgLYrv3QV.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/zRrsT5KdT9MUG8Jfaxuqu/a4z5oT3itdQIMXVr0MffJ.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/zRrsT5KdT9MUG8Jfaxuqu/Oi0XoQhy5Tm5zpN5MGsPD.mdx",
+                    "children": [],
+                    "isHidden": true
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/j7ayQtTUElNVv2dgHH0_b.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Brother Industries Ltd/Y5r6CM-5ev8hF__XhhemV.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/j7ayQtTUElNVv2dgHH0_b/ccztpOdCe9Esw-iL2Td7s.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/OoVGa5DJAKY3gkqgilIo8.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/OoVGa5DJAKY3gkqgilIo8/TCQmHWIMCIxrlIFpOoC5B.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/nTnpWpbCZHuOWkF9APtiY.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/CodeSys Devices/ogvhU8uPe4k5x9NodK6uM.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/CodeSys Devices/m6vs0VWx2tOKXXjWARhNL.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/CodeSys Devices/AMVANQLeqCvomaPj7UOCU.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/GCInXuJBkpcon3zVhCQUi.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Cutler-Hammer/iQ8j0Sq74oulJHmBu4PbG.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/GCInXuJBkpcon3zVhCQUi/cutler-hammer-elc-ethernet.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Cutler-Hammer/cutler-hammer-elc-serial.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ],
+                "isHidden": false
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/6C5ZKVyBFomp0ORYFYjjY.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Danfoss/2OaOCuQDRkGx0iu4U9O0p.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "QuickStart Guide/Industrial Systems Connection Guide/m3EPe_NKnzZizO0zdzBS4.mdx",
+                "children": [
+                  {
+                    "path": "docs/QuickStart Guide/Industrial Systems Connection Guide/m3EPe_NKnzZizO0zdzBS4/QLo1qxfQhlgZc8UwMDPq9.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/dnp3.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/dnp3/dnp3-master.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/L17T2TAA1EAahBistmWcG.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Emerson/Hvj7mnlrweHYx7xG2I1cu.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/L17T2TAA1EAahBistmWcG/dnp3-ethernet-with-fb-extensions.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/L17T2TAA1EAahBistmWcG/xmcbmP9Duid4bBX2q2XRB.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/L17T2TAA1EAahBistmWcG/e8PbSX3Uk8Ju1ckSvRwJ5.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/0vf0SQdtwMQtUqX4y-Jcl.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/EUROMAP 63/ou5H2Z3WxrjDGL1lOxwxO.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/-He5iYgw075NBUtfRhyDA.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/-He5iYgw075NBUtfRhyDA/sj77IiYPI8odvBhchziSz.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/Q3DYgIu038ZG5ci1MNPqf.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Fanuc Corporation/O6r-JWyPNkhVGlolNnkf6.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/SLctfOfsMKGcOkekDNnla.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Fuji Devices/0oY4udvKS1rbptOGkXSCL.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Fuji Devices/HvhCMmkw_dSMCzLHeriLs.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ZlDhzYA_a5lOFqsnyG-tp.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ZlDhzYA_a5lOFqsnyG-tp/410-ge-ethernet-global-data-gen2.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ZlDhzYA_a5lOFqsnyG-tp/ge-ethernet-absolute.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ZlDhzYA_a5lOFqsnyG-tp/ge-ethernet-symbolic.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ZlDhzYA_a5lOFqsnyG-tp/5uhLx_ks31WWy8YyNpI0Y.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ZlDhzYA_a5lOFqsnyG-tp/9Bll6fqoGJwbf7Rd2hWWt.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ZlDhzYA_a5lOFqsnyG-tp/ckt28fIiYcH8tKmEFzR9b.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/GE Fanuc/wT_GrwWO5cdi57osM3hUP.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ZlDhzYA_a5lOFqsnyG-tp/rP0MuNH0z04uxswHPesRT.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/generic.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/generic/csv-stream.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/generic/generic-device.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/generic/xv_C8F1_3jKPJFJ5BJvnq.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/generic/FySIlVw_SyQ_yHloyoD3i.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/db0LsC8Yf9IimGAaQRNgq.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/db0LsC8Yf9IimGAaQRNgq/bfBUzrcJYFQ1UNoaN9hdh.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/db0LsC8Yf9IimGAaQRNgq/_wJJmlRrHrSmpFU-Pm3ba.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/db0LsC8Yf9IimGAaQRNgq/JeAzb_dQnpSPbx-xoqhUb.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/k-FUz2SS9r5t0l5fR1_co.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/HID Devices/Jl7QCjdrJYHUGutRVicW1.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/PsynkkWK9GJf6xDt42Nf1.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Hitachi Devices/mC53btu1iSF3ybAqCwU4u.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H1omI3M1Aw66LAcdg-U-Z.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H1omI3M1Aw66LAcdg-U-Z/d6PD-J2BWMVp2UIYhqc0g.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H1omI3M1Aw66LAcdg-U-Z/HhSJzdEEfQTnUedcA61ZA.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Historian Drivers/ZRsJiKXpC9QnWnGMh9u1x.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ],
+                "isHidden": false
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/Uk_Pv2gj_rHU35oOxKi0o.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/Uk_Pv2gj_rHU35oOxKi0o/i2ArBlRHjMpe9N-5zbefb.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/Uk_Pv2gj_rHU35oOxKi0o/ubSh1U_6CVD45FOWVqFVg.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/aPPd5nisVxJ7NJkJ9nNqV.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Ignition Module/XiRb9qNWsaicXSVlfVDW3.mdx",
+                    "children": []
+                  }
+                ],
+                "isHidden": false
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/SnNDtJQxu8HfoQ9wPOrw-.mdx",
+                "children": [
+                  {
+                    "categoryName": "Gen1 Drivers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Keyence/Gen1 Drivers/5CnBfbP7VFHCjqyJGJTia.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Keyence/Gen1 Drivers/kAhWgJC0Ic49mxg6xatmD.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Keyence/Gen1 Drivers/eOdu9QpDJ-LJ7TIgdxEer.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "categoryName": "Gen2 Drivers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Keyence/Gen2 Drivers/UT_1yS0K3l3u72Qed1v3p.mdx",
+                        "children": [],
+                        "isHidden": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/LT9SRGilapkb26YZzRQDL.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Koyo/uys6oktB9Q3jdFu-Ct-S9.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/LT9SRGilapkb26YZzRQDL/Esx_OBtDogQTmjzakNuwQ.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Koyo/aJLfOUyQVUBli0qn_Z5oU.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/LT9SRGilapkb26YZzRQDL/koyo-ethernet-gen13-3240.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Koyo/koyo-ethernet-gen1.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/bo6dtOgPT4kNni3vl3fh7.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/LS Industrial System/dMGHeoobx3y1zdq2eMiT_.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/LS Industrial System/eaePna03riZrkSiB8g7Xr.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/LS Industrial System/M0FGeOAnlzLcpfLtWrHA0.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/HvhvVyoa3pxoCX6RhxWGk.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Lumberg Automation/c4QfJykgGP1BiKJo15615.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/mettler-toledo.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/mettler-toledo/ind256x.mdx",
+                    "children": [],
+                    "isHidden": true
+                  }
+                ],
+                "isHidden": true
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/-PCd72PyCJ50qnoTMbfTH.mdx",
+                "children": [
+                  {
+                    "categoryName": "Gen 1 Drivers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/qAZNEbqMxoVuGY-SOAI0E.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/VG_G2cGotURV59b6n8SNU.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/83tZBOiglZTawlXlLvWWM.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/TyhbQUqj-zwz9BUEEHL2f.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/Xn3yxvZxKFluieHUpArjE.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/jyHq7b9Ur1RDFqFOl5i7T.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/YQXeUfgmTUIt5dAowWM9P.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/lwvBulF-LInpRJbuLpyTh.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/YZAuGRzqrxp10aTZQU5Vw.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/jXlesR6SwYUkt7GHcHEie.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/uD75QiThVcxRjZXSO4I1u.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/gKHek2Y-NcNdpFQIgE5c1.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/5aY_Z9XfN2-8HimqLtYPV.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/DJU-TBCuRWqtU02nPBCR6.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/2bdEIOr2OoqqEP86YNOW2.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/hAxhux_HxDUquHJ26qWVz.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/k5ciO_3LLTYV8-qR5xe5V.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/g0Zco6BCilqUEwu94oABK.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/q78H1JtyiVtWglSxPueDK.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/E9Qgi_1KrUq4RNO9nAIw5.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 1 Drivers/SPHoh8O2IEoPuotZUHVYK.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "categoryName": "Gen 2 Drivers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 2 Drivers/5DCnvS-5YhUYUIW704Q31.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 2 Drivers/ofKd87bKFxUHLjg6egzx-.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 2 Drivers/yOmnqQT0JTSZKSiSTCFwD.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Mitsubishi/Gen 2 Drivers/8RAfuLI63f412fXGsU62X.mdx",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/qX8Wv58j5lUpYRQdBGmK-.mdx",
+                "children": [
+                  {
+                    "categoryName": "Gen 2 Drivers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/4cZ89RS312OflwUcz23fY.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/PzesOI4hlwmjK_0qa57oD.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/24HKX_zg5ZwXz17bgwsJ6.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/modbus-multi-station-rtu-to-tcp-converter.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/6wTfAVkLiE32NCS8a3gFz.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/1WSGDOxLRMBfYE5GCx1eG.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/AiVBxqPECj0419NxRuOUI.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/r8DG-I7OluCYUIXvgGIg8.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/wDXcICSkJ3QK-acC1ASm8.mdx",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/qnp_-UzAJtsl9rwqxixuF.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/qnp_-UzAJtsl9rwqxixuF/GMRaWKiW-lpc5lsOkv5b1.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/qnp_-UzAJtsl9rwqxixuF/bsIHJ107nRFEFSpN3Sa8g.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/qnp_-UzAJtsl9rwqxixuF/Z5z2--eZZMqY0UQTkdzSQ.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/tM3RQMhLFfPewP9x5IRnL.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/MTConnect/8PAyTj59q5HAxO66g1igW.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/network-utility.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/network-utility/FFbPs1Q7SeD7R39Nn_BNL.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Network Utility/snmp-manager.mdx",
+                    "children": [
+                      {
+                        "path": "docs/QuickStart Guide/Industrial Systems Connection Guide/Network Utility/snmp-manager/snmp-manager-reference.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/network-utility/syslog-server.mdx",
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Network Utility/Syslog Server/syslog-server-reference.mdx",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/or3dLLYyGiIZiy7fKqeZ1.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/ODVA/cip-ethernet.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/ODVA/7YZVAyy6a5KUMOBACKSzL.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H9si4SvTjE_DzHtXxHOS8.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H9si4SvTjE_DzHtXxHOS8/omron-nj-ethernet.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H9si4SvTjE_DzHtXxHOS8/omron-hostlink.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H9si4SvTjE_DzHtXxHOS8/omron-fins-serial.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H9si4SvTjE_DzHtXxHOS8/HZLn3uVHAx-YkwJevtJ8A.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H9si4SvTjE_DzHtXxHOS8/jYgaFkit2P66ZrPmJy9QY.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/H9si4SvTjE_DzHtXxHOS8/mP5o2mrvQByUUcMCCtuMp.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Omron/Br9tBrF2IhDXVbKpMXksc.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Omron/40I3ZY1bCKchcN4X0dS80.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/HL8JYvBCNRoCPy-oq-2Ib.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/HL8JYvBCNRoCPy-oq-2Ib/4IpSxLVuvWayN0Jetw71D.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/OPC UA/QH32VtU7m_jDGL6HRy6cZ.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/OPC UA/SY2kmVD6oUnszF1B8dsDm.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/HL8JYvBCNRoCPy-oq-2Ib/J5wB4XpZ8NulZYigq5lZR.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/veM9-kGWVbmawo-eodSoD.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/veM9-kGWVbmawo-eodSoD/SMgXg73BVz8jphRNF5QCf.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Opto Devices/3dvCYuRRC5q8ArPz67chX.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/pNy_Pci9YAvywU7h-LILC.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/OSI/jUZtYPAJKIgxrV9wqS53H.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/pNy_Pci9YAvywU7h-LILC/TCxCdCdaaTxNlH4cjswWP.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/dicSfakagiS2e5WPgqsFB.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Panasonic/RgNJnQ1lAzBX6uF7qjqo5.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Panasonic/-iWdp5znq3DhiwZQalZ8X.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Panasonic/hYj_q4JQltVg5yNfLe2gk.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/dicSfakagiS2e5WPgqsFB/1SHJO6wh0MXed80A2l_-I.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/IVo6FszxCPCDRLN_7eUEl.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Parker/t1Iiabzi5FgEzUg5mxmPJ.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/BkrrINJxj2e33Xn_Lsmy2.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Profinet/1B1elUsKGGO8OQmrXL5UQ.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/BkrrINJxj2e33Xn_Lsmy2/SivtS3YXjl3sxd4utSu_c.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/robot.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/robot/abb-robot-web-services.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/PgGpsChncek0DdhCpsLGM.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/RS Automation/HAFvbdyBGXtadcuUkjTZm.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/Noz1geE_FxnOlG9l5Bq1B.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/SAIA/SXu-qdHx7pTQpA_LnX7uN.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ciand1W8J9xDgq4vskxp_.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ciand1W8J9xDgq4vskxp_/62kjH3G4apY79vyayLvOl.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/ShhHF3gDbJGRfYDzs3XLK.mdx",
+                "children": [
+                  {
+                    "categoryName": "Gen 1 Drivers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/_tYk7yAcV5doizZtYpuyp.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/1CljM6F-EFnSFgwV83wig.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/-GdumX_AQsjzL0cd5ur4S.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/NvqTO8mm_NvHW5csKsasg.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/hUzI7TQFosMRhO1nIQlVu.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/46PZLDUUd5S8HnGc5IpXH.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/UBxj-9-Y33YcXCpBr0HMS.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/uBt2RcVxt7zmmDVxNWydb.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/p62X35dUn5NwsqKK_osOu.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 1 Drivers/U89zxaIqL59QNNBGFAAXm.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "categoryName": "Gen 2 Drivers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 2 Drivers/7kphJPSO5hkbsMUKygTZN.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 2 Drivers/7x674xnEoBT5cQnE3BZQu.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 2 Drivers/kOMQvk_WoPCA-youdKO96.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "QuickStart Guide/Industrial Systems Connection Guide/Siemens/Gen 2 Drivers/vR_7NcZCNBrKSFui9Teu8.mdx",
+                        "children": [],
+                        "isHidden": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/oOXsS1I74MwqloSP7xbBi.mdx",
+                "children": [
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Simulator/X3UmK0Qzym6kwmiOnAyxA.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Simulator/cNndQ4SWiD1tDCYWhEHca.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/l1noD2PycwRK_609elMXb.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/l1noD2PycwRK_609elMXb/x-WeFRKCLBbNZMTI-vHlN.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/rrW640UZTxYYNScE8qgiJ.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/rrW640UZTxYYNScE8qgiJ/xy1IqLPhgxta-Ky1rhj68.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/HLoIQxGY9Yklj-l3qmaC8.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/HLoIQxGY9Yklj-l3qmaC8/toyopuc-ethernet.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/HLoIQxGY9Yklj-l3qmaC8/spFJB3KxpcScyWUm4dz13.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/e4_qInXOwPHRfFNr245i7.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/e4_qInXOwPHRfFNr245i7/UCsW5DhGulXLnp1KQaAv3.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/IH3H-3FIVaJis_5iuEUHw.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/IH3H-3FIVaJis_5iuEUHw/dkgElgAumq-EEdDCpaGLd.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/CVBE7_t-TigvOlqIT0mfG.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/QuickStart Guide/ihnwJuFWkFifh4xbYZH3n/CVBE7_t-TigvOlqIT0mfG/yokogawa-dx-ethernet.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "QuickStart Guide/Industrial Systems Connection Guide/Yokogawa/3lTNGvBYYrmoBuhM6P3RR.mdx",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "isFoldedByDefault": true
+      },
+      {
+        "categoryName": "Product Features",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "Product Features/OLeSlMrCri3UNkUHkRVzP.mdx",
+            "children": []
+          },
+          {
+            "path": "Product Features/UeMlHt5tdnpQAOmR99fVv.mdx",
+            "children": [
+              {
+                "path": "Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs/FbhaHiALYdPY4aeQGjHB0.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs/MaX_pC0gEhsHxrTX-Gb71.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/DeviceHub/Devices/ufbuuLkTV89wmniANk1-M.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/DeviceHub/Devices/TBh-qoGhjnIRwcHqAtn5J.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/UeMlHt5tdnpQAOmR99fVv/Rwfa_L_7a-1E6DUb6n9Zf.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/DeviceHub/Tags/t2iGQ9bojYRXYfzs-cVi_.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "Product Features/DeviceHub/Tags/an8QdGbLPpMM9ECX6dPE7.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "Product Features/DeviceHub/Tags/a2AV__60dpQS-slUJ_iDZ.mdx",
+                    "children": [
+                      {
+                        "path": "docs/Product Features/DeviceHub/Tags/a2AV__60dpQS-slUJ_iDZ/mKHIY0nL3hiX0D9rRNRp-.mdx",
+                        "children": [],
+                        "isHidden": true
+                      }
+                    ],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/docs/Product Features/UeMlHt5tdnpQAOmR99fVv/Rwfa_L_7a-1E6DUb6n9Zf/EG-ZEQNrAwPTVHFkZNKS4.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/DeviceHub/Tags/rmrO-HQKR6U9vhcWG_w61.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/Product Features/UeMlHt5tdnpQAOmR99fVv/Rwfa_L_7a-1E6DUb6n9Zf/b75tW4byQTn28XYXxUpxc.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/UeMlHt5tdnpQAOmR99fVv/1KJJJnAPoDwjSwM055Fgo.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/DeviceHub/Asset Discovery/AfLdquG2DXuP0gb5b2pBv.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/DeviceHub/qgj28Umngl33QWda2wA1L.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/DeviceHub/qgj28Umngl33QWda2wA1L/9qEjbQgfz6uEUok3yKWYg.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/DeviceHub/qgj28Umngl33QWda2wA1L/eW1MlMz71wlcGgMX5SzHU.mdx",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "path": "Product Features/iC53jTi3LmkXuSr_vEJ1s.mdx",
+            "children": [
+              {
+                "path": "Product Features/Digital Twins/xmZ5KC6Bcpmm11fvtqds9.mdx",
+                "children": []
+              },
+              {
+                "path": "Product Features/Digital Twins/QJc2pHk3nOrr53y6bmGry.mdx",
+                "children": []
+              },
+              {
+                "path": "Product Features/Digital Twins/g5KG6yRmn56qkWfgXqlxc.mdx",
+                "children": []
+              },
+              {
+                "path": "Product Features/Digital Twins/lLli_lfwS-RIqTlmzLTCO.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "Product Features/znIRjjFAm07mKDElOXZtK.mdx",
+            "children": [
+              {
+                "path": "docs/Product Features/znIRjjFAm07mKDElOXZtK/nEBUjkbs2aZhT51gqrup4.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/znIRjjFAm07mKDElOXZtK/OocXorpZutUyc-wU1cb6q.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/DataHub/DB Management/6sBwrlOc9-R4QqHpQE5tt.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/znIRjjFAm07mKDElOXZtK/7bU13_Iz53LdnbHfZZInd.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/DataHub/DB Users/ETmJnmJd8qHGEBAvhOYjY.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/DataHub/DB Users/vxFAP66O0m8HalzUO88jL.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/DataHub/9QmP4i60nZEKTFTFpVBPa.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/DataHub/9QmP4i60nZEKTFTFpVBPa/_Ww8wNCU4McQ9R553l0PK.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/DataHub/9QmP4i60nZEKTFTFpVBPa/daUW0X9M-ia88a25ir5BS.mdx",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "path": "Product Features/tAQ2y6xPYLoNqxyFDrrb-.mdx",
+            "children": [
+              {
+                "path": "docs/Product Features/tAQ2y6xPYLoNqxyFDrrb-/EfWU7FhzSuuhmZvRB11Ad.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/tAQ2y6xPYLoNqxyFDrrb-/WY3dLq3mBwwZtGgNH021Q.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Flows Manager/Manage a Flows Manager/9XgVRyN2mcaXBbBKxvqOx.mdx",
+                    "children": [],
+                    "isHidden": true
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/tAQ2y6xPYLoNqxyFDrrb-/BIKDEdE9sU71jeGrPO9qu.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/Product Features/tAQ2y6xPYLoNqxyFDrrb-/BIKDEdE9sU71jeGrPO9qu/a0_161vrX5YJJqLG9K4Q2.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/Flows Manager/KRvNKem1amOFCCtKc7KEa.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/Flows Manager/KRvNKem1amOFCCtKc7KEa/QQIR__D9FLv3n-rQDz076.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Flows Manager/Flow Canvas Dashboard/9Cd3maD7x8EROtpVy7860.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Flows Manager/KRvNKem1amOFCCtKc7KEa/aDoXFxpFMu-twd2Bfu7MA.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Flows Manager/KRvNKem1amOFCCtKc7KEa/2G1HmwPVB_ZDarbA_JuC5.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Flows Manager/KRvNKem1amOFCCtKc7KEa/FVrO8txg0kxrXKgWA8qF1.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Flows Manager/KRvNKem1amOFCCtKc7KEa/DM9NPQZcvvcVdaOh13-Qv.mdx",
+                    "children": []
+                  }
+                ],
+                "isHidden": false
+              },
+              {
+                "path": "docs/Product Features/tAQ2y6xPYLoNqxyFDrrb-/Mn733LEzeaYX--z247emZ.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/tAQ2y6xPYLoNqxyFDrrb-/V6xCNpRKgDoSsdTr49UqW.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "Product Features/Cquvomk4GSCEJym0wUtlK.mdx",
+            "children": [
+              {
+                "path": "docs/Product Features/Cquvomk4GSCEJym0wUtlK/F0qpY0SVhjanbC5W7SnKa.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Analytics/Analytics Flows and Processors/HB_-yW2A2ghEBv7WsbRMY.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Analytics Flows and Processors/GExwUFwj-jxEsanA9dyh-.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Analytics Flows and Processors/c36cOY-RuXQZ6aDFRVcWY.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/Cquvomk4GSCEJym0wUtlK/Xp1EpQXzeIJ9rKZuE_9Pz.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Analytics/Analytics Flow Groups/BmZ1Vsc7wXgJUtF1SGD84.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Analytics Flow Groups/66R_73q4W2gZNSzI7cDAC.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/Analytics/xb0E-qphc39BwMPTir5_i.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/Analytics/xb0E-qphc39BwMPTir5_i/cK5G5KhKPpX37PfrsWFBn.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/xb0E-qphc39BwMPTir5_i/AJ4TIQsK5A5qV5CqudKWw.mdx",
+                    "children": [],
+                    "isHidden": true
+                  }
+                ],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Product Features/Cquvomk4GSCEJym0wUtlK/ai-models.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Analytics/AI Models/add-connection.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "Product Features/Analytics/AI Models/modify-connection.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ],
+                "isHidden": false
+              },
+              {
+                "path": "Product Features/Analytics/wwtJSwj9t1KMAOO8s1Z_9.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/Analytics/wwtJSwj9t1KMAOO8s1Z_9/URDWTuVw3tUfXXi1MxOmR.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/wwtJSwj9t1KMAOO8s1Z_9/P4yTr7USOfSPZwTSv9oUn.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/wwtJSwj9t1KMAOO8s1Z_9/mSuHYqjIhdpdFoisXjDPM.mdx",
+                    "children": [
+                      {
+                        "path": "docs/docs/Product Features/Analytics/wwtJSwj9t1KMAOO8s1Z_9/mSuHYqjIhdpdFoisXjDPM/u4xH1M7REEfOhPpTe1JKZ.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/Analytics/wwtJSwj9t1KMAOO8s1Z_9/mSuHYqjIhdpdFoisXjDPM/AvgJGHrEuLdLcxtuCYLTu.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Analytics/Machine Learning Models/Model Types/aZSsRoq3JVf6XP-AQHkFr.mdx",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/Analytics/input-processors.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/Cquvomk4GSCEJym0wUtlK/output-processors.mdx",
+                "children": []
+              },
+              {
+                "path": "Product Features/Analytics/statistical-functions.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/ai-processor.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "Product Features/Analytics/Statistical Functions/ai-vision-processor.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/anomaly-detection.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/base-conversion.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/change.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/combination-processor.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Statistical Functions/conversion.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/expression.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/feature-extractor.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/gaussian-filter.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/inputs.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/javascript-processor.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "Product Features/Analytics/Statistical Functions/join-processor.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/jsonata-processor.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/linear-prediction.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/moving-window.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/file-reading-processor.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/normalization.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/rise-and-fall.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/rounding.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/signal-decomposition.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/simple-window.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Statistical Functions/spc-charts.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/XhpX-statistical-functions.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/statistical-prediction.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/switch.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/tengo-script.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/tensorflow-images-processor.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/tensorflow-processor.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Analytics/statistical-functions/xmr-chart.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/Cquvomk4GSCEJym0wUtlK/QAhvbkkV39ZmvYEBFKdrl.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Analytics/Key Performance Indicators/Est4cVXtplZf0ChpGS1UW.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Key Performance Indicators/3VECMlTfKGktmHBLOvpQt.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Key Performance Indicators/4T3TDrFJdEPkfk9_Rv26B.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Key Performance Indicators/bfgRMUBd4pDNwaca_d7bq.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Key Performance Indicators/9VuIpZOxBEIvDhR84AXc8.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Key Performance Indicators/f6FFH5jrb1x0cYhfShB9W.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Analytics/Key Performance Indicators/oAXmPzOs7GvKoX3K3qsW7.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/Product Features/Cquvomk4GSCEJym0wUtlK/QAhvbkkV39ZmvYEBFKdrl/Ap9AJIQa8c1V0KeBDUvw1.mdx",
+                    "children": []
+                  }
+                ],
+                "isHidden": false
+              }
+            ]
+          },
+          {
+            "path": "Product Features/jP-Ua-hPAdzeVpas5X8Zq.mdx",
+            "children": [
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/uAWgfGE6kltGrAHFt5zGH.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/uBz-owjfUhHNga1guJkvg.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Applications/Catalog Apps/1tyK1_O4-wIj9HHaD2OJo.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/YmOHqaQG_p8-4_sSjOq6p.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/YmOHqaQG_p8-4_sSjOq6p/_7vhH06IGJC5Zk1A-cuQF.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/YmOHqaQG_p8-4_sSjOq6p/81bgUhk6WVGJvgIAWww4f.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/tUHv7tvyZ70-NtPSuHT-1.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Applications/Marketplace/xaw6dbqwv8oxRYg4nv_IJ.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Applications/Marketplace/ZNblvIWC4AKHQVZtAHn8w.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/Applications/ckyzmap1acwXceURRfUZx.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/Applications/ckyzmap1acwXceURRfUZx/YV57kXjzCyR5EBneiUxz4.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/Applications/ckyzmap1acwXceURRfUZx/mXSg0n1lEytrx-rkuls2P.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/CwBP7Fa1ZaYSj180TWSMD.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Applications/Networks/6pnmi5_pwaP_-kGJNywNN.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/CwBP7Fa1ZaYSj180TWSMD/yuT3jkH4A7TFDp4-eIemx.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/aLSMjJ5oixol4KWuo8DJe.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/aLSMjJ5oixol4KWuo8DJe/i2QySPzOL2iU3pUx_IeCt.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/aLSMjJ5oixol4KWuo8DJe/CiVLwpVE2AjCPO8oERqEp.mdx",
+                    "children": [
+                      {
+                        "path": "Product Features/Applications/Images/Download an Image/g0LiOp8JNbDZePVzurq17.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Applications/Images/Download an Image/toN3vDuc_8tCZ9wm3rmbE.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "docs/docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/aLSMjJ5oixol4KWuo8DJe/65mHa8K6MFFyuPw-tXAfP.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/mia4JORhgfVl0uCAzx2b7.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Applications/Registry/c0Ob8XiLRUYKgf5ZS0r34.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/Applications/Registry/yKV34yHczMsPDxNFq0aUW.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/nXTY1PwveEB2O1npgvgOu.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/2n6mrI46ieQCNhtRkH8QB.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/jP-Ua-hPAdzeVpas5X8Zq/32q49O5v073xCUKOtiIka.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "Product Features/lBL7doO8dZVjlOPVnrAkz.mdx",
+            "children": [
+              {
+                "path": "Product Features/Integration/GcX9UZAhKiYSz8LSe4xaJ.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/lBL7doO8dZVjlOPVnrAkz/exGLb3i9-XO52r47YxJff.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/lBL7doO8dZVjlOPVnrAkz/o3YwIl-aYuomiu2keYIsw.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Product Features/lBL7doO8dZVjlOPVnrAkz/D8fdLNFu4aGD2K_yaXuH5.mdx",
+                "children": [
+                  {
+                    "categoryName": "Cloud Service Providers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/Mz25lP2uw4z8jsW2Hs5x2.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/PvaWUIGIWAZBrQVyJfeEQ.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/C9S606a_6JvBOX4XIe2Bp.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/y7LiAQWemwPObBuAwF7IS.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/databricks-zerobus-ingest.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/YYE2_j_YhGMca9VgayM4Q.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/influxdb-v3-connector.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/hsuhiYK9I54oefT-PCi9Q.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/snowflake-snowpipe-stream-connector.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Cloud Service Providers/9jAMhVijCV-KoG4IKT6CV.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "categoryName": "Databases",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/db-databricks-sql.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/vmVdi0MYQHPjK4lO861pI.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/rHTAqbljLFV56kFXdg1ia.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/iuvCSrwHbrwxwNfEnw7EB.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/etEahSJ9Id8HXPbyORD8v.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/-DfbPOpS0eDOrli-bToes.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/UWCAMwRZVnWxXENGzM44K.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/LWOCtZTwAhigG5RUnoAdM.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/5GskRVBCKR57LBfhzdPhJ.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/-djKL4dwmAh-seOlamScP.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/NGnU6bqsjK-I0FivVKJBs.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/j0Z-atUreQ4wB4xFmW-Hc.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/4CEIDBpl3mTcKTyI3nbEe.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Databases/cA9X-6z4mc-h1JKU83eMS.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "categoryName": "Message Brokers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/eOgtY0ZgE-M-hUSTUfPTi.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/wvhRkv8sbmDqD23C_NZjo.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/YW0t6A8x0UvCBID2ToMpp.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/RJhI-0biw8fZfT_Uuq5tp.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/qCJ0fF53SwcWhKGaHZw6a.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/GyahasyiHMfwsoVMUjmf_.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/d8kI_HWCivXutrmRYIJ3C.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/Oc4iUd97G4zDh0T2f5mkA.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/z50YsQ8p5vaK6SPpXzLdh.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/IO_n_HFCcLiUvz95QSZCb.mdx",
+                        "children": [],
+                        "isHidden": false
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/miXqkjTkjFFyfvmBzF0aK.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/uhIxyAOjYCUeU72pWMS-H.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/8sPmKp2E8LfF0YCUAYeon.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Message Brokers/WTld-f_MsYyjFPUQtIo0o.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "categoryName": "Other Providers",
+                    "isCategory": true,
+                    "children": [
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Other Providers/litmus-uns.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Other Providers/oqiJ8ZuVpjda9wMV3GI42.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Other Providers/pZg9bU0fImrHW7CTzej0t.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/Integration/Integration Connectors/Other Providers/osi-pi-historian.mdx",
+                        "children": [],
+                        "isHidden": false
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/lBL7doO8dZVjlOPVnrAkz/IgbLDpqfdjg-VjdT16nSL.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/Integration/Cloud Storage/Aur28K9EG32wHZoYfcoR7.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/Product Features/lBL7doO8dZVjlOPVnrAkz/IgbLDpqfdjg-VjdT16nSL/nNqqaSJBKPBPs4tkZWiqw.mdx",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "path": "Product Features/yrWqhJTW3Gy5_oqParJXv.mdx",
+            "children": [
+              {
+                "path": "Product Features/OPC UA Server/ze80NR7QtxWLoXrWVuiYP.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/OPC UA Server/ze80NR7QtxWLoXrWVuiYP/v5wQ47xTBz5YHOkvviB_O.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/OPC UA Server/ze80NR7QtxWLoXrWVuiYP/9JjO9a1BLzPFgSCbdKX2g.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/OPC UA Server/ze80NR7QtxWLoXrWVuiYP/AwijJXsAlFgCv-W7s-3nv.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/OPC UA Server/ze80NR7QtxWLoXrWVuiYP/xNJdq-2iZx5re1dmjT2rP.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/yrWqhJTW3Gy5_oqParJXv/ONn8_Sd9U6yiBXxIiY1C5.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/Product Features/yrWqhJTW3Gy5_oqParJXv/ONn8_Sd9U6yiBXxIiY1C5/48bjtx80IC-cXk680TnCe.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/OPC UA Server/Management/WhmdTFVpibrlpZCCT7V5I.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/OPC UA Server/Management/dk1QSRWRg4rsZfIN4EtTA.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/Product Features/yrWqhJTW3Gy5_oqParJXv/ONn8_Sd9U6yiBXxIiY1C5/81rSNgU0tk_803l9iyCxN.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/OPC UA Server/4IUL6hFKA5SehR1JSQ6z1.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/OPC UA Server/4IUL6hFKA5SehR1JSQ6z1/lrDdSaeJZPS9YMmCwRVDy.mdx",
+                    "children": [],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "docs/Product Features/OPC UA Server/4IUL6hFKA5SehR1JSQ6z1/bxecaUT3sX7ZcXwhmgh4j.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/OPC UA Server/4IUL6hFKA5SehR1JSQ6z1/Du8yrELWkqmN6xLjLvBcM.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/OPC UA Server/4IUL6hFKA5SehR1JSQ6z1/qDMCsLrDDBChMCa7v3rrE.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/OPC UA Server/4IUL6hFKA5SehR1JSQ6z1/0lL-LCmTnOW2h8aaZ3aDb.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/OPC UA Server/4IUL6hFKA5SehR1JSQ6z1/view-active-logs.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "path": "Product Features/9-fe4hsugT9glkumVVzm4.mdx",
+            "children": [
+              {
+                "path": "Product Features/System/-x62nRD6MCVXoUbLRI7zS.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/System/Info/gMUKcG2sjQsLydrkC0v3p.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/-x62nRD6MCVXoUbLRI7zS/ex7vkiep1X9QtnsztfqeR.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/-x62nRD6MCVXoUbLRI7zS/4kJZ_QVL1SvUFE8R34INB.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/9-fe4hsugT9glkumVVzm4/ed2rPwtQ8-YTRyW5ruCkP.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/System/Activation/vDHtOPJ-OYRgCDGBDYMmJ.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/System/Activation/9_o-vXOB_yIw_r6ti_olC.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/System/Activation/NrgN6W0jnzDrsqbD4BN6O.mdx",
+                    "children": [
+                      {
+                        "path": "Product Features/System/Activation/Licenses/QIj9qNYSNqVKKhKunrcks.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/System/Activation/Licenses/rS_Y1YgngTvKFaJUu_DnK.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/System/Activation/Licenses/VQtZnef5bWbOdN43I5DcX.mdx",
+                        "children": [
+                          {
+                            "path": "Product Features/System/Activation/Licenses/Online Node-Locked License Activations/1ZITrrNnKA0mQwzukxU1-.mdx",
+                            "children": []
+                          },
+                          {
+                            "path": "docs/Product Features/System/Activation/Licenses/VQtZnef5bWbOdN43I5DcX/2LgOqMZ-3Miw3hlCBTIE7.mdx",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "path": "Product Features/System/Activation/Licenses/15PAFvOzJA8Dlpgw0LAKO.mdx",
+                        "children": [
+                          {
+                            "path": "docs/Product Features/System/Activation/Licenses/15PAFvOzJA8Dlpgw0LAKO/nzJWverZVRPkvlNIY2BQO.mdx",
+                            "children": []
+                          },
+                          {
+                            "path": "Product Features/System/Activation/Licenses/Offline Node-Locked License Activations/YGBBhhVwGcA9uuN3LfS5x.mdx",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "path": "Product Features/System/Activation/Licenses/wg-jCOC6c6S6PsileMvWV.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/Product Features/System/Activation/NrgN6W0jnzDrsqbD4BN6O/jxRwb9hRp0Wl5fzE9097L.mdx",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/System/HFXGt4JuZ4d5xfoGvq9tl.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/System/Device Management/7eYWVgIHghI7gydVAKe-A.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/HFXGt4JuZ4d5xfoGvq9tl/iiTrmB97c3u3RR5xDpI5u.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/HFXGt4JuZ4d5xfoGvq9tl/IwQ7f8NSzF3VzctmDBgvd.mdx",
+                    "children": [
+                      {
+                        "path": "docs/docs/Product Features/System/HFXGt4JuZ4d5xfoGvq9tl/IwQ7f8NSzF3VzctmDBgvd/TYxrVCP29FtxbvLZePcxg.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/HFXGt4JuZ4d5xfoGvq9tl/IwQ7f8NSzF3VzctmDBgvd/19r-qnA-rSr4sF01E5urV.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/System/Device Management/Services/KUwtDX40UmQla-elbmw2u.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "docs/Product Features/System/HFXGt4JuZ4d5xfoGvq9tl/sDCzCc_MMR0okAhTs6ank.mdx",
+                    "children": [
+                      {
+                        "path": "Product Features/System/Device Management/Backup/Restore/XTnhMBGuPmdougPeX5ZvS.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/System/Device Management/Backup/Restore/a-N56EGe312bvogG_UduX.mdx",
+                        "children": [
+                          {
+                            "path": "Product Features/System/Device Management/Backup/Restore/Back Up a Device/F4KuKhiMHMzDqeGXQ_kQq.mdx",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/HFXGt4JuZ4d5xfoGvq9tl/sDCzCc_MMR0okAhTs6ank/W9sY_JCLIBP5G4Dey02r6.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/HFXGt4JuZ4d5xfoGvq9tl/sDCzCc_MMR0okAhTs6ank/nhO_yursvoJ9FzdyZuDM4.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/HFXGt4JuZ4d5xfoGvq9tl/sDCzCc_MMR0okAhTs6ank/hQhsZGXyH0YRv-V5AZ2oR.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "docs/Product Features/System/HFXGt4JuZ4d5xfoGvq9tl/rxtJCUKsJ25NFBZQY6YtV.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/System/xMCbKtQ7D0wPrzFEXYUuo.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/System/xMCbKtQ7D0wPrzFEXYUuo/V_KZ_4qeuF3P_5JGhmL1i.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/System/Network/HBG6s_wDcll06NDx3_5th.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/System/Network/U18axvsqdrl-SsNnfcYsI.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/System/Network/4gQPy4G4j1Ur8UD9gMMFL.mdx",
+                    "children": [
+                      {
+                        "path": "docs/Product Features/System/Network/4gQPy4G4j1Ur8UD9gMMFL/4mhpScz_KMaS2wUr-Irre.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/Product Features/System/Network/4gQPy4G4j1Ur8UD9gMMFL/ZAzx5wJ8x4BdGanHPgNIs.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/Product Features/System/Network/4gQPy4G4j1Ur8UD9gMMFL/tO-RD6rPsRU2lm_ibXZ6w.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/Product Features/System/Network/4gQPy4G4j1Ur8UD9gMMFL/iNgavN2iQFEbST3btjML6.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "docs/Product Features/System/xMCbKtQ7D0wPrzFEXYUuo/4kDfjj8LLOushMg7QUTP2.mdx",
+                    "children": [
+                      {
+                        "path": "Product Features/System/Network/Configure DNS/NTP Servers/yd9jjOeg-mLTRfNX8iQ1x.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "Product Features/System/Network/xRvUO7ASlPMSYtnSRUh_-.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/xMCbKtQ7D0wPrzFEXYUuo/SW6sU-xS1EcId3WTIdRDJ.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/xMCbKtQ7D0wPrzFEXYUuo/packet-capture.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/xMCbKtQ7D0wPrzFEXYUuo/9oBbQ1GxoIh2uAd5exZd7.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/xMCbKtQ7D0wPrzFEXYUuo/nt210a6EmPP4SU_OEUugJ.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/xMCbKtQ7D0wPrzFEXYUuo/tSmB4nHeGRIdJ5rpIAz65.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/System/Network/configure-an-https-proxy.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/9-fe4hsugT9glkumVVzm4/DcjVpiwYatVOaoX6LNgKc.mdx",
+                "children": [
+                  {
+                    "path": "Product Features/System/External Storage/kQEMSWTwXfOdgklWPn0zv.mdx",
+                    "children": [
+                      {
+                        "path": "docs/Product Features/System/External Storage/kQEMSWTwXfOdgklWPn0zv/t_3WhJJyURlQVZRTsBhgW.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/Product Features/System/External Storage/kQEMSWTwXfOdgklWPn0zv/1hov6QolTyCmo6U-OLDnJ.mdx",
+                        "children": [
+                          {
+                            "path": "docs/docs/Product Features/System/External Storage/kQEMSWTwXfOdgklWPn0zv/1hov6QolTyCmo6U-OLDnJ/_7UBkEwCyRxqXOVqfoEFE.mdx",
+                            "children": []
+                          },
+                          {
+                            "path": "docs/docs/Product Features/System/External Storage/kQEMSWTwXfOdgklWPn0zv/1hov6QolTyCmo6U-OLDnJ/pTIYMvZuRfeoXJb36NUa_.mdx",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "path": "Product Features/System/External Storage/GwYprJic-Ql_g8Kjzm8kR.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "Product Features/System/External Storage/FX0i6SYb_gTp1CENLZ_Oo.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/System/p7VvH_IUspONeYl_U0xR5.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/fr1Pz5m1_-Cql8ccUttri.mdx",
+                    "children": [
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/fr1Pz5m1_-Cql8ccUttri/kv_WhIo5PnfY_qYeyDk8Z.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/fr1Pz5m1_-Cql8ccUttri/4r36f8qpzMwlMppQmJzL0.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/System/Access Control/Users/4w6-xdllwlxgQhxooC6An.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/fr1Pz5m1_-Cql8ccUttri/6XyE5X-gQLQA-aRUWw0yP.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/fr1Pz5m1_-Cql8ccUttri/cOby_JjSC02uTvnd1rTfk.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/fr1Pz5m1_-Cql8ccUttri/nmLlt5LGlABFUrYXuWLUV.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/fr1Pz5m1_-Cql8ccUttri/F3kPfQ4WtNlkPdFPkbspn.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/fr1Pz5m1_-Cql8ccUttri/K_gt3Tak88LlesFDRVK1T.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/rTGtckK_MA0eTQyyxjSlT.mdx",
+                    "children": [
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/rTGtckK_MA0eTQyyxjSlT/kbsleyYhvGFbX6Pwcmvk0.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/System/Access Control/Tokens/xNcTiWe0UhjrIZhlvPIwN.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/rTGtckK_MA0eTQyyxjSlT/zFCPawpruYbnlms4OyGRe.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/rTGtckK_MA0eTQyyxjSlT/6PfvbgfMMM5zDLNPZpuLE.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/rTGtckK_MA0eTQyyxjSlT/u3Otx1WrFzKKYTUHa_KBO.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "Product Features/System/Access Control/6lyt1u_YTsD2LnFa9WgUo.mdx",
+                    "children": [
+                      {
+                        "path": "Product Features/System/Access Control/LDAP/AD Auth/IDb_tVz7sy-Z9BhUdb6mh.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/Product Features/System/Access Control/6lyt1u_YTsD2LnFa9WgUo/rSi70--XFLxQ0odvFMkK8.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/Product Features/System/Access Control/6lyt1u_YTsD2LnFa9WgUo/RLsURF22ckJo80ecHvaJU.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/System/Access Control/LDAP/AD Auth/4KSyVUmm5JjDo0TRymkv9.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "Product Features/System/Access Control/LDAP/AD Auth/T5vi8hBbYle-tdqjfaWTn.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "docs/Product Features/System/Access Control/6lyt1u_YTsD2LnFa9WgUo/xPDy51iGfIHQrIJokaJfx.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/oidc-providers.mdx",
+                    "children": [
+                      {
+                        "path": "Product Features/System/Access Control/OIDC Providers/add-an-oidc-provider.mdx",
+                        "children": []
+                      }
+                    ],
+                    "isHidden": false
+                  },
+                  {
+                    "path": "Product Features/System/Access Control/PDY75DClSXfe5gs3GaCTM.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "Product Features/System/Te11uFrQ39nMsg-7unasA.mdx",
+                "children": [
+                  {
+                    "path": "docs/Product Features/System/Te11uFrQ39nMsg-7unasA/2MRfxg8VBox51i24gMvvu.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/Product Features/System/Te11uFrQ39nMsg-7unasA/7bWGSuDuTyJ3OqTgqtzAF.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/Product Features/9-fe4hsugT9glkumVVzm4/CwvTPUprdFwoKmhRoTqp8.mdx",
+                "children": []
+              },
+              {
+                "path": "Product Features/System/high-availability.mdx",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "isFoldedByDefault": false
+      },
+      {
+        "categoryName": "How-To Guides",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "How-To Guides/lXRPMz4fo0XP-eUnzlp9F.mdx",
+            "children": [
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/HI9VTxNRtNdlIjak4chbA.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/iF_9vcOCe9rKelHHOcLm8.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/oW0G7umCjcnBjYA24WyWk.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/Q74ftWd-4vCcc5zvm9xFZ.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/rqzVSVBfzbjSgFTSBxr_T.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/t5gYBpq_x7d36O-L-M4A4.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/u-vR54KeTssD4lDk7seSS.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/3WOuSVeNVMHlPiEFe1t02.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/use-the-siemens-s7commplus-driver-to-read-optimized-data-blocks.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/CtJ5twksitmNM2Uzz4YeV.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/CtJ5twksitmNM2Uzz4YeV/ak3zMivcZeYuUu9jqOrze.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/use-the-opc-ua-client-advanced-driver-for-opc-ua-alarms-and-events.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/lXRPMz4fo0XP-eUnzlp9F/WDfrJkWqXSYqcp8x5Z6_e.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "How-To Guides/pVd1bytTVpTVkwY1rOKbi.mdx",
+            "children": []
+          },
+          {
+            "path": "How-To Guides/add-a-device-certificate-in-litmus-edge.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How-To Guides/atk_SXI8cRq44D4osbZ8s.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How-To Guides/xFe777GWxhyKl-UrUOnnF.mdx",
+            "children": [
+              {
+                "path": "How-To Guides/Flows Guides/fcDH-92dTEX87B88yTk_H.mdx",
+                "children": []
+              },
+              {
+                "path": "How-To Guides/Flows Guides/ByOWzVYXCyBe8li3ggUzg.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "How-To Guides/Flows Guides/ha7_8d2uQDsWbPs_Iz9p8.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "How-To Guides/Flows Guides/-aiimji2iGaX5cNeGAnej.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/xFe777GWxhyKl-UrUOnnF/IKlGBlBMWJosABGeSPpct.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "How-To Guides/Flows Guides/QQAtRaLXaBVqdhR_rcB0V.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "How-To Guides/Flows Guides/AdqorGtkEg4CVDBg0JMl9.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "How-To Guides/Flows Guides/ABZP7Gn_6ok3qYl4zPb-x.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/xFe777GWxhyKl-UrUOnnF/wIXmt8ff9YOcBMYvEgGMA.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "How-To Guides/Flows Guides/-dTStC42Daq4Pz4Yr2tlw.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "How-To Guides/Flows Guides/CxfY1E8A-i0yVgt_YC_Tq.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/xFe777GWxhyKl-UrUOnnF/5AgHm1PkwEzUqRoUgHPBU.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/xFe777GWxhyKl-UrUOnnF/drafts.mdx",
+                "children": [
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/pMNOMIScXBgEnFe7YWx6v.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/z5SQTBUEUaLaTlCHi_wEd.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/DRrMj4czcfvlc50QMaTjJ.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/MDzPbDXkBKrkCK7NUZxaf.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/Km9lxHEGPiKQbQMwoJOBC.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "docs/docs/How-To Guides/xFe777GWxhyKl-UrUOnnF/drafts/_hqMTiAt0CvwLr1MHBtEF.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/-fpBMSCAJ9hJtVrV3GXAr.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/3lPJDv_O5fdzBtKAZFq82.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "docs/docs/How-To Guides/xFe777GWxhyKl-UrUOnnF/drafts/l4WCXgRrGUJWZa5C6a0AR.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "docs/docs/How-To Guides/xFe777GWxhyKl-UrUOnnF/drafts/yYAsG_xALwdZQzMkyO1zd.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/How-To Guides/xFe777GWxhyKl-UrUOnnF/drafts/ndPpIBnACxW5yVc0tF1i5.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/p3_u0Fri0PSZar_e5o7l2.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/bYaaSZoiU6oUSVYaeo6Fs.mdx",
+                    "children": [],
+                    "isHidden": true
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/1abjEbZN1LHI5gmEYE7IC.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/d1odOdVAcfV2edsQ7GygE.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "How-To Guides/Flows Guides/Drafts/KSSLb9KllZQ5eaP2r3RJH.mdx",
+                    "children": [],
+                    "isHidden": true
+                  }
+                ],
+                "isHidden": true
+              }
+            ]
+          },
+          {
+            "path": "How-To Guides/NWeROWbMwdP6Asn21Sg6D.mdx",
+            "children": [
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/Hy7b3mov-Z_bV_5fp780E.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/26ylPR1iH_yQJJbIOyBIB.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/rRQLZk-EZ81pJHH_yAY4d.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/7OQ0xDBOyqUpc5Sw7FYOo.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/IrGmmDCQi-81DglYoUjw5.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/46zMt5lXh8_nqUyxM9CEh.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/KGWLTAKWCaB5baAprBc1g.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/0BRzaeAGiLEVX6huFdH47.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/xUpG2trg8GNUPe2RmTIPb.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-javascript-processor-function.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/BB_Jxtb54goJsKve0uIJk.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/kARB2W0Jq2A2jd5aPkZI5.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/1Ihocom_K-b1smRCGO33R.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/4R0_CuY5O-8DzWupe6Vb7.mdx",
+                "children": []
+              },
+              {
+                "path": "How-To Guides/Analytics Guides/GLMMV5NZsWqQYY3GpZYVI.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/1Kwrfms5ZW7SIARxle4-N.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/UuPTTbdCWtXQbObanwgnj.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-simple-window-function.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-spc-charts-function.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/uEwUkUU_6RaVcHz4661ye.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/eFCL-8UVN4pDBugGgLkGd.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/OHYNU0-8Xjf9z8JPSnVkU.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/v9rapq1zQzIWUdFBPFqqe.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/YZR1L8esy7RRPhAB_bWzE.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-asset-online-percentage-kpi.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-change-of-value-kpi.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-compliance-and-loss-kpi.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-maintenance-and-failure-kpi.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-manufacture-counter-kpi.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-online-and-offline-percentage-kpi.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-production-time-and-cycle-time-ratio-kpi.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/NWeROWbMwdP6Asn21Sg6D/use-the-uptime-and-downtime-by-value-kpi.mdx",
+                "children": []
+              }
+            ],
+            "isHidden": false
+          },
+          {
+            "path": "How-To Guides/ZRV0-NEZKJU1Ks0n_xjTI.mdx",
+            "children": [
+              {
+                "path": "How-To Guides/Applications Guides/twgBvWNM8nJsRDNn147S8.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/ZRV0-NEZKJU1Ks0n_xjTI/ofxvR7AW6LiBSDtfuVSOH.mdx",
+                "children": []
+              },
+              {
+                "path": "How-To Guides/Applications Guides/B7mDs6X7UMsOb5e7IR16Q.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/ZRV0-NEZKJU1Ks0n_xjTI/6maJVNJ5ZsxdAvui8LVwC.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/ZRV0-NEZKJU1Ks0n_xjTI/nKV6tn9J2zYB2L5IB2jtW.mdx",
+                "children": []
+              },
+              {
+                "path": "How-To Guides/Applications Guides/p15lt_BoJB_yNwF328p6N.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "How-To Guides/qAgbQTXc0x67BDlQo-u-G.mdx",
+            "children": [
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/osi-pi-historian-integration-guide.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/set-up-ldap-using-openldap-container.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/integration-guides-homepage.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/rBiwpo0mvVoHMnmYvGfUA.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/litmus-edge-with-aws-iot-sitewise.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/DD8dxWGo-fjZ7ngl8phMz.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/31KipbkJAYWkNvSNy-BBR.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/YepKkNeiyrOqzGJOc3D48.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/N_5eyjw1QymwO0d2dcylq.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/I2-T1esHEhHcW2hgAZ4Vs.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/0awA1NaJrqJKy5ogxf7tn.mdx",
+                "children": [
+                  {
+                    "path": "How-To Guides/Integration Guides/Azure IoT Hub Guides/O7bEwhB6DATved5WmyCFt.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "How-To Guides/Integration Guides/Azure IoT Hub Guides/smJOXkNOnfUrgmBiKJUQN.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "How-To Guides/Integration Guides/Azure IoT Hub Guides/9DRAifzsXZt9osFRSTSDX.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/0awA1NaJrqJKy5ogxf7tn/ICBl4fB6NVzcpxIXrIiF7.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "How-To Guides/Integration Guides/Azure IoT Hub Guides/RB9odclK2ZwiGvCaaTRKl.mdx",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/UnmxnbntpNXtj40L-PEGe.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/iljtsIgBj3eW1QmvCZEzL.mdx",
+                "children": [
+                  {
+                    "path": "How-To Guides/Integration Guides/Databricks Integration/databricks-zerobus-ingest-integration-guide.mdx",
+                    "children": []
+                  },
+                  {
+                    "path": "docs/docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/iljtsIgBj3eW1QmvCZEzL/streaming-with-kafka-and-gcp-pubsub.mdx",
+                    "children": [
+                      {
+                        "path": "How-To Guides/Integration Guides/Databricks Integration/Streaming with Kafka & GCP Pub/Sub/kafka-integration.mdx",
+                        "children": []
+                      },
+                      {
+                        "path": "How-To Guides/Integration Guides/Databricks Integration/Streaming with Kafka & GCP Pub/Sub/gcp-pubsub-integration.mdx",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "How-To Guides/Integration Guides/Databricks Integration/databricks-unity-catalog-volume.mdx",
+                    "children": []
+                  }
+                ],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/sOsxvyD06MmXiiafOEVoU.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/5M2FlS7MPtY-4axFh15Sj.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/p0GQW1zxL729fIfBaYYNj.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/RRHs9kMYP-qDBfX8DedhK.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/qQTkV-_VS7-fXGw7f_wIY.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/uP0QwSaFbV5cGqEynWaQn.mdx",
+                "children": [
+                  {
+                    "path": "docs/docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/uP0QwSaFbV5cGqEynWaQn/MZNb-upK_m6neum8MtvvZ.mdx",
+                    "children": [],
+                    "isHidden": false
+                  }
+                ]
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/3yfuEm32vfqdEKgRxljLl.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/yemqp7gTUgL51ozrkptf8.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/ZNOzvYFa1zGYpVesI4cnf.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/ijHYQHHR0ler063R8axxU.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/influxdb-v3-integration-guide.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/DvSbYDRRUZkD4XmE2R3pf.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/W5k5qMoibXpPOx0va_cJK.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/S7h1vdzuc1CytBGZTAtba.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/ndrrWP9Y4m2oQpPod3WTD.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/im0lGUgLZ-NlcXdnEQWJh.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/e_GclAtp5GAmFSfCLCvfu.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/5Nm_PnvzxrrhSiTpK_j50.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/iXEdq1127rF4L90nr0gtI.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/59YLgZycXkwc9Xp5O3xyo.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/Drg_CN5DYoyGXTbn_r5e1.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/RcIL63iebcEOVvpo2W3mm.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/pYlHzWbHKU5GVMFWE_K1P.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/snowflake-snowpipe-stream-integration-guide.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/hnvxvcQ29xcGVxJnSnppH.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/FHQSWOSYHfgAMEjdBpdVv.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/How-To Guides/qAgbQTXc0x67BDlQo-u-G/ogBtIwc1ZwG8shml37r85.mdx",
+                "children": [],
+                "isHidden": false
+              }
+            ]
+          },
+          {
+            "path": "How-To Guides/i8CcqUPPTJjxylP-UIAYX.mdx",
+            "children": []
+          },
+          {
+            "path": "How-To Guides/9q-65oGS2A5l-R49kdX2B.mdx",
+            "children": []
+          },
+          {
+            "path": "How-To Guides/WPpQna4m9x55S7g7wIKV1.mdx",
+            "children": [],
+            "isHidden": false
+          },
+          {
+            "path": "How-To Guides/eD1T5q_yzpglUK8hKrQX1.mdx",
+            "children": []
+          },
+          {
+            "path": "How-To Guides/esIuf8JFq96D18sTQg3GE.mdx",
+            "children": [],
+            "isHidden": false
+          }
+        ],
+        "isFoldedByDefault": true
+      },
+      {
+        "categoryName": "Troubleshooting",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "Troubleshooting/dxBAitRq2wcYw7O8qdRZR.mdx",
+            "children": [
+              {
+                "path": "Troubleshooting/Installation and Deployments Troubleshooting/zRvl8leOif3OXEUTjIcBW.mdx",
+                "children": []
+              },
+              {
+                "path": "Troubleshooting/Installation and Deployments Troubleshooting/A6rTSzqcZtcqsg6P4xDlW.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "Troubleshooting/1ziGTKivhzTmtis72qFfs.mdx",
+            "children": [
+              {
+                "path": "Troubleshooting/DeviceHub Troubleshooting/Q49XE5X3h31TD9z0fX_ih.mdx",
+                "children": []
+              },
+              {
+                "path": "Troubleshooting/DeviceHub Troubleshooting/-wHd3tTYFjUOeicrPGYtE.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "Troubleshooting/cm2cM_7RjKyVuqIFoCDMX.mdx",
+            "children": [
+              {
+                "path": "Troubleshooting/Flows Troubleshooting/8omxVTUzQRC6eOg9WSp_P.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "Troubleshooting/marketplace-troubleshooting.mdx",
+            "children": [
+              {
+                "path": "Troubleshooting/Marketplace Troubleshooting/marketplace-launch-application-404-error.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "path": "Troubleshooting/AD35XvPaCjId2wmw7dl-N.mdx",
+            "children": [
+              {
+                "path": "docs/Troubleshooting/AD35XvPaCjId2wmw7dl-N/gv8ZRZmsB9jW1F42YujC7.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/Troubleshooting/AD35XvPaCjId2wmw7dl-N/DxvZQqkjl9Kho3EhJmEna.mdx",
+                "children": []
+              }
+            ],
+            "isHidden": false
+          },
+          {
+            "path": "Troubleshooting/_nKNxyFJQOrTXHbMfDCS0.mdx",
+            "children": [
+              {
+                "path": "docs/Troubleshooting/_nKNxyFJQOrTXHbMfDCS0/_Ev2czsHbbUagwoVxC_Ej.mdx",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "isFoldedByDefault": true
+      },
+      {
+        "path": "85l9hF5zhUd4b0PyVvhaH.mdx",
+        "children": [
+          {
+            "path": "docs/85l9hF5zhUd4b0PyVvhaH/2026.mdx",
+            "children": [
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2026/CDWyc8EwTXmoUXvEX4ASN.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2026/52-3-untitled-cloned.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "Product Updates/2026/XW_c2gdx33wNzm8Y7MT44.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2026/litmus-edge-4012.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2026/litmus-edge-4011.mdx",
+                "children": []
+              },
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2026/litmus-edge-4010.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "Product Updates/2026/litmus-edge-409.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2026/litmus-edge-408.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2026/litmus-edge-406.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2026/VsKOJB1HWu_1cDHQ-Wn0P.mdx",
+                "children": [],
+                "isHidden": true
+              }
+            ],
+            "isHidden": false
+          },
+          {
+            "path": "docs/85l9hF5zhUd4b0PyVvhaH/2025.mdx",
+            "children": [
+              {
+                "path": "Product Updates/2025/KWHEK6mKoenSGBOSZ2C09.mdx",
+                "children": [],
+                "isHidden": false
+              },
+              {
+                "path": "Product Updates/2025/litmus-edge-404.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "Product Updates/2025/litmus-edge-404-only.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2025/litmus-edge-403.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/docs/85l9hF5zhUd4b0PyVvhaH/2025/litmus-edge-402.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "Product Updates/2025/122V7mubp2AtV_4lUasHA.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "Product Updates/2025/65jf8dHNNHitOkM4qKXHK.mdx",
+                "children": [],
+                "isHidden": true
+              }
+            ],
+            "isHidden": false
+          },
+          {
+            "path": "docs/85l9hF5zhUd4b0PyVvhaH/WzH0ZQj0kbd3-jfIlDfvY.mdx",
+            "children": [],
+            "isHidden": true
+          }
+        ]
+      },
+      {
+        "categoryName": "Resources",
+        "isCategory": true,
+        "children": [
+          {
+            "path": "Resources/_PLnYhCy4bW9Yb3WCI3Mh.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/Jf3Fzm8jV4QTmmzcA1dH6.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/eGAHZVS9Ou_k_NK0PFmGg.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/hhEa9SyGVaP8Gvz3eprQV.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/21_ZfI7yfzOgxuAwVcz_S.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/RN-2l2XAFyLYl8PTN-Oh_.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/iKib_vtA1vr1kSMFUb07P.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/wYMicUFmljbnUz6CzgaF1.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/fcjgeFx19H7V52KFi_YJ6.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/ZxQsh_xpUFGj58BzUsV9e.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/rcjJ30NZQXhUnOZ-ONtx5.mdx",
+            "children": []
+          },
+          {
+            "path": "Resources/LXg9sXwzv0ejmaKrWZT1M.mdx",
+            "children": [
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/untitled-cloned.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-4012.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-410.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-409.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "Resources/Limitations/limitations-408.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-407.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-406.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-405.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "Resources/Limitations/limitations-404.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-403.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-402.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-401.mdx",
+                "children": [],
+                "isHidden": true
+              },
+              {
+                "path": "docs/Resources/LXg9sXwzv0ejmaKrWZT1M/limitations-400.mdx",
+                "children": [],
+                "isHidden": true
+              }
+            ],
+            "isHidden": false
+          }
+        ],
+        "isFoldedByDefault": true,
+        "isHidden": false
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
+      }
+    ]
+  },
+  "shadowDocs": []
+}

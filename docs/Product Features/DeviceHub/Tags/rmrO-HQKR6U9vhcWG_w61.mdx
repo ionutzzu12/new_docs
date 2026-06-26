@@ -1,0 +1,121 @@
+---
+title: Tag Formula Variables
+slug: rmrO-HQKR6U9vhcWG_w61
+description: When you add tags, you have the option of adding a formula to process the generated data. 
+docTags: 
+createdAt: Wed May 24 2023 21:07:43 GMT+0300 (Eastern European Summer Time)
+---
+
+When you :Link[Add a Tag]{docId="XgWOkQbTPevII7OR82LL0" label="Add a Tag" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}, you have the option of adding a formula to process the generated data.&#x20;
+
+You can use the following variables:
+
+- `value`: The current tag value.&#x20;
+- `timestamp`: The time the tag value was generated represented in UNIX time in milliseconds.&#x20;
+
+You can use the following functions.
+
+<hint type="info">
+  **Note**: For additional functions on tag values such as rounding and data conversions, you can use :Link[Analytics]{label="Analytics" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="lDOArk54Lfs64F2A-mj15" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} or the :Link[Flows Manager]{label="Flows Manager" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="9qwx7_THmwIoK0Sx_WTNq" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}. See :Link[Analytics Guides]{label="Analytics Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="CsYipcTSq9qyi6wSgq_Fr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+</hint>
+
+<table columnWidths="114,340" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Function**
+    </td>
+    <td>
+      **Description**
+    </td>
+    <td>
+      **Use**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      sin
+      (sine)
+    </td>
+    <td>
+      The ratio of the side opposite a given angle (in a right-angled triangle) to the hypotenuse.
+    </td>
+    <td>
+      Analysis and control of periodic processes.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      cos
+      (cosine)
+    </td>
+    <td>
+      The ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.
+    </td>
+    <td>
+      Analysis and control of periodic processes.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      sqrt
+      (square root)
+    </td>
+    <td>
+      The square root of a number is the factor that you can multiply by itself to get that number.
+    </td>
+    <td>
+      Identify deviations from expected values or detect abnormal conditions.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      tan
+      (tangent)
+    </td>
+    <td>
+      The ratio of the sine of an angle to the cosine of that angle.
+    </td>
+    <td>
+      Used in calibration formulas to correct or compensate for non-linearities.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      power
+    </td>
+    <td>
+      A function with a single term that is the product of a real number, a coefficient, and a variable raised to a fixed real number.&#x20;
+      power(`x`) is equivalent to `10^x`.
+    </td>
+    <td>
+      Perform exponentiation when converting values between different units or applying non-linear scaling.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      log
+      (logarithm)
+    </td>
+    <td>
+      The inverse function to exponentiation.
+      log(`x`) is equivalent to the natural logarithm of `x` (a logarithm with base `e`).
+    </td>
+    <td>
+      Perform logarithmic scaling or conversion when there is a non-linear relationship between the register value and the desired output.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      exp
+      (exponential)
+    </td>
+    <td>
+      Calculates the exponential growth or decay of a given set of data.
+      exp(`x`) is equivalent to the exponential function `e^x`.
+    </td>
+    <td>
+      Perform exponential scaling or conversion when there is a non-linear relationship between the register value and the desired output.
+    </td>
+  </tr>
+</table>
+

@@ -1,0 +1,279 @@
+---
+title: Create a Custom Table in a MySQL Database
+slug: ogBtIwc1ZwG8shml37r85
+description: Learn how to create a custom table in a MySQL database. 
+docTags: 
+createdAt: Mon Mar 04 2024 22:54:21 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use the *Show Mapping* option in SQL-connector integrations to create a custom table.&#x20;
+
+# User Scenario
+
+In your manufacturing plant there is one PLC that tracks the temperature. You want to store the temperature value in a database with a timestamp, but don't need the additional data provided in the payload of DeviceHub devices. You also want to convert the values that are calculated in Celsius to Fahrenheit as integer values.&#x20;
+
+For this guide, you will do the following:
+
+- Simulate temperature values coming from a PLC
+- Convert the values to Fahrenheit
+- Deploy a MySQL container in Litmus Edge
+- Create a custom table in the MySQL database
+- Configure a connection to the database through the MySQL connector
+- Send the data through the connector into the custom table
+
+## Step 1: Add a Device
+
+Follow the steps to [Connect a Device](<../../Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs/FbhaHiALYdPY4aeQGjHB0.mdx>) and configure the following parameters.&#x20;
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+## Step 2: Add Tag
+
+After connecting the device, :Link[Add a Tag]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel="Add a Tag"} to the device. &#x20;
+
+### Tag 1
+
+- **Name**: Select **S - Random value generator**.
+- **Value Type**: Select **int64**.&#x20;
+- **Polling Interval**: Enter **5**.
+- **Tag Name**: Enter **Tag1**.&#x20;
+- **Min\_value**: Enter **100**.
+- **Max\_value**: Enter **129**.
+
+## Step 3: Create Analytics Flow
+
+You can now create the analytics flow that will convert the temperature values into Celsius.&#x20;
+
+**To create the analytics flow:**
+
+1. Navigate to **Analytics&#x20;**> **Instances**.&#x20;
+2. Click **Add Flow**.&#x20;
+   The *Create Flow* dialog displays.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ygXFT_hIplmYcbdrL1MEU_flow-icon.png)
+3. Fo&#x72;*&#x20;Processor Input*, select **DataHub Subscribe**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1ZZHYykbyQ_JtG7AkJyjy_datahubsubscribe.png)
+4. Click the **Search&#x20;**&#x69;con and select the device and tag you previously created.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cFOc0_s7WsvPgF7PIYEV-_topicsearch.png)
+5. Click **Next**.&#x20;
+6. For *Processor Function*, select **Conversion**. Then, select the **Celsius > Fahrenheit** conversion.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/aJUEEQSq1QHN2pO_WyCry_conversion2.png)
+7. Click **Next**.&#x20;
+8. For *Processor Output*, select **DataHub Publish**, Then, copy the topic name and store it somewhere securely for reference later.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ia9U9gayCgmhQl7FNgBH8_datahubpublish.png)
+9. Click **Create Flow**.&#x20;
+10. Click **Save&#x20;**&#x74;o save the analytics flow on the canvas.&#x20;
+
+## Step 4: Create Flow
+
+Since the only data needed from the device is the converted temperature value and the timestamp, you will create the flow that will parse the data and only provide the required data in the payload.&#x20;
+
+**To create the flow:**
+
+1. Navigate to **Flows Manager&#x20;**&#x61;nd create a new flow. See [Create a Flow](<../../Product Features/tAQ2y6xPYLoNqxyFDrrb-/EfWU7FhzSuuhmZvRB11Ad.mdx>) to learn more.&#x20;
+2. Connect the following nodes together:
+   DataHub Subscribe
+   json
+   change
+   json
+   DataHub Publish
+   debug (connected to second json node)
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6ALwpDjFvMQK0YkpDmvBq_flowfull.png)
+3. Configure the nodes.&#x20;
+
+### DataHub Subscribe
+
+Th&#x65;*&#x20;DataHub Subscribe* node will be configured to subscribe to the topic that publishes the converted temperature values from the analytics flow.&#x20;
+
+**To configure the DataHub Subscribe node:**
+
+1. Double-click the **DataHub Subscribe** node.&#x20;
+2. In the *Topic&#x20;*&#x66;ield paste the topic name copied from the DataHub Publish processor in the analytics flow.&#x20;
+3. If needed, configure the Datahub Subscribe connection. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="U2ZE0GLAydau4Z5agvqMV" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel href="../../Product Features/tAQ2y6xPYLoNqxyFDrrb-/EfWU7FhzSuuhmZvRB11Ad.mdx"} to learn more.&#x20;
+4. Optionally, enter a name for the node.&#x20;
+5. Click **Done**.&#x20;
+
+### JSON Nodes
+
+The two json nodes will do necessary parsing of data between JSON string and object. No configurations are needed for these nodes.&#x20;
+
+### Change
+
+The *change&#x20;*&#x6E;ode will delete the unnecessary data in the payload from the subscribed topic.&#x20;
+
+**To configure the change node:&#x20;**
+
+1. Double-click the **change&#x20;**&#x6E;ode.&#x20;
+2. Update **Set&#x20;**&#x74;o **Delete**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/VFB1sZ9iyo_AUakxMiFQY_changedelete.png" size="70" width="528" height="334" position="center" showCaption="false"></Image>
+3. In the msg. field, enter payload.metadata.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SuXYg91fPSPq1Fo1W4qWf_firstchange.png" size="70" width="517" height="299" position="center" showCaption="false"></Image>
+4. Click **+add**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qK27Mi71wur2D2t1w1KF__addchange.png" size="70" width="526" height="875" position="center" showCaption="false"></Image>
+5. Continue adding the following deletions.&#x20;
+   - payload.registerId
+   - payload.tagName
+   - payload.success
+   - payload.description
+   - payload.datatype
+   - payload.deviceName
+   - payload.deviceID
+6. Click **Done**.&#x20;
+
+### DataHub Publish
+
+The DataHub Publish node will be used by the MySQL connector to write data into the database table.&#x20;
+
+1. Double-click the **DataHub Publish** node.&#x20;
+2. In the *Topic&#x20;*&#x66;ield enter a topic name. You will refer to this name later.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/k5cS60IelFXdZfOgz3ysi_publishname.png" size="70" width="506" height="306" position="center" showCaption="false"></Image>
+3. Click **Done**.&#x20;
+
+### Debug
+
+The debug node will be used to review the updated payload and ensure the output is correct.&#x20;
+
+**To review the payload:**
+
+1. On the flow canvas, click **Deploy&#x20;**&#x74;o save the changes to the flow.&#x20;
+2. Expand the message window beneath the flow.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/woDAMmFgulRO1sZTdx3NK_expanddebug-window.png)
+3. Click the **Debug&#xA0;**&#x69;con to view the data output.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/LQSeWVyAJIbwiJomRgIXI_debugicon.png)
+4. Confirm that the output is only including two items in the payload: *value&#x20;*&#x61;nd *timestamp*.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/F6Dmj1IpoblHz4L4PQeuk_output.png)
+5. Click **Deploly&#x20;**&#x74;o save the flow.&#x20;
+
+## Step 5: Add MySQL Marketplace Application
+
+You can now add the MySQL application to Litmus Edge. You can customize the parameters to your own preferred configurations.&#x20;
+
+<hint type="info">
+  **Note**: The version used in this guide for MySQL version is 8.0. See the :Link[MySQL 8.0 Reference Manual]{href="https://dev.mysql.com/doc/refman/8.0/en/" newTab="true"} for more information.&#x20;
+</hint>
+
+**To add the MySQL Marketplace Application:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**> **Marketplace**.
+2. Click **Marketplace List** and select **Default Marketplace Catalog**.
+3. Click the **MySQL** application tile.&#x20;
+4. From the **Installation script version** drop-down list, select **latest**.&#x20;
+5. Configure the following parameters.
+   - **Name**: Enter **MySQL**.&#x20;
+   - **Database**: Enter **sample**.&#x20;
+   - **User**: Enter **user**.&#x20;
+   - **Password**: Enter the user password.&#x20;
+   - **MySQL password**: Enter the same value as the *Password&#x20;*&#x70;arameter.&#x20;
+6. Click **Launch**.&#x20;
+7. Navigate to **Applications&#x20;**> **Catalog Apps**.&#x20;
+   The MySQL application appears, pulls the image, and then starts the application. The MySQL application shows as running.
+8. Navigate to **Applications&#x20;**> **Containers**.&#x20;
+   The MySQL application Container is running.
+9. Copy the IP address for the MySQL application.
+
+## Step 6: Create Custom Database Table
+
+You will need to create the custom table in the database before data can be written into it.&#x20;
+
+Update the credentials, database name, and table name to your own specific configurations.&#x20;
+
+**To create the custom table:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**>**&#x20;Containers**.
+2. Click the **Terminal&#xA0;**&#x69;con next to the MySQL container.
+   The MySQL shell opens.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9t2LYeH-mHRMjiVEnpZrv_terminalicon.png)
+3. From the MySQL container terminal, enter `mysql -u user -p` and press **ENTER**.
+   *Enter password:&#xA0;*&#x61;ppears.
+4. Enter your user password, and then press **ENTER**.
+   *Welcome to the MySQL monitor&#xA0;*&#x61;ppears.
+5. Enter `show databases;`**,&#x20;**&#x61;nd then press **ENTER**.
+   The database names appears.
+6. Enter `use sample;`, and then press **ENTER**.
+   *Reading table information for completion of table and column names&#xA0;*&#x61;ppears in the console. This allows you to use the database.&#x20;
+7. Enter `create table conversion_values( timestamp bigint null, value int null );`,  and press **ENTER**.&#x20;
+
+The custom table is created with the following:
+
+- The table name *conversion\_values*
+- The column names *timestamp&#x20;*&#x61;nd *value*
+- The column timestamp has the data type *bigint&#x20;*&#x61;nd value has the data type *int*
+- Both columns allow null values
+
+## Step 7: Configure MySQL Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/GcX9UZAhKiYSz8LSe4xaJ.mdx>) and select the **DB - MySQL&#x20;**&#x70;rovider.&#x20;
+
+Configure the following required parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Paste the IP address you copied in Step 5. &#x20;
+- **Port**: Confirm the MySQL Server port. The default value is **3306**.&#x20;
+- **Username**: Enter **user&#x20;**&#x6F;r the username configured in Step 5.&#x20;
+- **Password&#x20;**(Optional): Enter the password configured in Step 5.&#x20;
+- **Database**: Enter **sample&#x20;**&#x6F;r the database configured in Step 5.&#x20;
+- **Table**: Enter **conversion\_values&#x20;**&#x6F;r the table name configured in Step 6.&#x20;
+- **Show Mapping**: Enter the following key/value pairs and click **+ Add**.&#x20;
+  - **Key 1**: timestamp
+  - **Value 1**: \{\{.timestamp}}
+  - **Key 2**: value
+  - **Value 2**: \{\{.value}}
+- **Create table**: Make sure the checkbox is not selected.&#x20;
+
+Configure the following optional parameters as needed.&#x20;
+
+- **Commit timeout**: Enter the transaction commit timeout in (ms).
+- **Max transaction size**: Enter the maximum number of messages before a transaction is committed, regardless of timeout parameter.&#x20;
+- **Bulk insert count**: To enable this option, enter the number of messages to group together and send as one bulk insert statement. Enabling this option can improve how quickly data is processed when dealing with high volumes of tags.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+## Step 8: Add Outbound Topic
+
+You will need to add the DataHub Publish topic you configured on the flow canvas as an outbound topic in the MySQL connector.&#x20;
+
+**To add the outbound topic:**
+
+1. Navigate to Integration.&#x20;
+2. Click the MySQL connector tile.&#x20;
+3. Click the **Topics&#x20;**&#x74;ab.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/odNo8M5KEK95osYZnnQ8z_topicstab.png)
+4. Click the **Add&#x20;**&#x69;con and select **Add a new subscription**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RpmJjmFmSqptxQ56ThNVa_addnewsubscription.png)
+5. Configure the parameters for the topic.&#x20;
+   - **Data Direction**: Select **Local to Remote - Outbound**.&#x20;
+   - **Local Data Topic**: Paste or enter the DataHub Publish topic name configured in the flow canvas in Step 4. In our example, enter **conversion\_values**.&#x20;
+   - **Remote Data Topic**: Optionally, enter your desired topic name that will be used to write the data into the database table.&#x20;
+   - **Description**: Optionally, enter a description.&#x20;
+   - **Enable**: Click the toggle to enable the topic.&#x20;
+6. Click **OK**.&#x20;
+   The new topic appears on the *Topics&#x20;*&#x70;ane and is enabled. This topic will write data to the MySQL database table.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JqEg2_onpKXdX37AhedLs_image.png)
+
+## Step 9: Verify Connection
+
+Use the command line in the MySQL application to confirm data is successfully being written into the database.&#x20;
+
+Update the credentials, database name, and table name to your own specific configurations.&#x20;
+
+**To verify the connection:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**>**&#x20;Containers**.
+2. Click the **Terminal&#xA0;**&#x69;con next to the MySQL container.
+   The MySQL shell opens.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9t2LYeH-mHRMjiVEnpZrv_terminalicon.png)
+3. From the MySQL container terminal, enter `mysql -u user -p` and press **ENTER**.
+   *Enter password:&#xA0;*&#x61;ppears.
+4. Enter your user password, and then press **ENTER**.
+   *Welcome to the MySQL monitor&#xA0;*&#x61;ppears.
+5. Enter `use sample;`, and then press **ENTER**.&#x20;
+   *Reading table information for completion of table and column names&#xA0;*&#x61;ppears in the console.
+6. Enter `select * from conversion_values;`,  and press **ENTER**.&#x20;
+
+The data in the custom table displays.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/g71z0s3b92tKVDjcyb1t7_image.png" size="40" width="288" height="280" position="center" showCaption="false"></Image>
+

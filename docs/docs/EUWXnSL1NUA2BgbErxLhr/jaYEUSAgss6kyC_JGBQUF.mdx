@@ -1,0 +1,182 @@
+---
+title: Flows and Analytics
+slug: jaYEUSAgss6kyC_JGBQUF
+description: Learn more about Flows and Analytics and compare the capabilities of each Litmus Edge feature. 
+docTags: 
+createdAt: Tue Jan 16 2024 17:15:41 GMT+0200 (Eastern European Standard Time)
+---
+
+Flows and Analytics are two data processing features in Litmus Edge that serve different use cases. Flows is a low-code, :Link[Node-RED]{href="https://nodered.org/" newTab="true" hasDisabledNofollow="false"} based editor for building custom data pipelines. Analytics provides prebuilt processor functions for common analytical and statistical tasks. This page compares both features to help you choose the right one for your requirements.
+
+See :Link[Flows Manager]{label="Flows Manager" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="9qwx7_THmwIoK0Sx_WTNq" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} and :Link[Analytics]{label="Analytics" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="lDOArk54Lfs64F2A-mj15" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for detailed feature documentation.
+
+# Flows and Analytics compared
+
+The following table compares the capabilities of both features.
+
+<table isTableHeaderOn="true" columnWidths="205,205,205" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Feature**
+    </td>
+    <td align="left">
+      **Flows**
+    </td>
+    <td align="left">
+      **Analytics**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Out-of-the-box setup
+    </td>
+    <td align="left">
+      No. Requires :Link[JSON ]{href="https://www.json.org/json-en.html" newTab="true" hasDisabledNofollow="false"}knowledge. All functions must be manually configured.
+    </td>
+    <td align="left">
+      Yes. No coding knowledge required. Predefined functions are ready to use.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Canvas data preview
+    </td>
+    <td align="left">
+      Yes. Use the **debug** node to view output.
+    </td>
+    <td align="left">
+      Yes. Click the **View** icon on a processor.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Output publishing
+    </td>
+    <td align="left">
+      Yes. Use the DataHub Publish node.
+    </td>
+    <td align="left">
+      Yes. Use the DataHub Publish output function.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Pipeline setup
+    </td>
+    <td align="left">
+      No. Flows must be manually configured.
+    </td>
+    <td align="left">
+      Yes. Select an input, processor, and output.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Function customization
+    </td>
+    <td align="left">
+      Yes. Fully customizable to your requirements.
+    </td>
+    <td align="left">
+      No. Predefined functions have limited customization options.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Multi-format data parsing
+    </td>
+    <td align="left">
+      Yes. Parser nodes support CSV, XML, and YAML.
+    </td>
+    <td align="left">
+      No
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Dashboard creation
+    </td>
+    <td align="left">
+      Yes. Create and customize Flow dashboards.
+    </td>
+    <td align="left">
+      No
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Email and SMS alerts
+    </td>
+    <td align="left">
+      Yes. Use the **email** and **Twilio Out** nodes.
+    </td>
+    <td align="left">
+      No
+    </td>
+  </tr>
+</table>
+
+# Flows
+
+Flows is a low-code, Node-RED-based flow editor for building customized data processing pipelines. Use Flows for complex workflows that require custom logic, multi-source data integration, or data format transformation. Building and maintaining flows requires familiarity with JSON and Node-RED.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/1SmR4xq1HK6aU06AVD25r_image.png" size="80" width="1366" height="881" position="flex-start" darkWidth="1366" darkHeight="881" showCaption="false"></Image>
+
+The Flows canvas lets you connect the following processing nodes visually in a browser:
+
+- DataHub Subscribe and Publish
+- Inject
+- Debug
+- Trigger
+- Execute
+- JSON Parser
+- Read File
+
+## When to use Flows
+
+Use Flows when your workflow requires:
+
+- **Automated manufacturing sequences:** Flows controls the sequence of operations, adjusts settings, routes materials, and changes schedules based on real-time data.
+- **Custom data processing algorithms:** For specialized equipment, Flows can analyze sensor data to optimize usage, predict maintenance needs, and prevent failures.
+
+For additional guides and user scenarios, see :Link[Flows Guides]{label="Flows Guides" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="eAmcSTdPKsrwuxape2-nn" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+## Limitations
+
+Consider these limitations before choosing Flows:
+
+- **JSON and Node-RED knowledge required:** Syntax errors in JSON configuration can cause flow malfunctions and affect the reliability of your manufacturing operations.
+- **Scaling complexity:** As the number and complexity of flows increase, managing them becomes more demanding, particularly in large deployments where thousands of sensors and devices generate data continuously.
+
+# Analytics
+
+Analytics provides prebuilt mathematical and statistical processor functions for industrial data analysis. Use Analytics to analyze and visualize industrial data without writing custom logic or learning Node-RED. To set up a pipeline, select an input, apply a processor, and configure the output.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/i0Bg7Sui2Jz4QVjyNi-ie_image.png" size="80" width="1919" height="910" position="flex-start" darkWidth="1919" darkHeight="910" showCaption="false"></Image>
+
+Litmus Edge Analytics includes the following processor functions:
+
+- Anomaly Detection
+- ARIMA Filter
+- Feature Extraction
+- Linear Prediction
+- Normalization
+- Statistical Prediction
+- XMR Chart
+
+## When to use Analytics
+
+Use Analytics when your workflow requires:
+
+- **Routine performance monitoring:** Analytics tracks key performance indicators (KPIs) such as production output, operational efficiency, and machine uptime and presents data in configurable visual formats.
+- **Predictive maintenance:** Analytics identifies patterns in historical and real-time data to predict machine or component failures and support proactive maintenance scheduling.
+
+For additional guides and user scenarios, see :Link[Analytics Guides]{label="Analytics Guides" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="CsYipcTSq9qyi6wSgq_Fr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+## Limitations
+
+Consider these limitations before choosing Analytics:
+
+- **Limited customizability:** Analytics works with predefined functions and is not suited to workflows that require logic outside the available processor types.
+- **Not designed for complex datasets:** For datasets that require in-depth pattern recognition or multi-variable correlation analysis, Flows provides the customization that Analytics cannot.
+

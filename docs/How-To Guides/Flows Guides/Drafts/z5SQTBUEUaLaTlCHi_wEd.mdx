@@ -1,0 +1,43 @@
+---
+title: Check a Host Port Status
+slug: z5SQTBUEUaLaTlCHi_wEd
+description: You can use flows to check a host port status.
+docTags: 
+createdAt: Wed Jun 07 2023 21:56:04 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use flows to check a host port status.
+
+**To check a host port status:**
+
+1. From the navigation panel, select Flows Manager 
+2. Click the **Expand** icon next to a selected Flow.
+3. Click the **Add&#xA0;**&#x69;con.
+4. Drag three **Inject&#xA0;**&#x6E;odes, the **Exec&#xA0;**&#x6E;ode, and the **Debug&#xA0;**&#x6E;ode to the canvas and connect them togeher.
+5. Double-click the first **Inject&#xA0;**&#x6E;ode.
+6. From the Edit inject node dialog box, do the following:
+   1. Select **number&#xA0;**&#x66;rom the **Payload&#xA0;**&#x64;rop-down list.
+   2. Enter the port in the **Payload&#xA0;**&#x66;ield. In this example, the port is `443`.
+   3. Enter the name of the port in the **Name&#xA0;**&#x66;ield.
+   4. Click **Done**.
+7. From the second Inject node, repeat the previous two steps using port `8080`.
+8. From the third Inject node, repeat the steps using port `1234`.
+9. Double-click the **Exec&#xA0;**&#x6E;ode.
+10. From the *Edit exec node* dialog box, do the following:
+    1. Enter `nc -zv <IP address>` in the **Command&#xA0;**&#x66;ield.
+    2. Enter "Status of Port" in the **Name&#xA0;**&#x66;ield.
+    3. Click **Done**.
+11. Click **Deploy**.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1gwgq4_YvAFB8UtecLZh2_flows-status-of-port.png "Status of Port flow")
+12. Drag the **Sidebar&#x20;**&#x75;p from the bottom of the canvas and select the **Debug&#x20;**&#x69;con.
+13. Click the **Inject&#x20;**&#x62;utton on the left side of the 443 icon.
+    A message appears in the Debug pane showing that the port is open.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6sq785kJHPTf9iGNJFXHm_flows-port-443-status.png "Port 443 status")
+14. Click the **Inject&#x20;**&#x62;utton the left side of the 1234 icon.
+    A message appears in the Debug pane showing that the command failed. In this example, this port does not exist.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SjQ2LT9CfuNxx5sboM2Uv_image.png "Non-existent port")
+
+
+
+ 

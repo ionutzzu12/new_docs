@@ -1,0 +1,566 @@
+---
+title: BacnetIP
+slug: scjQaaHiG9Cjktu9WTJGX
+description: Review the following information for setting up and configuring the BacnetIP device. 
+docTags: 
+createdAt: Tue Oct 25 2022 22:20:53 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the BacnetIP device.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="224,290" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items                          &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      BACnet/IP devices
+    </td>
+  </tr>
+</table>
+
+# Before You Begin
+
+- You will need to open UDP port 47808 on your firewall to successfully browse tags.&#x20;
+- If you are using the **Docker version** of Litmus Edge:
+  - You will need to use the `--net=host` option in the Docker run command for the :Link[Asset Discovery Tool]{label="Asset Discovery Tool" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="KyNanYFCLw7kXRJL5e0L5" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to successfully work.&#x20;
+  - When using the  :Link[Asset Discovery Tool]{label="Asset Discovery Tool" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="KyNanYFCLw7kXRJL5e0L5" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}, you will need to use the IP address 0.0.0.0. You can't use the IP address of the host machine.&#x20;
+  - If the `--net=host` option is not enabled:
+    - Device Discovery will not work.&#x20;
+    - Browse tags will not work **unless&#x20;**&#x79;ou map `47808:47808/UDP`.&#x20;
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="warning">
+  **Important**: When setting up the PLC device, the BACnet driver and your Litmus Edge instance must be on the same subnet. If they aren't on the same subnet, the BACnet driver won't be able to connect to Litmus Edge.&#x20;
+</hint>
+
+To find the network parameters of the driver, you have the option of using the :Link[Device Discovery Tool]{docId="KyNanYFCLw7kXRJL5e0L5" label="Device Discovery Tool" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Device Discovery Tool"}. Otherwise, set up the device for Ethernet access and collect the network parameters.&#x20;
+
+**To use the device discovery tool:**
+
+1. &#x20;Navigate to **DeviceHub&#x20;**> **Devices**.
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device&#x20;*&#x64;ialog box appears.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EsdTOzwz08SbFyIjrMSkH_connectdevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" showCaption="true" indent="2"></Image>
+
+3. Click the **Device Type** drop-down list and select **BACnet**.
+4. Click the **Driver Name** drop-down list, and select **BacnetIP**.
+5. Click **Device Discovery**.&#x20;
+   Th&#x65;*&#x20;Device Discovery* dialog box appears.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/hhgwr9rUjmT4zyBcKvsDb_connectdevicebacnet.png" size="80" width="1170" height="608" caption="Device Discovery option" position="center" showCaption="true" indent="2"></Image>
+
+6. In th&#x65;**&#x20;Network address** field, open the drop-down list and select the appropriate ethernet port. The available options are based on the interfaces configured in Litmus Edge. To review interfaces, navigate to **System&#x20;**> **Network&#x20;**> **Interfaces**.&#x20;
+7. In the **Retry count** field, review the default value (5) and update it if needed. This configures the number of times Litmus Edge will attempt to discover devices.&#x20;
+8. In the **Timeout&#x20;**&#x66;ield, review the default value (2) and update it if needed.&#x20;
+9. Click **Start discovery**. When the search is complete, available devices will be listed with the following parameters:
+   - Device ID
+   - IP address
+   - Port
+10. Click the appropriate device, and then click **Update form with discovery results**.&#x20;
+    The *Connect Device* dialog box appears with *Network Address*, *Network Port*, and *Target Device ID* pre-filled based on the discovery results.&#x20;
+11. Move onto Step 2 and continue configuring the device with the remaining parameters.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      BACnet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      BacnetIP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      47808
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Target Device ID**
+    </td>
+    <td>
+      The Object ID of the device
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Instance Device ID**
+    </td>
+    <td>
+      If the default value of 0 is configured, then a random instance ID will be generated. This ID must be unique.&#x20;
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="ZQLh2fGSiFmwvvt3baCtt">
+
+</ContentSnippet>
+
+<hint type="info">
+  **Note**: When browsing for tags, only tags with the property of **Present\_Value** will be identified.&#x20;
+</hint>
+
+<table columnWidths="124,124,124,124,124,124" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Access   Types&#x20;**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      AI
+    </td>
+    <td>
+      float32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Analog input
+    </td>
+  </tr>
+  <tr>
+    <td>
+      AO
+    </td>
+    <td>
+      float32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Analog output
+    </td>
+  </tr>
+  <tr>
+    <td>
+      AV
+    </td>
+    <td>
+      float32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Analog value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      BI
+    </td>
+    <td>
+      uint32, bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Binary input
+    </td>
+  </tr>
+  <tr>
+    <td>
+      BO
+    </td>
+    <td>
+      uint32, bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Binary output
+    </td>
+  </tr>
+  <tr>
+    <td>
+      BV
+    </td>
+    <td>
+      uint32, bool
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Binary value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      MSI
+    </td>
+    <td>
+      int32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Multi state input
+    </td>
+  </tr>
+  <tr>
+    <td>
+      MSO
+    </td>
+    <td>
+      int32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Multi state output
+    </td>
+  </tr>
+  <tr>
+    <td>
+      MSV
+    </td>
+    <td>
+      int32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Multi state value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      SCH
+    </td>
+    <td>
+      float32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Schedule
+    </td>
+  </tr>
+  <tr>
+    <td>
+      LFSP
+    </td>
+    <td>
+      uint32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Life safety point
+    </td>
+  </tr>
+  <tr>
+    <td>
+      LOCTL
+    </td>
+    <td>
+      float32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Local control
+    </td>
+  </tr>
+  <tr>
+    <td>
+      OCTSTR
+    </td>
+    <td>
+      octet\_string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Octet string
+    </td>
+  </tr>
+  <tr>
+    <td>
+      PINT
+    </td>
+    <td>
+      uint32
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Positive integer
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CHV
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Object character string value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      F
+    </td>
+    <td>
+      octet\_string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      File object
+    </td>
+  </tr>
+  <tr>
+    <td>
+      PROPRIETARY
+    </td>
+    <td>
+      bool, int32, uint32, float32, float64, string, octet\_string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      2147483647
+    </td>
+    <td>
+      Proprietary
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="A0mW7eFUiB6dsJkAOu4YV">
+
+</ContentSnippet>
+

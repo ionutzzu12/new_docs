@@ -1,0 +1,90 @@
+---
+title: Kafka TCP Integration Guide
+slug: S7h1vdzuc1CytBGZTAtba
+description: Learn how to set up the Kafka TCP connector. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:25:20 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and a Kafka broker.&#x20;
+
+# Before You Begin
+
+You will need access to a Kafka-TCP broker.&#x20;
+
+Refer to the following links to learn more:
+
+- :Link[Apache Kafka Download]{href="https://kafka.apache.org/downloads" newTab="true" hasDisabledNofollow="false"}&#x20;
+- :Link[Confluent Platform Docs]{href="https://docs.confluent.io/platform/current/overview.html" newTab="true" hasDisabledNofollow="false"}
+
+# Step 1: Set up the Kafka-TCP server
+
+You will need to set up the Kafka server so that it is ready to connect with Litmus Edge.&#x20;
+
+If you are using a docker-compose yaml file, do the following:
+
+1. Connect and log in to the Kafka-TCP broker.
+2. From the command screen cursor, enter **cat docker-compose.yml**.
+   The services list appears.&#x20;
+3. From the cursor, enter **docker-compose up**.&#x20;
+   The TCP\_Zookeeper and TCP\_Kafka start up.
+
+# Step 2: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 3: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 4: Add the Kafka TCP Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/GcX9UZAhKiYSz8LSe4xaJ.mdx>) and select the **Kafka TCP&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Brokers list separated by comma**: Enter the Kafka broker URL. For example: 192.168.56.1.&#x20;
+- **SASL mechanism**: Select an option: NONE, SASL\_PLAINTEXT, SCRAM-SHA-256, SCRAM-SHA-512.&#x20;
+- **Username&#x20;**(Optional): If needed, enter the username to access the broker.&#x20;
+- **Password**: (Optional): If needed, enter the password associated with the username.&#x20;
+- **Topic**: Enter the name of the default topic used for publishing data.&#x20;
+- **Throttling Limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HqToSsPP9uscm-8KNFJzO_kafkatcp.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="PvlzNrGBVl3QhocUrjZBZ" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/lBL7doO8dZVjlOPVnrAkz/o3YwIl-aYuomiu2keYIsw.mdx"} and relevant error messages.&#x20;
+
+# Step 6: Create Topics for Connector&#x20;
+
+You will now need to import the tags you added in Step 3 to the connector as topics.&#x20;
+
+<hint type="info">
+  Topics must already exist on the Kafka server to avoid errors. Using non-existent Kafka topics will result in errors in logs, failed connection and/or persisted storage.
+</hint>
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 7: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+# Step 8: Verify Connection
+
+Access the Kafka broker and verify that Litmus Edge is successfully sending data.&#x20;

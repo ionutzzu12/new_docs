@@ -1,0 +1,113 @@
+---
+title: Generic MQTT Integration Guide (Mosquitto)
+slug: p0GQW1zxL729fIfBaYYNj
+description: Learn how to set up the Generic MQTT-TCP connector using Mosquitto.
+docTags: 
+createdAt: Fri Nov 25 2022 20:57:24 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and an MQTT broker using Mosquitto.&#x20;
+
+Mosquitto is a lightweight open source message broker that Implements MQTT versions 3.1.0, 3.1.1, and version 5.0.
+
+# Before You Begin
+
+- You must download the Mosquitto message broker. See the :Link[Mosquitto Download]{href="https://mosquitto.org/download/" newTab="true"} page to learn more.&#x20;
+- Configure Mosquitto so that anonymous users are allowed to access it.&#x20;
+
+To verify that Mosquitto is running in Windows, open up a command prompt and enter `netstat -an`. If Mosquitto is successfully running, you should be able to see your IP address and port 1883.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vU5CpbyFcdYaM9-vyEMLv_image.png" size="80" width="978" height="356" position="center" showCaption="false"></Image>
+
+If you don't see port 1883 being used:
+
+- Open **Task Manager > Services&#xA0;**&#x61;nd start/restart the Mosquitto server from there.
+- Make sure the **mosquitto.conf** file is correctly configured so that Mosquitto can run on your system.&#x20;
+
+# Step 1: Add the Generic MQTT Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/GcX9UZAhKiYSz8LSe4xaJ.mdx>) and select the **MQTT - Generic&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Mosquitto is running locally on your PC, so enter your IP address.&#x20;
+  If needed, use the `ipconfig `command in the command prompt window and refer to the IPv4 Address.
+- **Port**: Confirm that the default value **1883** is entered.&#x20;
+- **Client ID**: Enter **1**.
+- **Username**: Leave this field blank.&#x20;
+- **Password**: Leave this field blank.&#x20;
+- **QoS**: Make sure the default value **1** is selected.&#x20;
+- **Parallel Publish Count**: Confirm the default value **100&#x20;**&#x69;s entered. The number of messages being published simultaneously. Once the defined limit has been reached, subsequent messages are silently dropped. The default value is 100.&#x20;
+- **Integration Topic**: Enter **mos\_topic\_1**.&#x20;
+- **LWT topic**: The topic for MQTT's Last Will and Testament feature. You can leave this value blank.&#x20;
+- **LWT payload**: The payload for MQTT's Last Will and Testament feature. You can leave this value blank.
+- **LWT payload type**: The payload type for MQTT's Last Will and Testament feature. The options are *string&#x20;*&#x61;nd *base64*.&#x20;
+- **LWT QoS**: The Quality of Service value for MQTT's Last Will and Testament feature. The default value is **1**.&#x20;
+- **LWT retained**: Select this checkbox to retain the value for MQTT's Last Will and Testament feature.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 2: Add Outbound/Inbound Topic to Connector
+
+**To add the outbound and inbound topics to the MQTT connector:**
+
+1. Navigate to **Integration**.&#x20;
+2. Click the *MQTT - Generic&#x20;*&#x63;onnector tile.&#x20;
+3. Click the **Topics&#x20;**&#x74;ab.&#x20;
+4. Click the **Add a new subscription** icon.&#x20;
+   Th&#x65;*&#x20;Data Integration&#x20;*&#x64;ialog box appears.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Aj9tTx4BUmgxzEsVkWk3l_addnewsubicon.png" size="80" width="1279" height="325" caption="Add a new subscription icon" position="center" showCaption="true"></Image>
+5. Configure the following parameters.&#x20;
+   - **Data Direction**: Select **Local to Remote - Outbound**.&#x20;
+   - **Local Data Topic**: Enter a name for the local data topic.&#x20;
+   - **Remote Data Topic**: Confirm the topic where the data is pushed. This is th&#x65;*&#x20;Integration Topic&#x20;*&#x76;alue for the connector.&#x20;
+   - **Enable**: Select the toggle to enable the topic.&#x20;
+6. Click **OK&#x20;**&#x74;o add the topic.&#x20;
+7. Click the **Add a new subscription** icon again to add the inbound topic.
+8. Configure the following parameters.&#x20;
+   - **Data Direction**: Select **Remote to Local - Inbound**.
+   - **Local Data Topic**: Enter **integration.raw\.Mos\_topic\_1**.
+   - **Remote Data Topic**: Confirm the topic where the data is pushed. This is th&#x65;*&#x20;Integration Topic&#x20;*&#x76;alue for the connector.&#x20;
+   - **Enable**: Select the toggle to enable the topic.&#x20;
+9. Click **OK&#x20;**&#x74;o add the topic.&#x20;
+
+# Step 3: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/NnmgEcHpmj4lj2M2hhGnT_mqttgeneric.png" size="60" width="369" height="345" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="PvlzNrGBVl3QhocUrjZBZ" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/lBL7doO8dZVjlOPVnrAkz/o3YwIl-aYuomiu2keYIsw.mdx"} and relevant error messages.&#x20;
+
+# Step 4: Create Flow to Verify Connection
+
+**To create the flow:**
+
+1. In Litmus Edge, navigate to **Flows Manager**.&#x20;
+2. Click th&#x65;**&#x20;Go To Flow Definition** icon for a selected **Flows Manager**.&#x20;
+   The *Flow canvas* opens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6Y7MEND2DIhy478Wqq8sW_gotoflowdefinition.png" size="80" width="1203" height="421" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+3. From the flow canvas, drag the **DataHub Subscribe** node (DataConnector section), **Inject&#x20;**&#x6E;ode (Common section), and **Debug&#x20;**&#x6E;ode (Common section) to the canvas.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/bKk53hNGYnLbaRL4kr73k_three-nodes.png" size="80" width="1055" height="690" caption="The DataHub Subscribe, Inject, and Debug nodes" position="center" showCaption="true"></Image>
+4. Connect the **DataHub Subscribe** and **Inject&#x20;**&#x6E;odes to the **Debug&#x20;**&#x6E;ode.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9xlHFwsenS98ux421NiDi_mosquitto-mqtt-flow-layout.png" size="60" width="350" height="336" position="center" showCaption="false"></Image>
+5. Double click the **DataHub Subscribe** node.&#x20;
+   The *Edit DataHub Subscribe Node&#x20;*&#x64;ialog box appears.
+6. In the **Topic&#x20;**&#x66;ield, enter **integration.raw\.Mos\_topic\_in**.&#x20;
+7. If needed, configure the DataHub Subscribe connection. See :Link[Configure Connector Nodes]{docId="U2ZE0GLAydau4Z5agvqMV" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel="Configure Connector Nodes" href="../../Product Features/tAQ2y6xPYLoNqxyFDrrb-/EfWU7FhzSuuhmZvRB11Ad.mdx"} to learn more.&#x20;
+8. Click **Done**.&#x20;
+9. Double-click the **Inject&#x20;**&#x6E;ode.&#x20;
+   The *Edit Inject Node* dialog box appears.
+10. In the **msg.payload** field, select **string**.&#x20;
+11. In the **msg.topic field**, enter **integration.raw\.Mos\_topic\_1**.&#x20;
+12. Enter **test&#x20;**&#x69;n the **Name&#x20;**&#x66;ield, and then click **Done**.&#x20;
+13. Click **Deploy&#x20;**&#x74;o save the flow.&#x20;
+14. Open the command prompt window and go to the directory that stores Mosquitto files.
+15. Enter `mosquitto_pub.exe -t mos_topic_1 -m "Hello from Mosquitto"`, and then press **ENTER**.
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/laGmsoRCHm05KMT_hvcf2_mosquitto-mqtt-command-prompt.png" size="80" width="732" height="422" caption="Command prompt window" position="center" showCaption="true"></Image>
+16. In the browser window that has the Litmus Edge flow canvas, expand the message window beneath the flow to view debug messages and click the **Debug&#xA0;**&#x69;con. Verify that *Hello from mosquitto* displays.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/aKE2gMzjIE3sddqkKj7Nu_image.png" size="80" width="1096" height="739" caption="Successful message in Flow canvas" position="center" showCaption="true"></Image>
+

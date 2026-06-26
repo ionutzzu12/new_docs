@@ -1,0 +1,186 @@
+---
+title: Siemens ISO-on-TCP
+slug: 7kphJPSO5hkbsMUKygTZN
+description: Review the following information for setting up and configuring the Siemens ISO-on-TCP driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 21:33:27 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Siemens ISO-on-TCP driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="233,370" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[S7-1200]{href="https://www.siemens.com/global/en/products/automation/systems/industrial/plc/s7-1200.html" newTab="true"}
+      :Link[S7-1500]{href="https://new.siemens.com/global/en/products/automation/systems/industrial/plc/simatic-s7-1500.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use TIA Portal V16 software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="188,555" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Siemens
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Siemens ISO-on-TCP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      102
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Local TSAP**
+    </td>
+    <td>
+      TCP-2
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Remote TSAP**
+    </td>
+    <td>
+      Keep this field empty
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<table columnWidths="100,117,161,100,102,160" isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Basic
+    </td>
+    <td>
+      byte, word, dword
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      8191
+    </td>
+    <td>
+      Raw Data, Address is an Offset
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Buffer
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      D
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      Buffer
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="VeCVf1D51Xr0pg5z_Rvem">
+
+</ContentSnippet>
+

@@ -1,0 +1,1522 @@
+---
+title: Toyopuc Ethernet
+slug: toyopuc-ethernet
+docTags: 
+createdAt: Fri May 15 2026 18:37:25 GMT+0300 (Eastern European Summer Time)
+---
+
+## Compatibility
+
+<table isTableHeaderOn="true" columnWidths="307,308" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Compatibility Parameter
+    </td>
+    <td align="left">
+      Compatible Items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Driver Type
+    </td>
+    <td align="left">
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Validated Devices/Series
+    </td>
+    <td align="left">
+      Toyopuc PC10G, PC10GX-Nano
+    </td>
+  </tr>
+</table>
+
+## Introduction
+
+Review the following information for setting up and configuring the Toyopuc Ethernet driver.
+
+This driver also supports multilayer routing, which allows you to read data from non-Ethernet Toyopuc devices that are connected to an Ethernet-capable device. To route through a connected device, configure the IP address of the Ethernet device and enter the appropriate link node values (for example, `[L2, S2]`) in the optional `Link nodes` parameter.
+
+## How to Configure the PLC
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and configure the PLC device
+- Step 2: Set up the PLC device in Litmus Edge DeviceHub
+- Step 3: Configure the list of registers
+
+### Step 1: Set up and configure the PLC device
+
+Use PCwin or PCwin2 software to configure the Toyopuc PLC for Ethernet access and to monitor tags. Collect the following network parameters from the device before proceeding:
+
+1. Open the PLC project in **PCwin** or **PCwin2**.
+2. Navigate to the Ethernet settings and note the **IP address** and **network port** assigned to the device.
+3. Confirm the device is reachable on the network from the Litmus Edge host.
+
+### Step 2: Set up the PLC device in Litmus Edge DeviceHub
+
+Configure the following parameters when you connect a device with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" columnWidths="307,308" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Type
+    </td>
+    <td align="left">
+      `Toyopuc`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Driver
+    </td>
+    <td align="left">
+      `Toyopuc Ethernet`
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Network Address
+    </td>
+    <td align="left">
+      The IP address of the device you noted in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Network Port
+    </td>
+    <td align="left">
+      The port number configured on the device
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Link nodes
+    </td>
+    <td align="left">
+      *(Optional)* Routing path to a non-Ethernet device linked through the Ethernet device, for example `[L2, S2]`
+    </td>
+  </tr>
+</table>
+
+### Step 3: Configure the list of registers
+
+When you add a tag to the connected device, see the following register table and tag parameters sections.
+
+## Register Table
+
+<table isTableHeaderOn="true" columnWidths="70,329,72,72,72,100" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Types
+    </td>
+    <td align="left">
+      Address Format
+    </td>
+    <td align="left">
+      Min Address
+    </td>
+    <td>
+      Max Address
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      12715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      12715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      38315
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      K
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      47
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      K\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      4715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      L
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      767
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      L\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      76715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      38315
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      38315
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      38315
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      5119
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      511915
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      N
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      6143
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      N\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      614315
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      12287
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      1228715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      2047
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      204715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      P
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      P\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      38315
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      8191
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      819115
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      H
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      2047
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      H\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      204715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      U
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      131071
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      U\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      13107115
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EX
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EX\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      12715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EY
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EY\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      12715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      511
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      51115
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EK
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      255
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EK\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      25515
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EL
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      511
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EL\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      51115
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EV
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      255
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EV\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      25515
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ET
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ET\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      12715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EC
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EC\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      12715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ES
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      2047
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ES\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      204715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EN
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      2047
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EN\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      204715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      GX
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      GX\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      409515
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      GY
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      GY\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      409515
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      GM
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      GM\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      409515
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EB
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      524287
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EB\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      52428715
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      FR
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      983039
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      FR\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      98303915
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EP
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      255
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EP\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      25515
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WT
+    </td>
+    <td align="left">
+      bcd64
+    </td>
+    <td align="left">
+      R/O
+    </td>
+    <td align="left">
+      H
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      JL
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      8191
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      JL\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      819115
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      JS
+    </td>
+    <td align="left">
+      uint8, uint16, uint32, uint64, int16, int32, int64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      JS\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      HHHHh
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td>
+      409515
+    </td>
+  </tr>
+</table>
+

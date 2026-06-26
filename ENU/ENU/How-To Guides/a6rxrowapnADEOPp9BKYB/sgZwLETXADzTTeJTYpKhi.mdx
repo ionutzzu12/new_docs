@@ -1,0 +1,81 @@
+---
+title: Use the Anomaly Detection Function
+slug: sgZwLETXADzTTeJTYpKhi
+description: Learn how to use the Anomaly Detection function in Analytics. 
+docTags: 
+createdAt: Tue Mar 05 2024 21:18:36 GMT+0200 (Eastern European Standard Time)
+---
+
+The Anomaly Detection function applies the three-sigma rule to identify outliers by comparing data points against a dynamic threshold of standard deviations from the mean, allowing for real-time adjustment to emerging patterns.
+
+This function operates by maintaining a rolling window of data, calculating the average and standard deviation within this window, and flagging values that deviate beyond the user-defined standard deviation range as anomalies.
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/6jTxC8lPruw?si=DBqH2K5k9VS0QOMi&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; referrerpolicy=&#x22;strict-origin-when-cross-origin&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# User Scenario
+
+Review the following scenario for the anomaly detection processor function. Then, using an input processor, you will simulate PLC data and detect anomalies from the window of generated values.
+
+In a large-scale manufacturing factory, the Anomaly Detection function is used to monitor the machine's temperatures. It calculates a moving average and standard deviation of temperature readings, flagging any readings that significantly deviate as potential cooling system failures. By defining the number of standard deviations from the average as the threshold for normal operation, factory engineers can quickly identify and respond to overheating risks, ensuring site reliability and uptime.&#x20;
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../ENU/Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: input1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **1**
+- **Tag Name**: Enter **input1**
+- **Min\_value**: Enter **1**
+- **Max\_value**: Enter **50**
+
+# Step 3: Create Analytics Flow
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Anomaly Detection Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **input1&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **Anomaly Detection&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Window Size:** Enter a value that represents the range to observe before making each prediction. For this example, we input a value of **100**.
+   - **Deviations:&#x20;**&#x45;nter the number of standard deviations that would be considered normal, making everything outside that definition anomalous data. For this example, we input a value of **3**.
+   - **Topic Reset:** Enable this option to reset the function on topic change.
+   - **Control Chart Mode:&#x20;**&#x49;f this option is enabled, there will be no modifications done to the moving window before calculation.
+   - Click **Save**.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/pkhRil8lk1mMfSBfTievG_image.png "Edit a Processor dialog box")
+7. Connect the *DataHub Subscribe* processor (tag: *input1*) to the *Anomaly Detection&#x20;*&#x70;rocessor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+   The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/amJ_24VrckVKw6ER__VDW_image.png "Completed Flows Canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Anomaly Detection&#x20;*&#x70;rocessor to view the output values.
+
+The output describes a situation where the current value of **38.31&#x20;**&#x69;s well above the lower limit of **-35.38&#x20;**&#x61;nd below the upper limit of approximately **138.40**, suggesting no anomaly is detected at this timestamp within the moving average of **51.51** and a standard deviation of **28.96**.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cqbWuUEZ5Taj80xNAKwaQ_image.png "Output of Anomaly Detection Function")
+

@@ -1,0 +1,72 @@
+---
+title: Write Bulk Data From All Topics to a File
+slug: 172Dy1cuG0TQcccODNJBh
+description: You can use flows to write bulk data from all topics to a file.
+docTags: 
+createdAt: Wed Jun 07 2023 16:31:31 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use flows to write bulk data from all topics to a file.
+
+This page describes how to write data from all Topics in Litmus Edge to a file. The flow trims the data so that we only write data to the file that we are interested in. It also prevents writing duplicate entries in the file by checking current values with previous values. Trimming the data and preventing duplicates ensures good performance when sending the data written to the file to a database or external storage. We can write the data to the `/ftp-data/` directory on the Litmus Edge device so we can later send the data to a database, as described in the Send Bulk Data from a file to a Database page.
+
+Before you begin:
+
+This flow uses a flow context level global variable. See Contexts and Globals for further information about global variables in Litmus Edge Flows.
+
+### Add a Flow to Create and Write to a File
+
+<hint type="info">
+  **TIP:**
+
+  Try these two options to reduce the amount of data that collected from data topics:
+
+  1. `devicehub.raw.>` - This sends all data from DeviceHub tags only and no other sources of tags.
+  2. `devicehub.raw.{PLC_ID}.>` - This sends all data from a specific PLC only.
+</hint>
+
+
+
+**To create a flow that writes all data to a file (to send to a database):**
+
+1. From the navigation panel, select **Flows Manager.**
+2. Click the **Expand&#x20;**&#x69;con next to a selected Flow.
+3. Drag the **DataHub Subscribe** , **Function&#xA0;**&#x61;nd **File&#xA0;**&#x6E;odes to the canvas and connect them together.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/K8sabijSB1a-wI0Z-bz4Q_flow-12339x135.png "Three wired nodes")
+4. Double-click the **DataHub Subscribe** node and enter `>` for the topic to subscribe to all topics.
+5. Double-click the Function node. Enter the following lines of code:
+   `var temp = (JSON.parse(msg.payload)).success; // Stores the boolean for if the message succeeded.   `
+   `var temp1 = (JSON.parse(msg.payload)).tagName; // Stores the tag name from the message.   `
+   `var d1  = new Date(); // Gets the current date and time.   `
+   `if(temp && temp1) // Checks if the message succeeded and if the tag name exists    before continuing.   `
+   `{   `
+   `var obj = {}; // Creates a blank object that we can populate with 3 values.   `
+   `var datafilter = JSON.parse(msg.payload); // Makes an object out of the JSON in the message.   `
+   `obj.timestamp = datafilter.timestamp; // Puts the message timestamp from the JSON into our new object.   `
+   `obj.tagName = datafilter.tagName; // Puts the tagName from the JSON into our new object.   `
+   `obj.value = datafilter.value; // Puts the value from the JSON into our new object.   `
+   `var previous = flow.get(obj.tagName); // Gets the last tagname we wrote to the file.   `
+   `if(previous !== obj.value) // Ensures we only continue writing to the file if the current tagname is different than the last tagname.   `
+   `{   `
+   `msg.payload = JSON.stringify(obj); // Turns our object into a JSON string that we can send as a message.   `
+   `flow.set(obj.tagName,obj.value); // Stores the current tagname within the current flow so we can check it each time through this function.   `
+   `/* Ensures that our JSON message writes to a location that   `
+   `we have permission to write to * called /ftp-data/. Our filename is the current date and   `
+   `time. */   `
+   `msg.filename = "/ftp-data/"+d1.getMonth()+"-"+d1.getDate()+"-"+d1.getHours()+"-"+d1.getMinutes()+ ".txt";   `
+   `return msg; // Putting the return statement here ensures that the flow only continues if the tagname changed.   `
+   `}   `
+   `}`
+6. Click **Done**, and then **Deploy**.&#x20;
+
+### What's Next?
+
+We can use this flow for the final goal of writing the bulk data from the file to an external database. To continue with further steps, see Send Bulk Data from a file to a Database.
+
+The final flow looks something like the below screenshot:
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zWBJ51UaLYqJSu5AHwBsK_image.png "The final flow")
+
+ 
+
+

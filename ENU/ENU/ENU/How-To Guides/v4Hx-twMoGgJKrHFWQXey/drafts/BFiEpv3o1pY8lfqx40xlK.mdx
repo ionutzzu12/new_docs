@@ -1,0 +1,115 @@
+---
+title: Write to Tags
+slug: BFiEpv3o1pY8lfqx40xlK
+description: You can create a flow to write to tags.
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:26 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use a flow to write to tags. In certain situations, it may be necessary to update values in registers (tags) to control a device, such as turning a switch on or off.
+
+<hint type="info">
+  **Important:&#x20;**&#x50;LCs come with a set of read-only registers that give you access to view the data and another set of registers that can be modified. For specific details about the registers, please refer to the vendor's documentation.
+</hint>
+
+# **Step 1: Add a Device**
+
+Follow the steps to :Link[Connect a Device]{href newTab="true"} and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{href newTab="true"} to learn more.&#x20;
+
+## **Tag 1: tag1**
+
+- **Name**: Select **M - Memory Register**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **tag1**
+- **Address**: Enter **2**.
+- **Count**: Enter **1**
+
+After the tag is created, **Copy&#x20;**&#x74;he raw topic by clicking the copy icon next to the tag you added. Keep it with you for later use.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/MX0R0pwU14JB6ymtpLGWP_xx.png "The copy icon for the tag")
+
+# Step 3: Create Subscribe Flow
+
+You can now create the subscribe flow using data from the device and tag you previously created.
+
+**To create the subscribe flow:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow.&#x20;
+   See [Create a Flow](<../../../../../Product Features/Flows Manager/ddBsmAZtGH9krDnb5AEyU.mdx>) to learn more.&#x20;
+2. Drag the **DataHub Subscribe&#xA0;**&#x61;nd **Debug&#xA0;**&#x6E;odes to the canvas and wire them together.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/l6AhxXrMzrZGq_xrLNCrW_subscribe-and-debug-node.png "The DataHub Subscribe and Debug nodes")
+3. Double-click the **DataHub Subscribe&#xA0;**&#x6E;ode.
+   The *Edit DataHub Subscribe* node dialog box appears.
+   - **Topic:** Paste the **raw topic** from the tag you created in step 2.
+   - **Name:** Enter **Tag 1**.
+4. Click **Done**, and then click the **Deploy&#xA0;**&#x62;utton located at the top-right corner of the screen to save the flow.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vk4mZI3XsBkqHm86z9LF-_image.png" size="80" width="496" height="293" position="center" caption="DataHub Subscribe node dialog box" showCaption="true"></Image>
+5. Expand the message window beneath the flow.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Zy8ybHzr9L7Zr34GsUSZH_image.png "Flow canvas message window")
+6. Click the **Debug&#xA0;**&#x69;con to view the data output.
+   Check *tag polling interval* if debug messages is not visible.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/sOtvYhSEV22nSfVoJYpOu_image.png "Completed canvas with output data")
+
+# Step 4: Create Publish Flow
+
+You can now create the publish flow using data from the device and tag you previously created.
+
+**To create the publish flow:**
+
+1. In the same flow canvas, drag the **Inject** and **DataHub Publish** node to the canvas and wire them together.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/U_nwbETMXYap9fih0UGwF_inject-and-publish-nodes.png "Flows canvas with publish node")
+2. Double-click the **DataHub Publish&#xA0;**&#x6E;ode.
+   The *Edit DataHub Publish* node dialog box appears.&#x20;
+3. Return to the **Tags&#xA0;**&#x62;rowser tab in *DeviceHub*.
+4. Click the **Action menu** next to *tag1* and select **View Write Topic**.
+   Copy the raw topic and then return to the *DataHub Publish&#x20;*&#x62;rowser tag.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/B3ZHbgcJJDA8FwHr1CgDI_view-write-topic.png "The View Write Topic option")
+5. Paste the raw topic in the **Topic** field.
+6. Enter **Tag 1** in the **Name** field, and then click **Done**.
+7. Double-click the **inject** node.&#x20;
+   The *Edit inject node&#x20;*&#x64;ialog box appears.
+   - **Name:&#x20;**&#x45;nter **Inject1**.&#x20;
+   - **msg.payload:&#x20;**&#x46;rom the drop-down list, select **string&#x20;**&#x61;nd enter **\{"value":1}**.&#x20;
+     Any string value can be entered, as long as you adhere to the JSON format for the payload text.
+   - **Repeat:&#x20;**&#x46;rom the drop-down list, select **interval**.&#x20;
+   - **every:&#x20;**&#x45;nter **5**. &#x20;
+8. Click **Done**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cc6ueD72f9Eo2WHr8Dx9J_image.png" size="80" width="607" height="887" position="center" caption="Edit inject node dialog box" showCaption="true"></Image>
+9. Drag the **Debug** node to the canvas and wire it to the **Inject&#xA0;**&#x6E;ode.
+10. Click **Deploy&#x20;**&#x61;nd expand the message window beneath the flow.
+11. Click the **Inject&#xA0;**&#x62;utton.
+    At this point, the `{"value":1}` entered in the **Inject** node will be injected into `Tag 1`, changing `Tag 1`'s `value` to `1`. Go to the **debug** tab below the canvas to view the results.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/W6BidlbzGSU15DQCKzGEh_flows-write-to-tag-message-328.png "Debug messages")
+
+# Step 5: Review Flows&#x20;
+
+This flow now contains three connections, as shown in the following illustration.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/by0Mzqe1H6SwbVJcgMjCa_flows-write-to-tag-328.png" size="80" width="647" height="307" position="center" caption="Completed lows canvas" showCaption="true"></Image>
+
+- The first connection shows the *subscribe* action.
+- The second connection shows the *publish* to the device tag.
+- The third connection shows the *publish* to the `msg.payload` to see what is being sent to the second connection.
+
+# Troubleshoot Flow
+
+If you do not see the value changing, check the following:
+
+1. **Have you saved recent flow changes?** 
+   Click Deploy above the canvas.
+2. **Is the device connected?** 
+   Go to DeviceHub > Devices to review the status of the device tile.
+3. **Have you chosen a valid register that allows writes?** 
+   Make sure you are not trying to write to an Input register. Go to **DeviceHub&#xA0;**> **Tags**, edit the tag, and verify the register name.
+4. **Is the Debug node activated?** 
+   Click the Debug node. See :Link[Configure Connector Nodes]{docId="bezDaqGGrrny6TWDnL9CK" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" overridedLabel="Configure Connector Nodes" href="../../../../../Product Features/Flows Manager/ddBsmAZtGH9krDnb5AEyU.mdx"} to learn more.&#x20;
+

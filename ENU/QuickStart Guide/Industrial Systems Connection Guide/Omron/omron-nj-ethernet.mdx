@@ -1,0 +1,214 @@
+---
+title: Omron NJ Ethernet
+slug: -fyDaSxtwWQkslPqR_Q4a
+docTags: 
+createdAt: Tue Jan 20 2026 21:59:27 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the Omron NJ Ethernet driver.
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      NJ Series
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left">
+      Omron-NJ-Ethernet (Gen1)
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. The default port for Omron NJ Series PLCs is 44818.
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you Connect a Device with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      Omron
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      Omron NJ Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Network Address**
+    </td>
+    <td align="left">
+      The device IP address you recorded in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Network Port**
+    </td>
+    <td align="left">
+      44818
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Advanced**
+    </td>
+    <td align="left">
+      Show Advanced Options (Disabled by default)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Response Timeout**
+    </td>
+    <td align="left">
+      2000 (ms)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Maximum Packet Size**
+    </td>
+    <td align="left">
+      1994 (bytes) - Optional
+    </td>
+  </tr>
+</table>
+
+## Step 3: Configure the List of Registers
+
+When you Add Tags to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](<../../../How-To Guides/DeviceHub Guides/PzaTaUTahhNy1jTUcGCbc.mdx>)
+- [Tag Formula Variables](<../../../ENU/Product Features/DeviceHub/IAXxRo2Zf3JHMykbup5Ai/2xZj7CTcVSSWeflmm0gdV.mdx>)&#x20;
+
+## Register Table
+
+**Note:** This driver uses symbolic (tag-based) addressing. Enter the tag name exactly as it appears in your PLC program. The driver supports reading basic data types from arrays and User-Defined Types (UDTs) by specifying the full tag path (for example, MyArray\[0] or MyUDT.Member).
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="151,151,151,153">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Type
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      BOOL, SINT, INT, DINT, LINT, USINT, UINT, UDINT, ULINT, BYTE, WORD, DWORD, LWORD, REAL, LREAL, STRING, ENUM, DATE, TIME, DATE\_AND\_TIME, TIME\_OF\_DAY
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      Read/Write PLC tags
+    </td>
+  </tr>
+</table>
+
+### Supported Data Types
+
+The driver supports the following Omron NJ data types:
+
+- **BOOL**: Boolean (bit)
+- **SINT**: Short integer (8-bit signed)
+- **USINT**: Unsigned short integer (8-bit unsigned)
+- **INT**: Integer (16-bit signed)
+- **UINT**: Unsigned integer (16-bit unsigned)
+- **DINT**: Double integer (32-bit signed)
+- **UDINT**: Unsigned double integer (32-bit unsigned)
+- **LINT**: Long integer (64-bit signed)
+- **ULINT**: Unsigned long integer (64-bit unsigned)
+- **REAL**: Floating point (32-bit)
+- **LREAL**: Long real (64-bit floating point)
+- **TIME**: Integer time in nanoseconds
+- **DATE**: Format: `YYYY-MM-DD`
+- **TIME\_OF\_DAY**: Format: `HH:MM.000000000`
+- **DATE\_AND\_TIME**: Format: `YYYY-MM-DD-HH:MM.000000000`
+- **STRING**: UTF-8 string (default length 256, custom lengths supported)
+
+For complete data type specifications, refer to NX and NJ Basic Data Types and Ranges.
+
+## Tag Parameters
+
+- **Name**: Enter the PLC tag name exactly as it appears in your controller program. For array elements, use bracket notation (for example, TagName\[0]). For structure members, use dot notation (for example, StructName.Member).
+- **Value Type**: Select a data type from the drop-down list. The available options correspond to the Omron NJ data types listed in the register table.
+- **Polling Interval**: Enter a value in milliseconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag in Litmus Edge.
+- **Description** (Optional): Enter a description for the tag.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power (`x`) performs the operation `10^x`
+  - log: log (`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp (`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  * **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

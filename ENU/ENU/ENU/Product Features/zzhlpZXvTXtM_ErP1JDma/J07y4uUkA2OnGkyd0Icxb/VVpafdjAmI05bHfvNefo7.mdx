@@ -1,0 +1,33 @@
+---
+title: Add Database Users
+slug: VVpafdjAmI05bHfvNefo7
+description: Learn how to add database users in DataHub. 
+docTags: 
+createdAt: Fri May 13 2022 22:50:03 GMT+0300 (Eastern European Summer Time)
+---
+
+You can add a database user by navigating to **DataHub&#x20;**> **DB Users**.
+
+<hint type="warning">
+  **Important**: Influx uses admin, user, and observer as default users. You cannot use these usernames when creating a new user. Therefore, you can add users using their username when creating a database user.
+</hint>
+
+**To add a database user:**
+
+1. Navigate to **DataHub&#x20;***>&#x20;***DB Users**.&#x20;
+2. Click the **Add** (**+**) icon.
+   The *Add User* dialog box appears.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/R3krIZwEnu8KJlBUls0v7_cejnriuwdtmf08hshqjcimage.png "The Add User icon")
+3. Enter the details for the user.&#x20;
+   - **Username**
+   - **Password**
+   - **Database**: Select a database from the drop-down list.
+   - **Privilege**: Select an access option (Read, Write, or All).
+4. (Optional) Click the **Plus** (**+**) icon to select another database and privilege, and repeat if necessary. You can remove a privilege row by clicking the **Trash&#x20;**&#x69;con next to the row you want to remove.
+5. &#x20;Click **Add User**.
+   The user appears in the *DB Users&#x20;*&#x70;ane with the listed privileges.
+
+<hint type="info">
+  **Note**: Multiple rows of the same database with different privileges will not be combined. For the same database, the most bottom row's respective privilege added will be assigned for the user.
+</hint>
+

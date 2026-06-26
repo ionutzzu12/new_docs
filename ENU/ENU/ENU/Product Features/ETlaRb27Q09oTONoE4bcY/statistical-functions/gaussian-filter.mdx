@@ -1,0 +1,61 @@
+---
+title: Gaussian Filter
+slug: 4L1i2nDRsQfMFlBVL97D9
+docTags: 
+createdAt: Tue Aug 06 2024 22:29:37 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Gaussian Filter&#x20;**&#x70;rocessor is a simple Gaussian digital filter.
+
+# Gaussian Filter Overview
+
+- First, the mean, standard deviation and variance of a window of values is calculated.
+- Coefficient is calculated by the formula 1/ \{squareRoot(2 \* PI) \* deviations}
+- Exponential Part is calculated by the formula exp\{ -(1/2) \* (current - mean)^2 / (dev)^2 }
+- Multiplying those values gives the Gaussian Function, and then filtered value is obtained.
+- The **timer interval** parameter is useful if the connected input tag is currently not polling, but you still want this KPI to publish a value every few seconds, defined by the aforementioned timer.
+- If you know your input is going to publish at the expected interval, it is better to disable this timer by entering **0** in the field.
+
+# Gaussian Filter Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Window Size
+    </td>
+    <td>
+      This parameter specifies the window in which the Gaussian filter calculates its values. The window size represents the number of seconds over which the Gaussian filter operates.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer Interval
+    </td>
+    <td>
+      Timer in milliseconds. If no event, use this timer to keep displaying the output continually. Enter zero to disable.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Pass Through Value
+    </td>
+    <td>
+      The Pass Through Value parameter enables you to specify how anomalous data should be handled.&#x20;
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cMFJyFjyJuQKF70iEj4wC_image.png" size="80" width="942" height="379" caption="Gaussian Filter parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Gaussian Filter&#x20;*&#x70;rocessor, refer the [Use the Gaussian Filter Function](<../../../../How-To Guides/a6rxrowapnADEOPp9BKYB/J51LhD9UnrMmOAuT19P4h.mdx>) guide for more details.
+</hint>
+

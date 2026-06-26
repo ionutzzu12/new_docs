@@ -1,0 +1,75 @@
+---
+title: Anomaly Detection
+slug: j1Xk7NuU4Bter8BbY8Av5
+docTags: 
+createdAt: Tue Aug 06 2024 22:35:22 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Anomaly Detection** processor uses the three-sigma rule and allows you to define the number of standard deviations considered normal for a data-set. If the data is within the designated standard deviations of the mean, it is not considered to be anomalous.
+
+## Anomaly Detection Overview
+
+- Anomaly detection by 3-Sigma Rule is a conventional heuristic used for an approximately normalized data-set.
+- A rolling window of values are "observed", and their average and standard deviations are calculated.
+- You can define the number of standard deviations that would be considered "normal", hence everything beyond that would be anomalous data.
+- In case of an anomaly, the standard deviation window is expanded ever so slightly, so that it can adjust if this anomalous data becomes seasonal.
+  - This calculation is done because in live data, it is sometimes not preferable for one large anomaly to drastically change the moving average and moving standard deviations.
+  - With the **control chart mode**, this calculation can be completely bypassed, if all you need to check is whether the value is within upper/lower limit or not.
+  - If **control chart mode** is enabled, there will be no modifications done to the moving window before calculation.
+- Currently if you have very small deviations (close to 0), it is difficult to distinguish between anomalous data, so it would be better to have a larger window size for those kinds of data.
+- **Expected Output Fields:** timestamp, current value, moving average, moving standard deviation, upper limit, lower limit, total anomalies, and anomaly field replaces current value, if detected.
+
+## Anomaly Detection Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Control Chart Mode?
+    </td>
+    <td>
+      This parameter enables or disables the control chart mode, which bypasses the calculation for adjusting the standard deviation window and allows for simple upper/lower limit checks.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Deviations
+    </td>
+    <td>
+      Controls how strict the “normal” range is.
+      - Standard deviation is a simple measure of spread: low means values are close together and high means they’re more spread out. This uses Bessel’s correction (`N−1`), so the input must contain at least two values. Example: `[1, 2, 3, 4]` → `mean 2.5`, `std ≈ 1.291`.
+      - We treat values as normal if they’re within `N` standard deviations of the average. Values outside are flagged.
+      - Common choices: `2` (stricter) or `3` (more forgiving)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Window Size
+    </td>
+    <td>
+      This represents the window in which the calculations are performed, measured in seconds. It determines the number of data points included in the rolling window for observing average and standard deviation.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Pass Through Value
+    </td>
+    <td>
+      This parameter allows you to specify how to handle anomalous data, such as replacing the current value with an anomaly field if detected.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ue98GX57u_7qOv4gChehm_image.png" size="80" width="940" height="394" caption="Anomaly Detection parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Anomaly Detection&#x20;*&#x70;rocessor, refer the [Use the Anomaly Detection Function](<../../../../How-To Guides/a6rxrowapnADEOPp9BKYB/sgZwLETXADzTTeJTYpKhi.mdx>) guide for more details.
+</hint>
+

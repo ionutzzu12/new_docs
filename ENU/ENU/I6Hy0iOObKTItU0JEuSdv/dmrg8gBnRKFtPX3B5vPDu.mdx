@@ -1,0 +1,73 @@
+---
+title: System Architecture
+slug: dmrg8gBnRKFtPX3B5vPDu
+description: Learn more about the system architecture of Litmus Edge. 
+docTags: 
+createdAt: Thu Mar 31 2022 00:21:47 GMT+0300 (Eastern European Summer Time)
+---
+
+Litmus Edge provides a flexible model for collecting, normalizing, and analyzing operational data. This topic covers:
+
+- **System architecture**: how data flows through Litmus Edge from PLCs and data sources to northbound destinations.
+- **Network architecture**: how to deploy Litmus Edge in the OT layer and connect it to cloud and enterprise systems.
+
+## Core components
+
+**Access interfaces**
+Litmus Edge is accessible through:
+
+- Web UI
+- Terminal User Interface (TUI)
+- REST API
+
+**DeviceHub**
+DeviceHub connects to PLCs and other data sources using industrial drivers. It receives southbound data and forwards it to the Message Broker.
+
+**Message Broker**
+The Message Broker routes data from DeviceHub. It stores data in a database or sends it northbound for processing.
+
+**Northbound applications and integrations**
+Northbound destinations include:
+
+- Applications within Litmus Edge
+- Flows Manager for creating data flows
+- Analytics for data processing
+- Digital Twins for asset visualization and simulation
+- Cloud and database integrations
+- OPC UA Server
+
+## How components work together
+
+Data flows through Litmus Edge in four stages:
+
+1. **Accessing Litmus Edge**: Access Litmus Edge through the Web UI, TUI, REST API, or the cloud. See  [Access the Litmus Edge Web UI](<../../QuickStart Guide/LH9wLRWVmLRpp4M4yCy-f.mdx>), [Access the Terminal User Interface](<../QuickStart Guide/LH9wLRWVmLRpp4M4yCy-f/h0KyQCpKLpGAqZ06S-LRP.mdx>), and :Link[Litmus API Portal.]{href="https://api.litmus.io/" newTab="true" hasDisabledNofollow="false"}
+2. **Southbound connectivity**: PLCs connect to DeviceHub through industrial drivers. DeviceHub forwards data to the Message Broker.
+3. **Message Broker**: The Message Broker stores data in a database or sends it northbound for processing.
+4. **Northbound connectivity**: Data can be sent to flows in Flows Manager, Analytics for processing, Digital Twins for visualizing and simulating assets, external applications such as Grafana, or to cloud and database systems for further data visualization. Learn more about [Applications](), [Flows Manager](), [Analytics](), [Digital Twins](<../../Product Features/kw_YqVtGulMTwqEX8EvUE.mdx>), [Integration](), and configuring an [OPC UA Server]().
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/URh4DaYsVYMpZKc6hTq_r_system-architecture.png" size="100" width="7343" height="5527" darkWidth="7343" darkHeight="5527" position="flex-start" showCaption="false" indent="2"></Image>
+
+## Network architecture
+
+A typical Litmus Edge deployment spans three network layers: the OT network layer, the IT network layer, and the cloud layer. This section describes how to connect Litmus Edge to PLCs and other data sources in the OT layer and route data to the cloud. Learn more about [Installation and Deployments](<../../QuickStart Guide/J8a0H7bHsoKAe83Ww8qvQ.mdx>).
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Z0an74mJa0GXpijjPH2oK_network-architecture.png)
+
+### OT layer connectivity
+
+You can connect Litmus Edge in a DMZ to:
+
+- **\[1] PLCs through a Level 2 switch where only the head PLC has a network connection in a designated VLAN.** Litmus Edge accesses the same VLAN as the head PLC and reads from the head registers. Additional PLCs transfer data to the head for read operations.
+- **\[2] PLCs through a Level 2 switch where all data sources have a network connection in a designated VLAN.** Litmus Edge accesses the same VLAN as the PLCs and connects to all PLCs to read data.
+- **\[3] Other data sources through a Level 2 switch**, for example a MES, SCADA system, OPC UA server, or file-based sources such as Excel, CSV, XML, SQL/MySQL databases, or a REST API. The data sources have a network connection in a designated VLAN. Litmus Edge accesses the same VLAN and connects to all data sources to read data.
+- **\[4] A PLC through a panel switch connected to a Level 2 switch.** Litmus Edge accesses the same VLAN as the PLC and reads data from any PLC connected to the panel switch.
+- **\[5] An RS232 to Ethernet converter connected to a PLC through an RS232/484 physical connection.** Litmus Edge reads from the registers on the connected PLC through the Ethernet converter.
+- **\[6] A remote I/O module or sensor gateway connected to the PLC or Level 2 switch.** Sensors connect to the gateway through wireless or proprietary technology. Litmus Edge reads sensor data through the PLC or through the gateway if the gateway is connected to the Level 2 switch.
+
+### Cloud connectivity
+
+You can send data to the cloud using these options:
+
+- **\[7] Litmus Edge Manager in the cloud.** Collect and send data from Litmus Edge to Litmus Edge Manager for consolidation.
+- **\[8] A cloud service directly from Litmus Edge Manager.** Send data from Litmus Edge to cloud systems or other enterprise systems. Learn more about Applications and Applications Guides.
+- **\[9] A cloud service from Litmus Edge through an integration.** Send data to cloud or other enterprise systems through integrations. Learn more about Integration and Integration Guides.

@@ -1,0 +1,246 @@
+---
+title: Install Litmus Edge on Nutanix
+slug: cxz4hyndDGVp1fHfp6SXK
+docTags: 
+createdAt: Wed Jun 24 2026 22:24:04 GMT+0300 (Eastern European Summer Time)
+---
+
+Nutanix is a hyperconverged infrastructure (HCI) platform that runs virtual machines on commodity hardware. Deploying Litmus Edge as a VM on Nutanix lets you run edge computing workloads on shared infrastructure without requiring dedicated physical hardware for each device.
+
+## Why deploy Litmus Edge on Nutanix
+
+Running Litmus Edge on Nutanix is common in facilities where the IT team already manages a Nutanix cluster and prefers to consolidate edge workloads alongside other VMs rather than deploy standalone appliances. It also suits environments where hardware procurement is centralized. You can provision a new Litmus Edge instance without sourcing a dedicated device.
+
+Key advantages of this deployment model include:
+
+- **Centralized resource management.** You can resize vCPU and memory allocations without touching physical hardware and manage Litmus Edge alongside other workloads in the Nutanix management console.
+- **VM-level snapshots and recovery.** Nutanix snapshot and replication features apply to the Litmus Edge VM. This gives you a rollback point before major configuration changes.
+- **Flexible networking.** The VM connects to any subnet defined in your Nutanix network configuration so you can place Litmus Edge on the same network segment as the PLCs and devices it communicates with.
+
+## Core components
+
+A Litmus Edge on Nutanix deployment involves three components in addition to the Nutanix cluster itself:
+
+**Litmus Edge ISO image**
+The installation image for Litmus Edge. It is added to Nutanix image storage before VM creation and attached to the VM as a CD-ROM disk during installation. After installation is complete, the CD-ROM disk can be removed.
+
+**VirtIO drivers image**
+Paravirtualized drivers that enable efficient communication between the VM guest OS and the Nutanix AHV hypervisor for disk and network operations. The VirtIO drivers disk must be attached during OS installation. Without it, the installer cannot correctly identify or access storage and network devices. Once installation is complete and the OS is running, the drivers are loaded and the disk is no longer needed.
+
+**Nutanix VM**
+The virtual machine that hosts Litmus Edge. The VM is configured with UEFI boot firmware, three disks (OS image CD-ROM, VirtIO drivers, and a hard disk for the OS), and a network interface bound to your deployment subnet.
+
+## VM configuration decisions
+
+Several configuration choices made during VM setup affect how Litmus Edge operates in a Nutanix environment.
+
+**Boot firmware**
+UEFI boot is required. Legacy BIOS mode is not supported for Litmus Edge on Nutanix. This is set during VM creation and cannot be changed after the VM is saved.
+
+**Disk layout**
+The VM uses three disks during installation:
+
+<table isTableHeaderOn="true" columnWidths="219,337.3303303303303,441.6696696696697" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Disk
+    </td>
+    <td align="left">
+      Type
+    </td>
+    <td align="left">
+      Purpose
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Litmus Edge ISO
+    </td>
+    <td align="left">
+      CD-ROM, cloned from image service
+    </td>
+    <td align="left">
+      Provides the OS installer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VirtIO drivers
+    </td>
+    <td align="left">
+      CD-ROM, cloned from image service
+    </td>
+    <td align="left">
+      Provides drivers the installer needs to access the hard disk and NIC
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hard disk
+    </td>
+    <td align="left">
+      Standard virtual disk
+    </td>
+    <td align="left">
+      The target disk where Litmus Edge is installed
+    </td>
+  </tr>
+</table>
+
+Both CD-ROM disks use IDE bus type for compatibility with the installer environment. The hard disk can use VirtIO SCSI for better performance once the drivers are loaded.
+
+**Network interface**
+The VM's network interface is connected to a Nutanix-managed subnet. Choose a subnet that has routable access to the PLCs, sensors, and other devices that Litmus Edge will communicate with. If your environment uses VLANs to segment OT and IT networks, place the Litmus Edge VM on a subnet that can reach both.
+
+## Considerations
+
+- UEFI boot is required. The setting is applied at VM creation time and cannot be modified after the VM is saved without recreating the VM.
+- The VirtIO drivers disk must be attached and available during OS installation. Attaching it after installation starts will not work.
+- Nutanix AHV does not support hot-adding disks to a running VM. Power off the VM before making disk changes.
+- Litmus Edge does not natively integrate with Nutanix management APIs. It runs as a standard VM and is managed through the Litmus Edge UI or Litmus Edge Manager.
+
+## Before you begin
+
+Before you begin, ensure you have:
+
+- The IP address of your Nutanix console and valid login credentials
+- The Litmus Edge ISO image uploaded or available to upload to Nutanix
+- The VirtIO drivers image available in Nutanix image storage
+- Decided on the VM name, description, time zone, vCPU count, core count, and memory allocation
+
+## Step 1: Access the Nutanix workspace
+
+To log in to the Nutanix console:
+
+1. Open a web browser and navigate to the IP address of your Nutanix console.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/lX8ulmaZWciDG97ptaCPU_access-nutanix-ws-01.png" size="80" isUploading="false" width="1393" height="680" darkWidth="1393" darkHeight="680" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. Enter your username and password, then click **Log In**.
+
+## Step 2: Add the Litmus Edge ISO image
+
+To upload the Litmus Edge ISO to Nutanix image storage:
+
+1. Navigate to **Settings** > **Image Configuration** > **Upload Image**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CktDNKWTJiBrwp4PpdTEk_add-iso-image-01.png" size="80" isUploading="false" width="1055" height="480" darkWidth="1055" darkHeight="480" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. In **Name**, enter a descriptive name for the image.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KDMZdivB81uRXAfgnMcoe_add-iso-image-02.png" size="80" isUploading="false" width="1062" height="470" darkWidth="1062" darkHeight="470" position="flex-start" showCaption="false" indent="2"></Image>
+
+3. In **Image Type**, select **ISO**.
+4. In **Storage Container**, select **Default**.
+5. Select the Litmus Edge ISO file and click **Save**.
+
+## Step 3: Create a virtual machine
+
+To create a new VM in Nutanix:
+
+1. On the home screen, navigate to **VM** > **Create VM**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/a2v-sKNJdvI8nUjBLdyVa_vm-creation-01.png" size="80" isUploading="false" width="1088" height="485" darkWidth="1088" darkHeight="485" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. In **Name**, enter a name for the VM.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KZmGC_JXiob2m7jrSF9lg_vm-details-01.png" size="40" isUploading="false" width="480" height="426" darkWidth="480" darkHeight="426" position="flex-start" showCaption="false" indent="2"></Image>
+
+3. In **Description**, enter a description.
+4. In **Time Zone**, select the appropriate time zone from the dropdown.
+
+## Step 4: Configure compute resources
+
+To set the compute resources for the VM:
+
+1. In **vCPUs**, enter the number of virtual CPUs.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/IibXrUCo2azHY2ZzCrUBI_vm-details-02.png" size="40" isUploading="false" width="477" height="383" darkWidth="477" darkHeight="383" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. In **Number of Cores per vCPU**, enter the number of cores.
+3. In **Memory**, enter the required memory in GB.
+4. In **Boot Configuration**, select **UEFI**.
+
+## Step 5: Add disks
+
+To add the OS image disk:
+
+1. In the **Disks** section, click **Add New Disk**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ePpmHxG4F_RLOl9sb2d4U_add-os-disk-01.png" size="50" isUploading="false" width="485" height="225" darkWidth="485" darkHeight="225" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. In **Type**, select **CD-ROM**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/bZqQVBFxG_AYdd4GtYaLb_add-os-disk-02.png" size="50" isUploading="false" width="494" height="576" darkWidth="494" darkHeight="576" position="flex-start" showCaption="false" indent="2"></Image>
+
+3. In **Operation**, select **Clone from Image Service**.
+4. In **Bus Type**, select **IDE**.
+5. In **Image**, select the Litmus Edge ISO image you uploaded in Step 2.
+6. Click **Add**.
+
+To add the VirtIO drivers disk:
+
+1. Click **Add New Disk** again.
+2. In **Operation**, select **Clone from Image Service**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/br-AB6-WYLFEm5i2ORrWZ_add-drivers-disk-01.png" size="50" isUploading="false" width="482" height="545" darkWidth="482" darkHeight="545" position="flex-start" showCaption="false" indent="2"></Image>
+
+3. In **Bus Type**, select **IDE**.
+4. In **Image**, select the VirtIO drivers image.
+5. Click **Add**.
+
+To add the hard disk:
+
+1. Click **Add New Disk** a third time and configure it for the OS hard disk.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EhfHyJm2j52fmsRhTO-pf_add-hard-disk-01.png" size="50" isUploading="false" width="501" height="560" darkWidth="501" darkHeight="560" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. Click **Add**.
+
+## Step 6: Configure networking
+
+To add a network interface to the VM:
+
+1. In the **Network Adapters (NIC)** section, click **Add New NIC**.
+2. In **Subnet Name**, select the subnet you created for this deployment.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/i6bbuHj7YKHG90YeXteY4_add-nic-02.png" size="40" isUploading="false" width="303" height="275" darkWidth="303" darkHeight="275" position="flex-start" showCaption="false" indent="2"></Image>
+
+3. Click **Add**.
+4. Click **Save**. The VM is created.
+
+## Step 7: Install the operating system
+
+To start the VM and complete OS installation:
+
+1. Right-click the VM in the VM list and select **Power On**.
+2. Click **Launch Web Console**.
+3. When the setup window appears, press **F2** to enter the setup menu.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SXjDXa1Q8CsHTkGXu1Cbe_os-install-02.png" size="50" isUploading="false" width="577" height="429" darkWidth="577" darkHeight="429" position="flex-start" showCaption="false" indent="2"></Image>
+
+4. Select **US** as the keyboard layout, then click **Apply**.
+5. Enter the default username and password.
+6. Scroll down and press **Enter** to continue.
+7. When prompted, enter and confirm a new password.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nrndzQlCIzRfUMORjA_lr_os-install-06.png" size="50" isUploading="false" width="798" height="433" darkWidth="798" darkHeight="433" position="flex-start" showCaption="false" indent="2"></Image>
+
+## Step 8: Configure system settings
+
+To configure the network interface for Litmus Edge:
+
+1. Select **Configure Interface** and click **Next**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Cfy-Lsi3zn28eD481Ktac_system-settings-01.png" size="50" isUploading="false" width="552" height="474" darkWidth="552" darkHeight="474" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. Enter the IP address, subnet mask, gateway, and DNS details for this device.
+3. Click **Apply**.
+
+## Verify the installation
+
+To confirm Litmus Edge is installed and accessible:
+
+1. Open a web browser and navigate to the IP address you configured in Step 8.
+2. Confirm that the Litmus Edge login page appears.
+3. Log in with the default credentials and confirm the dashboard loads.

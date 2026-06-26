@@ -1,0 +1,48 @@
+---
+title: Add a Marketplace Catalog
+slug: AxWsrsXsIFmEl9Oe2r1VB
+description: Learn how to add a marketplace catalog. 
+docTags: 
+createdAt: Fri Sep 23 2022 16:31:29 GMT+0300 (Eastern European Summer Time)
+---
+
+You can add multiple marketplace catalogs by navigating to **Applications&#x20;**>**&#x20;Configure**.&#x20;
+
+A marketplace catalog can also be added from the Litmus Edge Manager. Deploying an application from the Litmus Edge Manager to a Litmus Edge will automatically add and synchronize the catalog from the Litmus Edge Manager to the Litmus Edge. See:
+
+1. *Add Catalog* section of :Link[Marketplace: Catalogs and Applications]{docId="gqoGt_Szm8rz9UdPhl2NL" label="Marketplace: Catalogs and Applications" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId="#fg6p5" loadingMethod="dynamic" overridedLabel}
+2. *Add or Import an application* section of :Link[Marketplace: Catalogs and Applications]{docId="gqoGt_Szm8rz9UdPhl2NL" label="Marketplace: Catalogs and Applications" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId="#9VoTE" loadingMethod="dynamic" overridedLabel}
+3. :Link[Add a Draft Application Release]{docId="pujQCF4jL0dUe8XjHsjmZ" label="Add a Draft Application Release" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+4. Submit Release section of :Link[Manage Application Releases]{docId="FoZMtmXkxEI6Y-gPZAEvg" label="Manage Application Releases" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+5. :Link[Deploy an Application to Edge Devices]{docId="DruoOcegNxCGi-D_5azZw" label="Deploy an Application to Edge Devices" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+
+# Before You Begin
+
+Internet connectivity is required to deploy the marketplace and to install applications. Once an instance is created, internet access is no longer required to create additional instances of the same application.
+
+- The catalog administrator must create a marketplace on the catalog server that includes registry, application images, and catalog.
+- You must know the following:&#x20;
+  - URL for the marketplace catalog.
+  - The client ID and client secret.
+  - The authentication server URL.
+
+# Add a Marketplace Catalog
+
+**To add a marketplace catalog:**
+
+1. Navigate to **Applications&#x20;**> **Configure**.&#x20;
+2. From the *Configure* pane, click the **Add (+)&#x20;**&#x69;con.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/rNuV1Hf1h46dnzgUmlpLu_addmarketplace.png "Add Marketplace icon")
+3. From the *Add Marketplace Catalog***&#xA0;**&#x64;ialog box, enter the details:
+   - **Name**
+   - **URL**: The URL for the Marketplace server where deployable applications of Docker image are located. You can request the API URL from your catalog administrator.
+   - **Add Certificate Authority**: Select the check box. Then, click the **Select File&#xA0;**&#x62;ox, navigate to a **CA&#xA0;**&#x66;ile, and then click **Open**. Alternatively, you can copy the open CA file and paste it into the **Select File&#xA0;**&#x62;ox.
+   - **Client ID**: The Client ID for the authorization server.
+   - **Client Secret**: The Client Secret for the authorization server.
+   - **Token URL**: The Token URL for the authorization server. You can request the Token URL from your catalog administrator.
+   - **Select Catalog**: Use the drop-down list to select a catalog.
+4. Click **Add**.
+   The private catalog appears in the Marketplace list.
+5. Navigate to **Marketplace&#xA0;**&#x61;nd click the catalog tile you just added.
+   The applications associated with the marketplace display.
+

@@ -1,0 +1,36 @@
+---
+title: Add an OPC UA Client Connection
+slug: 9bCnetXtEWgKPaQvqQuA4
+description: Learn how to add an OPC UA client connection. 
+docTags: 
+createdAt: Mon Sep 26 2022 20:16:02 GMT+0300 (Eastern European Summer Time)
+---
+
+You can connect a new client to the OPC UA server. The following procedure uses UAExpert on Windows 10 as the example client.
+
+If you are using the Docker version of Litmus Edge and having issues connecting to the OPC UA server, refer to [Issues Connecting to OPC UA Server](<../../../../../Troubleshooting/OPC UA Troubleshooting/kBk45E-_KBkAeJ8bCIxl4.mdx>).&#x20;
+
+# Before You Begin
+
+Before completing the steps below, make sure you do the following:&#x20;
+
+- Add nodes to the OPC UA Hierarchy. See [Add a Node](<../../../../../Product Features/OPC UA Server/Hierarchy/lh4ghrH7uOOsQfp7RWrov.mdx>) or [Import Nodes](<../../../../Product Features/OPC UA Server/goCDADlob_ZzQr7XbqJqm/O_36eHrBFia6IvwklaP8r.mdx>) for more information.
+- Start the OPC UA Server. See [Manage the OPC UA Server](<../../../../../Product Features/OPC UA Server/Management/OjinmSOvEb6Zm_qC4YQNm.mdx>) for more information.
+- Run your server on port 4840. See [Manage the OPC UA Server](<../../../../../Product Features/OPC UA Server/Management/OjinmSOvEb6Zm_qC4YQNm.mdx>) for more information.
+
+# Connect a Client with UAExpert
+
+**To connect a client with UAExpert:**
+
+1. [Download UAExpert from Unified Automation](https://www.unified-automation.com/downloads/opc-ua-clients.html).
+2. Open UAExpert. Click the **Add Server&#x20;**&#x62;utton at the top.&#x20;
+   The *Add Server* dialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/pItcTf7srEnTvfiWoND-x_addserverconnectionuaexpert1.png" size="80" width="450" height="200" caption="Add server icon" position="center" showCaption="true"></Image>
+3. From **Custom Discovery**, double click to add a server.
+4. From the **Enter URL&#xA0;**&#x64;ialog box, enter the Litmus Edge IP address with the ocp\:tcp\:// protocol on port 4840. For example: `ocp.tcp://192.168.1.130:4840`.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/J74x9M4JlryZPq9SIaReS_addcustomserver.png" size="80" width="872" height="425" caption="Enter URL dialog box" position="center" showCaption="true"></Image>
+5. Click **OK**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JL6NcLBpEtWlWqzqGv4l2_finalclientconnection.png" size="80" width="966" height="723" caption="The OPC UA server listed in the Add Server dialog box" position="center" showCaption="true"></Image>
+
+The UA Expert client should automatically discover your OPC UA server.
+

@@ -1,0 +1,135 @@
+---
+title: Poll a Tag Once for an Event-Driven Poll
+slug: A82QMq05kVnP3v5fjJp6G
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:27 GMT+0200 (Eastern European Standard Time)
+---
+
+Same as Poll-once topic doc?
+
+
+
+
+
+You can create a flow to poll a tag. Often there is no need to regularly poll a register. Instead, a common use case requires data to be collected only when an event, such as a change of state (on/off), triggers a poll.
+
+# Example Use Cases
+
+- It likely is not necessary to pay attention to a temperature sensor if the device's motor is not running. In this example, the temperature sensor only needs to be monitored if there's a significant change or if another condition warrants monitoring. In cases such as this, a *poll-once* flow should be configured.
+- To minimize cloud IoT storage fees and bandwidth costs, monitor critical processes and capture the data *every second*. Then, publish collected values only *once per minute*. If no problems arise, there is no need to send data every second. However, if an issue occurs, then more granular data is required for analysis, so this event triggers the *poll-once* poll to publish all the once-per-second data collected for the last minute.
+- A motor for a pump only needs to be polled when the power switch is turned on. In this case, you would want to continuously poll the switch and when its state changes, execute a *poll-once* trigger to poll the motor control.
+
+# Step 1: Connect Device to DeviceHub
+
+Follow the steps to [Connect a Device](<../../../Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>) with the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Name**: plc2
+- **Enable Alias Topics**: Select the check box
+
+# Step 2: Add Tags to Device
+
+Before configuring a flow, device tags must be created to specify registers that are polled. For this use case, we will create three tags for device plc2.
+
+<hint type="info">
+  **Note**: Poll-once tags must have the polling interval set to zero.
+</hint>
+
+**To add tags to the device:**
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Tags**.&#x20;
+2. Click the plc2 device.&#x20;
+3. Click the **Add&#x20;**&#x69;con and select **Add a Tag**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ybsLXUOLv7uzdxF2rhovt_polltag.png "Add a Tag option")
+4. Configure the following parameters.
+   - **Polling Interval**: 1
+   - **Tag Name**: poll3
+     This tag is used to continuously poll a device topic that is waiting for a state change.
+5. Continue configuring the remaining parameters as needed. See :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} for more information.&#x20;
+6. Create two more tags with the following parameters.
+   - **Polling Interval**: 0 for both
+   - **Tag Name**: poll and poll2
+     These tags are used as poll-once triggers that respond to events (state changes).
+
+# Step 3: Create Poll-once Flow
+
+Several flows can be created to illustrate the logic for a poll-once scenario. In this example, create a flow that polls the device topic once based on the following logic:
+
+- Continuously poll a register (for example, a switch for a pump's motor), waiting for a state change.
+- When the state changes (for example, the motor is turned on), trigger a “poll once” that subscribes to the message (for example, the temperature of the motor).
+- Verify that the subscribe nodes are receiving the expected values.
+
+**To create a poll-once flow:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow. See [Create a Flow](<../../../../../Product Features/Flows Manager/ddBsmAZtGH9krDnb5AEyU.mdx>) to learn more. &#x20;
+2. Drag the **DataHub Subscribe**, **JSON**, **Switch**, and two **DataHub Publish&#xA0;**&#x6E;odes to the canvas and wire them together.
+   - **DataHub Subscribe:** Allows you to subscribe to the local DataHub data stream.
+   - **json:** Use this node to parse the `msg.payload` to convert a JSON string to/from a javascript object.
+   - **DataHub Publish:** Send message payload to DataHub. The poll-once topic has the following format: `devicehub.pollonce`.\<deviceID>\<registerID>.
+   - **switch:** Route messages based on the value detected. Use a switch for case logic.
+   -
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_lB-9SbLgs9VUT6AElgDd_flows-poll-a-tag.png" size="80" width="454" height="213" position="center" showCaption="false"></Image>
+
+## Configure DataHub Subscribe Node
+
+**To configure the DataHub Subscribe node:**
+
+1. Double-click the **DataHub Subscribe&#xA0;**&#x6E;ode.
+   The *Edit DataHub Subscribe* node dialog box appears.
+2. Return to the **Flows&#xA0;**&#x62;rowser tab and navigate to **DeviceHub&#x20;**>**&#x20;Tags**.
+3. Click the **Copy&#xA0;**&#x69;con for the raw topic next to the first tag you created using `1` for the polling interval (**poll3**).
+4. Return to the **Edit DataHub Subscribe&#xA0;**&#x62;rowser tab.&#x20;
+5. Paste the topic in the in the **Topic&#xA0;**&#x66;ield.
+6. Enter **Continuously Poll On/Off Switch** in the **Name&#xA0;**&#x66;ield.
+7. If needed, configure the *Datahub Subscribe* connection. See the "Step 3: Configure Connector Nodes" section in :Link[Create a Flow]{docId="bezDaqGGrrny6TWDnL9CK" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" overridedLabel="Create a Flow" href="../../../../../Product Features/Flows Manager/ddBsmAZtGH9krDnb5AEyU.mdx"} to learn more.&#x20;
+8. Click **Done**.
+
+## Configure First DataHub Publish Node
+
+**To configure the first DataHub Publish node:**
+
+1. Double-click the top **DataHub Publish&#xA0;**&#x6E;ode at the end of the flow.
+   Th&#x65;*&#x20;Edit DataHub Publish* node dialog box appears.
+2. Return to the **Tags&#xA0;**&#x62;rowser tab.
+3. Click the **Actions&#xA0;**&#x69;con next to the second tag, in this case **poll2**, and then select **View Poll Topic**.
+4. Click the **Copy&#xA0;**&#x69;con next to the **devicehub.pollonce.\<deviceid>.poll2** topic.
+5. Return to the **DataHub Publish&#xA0;**&#x62;rowser tab.
+6. Paste the topic in the **Topic&#xA0;**&#x66;ield.
+7. Enter **Poll2 once&#xA0;**&#x69;n the **Name&#xA0;**&#x66;ield, and then click **Done**.
+
+## Configure Second DataHub Publish Node
+
+**To configure the second DataHub Publish node:&#x20;**
+
+1. Double-click the bottom **DataHub Publish&#xA0;**&#x6E;ode.
+   Th&#x65;*&#x20;Edit DataHub Publish* node dialog box appears.
+2. Return to the **Tags&#xA0;**&#x62;rowser tab.
+3. Click the **Actions&#xA0;**&#x69;con next to the third tag, in this case **poll**, and then select **View Poll Topic**.
+4. Click the **Copy&#xA0;**&#x69;con next to the **devicehub.pollonce.\<deviceid>.poll** topic.
+5. Return to the **DataHub Publish&#xA0;**&#x62;rowser tab.&#x20;
+6. Paste the topic in the **Topic&#xA0;**&#x66;ield.
+7. Enter **Poll once&#xA0;**&#x69;n the **Name&#xA0;**&#x66;ield, and then click **Done**.
+
+## Configure JSON Node
+
+**To configure the JSON node:&#x20;**
+
+1. Double-click the **JSON&#xA0;**&#x6E;ode.&#x20;
+2. Select the **Format JSON string&#xA0;**&#x63;heck box, and then click **Done**.
+
+## Configure Switch Node
+
+**To configure the Switch Node:**
+
+1. Double-click the **Switch&#x20;**&#x6E;ode.&#x20;
+2. From the bottom **Properties&#xA0;**&#x64;rop-down list, select **String**.
+3. Enter the following strings:
+   - If devicehub.alias.plc2.poll3 > 0.5, then start polling devicehub.pollonce.plc2.poll2
+   - If devicehub.alias.plc2.poll3 \< 0.5, then start polling devicehub.pollonce.plc2.poll every 0.5 seconds
+4. Click **Done&#xA0;**&#x61;nd then click **Deploy**.
+
+In the following example, two DataHub Publish nodes (configured with the poll-once topic) receive the event message that triggers the device poll.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/0gCUqF8lvIkRMIlz-eByn_flows-poll-a-tag-once-flow.png" size="80" width="736" height="260" position="center" showCaption="false"></Image>
+

@@ -1,0 +1,58 @@
+---
+title: Packet Capture
+slug: i87ORg17z3dZJnTpiIhfD
+docTags: 
+createdAt: Mon Sep 23 2024 23:55:27 GMT+0300 (Eastern European Summer Time)
+---
+
+You can access the Packet Capture feature by navigating to **System&#x20;**> **Network&#x20;**&#x61;nd clicking the **Packet Capture&#x20;**&#x74;ab.&#x20;
+
+This feature enables you to diagnose network communication issues with industrial devices and provides file details such as interface, start time, stop time, and size, along with options to download or remove the file. It captures raw network traffic at the TCP/IP layer for up to 30 minutes.&#x20;
+
+The captured data can then be analyzed using tools like Wireshark to troubleshoot issues such as inconsistent device responses.
+
+<hint type="info">
+  **Important Notes:&#x20;**
+
+  - This feature is available for Litmus Edge 3.16.1 or later.
+  - This feature is not available under a trial license. To enable it, you will need to acquire an add-on license in addition to your core license.
+  - Only admin users can access and utilize this feature.
+</hint>
+
+# Start Packet Capture
+
+**To start capturing network packets from your Litmus Edge instance:**
+
+1. Go to **System&#x20;**> **Network** > **Packet Capture**.
+2. Click the **Start Capture** button.
+   The *Start a Packet Capture&#x20;*&#x64;ialog box appears.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/IBUXCh_tVm2-qKdZi-rWC_image.png)
+3. Select the **network interface&#x20;**&#x66;rom the drop-down menu (options include "Any" and  "eth0"). &#x20;
+4. Set the capture **Duration&#x20;**(from 1 to 30 minutes).
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KCAc33TilSW9hg7E6xrR5_image.png)
+5. Click **Start** to begin the capture.&#x20;
+
+# Monitor Packet Capture
+
+Once started, the capture runs in the background. You can continue using the system while the capture progresses.&#x20;
+
+The page should show details as screenshot below:
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/7Xl2YWHdwcs5eML8cg_Fw_image.png)
+
+# Stop Packet Capture
+
+You can stop the capture manually at any time by clicking the **Stop** button.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/gUll-cbTMu17uKxhaR75w_image.png)
+
+# Download Packet's Captured
+
+You can download the capture manually once it is finished by clicking the **Download&#x20;**&#x62;utton.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/eXsAl0JkN0NuhgbzX8L5Y_image.png)
+
+<hint type="info">
+  **Note:** The file you downloaded is in `.pcap` format. To open and examine these files, you can utilize tools such as :Link[Wireshark]{href="https://www.wireshark.org/docs/wsug_html_chunked/ChIOOpenSection.html" newTab="true" hasDisabledNofollow="false"}.
+</hint>
+

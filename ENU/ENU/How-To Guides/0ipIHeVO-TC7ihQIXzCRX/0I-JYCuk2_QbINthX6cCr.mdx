@@ -1,0 +1,105 @@
+---
+title: InfluxDB v1.7.x TCP Integration Guide
+slug: 0I-JYCuk2_QbINthX6cCr
+description: Learn how to set up the InfluxDB v1.7.x TCP connector. 
+docTags: 
+createdAt: Wed Jan 24 2024 20:07:02 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and an InfluxDB database (version 1.7 or 1.8).&#x20;
+
+<hint type="info">
+  **Note**: The following data types and formats are not viewable in InfluxDB:
+
+  - string
+  - char
+  - JSON payloads
+</hint>
+
+# User Scenario
+
+In this guide InfluxDB is installed through a Docker image. You have several other options for the installation. See the following to learn more.&#x20;
+
+- :Link[Download InfluxDB OSS]{href="https://docs.influxdata.com/influxdb/v1/introduction/download/" newTab="true" hasDisabledNofollow="false"}
+- :Link[Install InfluxDB OSS]{href="https://docs.influxdata.com/influxdb/v1/introduction/install/" newTab="true" hasDisabledNofollow="false"}
+
+# Step 1: Set up InfluxDB
+
+You will first need to pull an InfluxDB image file and then run it on your computer. For this guide InfluxDB version 1.8.0 is pulled.&#x20;
+
+**To set up InfluxDB:**
+
+1. On your computer, open the command prompt window.&#x20;
+2. Run the following command.&#x20;
+   `docker run --name influxdb -p 8086:8086 influxdb:1.8.0`
+   The command will create the InfluxDB container with the name "influxdb", on port 8086, and install InfluxDB version 1.8.0.&#x20;
+
+Once the InfluxDB container is running, refer to the following to learn more about setting up and configuring InfluxDB:
+
+- :Link[InfluxDB v1 documentation]{href="https://docs.influxdata.com/influxdb/v1/" newTab="true" hasDisabledNofollow="false"}
+- :Link[Configure InfluxDB OSS]{href="https://docs.influxdata.com/influxdb/v1/administration/config/" newTab="true" hasDisabledNofollow="false"}
+- [Creating a database](https://docs.influxdata.com/influxdb/v1/introduction/get-started/#creating-a-database)
+
+Once you set up and configure InfluxDB to your specific requirements, you can complete the setup in Litmus Edge.&#x20;
+
+# Step 2: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 3: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 4: Add the InfluxDB v1.7.x TCP Connector
+
+Follow the steps to [Add a Connector](<../../Product Features/Xgrv-_ps5irJcZlfL22DG/dDu4AKvRbiI_S8SeXkpia.mdx>) and select the **DB - InfluxDB v1.7.x TCP&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **InfluxDB address**: Enter the InfluxDB database address and port in the following format: http\://\<InfluxDB address>:\<port>.&#x20;
+- **InfluxDB database name**: Enter the database name configured in the InfluxDB setup in Step 1.&#x20;
+- **Username&#x20;**(Optional): Enter a username to access the database.
+- **Password&#x20;**(Optional): Enter the password associated with the username.&#x20;
+- **Insert batch size**: Enter the number of messages to be collected as a batch before inserting into the database.
+- **Insert batch commit time**: The batch commit time in seconds.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/pTuZNKg_QdLQm5t7V2EVH_influxdb17tcp.png" size="60" width="388" height="358" position="flex-start" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="63kxR1I00fk_3LVndQZCp" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/Xgrv-_ps5irJcZlfL22DG/bzjTf5H1klbPPmGVLysLD.mdx"} and relevant error messages.&#x20;
+
+# Step 6: Create Topics for Connector
+
+You will now need to import the tags you added in Step 3 to the connector as topics.&#x20;
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.
+
+<ContentSnippet docRefId="kEsbvNf6nGz5aaOFdwdT-">
+
+</ContentSnippet>
+
+# Step 7: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+# Step 8: Verify Connection
+
+Access the InfluxDB database to ensure that data is being successfully sent from LItmus Edge to the database.&#x20;
+

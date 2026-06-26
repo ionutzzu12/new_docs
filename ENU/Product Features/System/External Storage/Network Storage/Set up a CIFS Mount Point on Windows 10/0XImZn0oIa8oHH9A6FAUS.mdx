@@ -1,0 +1,43 @@
+---
+title: Create a Shared Folder in Windows 10
+slug: 0XImZn0oIa8oHH9A6FAUS
+description: Learn how to create a shared folder in Windows 10. 
+docTags: 
+createdAt: Wed Sep 28 2022 17:43:01 GMT+0300 (Eastern European Summer Time)
+---
+
+To expand the storage pool for your enterprise, you must make a shared folder. If you have issues completing these steps, refer to the "Troubleshooting" section below.&#x20;
+
+# Before You Begin
+
+Before completing the steps below, make sure you do the following:&#x20;
+
+- Set up a remote storage location.
+- Verify you have admin/root permissions to create shared folders.
+
+# Create a Shared Folder in Windows 10
+
+**To create a shared folder in Windows 10:**
+
+1. Log in to Windows 10 as a user with admin permissions and create a new folder. This example uses `C:\SharedFolder`.
+2. In the File Explorer, right click the folder and select: **Give access to > Specific people...**
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ye6pxaaPt9bVc8c-XTorP_windowsgiveaccess.png" size="80" width="700" height="300" caption="Give access to specific people option" position="center" showCaption="true"></Image>
+3. Use the drop-down menu to share the folder with **Everyone**. Click **Share**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/u8Mz-ESfz67O_Iqy4tZh0_giveeveryoneaccess.png" size="80" width="565" height="474" caption="Choose people to share with dialog box" position="center" showCaption="true"></Image>
+4. To check if the folder is shared properly, open **File Explorer** and type `\\localhost` into the top bar. The folder appears if it is set up correctly.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_3kiP8hwNvZOUGIK8JJRb_localhost2.png" size="80" width="406" height="150" caption="localhost path" position="center" showCaption="true"></Image>
+
+# Troubleshooting
+
+If you encounter issues, make sure you have SMB 1.0/ CIFS File Sharing support enabled in the Windows Features settings. Refer to the steps below.&#x20;
+
+## Activate SMB 1.0/CIFS in Windows 10
+
+**To activate SMB 1.0/CIFS in Windows 10:**
+
+1. Search *Windows Features* in the Windows 10 search bar.
+2. Click **Turn Windows features on or off**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zg4ksuRZjSbKotI8HvCFy_windowsfeatures1.png" size="50" width="391" height="678" caption="Turn Windows features on or off option" position="center" showCaption="true"></Image>
+3. Click the **SMB 1.0/CIFS File Sharing Support** checkbox to activate all of the CIFS services on Windows 10, and then click **OK**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AF5v_0lVNEMM9bMYc5RdS_windowsfeatures2.png" size="60" width="443" height="358" position="center" caption="The SMB 1.0/CIFS File Sharing Support check box" showCaption="true"></Image>
+

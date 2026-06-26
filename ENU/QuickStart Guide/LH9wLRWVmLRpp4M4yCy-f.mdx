@@ -1,0 +1,129 @@
+---
+title: Access the Litmus Edge Web UI
+slug: LH9wLRWVmLRpp4M4yCy-f
+description: After successfully installing Litmus Edge, you can access the web user interface with a web browser. 
+docTags: 
+createdAt: Thu May 19 2022 22:19:39 GMT+0300 (Eastern European Summer Time)
+---
+
+After successfully installing Litmus Edge, you can access the Web UI from a browser such as Chrome or Firefox.&#x20;
+
+<hint type="warning">
+  **Important**:&#x20;
+
+  - If you can't access features in Litmus Edge when logging in, see the :Link[Activate a License]{label="Access the Litmus Edge Web UI" spaceId docId="7jz8l0TH1Ewpf2L1VoQEN" version="v2" docAnchorId="#activate-a-license" loadingMethod="dynamic" overridedLabel="Activate a License" href="LH9wLRWVmLRpp4M4yCy-f.mdx"} section below.&#x20;
+  - You may see the following error message when working with [Analytics](<../Product Features/ETlaRb27Q09oTONoE4bcY.mdx>):  "Http failure response for /analytics/v2/version: 0 Unknown Error". If you see this message, disable any ad-blockers your browser may have.
+</hint>
+
+# Access from a Browser
+
+After you have installed Litmus Edge, you can connect to the Litmus Edge device from a browser using the network IP address for the device. The address can be found on the terminal display of the gateway or VM terminal.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9931JITXoPvPyC_afLHaQ_image.png "URLs to access Web UI")
+
+<hint type="info">
+  **Note**:&#x20;
+
+  - The system is accessible from a browser by host name if your computer supports mDNS. This is a convenient feature if your device uses DHCP for address allocation and the address may change time to time. The host name is static and it never changes.&#x20;
+  - Make sure that your network is not behind a company firewall or proxy that is blocking the connection.
+</hint>
+
+# Log in to the Litmus Edge Web UI the First Time
+
+Refer to the following to log in to Litmus Edge the first time after installing it to your device.&#x20;
+
+- Make sure you connect your personal computing device (laptop, tablet, desktop) to the network in which the device operates. The Litmus Edge software must be installed on the device that is connected to the same network as your personal computing device to be able to establish a network connection.
+- To access the Web UI, you must use Google Chrome, Mozilla Firefox, or Safari (Apple). The browser must be able to establish a network connection to the device.
+- Gather the Litmus Edge IP address from the terminal window as shown above.&#x20;
+
+Typically, you use the WAN IP or eth0 IP to access the device. If the IT and OT networks are segregated, you establish connections to the PLC system, robotic system, or CNC system using the eth1 network, which you cannot access from the browser. Without segregation, you use only eth0 for both the OT and IT connections. There is no open external API point.
+
+Litmus Edge uses a self-signed certificate. The browser will most likely block the login for security reasons. Choose the Advanced option in the browser to bypass the error message. See [Browser Issues](<../Troubleshooting/Installation and Deployments Troubleshooting/DPewWxZojurlmLUGHdlxw.mdx>) to learn more.&#x20;
+
+**To log in to Litmus Edge the first time:**
+
+1. Enter Litmus Edge IP address into the browser address bar.
+2. Enter the default credentials. The default username is `admin` and password is `litmusedge`
+3. Clic&#x6B;*&#x20;Log in*.
+4. A Software License Agreement displays. Review the agreement and click **Accept**.
+5. Follow the prompts to change your password.&#x20;
+6. Litmus Edge opens in your browser. The *Dashboard&#x20;*&#x70;age appears by default. You are now logged into Litmus Edge.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/nMeG5UNwpnD8wNMgPrTx6_image.png" size="80" width="1765" height="848" position="flex-start" darkWidth="1765" darkHeight="848" showCaption="false" indent="2"></Image>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/cBFcFn88dms0yNXe8CR6k_image.png" size="80" width="1791" height="894" position="flex-start" darkWidth="1791" darkHeight="894" showCaption="false" indent="2"></Image>
+
+## Password Requirements
+
+Password requirements apply when you reset your password or create user accounts within Litmus Edge. At the first login, you will be prompted to change the default password. When creating a password, the password must meet the Password Policy Management Requirements. See :Link[Policy Management]{docId="KVpb8qgtzJfiDVZh0rj6B" label="Policy Management" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" overridedLabel="Policy Management"}&#x20;for more information.&#x20;
+
+
+<hint type="info">
+  **Notes**: 
+
+  - Do not forget your password. For security reasons, there is no password recovery. If you lose the administrator password, you must reinstall Litmus Edge.
+  - In some cases, you may need to use the [Terminal User Interface](<../ENU/QuickStart Guide/LH9wLRWVmLRpp4M4yCy-f/h0KyQCpKLpGAqZ06S-LRP.mdx>) as you may have no direct network access to the device. In this case, you can connect locally to the device using a keyboard, mouse, and monitor. This will allow you to perform the required network setup to make the device accessible through the Web UI.
+</hint>
+
+## Support Links on Litmus Edge
+
+The user name icon at the top-right of the Litmus Edge toolbar opens a menu that offers support and information options.&#x20;
+
+- **User Manual:** Opens the Litmus Documentation Portal where you can select the relevant guide or manual.
+- **Litmus Support:&#x20;**&#x4F;pens Litmus Customer Portal where you can contact the support team.
+- **Litmus University:** Opens Litmus LMS where you can take online courses for Litmus products.
+- **View License:&#x20;**&#x44;isplays the End-User License Agreement.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AkYnTY8DMJSuH8AZdl6fn_image.png" size="80" width="1426" height="545" caption="Litmus Edge Support Links" position="center" darkWidth="1426" darkHeight="545" showCaption="true"></Image>
+
+# Activate a License
+
+You will need to activate a license to access Litmus Edge features if:&#x20;
+
+- Your trial license or production license has expired.&#x20;
+- You are running Litmus Edge through Docker.&#x20;
+
+<hint type="info">
+  **Note**: If you can access Litmus Edge features and would still like to activate a license, see :Link[Activate a License Online if Your Current License is Not Expired]{docId="z_Dk2x7IJMPOwzY586O5B" label="Activate a Node-Locked License Online" spaceId version="v2" docAnchorId="#activate-a-license-online-if-your-current-license" loadingMethod="dynamic" overridedLabel="Activate a License Online if Your Current License is Not Expired" href="../ENU/Product Features/System/Activation/Licenses/NSMqjG2O4blVt54EBbGUb/DslCwWv7dF-W1I9r9Txic.mdx"} and :Link[Activate a License Offline if Your Current License is Not Expired]{docId="6x0jr0WMtmOM5-NgICLrR" label="Activate a Node-Locked License Offline" spaceId version="v2" docAnchorId="#activate-a-license-offline-if-your-current-license" loadingMethod="dynamic" overridedLabel="Activate a License Offline if Your Current License is Not Expired" href="../Product Features/System/Activation/Licenses/Offline Node-Locked License Activations/bQ_K544Xl7Uvp8gMJpVaJ.mdx"}.&#x20;
+</hint>
+
+To decide the most optimal license for your Litmus Edge configuration, see [Site and Node-Locked License Overview for Litmus Edge](../Resources/ReHkDBhMg-2bwL8wfjCo5.mdx) for details. You have the following options for activating a license.&#x20;
+
+## Option 1: Activate Litmus Edge with Litmus Edge Manager
+
+To activate Litmus Edge with Litmus Edge Manager, Litmus Edge Manager must have a site license on its own license server. See :Link[Activate an Edge Device]{docId="tDJ648wJgATVqzyx79UwB" label="Activate an Edge Device" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JLiB--oTbxF-bMucYduM5_image.png" size="80" width="871" height="450" caption="Activation fields for Litmus Edge Manager activation" position="center" darkWidth="871" darkHeight="450" showCaption="true"></Image>
+
+## Option 2: Activate Litmus Edge with License Server
+
+You can activate a Litmus Edge license by setting a license server in Litmus Edge under **Advanced Options**. See [Set a License Server](<../Product Features/System/Activation/Licenses/IymxO3VWaqj01HnzFRi69.mdx>) to learn more.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/OIGsv_Q4621EFm8IHq4WQ_image.png" size="80" width="870" height="564" caption="License Server Settings option" position="center" darkWidth="870" darkHeight="564" showCaption="true"></Image>
+
+## Option 3: Activate Node-Locked License
+
+You can activate a node-locked license for the Litmus Edge instance under **Advanced Options**. See :Link[Activate a License Online if Your Current License is Expired]{docId="z_Dk2x7IJMPOwzY586O5B" label="Activate a Node-Locked License Online" spaceId version="v2" docAnchorId="#activate-a-license-online-if-your-current-license-1" loadingMethod="dynamic" overridedLabel="Activate a License Online if Your Current License is Expired" href="../ENU/Product Features/System/Activation/Licenses/NSMqjG2O4blVt54EBbGUb/DslCwWv7dF-W1I9r9Txic.mdx"} and :Link[Activate a License Offline if Your Current License is Expired]{docId="6x0jr0WMtmOM5-NgICLrR" label="Activate a Node-Locked License Offline" spaceId version="v2" docAnchorId="#activate-a-license-offline-if-your-current-license-1" loadingMethod="dynamic" overridedLabel="Activate a License Offline if Your Current License is Expired" href="../Product Features/System/Activation/Licenses/Offline Node-Locked License Activations/bQ_K544Xl7Uvp8gMJpVaJ.mdx"} to learn more.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qUgoS0VxjAYk111YGBlFV_image.png" size="80" width="870" height="812" caption="Node-locked license" position="center" darkWidth="870" darkHeight="812" showCaption="true"></Image>
+
+## Option 4: Activate a 2-Hour Trial&#x20;
+
+You can activate a renewable 2-hour trial license to explore, develop, and test in Litmus Edge without needing to request a license. After the license expires, you can simply renew to continue using Litmus Edge.
+
+To activate the license:
+
+1. After logging in to Litmus Edge, select **2-Hour Trial**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Kr85hVZ2TzgTu_l6cu8Sg_image.png" size="80" width="1448" height="806" position="flex-start" darkWidth="1448" darkHeight="806" showCaption="false" indent="2"></Image>
+
+2. Click **Activate**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/e2yuju3dUg1sPvTPm0iGa_image.png" size="80" width="1450" height="798" position="flex-start" darkWidth="1450" darkHeight="798" showCaption="false" indent="2"></Image>
+
+3. Accept the End User License Agreement (EULA).
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3_OTlLDXKqcouOIhe09i5_image.png" size="80" width="1449" height="799" position="flex-start" darkWidth="1449" darkHeight="799" showCaption="false" indent="2"></Image>
+
+4. Optionally, download Digital Factory Demo to populate Litmus Edge with sample data. For more information on installing, see :Link[Digital Factory Demo]{label="Digital Factory Demo" spaceId="SHlZRB8sbLUIhUOl3qzzX" docId="dpIZrXUi0RtDkBv5eDwWp" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+

@@ -1,0 +1,80 @@
+---
+title: Manage Containers
+slug: KTqdeU3aEJsgsu0xzysXw
+description: Learn how to manage containers you've deployed. 
+docTags: 
+createdAt: Fri Sep 23 2022 17:47:00 GMT+0300 (Eastern European Summer Time)
+---
+
+You can run and manage containers by navigating to **Applications&#x20;**>**&#x20;Containers**.&#x20;
+
+# Run a Container
+
+You can add and run a container locally using the *Run&#x20;*&#x63;ommand. The named container pulls the container from the Docker registry and it appears on the Container pane, running locally.
+
+Litmus Edge supports Docker Registry v2.
+
+## Before You Begin
+
+- You must do one of the following:
+  - [Create a Docker Image to Deploy to Your Private Repository](<../../../ENU/ENU/Product Features/Applications/F2V51O3PJMCb7pgj0Fdit/oZ4L6UlbYvuSlroTRGi0H/-QD5lib9SWUVbBf0zW5nW.mdx>)&#x20;
+  - [Upload an Image](<../../../ENU/Product Features/Applications/F2V51O3PJMCb7pgj0Fdit/5U2QYMuXIrRN0-v8l5-Fw.mdx>) into Litmus Edge&#x20;
+  - [Download an Image](<../../../ENU/Product Features/Applications/F2V51O3PJMCb7pgj0Fdit/oZ4L6UlbYvuSlroTRGi0H.mdx>)&#x20;
+- You must also [Add a Registry](<../../../ENU/Product Features/Applications/7ukJk6p_zH1l5SrDobkd9/SHv3vj7vPLARfQt2mifRf.mdx>) entry.
+
+**To run a container:**
+
+1. Navigate to **Applications&#x20;**> **Containers**.&#x20;
+2. From the *Containers* pane, click **Run**.&#x20;
+   The *Enter command to run&#x20;*&#x66;ield appears.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/_2aV6C8lTtAWBHvoaAjUM_runbutton.png" size="100" width="1913" height="366" position="flex-start" caption="The Run button" showCaption="true" indent="2"></Image>
+
+3. Enter the docker run command for the selected application (Docker image), and then click **Run**.
+
+<hint type="info">
+  **Example**: `docker run -d --name hello hello-world`
+</hint>
+
+If the docker run command was successful, the chosen image will be pulled from a Registry to the Litmus Edge Instance and appear in [Images](../F2V51O3PJMCb7pgj0Fdit.mdx). The downloaded image will then be automatically executed, and the named container appears in the *Containers&#x20;*&#x70;ane, and its state is running. The container runs locally.
+
+# Manage individual containers
+
+Refer to the image and callouts below for management options for containers.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ElAiOSYbgq0ZXGE6JY1f0_image.png "Management options for containers")
+
+\[1] **Copy port number:&#x20;**&#x46;or certain Docker container applications, they can be directly accessed by using the IP address of the Litmus Edge instance, followed by the port. Format would be `##.##.##.##:####`. For example, if the IP address was 1.2.3.4 and the port was 3000, then the container application may be accessible at 1.2.3.4:3000.
+
+\[2] **Start and Stop container**: Once stopped, the container shows an *Exited&#x20;*&#x73;tatus.&#x20;
+
+\[3] **Pause and Un-pause container**: Stop or resume the container operation.
+
+\[4] **Remove container**: A container must be *Stopped* first before it can be removed. Once removed, the container is removed from the container's pane.&#x20;
+
+\[5] **Show container log**: This is similar to the logs available from the Overview pane but displays directly from the container environment. See the "View Container Logs" section below for more information.&#x20;
+
+\[6] **Inspect**: Displays the configuration, attached volumes, and policies included in the container. From the specified container pane, you can reload the container.
+
+\[7] **Terminal**: You can open a terminal console for a specified container. The terminal is normally used for diagnostic purposes. It allows you to modify the application's configuration, though this is not recommended. You can start the terminal console with `/bin/bash`, `/bin/sh`, or a custom command.&#x20;
+
+\[8\[ **Container top**: You can view information about the container services that are running. This is normally used by developers.
+
+# View Container Logs
+
+When you click the **Show container log** icon, the *Log* pane displays.&#x20;
+
+Refer to the image and callouts below for filter options for container logs.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/FmF0x26V0XCtZP-9kdwum_image.png "View options for logs")
+
+\[1] **Search**: Enter search terms to find text in all the log entries defined.&#x20;
+
+\[2] **Fetch Log**: You can review a log for the specified time period you select (All logs, Last day, Last 4 hours, Last hour, or Last 10 minutes, Last minute).&#x20;
+
+\[3] **Line Wrap**: If enabled, text is formatted to fit within the screen, so no horizontal scrolling in the log screen is needed.&#x20;
+
+\[4] **Display Timestamp**: If enabled, the timestamp for each message is displayed.&#x20;
+
+\[5] **Download Logs**: Select to download all logs or only logs you've filtered to display.&#x20;
+

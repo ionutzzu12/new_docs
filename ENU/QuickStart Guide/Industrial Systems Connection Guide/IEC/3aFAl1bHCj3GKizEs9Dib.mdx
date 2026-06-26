@@ -1,0 +1,815 @@
+---
+title: IEC60870-5-102 Ethernet (Gen1.3)
+slug: 3aFAl1bHCj3GKizEs9Dib
+description: Review the following information for setting up and configuring the IEC60870-5-102 Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Thu Jun 30 2022 23:01:55 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the IEC60870-5-102 Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="231,307" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Device standard**
+    </td>
+    <td>
+      IEC 60870-5-102
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="174,569" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      IEC
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      IEC60870-5-102 Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port&#x20;**
+    </td>
+    <td>
+      2404
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Asdu Addr Size**
+    </td>
+    <td>
+      2
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Link Address**
+    </td>
+    <td>
+      3
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="100,135,117,118,87,103" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_SP\_TA\_2
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Single point information
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TA\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Accounting integrated totals, four octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TB\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Accounting integrated totals, three octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TC\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Accounting integrated totals, two octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TD\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Periodically Reset Accounting integrated totals, four octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TE\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Periodically Reset Accounting integrated totals, three octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TF\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Periodically Reset Accounting integrated totals, two octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TG\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Operational integrated totals, four octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TH\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Operational integrated totals, three octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TI\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Operational integrated totals, two octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TK\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Periodically Reset Operational integrated totals, four octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TL\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Periodically Reset Operational integrated totals, three octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TM\_2
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255999
+    </td>
+    <td>
+      Periodically Reset Operational integrated totals, two octets each
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_RD\_NA\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      D
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      Read manufacture and product specification
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_TI\_NA\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      D
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      Read current system time of integrated total DTE
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SP\_NA\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Read record of single-point information with time tag
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SP\_NB\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Read record of single-point information with time tag of a selected time range
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NA\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Read accounting integrated totals of the oldest integration period
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NE\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Read periodically reset accounting integrated totals of the oldest integration period
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NI\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Read operational integrated totals of the oldest integration period
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NN\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Read periodically reset operational integrated totals of the oldest integration period
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NB\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDSSSEEE
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255255255
+    </td>
+    <td>
+      Read accounting integrated totals of the oldest integration period and of a selected range of addresses
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NF\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDSSSEEE
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255255255
+    </td>
+    <td>
+      Read periodically reset accounting integrated totals of the oldest integration period and of a selected range of addresses
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NK\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDSSSEEE
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255255255
+    </td>
+    <td>
+      Read operational integrated totals of the oldest integration period and of a selected range of addresses
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NO\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDSSSEEE
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255255255
+    </td>
+    <td>
+      Read periodically reset operational integrated totals of the oldest integration period and of a selected range of addresses
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NR\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDSSSEEE
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255255255
+    </td>
+    <td>
+      Read accounting integrated totals of a selected time range and of a selected range of addresses
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NS\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDSSSEEE
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255255255
+    </td>
+    <td>
+      Read periodically reset accounting integrated totals of a selected time range and of a selected range of addresses
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NT\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDSSSEEE
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255255255
+    </td>
+    <td>
+      Read operational integrated totals of a selected time range and of a selected range of addresses
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_CI\_NU\_2
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDSSSEEE
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255255255
+    </td>
+    <td>
+      Read periodically reset operational integrated totals of a selected time range and of a selected range of addresses
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="pVWm8FOLP20PwXAi6B8ep">
+
+</ContentSnippet>
+

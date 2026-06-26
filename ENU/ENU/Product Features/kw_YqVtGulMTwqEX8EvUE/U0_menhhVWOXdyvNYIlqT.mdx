@@ -1,0 +1,244 @@
+---
+title: Add an Instance
+slug: U0_menhhVWOXdyvNYIlqT
+description: Learn how to add an instance to a digital twins model. 
+docTags: 
+createdAt: Thu Sep 08 2022 22:10:59 GMT+0300 (Eastern European Summer Time)
+---
+
+An instance represents a specific asset (a machine, device, or line) that is created from a model. When you add an instance, you select the model it inherits its structure from and then fill in the actual values: the real-world attribute data for that asset and the data topics that feed its dynamic attributes.
+
+<hint type="info">
+  **Note**: Digital Twins requires a Scale or Growth Litmus license.
+</hint>
+
+## Before you begin
+
+Create a Digital Twins model before adding an instance. See \[Create and Import Models]\(./Create and Import Models-revised.md) for details.
+
+## Add an instance
+
+When you add an instance, you set a few key options that affect how data is published:
+
+- **Interval:** how often Litmus Edge assembles and publishes the full instance payload. Set to zero to disable interval-based publishing; use the `pollonce` topic instead to trigger on demand.
+- **Flatten Hierarchy:** converts nested JSON objects to single-level, dot-notation key-value pairs (for example, `dynamic_attribute.Temperature.value: 30`). Enable this when sending payloads to tabular databases such as SQL or InfluxDB.
+- **Publish Attributes:** creates additional, targeted topics for individual static and dynamic attributes alongside the main instance topic. Enable this when downstream consumers need only part of the full payload. See :Link[Publish specific attributes]{label="Publish specific attributes" overridedLabel="Publish specific attributes" spaceId docId="Vl7rn0_wIaJo25VSAdbNT" version="v2" docAnchorId="#yf7B0" loadingMethod="dynamic" newTab="false"} below.
+
+**To add an instance:**
+
+1. Navigate to **Digital Twins** > **Instances**.
+   The *Instances* pane appears.
+2. Click the **Add an instance** tile.
+   The *Add an Instance* dialog appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/2bkym0d4c0NXnbvvttVqb_image.png" size="80" width="1774" height="689" position="flex-start" indent="2" darkWidth="1774" darkHeight="689" showCaption="false"></Image>
+
+3. Search for or select the model to associate with this instance.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/1J4lWEbsyWij-FzfqXbzy_image.png" size="50" width="888" height="543" position="flex-start" indent="2" darkWidth="888" darkHeight="543" showCaption="false"></Image>
+
+4. In **Name**, enter a name for the instance.
+5. In **Interval**, enter the publishing interval in seconds. Enter `0` to disable interval-based publishing.
+6. In **Topic**, review the default topic for this instance. The topic follows the format `digitaltwins.<model_name>.<instance_name>`.
+7. To flatten nested JSON structures, select **Flatten Hierarchy**.
+8. To publish individual attribute topics in addition to the main topic, select **Publish Attributes**.
+9. Click **Add**.
+
+## Configure the instance
+
+After creating the instance, select its tile in grid view to open the configuration page. The instance inherits its attribute structure from the model; your task here is to fill in the real values and map live data topics.
+
+Click **Save** after making changes, then click **Restart instance** to apply them.
+
+### Static attributes
+
+The *Static Attributes* tab shows the metadata fields defined in the model. Replace the placeholder values with the actual values for this specific asset. For example, replace the plant name, area, and manufacturer with the values for the specific machine this instance represents.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/uVea-2brvLRP6AZ3j_IY6_image.png" size="80" width="1107" height="670" darkWidth="1107" darkHeight="670" position="flex-start" showCaption="false"></Image>
+
+<table isTableHeaderOn="true" columnWidths="241,757" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Action
+    </td>
+    <td align="left">
+      Details
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[1] **Search Attributes**
+    </td>
+    <td align="left">
+      Filter the list of static attributes.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[2] **Refresh**
+    </td>
+    <td align="left">
+      Refresh attribute values.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[3] **Import Attributes**
+    </td>
+    <td align="left">
+      Import attribute values from a CSV file. See \[Create and Import Models]\(./Create and Import Models-revised.md) for the required CSV format.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[4] **Save Instance**
+    </td>
+    <td align="left">
+      Save changes to the instance.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[5] **Edit**
+    </td>
+    <td align="left">
+      Edit the value for a specific static attribute.
+    </td>
+  </tr>
+</table>
+
+### Dynamic attributes
+
+The *Dynamic Attributes* tab shows the real-time data fields defined in the model. For each attribute, map the data topic that feeds it: a DeviceHub tag, an integration topic, or any other Message Broker topics that publishes the relevant data for this specific asset.
+
+<hint type="warning">
+  **Important**: Data for a dynamic attribute appears in the instance payload only when that attribute has a topic mapped to it.
+</hint>
+
+<hint type="info">
+  **Note:** If a dynamic attribute has a topic expression defined in the model, the topic is not editable here. To change it, update the model's topic expression or the instance's parameter values.
+</hint>
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/dTbIulFqz7kfCyAY38RO6_image.png" size="80" width="1107" height="670" darkWidth="1107" darkHeight="670" position="flex-start" showCaption="false"></Image>
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/w3jTGnjDZi46jtEFSn-dN_image.png" size="50" width="820" height="280" position="flex-start" darkWidth="820" darkHeight="280" showCaption="false"></Image>
+
+<table isTableHeaderOn="true" columnWidths="307,308" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Action
+    </td>
+    <td align="left">
+      Details
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[1] **Search Attributes**
+    </td>
+    <td align="left">
+      Filter the list of dynamic attributes.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[2] **Edit**
+    </td>
+    <td align="left">
+      Map a data topic to the attribute. Click the **Edit** icon and search for a DeviceHub tag or enter a topic name directly.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[3] **Refresh**
+    </td>
+    <td align="left">
+      Refresh attribute values.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[4] **Import Attributes**
+    </td>
+    <td align="left">
+      Import attribute topic mappings from a CSV file.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \[5] **Save Instance**
+    </td>
+    <td align="left">
+      Save changes to the instance.
+    </td>
+  </tr>
+</table>
+
+### Data access
+
+The *Data Access* tab shows the instance topic and lets you subscribe to it to view the real-time assembled payload.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/bGcnkXHGcgeW92mW8mWF4_image.png" size="80" width="1107" height="670" darkWidth="1107" darkHeight="670" position="flex-start" showCaption="false"></Image>
+
+<table isTableHeaderOn="true" columnWidths="615" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Details
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **\[1]** The instance topic name and interval. Click the **Copy** icon to copy the topic string.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **\[2]** Subscribe or unsubscribe to view live data for the instance.
+    </td>
+  </tr>
+</table>
+
+The instance topic follows the format: `digitaltwins.<model_name>.<instance_name>`.
+
+## Publish specific attributes
+
+When **Publish Attributes** is enabled for an instance, Litmus Edge creates additional topics that publish subsets of the full payload.
+
+**Static attributes** publish all key-value pairs to a single topic at the instance's configured interval:
+
+```javascript
+digitaltwins.<model_name>.<instance_name>.StaticAttributes
+```
+
+**Dynamic attributes** each publish to their own topic, event-driven based on when new data arrives for that attribute:
+
+```javascript
+digitaltwins.<model_name>.<instance_name>.<dynamic_attribute_name>
+```
+
+**Example:** a model named `CNC` with an instance named `CNC001`, an interval of 10 seconds, and dynamic attributes `Temperature`, `Current`, `Pressure`, and `Power`:
+
+- Static attributes topic (publishes every 10 seconds): `digitaltwins.CNC.CNC001.StaticAttributes`
+- Temperature topic: `digitaltwins.CNC.CNC001.Temperature`
+- Current topic: `digitaltwins.CNC.CNC001.Current`
+- Pressure topic: `digitaltwins.CNC.CNC001.Pressure`
+- Power topic: `digitaltwins.CNC.CNC001.Power`
+
+**To subscribe to these topics:**
+
+1. When adding or editing the instance, select **Publish Attributes**.
+2. Navigate to **Analytics** > **Instances** and add the DataHub Subscribe processor.
+3. Enter the topic for the attribute you want to subscribe to.
+
+<hint type="info">
+  **Note:** You can use wildcards in these topics. Use an asterisk (`*`) to match a single segment (model name or instance name), or a right angle bracket (`>`) to match everything after a given point.
+
+  Examples:
+
+  - `digitaltwins.CNC.*.Power`: subscribes to the Power attribute for all CNC instances
+  - `digitaltwins.CNC.CNC001.>`: subscribes to all attribute topics for CNC001
+</hint>
+
+## Next steps
+
+- [Manage instances](HwvbJeSZecq3kCHUW371T.mdx)&#x20;

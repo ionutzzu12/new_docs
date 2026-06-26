@@ -1,0 +1,79 @@
+---
+title: Applications
+slug: SELEg_S3bA0hxfxG3aPFC
+description: The Applications module provides access to public and private marketplace application repositories.
+docTags: 
+createdAt: Thu Mar 31 2022 00:10:20 GMT+0300 (Eastern European Summer Time)
+---
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/iCS4107iXw_wtf-xuZOD-_mp-architecture-1.png" size="80" width="1021" height="431" caption="Litmus Edge Applications Architecture" position="center" showCaption="true"></Image>
+
+# Overview
+
+The Applications module provides access to two types of application repositories:
+
+- **Public marketplaces**: Publicly available, such as Docker Registry.
+- **Private marketplace**: Repositories of your own Docker container-based applications with privately controlled access. They are often created and maintained on a private network with no internet access.
+
+
+You can deploy and launch applications on demand from any of the available marketplace catalogs.
+
+See [Applications Guides](<../How-To Guides/7jfAblLKT2zvFw4oB8-wB.mdx>) to review how to leverage different applications in Litmus Edge.&#x20;
+
+<hint type="info">
+  **Important**: Internet connectivity is required to deploy the default marketplace and to install applications. Once an instance is created, internet access is no longer required to create additional instances of the same application.
+</hint>
+
+# Before You Begin
+
+Ensure you have enough disk space (See *Data Partition Usage* section of [Info](<../ENU/Product Features/Lv4VprvL49Sh2xq8oEdH-/zaD0kzwBt4q6j2Ml8ttnw.mdx>)) before pulling any new Docker images onto a Litmus Edge and its Catalog Apps. Certain Docker images may exceed the disk size of your Litmus Edge instance.
+
+# Public Marketplaces
+
+Litmus and partner vendors populate the Default Public Marketplace. This repository is available to every Litmus Edge system by default. You can add other public marketplaces to your Edge device as required.
+
+Here is a sampling of the available applications in the default public marketplace:
+
+- **Elasticsearch**: A distributed RESTful search and analytics engine.
+- **Kx**: A time-series database that processes (in memory) real-time, streaming, and historical data.
+- **Minio**: An open-source cloud object-storage server that is compatible with the Amazon Simple Storage Service (S3).
+- **MongoDB**: A free and open-source cross-platform document-oriented database.
+- **SQL Server**: A Microsoft relational database management system that uses SQL.
+- **MySQL**: An open-source relational database management system that uses SQL.
+- **PipelineDB**: An open-source relational database that continuously streams SQL queries.
+- **PostgreSQL**: An object relational database management system (ORDBMS) with an emphasis on extensibility and standard compliance.
+- **Python**: The Python programming language.
+
+# Private Marketplaces
+
+You can add multiple private marketplaces to your Edge device. An organization, such as an OEM or systems integrator, can provide clients with a marketplace by leveraging custom applications that may have already been developed or need to be developed in the future. In addition, third-party applications may also be run in this marketplace. All applications in a private marketplace run within Docker containers.
+
+# Marketplace and Application Security
+
+Applications can be integrated into Litmus Edge to enable further edge processing of collected data. The data can then be analyzed and incorporated into existing business systems.
+
+- Applications run locally at the edge device
+- Applications run completely isolated in containers (Docker) to enforce security and support multi-tenancy
+
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZYy7mADI3j4uo5qyKRQLC_loopedgesecurityapplicationdeployment.png" size="80" width="1138" height="326" caption="Marketplace and Application Security Architecture" position="center" showCaption="true"></Image>
+
+# Data Normalization and Application Integration
+
+Once data is collected and sent to the Litmus Edge platform from many different device driver structures, it is normalized into one standard format. The data is then made available to Litmus Edge applications or third-party enterprise applications. Litmus Edge applications cover a variety of functions, such as Database, Machine Learning, Analytics, Triggers and Alerts, and Dashboard Builder. Enterprise applications can include Databases, Analytics and ML (Machine Learning), Big Data Platforms, ERPs (Enterprise Resource Planning), CRMs (Customer Relationship Management), and BI (Business Intelligence) tools.
+
+# Next Steps
+
+- [Applications Guides](<../How-To Guides/7jfAblLKT2zvFw4oB8-wB.mdx>)
+- [Applications Dashboard](Applications/xKKKdnS_XZkz5i7T9zYwu.mdx)&#x20;
+- [Catalog Apps](Applications/sHENaEGWHkgcj94ptkC1y.mdx)&#x20;
+- [Configure](Applications/nfpGQQqnce7pc7WLnQQFP.mdx)&#x20;
+- [Marketplace](Applications/QSx3kksO_pDZ_t-fpXJEk.mdx)&#x20;
+- [Containers](Applications/1Sldz4n1gVtIbKSMBjVEh.mdx)&#x20;
+- [Networks](Applications/GIcAlDJIJPRGHCJJFpkYL.mdx)&#x20;
+- [Images](Applications/F2V51O3PJMCb7pgj0Fdit.mdx)&#x20;
+- [Registry](Applications/7ukJk6p_zH1l5SrDobkd9.mdx)&#x20;
+- [Volumes](Applications/e_TqG7qhe59bikDcp747z.mdx)&#x20;
+- [System Info](<../ENU/Product Features/SELEg_S3bA0hxfxG3aPFC/3MRhQP0CaVtIvqHNBm72c.mdx>)&#x20;
+- [Disk Usage](<../ENU/Product Features/SELEg_S3bA0hxfxG3aPFC/zLSlUbOLFy5WdTw-9GuoW.mdx>)&#x20;
+

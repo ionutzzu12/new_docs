@@ -1,0 +1,51 @@
+---
+title: Set Up the Influx Client for InfluxQL Queries
+slug: iME0mAUUXqLlwWTVDOOE_
+description: Learn how to set up the Influx Client for InfluxQL Queries. 
+docTags: 
+createdAt: Tue Dec 06 2022 20:38:28 GMT+0200 (Eastern European Standard Time)
+---
+
+You can set up the Influx client to execute influxQL queries.
+
+# Before You Begin
+
+Make sure you do the following:
+
+- Add a database user. See [Add Database Users](<../../ENU/Product Features/zzhlpZXvTXtM_ErP1JDma/J07y4uUkA2OnGkyd0Icxb/VVpafdjAmI05bHfvNefo7.mdx>) for details.&#x20;
+- Pull the Influxdb application image into Litmus Edge. See [Upload an Image](<../../Product Features/Applications/F2V51O3PJMCb7pgj0Fdit/5U2QYMuXIrRN0-v8l5-Fw.mdx>) for details.&#x20;
+- Launch a container using the Docker Run command. See :Link[Manage Containers]{docId="yuW4Wh3qtao7XnXLWSHcy" label="Manage Containers" spaceId version="v2" docAnchorId="#run-a-container" overridedLabel="Manage Containers" href="../../../Product Features/Applications/Containers/KTqdeU3aEJsgsu0xzysXw.mdx"}  for details.&#x20;
+
+# Step 1: Deploy Influx Container
+
+You will need to deploy the Influx container in Litmus Edge and specify the version you want to deploy.&#x20;
+
+**To deploy the Influx container:&#x20;**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**> **Containers**.&#x20;
+   The *Containers&#x20;*&#x70;ane appears.&#x20;
+2. Click **Run**.&#x20;
+   The *Enter command to run* field appears.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zT58_FEgdS6lV15Q6BFHC_run-button.png "The Run button")
+3. Enter the following command. Replace `[your influxdb version]` with the correct InfluxDB version (for example, influxdb:2.0).&#x20;
+
+```none
+docker run -d --name influxdb influxdb:[your influxdb version]
+```
+
+The named container appears in the *Containers&#x20;*&#x70;ane and displays a running state. The container runs locally.
+
+# Step 2: Provide Database User Access to Influx Database
+
+To provide the database user your created access to the Influx database, refer to the following resources and review the appropriate InfluxDB version:
+
+- :Link[influx - InfluxDB command line interface (2.0)]{href="https://docs.influxdata.com/influxdb/v2.0/reference/cli/influx/" newTab="true"}
+- :Link[influx - InfluxDB command line interface (2.7)]{href="https://docs.influxdata.com/influxdb/v2.7/reference/cli/influx/" newTab="true"}
+- :Link[influxdb - Official Image | Docker Hub]{href="https://hub.docker.com/_/influxdb" newTab="true"}
+
+# Step 3: Enter and Execute InfluxQL Queries
+
+After completing step 2, you can enter and execute InfluxQL Queries.
+
+Refer to :Link[InfluxData Documentation]{href="https://docs.influxdata.com/" newTab="true"} to learn more.&#x20;
+

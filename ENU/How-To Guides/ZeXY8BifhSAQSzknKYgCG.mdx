@@ -1,0 +1,98 @@
+---
+title: Add an OPC UA Server Connection with UA Expert Client
+slug: ZeXY8BifhSAQSzknKYgCG
+description: Learn how to add an OPC UA Server Connection with UA Expert Client. 
+docTags: 
+createdAt: Mon Sep 26 2022 20:15:59 GMT+0300 (Eastern European Summer Time)
+---
+
+You can connect a new client to the OPC UA server.
+
+In the following guide, the Simulator is used as the selected device and UAExpert on Windows 10 is used as the client.
+
+To add an OPC UA Server Connection, you will need to do the following:
+
+- Step 1: Add the Simulator Device
+- Step 2: Add a Tag for the Simulator Device
+- Step 3: Add Nodes to the OPC UA Hierarchy
+- Step 4: Connect a Client with UA Expert
+
+To jump to a specific section, refer to the Table of Contents on the right side and click the corresponding step.&#x20;
+
+# Before You Begin
+
+Before completing the steps below, make sure you do the following:&#x20;
+
+- Add nodes to the OPC UA Hierarchy. See [Add a Node](<../Product Features/OPC UA Server/Hierarchy/lh4ghrH7uOOsQfp7RWrov.mdx>) or [Import Nodes](<../ENU/Product Features/OPC UA Server/goCDADlob_ZzQr7XbqJqm/O_36eHrBFia6IvwklaP8r.mdx>) for more information.
+- Start the OPC UA Server. See [Manage the OPC UA Server](<../Product Features/OPC UA Server/Management/OjinmSOvEb6Zm_qC4YQNm.mdx>) for more information.
+- Run your server on port 4840. See [Manage the OPC UA Server](<../Product Features/OPC UA Server/Management/OjinmSOvEb6Zm_qC4YQNm.mdx>) for more information.
+
+# Step 1: Add the Simulator Device
+
+**To add the Simulator device:**
+
+1. Navigate to **DeviceHub**.
+   The *Devices&#x20;*&#x70;ane appears.&#x20;
+2. Select the **Add&#xA0;**&#x62;ox.&#x20;
+   The *Connect Device* dialog box appears.
+3. Click the **Connect Device&#xA0;**&#x64;rop-down list, and select **Simulator&#xA0;**&#x66;rom the list.
+4. Click the **Driver Name&#xA0;**&#x64;rop-down list, and select **Simulator&#xA0;**&#x66;rom the list.
+5. The *Connect Device* form drops down beneath your selections.
+6. Enter **PLC1&#xA0;**&#x69;n the **Name&#xA0;**&#x66;ield.&#x20;
+7. (Optional) Enter a short description of the device in the **Description&#xA0;**&#x66;ield.
+8. Click **Add Device**.
+
+# Step 2: Add a Tag for the Simulator Device
+
+<hint type="info">
+  **Note**: You should add multiple tags to the Simulator (for example, plc1\_tag1, plc1\_tag2, plc1\_tag3, plc1\_tag4).
+</hint>
+
+**To add a Tag for the Simulator device:**
+
+1. Navigate to **DeviceHub&#x20;**>**&#x20;Tags**.
+2. From the Tags pane, click **Add Tag**, and then select **Add One**.
+3. Click the **Select a Device&#xA0;**&#x66;ield, and then select **simulator&#xA0;**&#x66;rom the drop-down list.
+4. From the *Add Tag* form , enter the following details:
+   - **Value Type**: Select **int**.&#x20;
+   - **Name**: Select **int-integer**.
+   - **Tag Name**: Enter `plc1_tag1`.&#x20;
+   - **Polling Interval**: Enter `1`.
+   - **Address**: Enter `0`.
+   - **Min Value**: Enter `1`.
+   - **Max Value**: Enter `100`.
+   - **Description&#x20;**(Optional) Enter a description for the tag.
+5. Click **Add Tag**.
+
+# Step 3: Add Nodes to the OPC UA Hierarchy
+
+You can add nodes to the OPC UA Hierarchy in the following ways:
+
+- [Add a Node](<../Product Features/OPC UA Server/Hierarchy/lh4ghrH7uOOsQfp7RWrov.mdx>)&#x20;
+- [Import Nodes](<../ENU/Product Features/OPC UA Server/goCDADlob_ZzQr7XbqJqm/O_36eHrBFia6IvwklaP8r.mdx>)&#x20;
+
+<hint type="info">
+  **Note:&#x20;**&#x59;ou can import topics from DeviceHub, Digital Twins, and Analytics simultaneously.
+
+  - **Import All** adds the correct folders and tags.
+  - **Import Select** allows adding a user-defined list of topics.
+</hint>
+
+# Step 4: Connect a Client with UAExpert
+
+**To connect a client with UAExpert:**
+
+1. [Download UAExpert from Unified Automation](https://www.unified-automation.com/downloads/opc-ua-clients.html).
+2. Open UAExpert. Click the **Add Server&#x20;**&#x62;utton at the top.
+3. From **Custom Discovery**, double click to add a server.
+4. From the *Enter URL* dialog box, enter the Litmus Edge IP address with the ocp\:tcp\:// protocol on port 4840. For example: `ocp.tcp://192.168.1.130:4840`.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/laNSZcPf8w-Le5CdHGg-b_addcustomserver.png" size="80" width="872" height="425" caption="The Enter URL dialog box" position="center" showCaption="true" indent="2"></Image>
+
+5. Click **OK**. The Litmus Edge OPC UA server should automatically discover your new client.
+6. Once connected successfully, verify that you can see the *Root > Litmus Edge > PLC1 > tags* hierarchy in the *Address Space* panel.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3sIcMZExQyyby4jeYgLCr_ua-expert-project.png" size="100" width="1779" height="1030" caption="Address Space panel" position="center" showCaption="true" indent="2"></Image>
+
+7. Select a Tag to view the the Tag's current value.
+

@@ -1,0 +1,40 @@
+---
+title: Limitations 4.0.3
+slug: iD-q9oa8MiIx496CJSOZQ
+docTags: 
+createdAt: Thu Nov 06 2025 18:17:16 GMT+0200 (Eastern European Standard Time)
+---
+
+The following limitations have been identified. When they are resolved, they will be reported in the latest [Product Updates](../../../zw_F2Ckm_3U4uTQEfd8G2.mdx) under *Resolved Issues*.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="606">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - The first flow created in Flows Manager cannot be stopped or restarted in Safe Mode.
+      - Analytics wire connection types default to events for processors that support both types, when uploading a template or after an upgrade.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integrations:**
+      - Updating the **Bulk Insert Count** from `0` to any other value causes connectors to enter a failed state.
+      - A `bulk operation limit of 1000 exceeded` error message displays when performing a bulk edit on less than 100 subscriptions.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System:**
+      - Cloud backups do not include configurations for the default MQTT connector for Litmus Edge Manager activation. After a restore, the connector is missing from the UI even though events show it was recreated.
+      - A duplicate check-box selection for Marketplace displays on the **System** > **Device Management** > **Template** page. Use the **Marketplace V2** checkbox if you want to include Marketplace in your template. The **Marketplace** checkbox can be ignored.
+      - In some case, a `Failed to check firmware upgrade status. Max retry attempts exceeded error` displays in Litmus Edge Manager after upgrading a Litmus Edge device, even though the device is upgraded successfully.
+      - Litmus Edge may closed unexpectedly if you delete all analytics groups in the system and then attempt to create new processors.
+    </td>
+  </tr>
+</table>
+

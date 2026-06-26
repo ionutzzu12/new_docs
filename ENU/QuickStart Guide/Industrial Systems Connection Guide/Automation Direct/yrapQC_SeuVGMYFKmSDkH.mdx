@@ -1,0 +1,267 @@
+---
+title: AutomationDirect EBC Ethernet
+slug: yrapQC_SeuVGMYFKmSDkH
+docTags: 
+createdAt: Tue Jan 13 2026 20:00:45 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the AutomationDirect EBC Ethernet driver.
+
+<hint type="info">
+  **Note:** This driver is experimental and under development. Some features may not be fully functional.
+</hint>
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="330,331">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      Terminator I/O
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left">
+      N/A
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you must:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters.
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device](<../../../ENU/ENU/Product Features/qDV3AZpxurItY0hScn5FH/36ZpLd_nEeqQvUAOKFxvf/sCrWEhYJ8UZnuYSbQ-0se.mdx>) with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="173,488">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      AutomationDirect
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      EBC Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Network Address**
+    </td>
+    <td align="left">
+      The device address you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Port**
+    </td>
+    <td align="left">
+      The device port. Default value is 28784
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Read Timeout**
+    </td>
+    <td align="left">
+      Default value is 3000 (ms)
+    </td>
+  </tr>
+</table>
+
+## Step 3: Configure the List of Registers
+
+When you [Add a Tag](<../../../Product Features/DeviceHub/Tags/LXlEhL0D9yVC0yvh2v7mo.mdx>) to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](<../../../How-To Guides/DeviceHub Guides/PzaTaUTahhNy1jTUcGCbc.mdx>)
+- [Tag Formula Variables](<../../../ENU/Product Features/DeviceHub/IAXxRo2Zf3JHMykbup5Ai/2xZj7CTcVSSWeflmm0gdV.mdx>)&#x20;
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="70,105,78.75,111.5625,83.5625,83.5625,167.5625">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Type
+    </td>
+    <td align="left">
+      Address Format
+    </td>
+    <td align="left">
+      Min Address
+    </td>
+    <td align="left">
+      Max Address
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DI
+    </td>
+    <td align="left">
+      bool, uint8, uint16, uint32
+    </td>
+    <td align="left">
+      R/O
+    </td>
+    <td align="left">
+      Slot.Address
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+    <td align="left">
+      Discrete Input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      BI
+    </td>
+    <td align="left">
+      uint8, uint16, uint32
+    </td>
+    <td align="left">
+      R/O
+    </td>
+    <td align="left">
+      Slot.Address
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7
+    </td>
+    <td align="left">
+      Byte Input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WI
+    </td>
+    <td align="left">
+      uint16, uint32
+    </td>
+    <td align="left">
+      R/O
+    </td>
+    <td align="left">
+      Slot.Address
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3
+    </td>
+    <td align="left">
+      Word Input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DWI
+    </td>
+    <td align="left">
+      uint32
+    </td>
+    <td align="left">
+      R/O
+    </td>
+    <td align="left">
+      Slot.Address
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      Double Word Input
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Discrete Inputs**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.
+- **Polling Interval**: Enter a value in milliseconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Address**: Enter the slot number for the module. The value must be within the allowed min/max range (0-15).
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values.
+- **Slot**: Enter the slot number where the module is installed in the base.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value `(current tag value) and `timestamp `(current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp(`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. Change of Value only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by Change of Value settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

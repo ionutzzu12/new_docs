@@ -1,0 +1,227 @@
+---
+title: Deploy and Use MySQL
+slug: po5xzaWNpOEDWiZZkUfgu
+description: Learn how to deploy and use MySQL. 
+docTags: 
+createdAt: Tue Dec 06 2022 20:38:30 GMT+0200 (Eastern European Standard Time)
+---
+
+You can make the most of the massive amount of data collected by Litmus Edge by storing the data in a database for further analysis. The Litmus Edge default Marketplace includes a MySQL application.
+
+# Step 1: Deploy the MySQL Application
+
+Litmus Edge provides a variety of applications in its default marketplace catalog. In the case of MySQL, a container-based MySQL database is provided, which is local to the Litmus Edge device. Data collected at the edge can be stored in this local database. In addition, you can extract data from the local database for consumption by other databases in your enterprise.
+
+<hint type="warning">
+  **Caution**:
+
+  - Caution should be used when using this local database. If the size exceeds the hardware memory size, it crashes the Litmus Edge system, causing data to be lost and requiring a fresh installation.
+  - To manage the size of the local database, we recommend weekly backups and management of local data by using scripts.
+  - As an alternative to the local database, collect data and send it to an external database that is on the same network as the Litmus Edge device.
+</hint>
+
+## Before You Begin
+
+Internet connectivity is required to deploy the Default Public Marketplace and to deploy applications. Once you create an application instance, you no longer need internet access to create additional instances of the same application.
+
+**To deploy the MySQL application:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**> **Marketplace**.&#x20;
+2. Click the **MySQL&#xA0;**&#x74;ile.
+3. The MySQL Launch dialog box appears.
+4. From the **Installation script version&#xA0;**&#x64;rop-down list, select **latest**.
+   The MySQL form appears.
+5. Configure the following parameters.&#x20;
+   - **Name**
+   - **Description&#x20;**(Optional)
+   - **Port**: Enter a port. The default value is 3306.&#x20;
+   - **Database**: Enter a database name.
+   - **User**: Enter a user name.
+   - **Password**: Enter a MySQL password.
+   - **MySQL password**: Enter a MYSQL root password.&#x20;
+   - **Restart**: Configure the restart setting. Enter **no**, **always**, or **on-failure**.&#x20;
+6. Click **Launch**.
+   The MySQL application appears as a tile in the *Catalog Apps&#x20;*&#x70;ane.
+
+# Step 2: Create a MySQL Database Table
+
+You will now need to define a database table for the data you're collecting.&#x20;
+
+You can use a tool, such as MySQL Workbench, to connect to the Litmus Edge local database to create a table.&#x20;
+
+## Identify Database Table and Column Requirements
+
+The columns and data types required for a database table depend on a device tag's configuration. For this exercise, a basic database table illustrates data that can be saved to the database. Using the [Flows Manager](<../../Product Features/pEXVb0gXlLgDPGGkqJ2mk.mdx>), you can collect and parse the message payload to extract the device ID, device tag, and the register's value.
+
+### Before You Begin
+
+- You will need to configure the DataHub Subscribe node with a topic for a connected device. Navigate to **DeviceHub&#x20;**> **Tags**, select a device, and copy the **RAW Topic** for the tag you want to use.&#x20;
+- You need to know the message format. In the following example, you can see the field names and values that you may want to save in a database.
+
+<BlockQuote>
+  \{"success": true,"datatype": "int", "timestamp": 1531914109501, "registerId": "D22AC344-B908-481D-AA7E-A45E0041AC46", "value": 433, "deviceID": "45F95B1C-F6F0-4696-A271-60FA1A5E79DD", "tagName": "AB-1"}
+</BlockQuote>
+
+**To identify database table and column requirements:&#x20;**
+
+1. In Litmus Edge, navigate to **Flows Manager**.&#x20;
+2. Click the **Go To Flow Definition** icon for a selected **Flows Manager**.&#x20;
+   Th&#x65;*&#x20;Flow canvas&#x20;*&#x6F;pens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6PlxhptXn4xZ_4ZdrIAuf_gotoflowdefinition.png" size="80" width="944" height="366" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+3. From the node palette, drag the **DataHub Subscribe** node (DataConnector section) to the canvas.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/j2Sz7jq3aibQ0V56l3Cy8_datahubsubscribenode.png" size="80" width="1055" height="690" caption="DataHub Subscribe node" position="center" showCaption="true"></Image>
+4. Drag the **Debug&#xA0;**&#x6E;ode to the canvas and connect the two nodes.
+5. Double click the **DataHub Subscribe** node.&#x20;
+   The *Edit DataHub Subscribe Node&#x20;*&#x64;ialog box appears.
+6. In the **Topic&#x20;**&#x66;ield, paste the topic name you previously copied and click **Done**.
+7. If needed, configure the *Datahub Subscribe* connection. See the "Step 3: Configure Connector Nodes" section in :Link[Create a Flow]{docId="bezDaqGGrrny6TWDnL9CK" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" overridedLabel="Create a Flow" href="../../Product Features/Flows Manager/ddBsmAZtGH9krDnb5AEyU.mdx"} to learn more.&#x20;
+8. Click **Deploy**.&#x20;
+9. Expand the message window beneath the flow and click the **Debug&#x20;**&#x69;con. Verify that messages are displaying.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/OUaGrEw-E3aDYBkalVGq__flows-message-bar-and-debug-icon.png)
+
+## Create a Database Table
+
+While table creation can be accomplished by writing SQL statements in a flow, the preferred method uses a database tool, such as MySQL Workbench, to create the table and columns in the Litmus Edge local database.
+
+For the purpose of this exercise, connect to the Litmus Edge database and create a database table with the following columns: **deviceID**, **tagName**, and **tagValue**.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/a1FCRXkM5b-orz_7rco-g_image.png "Litmus Edge database with deviceID, tagName, and tagValue columns")
+
+## Create Flow to Populate a MySQL Database
+
+You can create another flow to collect data and store it in a MySQL database.&#x20;
+
+<hint type="info">
+  **Note**: You can access the MySQL database located on the Litmus Edge device or you can use an external database on the same network as the Litmus Edge device.
+</hint>
+
+Refer to the flow below that you will create.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/YRrJTpX09TaDaBIAOiziz_image.png "Flow to populate a MySQL Database")
+
+### Before You Begin
+
+- You will need to configure the DataHub Subscribe node with a topic for a connected device. Navigate to **DeviceHub&#x20;**> **Tags**, select a device, and copy the **RAW Topic** for the tag you want to use.&#x20;
+- You must have experience working with flows and SQL queries.&#x20;
+
+**To create a flow to populate a MySQL database:**
+
+1. In Litmus Edge, navigate to **Flows Manager**.&#x20;
+2. Click the **Go To Flow Definition** icon for a selected **Flows Manager**.&#x20;
+   Th&#x65;*&#x20;Flow canvas&#x20;*&#x6F;pens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6PlxhptXn4xZ_4ZdrIAuf_gotoflowdefinition.png" size="80" width="944" height="366" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+3. Refer to the following tasks for nodes.&#x20;
+
+### DataHub Subscribe and JSON Nodes
+
+After configuring the DataHub Subscribe node with a topic from a connected device, it collects the message. The JSON node processes the message to ensure that it is in the proper JSON format required for further processing.
+
+1. Drag the **DataHub Subscribe** and **JSON&#x20;**&#x6E;odes onto the canvas and connect both nodes.&#x20;
+2. Double-click the DataHub Subscribe node.&#x20;
+   The *Edit DataHub Subscribe Node&#x20;*&#x64;ialog box appears.
+3. In the **Topic&#x20;**&#x66;ield, paste the topic name you previously copied and click **Done**.
+4. Click **Deploy**.&#x20;
+
+### Function Node
+
+The Function node parses the incoming message.&#x20;
+
+1. Drag the **Function&#x20;**&#x6E;ode onto the canvas and connect it to the **JSON&#x20;**&#x6E;ode.&#x20;
+2. Double-click the **Function&#x20;**&#x6E;ode and enter the JavaScript code below in the **On Message&#x20;**&#x74;ab. This parses the message payload.&#x20;
+3. Click **Deploy**.&#x20;
+
+```javascript
+var obj = {};
+obj.deviceID = msg.payload.deviceID;
+obj.tagName = msg.payload.tagName;
+obj.value = msg.payload.tagValue;
+msg.payload = obj;
+return msg;
+```
+
+### Template Node
+
+Use the Template node to write SQL statements to insert data into the database columns.
+
+1. Drag the **Template&#x20;**&#x6E;ode onto the canvas and connect it to the **Function&#x20;**&#x6E;ode.&#x20;
+2. Double-click the **Template&#x20;**&#x6E;ode.&#x20;
+3. In the **Property&#x20;**&#x66;ield, select **msg.** and enter **topic**.&#x20;
+4. Enter the SQL statement below in the **Template&#x20;**&#x77;indow.&#x20;
+5. Click **Deploy**.&#x20;
+
+<hint type="info">
+  **Note**: In the example statement below, **test&#x20;**&#x72;epresents the name of the database table, which you need to create. The table doesn't exist by default.&#x20;
+</hint>
+
+```sql
+INSERT INTO test (deviceID,tagName,tagValue) VALUES
+('{{payload.deviceID}}','{{payload.tagName}}','{{payload.tagValue}}');
+```
+
+### MySQL Node
+
+Configure this node with a port and credentials to connect to the local Litmus Edge MySQL database when using the Marketplace application. When using an external MySQL database on the same network as the Litmus Edge device, configure the MySQ&#x4C;**&#xA0;**&#x6E;ode with the IP address, port, and credentials for that database server.
+
+1. Drag the **MySQL&#x20;**&#x6E;ode onto the canvas and connect it to the **Template&#x20;**&#x6E;ode.&#x20;
+2. Double-click the **MySQL&#x20;**&#x6E;ode.&#x20;
+3. In the **Database&#x20;**&#x66;ield, click the **Edit&#x20;**&#x69;con.&#x20;
+4. Configure the following parameters.&#x20;
+   - **Host**: 127.0.0.1
+   - **Port**: 3306
+   - **User**: root
+   - **Password**: Enter the MySQL database password
+   - **Database**: Enter the name of the database
+
+### Debug Node
+
+Verify your flow is working as designed.
+
+1. Drag the **Debug&#x20;**&#x6E;ode onto the canvas and connect it to the **MySQL&#x20;**&#x6E;ode.&#x20;
+2. Expand the message window beneath the flow and click the **Debug&#x20;**&#x69;con. Verify that messages are displaying.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_Di1BE_daz2dFfep0uI4T_flows-message-bar-and-debug-icon.png" size="80" width="1920" height="280" caption="Debug node messages" position="center" showCaption="true"></Image>
+
+## Validate Database Updates
+
+To check that collected values are being inserted into the MySQL database, create a basic flow.
+
+Refer to the updates to the flow created in the previous steps.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2IqrN3OqNyNMF4Siaoz9L_image.png "Updated flow to validate connectivity")
+
+**To validate database updates:&#x20;**
+
+1. From the flow canvas you used to create the previous flow, copy and paste the **Template&#x20;**&#x6E;ode previously created and connect it to the **Function&#x20;**&#x6E;ode.&#x20;
+2. Double-click the **Template&#x20;**&#x6E;ode.&#x20;
+3. Enter the following SQL statement in the **Template&#x20;**&#x77;indow and click **Done**.&#x20;
+   `select * from test;`
+4. Click **Deploy**.&#x20;
+5. Copy and paste the **MySQL&#x20;**&#x6E;ode previously created and connect it to the newer **Template&#x20;**&#x6E;ode.&#x20;
+6. Click **Deploy**.&#x20;
+7. Drag a new **Debug&#x20;**&#x6E;ode onto the canvas and connect it to the newer **MySQL&#x20;**&#x6E;ode.&#x20;
+8. Expand the message window beneath the flow and click the **Debug&#xA0;**&#x69;con. Verify that messages are displaying.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/t0BhXfNtgb5W1OyXEPZ8X_flows-message-bar-and-debug-icon.png" size="80" width="1920" height="280" caption="Debug node messages" position="center" showCaption="true"></Image>
+
+# Step 3: Save Multiple Registers to MySQL
+
+You will now update the original template node on the flow canvas to do the following:
+
+- Collect raw data from various PLC registers.
+- Aggregate the data at regular intervals.
+- Save the aggregated data for use by other applications.
+
+Use the Template node to format the SQL statement to update the database with values that have been collected from multiple registers.
+
+**To save multiple registers to MySQL:**
+
+1. From the same flow canvas you used to create and update flows, double-click the original **Template&#x20;**&#x6E;ode.&#x20;
+2. Enter the following SQL statement in the **Template&#x20;**&#x77;indow and click **Done**.&#x20;
+
+```sql
+INSERT INTO mytable(value1,value2,value3,value4) values 
+({{output1}},{{output2}},"{{output3}}","{{output4}}");
+```
+
+<hint type="info">
+  **Note**: Depending on the MYSQL column types, certain formatting may be required. For example, if a column is VARCHAR, the following notation must be used: **"\{\{}}"**.&#x20;
+</hint>
+

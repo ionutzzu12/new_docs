@@ -1,0 +1,43 @@
+---
+title: Machine Learning Models
+slug: -CDVNJeiGRTjHy9y5ubXa
+description: The Analytics module allows you to execute your Machine Learning (ML) models “run time”. You can feed live data to the model and get live output from it.
+docTags: 
+createdAt: Fri May 13 2022 22:02:44 GMT+0300 (Eastern European Summer Time)
+---
+
+The Analytics module allows you to upload Machine Learning (ML) models, feed live data into the model, and receive live output from the model.
+
+<hint type="info">
+  **Note**: To work with ML models in Analytics, your computer has to meet certain [TensorFlow requirements](https://www.tensorflow.org/install/gpu). If it does not, the ML-specific processors will not be available for flow building.
+</hint>
+
+# Create a Machine Learning Model for Upload
+
+To upload a model to Analytics, you need a SavedModel format from [TensorFlow](https://www.tensorflow.org/guide/saved_model). Once you have created and saved a model, you must compress and zip it prior to uploading it to Analytics. SavedModel is a directory containing serialized signatures and the state needed to run them, including variable values and vocabularies. The SavedModel (`saved_model.pb`) file stores the TensorFlow model and a set of named signatures, each identifying a function that accepts tensor inputs and produces tensor outputs. SavedModels may contain multiple variants of the model.
+
+Once your ML model is ready, proceed as follows:
+
+1. Upload the model. See [Upload a Model](<../../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/-CDVNJeiGRTjHy9y5ubXa/4unoFdbqO1YZm5nLgG3YJ.mdx>) for details.&#x20;
+2. Create an analytics flow based on your model.&#x20;
+   - TensorFlow processor for time-series data. See [Create an Analytics Flow](<../../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/YtxdmN9RNvz-jldaHUl6J/jSA9xZtjDdpJOB7IZpWAH.mdx>) for details.&#x20;
+   - TensorFlow Images processor for images. See [TensorFlow Images Processor](<../../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/statistical-functions/tensorflow-images-processor.mdx>)for details.&#x20;
+3. (Optional) Add the Tengo Script processor to modify the model output. See [Tengo Script](<../../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/statistical-functions/tengo-script.mdx>) for details.&#x20;
+4. Visualize the ML-based output in the [Flows Manager](<../../../Product Features/pEXVb0gXlLgDPGGkqJ2mk.mdx>) or through [Applications](<../../../Product Features/SELEg_S3bA0hxfxG3aPFC.mdx>).&#x20;
+
+# Access Analytics Models UI
+
+**To access Analytics Models:**
+
+1. Log in to Litmus Edge.
+2. From the Navigation panel, navigate to **Analytics&#x20;**> **Models**.
+   The *Models* pane appears.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Emguio_RaNeFVY_6WTcOf_image.png" size="80" width="884" height="460" caption="The Analytics Models pane" position="center" showCaption="true"></Image>
+
+# Next Steps
+
+- [Upload a Model](<../../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/-CDVNJeiGRTjHy9y5ubXa/4unoFdbqO1YZm5nLgG3YJ.mdx>)&#x20;
+- [Obtain Field Values from a Model](<../../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/-CDVNJeiGRTjHy9y5ubXa/4q-eEeyqDk68v6nriJTIP.mdx>)&#x20;
+- [Model Types](<../../ENU/Product Features/ETlaRb27Q09oTONoE4bcY/-CDVNJeiGRTjHy9y5ubXa/ofHq3EIkQnnyxiAb3_OU_.mdx>)&#x20;
+

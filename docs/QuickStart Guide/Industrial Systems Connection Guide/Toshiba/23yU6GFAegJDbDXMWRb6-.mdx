@@ -1,0 +1,473 @@
+---
+title: Toshiba Computer Link Ethernet (Gen1).3
+slug: 23yU6GFAegJDbDXMWRb6-
+description: Review the following information for setting up and configuring the Toshiba Computer Link Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Toshiba Computer Link Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="230,320" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Any of the following Toshiba series models with an Ethernet module:
+      - S2
+      - S3
+      - T2
+      - T3
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure your device for Ethernet access.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Toshiba
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Toshiba Computer Link Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      1024
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="100,204,104,100,100,134" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511915
+    </td>
+    <td align="left">
+      Input Devices
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511915
+    </td>
+    <td align="left">
+      Direct Input Devices
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511915
+    </td>
+    <td align="left">
+      Output Devices
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      O
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511915
+    </td>
+    <td align="left">
+      Direct Output Devices
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      409515
+    </td>
+    <td align="left">
+      Auxiliary Devices
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DBit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      409515
+    </td>
+    <td align="left">
+      Auxiliary Devices
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      51115
+    </td>
+    <td align="left">
+      Special Devices
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      XW
+    </td>
+    <td align="left">
+      word,short,dword,long,float
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5119
+    </td>
+    <td align="left">
+      Input Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      IW
+    </td>
+    <td align="left">
+      word,short,dword,long,float
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5119
+    </td>
+    <td align="left">
+      Direct Input Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      YW
+    </td>
+    <td align="left">
+      word,short,dword,long,float
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5119
+    </td>
+    <td align="left">
+      Output Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OW
+    </td>
+    <td align="left">
+      word,short,dword,long,float
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5119
+    </td>
+    <td align="left">
+      Direct Output Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RW
+    </td>
+    <td align="left">
+      word,short,dword,long,float
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Auxiliary Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DW
+    </td>
+    <td align="left">
+      word,short,dword,long,float
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5119
+    </td>
+    <td align="left">
+      Auxiliary Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SW
+    </td>
+    <td align="left">
+      word,short,dword,long,float
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Special Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word,short,dword,long,float
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Data Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DH
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Data Memory As String with HiLo Byte Order
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DL
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Data Memory As String with LoHi Byte Order
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="A0mW7eFUiB6dsJkAOu4YV">
+
+</ContentSnippet>
+

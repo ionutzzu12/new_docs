@@ -1,0 +1,180 @@
+---
+title: DB - InfluxDB v1.7.x TCP
+slug: dTmp0-RgSdmXnO5Of4heA
+description: Review parameters for the DB - InfluxDB v1.7.x TCP connector. 
+docTags: 
+createdAt: Fri Dec 01 2023 20:43:53 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the :Link[InfluxDB v1.7.x TCP Integration Guide]{label="InfluxDB v1.7.x TCP Integration Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="iCdqKwPMPDUbQ6i0z5DKb" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+
+## Overview
+
+InfluxDB v1.7x TCP integration enables an Edge System to connect with an InfluxDB database.&#x20;
+
+<hint type="info">
+  **Note**: The following data types and formats are not viewable in InfluxDB:
+
+  - string
+  - char
+  - JSON payloads
+</hint>
+
+## Supported Versions
+
+- InfluxDB 1.7.x
+- InfluxDB 1.8.x
+
+## Supported Communication Directions
+
+- Outbound (Write from Edge to Database) - Yes
+- Inbound (Read from Database to Edge) - No
+
+## Variable Definitions
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="199,100">
+  <tr>
+    <td>
+      **Variable**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Enter a name for the connector
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Address
+    </td>
+    <td>
+      Enter the InfluxDB database URL (for example, http\://localhost:8086)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Database
+    </td>
+    <td>
+      Database name
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Username
+    </td>
+    <td>
+      User name (optional)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Password
+    </td>
+    <td>
+      User password (optional)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Batch size
+    </td>
+    <td>
+      Enter the batch size
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Batch commit time
+    </td>
+    <td>
+      Enter the batch-commit time in seconds
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Parallel publish count
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Number of messages to publish simultaneously. Set a value above `1` to batch messages into a single publish request
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Throttling limit
+    </td>
+    <td>
+      Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Persistent storage
+    </td>
+    <td>
+      If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Persistent storage limit size
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Maximum amount of data (in GB) to store in connector's persistent storage. Set a limit to prevent excessive disk space usage by failed connectors.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Queue mode
+    </td>
+    <td>
+      Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Remote Data Topic
+    </td>
+    <td>
+      InfluxDB measurement that you want to publish data to.
+    </td>
+  </tr>
+</table>
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="189,100">
+  <tr>
+    <td>
+      Product
+    </td>
+    <td>
+      Version
+    </td>
+  </tr>
+  <tr>
+    <td>
+      docker: influxdb
+    </td>
+    <td>
+      1.7
+    </td>
+  </tr>
+  <tr>
+    <td>
+      docker: influxdb
+    </td>
+    <td>
+      1.8
+    </td>
+  </tr>
+</table>
+

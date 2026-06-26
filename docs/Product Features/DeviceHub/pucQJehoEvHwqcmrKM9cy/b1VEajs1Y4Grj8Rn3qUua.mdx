@@ -1,0 +1,120 @@
+---
+title: Manage Tags
+slug: b1VEajs1Y4Grj8Rn3qUua
+description: Learn how to manage tags you've added to DeviceHub devices. 
+docTags: 
+createdAt: Thu Jun 16 2022 18:16:56 GMT+0300 (Eastern European Summer Time)
+---
+
+You can manage tags by navigating to **DeviceHub&#x20;**> **Tags**.&#x20;
+
+# Manage Existing Tags
+
+You can manage existing tags from the *Tags&#x20;*&#x70;ane.&#x20;
+
+**To manage existing tags:**
+
+1. Navigate to **DeviceHub&#x20;**> **Tags**.&#x20;
+2. From the *Tags&#x20;*&#x70;ane, select to view tags from *All&#x20;*&#x64;evices or specific devices.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/wMc1PGckXHjNmooIZOF6p_global-search.png" size="80" width="1541" height="553" position="flex-start" caption="List of devices" showCaption="true" indent="2"></Image>
+
+3. If needed, use the search bar to find the tag. You have the option of using search filters **contains&#x20;**&#x61;n&#x64;**&#x20;equal to**.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/XTiTHAmWZVjaf7lJJrHI4_search-fields.png" size="80" width="1541" height="552" position="flex-start" caption="Search filters" showCaption="true" indent="2"></Image>
+
+4. For the tag you want to manage, click the **Action menu**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/j938xDOnvcngSmtJAYl8y_tag-action-menu.png" size="80" width="1543" height="548" position="flex-start" caption="Tag action menu" showCaption="true" indent="2"></Image>
+
+5. Select from the following options.&#x20;
+   - **Edit**: Update the parameters for the tag as required and click **Update Tag**. Refer to the [Industrial Systems Connection Guide](<../../../QuickStart Guide/shwmWlfjHWDMjeLg1E_jU.mdx>) for parameters specific to your device driver and review the *Tag Parameters* section.&#x20;
+   - **View Write Topic**: Write Topics can be used with Flows to write to the topic. From the *Write&#x20;*&#x64;ialog box, you can click the **Copy&#x20;**&#x69;con to copy it to your clipboard. See :Link[Write Topic Use Case]{docId="nTfszYzTK5h-RG4HkUlqe" label="Topic Use Cases (PLC Status, Poll-once, Write, Manage, Batch Write)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#MwHG2" loadingMethod="dynamic" overridedLabel="Write Topic Use Case"} to learn more.&#x20;
+   - **View Poll Topic**: Poll Topics can be used with Flows to poll a tag. From the *Poll Once* dialog box, you can click the **Copy&#x20;**&#x69;con to copy it to your clipboard. See :Link[Poll-once Use Case]{docId="nTfszYzTK5h-RG4HkUlqe" label="Topic Use Cases (PLC Status, Poll-once, Write, Manage, Batch Write)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#B9Je-" loadingMethod="dynamic" overridedLabel="Poll-once Use Case"} to learn more.&#x20;
+   - **Remove**: Delete the tag from the Tags list.&#x20;
+   - **Clone & Edit**: Clone an existing tag and then edit the cloned tag. When done, click **Clone Tag**.&#x20;
+
+<hint type="info">
+  **Note**: The *Tag Name* for the cloned tag and existing tag must be different.
+</hint>
+
+<hint type="warning">
+  **Important:&#x20;**&#x54;he current topic name generation rule uses a byte-specific replacement protocol to create topic names. In this system:
+
+  - **ASCII Special Characters:** Symbols and spaces are replaced with a single underscore (“\_”) since they are represented in 1 byte.
+  - **Accented and Extended Unicode Characters:** Characters with accents (e.g., “ó”) are replaced by a double underscore (“\_\_”), reflecting their 2-byte representation. The 3-byte and 4-byte Unicode characters are replaced with three (“\_\_\_*”) and four (“\_*\_\_\_”) underscores, respectively.
+</hint>
+
+# Sort List of Existing Tags
+
+You can click column names to sort the current list of tags displayed in ascending and descending order.&#x20;
+
+<hint type="info">
+  **Note**: When you sort the list of tags, only the currently listed tags on the page are sorted. For example, if a device has 100 tags, and 15 tags are currently displayed, only the 15 tags listed on the page are sorted. Increase the number of tags displayed on the page to view and sort more tags.&#x20;
+</hint>
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/h7TMgNaORn2IwqsPanKe8_image.png)
+
+# Download Tags as a CSV File
+
+You can download the list of tags visible in the *Tag List&#x20;*&#x62;y clicking the **Download as CSV&#x20;**&#x69;con.&#x20;
+
+You have two options:
+
+- Download all tags from all connected devices
+- Download tags only for the currently selected device
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/2pRl5QA7-n5A-UVZbxKfw_image.png" size="80" width="1504" height="344" position="flex-start" caption="Download as CSV icon" showCaption="true"></Image>
+
+# Remove Multiple Tags
+
+You can remove multiple individual tags or all tags from the *Tags&#x20;*&#x70;ane.
+
+**To remove multiple tags:**
+
+1. Navigate to **DeviceHub&#x20;**> **Tags**.&#x20;
+2. From the *Tags&#x20;*&#x70;ane, do one of the following.
+   **Remove all tags**: Select the **Tag&#x20;**&#x63;olumn check box for all the tags.&#x20;
+   **Select individual tags**: Select each individual tag's check box.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/cRoLXIfKa2QRCzuVUZN4F_managetags03.png" size="80" width="1903" height="297" position="flex-start" caption="Check boxes for tags" showCaption="true" indent="2"></Image>
+
+3. Click the **Trash** icon.&#x20;
+   The *Confirmation&#x20;*&#x64;ialog box appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/lkPhs2JNfwktVA1HmErr__managetags04.png" size="80" width="1903" height="297" position="flex-start" caption="Remove tags icon" showCaption="true" indent="2"></Image>
+
+4. Click **Yes**.
+   All tags are removed from the Tags list.
+
+# View and Copy Topic Names
+
+To view and copy the available topic names for a tag, click the **Action menu** and select **View Available Topics**.&#x20;
+
+<hint type="info">
+  **Note**: The available topics depends on the DeviceHub device used to store the tag.&#x20;
+</hint>
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NphJb4Y5iwGppvlPozs2f_image.png)
+
+# Configure Tag Column View
+
+You can modify which columns are displayed in the *Tags&#x20;*&#x70;ane.
+
+**To modify columns displayed**:
+
+1. Navigate to **DeviceHub&#x20;**> **Tags**.&#x20;
+2. From the *Tags&#x20;*&#x70;ane, click the **Configure** icon.&#x20;
+   The Display Columns List appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4LddDJt19HKN3u6O8ZwzE_managetags05.png" size="80" width="1899" height="459" position="flex-start" caption="The Configure icon for the Tags pane" showCaption="true" indent="2"></Image>
+
+3. Select or deselect the columns you would like to display for the Tags List on the *Tags&#x20;*&#x70;ane, and then click outside the Display Columns List.
+   The columns are displayed according to your modifications.
+
+<hint type="info">
+  **Note**: If the *Status&#xA0;*&#x63;heck box is enabled, a color-coded status appears next to each tag in the tag list. Green means that the status is good. Red means that there is an error.&#x20;
+</hint>
+
+
+

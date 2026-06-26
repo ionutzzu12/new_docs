@@ -1,0 +1,264 @@
+---
+title: Beckhoff ADS/AMS Ethernet (Gen1.3)
+slug: QwZcv9UZkn59oDZsrs1Fm
+description: Review the following information for setting up and configuring the Beckhoff ADS/AMS Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Beckhoff ADS/AMS Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="224,284" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Beckhoff TwinCAT 2]{href="https://www.beckhoff.com/en-us/products/automation/twincat/txxxxx-twincat-2-base/txxxxx-twincat-2-base.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.
+
+<hint type="info">
+  **Note**: Make sure Litmus Edge IP address is configured in TWINCAT.
+</hint>
+
+**To configure your device:**
+
+1\. Record the following information and refer to it as needed.&#x20;
+&#x20;    **Device**: Beckhoff CX1100-002
+&#x20;    **Communication I/F**: Ethernet. Refer to the following figures.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/rnp7bXed_-apBuJ-_kua6_image.png" size="80" width="654" height="500" position="flex-start" caption="Beckhoff ADS/EMS Ethernet reference" showCaption="true"></Image>
+
+2\. Launch TwinCAT V2.11 Build 2302 software.
+
+<hint type="info">
+  **Note**: The Beckhoff PLC is also a PC with its own OS and an IP address can be set up like a PC.
+</hint>
+
+
+
+3\. Click the TwinCAT icon in the Notification area, launch the system, and then click the system status indicator switch from Config Node (blue) to Running (green).
+
+4\. Launch the PLC.
+
+5\. Set up the target.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/uUfSL4AFniSWnT0tfQwMD_beckhott-ads-ams-ethernet-target.png" size="80" width="786" height="487" position="flex-start" caption="Ethernet target [1]" showCaption="true"></Image>
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/K41_YwAfD2O_UOtVu5x29_beckhoff-ads-ams-ethernet-target2.png "Ethernet target \[2]")
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NhJWkfPTOnGte7-9NsZLW_beckhoff-ads-ams-ethernet-target3.png "Ethernet target \[3]")
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/77Tcz7vaxcKGZ3WGlR_89_beckhoff-ads-ams-ethernet-target4.png "Ethernet target \[4]")
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/gxweNBAv05Wc4zLBLauc9_beckhoff-ads-ams-ethernet-target5.png "Ethernet target \[5]")
+
+6\. Select the target.&#x20;
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/fiM2YkaXCR0knFiWSiTrX_image.png "Target select \[1]")
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/cs6y6UtOfNCXlgTtsnWun_image.png "Target select \[2]")
+
+7\. Launch TwinCAT system manager and TwinCAT PLC Control.
+
+8\. Click **Online > Login**, and then download the program and run the PLC.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="154,368" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Beckhoff
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Beckhoff ADS/AMS Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      48898
+      Enter the network port for the Beckhoff device defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Ads port**
+    </td>
+    <td>
+      801
+      Enter the ADS port for the Beckhoff device
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Ams ID**
+    </td>
+    <td>
+      AMS ID for the Beckhoff device
+      Enter the following: `[Beckhoff device Ams ID].1.1`
+      For example, if your Beckhoff Ams ID is 37.136.43.210, enter `37.136.43.210.1.1`.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Local Ams ID**
+    </td>
+    <td>
+      Local AMS ID for the Litmus Edge device
+      Enter the following: `[Litmus Edge IP address].1.1`
+      For example, if your Litmus Edge IP address is 192.168.0.152, enter `192.168.0.152.1.1`.
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="68,106,139,112,116,118" isTableHeaderOn="true" selectedRows="" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit, word
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+      Input word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q
+    </td>
+    <td align="left">
+      bit, word
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+      Output bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit, word
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

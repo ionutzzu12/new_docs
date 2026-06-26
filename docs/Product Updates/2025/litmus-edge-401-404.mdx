@@ -1,0 +1,241 @@
+---
+title: Litmus Edge 4.0.1-4.0.4
+slug: litmus-edge-401-404
+docTags: 
+createdAt: Thu Nov 06 2025 16:25:45 GMT+0200 (Eastern European Standard Time)
+---
+
+Release Date: November 26, 2025
+
+Review the current list of :Link[Limitations]{label="Limitations" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="7Aqbzvzv53seskV9axC3t" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+<hint type="info">
+  **Note:** A Litmus Edge :Link[Developer Edition 2-Hour Trial]{label="Developer Edition 2-Hour Trial" spaceId="0c3K9AkyXsnPI4j8vUaa5" docId="8209sYKRpGTWXMPmeM1uK" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} is now available for you to easily explore and develop in the product.
+</hint>
+
+## New Features
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **DeviceHub:**
+      - This release introduces the new following drivers:
+        - B\&R PVI Ethernet driver        - BACnet MSTP driver
+        - Generic Scale
+        - JTEKT Toyopuc CMP-Link Ethernet        - JTEKT Toyopuc CMP-Link Serial      <Paragraph listStyleType="disc" indent="2">
+        Mitsubishi iQ-R Ethernet
+      </Paragraph>
+      <Paragraph listStyleType="disc" listStart="2" indent="2">
+        Torque Tool Open Protocol Ethernet
+      </Paragraph>
+      - Note that the JTEKT Toyopuc CMP-Link driver was separated into the two new drivers mentioned above. For the drivers, maximum register address limits are set and data processing is improved for register types.
+      - The OPC UA Client Advanced Driver now supports locale settings.
+      - The Allen Bradley DF1 Serial driver now supports Micrologix PLCs.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Analytics:**
+      - Analytics provides a new Rate Limiter processor node.
+      - The FileWriter processor now supports user-defined output columns for Parquet files.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - Marketplace applications can now display a Degraded status that helps you identify issues with applications that are running. Degraded status displays when an application is running and one or more containers have exited.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integrations:**
+      - Added the new Oracle Smart Operations in Fusion Cloud SCM integration connector.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **System:**
+      - A new privilege grants or denies launching Docker containers in privileged mode. This lets you to give users the rights they need for templates, backups, restores, and upgrades without granting full system access. Find the new **ModifyPrivileged** privilege under Marketplace in **System** > **Access Control** > **Users**.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **High Availability:**
+      - A beta version of high availability is introduced in this release. Now you can define and configure primary and backup Edge instances in **System** > **High Availability**.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **HTTP Proxy:**
+      - You can now redirect data traffic through an HTTP proxy server for the Device Management, Authentication, and Licensing components. Configure the server in **System** > **Network** > **Proxy&#x20;**&#x6F;r through an API.
+        The HTTP Proxy feature is also available in Litmus Edge Docker.
+    </td>
+  </tr>
+</table>
+
+## Enhancements and Improvements
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub:**
+      - The AB EthernetIP Ethernet driver now supports integer-based reading for I and O registers.
+      - The AB CompactLogix Ethernet Advanced now supports `Array` datatypes.
+      - The B\&R PVI Ethernet driver now supports the `Bool` datatype.
+      - You can now delete a DeviceHub device during Watchdog restarts.
+      - Now you can filter by **Driver Name** in table view in **DeviceHub** > **Devices&#x20;**&#x61;nd sort the **IP**, **Port**, and **Status** columns.
+      - Improve status descriptions for DeviceHub devices in grid view in **DeviceHub** > **Devices**.
+      - The S7CommPlus driver now supports browsing, reading, and writing on multiple-instance data blocks.
+      - The Torque Tool Ethernet driver has been enhanced with support for MID0019 and other improvements.
+      - Heidenhain 640 Ethernet (Gen1.3) and Heidenhain 530 Ethernet (Gen1.3) drivers now support writing to the FILE register type.
+      - The Koyo Ethernet (Gen1.3) driver now supports additional register types: Analog Inputs (K/WI) and Analog Outputs (V/WO)
+      - The Fuji NB Serial (Gen1.3) driver now supports additional register types: Input relay (word), Output relay (word), Data register (32 bit), and Data register (string).
+      - Improved Litmus Edge's resource usage and performance with large numbers of DeviceHub devices and limited resources.
+      - Spaces are now automatically replaced with underscores in new browse task names.
+      - **Station ID&#x20;**&#x6E;o longer displays in the **Edit Tag** dialog when **Override Station ID** is configured for a device.
+      - **Polling Interval&#x20;**&#x6E;o longer displays in the **Add Tag** dialog when **Driver Type&#x20;**&#x69;s set to `Subscription` for the OPC UA Client Advanced driver.
+      - SQL driver query fields have increased character limits to allow for larger and more complex queries.
+      - Various improvements have been made for the ARM 64 builds.
+      - MQTT Generic and MQTT Generic over SSL connector have been removed from Litmus Edge with this release and replaced Gen2 connectors.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Digital Twins:**
+      - Improved Digital Twins static and dynamic attributes list view in **Schema** tab for models.
+      - Static Attributes value limit increased to 1000 characters.
+      - Added duplicate key validation for user-defined JSONpath and JSONata transformations.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Analytics:**
+      - Pinned analytics groups are now preserved when you refresh the Analytics page.
+      - Improved wire processor creation and switching between wire types. Wire types are now defined by downstream processor logic for improved usability.
+      - A new **PLC Uptime/Downtime Tracker** processor        &#x20;enables you to track KPI downtime periods based on specific PLC values that indicate uptime or downtime states.
+      - Now JSON and Array datatype parameters and variables are exported from template downloads as JSON objects and arrays. This makes it easier for you to edit JSON parameters.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Applications:**
+      - A visual indicator now displays to show that catalogs are opening in **Applications** > **Catalog Apps**.
+      - The **Applications** > **Marketplace&#x20;**&#x6E;ow displays all catalog apps before applying filters instead of an empty state.
+      - You can now easily add multiple headers in text format in the **HTTPs Proxy** dialog.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Integrations:**
+      - A `Disabling persistent storage will remove all saved data.` warning message now displays when disabling the **Persistent storage** size limit for an integration connector or when changing the queue mode or size limit.
+      - Improved summary information when uploading subscriptions through CSV file to an integration connector.
+      - Advanced connection settings for Kafka connectors are now located under **Advanced Parameters**.      - Inbound subscriptions in **Integration Connectors** now support dot notation in local topics.
+      - Validation has been improved when entering a source path for a cloud storage sync job.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System:**
+      - You can now choose to download and upload encrypted templates that are secured with a plain text password or an encryption key.
+      - Remote access connection information now displays the number of bytes received in addition to bytes sent. This can help you to identify tunnel issues. The number of bytes now displays in MB or GB format depending on the value size.
+      - Litmus Edge now automatically sizes packets when ICMP feedback is missing by attempting ICMP Path-MTU Discovery first and falls back to TCP MTU probing to determine the correct packet size.
+      - The last modified date for users now displays in **System** > **Access Control** > **Users** > **Manage Users**.
+      - Improved user experience with 2FA setup.
+      - Added missing logs in Docker support bundle.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Docker:**
+      - Edge Applications no longer display in the Dashboard for Litmus Edge instances running in Docker as containers do not run in this deployment method.
+      - Options that do not apply to Litmus Edge instances running in Docker have been removed from **System** > **Device Management** > **Template**.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Docker Compose:**
+      - With Docker Compose, containers with the same network name are now added to that network. A new network is also created in cases where no network exists.    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **High Availability:**
+      - The beta version of high availability includes improvements:
+        - Prevents selecting self as backup and validate version and license compatibility
+        - Status indicators such as the current role, rsync success/fail, last sync timestamp, and heartbeat
+        - Safeguards to prevent dual-active situations
+    </td>
+  </tr>
+</table>
+
+## Resolved Issues
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **DeviceHub:**
+      - Fixed an issue where long vendor names overlapped on the **Asset Discovery** home page.
+      - Fixed issue where quotes were not preserved when uploading tags from a CSV file.
+      - Fixed a response timeout issue where a delay intended for an ethernet connection recovery was also applied to serial connections. Now the delay no long occurs for serial connections.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Digital Twins:**
+      - Fixed issue where a `Model_deleted` event was incorrectly recorded when a delete of a model was prevented because of associated instances.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Analytics:**
+      - Resolved issue with Analytics template uploads where value wire connections were uploaded as events wire connections.
+      - Resolved issue where a `Failed to unsubscribe from processor instance` error displayed when deleting a processor.
+      - Fixed issue where no error notification displayed when adding an invalid variable name in **Analytics** > **Variables**.
+      - Fixed issue where Flows Manager was unresponsive when Flows Manager encountered unexpected flow contents.
+      - Now you can now update Analytics processor names.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - A duplicate check-box selection for Marketplace displayed on the **System** > **Device Management** > **Template** page.
+      - Fixed an issue where deleting a Docker Compose application deployed from Litmus Edge Manager Marketplace removed the associated network in Litmus Edge.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integrations:**
+      - Fixed an issue where the InfluxDB integration connector required a manual reconnect when the InfluxDB application stopped and started again.
+      - Fixed an issue with AWS Sitewise integrations where data was delayed and sent in bulk rather than at the polling interval defined for the driver. This occurred when some DeviceHub tags had a null value.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System:**
+      - Cloud backups did not include configurations for the default MQTT connector for Litmus Edge Manager activation. After a restore, the connector was missing from the UI even though events show it was recreated.
+      - Fixed an issue where the Auth category was included in templates used to backup and restore Litmus Edge instances. This caused an override of authentication configurations, such as LDAP, on those instances.
+      - An error message now displays when attempting to add a user who already exists in an external directory, such as LDAP.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Upgrades:**
+      - In some cases, a `Failed to check firmware upgrade status. Max retry attempts exceeded` error displayed in Litmus Edge Manager after upgrading a Litmus Edge device, even though the device was upgraded successfully.
+    </td>
+  </tr>
+</table>
+

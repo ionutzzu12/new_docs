@@ -1,0 +1,23 @@
+---
+title: Cloud Storage
+slug: KqvC0V3OWOl4GcntzM5Mq
+description: Learn how to sync your Cloud Storage in Litmus Edge. 
+docTags: 
+createdAt: Thu Dec 14 2023 20:58:25 GMT+0200 (Eastern European Standard Time)
+---
+
+You can transfer files from Litmus Edge to a cloud storage service.&#x20;
+
+# Set Up Cloud Storage
+
+Before you can start leveraging Cloud Storage, you need to set up the source directory that will be used for configuring sync jobs.&#x20;
+
+One option is to start the Litmus Edge FTP Server. See :Link[System Services]{label="System Services" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="5-CeM9XRNWqqh9tyfIspN" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+If you start the Litmus Edge FTP Server, you can use an FTP tool such as [Filezilla](https://filezilla-project.org/) to connect to the server and create a dedicated folder that will be used to copy or move files. For example, you can create the following file path to configure a sync job with AWS S3: `/var/lib/customer/ftp-data/s3-sync`. This file path will be used for the *Source&#x20;*&#x70;arameter in the sync job configuration.&#x20;
+
+# Next Steps
+
+- [Create a Cloud Storage Sync Job](<../Integration/Cloud Storage/9he-rrqq565uuHcgkgJv2.mdx>)&#x20;
+- :Link[Manage Cloud Storage Sync Jobs]{label="Manage Cloud Storage Sync Jobs" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="zooQjp8h8Y1GJCM4xmDJ9" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+

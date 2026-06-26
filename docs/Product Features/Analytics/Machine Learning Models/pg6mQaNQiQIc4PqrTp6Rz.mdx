@@ -1,0 +1,25 @@
+---
+title: Obtain Field Values from a Model
+slug: pg6mQaNQiQIc4PqrTp6Rz
+description: Learn how to obtain field values from a machine learning model. 
+docTags: 
+createdAt: Thu Oct 20 2022 21:36:36 GMT+0300 (Eastern European Summer Time)
+---
+
+When defining Analytics processors to interact with a Machine Learning model (:Link[TensorFlow]{docId="tYa79T0nArdygPj0vXFdy" label="Processor Flow Parameters" spaceId="lWkZJTQX2z4T6g7VfzwfZ" version="v2" docAnchorId="#Zhiad" overridedLabel="TensorFlow"}  or :Link[TensorFlow Images]{docId="tYa79T0nArdygPj0vXFdy" label="Processor Flow Parameters" spaceId="lWkZJTQX2z4T6g7VfzwfZ" version="v2" docAnchorId="#t0j32" overridedLabel="TensorFlow Images"}), you need to fill out a number of fields using values from that model.
+
+This procedure describes how you can obtain the relevant values from your model.
+
+**To obtain the relevant field values:**
+
+1. With TensorFlow installed on your local machine, enter this command in shell:
+   `saved_model_cli show --dir {PATH_TO_SAVE_MODEL}/{NAME_OF_SAVED_MODEL} --all`
+   This gives an output similar to the screenshot below.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ID-pxsqmxG5tUV2LB6i5r_form-fields-shell-command.png" size="80" width="782" height="275" position="center" caption="TensorFlow output" showCaption="true"></Image>
+2. Find the `The given savedModel SignatureDef contains the following input(s)` section.
+3. Copy aside:
+   - The input tensor name (input operation) from the `name` parameter (`serving_default_conv1d_input` in the screenshot above).
+   - The window size and number of inputs expected from the `shape` parameter. `(-1,48,19)` in the screenshot above means that the window size is `48`, and the number of inputs is `19`.
+4. Find the `The given savedModel SignatureDef contains the following output(s)` section.
+5. Copy aside the output tensor name (output operation) from the `name `parameter (`StatefulPartitionedCall` in the screenshot above).
+

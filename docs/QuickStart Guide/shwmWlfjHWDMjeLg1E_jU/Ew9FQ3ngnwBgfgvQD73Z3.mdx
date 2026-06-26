@@ -1,0 +1,76 @@
+---
+title: Modbus
+slug: Ew9FQ3ngnwBgfgvQD73Z3
+description: Review the different Modbus drivers and their uses. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:40:36 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note**: By default, the Modbus drivers monitor holding address 0 for connection status. If the Modbus device does not have holding address 0, then it will not show the "connected" status. You will still be able to read data from the device.
+</hint>
+
+Here are the major differences for the Modbus drivers:
+
+<table columnWidths="266,269" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      **Use**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      [Enron Modbus](<../Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/OoK37gJ8uH6S6Mkqw8Kll.mdx>)
+    </td>
+    <td>
+      Serial connection or TCP connection to an Enron Modbus device.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - :Link[Modbus ASCII]{docId="ErSnqCvewehg1ZSwW8c0g" label="Modbus ASCII" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+      - :Link[Modbus ASCII Advanced]{label="Modbus ASCII Advanced" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="awMxBoNN_-n3hnRujMEqo" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+    <td>
+      Serial connection to a device using Modbus ASCII. Use the Advanced driver for a multi-drop network with multiple Station IDs.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - :Link[Modbus RTU]{docId="MydDT3Qp-SeCtncPkxaNu" label="Modbus RTU" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+      - [Modbus RTU Advanced](<../Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/RNbCfIDjDcgwXTY0oqu6q.mdx>)
+      - [Modbus Multi-Station RTU to TCP Converter](<../Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/modbus-multi-station-rtu-to-tcp-converter.mdx>)&#x20;
+    </td>
+    <td>
+      Serial connection to a device using Modbus RTU. Use the Advanced driver for a multi-drop network with multiple Station IDs. Use the Multi-Station Driver if you want to reuse tag names across Station IDs.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - [Modbus RTU over TCP](<../Industrial Systems Connection Guide/Modbus/Gen 2 Drivers/aCFgxdU-SyNiY5su4A6V5.mdx>)
+    </td>
+    <td>
+      TCP connection to a Modbus server which has one or more Modbus RTU connections.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - :Link[Modbus TCP]{docId="8Bb_FOShzrJUCv0ZBWtEM" label="Modbus TCP" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+    <td>
+      TCP connection to a Modbus device.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      - :Link[Modbus UDP]{docId="_P1PvAsvK2BS3hwMpeUyT" label="Modbus UDP" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+    <td>
+      UDP connection to a Modbus device.
+    </td>
+  </tr>
+</table>
+

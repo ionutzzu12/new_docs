@@ -1,0 +1,141 @@
+---
+title: Omron-NJ-Ethernet (Gen1.3)
+slug: ihfH6YO78wCGMcGFSUhEm
+description: Review the following information for setting up and configuring the Omron-NJ-Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Omron-NJ-Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="211,302" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[NJ]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/controller-nj-series/index.html" newTab="true"}
+      :Link[NX1P]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/controller-nx1p/index.html" newTab="true"}
+      When configuring tags for this driver, you must enter the case-sensitive register name exactly as defined in the PLC. See the *Free Tags* section below to learn more.&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it as needed.&#x20;
+   - **Device**: Omron NJ Ethernet
+   - **Communication I/F**: Ethernet. Refer to the following figure.
+2. Connect the device with a USB cable.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/9oG-E_KPeouzfIa_vQkQk_omron-nj-ethernet.png" size="80" width="1248" height="379" position="flex-start" caption="Reference image of device" showCaption="true" indent="2"></Image>
+
+3. Launch Sysmac Studio v1.20.1.0 software, select **Controller > Communication Setup**, and then set up the IP address.
+4. Use a direct connection through **USB > USB Communication Test**.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="166,334" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Omron
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Omron NJ Ethernet NJ301-1100
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+When you :Link[Add a Tag]{label="Add a Tag" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, refer to the following tag parameters and available value types.
+
+Refer to the following additional resources:
+
+- :Link[Organize Device and Tag Data by Using Metadata]{label="Organize Device and Tag Data by Using Metadata" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="bQWcoGfuV67W2hPL28ds_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Tag Formula Variables]{label="Tag Formula Variables" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="1f1dqpdWvW26F2YsI9yXf" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+
+## Free Tags
+
+This driver doesn't have a list of available register names in the DeviceHub *Add Tag* form. To add tags, you must enter the case-sensitive register name exactly as it is defined in the PLC.
+
+A **Connected&#x20;**&#x73;tatus for the device won't display until a tag with a correct register name is created and a value is generated (not null/blank).
+
+## Available Value Types
+
+## T Arrays
+
+If you want to read a DINT array, you need to write the element number of the array that you want to read in square brackets along with the tag name.&#x20;
+
+<hint type="info">
+  **Example**: If the array name is ArrayDint and you want to read the third element of the array, the format for the tag name in Litmus Edge is `ArrayDint[2]`.&#x20;
+</hint>
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

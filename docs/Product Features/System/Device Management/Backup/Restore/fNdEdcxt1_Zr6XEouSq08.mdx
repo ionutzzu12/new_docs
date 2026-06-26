@@ -1,0 +1,38 @@
+---
+title: Prepare for Backup
+slug: fNdEdcxt1_Zr6XEouSq08
+description: Learn how to prepare for restoring a backup. 
+docTags: 
+createdAt: Fri May 27 2022 19:36:24 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information to prepare for restoring a backup.&#x20;
+
+<hint type="warning">
+  **Important**: If you create a backup on an instance of Litmus Edge running on a virtual machine, you can't use the same backup to restore an instance of Litmus Edge running on a physical device.&#x20;
+</hint>
+
+Make sure you do the following before restoring a backup.&#x20;
+
+- Obtain a license for backup and restore. A new license is needed each time the Litmus Edge device changes its MAC address.&#x20;
+- Activate the device with Litmus Edge Manager. See [Activate an Edge Device](../../../../x-TJIj5OMZ8n5UdZDqGRk/lSo0flI6HyIxfcML6dh_v/VxQEtpRL0w9DXD8DhH9Sc.mdx) for more information.
+
+<hint type="success">
+  **Tip**:&#x20;
+  **Request a License Key**
+
+  Contact your Litmus Edge representative to request a license key.
+
+  See [Upgrade a Node-Locked License](<../../../Activation/Licenses/Online Node-Locked License Activations/TjRZWbPgoNAfwv1nl8iKO.mdx>) or [Upgrade a Node-Locked License Offline](<../../../Activation/Licenses/Offline Node-Locked License Activations/3BjA2L37xjPDV7FZgFicV.mdx>) for steps on upgrading licenses.
+</hint>
+
+Your organization's standards and requirements dictate the frequency of device backups.
+
+# Litmus Edge Configuration Backup and Virtual Machine Snapshots
+
+Some virtual machines (such as VMware ESXI or MS HyperV) offer snapshots as a disaster recovery feature. Therefore, for these virtually deployed Litmus Edge instances, configuration backups should not be used as the primary means of disaster recovery.
+
+A snapshot is the state of a virtual machine at a specific point in time. In addition to being able to save a Litmus Edge’s state like a configuration backup can, snapshots also preserve the virtual device’s memory and disc allocation.
+
+For these virtual machines, configuration backups can be used instead to reset the configuration of a virtual device or to duplicate the setup of one device to many other virtual devices.
+

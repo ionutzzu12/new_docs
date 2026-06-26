@@ -1,0 +1,36 @@
+---
+title: Check Database Connectivity
+slug: HXjWyfUkeYWezIIs3vEv9
+description: You can use flows to check database connectivity.
+docTags: 
+createdAt: Wed Jun 07 2023 21:30:02 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use flows to check database connectivity.
+
+Before performing database operations with **Flows**, you may want to make a quick flow to check connectivity.
+
+# Before you begin
+
+- Set up a database app in Applications Marketplace. See .
+- You need to be familiar with performing SQL queries.
+
+# Create the flow
+
+**To check MSSQL database connectivity in Flows:**
+
+1. From the navigation panel, select **Flows Manager**.
+2. Click the **Expand&#xA0;**&#x69;con next to a selected Flow.
+   The selected Flow opens in a new browser tab.
+3. Drag the **Inject**, **MSSQL&#x20;**&#x61;nd **Debug&#x20;**&#x6E;odes to the canvas and connect them together.
+   This example uses the Microsoft SQL server. To use a different database you can create the node corresponding to your system instead of the MSSQL node.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Gcf147p16M6ispdwXWfmY_flow-14.png "Inject, MSSQL and Debug nodes")
+4. Double-click the **MSSQL** node and enter a simple test query. This query shows the number of rows in a table:
+   `SELECT COUNT(id) FROM ,<tablename>`
+   Make sure to replace `<tablename>` with a table name in your database.
+5. Click **Edit&#x20;**&#x74;o edit database connection settings. Enter your Server IP address, your database Username, and your database Password.
+6. Click **Update&#x20;**&#x74;o save the connection settings for use in any other flow you create. Click **Deploy&#x20;**&#x74;o save your flow.
+7. Click the button to the left of the inject node. The **debug** tab should display the query result.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/DnHTtWZINKllsP-U_A0YH_image.png "Debug tab")
+

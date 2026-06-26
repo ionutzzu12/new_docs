@@ -1,0 +1,127 @@
+---
+title: Excel (Gen1.3)
+slug: JkwSq2hIsBog6THhYp9Fl
+description: You can set up the Excel driver to read values in an Excel file.
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+You can set up the Excel driver to read values in an Excel file.
+
+# Before You Begin
+
+Make sure you do the following:
+
+- Have an Excel file located on your hard drive.
+- Ensure the FTP service is running. See :Link[Manage FTP and System Services]{docId="LdV5xKwp4NtrLQa4p2a-b" label="Manage FTP and System Services" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage FTP and System Services"} for more information.
+- Install the :Link[WinSCP FTP client ]{href="https://winscp.net/eng/index.php" newTab="true"}on your computer.
+- Add an FTP user. See :Link[Add an FTP User]{docId="yRRWGSSfhEdnz3q9jgQJc" label="Add an FTP User" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add an FTP User"} for more information.
+
+# Set Up Excel Driver
+
+Setting up the Excel driver includes the following tasks:
+
+- Step 1: Set Up FTP Client
+- Step 2: Add Excel Driver
+- Step 3: Add a Tag For a Single Cell in Excel
+- Step 4: Add a Tag for Range of Cells in Excel
+- Step 5: Create Flow for Single Cell in Excel
+- Step 6: Create Flow for Range of Cells in Excel
+
+## Step 1: Set Up FTP Client
+
+**To set up the FTP client:**
+
+1. Open the WinSCP FTP client.&#x20;
+   The *FTP Login* dialog box appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/kHFvF63MmsPXpbz2ST2Eg_ftp-client-window.png" size="80" width="827" height="538" position="flex-start" caption="FTP Login dialog box" showCaption="true" indent="2"></Image>
+
+2. For **File Protocol**, select **FTP**.&#x20;
+3. Configure the following parameters.&#x20;
+   - **Host name**: Enter the Litmus Edge URL.&#x20;
+   - **User name**: Enter the FTP username you created when you :Link[Added an FTP User]{docId="yRRWGSSfhEdnz3q9jgQJc" label="Add an FTP User" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Added an FTP User"}.
+   - **Password**: Paste the password you copied when you :Link[Added an FTP User]{docId="yRRWGSSfhEdnz3q9jgQJc" label="Add an FTP User" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Added an FTP User"}.
+4. Click **Login**.&#x20;
+   The WinSCP window appears.
+
+5. Open the DeviceHub folder in the right pane.
+6. From the left pane, drag the Excel file to the open DeviceHub folder.
+   The Excel file uploads to the folder.
+
+## Step 2: Add Excel Driver
+
+**To add the Excel driver:&#x20;**
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Devices**.&#x20;
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device&#x20;*&#x64;ialog box appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/atJL37pPuLGI2bM_w2ibz_adddevice.png" size="80" width="1046" height="528" position="flex-start" caption="Connect a Device box" showCaption="true" indent="2"></Image>
+
+3. In the **Device Type** drop-down list, select **Excel**.&#x20;
+4. In the **Driver Name** drop-down list, select **Excel (Gen1.3)**.&#x20;
+5. In the **Name&#x20;**&#x66;ield, enter a name for the device.&#x20;
+6. In the **Path&#x20;**&#x66;ield, enter the path for the Excel file that you just previously uploaded.&#x20;
+7. Click **Add Device**.&#x20;
+   The Excel device appears in the *Devices&#x20;*&#x70;ane.&#x20;
+
+## Step 3: Add a Tag For a Single Cell in Excel
+
+The Excel device is disconnected until you add a tag.
+
+**To add a tag for single cell:**
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Tags**.
+2. Click the Excel device.&#x20;
+3. Click the **Add&#x20;**&#x69;con and select **Add a Tag**.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4nexvxRZvUEqBp9uGaXNl_addexceltag.png" size="80" width="1186" height="337" position="flex-start" caption="Add a Tag option" showCaption="true" indent="2"></Image>
+
+4. Configure the following parameters.&#x20;
+   - **Name**: Select **R**.&#x20;
+   - **Value Type**: Select **single**.
+   - **Polling Interval**: Enter a value.&#x20;
+   - **Tag Name**: Enter a tag name.
+   - **Start Cell**: Enter a value. For example, **A1**.&#x20;
+   - **End Cell**: To configure the tag for only one cell, enter the same value as the Start Cell. &#x20;
+   - **Sheet**: Enter the Excel file sheet name from which the cell data is used. The sheet name must be exactly the same as the sheet name in the Excel file.
+5. Click **Add Tag**.&#x20;
+   The tag is added to the tags pane.
+6. Click the **Copy&#x20;**&#x69;con for the tag in the *RAW Topic* column.&#x20;
+
+## Step 4: Add a Tag for Range of Cells in Excel
+
+**To add a tag for a range of cells:**
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Tags**.
+2. Select the Excel device.&#x20;
+3. Click the **Add&#x20;**&#x69;con and select **Add a Tag**.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4nexvxRZvUEqBp9uGaXNl_addexceltag.png" size="80" width="1186" height="337" position="flex-start" caption="Add a Tag option" showCaption="true" indent="2"></Image>
+
+4. Configure the following parameters.&#x20;
+   - **Name**: Select **R**.&#x20;
+   - **Value Type**: Select **range**.
+   - **Polling Interval**: Enter a value.&#x20;
+   - **Tag Name**: Enter a tag name.
+   - **Start Cell**: Enter the starting cell to read data.&#x20;
+   - **End Cell**: Enter the ending cell to read data.&#x20;
+   - **Sheet**: Enter the Excel file sheet name from which the cell data is used. The sheet name must be exactly the same as the sheet name in the Excel file.
+5. Click **Add Tag**.&#x20;
+   The tag is added to the tags pane.
+6. Click the **Copy&#x20;**&#x69;con for the tag in the *RAW Topic* column.&#x20;
+
+## Step 5: Create Flow
+
+**To create a flow:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow. See :Link[Create a Flow]{docId="Nay58AX-cu8eMvJ5jUcQm" label="Create a Flow" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Create a Flow"} to learn more.&#x20;
+2. Drag the **DataHub Subscribe&#xA0;**&#x61;nd **Debug&#xA0;**&#x6E;odes to the canvas and wire them together.
+3. Double-click the **DataHub Subscribe&#xA0;**&#x6E;ode.
+4. In the Topic field, paste the RAW Topic value from either "Step 3: Add a Tag For a Single Cell in Excel" or "Step 4: Add a Tag for Range of Cells in Excel".&#x20;
+5. If needed, configure the *Datahub Subscribe* connection. See the "Step 3: Configure Connector Nodes" section in :Link[Create a Flow]{docId="Nay58AX-cu8eMvJ5jUcQm" label="Create a Flow" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#step-3-configure-connector-nodes" overridedLabel="Create a Flow"} to learn more.&#x20;
+6. Click **Deploy**.
+7. Click the **Debug&#x20;**&#x69;con. See the "Additional Options" section in :Link[Manage the Flow Canvas]{docId="b4j8pdNWbrEZWat0yLVgt" label="Manage the Flow Canvas" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage the Flow Canvas"} to learn more.&#x20;
+8. Review the debug messages and confirm they correspond to the values in the Excel file.&#x20;
+

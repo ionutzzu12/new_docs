@@ -1,0 +1,134 @@
+---
+title: Use the Moving Window Processor Function
+slug: lj_bDIQheQtTKOItiFp5F
+description: Learn how to use the Moving Window statistical function in Analytics. 
+docTags: 
+createdAt: Mon Jan 22 2024 18:23:51 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use a single input to perform calculations over a sliding or moving window of data from your PLC device. Single inputs are to be provided with the events-type connection and then the respective functions are calculated as the names suggest.
+
+# Understanding Different Moving Window Functions
+
+Use one of the following functions for your inputs:
+
+- **Moving Average:&#xA0;**&#x43;alculates the average of the moving window of input values in the Flow.
+- **Moving Maximum:&#xA0;**&#x52;eturns the maximum value among the moving window of input values in the Flow.
+- **Moving Minimum:&#x20;**&#x52;eturns the minimum value among the moving window of input values in the Flow.
+
+# **User Scenario**
+
+Review the following scenario for the moving window processor function. Then, you will simulate PLC data and calculate KPIs using multiple moving processor functions.
+
+In a production facility, several PLCs use multiple sensors to monitor parameters such as temperature, pressure, and speed.
+
+- You can monitor temperature trends and detect anomalies in machines by using the **Moving Average** function over a specific time frame.
+- You can identify any sudden spikes by extracting the highest pressure readings from sensors using the **Moving Maximum** function over a specific time frame.
+- You can pinpoint periods when machine performance drops below acceptable levels by using the **Moving Minimum** function within a defined window.
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../Product Features/DeviceHub/BsCZeopVvxIBRMcyy7USc/P8ECCvXLg-LwowsB7Leyc.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. Only one tag will be used for simulating the different Moving processor outputs mentioned above.
+
+## **Tag 1: tag1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **tag1**
+- **Min\_value**: Enter **1**
+- **Max\_value**: Enter **99**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created. Follow the appropriate step out of 3a, 3b, or, 3c based on the Moving Window Processor Function you want to use.
+
+**To create an analytics flow with the Moving Window Processor function:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **tag1**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+
+## Step 3a: Configure Moving Average Processor
+
+1. Click **Add processor** again and select **Moving Average**.
+   The following information defines this function:
+   - **Field Name**: Select the field name for which you want to apply the function. For example, **value&#xA0;**&#x6F;r **downtime**.
+   - **Processing Type**: Select **float&#x20;**&#x66;rom the drop-down list.
+   - **Window Size:&#x20;**&#x45;nter the number of values you want the function to consider.
+2. Click **Save.**
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RATjN77ITpAJLV_3_2i7p_image.png "Moving Average dialog box")
+3. Connect the DataHub Subscribe processor (tag: *tag1)* to the Moving Average processor with a wire and use the **events&#x20;**&#x63;onnection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/iO_k59vGqpqUpLj-DxxtB_image.png "Completed Moving Average flow canvas")
+
+## Step 3b: Configure Moving Maximum Processor
+
+1. Click **Add processor** again and select **Moving Maximum**.
+   The following information defines this function:
+   - **Field Name**: Select the field name for which you want to apply the function. For example, **value&#xA0;**&#x6F;r **downtime**.
+   - **Processing Type**: Select **float&#x20;**&#x66;rom the drop-down list.
+   - **Window Size:&#x20;**&#x45;nter the number of values you want the function to consider.
+2. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Llb9yIaiMoQ6h8ClXS6sZ_image.png "Moving Maximum dialog box")
+3. Connect the DataHub Subscribe processor (tag: *tag1*) to the Moving Maximum processor with a wire and use the **events&#x20;**&#x63;onnection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/IJMJ3tknbGfpzAuk6jO5M_image.png "Completed Moving Maximum flow canvas")
+
+## Step 3c: Configure Moving Minimum Processor
+
+1. Click **Add processor** again and select **Moving Minimum**.
+   The following information defines this function:
+   - **Field Name**: Select the field name for which you want to apply the function. For example, **value&#xA0;**&#x6F;r **downtime**.
+   - **Processing Type**: Select **float&#x20;**&#x66;rom the drop-down list.
+   - **Window Size:&#x20;**&#x45;nter the number of values you want the function to consider.
+2. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/mz2rgydGIGMqMKHwtw8kv_image.png "Moving Minimum dialog box")
+3. Connect the DataHub Subscribe processor (tag: *tag1*) to the Moving Minimum processor with a wire and use the **events&#x20;**&#x63;onnection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/7-5_DVeRji3igK8ZzYAUT_image.png "Completed Moving Minimum flow canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Moving&#x20;*&#x70;rocessor to view the output values.
+
+## View Moving Average Output
+
+The average function calculates the average of last 10 values from the defined *tag1* values.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Fbtp7g0bphCi6xwA7Tj5E_image.png "Moving Average Processor Output")
+
+## View Moving Maximum Output
+
+The maximum function finds the largest of last 10 values from the defined *tag1* values.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/92_tIhvb6ijk_rSK5BoU9_image.png "Moving Maximum Processor Output")
+
+## View Moving Minimum Output
+
+The minimum function finds the smallest of last 10 values from the defined *tag1* values.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/VicTmQsnJxFLpxpzpJl0n_image.png "Moving Minimum Processor Output")
+

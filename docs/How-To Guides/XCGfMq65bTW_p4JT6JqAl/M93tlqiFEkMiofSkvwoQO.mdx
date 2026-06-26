@@ -1,0 +1,188 @@
+---
+title: Work with MongoDB Databases
+slug: M93tlqiFEkMiofSkvwoQO
+description: You can create flows to connect with Mongo DB databases. MongoDB nodes allow all major operations on the MongoDB database.
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:24 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use Flows to establish a connection with the MongoDB database and complete  operations on it.
+
+# Step 1: Install MongoDB in Litmus Edge
+
+**To install MongoDB in Litmus Edge:**
+
+1. Navigate to **Applications&#x20;**> **Marketplace**.
+2. Click **Marketplace List** and select *Default Marketplace Catalog*.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5GLKTZ-bbTSqESXmybUjh_image.png "Applications marketplace page")
+3. Search and click the **MongoDB&#x20;**&#x74;ile.&#x20;
+   - **Installation script version:&#x20;**&#x46;rom the drop-down list, select **latest**.&#x20;
+   - **Name:** Enter a name for the application.
+   - Leave the other fields with their default values.&#x20;
+4. Click **Launch**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vrG2Yx1ZGHXelFeR042G4_image.png" size="70" width="945" height="858" position="center" caption="MongoDB configuration dialog box" showCaption="true"></Image>
+5. Navigate to **Applications > Catalog Apps&#x20;**&#x74;o ensure the application is running successfully.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nBuRnJRiZNobeQAbKfAR2_image.png "Running MongoDB application")
+
+## Troubleshooting
+
+If you have any issues installing mongoDB, do the following:
+
+- Check **System** > **Info** to make sure that you have enough space on your edge device.
+- Make sure that you do not have any network connectivity issues.
+- Navigate to **Applications&#x20;**> **Catalog Apps** and click the **MongoDB** application tile to view the logs. Review any errors.&#x20;
+
+# Step 2: Create Flow
+
+To start creating the flow in Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow. See [Create a Flow](<../../Product Features/Flows Manager/M-7nGo-rJyXZ37GawCjly.mdx>) to learn more.
+
+**You can create flows with MongoDB nodes to do the following:**
+
+- Read the inserted values
+- Update the values
+- Remove the values from the database
+
+There are three MongoDB nodes available on the flow canvas.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2QDyqFWawOThFvOCmimVZ_image.png" size="80" width="650" height="767" caption="Available MongoDB nodes" position="center" showCaption="true"></Image>
+
+- **Mongodb in**: Allows simple queries such as *find&#x20;*&#x61;nd *count*.&#x20;
+- **Mongodb out**: Allows operations such as *insert*, *update*, and *remove*.&#x20;
+- **Mongodb3 in**: Allows more complex operations such as *MapReduce*.&#x20;
+
+## Configure MongoDB Node
+
+You will first need to configure a database connection for the MongoDB node. You can set up the configuration once and use it for all MongoDB nodes in the same Flows Manager.
+
+**To configure the MongoDB node:**
+
+1. Drag and double-click a **Mongodb3 in&#x20;**&#x6E;ode on the canvas.
+   The *Edit mongodb3 in node&#x20;*&#x64;ialog box appears.&#x20;
+   - **Server:** Click the **Edit&#x20;**&#x69;con.
+   - Configure the **Properties** for the node.&#x20;
+     - MongoDB does not require a username or password by default, so you can leave this blank unless you set them previously.
+     - **URI**: Enter the IP address for your MongoDB server. It is [mongodb://localhost:\<27017>](mongodb://localhost:\<27017>) if your MongoDB instance is running on the same device as Litmus Edge.
+     - Click **Add&#x20;**&#x6F;r **Update**.
+       <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/jX3av9DyVnmrY2sg1UOdh_image.png" size="60" width="505" height="462" position="center" caption="Mongodb3 in Properties dialog box" showCaption="true"></Image>
+2. Click **Done** and then click **Deploy**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/fUQx9zWWjXNiGPrVO8IXh_image.png "Flows canvas with mongodb3 in node")
+
+## Insert Values
+
+**To insert new records into a MongoDB database:**
+
+1. From the flow canvas, drag and connect an **Inject&#xA0;**&#x6E;ode, a **Function&#xA0;**&#x6E;ode, and a **Mongodb out** node.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/TqeED4VtjUVm6U6Os6D8__image.png "Connected nodes on canvas")
+2. Double-click the **Function&#x20;**&#x6E;ode.
+   The *Edit function node&#x20;*&#x64;ialog box appears.&#x20;
+   - **On Message:** Enter the following:
+     `msg.payload = {"column1" : "value1", "column2" : 15}; // Change to be the keys and values appropriate for your database.     `
+     `return msg;`
+   - Click **Done.**
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KgeQ3uHcy4DjPWivPDeAV_image.png" size="70" width="645" height="415" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+3. Double-click the **Mongodb out&#x20;**&#x6E;ode.
+   The *Edit mongodb out node&#x20;*&#x64;ialog box appers. &#x20;
+   - **Operation**: Select **insert**.&#x20;
+   - **Only store msg.payload object**: Select the checkbox.&#x20;
+   - **Collection:&#x20;**&#x45;nter **devicehub**.
+   - **Server:** Configure the server setting if needed.
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/sfkxeG0211y-Mj3i4EPVb_image.png" size="60" width="505" height="413" position="center" caption="Edit mongodb out node dialog box" showCaption="true"></Image>
+4. Click **Deploy.**
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/21a8Eu0oT2QcMT4nlmKTP_image.png "Completed flows canvas")
+5. Click the **Inject&#x20;**&#x6E;ode button to insert records into the database.&#x20;
+   Each click inserts a new record with a new ID (\_id).&#x20;
+
+## Read All Records
+
+**To retrieve all records from a MongoDB collection:**
+
+1. From the flow canvas, drag and connect an **Inject&#xA0;**&#x6E;ode, a **Mongodb in** node, and a **debug&#xA0;**&#x6E;ode.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/WNZSEHVEWXXeeL1cNyy8W_image.png "Connected nodes on canvas")
+2. Double-click the **Mongodb in** node.&#x20;
+   The *Edit mongodb in node* dialog box appears. &#x20;
+   - **Collection**: Enter **devicehub**.&#x20;
+   - **Operation**: Select **find**.
+   - **Server:** Configure the server setting if needed.
+   - Click **Done.**
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KxvsTesEAs2muvfjeHcvR_image.png" size="60" width="560" height="371" position="center" caption="Edit mongodb in node dialog box" showCaption="true"></Image>
+3. Click **Deploy&#x20;**&#x61;nd expand the message window beneath the flow.&#x20;
+4. Click the **Debug&#x20;**&#x69;con to view the output.
+   All the records are seen in the table.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1ts5L5McABuVhnbOmH2Jv_image.png "Completed flows canvas")
+
+## Read Single Record
+
+**To retrieve a single record from a MongoDB collection:**
+
+1. From the flow canvas, drag and connect an **Inject&#xA0;**&#x6E;ode, a **Function&#xA0;**&#x6E;ode, a **Mongodb3 in&#xA0;**&#x6E;ode, and a **Debug&#xA0;**&#x6E;ode.
+2. From the flow canvas, drag and connect an **Inject&#xA0;**&#x6E;ode, a **Function&#xA0;**&#x6E;ode, a **Mongodb3 in** node, and a **Debug&#xA0;**&#x6E;ode.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9k0Ii2Wyl2WBUcXLuBIBo_image.png "Connected nodes on canvas")
+3. Double-click the **Mongodb3 in&#x20;**&#x6E;ode.&#x20;
+   The *Edit mongodb3 in node&#x20;*&#x64;ialog box appears.
+   - **Service**: Select **External service**.&#x20;
+   - **Server**: Select the **Server&#x20;**&#x79;ou created while configuring the MongoDB node above.
+   - **Operation**: Select **findOne**.&#x20;
+   - Click **Done.**
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zX3Us1kFajTF7_5jZA3z8_image.png" size="60" width="512" height="414" position="center" caption="Edit mongodb3 in node dialog box" showCaption="true"></Image>
+4. Double-click the **Function&#x20;**&#x6E;ode.&#x20;
+   The *Edit function node&#x20;*&#x64;ialog box appears.
+   - **On Message**: Enter the following:
+     `msg.payload = {"column2" : 16} // This line reads all records where column2 is equal to 16.     `
+     `return msg;`
+   - Click **Done.**
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KOVwk6W6b3PHh8kbNX354_image.png" size="70" width="641" height="322" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+5. Click **Deploy** and expand the message window beneath the flow.
+6. Click the **Inject&#x20;**&#x6E;ode button to read the record that matches the specified key-value pair. View the record by clicking the **Debug&#xA0;**&#x69;con.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tgWNt-dGjYJQX9l6nnkbV_image.png "Completed flows canvas")
+
+## Update Values
+
+**To update values in a MongoDB database:**
+
+1. In the flow canvas, drag and connect an **Inject&#xA0;**&#x6E;ode, a **Function&#xA0;**&#x6E;ode, and a **Mongodb out** node.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Wp0bt0KhVigZPYuFUCHsO_image.png "Connected nodes on canvas")
+2. Double-click the **Mongodb out** node. &#x20;
+   The *Edit mongodb out node&#x20;*&#x64;ialog box appears.
+   - **Collection**: Enter **devicehub**.&#x20;
+   - **Operation**: Select **update**.&#x20;
+   - **Update all matching documents**: Select the check box.
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZAzbKjSy02Yn1DoC3oMdd_image.png" size="60" width="508" height="442" position="center" caption="Edit mongodb out node dialog box" showCaption="true"></Image>
+3. Double-click the **Function&#x20;**&#x6E;ode.&#x20;
+   The *Edit function node&#x20;*&#x64;ialog box appears.
+   - **On Message**: Enter the following:
+     `msg.query = {"column2" : 15}; // This line makes the query only update records where column2 is equal to 15.     `
+     `msg.payload = {"$set": { "column2": 20 }}; // This line uses the set operator to ensure that the update sets column2 to 20 for all matching records.     `
+     `return msg;`
+   - Click **Done.**
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JDzg9F11MQm_cbnAj188t_image.png" size="70" width="645" height="357" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+4. Click **Deploy&#x20;**&#x61;nd expand the message window beneath the flow.
+5. Click the **Inject&#x20;**&#x6E;ode to perform the update operation.
+   The records with column2 value as 15 are updated with 20.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/MiNQRUk5M0tpg5XLLdznT_image.png "Completed flows canvas")
+
+## Delete Values
+
+**To delete records from a MongoDB database:**
+
+1. In the flow canvas, drag and connect an **Inject&#xA0;**&#x6E;ode, a **Function&#xA0;**&#x6E;ode, and a **Mongodb out** node.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/wCjLZ-qDANXpoTqy1cw78_image.png "Connected nodes on canvas")
+2. Double-click the **Mongodb out** node. &#x20;
+   The *Edit mongodb out node&#x20;*&#x64;ialog box appears.
+   - **Collection**: Enter **devicehub**.&#x20;
+   - **Operation**: Select **remove**.&#x20;
+   - Click **Done.**
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ji8KZYLX6pcqfVytqUQQT_image.png" size="60" width="560" height="406" position="center" caption="Edit mongodb out node dialog box" showCaption="true"></Image>
+3. Double-click the **Function&#x20;**&#x6E;ode.&#x20;
+   The *Edit function node&#x20;*&#x64;ialog box appears.
+   - **On Message**: Enter the following:
+     `msg.payload = {"column2" : 20}; // Makes the remove operation delete all records where column2 equals 20.     `
+     `return msg;`
+   - Click **Done.**
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/p9dY-4FLkQ5WFOeVgpkhv_image.png" size="70" width="711" height="370" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+4. Click **Deploy** and expand the message window beneath the flow.
+5. Click the **Inject&#x20;**&#x6E;ode to perform the remove operation.
+   The record with columns equal to 20 are deleted.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/gU8LH6pQnivzLL_BbouMe_image.png "Completed flows canvas")
+

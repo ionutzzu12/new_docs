@@ -1,0 +1,88 @@
+---
+title: Gen1 and Gen2 Driver Differences
+slug: 0KqNU0lsR52W_3pDma1rd
+description: Learn more about the differences between Gen1 and Gen2 devices. 
+docTags: 
+createdAt: Fri Sep 30 2022 17:55:02 GMT+0300 (Eastern European Summer Time)
+---
+
+The following table shows the differences between the capabilities of Gen1 and Gen2 drivers.
+
+The Gen2 drivers are paired as closely as possible with comparative Gen1 drivers to help with the selection process.
+
+<hint type="info">
+  **Note**: The **Enable Logging** option when connecting an edge device is only available for Gen 2 drivers. See :Link[Connect a Device]{label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="IxDarLhX06j-kM1HeO34R" version="v2" docAnchorId="#e31JR" loadingMethod="dynamic" overridedLabel} for more details.
+</hint>
+
+<table columnWidths="315,343" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Gen 1 Driver**
+    </td>
+    <td align="left">
+      **Gen 2 Driver**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Modbus ASCII (Gen1)**
+      - Data types supported are: bit, word.
+    </td>
+    <td align="left">
+      **Modbus ASCII**
+      - Has the same functionality as Modbus ASCII (Gen1).
+      - Better performance compared to Gen1 driver.
+      - Data types supported are: bit, word.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Modbus RTU (Gen1)**
+      - Data types supported are: bit, int, uint, ulong, ulong (big-endian), float, float (big-endian), double, double (big-endian).                     &#x20;
+    </td>
+    <td align="left">
+      **Modbus RTU**
+      - Data types supported are: bit, word.&#x20;
+      - Has an option for zero-based addressing and therefore replaces both Gen1 RTU drivers.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Modbus TCP (Gen1)**
+      - Data types supported are: bit, int, uint, ulong, ulong (big-endian), float, float (big-endian), double, double (big-endian).       &#x20;
+    </td>
+    <td align="left">
+      **Modbus TCP**
+      - Has the same functionality as Modbus TCP (Gen1).
+      - Data types supported are: bit, word, float32, float64.
+      - Better performance compared to Gen1 driver.
+      - Has an option for zero-based addressing and therefore replaces both Gen1 TCP drivers.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Modbus UDP (Gen1)**
+      - Data types supported are: bit, word.
+    </td>
+    <td align="left">
+      **Modbus UDP**
+      - Has the same functionality as Modbus UDP (Gen1).
+      - Better performance compared to Gen1 driver.
+      - Data types supported are: bit, word.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Simulator (Gen1)**
+      - This driver is used to generate simulated data. It supports all the standard Python math functions.
+      - Does not support char and string data types.
+      - Data types supported are: bit, int, float.                    &#x20;
+    </td>
+    <td align="left">
+      **Generator**
+      - Has the same functionality as Simulator (Gen1).
+      - Data types supported are: float64, int64, unit64, bit, char, string.
+    </td>
+  </tr>
+</table>
+

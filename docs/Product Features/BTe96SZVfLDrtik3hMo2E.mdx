@@ -1,0 +1,48 @@
+---
+title: OPC UA Server
+slug: BTe96SZVfLDrtik3hMo2E
+description: The OPC UA protocol provides a publish-subscribe client-server technology for reliable data transmission.
+docTags: 
+createdAt: Thu Mar 31 2022 00:10:01 GMT+0300 (Eastern European Summer Time)
+---
+
+The OPC UA (Open Platform Communications Unified Architecture) protocol provides a publish-subscribe client-server technology for reliable data transmission. Its architecture ensures more secure communication than its OPC predecessor, OPC DA. The OPC UA protocol offers a solution for industrial IoT because it interacts with dedicated controllers and sensors, as well as with large enterprise databases and data analysis systems.
+
+When handling devices that implement OPC UA, Litmus Edge is deployed either as an OPC UA server or an OPC UA client.
+
+The following diagram shows how OPC works with Litmus Edge.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/F1gb3FzSrJmZHU7KPyb1y_opcuaconnection808x526.jpg" size="80" width="808" height="526" position="center" caption="OPC UA Server-Client Model in Litmus Edge" showCaption="true"></Image>
+
+The OPC UA servers support a flexible [Hierarchy](<OPC UA Server/geZEZ35r1HfengtmajHMg.mdx>) for mapping to the OPC UA clients.
+
+# OPC UA Challenges
+
+The OPC UA protocol works with a wide variety of security models and transport layers. IoT applications face the following challenges.
+
+## OPC UA Server Configurations Vary
+
+OPC UA servers can have hundreds of different configurations:
+
+- Server configurations are specific to an enterprise. Litmus Edge cannot determine these enterprise-specific bindings.
+- Each OPC UA server name includes details, using this URL format: `opc.tcp://ipaddress:port/{servername}`.
+  Based on this name format, Litmus Edge can discover an OPC UA server. However, Litmus Edge cannot account for how a customer configured an OPC UA server.
+
+## OPC UA Includes Windows-Specific Features&#x20;
+
+OPC UA evolved from the OPC DA (Data Access) protocol, where the clients and servers worked only in Windows. Therefore, many of the OPC UA native features, such as Discovery, work well only in Windows.
+
+For example, when the TCP connection is on a Windows server, Litmus Edge cannot connect to it, even if other Windows-based agents can connect. Windows imposes this restriction.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/LJQcyF9po0VEZG76K-W13_opcuadesktopconnection850x645.png" size="80" width="850" height="645" position="center" caption="Setting Network Adapter for OPC UA Configuration Manager" showCaption="true"></Image>
+
+## OPC UA Security Policies are Unique
+
+As an additional challenge, not all OPC UA security policies match standard software security policy practices.
+
+**For example:**
+
+*Sign vs Sign & Encrypt* represents complex technology and it requires some effort to generate these certificates.
+
+Litmus Edge does not support *custom SSL certificates*, but it has its own certificate manager, which supports different encryption levels.
+

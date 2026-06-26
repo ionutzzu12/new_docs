@@ -1,0 +1,53 @@
+---
+title: Discover Devices on the Network
+slug: MfziKxtSy7-KqalAU8xai
+description: Learn more about using the device discovery (network) function. 
+docTags: 
+createdAt: Fri May 13 2022 22:50:33 GMT+0300 (Eastern European Summer Time)
+---
+
+You can discover devices on the network by navigating t&#x6F;**&#x20;DeviceHub&#x20;**> **Asset Discovery**.&#x20;
+
+# Enable/Disable Asset Discovery
+
+<hint type="warning">
+  **Important**: To discover devices on CIP, your firewall must allow incoming UDP packets on 58107. Once you enable discovery for CIP, a firewall rule in Litmus Edge is automatically created to allow UDP messages on port 58107. When device discovery for CIP is disabled, the firewall rule will be automatically deleted. You can view this rule on the Firewall page, but you can't edit or delete it. See :Link[Manage Firewall Rules]{label="Manage Firewall Rules" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="MJhGEnPS8ybM_rJtI_JjM" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+</hint>
+
+You can enable and disable discovery of devices that are connected to your network. Use Asset Discovery to discover which nodes are for edge devices.
+
+To enable asset discovery, you will first need to select which interfaces to search on. Open the menu for Interfaces to select them.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/MCM38hic7x7-TNZxJWnio_image.png" size="80" width="1098" height="644" position="flex-start" darkWidth="1098" darkHeight="644" showCaption="false"></Image>
+
+Then, toggle the Auto-Refresh switch to **ON&#x20;**&#x74;o start looking for devices.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/A4I3UgZw6sVCOw4sDqbvs_image.png" size="80" width="1098" height="644" position="flex-start" darkWidth="1098" darkHeight="644" showCaption="false"></Image>
+
+Once devices are discovered, you can review the following. &#x20;
+
+## Overview
+
+The overview section displays the following information.&#x20;
+
+- The total number of devices discovered.&#x20;
+- The total number of devices per vendor.&#x20;
+- The total number of devices per device type.&#x20;
+
+## Device Table
+
+The device table displays the following information for specific devices.&#x20;
+
+- IP address
+- Device name
+- Protocols
+- Time last seen
+
+<hint type="info">
+  **Note:&#x20;**&#x59;ou can discover mDNS devices with a Network Utility license.
+
+  ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/oWOJPQdSHD9aTmruhk9vw_image.png)
+</hint>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/5FkdjvKsWIdNeIsiY5p7B_image.png" size="80" width="1722" height="1077" position="flex-start" darkWidth="1722" darkHeight="1077" showCaption="false"></Image>
+

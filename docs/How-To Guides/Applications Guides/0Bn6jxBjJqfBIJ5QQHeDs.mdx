@@ -1,0 +1,97 @@
+---
+title: Add an Application Container Using Docker Compose
+slug: 0Bn6jxBjJqfBIJ5QQHeDs
+description: Learn how to add an application container using Docker Compose. 
+docTags: 
+createdAt: Tue Dec 06 2022 20:38:25 GMT+0200 (Eastern European Standard Time)
+---
+
+You can add an application container to the **Applications&#x20;**> **Containers&#x20;**&#x70;ane using Docker Compose.
+
+See the :Link[Docker Hub Nginx Image ]{href="https://hub.docker.com/_/nginx" newTab="true"}page for more information.&#x20;
+
+You can also leverage Docker Compose in Litmus Edge Manager. See :Link[Set Up Docker Container Configurations for an Application Release]{docId="mebpl6tcgzj9NS2Cmk5cQ" label="Set Up Docker Container Configurations for an Application Release" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="Set Up Docker Container Configurations for an Application Release"} for details.&#x20;
+
+For this use case, we will add a Docker compose container, add and run an Nginix container, verify that the resulting website is running, and then remove the container.
+
+# Step 1: Add a Docker Compose Container
+
+**To add a Docker Compose container:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**> **Containers**.&#x20;
+   The *Containers&#x20;*&#x70;ane appears.&#x20;
+2. Click **Run**.&#x20;
+   The *Enter command to run* field appears.&#x20;
+3. Enter the following:
+   `docker run -it -d --name compose -v /var/run/docker.sock:   `
+   `/var/run/docker.sock docker/compose:latest /bin/sh`
+4. Click **Run**.&#x20;
+   The named container appears in the *Containers&#x20;*&#x70;ane and displays a running state. The container runs locally.
+
+# Step 2: Add the Nginx Container
+
+**To add the Nginx container:&#x20;**
+
+1. From the *Containers&#x20;*&#x70;ane, click the **Terminal&#x20;**&#x69;con next to the compose container created in step 1.&#x20;
+   The compose shell opens.&#x20;
+2. Enter **docker ps -a&#x20;**&#x61;nd press **ENTER**.
+   A list of the running containers appears.&#x20;
+3. Enter **cd \~** and press **ENTER**.&#x20;
+4. Enter **mkdir new&#x20;**&#x61;nd press **ENTER**.
+5. Enter **cd new** and press **ENTER**.&#x20;
+   The directory changes to /new.&#x20;
+6. Enter **vi docker-compose.yaml&#x20;**&#x61;nd press **ENTER**.
+   The compose.yaml file opens.&#x20;
+7. Paste the following code into the **compose.yaml** file as plain text.&#x20;
+   `version: '3'`
+   `services:`
+   `  web:`
+   `    image: nginx`
+   `    volumes:`
+   `      - ./templates:/etc/nginx/templates`
+   `    ports:`
+   `      - "3000:80"`
+   `    environment:`
+   `      - NGINX_HOST=foobar.com`
+   `      - NGINX_PORT=80`
+8. Press **Esc&#xA0;**&#x61;nd enter **:wq** to save and exit the compose.yaml file.
+   You are returned to the compose shell.&#x20;
+9. From th&#x65;*&#xA0;/new&#xA0;*&#x64;irectory, enter **docker-compose up&#x20;**&#x61;nd press **ENTER**.
+   A series of commands appears, creating and attaching to new\_web\_1.
+10. Click the **Containers&#xA0;**&#x6C;ink at the top of the terminal to return to the *Containers&#x20;*&#x70;ane, and then refresh the page.
+    The new\_web\_1 for the nginix container appears and is running.
+
+# Step 3: Verify that Nginx in Running
+
+**To verify that Nginx is running:**
+
+1. Open a new browser tab.&#x20;
+2. Copy the IP address from the Litmus Edge browser tab.&#x20;
+3. Paste the IP address in the new browser tab and add :3000 to the end.&#x20;
+   For example: https\://192.168.7.16:3000
+
+The Welcome to nginx! page appears.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/VhwPqX8Dc8gjHX5Bd-hFF_image.png" size="80" width="608" height="241" caption="Welcome to nginx! page" position="center" showCaption="true"></Image>
+
+# Step 4: Remove the Nginx Container
+
+You will now need to remove the Nginx container.&#x20;
+
+**To remove the Nginx container:**
+
+1. From the compose terminal shell, press **Ctrl+C&#xA0;**&#x74;o stop the compose container.
+2. Enter **docker-compose down&#x20;**&#x61;nd press **ENTER**.
+   The new\_web\_1 for the nginx container is removed.
+
+
+# Step 5: Verify the Nginx Container is Removed
+
+Click the **Containers&#xA0;**&#x6C;ink at the top of the terminal to return to the *Containers&#x20;*&#x70;ane, and then refresh the page.
+
+The new\_web\_1 for the nginix container no longer appears.
+
+Example terminal code:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/N99fov6uCnlzxm8K3Q_xk_image.png" size="80" width="1598" height="636" caption="Example code" position="center" showCaption="true"></Image>
+

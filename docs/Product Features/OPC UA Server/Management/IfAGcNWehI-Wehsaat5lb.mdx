@@ -1,0 +1,67 @@
+---
+title: Manage the OPC UA Server
+slug: IfAGcNWehI-Wehsaat5lb
+description: Learn how to manage the OPC UA server. 
+docTags: 
+createdAt: Mon Sep 26 2022 19:03:35 GMT+0300 (Eastern European Summer Time)
+---
+
+You can manage the OPC UA Server by navigating to **OPC&#x20;**>**&#x20;Management**.&#x20;
+
+If you are using the Docker version of Litmus Edge and having issues connecting to the OPC UA server, refer to :Link[Issues Connecting to OPC UA Server]{label="Issues Connecting to OPC UA Server" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="5AYybnEUmbt-0eqtknbcw" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+Refer to the following OPC UA Server management options.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3_ek_UIuIo3rhWsPGiK95_image.png)
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="205">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1] **Start and Stop OPC UA Server**
+    </td>
+    <td>
+      Before you start the OPC UA Server, make sure you do the following:
+      - Configure the OPC UA Server. Refer to the callout below for more information.&#x20;
+      - :Link[Add a Node]{docId="-_FS_awS0Vp6VRHvRmuiZ" label="Add a Node" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add a Node"}.&#x20;
+      - Enable at least one OPC UA policy.&#x20;
+      - Configure OPC UA authentication.&#x20;
+      After starting the OPC UA Server, you have the option of stopping it.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2] **Restart OPC UA Server**
+    </td>
+    <td>
+      Restarting the server returns it to its original configuration.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3] **Configure OPC UA Server**
+    </td>
+    <td>
+      To configure the OPC UA Server, enter the details for the server:
+      - **Host**: Enter the OPC UA host IP address.&#x20;
+      - **Port**: Enter the port number 4840.&#x20;
+      - **Allow Nodes Under Root**: If this option is selected, the OPC UA hierarchy will start under the root folder. If unselected, the OPC UA hierarchy will start under the *Objects&#x20;*&#x6E;ode.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4]**&#x20;View**
+    </td>
+    <td>
+      Click the **View&#x20;**&#x69;con to review logs for the server.&#x20;
+    </td>
+  </tr>
+</table>
+

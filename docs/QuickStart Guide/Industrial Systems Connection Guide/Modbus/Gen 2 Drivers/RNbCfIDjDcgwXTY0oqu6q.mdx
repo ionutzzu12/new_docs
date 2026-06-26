@@ -1,0 +1,304 @@
+---
+title: Modbus RTU Advanced
+slug: RNbCfIDjDcgwXTY0oqu6q
+description: Review the following information for setting up and configuring the Modbus RTU Advanced driver. 
+docTags: 
+createdAt: Wed Feb 15 2023 21:43:22 GMT+0200 (Eastern European Standard Time)
+---
+
+Use this driver instead of the :Link[Modbus RTU]{label="Modbus RTU" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="MydDT3Qp-SeCtncPkxaNu" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} driver when multiple stations are connected to the RS-485 bus. The **Station ID** setting can be customized at the tag level with this driver. The device connection status is defined by the last received response.
+
+Review the following information for setting up and configuring the Modbus RTU Advanced driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="201,380" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial (RS-485)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **When to use&#x20;**
+    </td>
+    <td>
+      Serial connection to a device using Modbus RTU
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="XLia8YLDcxASLgOKnWai3">
+
+</ContentSnippet>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="225" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Modbus
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Modbus RTU Advanced
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Device File**
+    </td>
+    <td>
+      The file of the serial port you are using&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      Select one of the following:
+      - 1200
+      - 2400
+      - 4800
+      - 9600
+      - 19200
+      - 38400
+      - 57600
+      - 115200
+      - 230400
+      - 460800
+      - 921600
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Select even, none, or odd&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Zero-Based Addressing**
+    </td>
+    <td>
+      Select Enable or Disable
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Delay Between Polls**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<table columnWidths="100,100,167,100,103,172" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      D
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Discrete Input Contacts
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Discrete Output Coils
+    </td>
+  </tr>
+  <tr>
+    <td>
+      H
+    </td>
+    <td>
+      uint16, int16, int32, uint32, float32, float64
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Analog Output Holding Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I
+    </td>
+    <td>
+      uint16, int16, int32, uint32, float32, float64
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Analog Input Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      H\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      6553515
+    </td>
+    <td>
+      Analog Output Holding Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      6553515
+    </td>
+    <td>
+      Analog Input Registers
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="VQjULCVUkCx2T4yToFxC4">
+
+</ContentSnippet>
+

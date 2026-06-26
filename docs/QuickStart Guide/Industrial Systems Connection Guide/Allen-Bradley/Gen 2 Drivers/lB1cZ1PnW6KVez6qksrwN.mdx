@@ -1,0 +1,677 @@
+---
+title: AB DF1 Serial
+slug: lB1cZ1PnW6KVez6qksrwN
+description: Review the following information for setting up and configuring the AB DF1 Serial driver. 
+docTags: 
+createdAt: Mon Sep 18 2023 18:01:05 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB DF1 Serial driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="225,367" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[PLC-5]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/discontinued-products/plc-5-controllers.html" newTab="true"}&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="ZPTCmzo7MNjZIP6UvGpD8">
+
+</ContentSnippet>
+
+<hint type="info">
+  **Note**: When configuring the settings for the PLC, the *Error Detect* setting must be set to CRC, otherwise a connection with Litmus Edge won't be successful.&#x20;
+</hint>
+
+Refer to the following parameters and reference images when setting up the PLC.
+
+- **Device**: PLC5/40C
+- **Communication I/F**ꓽ RS232
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Vuzyjc9Ga0gsbEKsKmp0J_image.png" size="80" width="1509" height="1740" position="center" showCaption="false"></Image>
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/I1cWq7sLWkZLO5s6KmGmE_image.png)
+
+Complete the following steps to setup and configure the PLC.&#x20;
+
+**To configure the PLC:**
+
+
+
+1. Connect the PLC to the computer with a serial port 25-pin D-shell cable.
+2. Open **RSLinx Classic&#x20;**&#x73;oftware.&#x20;
+3. Click the **Configure Drivers** icon. Then, click **Add New\...** and add the *RS-232 DF1 devices* driver.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Pv7L50fnFDVDhH32HMKQr_plc5-03.png)
+4. Configure the driver with the following parameter values and click **OK**.&#x20;
+   **Baud Rate**: 9600
+   **Bits Per Char**: 8
+   **Stop Bits**: 1
+   **Parity**: None
+   **Error Detect**: CRC
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/l4ly-qvg5A0gpC4UzNtlQ_plc5-04.png)
+5. In the driver settings, click **Auto-Configure** and confirm you see an `Auto Configuration Successful!` message.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1YiiprT-HsMr9d2xZHc2c_plc5-05.png)
+6. Ensure these same settings are configured in the PLC to establish a connection.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SyrwJ7JGbpPGMHPA0p1YX_plc5-06.png)
+7. Open **RSLogix 5** software.&#x20;
+8. Click **Comms&#x20;**&#x61;nd select **Who Active Go Online**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1aKoajDOGyJLH_9qZp0RQ_plc5-07.png)
+9. Select the device that you configured and click **Online**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/FndapLEP2lzeKLxbfrOdJ_plc5-08.png)
+10. In the navigation menu, click **Channel Configuration** and select **Open**.&#x20;
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/GP2NNwVk0f6nNt3AhQPJs_plc5-09.png)
+11. Confirm the *Serial Port* settings for **Channel 0**, which is the RS232 port. Note down the Baud Rate, Data Bits, Stop Bits, and Parity. The *Error Detect* setting must be set to **CRC**.&#x20;
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2NO4ryrjiopaxydtoFlrw_plc5-10.png)
+12. You can use **Channel 3A** to configure the Ethernet port, if applicable.&#x20;
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/iTtHacTheCd3F6ocBhMMi_plc5-11.png)
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="189,317" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB DF1 Serial
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      5
+      6
+      7
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      1200
+      2400
+      4800
+      9600
+      19200
+      38400
+      57600
+      115200
+      230400
+      460800
+      921600
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Mark, None, Odd, Space
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+      1.5
+      2
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **PLC Type**
+    </td>
+    <td>
+      PLC5
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Source ID (SRC Byte)**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Destination ID (DST Byte)**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Read Timeout**
+    </td>
+    <td>
+      200
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Retry Count**
+    </td>
+    <td>
+      2
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<hint type="info">
+  **cNote:&#x20;**&#x54;he register table below represents the PLC address format. In Litmus Edge, you will need to enter the tag address in decimal format. This means you must convert the PLC addresses for the Input and Output Data Files from octal format to decimal format.
+</hint>
+
+<table columnWidths="100,100,106,106,100,100,131" selectedRows="" isTableHeaderOn="true" selectedColumns="" selectedTable="false">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      O
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Output
+    </td>
+  </tr>
+  <tr>
+    <td>
+      O\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOoo
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Output
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOO
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Input
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      OOOoo
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Input
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      255
+    </td>
+    <td>
+      Status
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      25515
+    </td>
+    <td>
+      Status
+    </td>
+  </tr>
+  <tr>
+    <td>
+      B
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      3276015
+    </td>
+    <td>
+      Binary
+    </td>
+  </tr>
+  <tr>
+    <td>
+      T\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td>
+      T
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Control
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Control
+    </td>
+  </tr>
+  <tr>
+    <td>
+      N
+    </td>
+    <td>
+      uint, int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Integer
+    </td>
+  </tr>
+  <tr>
+    <td>
+      F
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      Float
+    </td>
+  </tr>
+  <tr>
+    <td>
+      D
+    </td>
+    <td>
+      bcd
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      BCD
+    </td>
+  </tr>
+  <tr>
+    <td>
+      A
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      ASCII
+    </td>
+  </tr>
+  <tr>
+    <td>
+      ST
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      32760
+    </td>
+    <td>
+      String
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="wqYdkDMQTUxX2R0cwB2EU">
+
+</ContentSnippet>
+

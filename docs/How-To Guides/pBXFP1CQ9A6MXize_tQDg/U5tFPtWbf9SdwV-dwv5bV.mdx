@@ -1,0 +1,106 @@
+---
+title: Generic MQTT Integration Guide (Last Will and Testament)
+slug: U5tFPtWbf9SdwV-dwv5bV
+description: Learn how to set up a Generic MQTT-TCP connector with a Last Will and Testament configuration. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:28:04 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and an MQTT broker using Last Will and Testament.&#x20;
+
+# Overview of MQTT Last Will and Testament
+
+When this type of integration is set up, it includes a notification to other clients that are connected to the MQTT broker when your connection as a client disconnects.
+
+When a client connects to the MQTT broker, it creates a connect packet that is predefined and sent to the MQTT broker.
+
+You can define the message to notify you if the client disconnects.
+
+There are four properties that you can set for the Last Will and Testament.
+
+- LWT Topic: This is the topic that is used by the MQTT broker to send if the client disconnects.
+- LWT Payload: This is the payload message that is sent if the client disconnects.
+- QoS: This is the quality of service level (0, 1, or 2).
+- Retain: This indicates if the message should be retained (true or false).
+
+The MQTT broker sends this message in the following scenarios:
+
+- If the client fails to communicate within the defined *Keep Alive* period
+- If the client does not send a disconnect packet before it closes the network connection
+- The broker closes the network connection due to a protocol error by the client.
+
+# Before You Begin
+
+You will need access to an MQTT broker.&#x20;
+
+# Step 1: Add the Generic MQTT Connector
+
+Follow the steps to [Add a Connector](<../../Product Features/Integration/C5bo-JHYKWiLNMFY9iVsj.mdx>) and select the **MQTT - Generic&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Enter the server address.&#x20;
+- **Port**: Confirm that the default value **1883** is entered.&#x20;
+- **Client ID**: Enter the client ID. If it is left blank, a default value will be auto-generated.&#x20;
+- **Username&#x20;**(Optional)
+- **Password&#x20;**(Optional)
+- **QoS**: The Quality of Service (QoS) level is an agreement between the sender of a message and the receiver of a message that defines the guarantee of delivery for a specific message. Select one of the following:
+  - **0**: The message is sent once and delivery isn’t guaranteed.
+  - **1**: This method guarantees that the message will be delivered to the broker, but also doesn’t prevent it being received multiple times.
+  - **2**: This method guarantees that the message will be delivered to the broker, and the message will be sent exactly once.&#x20;
+- **Parallel Publish Count**: The number of messages being published simultaneously. Once the defined limit has been reached, subsequent messages are silently dropped. The default value is 100.&#x20;
+- **Integration Topic**: Enter **testTopic**.&#x20;
+- **LWT topic**: Enter **lwtTopicName**.&#x20;
+- **LWT payload**: Enter **Some LWT Payload**.&#x20;
+- **LWT payload type**: The payload type for MQTT's Last Will and Testament feature. The options are *string&#x20;*&#x61;nd *base64*.&#x20;
+- **LWT QoS**: The Quality of Service value for MQTT's Last Will and Testament feature.
+- **LWT retained**: Select this checkbox to retain the value for MQTT's Last Will and Testament feature.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 2: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/s5Aclay2bU1xicFZQWpMX_mqttgeneric.png" size="60" width="369" height="345" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="hQzTgprZXW8nnmcue-E9Q" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/Integration/-0RapYS2oFAjW_T6DQC39.mdx"} and relevant error messages.&#x20;
+
+# Step 3: Verify Connection in Flows Manager
+
+You can verify the connection is successfully set up by creating a flow in Litmus Edge.&#x20;
+
+**To create a flow:**
+
+1. In Litmus Edge, navigate to **Flows Manager**.&#x20;
+2. Click **Add Flow**.
+3. Enter **MQTT LWT&#xA0;**&#x69;n the **Name&#xA0;**&#x66;ield and click **Create Flow**.
+4. Click the **Start&#x20;**&#x69;con next to the MQTT LWT flow.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/r97cBIu5zR7UgRGejsEOQ_flowstarticon.png" size="80" width="1170" height="358" caption="Flows Manager Start icon" position="center" showCaption="true"></Image>
+5. Click the **Go To Flow Definition** icon.&#x20;
+   Th&#x65;*&#x20;Flow canvas&#x20;*&#x6F;pens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6PlxhptXn4xZ_4ZdrIAuf_gotoflowdefinition.png" size="80" width="944" height="366" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+6. From the node palette, drag the **MQTT In** node (network section) to the canvas.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/7f0HoqgLntPC_1APyE5Yr_mqttinnode.png" size="80" width="1121" height="637" caption="MQTT In node" position="center" showCaption="true"></Image>
+7. Double-click the **MQTT In** node.
+   The *Edit MQTT In Node* dialog box appears.&#x20;
+8. Click the **Edit&#x20;**&#x69;con next to the *Server&#x20;*&#x66;ield.&#x20;
+   The *Add new mqtt-broker config node* dialog box appears.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/h_f4IwachNpeLbdv60Q_q_editservericon.png" size="60" width="505" height="462" caption="Edit server icon" position="center" showCaption="true"></Image>
+9. In the *Name&#x20;*&#x66;ield, enter the name of the broker.&#x20;
+10. From the Connection tab, configure the following parameters.&#x20;
+    - **Server**: Enter the server address.&#x20;
+    - **Port**: Enter **1883**.&#x20;
+    - **Client ID**: Enter the client ID.&#x20;
+    - **Keep Alive**: Enter **60**.&#x20;
+11. Click **Add**.&#x20;
+12. From the *Edit MQTT In Node* dialog box, enter **lwtTopicName&#x20;**&#x69;n the **Topic&#x20;**&#x66;ield.&#x20;
+13. Select the desired **QoS&#x20;**&#x76;alue.&#x20;
+14. Click **Done**.
+15. From the *Node&#x20;*&#x70;alette, drag the **Debug&#xA0;**&#x4E;ode to the canvas and connect the two nodes.
+16. Click **Deploy**.&#x20;
+17. Expand the message window beneath the flow and click the **Debug&#xA0;**&#x69;con. Verify that messages are displaying.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/gPJk6NsW3loIyEUdOJWuM_debugicon.png" size="80" width="885" height="365" caption="Debug node messages" position="center" showCaption="true"></Image>
+

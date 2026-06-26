@@ -1,0 +1,44 @@
+---
+title: Deploy a Marketplace Application
+slug: 4LpnnmzD-ISBPT4wrmF10
+description: Learn how to deploy a marketplace application. 
+docTags: 
+createdAt: Fri Sep 23 2022 16:56:43 GMT+0300 (Eastern European Summer Time)
+---
+
+A Marketplace catalog contains an inventory of available applications that can be installed with a script. The initial Litmus Edge environment includes a default public Marketplace Catalog.
+
+To review use cases for specific applications, see :Link[Applications Guides]{docId="9httvKp5iCiMJtDH1e49D" label="Applications Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+# Before You Begin
+
+Before you begin, consider the following:
+
+- You can add a public catalog from Litmus Edge Manager. See the *Push Marketplace catalogs to Edge devices* section of :Link[Manage Applications]{docId="1cjuL2kjJIQEBN2kVHjp6" label="Manage Applications" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+- You can add a private catalog from which you want to deploy an application. See :Link[Add a Marketplace Catalog]{docId="u84o1TNNCXaUD1xtvGBRL" label="Add a Marketplace" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add a Marketplace Catalog"} for more information.
+- For a Private Marketplace Catalog, make sure you create a Docker image and add a Docker registry. See :Link[Create a Docker Image to Deploy to Your Private Repository]{docId="qewT-L_Vs3G7oloPGjor6" label="Create a Docker Image to Deploy to Your Private Repository" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Create a Docker Image to Deploy to Your Private Repository"} and :Link[Add a Registry]{docId="v5alOoxa3Iaus7z4jyzCf" label="Add a Registry" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add a Registry"} for more information.
+- To access data from the application, it must be running on the same network as the Litmus Edge device.
+
+**To deploy an application:**
+
+1. Navigate to **Applications&#x20;**> **Marketplace**.
+   The *Marketplace&#x20;*&#x70;ane appears.
+2. To filter the applications that display, in **Filter** select a Marketplace catalog from the **Catalog** list and a category from the Category list.
+   The selected Marketplace displays the applications associated with the marketplace.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/KXFAKfcnGnEicbk0wnZzl_image.png" size="80" width="1918" height="848" position="flex-start" showCaption="false" indent="2"></Image>
+
+3. Click an application tile.
+4. In the dialog that opens, select a script versio&#x6E;**&#xA0;**&#x66;rom the **Installation script version** list, as shown in this example.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/1e-3nibA5aznEJ0MLLEPn_image.png" size="80" width="1250" height="585" position="flex-start" showCaption="false" indent="2"></Image>
+
+5. Enter a name and complete any applicable parameters for the application and click **Close**.&#x20;
+   - A name for the incoming Docker container&#x20;
+   - (If applicable) A number for the port. A number cannot be used if it’s already in use by another Docker container.
+   - Provide values for applicable parameters. For others, select a value from the drop-down list. These parameters will be passed as runtime variables to the respective Docker container.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/stHaN971KN9rGMg3zukgU_image.png" size="80" width="1233" height="728" position="flex-start" showCaption="false" indent="3"></Image>
+
+6. Click **Launch**.&#x20;
+

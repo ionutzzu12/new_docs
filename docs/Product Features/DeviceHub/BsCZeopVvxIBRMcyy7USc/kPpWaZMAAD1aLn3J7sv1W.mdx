@@ -1,0 +1,150 @@
+---
+title: Manage Devices
+slug: kPpWaZMAAD1aLn3J7sv1W
+description: Learn more about managing connected devices. 
+docTags: 
+createdAt: Fri May 13 2022 22:50:45 GMT+0300 (Eastern European Summer Time)
+---
+
+After you connect devices to Litmus Edge, you can navigate to **DeviceHub&#x20;**> **Devices&#x20;**&#x74;o manage them.&#x20;
+
+# Change Device View
+
+Click the icons for **Show devices grid** or **Show devices table** to change how you view your devices.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/pXTKUqMQVtzg_hXC3hkAt_image.png "The icons that change the device view")
+
+# Filter and Search Devices
+
+Click the **Toggle Device Filter** icon to search by device name.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5vX-V3m8c253Mg578UapU_image.png "DeviceHub > Toggle Device Filter Icon")
+
+# Manage Individual Devices
+
+From the *Show devices grid* view, you can use device tiles to access management options. Refer to the image and callouts below.
+
+<hint type="info">
+  **Note**: If Litmus Edge is rebooted, the status of devices is maintained. For example, if a device is stopped and Litmus Edge reboots, when Litmus Edge restarts the device will remain in a stopped state.&#x20;
+</hint>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/IWz6gV0crVrH26VSUt3gr_image.png" size="70" width="426" height="341" caption="Device Tile icons" position="center" showCaption="true"></Image>
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="208">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1] **Copy Driver Name**
+    </td>
+    <td>
+      This option allows you to copy the name of the driver associated with the device.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2] **Copy Device ID**
+    </td>
+    <td>
+      This option allows you to copy the unique identifier of the device.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3] **Copy Default Topics**
+    </td>
+    <td>
+      Copy one of the following default topics.&#x20;
+      - `devicehub.plcstatus.<topicID>`
+      - `devicehub.manage.<topicID>`
+        - See :Link[Use the Manage Topic to Stop a Device]{label="Use the Manage Topic to Stop a Device" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="kpAFF6cxfodo35RSYsGi7" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+      - `devicehub.raw.<topicID>`
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4] **Edit Device**
+    </td>
+    <td>
+      Update the device configuration.
+      You can also edit the device by clicking the tile and making changes from the *Configuration&#x20;*&#x74;ab.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[5] **Stop/Start Device**
+    </td>
+    <td>
+      This option allows you to stop or start the device.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[6] **Remove Device**
+    </td>
+    <td>
+      This option enables you to remove the device from the management system.
+    </td>
+  </tr>
+</table>
+
+# Access Device Information
+
+You can access device information and edit options by doing one of the following:
+
+- In the *Show devices grid* view, click the device tile.&#x20;
+- In the *Show device table* view, click the device name.&#x20;
+
+## View Device Data
+
+Click the **Data&#x20;**&#x74;ab to view dynamic information (data for the device).&#x20;
+
+<hint type="info">
+  **Note:** To access the *Data&#x20;*&#x74;ab, you must select the *Enable Data Store* option for the device.&#x20;
+</hint>
+
+The *Data&#x20;*&#x74;ab displays the following values:
+
+- Last value
+- Last Updated time of the tag
+
+You can also download a CSV file with tag data for the last 24 hours.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/dYNbtIv8BnJBBZk-1IC_l_image.png" size="80" width="1911" height="351" caption="Data tab on DeviceHub device" position="center" showCaption="true"></Image>
+
+## View Device Configuration
+
+Click the **Configuration&#x20;**&#x74;ab to view and edit parameters for the device.&#x20;
+
+## View Device Tags
+
+Click the **Tags&#x20;**&#x74;ab to view tag information and manage tags.&#x20;
+
+For each tag, you can click the **Action menu** icon and do the following:
+
+- Edit the tag
+- View and copy a Write Topic
+- View and copy a Poll Topic
+- Remove the tag
+- Clone & Edit the tag
+
+You can also click the **Copy&#x20;**&#x69;con to copy the raw topic.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/L03LIerBUASZ-Y2cZ0ZaP_image.png" size="80" width="1908" height="457" caption="The Action menu for Device tags" position="center" showCaption="true"></Image>
+
+## View and Download Logs
+
+<hint type="info">
+  **Note:&#x20;**&#x49;f you view or download a log file, it will only display a maximum of the 50 most recent log entries.
+</hint>
+
+Click the Logs tab (only available for Gen 2 drivers) to view log information for the device. You can also download a file of logs. You need to select the **Enable Logging** check box in the device configuration to view this tab.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tFq43ICItQNl3GsB1WEjl_image.png "The Logs tab")
+

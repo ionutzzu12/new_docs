@@ -1,0 +1,368 @@
+---
+title: CODESYS V2 Ethernet Absolute (Gen1.3)
+slug: codesys-v2-ethernet-absolute-gen13
+docTags: 
+createdAt: Wed Jan 21 2026 20:07:02 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the CODESYS V2 Ethernet Absolute (Gen1.3) driver.
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      WAGO 750-841
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left">
+      CodeSys Ethernet (Gen1.3)
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters including the IP address and port number (default port is typically 2455 for CODESYS V2 devices).
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you :Link[Connect a Device]{label="Connect a Device" spaceId="0c3K9AkyXsnPI4j8vUaa5" docId="IxDarLhX06j-kM1HeO34R" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      CodeSys devices
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      CODESYS V2 Ethernet Absolute (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Network Address**
+    </td>
+    <td align="left">
+      The device IP address you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Port**
+    </td>
+    <td align="left">
+      2455
+    </td>
+  </tr>
+</table>
+
+## Step 3: Configure the List of Registers
+
+When you :Link[Add a Tag]{label="Add a Tag" spaceId="0c3K9AkyXsnPI4j8vUaa5" docId="1OuYH77LULH8tblcBiPQi" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- :Link[Organize Device and Tag Data by Using Metadata]{label="Organize Device and Tag Data by Using Metadata" spaceId="0c3K9AkyXsnPI4j8vUaa5" docId="bQWcoGfuV67W2hPL28ds_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Tag Formula Variables]{label="Tag Formula Variables" spaceId="0c3K9AkyXsnPI4j8vUaa5" docId="1f1dqpdWvW26F2YsI9yXf" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="100,100,100,100,100,100,100">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Types
+    </td>
+    <td align="left">
+      Address Format
+    </td>
+    <td align="left">
+      Min Address
+    </td>
+    <td align="left">
+      Max Address
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      IX
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+      Input Bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      QX
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+      Output Bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MX
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6553515
+    </td>
+    <td align="left">
+      Memory Bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      IW
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Input Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      QW
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Output Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MW
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Memory Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ID
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Input Double Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      QD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Output Double Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Memory Double Word
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Address**: Enter a tag address. The value must be in decimal format, within the allowed min/max range. Omit the leading zeros. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and` timestamp` (current tag UNIX time in milliseconds). The following math functions are available: ° sin
+  &#x20;° cos
+  &#x20;° sqrt
+  &#x20;° tan
+  &#x20;° power: power (`x`) performs the operation `10^x`.
+  &#x20;° log: log (`x`) is the natural logarithm (the logarithm is in base `e`).
+  &#x20;° exp: exp (`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

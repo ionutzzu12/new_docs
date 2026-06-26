@@ -1,6 +1,6 @@
 ---
 title: Litmus Edge 4.0.2
-slug: litmus-edge-402
+slug: aazPYwz0b2z5W462ARU1C
 docTags: 
 createdAt: Mon Oct 20 2025 17:47:12 GMT+0300 (Eastern European Summer Time)
 ---
@@ -30,8 +30,6 @@ Review the current list of [Limitations](../../../../Resources/LXg9sXwzv0ejmaKrW
         Torque Tool Open Protocol Ethernet
       </Paragraph>
       - Note that the JTEKT Toyopuc CMP-Link driver was separated into the two new drivers mentioned above. For the drivers, maximum register address limits are set and data processing is improved for register types.
-      - The OPC UA Client Advanced Driver now supports locale settings.
-      - The Allen Bradley DF1 Serial driver now supports Micrologix PLCs.
     </td>
   </tr>
   <tr>
@@ -81,9 +79,6 @@ Review the current list of [Limitations](../../../../Resources/LXg9sXwzv0ejmaKrW
       - Spaces are now automatically replaced with underscores in new browse task names.
       - **Station ID&#x20;**&#x6E;o longer displays in the **Edit Tag** dialog when **Override Station ID** is configured for a device.
       - **Polling Interval&#x20;**&#x6E;o longer displays in the **Add Tag** dialog when **Driver Type&#x20;**&#x69;s set to `Subscription` for the OPC UA Client Advanced driver.
-      - SQL driver query fields have increased character limits to allow for larger and more complex queries.
-      - Various improvements have been made for the ARM 64 builds.
-      - MQTT Generic and MQTT Generic over SSL connector have been removed from Litmus Edge with this release and replaced Gen2 connectors.
     </td>
   </tr>
   <tr>
@@ -98,7 +93,6 @@ Review the current list of [Limitations](../../../../Resources/LXg9sXwzv0ejmaKrW
       **Analytics:**
       - Improved wire processor creation and switching between wire types. Wire types are now defined by downstream processor logic for improved usability.
       - A new **PLC Uptime/Downtime Tracker** processor        &#x20;enables you to track KPI downtime periods based on specific PLC values that indicate uptime or downtime states.
-      - Now JSON and Array datatype parameters and variables are exported from template downloads as JSON objects and arrays. This makes it easier for you to edit JSON parameters.
     </td>
   </tr>
   <tr>
@@ -106,22 +100,18 @@ Review the current list of [Limitations](../../../../Resources/LXg9sXwzv0ejmaKrW
       **Applications:**
       - A visual indicator now displays to show that catalogs are opening in **Applications** > **Catalog Apps**.
       - The **Applications** > **Marketplace&#x20;**&#x6E;ow displays all catalog apps before applying filters instead of an empty state.
-      - You can now easily add multiple headers in text format in the **HTTPs Proxy** dialog.
     </td>
   </tr>
   <tr>
     <td colSpan="1" rowSpan="1">
       **Integrations:**
       - Advanced connection settings for Kafka connectors are now located under **Advanced Parameters**.      - Inbound subscriptions in **Integration Connectors** now support dot notation in local topics.
-      - Validation has been improved when entering a source path for a cloud storage sync job.
     </td>
   </tr>
   <tr>
     <td>
       **System:**
       - The last modified date for users now displays in **System** > **Access Control** > **Users** > **Manage Users**.
-      - Improved user experience with 2FA setup.
-      - Added missing logs in Docker support bundle.
     </td>
   </tr>
   <tr>
@@ -150,13 +140,6 @@ Review the current list of [Limitations](../../../../Resources/LXg9sXwzv0ejmaKrW
     <td>
       **DeviceHub:**
       - Fixed issue where quotes were not preserved when uploading tags from a CSV file.
-      - Fixed a response timeout issue where a delay intended for an ethernet connection recovery was also applied to serial connections. Now the delay no long occurs for serial connections.
-    </td>
-  </tr>
-  <tr>
-    <td colSpan="1" rowSpan="1">
-      **Digital Twins:**
-      - Fixed issue where a `Model_deleted` event was incorrectly recorded when a delete of a model was prevented because of associated instances.
     </td>
   </tr>
   <tr>
@@ -165,12 +148,6 @@ Review the current list of [Limitations](../../../../Resources/LXg9sXwzv0ejmaKrW
       - Fixed issue where no error notification displayed when adding an invalid variable name in **Analytics** > **Variables**.
       - Fixed issue where Flows Manager was unresponsive when Flows Manager encountered unexpected flow contents.
       - Now you can now update Analytics processor names.&#x20;
-    </td>
-  </tr>
-  <tr>
-    <td colSpan="1" rowSpan="1">
-      **Applications:**
-      - Fixed an issue where deleting a Docker Compose application deployed from Litmus Edge Manager Marketplace removed the associated network in Litmus Edge.
     </td>
   </tr>
   <tr>

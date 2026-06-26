@@ -1,70 +1,113 @@
 ---
 title: Analytics
-slug: Cquvomk4GSCEJym0wUtlK
+slug: szrJxg2rPfh9EtLnPEONw
 description: You can use the Analytics module to create and manage analytics flows. Analytics flows enable you to process and analyze data at the edge.
 docTags: 
 createdAt: Thu Mar 31 2022 00:10:36 GMT+0300 (Eastern European Summer Time)
 ---
 
-You can use the *Analytics&#x20;*&#x6D;odule to create and manage analytics flows. Analytics flows enable you to process and analyze data at the edge.&#x20;
+The Analytics module lets you create and manage analytics flows. An analytics flow is a series of connected processors that process and analyze data at the edge.
 
-A flow includes a series of connected processors, using at least one of the following types:&#x20;
+The Analytics module also supports Machine Learning models for prediction, classification, and anomaly detection.
 
-- **Input**: Retrieves data from a tag/topic, database, or generator. See [Input Processors](Analytics/input-processors.mdx) for more details.
-- **Function**: Processes the input data using built-in:
-  - KPIs (Key Performance Indicators). See :Link[Key Performance Indicators]{label="Key Performance Indicators" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="PmFv4S4bv_witq4T-aYIG" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more details.
-  - Statistical functions. See [Statistical Functions](Analytics/statistical-functions.mdx) for more details.
-- **Output**: Writes the function results to a tag/topic or database. See :Link[Output Processors]{label="Output Processors" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="AsXh8yxPCjmVljj-bALeQ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details.
+## Core Components
 
-See [Create an Analytics Flow](<Analytics/Analytics Flows and Processors/HB_-yW2A2ghEBv7WsbRMY.mdx>) and [Add Processors and Processor Connections](<Analytics/Analytics Flows and Processors/GExwUFwj-jxEsanA9dyh-.mdx>) to learn more.&#x20;
+An analytics flow consists of three processor types and two connection types.
+
+### Processor Types
+
+- **Input**: Retrieves data from a tag/topic, database, or generator. See [Input Processors](Analytics/input-processors.mdx) for details.
+- **Function**: Processes input data using built-in:
+  - KPIs (Key Performance Indicators). See [Key Performance Indicators](<../docs/Product Features/Cquvomk4GSCEJym0wUtlK/QAhvbkkV39ZmvYEBFKdrl.mdx>) for details.
+  - Statistical functions. See [Statistical Functions](Analytics/statistical-functions.mdx) for details.
+- **Output**: Writes function results to a tag/topic or database. See [Output Processors](<../docs/Product Features/Cquvomk4GSCEJym0wUtlK/output-processors.mdx>) for details.
+
+### Connection Types
+
+<table isTableHeaderOn="true" columnWidths="128,221.5,265.5" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Connection
+    </td>
+    <td align="left">
+      Applicable connections
+    </td>
+    <td align="left">
+      Behavior
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Events**
+    </td>
+    <td align="left">
+      Input/function and function/output
+    </td>
+    <td align="left">
+      The receiving processor reacts to each incoming data value immediately
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Values**
+    </td>
+    <td align="left">
+      Input/function only
+    </td>
+    <td align="left">
+      The function processor waits for values from all connected input sources before reacting
+    </td>
+  </tr>
+</table>
+
+### Machine Learning Models
+
+The Analytics module supports [TensorFlow](https://www.tensorflow.org/guide/saved_model) saved models. A saved model contains a complete TensorFlow program, including trained weights and computation. You can use models for prediction, classification, and anomaly detection.
+
+## How the Components Work Together
+
+Data moves through a flow from input to function to output:
+
+- **Input processors** retrieve data and pass it downstream.
+- **Function processors** receive data from one or more inputs and apply KPI or statistical processing.
+- **Output processors** receive the processed results and write them to a tag/topic or database.
+
+The connection type controls how a function processor handles incoming data. An **Events** connection triggers the function processor on each individual incoming value. A **Values** connection makes the function processor wait until all connected inputs have provided a value before processing. For example, if a function processor compares values from input processors A and B, it waits for a value from both before running the comparison.
+
+You can build a flow manually by adding processors and connecting them, or use the automated flow creation option. See [Create an Analytics Flow](<Analytics/Analytics Flows and Processors/HB_-yW2A2ghEBv7WsbRMY.mdx>) and [Add Processors and Processor Connections](<Analytics/Analytics Flows and Processors/GExwUFwj-jxEsanA9dyh-.mdx>) for details.
+
+## Tracking, Visibility, and Reporting
+
+The Analytics UI contains three panes:
+
+- **Instances**, where you can create and manage processors and flows, view the Debug panel, and organize flows into groups.
+- **Instances Table**, where you can view a tabular summary of all instance flows.
+- **Models**, where you can upload and remove Machine Learning models.
+
+## Limitations and Considerations
 
 <hint type="warning">
-  **Important**: You may see the following error message when working with Analytics: `"Http failure response for /analytics/v2/version: 0 Unknown Error"`. If you see this message, disable any ad-blockers your browser may have.
+  **Important**: If you see the error `"Http failure response for /analytics/v2/version: 0 Unknown Error"`, disable any ad-blockers active in your browser.
 </hint>
 
-You can build a flow manually by adding processors and then connecting them with one of the following connection types.
+## Implementation Steps
 
-- **Events** (individual data source): Used for both input/function and function/output connections. Makes the receiving processor react to each individual data value immediately.
-- **Values** (combined data sources): Used only for input/function connections. Makes the function processor wait for values from all of the combined data sources before reacting. For example, if the function processor compares values from input processors A and B, it will wait for a value from both A and B before performing the comparison.&#x20;
+### Access the Analytics Module
 
-You can also add a flow in a more automated way. See [Create an Analytics Flow](<Analytics/Analytics Flows and Processors/HB_-yW2A2ghEBv7WsbRMY.mdx>)&#x20;for details.&#x20;
-
-
-
-The Analytics module also enables you to use Machine Learning models for prediction, classification, and anomaly detection. You can create and save a model from :Link[TensorFlow]{href="https://www.tensorflow.org/guide/saved_model" newTab="true"}. A saved model contains a complete TensorFlow program, including weights and computation.
-
-The Analytics UI includes the following panes:
-
-- **Instances**, where you can:
-  - Create and manage processors and flows
-  - View th&#x65;**&#x20;Debug&#x20;**&#x70;anel
-  - Organize your flows into groups
-- **Instances Table**, where you get tabular view of Instance flows created
-- **Models**, where you upload and remove models.
-
-# Analytics Guides
-
-Review :Link[Analytics Guides]{label="Analytics Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="CsYipcTSq9qyi6wSgq_Fr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to see how to leverage different analytics capabilities and functions.&#x20;
-
-# Access Analytics UI
-
-**To access Analytics:**
-
-1. Log in to Litmus Edge.
-2. From the Navigation panel, select **Analytics**.
+1. Log in to Litmus Edge.
+2. From the Navigation panel, select **Analytics**.
 3. At the top right, choose between the classic and new UI. The following shows the new UI.
 
-<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/aSIM-ZI5OohuttcePHLLE_image.png" size="80" width="1516" height="751" position="flex-start" darkWidth="1516" darkHeight="751" showCaption="false" indent="1"></Image>
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eUzTQsr0ZznPFWp_E8DJw_image.png" size="100" width="1892" height="910" darkWidth="1892" darkHeight="910" position="flex-start" showCaption="false" indent="2"></Image>
 
-# Next Steps
+## Related Topics
 
-- :Link[Analytics Guides]{label="Analytics Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="CsYipcTSq9qyi6wSgq_Fr" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
-- :Link[Analytics Flows and Processors]{docId="mJd_mzmupkfRUW-33f-Q9" label="Analytics Flows and Processors" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Analytics Flows and Processors"}&#x20;
-- :Link[Analytics Flow Groups]{docId="xDdHJtXjoG3wwBNgQ89u8" label="Analytics Flow Groups" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Analytics Flow Groups"}&#x20;
+- [Analytics Guides](<../How-To Guides/NWeROWbMwdP6Asn21Sg6D.mdx>)&#x20;
+- [Analytics Flows and Processors](<../docs/Product Features/Cquvomk4GSCEJym0wUtlK/F0qpY0SVhjanbC5W7SnKa.mdx>)&#x20;
+- [Analytics Flow Groups](<../docs/Product Features/Cquvomk4GSCEJym0wUtlK/Xp1EpQXzeIJ9rKZuE_9Pz.mdx>)&#x20;
 - [Instances Table](Analytics/xb0E-qphc39BwMPTir5_i.mdx)&#x20;
 - [Machine Learning Models](Analytics/wwtJSwj9t1KMAOO8s1Z_9.mdx)&#x20;
 - [Input Processors](Analytics/input-processors.mdx)&#x20;
-- :Link[Output Processors]{label="Output Processors" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="AsXh8yxPCjmVljj-bALeQ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+- [Output Processors](<../docs/Product Features/Cquvomk4GSCEJym0wUtlK/output-processors.mdx>)&#x20;
 - [Statistical Functions](Analytics/statistical-functions.mdx)&#x20;
-- :Link[Key Performance Indicators]{docId="PmFv4S4bv_witq4T-aYIG" label="Key Performance Indicators" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Key Performance Indicators"}&#x20;
-
+- [Key Performance Indicators](<../docs/Product Features/Cquvomk4GSCEJym0wUtlK/QAhvbkkV39ZmvYEBFKdrl.mdx>)&#x20;

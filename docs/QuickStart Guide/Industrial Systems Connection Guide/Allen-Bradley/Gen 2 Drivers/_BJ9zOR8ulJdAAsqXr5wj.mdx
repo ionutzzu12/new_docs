@@ -1,6 +1,6 @@
 ---
 title: AB CompactLogix Ethernet Advanced
-slug: _BJ9zOR8ulJdAAsqXr5wj
+slug: DlZ875yjtTJi87sf1y19D
 description: Review the following information for setting up and configuring the AB CompactLogix Ethernet Advanced driver. 
 docTags: 
 createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
@@ -13,20 +13,21 @@ Review the following information for setting up and configuring the AB CompactLo
 This driver can be used for better performance. Multiple tags that belong to the same polling cycle can be read in a single request/response.
 
 <hint type="info">
-  **Notes**:&#x20;
+  **Notes**:
 
   - The maximum-length custom string that the driver can read as a string is 480 characters.&#x20;
+  - This driver provides faster performance over other compatible drivers. If you prefer stability over speed, you can use [AB CompactLogix Ethernet FreeTag](PBoF2y5NhirJ-XS9CYRDZ.mdx).
 </hint>
 
-The driver implements two modes: Symbolic and CompactLogix.&#x20;
+The driver implements two modes: Symbolic and Logical.&#x20;
 
 ## Symbolic Mode
 
 In Symbolic mode, the driver supports both CompactLogix and ControlLogix connections. This mode makes tag grouping more efficient compared to the standard driver by trying to combine as many tags as possible but not exceeding the maximum transmission unit (MTU) size for both requests and responses. Compared to CompactLogix mode, it performs better when dealing with PLC changes.&#x20;
 
-## CompactLogix Mode
+## Logical Mode
 
-In CompactLogix mode, only CompactLogix connections are possible. The driver uses numeric handles instead of symbolic names. Usually this allows the reading of more tags per single request compared to Symbolic mode, especially if symbolic names are quite long. Compared to Symbolic mode, it performs better overall without taking into account PLC changes.&#x20;
+In Logical mode, the driver uses ID-based requests for FlexLogix, CompactLogix, and ControlLogix PLCs for all firmware versions. The driver uses numeric handles instead of symbolic names. Usually this allows reading of more tags per single request compared to Symbolic mode, especially when symbolic names are long. Compared to Symbolic mode, it performs better overall without taking into account PLC changes.
 
 ## PLC Changes
 
@@ -124,7 +125,7 @@ If the device is configured for Ethernet access, find its network parameters. Ot
       **Access Mode**
     </td>
     <td>
-      Select Symbolic or CompactLogix
+      Select Symbolic or Logical
     </td>
   </tr>
   <tr>

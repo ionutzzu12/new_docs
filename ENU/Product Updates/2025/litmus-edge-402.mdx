@@ -1,0 +1,173 @@
+---
+title: Litmus Edge 4.0.2
+slug: litmus-edge-402
+docTags: 
+createdAt: Mon Oct 20 2025 17:47:12 GMT+0300 (Eastern European Summer Time)
+---
+
+Release Date: October 31, 2025
+
+Review the current list of [Limitations](../../Resources/0frN6CU6GJ_uNo25QorZ0.mdx).
+
+<hint type="info">
+  **Note:** A Litmus Edge :Link[Developer Edition 2-Hour Trial]{label="Developer Edition 2-Hour Trial" spaceId="uscaaRRprMldzn77HKGZr" docId="xK9mJ5cFVhMJ0YHIUFy5Z" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} is now available for you to easily explore and develop in the product.
+</hint>
+
+## New Features
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **DeviceHub:**
+      - This release introduces the new following drivers:
+        - B\&R PVI Ethernet driver        - BACnet MSTP driver
+        - JTEKT Toyopuc CMP-Link Ethernet        - JTEKT Toyopuc CMP-Link Serial      <Paragraph listStyleType="disc" indent="2">
+        Torque Tool Open Protocol Ethernet
+      </Paragraph>
+      - Note that the JTEKT Toyopuc CMP-Link driver was separated into the two new drivers mentioned above. For the drivers, maximum register address limits are set and data processing is improved for register types.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Analytics:**
+      - Analytics provides a new Rate Limiter processor node.
+      - The FileWriter processor now supports user-defined output columns for Parquet files.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Integrations:**
+      - Added the new Oracle Smart Operations in Fusion Cloud SCM integration connector.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **High Availability:**
+      - A beta version of high availability is introduced in this release. Now you can define and configure primary and backup Edge instances in **System** > **High Availability**.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **HTTP Proxy:**
+      - You can now redirect data traffic through an HTTP proxy server for the Device Management, Authentication, and Licensing components. Configure the server in **System** > **Network** > **Proxy&#x20;**&#x6F;r through an API
+    </td>
+  </tr>
+</table>
+
+## Enhancements and Improvements
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **DeviceHub:**
+      - The S7CommPlus driver now supports browsing, reading, and writing on multiple-instance data blocks.
+      - The Torque Tool Ethernet driver has been enhanced with support for MID0019 and other improvements.
+      - Heidenhain 640 Ethernet (Gen1.3) and Heidenhain 530 Ethernet (Gen1.3) drivers now support writing to the FILE register type.
+      - The Koyo Ethernet (Gen1.3) driver now supports additional register types: Analog Inputs (K/WI) and Analog Outputs (V/WO)
+      - The Fuji NB Serial (Gen1.3) driver now supports additional register types: Input relay (word), Output relay (word), Data register (32 bit), and Data register (string).
+      - Improved Litmus Edge's resource usage and performance with large numbers of DeviceHub devices and limited resources.
+      - Spaces are now automatically replaced with underscores in new browse task names.
+      - **Station ID&#x20;**&#x6E;o longer displays in the **Edit Tag** dialog when **Override Station ID** is configured for a device.
+      - **Polling Interval&#x20;**&#x6E;o longer displays in the **Add Tag** dialog when **Driver Type&#x20;**&#x69;s set to `Subscription` for the OPC UA Client Advanced driver.
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Digital Twins:**
+      - Static Attributes value limit increased to 1000 characters.
+      - Added duplicate key validation for user-defined JSONpath and JSONata transformations.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Analytics:**
+      - Improved wire processor creation and switching between wire types. Wire types are now defined by downstream processor logic for improved usability.
+      - A new **PLC Uptime/Downtime Tracker** processor        &#x20;enables you to track KPI downtime periods based on specific PLC values that indicate uptime or downtime states.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Applications:**
+      - A visual indicator now displays to show that catalogs are opening in **Applications** > **Catalog Apps**.
+      - The **Applications** > **Marketplace&#x20;**&#x6E;ow displays all catalog apps before applying filters instead of an empty state.
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Integrations:**
+      - Advanced connection settings for Kafka connectors are now located under **Advanced Parameters**.      - Inbound subscriptions in **Integration Connectors** now support dot notation in local topics.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **System:**
+      - The last modified date for users now displays in **System** > **Access Control** > **Users** > **Manage Users**.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Docker:**
+      - Edge Applications no longer display in the Dashboard for Litmus Edge instances running in Docker as containers do not run in this deployment method.
+      - Options that do not apply to Litmus Edge instances running in Docker have been removed from **System** > **Device Management** > **Template**.
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Docker Compose:**
+      - With Docker Compose, containers with the same network name are now added to that network. A new network is also created in cases where no network exists.    </td>
+  </tr>
+</table>
+
+## Resolved Issues
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **DeviceHub:**
+      - Fixed issue where quotes were not preserved when uploading tags from a CSV file.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Analytics:**
+      - Fixed issue where no error notification displayed when adding an invalid variable name in **Analytics** > **Variables**.
+      - Fixed issue where Flows Manager was unresponsive when Flows Manager encountered unexpected flow contents.
+      - Now you can now update Analytics processor names.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Integrations:**
+      - Fixed an issue where the InfluxDB integration connector required a manual reconnect when the InfluxDB application stopped and started again.
+      - Fixed an issue with AWS Sitewise integrations where data was delayed and sent in bulk rather than at the polling interval defined for the driver. This occurred when some DeviceHub tags had a null value.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **System:**
+      - An error message now displays when attempting to add a user who already exists in an external directory, such as LDAP.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Upgrades:**
+      - In some cases, a `Failed to check firmware upgrade status. Max retry attempts exceeded` error displayed in Litmus Edge Manager after upgrading a Litmus Edge device, even though the device was upgraded successfully.
+    </td>
+  </tr>
+</table>
+

@@ -1,0 +1,541 @@
+---
+title: Fuji NB Serial (Gen1.3)
+slug: CcS_Z628k6Livn90IVjK2
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Fuji NB Serial (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="233,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Fuji NB Series
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="ZPTCmzo7MNjZIP6UvGpD8">
+
+</ContentSnippet>
+
+**To configure your device:**
+
+1. Record the following information and refer to it as needed.&#x20;
+   - **Device**: Fuji NBOU14
+   - **Communication I/F**: RS485 2W. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/i3JUAda-DNpYt8sTfvQu__fuji-nb-serial01.png" size="80" width="642" height="828" position="flex-start" caption="Fuji NB Serial reference" showCaption="true" indent="2"></Image>
+
+2. Launch Flex PC Programmer v2.1.0.35 software.
+3. Click **Options > Communication**.
+4. Set up COM port and communication parameters.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/kIjq8zrdzXflX2kgEb4WS_fuji-nb-serial-parameters.png" size="80" width="699" height="361" position="flex-start" caption="COM port and communication parameters" showCaption="true" indent="2"></Image>
+
+5. Click the **Online&#xA0;**&#x69;con.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="196,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Fuji Devices
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Fuji NB Serial (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      19200
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Odd, None
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="100,100,115,101,105,212" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td>
+      Access   Types
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      Ddd
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      816
+    </td>
+    <td align="left">
+      Input Status (Read Only)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      Ddd
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      816
+    </td>
+    <td align="left">
+      Output Status
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      2000
+    </td>
+    <td align="left">
+      Control Bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      500
+    </td>
+    <td align="left">
+      Timer Status
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CT
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      250
+    </td>
+    <td align="left">
+      Counter Status
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      System Control Bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DS
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      4500
+    </td>
+    <td align="left">
+      Data Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      Data Registers (Double Word)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DH
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      500
+    </td>
+    <td align="left">
+      Data Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DF
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      500
+    </td>
+    <td align="left">
+      Data Registers (Double Word)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      XD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="left">
+      Input Status Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      YD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="left">
+      Output Status Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      500
+    </td>
+    <td align="left">
+      Timer Current Values
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CTD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      250
+    </td>
+    <td align="left">
+      Counter Current Values
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      System Data Registers
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TXT
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      Text Data Registers
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

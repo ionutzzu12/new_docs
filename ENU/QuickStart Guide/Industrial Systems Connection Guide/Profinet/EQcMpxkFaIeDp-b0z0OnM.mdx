@@ -1,0 +1,275 @@
+---
+title: Profinet Acyclic
+slug: EQcMpxkFaIeDp-b0z0OnM
+description: Review the following information for setting up and configuring the Profinet Acyclic driver. 
+docTags: 
+createdAt: Thu Jun 30 2022 23:01:55 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Profinet Acyclic driver.
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="216,234" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices by PROFINET profiles**
+    </td>
+    <td>
+      :Link[PROFIdrive]{href="https://www.profinet.com/profinet-explained/profidrive" newTab="true"} - :Link[Siemens SINAMICS variable frequency drive]{href="https://www.siemens.com/global/en/products/drives/sinamics.html" newTab="true" hasDisabledNofollow="false"}
+      :Link[PROFIenergy ]{href="https://www.profinet.com/profinet-explained/profienergy" newTab="true" hasDisabledNofollow="false"}- :Link[Siemens SIMOCODE pro]{href="https://www.siemens.com/us/en/products/automation/industrial-controls/sirius/sirius-monitor/simocode.html" newTab="true" hasDisabledNofollow="false"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="165,380" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Profinet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Profinet Acyclic
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port&#x20;**
+    </td>
+    <td>
+      34964
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot Number**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Subslot**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+Refer to the following table for a description of the registers. The driver also supports two optional :Link[application profiles]{href="https://www.profinet.com/profinet-explained/profinet-application-profiles" newTab="true" hasDisabledNofollow="false"}: `PROFIdrive` and `PROFIenergy`.&#x20;
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="228">
+  <tr>
+    <td>
+      Register Type
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Generic Data Records
+    </td>
+    <td>
+      Reads Generic Data records. Enter the record index as the tag address.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I\&M Records
+    </td>
+    <td>
+      Reads Identification & Maintenance records. Enter the I\&M record index as the tag address.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Profile: PROFIdrive
+    </td>
+    <td>
+      PROFIdrive is the standard profile for drive technology in the connection of drives and encoders via PROFINET IO. Enter the PROFIdrive PNU parameter as the tag address.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Profile: PROFIenergy
+    </td>
+    <td>
+      PROFIenergy is a manufacturer- and device-neutral profile for energy management with PROFINET. Enter the PROFIenergy measurement ID as the tag address.
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  This driver only supports reading tag values.
+</hint>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<table columnWidths="120,174,83,83,84,115" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Record
+    </td>
+    <td>
+      auto, json, hex, int8, int16, int32, uint8, uint16, uint32, float32, string
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Data Records
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I\&M
+    </td>
+    <td>
+      auto, json, hex
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Identification & Maintenance
+    </td>
+  </tr>
+  <tr>
+    <td>
+      PROFIdrive
+    </td>
+    <td>
+      auto, hex, bool, int8, int16, int32, int64, uint8, uint16, uint32, float32, string, bool\[], int16\[], int32\[], uint16\[], uint32\[], float32\[]
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Acyclic access to parameters (PNU)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      PROFIenergy
+    </td>
+    <td>
+      auto, float32
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      PROFIenergy
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="A0mW7eFUiB6dsJkAOu4YV">
+
+</ContentSnippet>
+

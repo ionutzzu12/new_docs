@@ -1,0 +1,49 @@
+---
+title: Normalization
+slug: normalization
+docTags: 
+createdAt: Tue Aug 06 2024 22:03:46 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Normalization** processor eliminates redundant data (storing the same data in more than one table) and ensures data dependencies make sense (only storing related data in a table). This processor is also used to eliminate the undesirable characteristics like Insertion, Update and Deletion Anomalies.
+
+# Normalization Overview
+
+- Initially, a window of value is observed, and the next value is converted between 0 and 1, based on the method of normalization used
+- Afterwards, the values follow moving window algorithm and the next value is again placed between 0 and 1 based on the previous window
+
+# Normalization Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Mode
+    </td>
+    <td>
+      This parameter determines the form of standardization/normalization to be applied to the data. It allows you to specify the method of normalization to be used, such as Min-Max scaling or Average Standard Deviation.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Window Size
+    </td>
+    <td>
+      This parameter specifies the number of values to observe when applying the normalization algorithm. It defines the size of the window used in the moving window algorithm for normalizing the data.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/MGmgdADsDzdlgkKIql8Le_image.png" size="80" width="960" height="570" caption="Normalization parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Normalization&#x20;*&#x70;rocessor, refer the :Link[Use the Normalization Processor Function]{label="Use the Normalization Processor Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="Ab0o62UGAjPxjmxb-pxYM" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

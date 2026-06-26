@@ -1,0 +1,181 @@
+---
+title: Use the Inputs Processor Function
+slug: oVIaKLQ7VIFDKqaa6Wntf
+description: Learn how to use the Inputs statistical function in Analytics. 
+docTags: 
+createdAt: Thu Jan 18 2024 18:33:56 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use multiple inputs to create time-series functions and calculate Key Performance Indicators (KPIs). Multiple inputs are to be provided with the value type connection, and then the respective functions are calculated.
+
+# Understanding Different Inputs Functions
+
+Use one of the following functions for your inputs:
+
+- **Inputs Average:&#x20;**&#x43;alculate the average of the inputs in the Flow.&#x20;
+- **Inputs Maximum:&#x20;**&#x46;ind the maximum value between the inputs in the Flow.
+- **Inputs Minimum:&#x20;**&#x46;ind the minimum value between the inputs in the Flow.
+- **Inputs Sum:&#x20;**&#x41;dd all the input values in the Flow.
+
+# **User Scenario**
+
+Review the following scenario for the inputs processor function. Then, you will simulate PLC data and calculate KPIs using multiple inputs processor functions.
+
+In a production facility, several PLCs use multiple sensors to monitor parameters such as temperature, pressure, and speed.
+
+- You can calculate the average temperature of various sections of the production line using th&#x65;**&#x20;Inputs Average** function.
+- You can track the highest pressure with the **Inputs Maximum** function.
+- You can track machine downtime by using the **Inputs Minimum** function.
+- You can aggregate total production output over a specified period using the **Inputs Sum** function.
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tags. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. Each tag will be used for simulating the different Join processor outputs mentioned above.
+
+## **Tag 1: tag1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **tag1**
+- **Min\_value**: Enter **49**.
+- **Max\_value**: Enter **49**.
+
+## **Tag 2: tag2**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **tag2**
+- **Min\_value**: Enter **50**.
+- **Max\_value**: Enter **50**.
+
+## **Tag 3: tag3**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **tag3**
+- **Min\_value**: Enter **51**.
+- **Max\_value**: Enter **51**.
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tags you previously created. Follow the appropriate step out of 3a, 3b, 3c, or 3d based on the Inputs Processor Function you want to use.
+
+**To create an analytics flow with the Inputs Processor function:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **tag1**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Repeat steps 2-5 to add another *DataHub Subscribe* node. Select the alias topic for the **tag2&#x20;**&#x61;nd **tag3&#x20;**&#x72;espectively.&#x20;
+
+## Step 3a: Configure Inputs Average Processor
+
+1. Click **Add processor** again and select **Inputs Average**.
+   The following information defines this function:
+   - **Field Name**: Select the field name for which you want to apply the function. The field name must be available in all the inputs. For example, **value&#xA0;**&#x6F;r **downtime**.
+   - **Processing Type**: Select **unsigned&#xA0;**&#x66;rom the drop-down list.
+2. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/BCyFIUetSCaS_0dX58l3k_image.png "Inputs Average dialog box")
+3. Connect the DataHub Subscribe processor (tag: *tag1)* to the Inputs Average processor with a wire and enter the definition of **Avg\_tag1&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+4. Connect the DataHub Subscribe processor (tag: *tag2*) to the Inputs Average processor with a wire and enter a definition of **Avg\_tag2&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+5. Connect the DataHub Subscribe processor (tag: *tag3*) to the Inputs Average processor with a wire and enter a definition of **Avg\_tag3&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+6. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2iZ9cUqACJwaR3lCvoQDA_image.png "Completed Inputs Average flow canvas")
+
+## Step 3b: Configure Inputs Maximum Processor
+
+1. Click **Add processor** again and select **Inputs Maximum**.
+   The following information defines this function:
+   - **Field Name**: Select the field name for which you want to apply the function. The field name must be available in all the inputs. For example, **value&#xA0;**&#x6F;r **downtime**.
+   - **Processing Type**: Select **unsigned&#xA0;**&#x66;rom the drop-down list.
+2. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vbecSmSTL0M2BJ6hyfUZm_image.png "Inputs Maximum dialog box")
+3. Connect the DataHub Subscribe processor (tag: *tag1)* to the Inputs Maximum processor with a wire and enter the definition of **Max\_tag1&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+4. Connect the DataHub Subscribe processor (tag: *tag2*) to the Inputs Maximum processor with a wire and enter a definition of **Max\_tag2&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+5. Connect the DataHub Subscribe processor (tag: *tag3*) to the Inputs Maximum processor with a wire and enter a definition of **Max\_tag3&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+6. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HOKePkxOWTaC6Z4hCyEwk_image.png "Completed Inputs Maximum flow canvas")
+
+## Step 3c: Configure Inputs Minimum Processor
+
+1. Click **Add processor** again and select **Inputs Minimum**.
+   The following information defines this function:
+   - **Field Name**: Select the field name for which you want to apply the function. The field name must be available in all the inputs. For example, **value&#xA0;**&#x6F;r **downtime**.
+   - **Processing Type**: Select **unsigned&#xA0;**&#x66;rom the drop-down list.
+2. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6joG4DEiPslfD66t7ANne_image.png "Inputs Minimum dialog box")
+3. Connect the DataHub Subscribe processor (tag: *tag1)* to the Inputs Minimum processor with a wire and enter the definition of **Min\_tag1&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+4. Connect the DataHub Subscribe processor (tag: *tag2*) to the Inputs Minimum processor with a wire and enter a definition of **Min\_tag2&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+5. Connect the DataHub Subscribe processor (tag: *tag3*) to the Inputs Minimum processor with a wire and enter a definition of **Min\_tag3&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+6. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vd6g-b6-mjVJnGdxNYveQ_image.png "Completed Inputs Minimum flow canvas")
+
+## Step 3d: Configure Inputs Sum Processor
+
+1. Click **Add processor** again and select **Inputs Sum**.
+   The following information defines this function:
+   - **Field Name**: Select the field name for which you want to apply the function. The field name must be available in all the inputs. For example, **value&#xA0;**&#x6F;r **downtime**.
+   - **Processing Type**: Select **unsigned&#xA0;**&#x66;rom the drop-down list.
+2. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/kPxz2KwyM-Lc6akwNHN7L_image.png "Inputs Sum dialog box")
+3. Connect the DataHub Subscribe processor (tag: *tag1)* to the Inputs Sum processor with a wire and enter the definition of **Sum\_tag1&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+4. Connect the DataHub Subscribe processor (tag: *tag2*) to the Inputs Sum processor with a wire and enter a definition of **Sum\_tag2&#x20;**&#x66;or the **values&#x20;**&#x63;onnection.
+5. Connect the DataHub Subscribe processor (tag: *tag3*) to the Inputs Sum processor with a wire and enter a definition of **Sum\_tag3&#x20;**&#x66;or the **values &#x20;**&#x63;onnection.
+6. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/mYm8ErZA04pHQrJH7yjvs_image.png "Completed Inputs Sum flow canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Inputs* processor to view the output values.
+
+## View Inputs Average Output
+
+The average function calculates the average of three defined tag values.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Rce7f7T72xqg7-znCYU35_image.png "Average of inputs value")
+
+## View Inputs Maximum Output
+
+The maximum function finds the largest of three defined tag values.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9acVtTkzimX8LfRDJilN6_image.png "Maximum of all inputs")
+
+## View Inputs Minimum Output
+
+The minimum function finds the lowest of three defined tag values.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/c_qubzIymXk0ToXcXGrG6_image.png "Minimum of inputs value")
+
+## View Inputs Summation Output
+
+&#x20;The summation function calculates the total of three defined tag values.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/lqp0JI8ILDCvr2qspYhvB_image.png "Summation of inputs value")
+

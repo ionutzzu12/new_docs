@@ -1,0 +1,70 @@
+---
+title: How to Create and Use OAuth 2.0 Tokens in Litmus Edge
+slug: WxLIPBlho8FMvAISXpPi6
+docTags: 
+createdAt: Tue Nov 26 2024 21:41:59 GMT+0200 (Eastern European Standard Time)
+---
+
+You can create and use OAuth 2.0 tokens for accessing Litmus Edge APIs. &#x20;
+
+# Generating an OAuth 2.0 Token in Litmus Edge&#x20;
+
+**To create an OAuth 2.0 token:**
+
+1. Navigate to **System** > **Access Control** > **Tokens**.
+2. In **Add API Credentials**, click **Add OAuth Client**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8AkMm3U7PaZqI7a9puyG7_image.png" size="100" width="1920" height="760" position="flex-start" caption="Tokens menu" darkWidth="1920" darkHeight="760" showCaption="true" indent="2"></Image>
+
+3. Select **OAuth 2.0 Client** as the  credential type.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/lcP7WyWniVtiScgYmgOqV_image.png" size="100" width="1748" height="717" position="flex-start" caption="API Credentials Pane" darkWidth="1748" darkHeight="717" showCaption="true" indent="2"></Image>
+
+4. Configure the following token settings:
+   - Provide a **Token Name**.
+   - Assign the token to appropriate **RBAC (Role-Based Access Control) groups**.
+   - (Optional) Set an **Expiration Date** for the token.
+   - Define the **Access Token Lifespan in minutes**.
+   - Click **Add**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/gOM67Ovz2Ky7QkgR_Qawk_image.png" size="70" width="763" height="408" position="flex-start" caption="Add OAuth client dialog box" darkWidth="763" darkHeight="408" showCaption="true" indent="3"></Image>
+
+5. Litmus Edge will generate **Client ID&#x20;**&#x61;nd **Client Secret***.*
+   - Copy and securely store the *Client ID* and *Client Secret*.
+     These values are shown only once.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/PBpepQsSCOXQr-e0jOPdg_image.png" size="70" width="566" height="263" position="flex-start" darkWidth="566" darkHeight="263" showCaption="false" indent="3"></Image>
+
+# Using OAuth 2.0 Token with Postman&#x20;
+
+**To use OAuth 2.0 token with Postman:**
+
+1. Open :Link[**Postman**]{href="https://www.postman.com/" newTab="true" hasDisabledNofollow="false"}.
+2. Click **New Request**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/BwnjhdtkuIM3cIH-o_TFT_image.png" size="100" width="1920" height="725" position="flex-start" caption="Postman home" darkWidth="1920" darkHeight="725" showCaption="true" indent="2"></Image>
+
+3. Create a new request and select either **GET** or **POST** based on your needs.
+4. Navigate to the **Authorization** tab.
+5. Select **OAuth 2.0&#x20;**&#x66;rom the *Auth* *Type&#x20;*&#x64;ropdown.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/PaDbwp6qvO6m9uC40cg5c_image.png" size="100" width="912" height="692" position="flex-start" caption="Postman > Authorization" darkWidth="912" darkHeight="692" showCaption="true" indent="2"></Image>
+
+6. Under **Configure New Token**:
+   - **Token Name**: Enter a name for this token configuration.
+   - **Grant Type**: Select **Client Credentials**.
+   - **Access Token URL**: Enter the token endpoint: `https://<Litmus Edge URL>/auth/v3/oauth/token`.
+   - **Client ID**: Enter the *Client ID&#x20;*&#x67;enerated in Litmus Edge.
+   - **Client Secret**: Enter the *Client Secret&#x20;*&#x67;enerated in Litmus Edge.
+   - **Scope**: Leave this field empty (if not required).
+   - **Client Authentication:** Choose **Send as Basic Auth header**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/t6a1HK_oxFu0aPQIQrW-5_image.png" size="100" width="1141" height="702" position="flex-start" caption="Configure New Token tab" darkWidth="1141" darkHeight="702" showCaption="true" indent="3"></Image>
+
+7. Click on **Get New Access Token**.
+   Postman retrieves the token and displays it in the **Access Token** field.
+8. Add the **Authorization Token** to your request.
+   The token is automatically added to the headers by Postman.
+9. Click **Send** to execute the API request.
+10. Verify the response from the server.
+

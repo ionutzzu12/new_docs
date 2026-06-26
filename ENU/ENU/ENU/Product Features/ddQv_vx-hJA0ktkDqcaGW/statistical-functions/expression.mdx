@@ -1,0 +1,70 @@
+---
+title: Expression
+slug: expression
+docTags: 
+createdAt: Tue Aug 06 2024 22:32:26 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Expressions** processor is used to create a mathematical-like expression with your desired topic. You can enter a formula to convert temperature from Celsius to Fahrenheit, or a custom formula for furnace pressure.
+
+# Expression Overview
+
+- This function is useful if you want to do some sort of mathematical expression on the input(s).
+- If multiple inputs are used, it is advisable to use **values-type&#xA0;**&#x63;onnections.
+- To make this processor work, you must define the connection of the input tag(s) as a **variable-name&#xA0;**(lets say “A”), and then use that in the mathematical expression, such as sin(A\_value) or A\_value\*100.
+- If multiple inputs are needed, you must define each connection with a variable and use that in the expression. For example, “A\_value + B\_value”.
+  **Example**:
+  (Celsius\_value \* 9/5) + 32
+  x\_value +2
+  x\_downtime \*5
+
+# Expression Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Expression
+    </td>
+    <td>
+      The Expression parameter allows you to enter a mathematical expression that can involve variables defined by the input tags and perform operations such as addition, subtraction, multiplication, and division.    </td>
+  </tr>
+  <tr>
+    <td>
+      Output Field Name
+    </td>
+    <td>
+      The Output Field Name parameter lets you specify the field name that should appear in the output after the expression is evaluated.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer Interval
+    </td>
+    <td>
+      The Timer Interval parameter allows you to set the timer in milliseconds. If there's no event triggering the expression, you can use this timer to continuously display the output. Setting the value to zero will disable the timer.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Pass Through Value
+    </td>
+    <td>
+      The Pass Through Value parameter enables you to specify how anomalous data should be handled.&#x20;
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/icU_zrsSIWTQQPxG3eVvp_image.png" size="80" width="943" height="380" caption="Expression parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Expression&#x20;*&#x70;rocessor, refer the :Link[Use the Expression Processor Function]{label="Use the Expression Processor Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="Egsj45VOW15JnUMhNvyFP" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

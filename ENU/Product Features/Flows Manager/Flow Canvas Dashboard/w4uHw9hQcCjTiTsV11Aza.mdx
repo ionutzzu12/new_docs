@@ -1,0 +1,213 @@
+---
+title: Dashboard Nodes
+slug: w4uHw9hQcCjTiTsV11Aza
+description: The Flows dashboard palette includes nodes, which when dragged onto a canvas, become widgets in a dashboard.
+docTags: 
+createdAt: Mon Jun 05 2023 20:59:07 GMT+0300 (Eastern European Summer Time)
+---
+
+The Flows dashboard palette includes nodes, which when dragged onto a canvas, become widgets in a dashboard. These nodes enable you to build a dashboard with common elements, such as buttons, drop-down lists, and charts. When you combine these nodes with data collection flows, you can monitor sensor data in a single view.
+
+# Add Dashboard Nodes to the Canvas
+
+You can add dashboard nodes to the canvas in an existing Flow. The process of adding dashboard nodes will be demonstrated by way of an example.
+
+## Example: Add Dashboard Nodes to the Canvas
+
+For this example, a button, text, gauge, and chart are added to the first group. A dropdown is added to the second group.
+
+<hint type="info">
+  **Note:** When you add dashboard nodes to another existing Flow, the nodes are added to the Layout under the first group. You can select which group the node belongs to from the **Edit&#x20;*****\<groupname>*****&#x20;node** dialog box.
+</hint>
+
+<hint type="warning">
+  **Caution:** Adding the same node to another Flow in the same Flow View adopts the same configuration.
+</hint>
+
+**To add dashboard nodes to the canvas:**
+
+1. From the navigation panel, select Flows Manager.
+2. Click the **Expand** icon next to a selected Flow.
+   The Flow opens in a new tab.
+3. Click the **Menu&#x20;**&#x69;con, select **View > Dashboard**, and then drag the **Sidebar&#xA0;**&#x75;p from the bottom of the canvas.
+4. From an existing Flow tab in the Flow View, drag the following nodes to the canvas:
+   - button
+   - text
+   - gauge
+   - chart
+   - dropdown
+     The nodes appear on the canvas.
+5. Double-click one of the added dashboard nodes.
+6. Enter a name for the node in the **Name&#xA0;**&#x66;ield, and then click **Done**.
+7. Repeat steps 5-6 as needed, entering names for all the dashboard nodes on the canvas.
+8. Double-click the **Dropdown&#xA0;**&#x6E;ode.
+9. Select the second group from the **Group&#xA0;**&#x64;rop-down list, and then click **Done**.
+   - If necessary, choose the **Add new dashboard group...** option and create a second dashboard group and then add the **Dropdown** node to this newly created group.&#x20;
+10. Click **Deploy**.
+
+# Configure a Dashboard Node
+
+You can configure a node you have added to the canvas. Each node allows for the configuration of various options.
+
+When you add a dashboard node to the canvas, you must double-click it to configure its settings. Most of the dashboard nodes must be assigned to a dashboard group.
+
+<hint type="warning">
+  **Caution:** Adding the same node to another Flow in the same Flow View adopts the same configuration.
+</hint>
+
+## Example: Dashboard Node Configuration
+
+For this example, a dashboard switch node is configured.
+
+**To configure a switch node:**
+
+1. From the Navigation panel, selec&#x74;**&#xA0;Flows Manager.**
+2. Click the **Expand&#x20;**&#x69;con next to a selected Flow.
+3. Click the **Menu&#x20;**&#x69;con, select **View > Dashboard**, and then drag the **Sidebar&#xA0;**&#x75;p from the bottom of the canvas.
+4. From an existing Flow tab in the Flow View, drag a switch node from the *dashboard&#x20;*&#x63;ategory to the canvas.
+5. Double-click the **switch&#xA0;**&#x6E;ode.
+   The *Edit switch node* dialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/uC5OqFKqdShe_tdPkXAPb_2023-09-0812-29-01.png" size="80" width="752" height="1056" position="center" caption="Edit switch node dialog box" showCaption="true"></Image>
+6. Configure all fields as desired.
+7. Click **Done** on the top right corner of the *Edit switch node* dialog box.
+8. Click **Deploy**.
+
+# Customize Message Text Colors
+
+You can customize the message text colors.
+
+There may be times when you want to assign colors to displayed messages, particularly when monitoring device status.
+
+The following example illustrates how to configure a flow and dashboard to change the message color based on the device status: Ready, Rebooting, Warning, or Error.
+
+For your convenience, the following code can be copied and imported into Flows so that you can explore the configuration.
+
+```json
+[{"id":"7b889445.29cbfc","type":"ui_text","z":"21b9c2dc.7bf46e","group":
+"f7e07b80.a8b2c8","order":0,"width":"0","height":"0","name":"","label":
+"","format":"<font color= {{msg.color}} > {{msg.payload}} </font>",
+"layout":"col-center","x":640,"y":220,"wires":[]},
+{"id":"4b8181b0.ec8ab","type":"inject","z":"21b9c2dc.7bf46e","name"
+:"","topic":"","payload":"Ready","payloadType":"str","repeat"
+:"","crontab":"","once":false,"x":340,"y":140,"wires"
+:[["435cd506.e398bc"]]},{"id":"435cd506.e398bc","type":"function","z"
+:"21b9c2dc.7bf46e","name":"Color Assignments","func"
+:"switch (msg.payload) {\n\ncase \"Ready\" 
+: \n msg.color = \"lime\";\n break;\n \ncase \"Warning\" 
+: \n msg.color = \"orange\";\n break;\n \ncase \"Rebooting...\" 
+: \n msg.color = \"blue\";\n break;\n \ndefault 
+: \n msg.color = \"red\";\n break;\n}\n\nreturn msg;","outputs"
+:1,"noerr":0,"x":465,"y":220,"wires":[["7b889445.29cbfc"]]},
+{"id":"f3fc7605.077428","type":"inject","z":"21b9c2dc.7bf46e",
+"name":"","topic":"","payload":"Warning","payloadType"
+:"str","repeat":"","crontab":"","once":false,"x":220,"y":280,"wires"
+:[["435cd506.e398bc"]]},{"id":"37d6f0de.eb7e9","type":"inject","z"
+:"21b9c2dc.7bf46e","name":"","topic":"","payload":"Rebooting...",
+"payloadType":"str","repeat":"","crontab":"","once":false,"x":220,
+"y":180,"wires":[["435cd506.e398bc"]]},{"id":"29b7a81c.d345c8",
+"type":"inject","z":"21b9c2dc.7bf46e","name":"","topic":"","payload"
+:"Error","payloadType":"str","repeat":"","crontab":"","once"
+:false,"x":340,"y":340,"wires":[["435cd506.e398bc"]]},
+{"id":"f7e07b80.a8b2c8","type":"ui_group","z":"","name"
+:"Show Colored Status","tab":"55213901.3e2a88","disp"
+:false,"width":"6","collapse":false},{"id":"55213901.3e2a88","type"
+:"ui_tab","z":"","name":"Alert Colors","icon":"dashboard"}]
+```
+
+**To import the Example flow:**
+
+1. From the Navigation panel, select **Flows Manager**.
+2. Click the **Expand&#x20;**&#x69;con next to a selected Flow.
+3. Copy the code sample above.
+4. Click the **Menu&#x20;**&#x69;con and select **Import**.
+5. Paste the code sample in the **Clipboard&#xA0;**&#x62;ox.
+6. Select **new flow** from the *Import to* section, and then click **Import**.
+
+You can configure the Inject, Function and Text nodes as follows:
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="175">
+  <tr>
+    <td>
+      Node
+    </td>
+    <td>
+      Steps to configure the nodes and dashboard
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Inject
+    </td>
+    <td>
+      This node can be found in the **Input&#xA0;**&#x6C;ist. This node is used primarily to demonstrate this functionality. In a production environment, device messages would need to be parsed to extract status values.
+      1. Drag an **Inject&#x20;**&#x6E;ode onto the canvas for every status message to be displayed.
+      2. Set the Payload to text and enter the status, such as `Warning`.
+      3. Click
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Function
+    </td>
+    <td>
+      This node can be found in the **Function&#xA0;**&#x6C;ist. Use this example function node to assign a color to each status message.
+      1. Drag a **Function&#x20;**&#x6E;ode onto the canvas and wire it to the **Inject&#x20;**&#x6E;ode.
+      2. Enter code for the function. For this status message use case, the following code was used.
+      <BlockQuote>
+        switch (msg.payload) \{
+        case "Ready" :
+        msg.color = "lime";
+        break;
+        case "Warning" :
+        msg.color = "orange";
+        break;
+        case "Rebooting..." :
+        msg.color = "blue";
+        break;
+        default :
+        msg.color = "red";
+        break;
+        }
+        return msg;
+      </BlockQuote>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Text
+    </td>
+    <td>
+      This ui\_text node can be found in the **Dashboard&#xA0;**&#x6C;ist. Note that there are two text nodes in the Dashboard list. This is not the text input field. V Value Format, enter:
+      1. Drag the **ui\_text&#x20;**&#x6E;ode onto the canvas and wire it to the **Function&#x20;**&#x6E;ode.
+      2. In the *Value Format* field, enter:
+      <BlockQuote>
+        \<font color= \{\{msg.color}} > \{\{msg.payload}} \</font>
+      </BlockQuote>
+    </td>
+  </tr>
+</table>
+
+An example of how these nodes appear in the Flows canvas is shown below.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zSTxIcr94h34JQbBIEqXD_image.png "Flows diagram of example configuration")
+
+The resulting node can be viewed in the dashboard tab.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Tr4imjErRxhctJjbwkUOh_image.png "The dashboard tab after implementing the example")
+
+# Remove a Dashboard Node
+
+You can remove a dashboard node from the Dashboard Layout tab by removing it from the Flow canvas.
+
+**To remove a dashboard node:**
+
+1. From the Navigation panel, selec&#x74;**&#xA0;Flows Manager.**
+2. Click the Expand icon next to a selected Flow.
+3. Click the **Menu&#xA0;**&#x69;con, select **View&#x20;**> **Dashboard**, and then drag the **Sidebar&#xA0;**&#x75;p from the bottom of the canvas.
+4. Select the Flow containing the dashboard node to be removed.
+5. Select the dashboard node on the Flow and press the **Delete&#x20;**&#x6B;ey.
+   Alternatively, you can hover over dashboard node in the Layout, click **Edit**, and then click **Delete**.
+   The selected node is removed on both the canvas and the Layout.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/mKEuxHpD9qXhCbozWL6Pf_2023-09-0810-38-00.png" size="70" width="750" height="684" position="center" caption="Deleting a node" showCaption="true"></Image>
+6. Click **Deploy**.
+

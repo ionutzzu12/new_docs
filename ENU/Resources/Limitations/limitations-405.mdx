@@ -1,0 +1,59 @@
+---
+title: Limitations 4.0.5
+slug: limitations-405
+docTags: 
+createdAt: Fri Nov 28 2025 18:33:01 GMT+0200 (Eastern European Standard Time)
+---
+
+The following limitations have been identified. When they are resolved, they will be reported in the latest :Link[Product Updates]{label="Product Updates" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="uVWIGVUHSQ7ecxnLV1MTo" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} under *Resolved Issues*.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="606">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DataHub:**﻿
+      - A TLS certificate issue occurs when initially adding a TLS-enabled stream to a spoke during Edge Cascading setup. As a workaround, add the stream with TLS disabled, then edit the spoke to enable TLS and add your certificate from the hub instance.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - The first flow created in Flows Manager cannot be stopped or restarted in Safe Mode.
+      - Analytics wire connection types default to events for processors that support both types, when uploading a template or after an upgrade.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Application:**
+      - When upgrading an app from Litmus Edge Manager, the running container can be stopped before the new image is fully downloaded.
+      - Launching certain Marketplace apps with named volumes creates an extra unused Docker volume.
+      - The container terminal returns a blank page when attempting to output raw binary data. As a workaround, reopen the terminal session if it becomes blank and avoid using commands that stream raw binary to the terminal.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integrations:**
+      - Updating the **Bulk Insert Count** from `0` to any other value causes connectors to enter a failed state.
+      - A `bulk operation limit of 1000 exceeded` error message displays when performing a bulk edit on less than 100 subscriptions.
+      - Results are not returned when filtering by a large number of inbound subscriptions for a connector.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System****:**
+      - Proxy URLs are not preserved after a software update in **System** > **Network** > **Proxy**.
+      - Proxy URLs configured on the primary node are not copied to the High Availability backup node.
+      - Permissions changed for sub-directories of `/ftp-data` after upgrading Litmus Edge instances which prevents containers from launching.
+      - Cloud Storage Sync jobs to Databricks volumes may incorrectly fail after only 30 seconds of network. Note that synchronizations are restored at the next trigger interval.
+      - The system reports a success status during Litmus Edge Manager activation, even when all individual underlying network tests have failed.
+      - Importing a template with multiple connectors failed when a configuration issue occurred with one component.
+      - In some case, a `Failed to check firmware upgrade status. Max retry attempts exceeded error` displays in Litmus Edge Manager after upgrading a Litmus Edge device even though the device is upgraded successfully.
+      - Litmus Edge may closed unexpectedly if you delete all analytics groups in the system and then attempt to create new processors.
+    </td>
+  </tr>
+</table>
+

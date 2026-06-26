@@ -1,0 +1,549 @@
+---
+title: Heidenhain 640 Ethernet (Gen1.3)
+slug: 7I6l0UT8ymQnR0xZpBsyn
+description: Review the following information for setting up and configuring the Heidenhain 640 Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Heidenhain 640 Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="229,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Heidenhain TNC 640]{href="https://www.heidenhain.com/products/cnc-controls/tnc-640" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Heidenhain
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Heidenhain 640 Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      9000
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="270,100,100,100,100,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PLC
+    </td>
+    <td align="left">
+      marker, byte, word, dword, string
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DNC\_EXEC\_MODE
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DNC\_EVT\_PROGRAM
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DNC\_ERROR\_CLASS
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      2
+    </td>
+    <td align="left">
+      2
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DNC\_ERROR\_LOCATION
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      3
+    </td>
+    <td align="left">
+      3
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DNC\_FEED\_MODE
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left">
+      4
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DNC\_SPINDLE\_STATE
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      5
+    </td>
+    <td align="left">
+      5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DNC\_EVT\_PROGRAM
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      6
+    </td>
+    <td align="left">
+      6
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      IJHTool
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      IJHProgramPosition
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      7
+    </td>
+    <td align="left">
+      7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      GetOverrideInfo
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="left">
+      8
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MachineParameter
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RUNINFO\_AXES\_POSITION
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      9
+    </td>
+    <td align="left">
+      9
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RUNINFO\_CUTTER\_LOCATION
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      10
+    </td>
+    <td align="left">
+      10
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RUNINFO\_NC\_UPTIME
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      11
+    </td>
+    <td align="left">
+      11
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RUNINFO\_MACHINE\_UPTIME
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      12
+    </td>
+    <td align="left">
+      12
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RUNINFO\_MACHINE\_RUNNINGTIME
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      13
+    </td>
+    <td align="left">
+      13
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RUNINFO\_TOOL
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      14
+    </td>
+    <td align="left">
+      14
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RUNINFO\_PCCT
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      15
+    </td>
+    <td align="left">
+      15
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PLC\_SYMBOLIC
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      FILE
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="C63wR_-sSvwZ9Ee7tQAwe">
+
+</ContentSnippet>
+

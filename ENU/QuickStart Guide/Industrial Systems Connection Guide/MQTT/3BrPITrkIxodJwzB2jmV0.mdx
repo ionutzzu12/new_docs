@@ -1,0 +1,97 @@
+---
+title: MQTT Client
+slug: 3BrPITrkIxodJwzB2jmV0
+description: You can set up an MQTT Client through DeviceHub. 
+docTags: 
+createdAt: Wed Mar 22 2023 21:51:23 GMT+0200 (Eastern European Standard Time)
+---
+
+You can set up an MQTT Client through DeviceHub.&#x20;
+
+<hint type="info">
+  **Note**: You can't connect the MQTT Client to the DeviceHub :Link[Industrial OT Server]{docId="uHuEkvCeVvCWP6h-UQ7xj" label="Industrial OT Server" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} if they are using the same Litmus Edge instance. This includes connecting through the Flows Manager or through an Integration connector. If they are using different Litmus Edge instances, they can connect. &#x20;
+</hint>
+
+# Step 1: Add MQTT Client to DeviceHub
+
+**To add the MQTT Client to Device Hub:**
+
+1. In Litmus Edge, navigate to **DeviceHub**.&#x20;
+2. Click the **Connect a Device** box.&#x20;
+
+   The *Connect Device* dialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/4WzJkTieEFwi1rirnct9O_adddevice.png" size="80" width="1046" height="528" caption="Connect a device icon" position="center" showCaption="true"></Image>
+3. For *Driver Type*, select **MQTT**. Then, for *Driver Name*, select **MQTT Client**.&#x20;
+4. Enter a name for the client. Optionally, add a description.&#x20;
+5. For **Broker Address**, enter the broker IP address or host name.&#x20;
+6. For **Port**, enter the port of the broker.&#x20;
+
+Configure the client with the following options.&#x20;
+
+## Client Authentication
+
+Select one of the following client authentication methods:
+
+- Anonymous
+- Certificate (only for SSL mode)
+- Username/Password
+- Username/Password & Certificate
+
+Update the default username and password values as needed.&#x20;
+
+## Security Mode
+
+If you enable security mode, upload or paste the certificate in the **Certificate Authority** field.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vQFZoT5mfvqp7P3QusWGE_image.png" size="80" width="1155" height="761" caption="Certificate Authority field" position="center" showCaption="true"></Image>
+
+## Will Enabled (Last Will and Testament)
+
+If you enable a last will and testament, (LWT) configure the following.
+
+- **Will Topic**: Enter the topic for the last will and testament.&#x20;
+- **Will Payload**: Enter the payload in string format.&#x20;
+- **Will Qos**: Select one of the following message delivery options.
+  - 0 - At most once (fire and forget)
+  - 1 - At least once (acknowledged delivery)
+  - 2 - Exactly once (assured delivery)
+- **Will Retained**: Select Enable or Disable.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/uxnE4QAWCgVt9B-CgukDK_image.png" size="80" width="1161" height="769" position="center" showCaption="false"></Image>
+
+## Advanced
+
+If you show these options, configure the following as needed.&#x20;
+
+- **Client ID**: Enter the MQTT Client ID. The default client ID is the DeviceHub device name.&#x20;
+- **Persistent Session**: Select Enable or Disable.&#x20;
+- **Certificate Verification**: Select Enable or Disable.&#x20;
+- **Protocol Version**: Select the MQTT protocol version: v3 (3.1), v4 (3.1.1), v5 (5.0).&#x20;
+- **Keep Alive Period**: Configure the keep-alive period in seconds.&#x20;
+- **Write Timeout**: Configure the write timeout in seconds.&#x20;
+- **Connect Timeout**: Configure the connect timeout in seconds.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/yobgzdcGSlKVNt_fJVFdW_image.png" size="80" width="1152" height="761" caption="Advanced fields" position="center" showCaption="true"></Image>
+
+## Additional Options
+
+See the :Link[Define Optional Parameters]{docId="OBs8xcnZ-B0J2D1Gaipna" label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#step-3-additional-attributes" loadingMethod="dynamic" overridedLabel="Define Optional Parameters"} section to learn more about additional options.&#x20;
+
+When done configuring the device, click **Add Device**.&#x20;
+
+# Step 2: Add Tags
+
+When you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to the connected device refer to the following tag parameters.
+
+<ContentSnippet docRefId="4xznahKgNGyLUYTZ5MSgu">
+
+</ContentSnippet>
+
+# Step 3: Connect to MQTT Server
+
+Once the client is connected in Litmus Edge with tags, you can connect it to an MQTT server.&#x20;
+
+<hint type="info">
+  **Note**: You can't connect the MQTT Client to the DeviceHub :Link[Industrial OT Server]{docId="uHuEkvCeVvCWP6h-UQ7xj" label="Industrial OT Server" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} if they are using the same Litmus Edge instance. If they are using different Litmus Edge instances, they can connect. &#x20;
+</hint>
+

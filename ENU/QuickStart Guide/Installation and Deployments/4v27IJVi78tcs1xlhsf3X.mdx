@@ -1,0 +1,87 @@
+---
+title: Docker Installation
+slug: 4v27IJVi78tcs1xlhsf3X
+description: You can use Docker to install Litmus Edge. 
+docTags: 
+createdAt: Thu Mar 31 2022 00:24:33 GMT+0300 (Eastern European Summer Time)
+---
+
+# Before you begin
+
+Before you begin:
+
+- Install [Docker Engine 19.03+](https://docs.docker.com/get-docker/) on a 64-bit machine with admin permissions for executing Docker commands. Ensure the Docker Engine is configured to run a Docker image with a root user.
+- Ensure your Linux host kernel is version 6 or higher for full DeviceHub driver support.
+- Allocate at least 2-4 CPUs and 4-8 GB RAM if you plan to specify CPU and RAM limits for the container that's initialized from the Docker image. Then scale up as needed.
+
+<hint type="info">
+  **Note**: You can't upgrade the Litmus Edge Docker version using a software update file (UPD). Instead, follow the Docker recommended approach for Docker image upgrade and volume management.
+</hint>
+
+# Step 1: Launch a Litmus Edge Docker Image
+
+<hint type="info">
+  **Note:&#x20;**&#x53;ome features are unavailable when running Litmus Edge in Docker due to container best practices and specific constraints of a containerized environment. For more information, see :Link[Litmus Edge Appliance and Docker Models Compared]{label="Litmus Edge Appliance and Docker Models Compared" spaceId="uscaaRRprMldzn77HKGZr" docId="UFLyTRWGeJO2kmLEw1AuW" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel newTab="false"}.
+</hint>
+
+**To launch a Litmus Edge Docker image:**
+
+1. Run the following command to download and launch the Litmus Edge Docker container.
+
+<CodeblockTabs indent="2">
+  Linux
+
+  ```none
+  docker run --name LE -d --cap-add=NET_ADMIN -p 8443:443 -v data-volume:/var litmusedge.azurecr.io/litmusedge-std-docker:latest
+  ```
+</CodeblockTabs>
+
+<Paragraph indent="1">
+  where:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  `--name LE` defines the container name. You can change this to a name other than `LE`.
+</Paragraph>
+
+<Paragraph listStyleType="disc" listStart="2" indent="2">
+  `-p 8443:443` maps the container port `443` to host port `8443`. You can change the host port to any value.
+</Paragraph>
+
+<Paragraph listStyleType="disc" listStart="3" indent="2">
+  `-v data-volume:/var` command mounts all container data to a volume called `data-volume`. You can name the volume to your preference.
+</Paragraph>
+
+2. Optionally, expose ports for services that you run on Litmus Edge, such as port `4840` for an OPC UA server, port `4778` for an Ignition driver, and port `4222` for NATS integration. This example shows how to expose the ports.
+
+<CodeblockTabs indent="2">
+  ```linux
+  docker run --name LE -d --cap-add=NET_ADMIN -p 8443:443 -p 4840:4840 -p 4778:4778 -p 4222:4222 -v data-volume:/var litmusedge.azurecr.io/litmusedge-std-docker:latest
+  ```
+</CodeblockTabs>
+
+3. Optionally, use the following command to mount external storage to the volume and enable efficient file transfer between the host system and Litmus Edge:
+   `-v /path/to/folder/in/host:/var/lib/customer/ftp-data`
+
+<Paragraph indent="1">
+  where:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  `/path/to/folder/in/host` specifies the path to the folder on your host machine.
+</Paragraph>
+
+<Paragraph listStyleType="disc" listStart="2" indent="2">
+  `/var/lib/customer/ftp-data` defines the mirrored folder location in Litmus Edge.
+</Paragraph>
+
+<hint type="info">
+  **Note**: The `--sysctl net.ipv4.ping_group_range="0 2147483647"` parameter is not always required. However, if you are using Utilities and ping encounters errors due to host system limitations, add this parameter before initiating the container.
+</hint>
+
+# Step 2: Log in to Litmus Edge
+
+The Docker terminal window displays the IP address that you need to access the Litmus Edge device through the Web UI. Enter the IP address into your browser URL bar to access the device.
+
+See [Access the Litmus Edge Web UI](../yQxcXE12X4qvj2U1lrzcw.mdx) for more details on logging in.&#x20;
+

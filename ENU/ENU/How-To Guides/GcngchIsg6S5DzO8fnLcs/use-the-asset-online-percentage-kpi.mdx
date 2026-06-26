@@ -1,0 +1,70 @@
+---
+title: Use the Asset Online Percentage KPI
+slug: use-the-asset-online-percentage-kpi
+docTags: 
+createdAt: Tue Aug 06 2024 22:38:52 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Asset Online Percentage** KPI is a simple ratio of the time the tag has been online versus how long it has been running. This is also indicated by the *success* field in the incoming message from the tag.
+
+# User Scenario
+
+Review the following scenario for the asset online percentage KPI processor function. Then, using an input processor, you will simulate PLC data and calculate assets online in percentage with the current timestamp.
+
+In a manufacturing facility, the asset online percentage KPI is needed for monitoring the performance of automated assembly lines. If the machine was only online for 8 hours out of 10, then it was online 80% of the time. By using this KPI, engineers can identify patterns of downtime and proactively schedule maintenance to prevent costly breakdowns.&#x20;
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1**
+
+- **Name**: Select **S - Random value generator.**
+- **Value Type:** Select **float64.**
+- **Polling Interval**: Enter **1.**
+- **Tag Name**: Enter **tag01.**
+
+# Step 3: Create Analytics Flow
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Asset Online Percentage Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the *Topic* field, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for **tag01**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **Asset Online Percentage&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Start Hour:&#x20;**&#x54;ime to **start&#x20;**&#x63;alculating the asset online percentage.
+   - **End Hour:&#x20;**&#x54;ime to **end&#x20;**&#x63;alculating the asset online percentage.
+   - **Time Interval:** If the tag publishes at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/FMDBT1dS8eGg4cCNHjwlE_image.png" size="80" width="805" height="586" position="center" caption="Edit a Processor dialog box" showCaption="true"></Image>
+7. Connect the *DataHub Subscribe* processor (tag: *tag01*) to the *Asset Online Percentage&#x20;*&#x70;rocessor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/N456EZIv7AVNzkL4YeIxx_image.png" size="80" width="651" height="205" position="center" caption="Completed Flows Canvas" showCaption="true"></Image>
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Asset Online Percentage&#x20;*&#x70;rocessor to view the output values.
+
+The output describes a situation where the machine was online for **32.3%** of the time in the 24 hours.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/y6tGTILU5TN99_QtypjTE_image.png "Output of Asset Online Percentage processor")
+

@@ -1,0 +1,48 @@
+---
+title: Pull an Image from the Azure Container Registry
+slug: Y5CJa02TaGrXCOBYmuNmC
+description: You can import an image from the Azure container registry on the Images pane.
+docTags: 
+createdAt: Thu Sep 29 2022 21:30:04 GMT+0300 (Eastern European Summer Time)
+---
+
+You can import an image from the Azure container registry on the *Images&#x20;*&#x70;ane.
+
+# Before You Begin
+
+Before you complete the steps below, make sure you do the following:
+
+- :Link[Add a Registry]{docId="6svPpC5Tb9u1rSKIfqGmo" label="Add a Registry" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add a Registry"} in Azure for the image you are importing.
+- Verify you have permission to import an image.
+
+# Step 1: Copy Image from Azure
+
+**To copy the image from Azure:**
+
+1. Open the Azure application.&#x20;
+2. Navigate to the **AzureContainerRegistry**.
+3. Click the registry item from which you want to pull.
+4. From the registry item pane, copy the name of the image.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/hocdpgHpZKG-75p_UKvHo_azure-image-pull-copy.png "Azure image name")
+
+<hint type="info">
+  **Note**: If you copy the entire registry name, you will get a *bad request* when you import the application and the import will fail.
+
+</hint>
+
+# Step 2: Pull Image in Litmus Edge
+
+**To pull the image in Litmus Edge:**
+
+1. Log in to Litmus Edge.
+2. From the Navigation panel, select **Applications**.
+   The *Overview&#x20;*&#x70;ane appears.
+3. From the Navigation panel, select **Images**.
+   The *Images&#x20;*&#x70;ane appears.&#x20;
+4. Click the **Pull Image** icon.&#x20;
+   The *Pull Image&#x20;*&#x64;ialog box appears.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JTsbUN0snd1_Xpy9ARyGg_xq82po5xxk9skmsemscoipullimageicon.png "Pull Image icon")
+5. From the *Registry&#x20;*&#x64;rop-down list, select the **Azure&#x20;**&#x72;egistry. If needed, :Link[Add a Registry]{docId="6svPpC5Tb9u1rSKIfqGmo" label="Add a Registry" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add a Registry"} for Azure.&#x20;
+6. In th&#x65;*&#x20;Image Name* field, paste the image you previously copied from Azure.&#x20;
+7. Click **Pull**.
+

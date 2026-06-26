@@ -1,0 +1,165 @@
+---
+title: OSI Agent Advanced
+slug: AUIxJzCEmAI3aphn5fbOz
+description: Review the following information for setting up and configuring the OSI Agent Advanced driver. 
+docTags: 
+createdAt: Thu Nov 23 2023 21:31:11 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the OSI Agent driver.&#x20;
+
+<hint type="warning">
+  **Important**:&#x20;
+
+  - The DH Historian Agent can only have one OSI PI agent and one OSI PI server connection with one username/password configured for the OSI PI server.
+  - The username/password in the DeviceHub configuration is to access the DH Historian Agent, not the OSI PI server.
+  - If you would like to manage access to tags/data being sent through the OSI PI agent and server, you can set up multiple Litmus Edge connections through the NATS connector. See :Link[Set Up Edge Cascading with the NATS Connector]{label="Set Up Edge Cascading with the NATS Connector" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="rNe9-xrQnvVKWfh5gy-1C" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. &#x20;
+</hint>
+
+# Set Up the OSI Agent
+
+See :Link[DH Historian Agent]{label="DH Historian Agent" spaceId="SHlZRB8sbLUIhUOl3qzzX" docId="YMPR6YQtY8t2-KoFYC35y" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to review how to set up and configure the OSI Agent driver.&#x20;
+
+# OSI Agent Advanced Driver Settings in Litmus Edge
+
+If you review or edit the settings of the OSI Agent Advanced device, refer to the following parameters.&#x20;
+
+<table columnWidths="243,319" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      OSI
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      OSI Agent Advanced
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      The port configured in the DH Historian Agent. The default value is 4777.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Interface**
+    </td>
+    <td>
+      You have the option of selecting the interface for accepting client connections. The default value is 0.0.0.0, which means using all network interfaces for accepting connections from clients.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **User**
+    </td>
+    <td>
+      The username configured in the DH Historian Agent.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Password**
+    </td>
+    <td>
+      The password configured in the DH Historian Agent.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Enable TLS**
+    </td>
+    <td>
+      Disable or Enable
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Nats Connection Name**
+    </td>
+    <td>
+      The NATS connection name, which should be the same as the Windows-based OSI Agent setting.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Nats Request Timeout (ms)**
+    </td>
+    <td>
+      5000
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Browse Request Items Count**
+    </td>
+    <td>
+      500
+    </td>
+  </tr>
+</table>
+
+When you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to the connected device, refer to the following register table and tag parameters.
+
+Refer to the following additional resources:
+
+- :Link[Organize Device and Tag Data by Using Metadata]{docId="ky8n65N8noj1AuQXZt93Z" label="Organize Device and Tag Data by Using Metadata" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Tag Formula Variables]{docId="ZyKcV1im7Rn9JrfBw4bTZ" label="Tag Formula Variables" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="98,100">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      float64, bool\[], sbyte\[], byte\[], int32\[], sbyte, int16, int64, uint64\[], float64\[], string, uint16\[], float32\[], bool, byte, float32, uint64, string\[], int16\[], uint32\[], int64\[], uint16, int32, uint32
+    </td>
+  </tr>
+  <tr>
+    <td>
+      State
+    </td>
+    <td>
+      byte, string
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Status
+    </td>
+    <td>
+      JSON
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="T2N_Gv--AYCOgeZVGNH_C">
+
+</ContentSnippet>
+

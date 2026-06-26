@@ -1,0 +1,38 @@
+---
+title: Google Cloud Pub/Sub Connector
+slug: BKOaLYGEDw7v9ePsnmwhk
+description: Review parameters for the Google Cloud Pub/Sub connector. 
+docTags: 
+createdAt: Fri Dec 01 2023 20:41:10 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the :Link[Google Cloud Pub/Sub Integration Guide]{docId="ZENoinPaDgZae1g3bYD7t" label="Google Cloud Pub/Sub Integration Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+## Overview
+
+Google Cloud Pub/Sub integration enables an Edge System to connect with Google Cloud Pub/Sub.
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to Google Cloud Pub/Sub) - Yes
+- Inbound (Subscribe to data from Google Cloud Pub/Sub to Edge ) - Yes
+
+## Configurations
+
+| **Variable**                           | **Detail**                                                                                                                                                                                                                       | **Required** |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name                                   | Enter a name for the connector.                                                                                                                                                                                                  | Yes          |
+| Service account key                    | Service account key is a JSON or P12 file containing authentication credentials for programmatic access to Google services.                                                                                                      | Yes          |
+| Project id                             | Project id is a unique identifier for a specific project within the Google Cloud Platform ecosystem.                                                                                                                             | Yes          |
+| Private key                            | Private Key ID is a unique identifier associated with a service account's private key, used for authentication and access control in Google services.                                                                            | No           |
+| Client email                           | Client Email is an email address associated with a service account in a Google Cloud project, used for authentication and access to resources.                                                                                   | No           |
+| Default topic                          | The default topic for publishing.                                                                                                                                                                                                | Yes          |
+| Show custom attributes                 | If enabled, custom attributes are key-value pairs that allow you to attach additional metadata to messages in a Google Cloud Pub/Sub topic for custom processing and filtering.                                                  | No           |
+| Parallel publish count                 | Parallel publish count refers to the number of concurrent message publishing operations that can be performed simultaneously using the Google Cloud Pub/Sub service, enhancing message throughput.                               | Yes          |
+| Parallel byte threshold                | Parallel byte threshold is the configurable limit on the size of the data payload for a batch of messages that determines when parallel publishing of messages is triggered in Google Cloud Pub/Sub for optimized data transfer. | No           |
+| Publish count threshold                | Publish count threshold is the set limit on the number of messages in a batch that triggers publishing to Google Cloud Pub/Sub, optimizing message delivery.                                                                     | No           |
+| Publish delay threshold (Milliseconds) | Publish delay threshold (Milliseconds) is the specified time interval after which accumulated messages are automatically published to Google Cloud Pub/Sub to control message delivery latency.                                  | No           |
+| Throttling limit                       | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                                           | No           |
+| Persistent storage                     | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.                            | No           |
+| Queue mode                             | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.                             | No           |
+

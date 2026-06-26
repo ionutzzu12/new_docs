@@ -1,0 +1,1126 @@
+---
+title: Panasonic FP7 Ethernet (Gen1.3)
+slug: 0cUxfQr82ub7PPSwjZAWg
+description: Review the following information for setting up and configuring the Panasonic FP7 Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Panasonic FP7 Ethernet (Gen1.3)&#x20;driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="237,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[FP7]{href="https://na.industrial.panasonic.com/products/industrial-automation/plc-hmi-communication/lineup/programmable-logic-controllers-interface-terminal/series/227" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it as needed.&#x20;
+2. **Device**: Panasonic FP7 CPS31ES
+3. **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/pjbJN6l25JZOYCwAflUpZ_panasonic-fp7-ethernet.png" size="50" width="284" height="478" caption="Reference image of de" position="center" showCaption="true" indent="2"></Image>
+
+4. Connect the device to a PC with a USB cable.
+5. Launch FPWIN GR7S v2.24, and click **Online > Communication**.
+6. Set up communication parameters.
+7. Click the **Online&#x20;**&#x69;con and then go online.
+8. Click **Options > FP7 Configuration > Build-in ET-LAN**.
+9. Set up the Ethernet communication parameters and then click **OK**.
+10. Download the setting into the PLC.
+11. Set up the communication settings.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="175,618" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Panasonic
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Panasonic FP7 Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      32769
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<table columnWidths="105,105,133,106,111,181" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      51115
+    </td>
+    <td align="left">
+      External input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5115
+    </td>
+    <td align="left">
+      External output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      204715
+    </td>
+    <td align="left">
+      Internal relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      L
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      102315
+    </td>
+    <td align="left">
+      Link relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      P
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Pulse relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      E
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Error notification relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SR
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      22315
+    </td>
+    <td align="left">
+      System relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      IN
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      SSDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6215
+    </td>
+    <td align="left">
+      Direct input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OT
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      SSDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6215
+    </td>
+    <td align="left">
+      Direct output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LD\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1638315
+    </td>
+    <td align="left">
+      LD bit specification
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DT\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99942315
+    </td>
+    <td align="left">
+      DT bit specification
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      UM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHHHdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      52428715
+    </td>
+    <td align="left">
+      UM bit specification
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5115
+    </td>
+    <td align="left">
+      External input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      5115
+    </td>
+    <td align="left">
+      External output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_R
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      204715
+    </td>
+    <td align="left">
+      Internal relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_L
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      102315
+    </td>
+    <td align="left">
+      Link relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_T
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_C
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_P
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Pulse relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_LD\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1638315
+    </td>
+    <td align="left">
+      LD bit specification
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_DT\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99942315
+    </td>
+    <td align="left">
+      DT bit specification
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WX
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      External input word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WY
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      External output word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WR
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      20480
+    </td>
+    <td align="left">
+      Internal relay word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WL
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Link relay word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WS
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      223
+    </td>
+    <td align="left">
+      System relay word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      16383
+    </td>
+    <td align="left">
+      Link register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DT
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999423
+    </td>
+    <td align="left">
+      Data register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      System register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WI
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      SSDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      62
+    </td>
+    <td align="left">
+      Input register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WO
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      SSDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      62
+    </td>
+    <td align="left">
+      Output register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      UM
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      HHHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      524287
+    </td>
+    <td align="left">
+      Unit memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TS
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Timer setting value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TE
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Timer elapsed value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter setting value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CE
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter elapsed value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      H
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      14
+    </td>
+    <td align="left">
+      Index register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_WX
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      External input word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_WY
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      External output word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_WR
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      20480
+    </td>
+    <td align="left">
+      Internal relay word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_WL
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Link relay word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_LD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      16383
+    </td>
+    <td align="left">
+      Link register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_DT
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999423
+    </td>
+    <td align="left">
+      Data register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_TS
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Timer setting value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_TE
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Timer elapsed value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter setting value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      \_CE
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter elapsed value
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

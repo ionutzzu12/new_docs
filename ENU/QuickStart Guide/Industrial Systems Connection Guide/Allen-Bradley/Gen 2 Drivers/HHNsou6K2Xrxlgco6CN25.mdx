@@ -1,0 +1,157 @@
+---
+title: AB CompactLogix Ethernet FreeTag
+slug: HHNsou6K2Xrxlgco6CN25
+description: Review the following information for setting up and configuring the AB CompactLogix Ethernet FreeTag driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB CompactLogix Ethernet FreeTag driver.&#x20;
+
+<hint type="danger">
+  **Note**: This driver has been deprecated due to known issues. Instead, use the [AB Logix Ethernet](ab-logix-ethernet.mdx) driver.
+</hint>
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="214,419" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[CompactLogix]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/small-controllers/compactlogix-family.html" newTab="true"}      :Link[ControlLogix]{href="http://ab.rockwellautomation.com/" newTab="true"}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td>
+      [AB CompactLogix (Gen1)](<../Gen 1 Drivers/Bj5FQz4laXCUAE90mQAVd.mdx>)
+      [AB ControlLogix (Gen1)](<../Gen 1 Drivers/0yAY8CsIST-PGcfdlrotc.mdx>)
+      Learn more about :Link[Gen1 and Gen2 Driver Differences]{docId="0Qk2WQP-FsvJJEByAKz2I" label="Gen1 and Gen2 Driver Differences" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Gen1 and Gen2 Driver Differences"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Start the Studio 5000 Logix Designer application.
+2. Select **File** > **Open**, then select your PLC project.
+3. In **Controller Organizer**, right-click the device and select **Properties** from the popup menu.
+   The Module Properties dialog box appears.
+4. Select the **Port Configuration** tab.
+5. Copy aside the IP address from the **IP address** field.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="175,585" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB CompactLogix Ethernet FreeTag
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+Browse for tags to add to this FreeTag device. See :Link[Browse Tags]{docId="akkXnVv6EdVzAZ40SHbWM" label="Browse Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. Alternatively, when you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"}, type the tag name in the **Name** field exactly as it is defined in the device (case-sensitive). You can find a list of tags by navigating to **Controller Organizer > Controller > Controller Tags** in Studio 5000 Logix Designer.
+
+The following data types are supported:&#x20;
+
+- `bool`
+- `byte`
+- `sint`
+- `int`
+- `dint`
+- `real`
+- `dword`
+- `lint`
+- `lreal`
+- `string`
+
+## Addressing Tips
+
+- To access the bits of a `dint` tag, use the data type `bool` and append the bit address (`.0` to `.31`) to the name of the `dint` tag.
+- To access the elements of a two- or three-dimensional array, use multiple square brackets instead of commas to separate the indices. For example, if the array in RSLogix 5000 has the name `MyArray` with the data type `dint[2,2,2]`, you can access the 0th index by entering `MyArray[0][0][0]` in Litmus Edge.
+
+Refer to the following tag parameters in Litmus Edge.&#x20;
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

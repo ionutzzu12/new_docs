@@ -1,0 +1,361 @@
+---
+title: Yokogawa FA-M3 Ethernet (Gen1.3)
+slug: xIs_keC0cUgYe9cyI3t40
+description: Review the following information for setting up and configuring the Yokogawa FA-M3 Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Yokogawa FA-M3 Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="228,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Yokogawa FA-M3 Series]{href="https://www.yokogawa.com/us/solutions/products-and-services/control/control-devices/programmable-logic-controllers-plc-pac/fa-m3/" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.
+
+**To configure your device:**&#x20;
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Yokogawa FA M3 F3SP25-SN
+   - **Communication I/F**: Ethernet. Refer to the following figure.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/pGOpRiViey1zBraKAPnx__yokogawafam3ethernetdevice.png" size="80" width="675" height="744" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. Launch WideField3 v3.02 software and create a project with the device model.&#x20;
+3. Click **Tools > Set up Environment**.
+4. Configure the network parameters.&#x20;
+5. Click **Online > Connect&#x20;**&#x61;nd verify the connection is successful.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Yokogawa
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Yokogawa FA-M3 Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      12289
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+When you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to the connected device, use the following tag/register mapping table.
+
+<table columnWidths="117,117,148,119,124,117" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      71644
+    </td>
+    <td align="left">
+      Input bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      71644
+    </td>
+    <td align="left">
+      Output bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      9984
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      L
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      78192
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      F
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      524288
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Z
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      1024
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      78192
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      256
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      262144
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

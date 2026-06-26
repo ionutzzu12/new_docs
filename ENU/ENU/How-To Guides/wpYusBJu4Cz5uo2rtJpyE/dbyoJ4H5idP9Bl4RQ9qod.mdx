@@ -1,0 +1,127 @@
+---
+title: Save Multiple Register Values to a CSV File
+slug: dbyoJ4H5idP9Bl4RQ9qod
+description: You can use Flows to save multiple register values.
+docTags: 
+createdAt: Wed Jun 07 2023 21:20:03 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Flows to save multiple register values to a CSV file on your Edge device.&#x20;
+
+# **User Scenario**
+
+In an industrial environment, engineers must keep a close eye on the performance of different machines in a factory. To achieve this, they collect raw data at regular intervals from various Programmable Logic Controller (PLC) registers. This data can be aggregated, saved in a file, and used by other applications using Flows. Even if the collection intervals differ, the data can be conveniently accessed using global variables. By analyzing this data, engineers can make informed decisions to improve the productivity of the factory.
+
+# **Step 1: Add a Device**
+
+Follow the steps to :Link[Connect a Device]{href newTab="true"} and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the device. Each tag will collect data from different types of inputs.
+
+## **Tag 1: input1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **input1**
+
+## **Tag 2: input2**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **input2**
+
+Click the copy icon to copy the raw topic of both tags you created. Store them securely as you will refer to them later when configuring the flows.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/s2U_uVQqCsLJqffJwPZW3_image.png "DeviceHub Tags page")
+
+# Step 3: Create Analytics Flows
+
+You can use multiple input nodes in a flow to save values in a database or save values to a CSV file.&#x20;
+
+**To save values from multiple registers to a CSV file:**
+
+<hint type="info">
+  **Note:** A similar method could be used to save values in a MySQL database.
+</hint>
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow.&#x20;
+   See [Create a Flow](<../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx>) to learn more.&#x20;
+2. Drag two **Function&#x20;**&#x6E;odes and two **Datahub Subscribe** nodes to the canvas and wire them together.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/p1CsQmPmR35yxPKdna5rC_image.png" size="60" width="293" height="138" position="center" caption="Flows canvas with nodes" showCaption="true"></Image>
+3. Double-click one of the **Function&#x20;**&#x6E;odes.
+   The *Edit function node&#x20;*&#x64;ialog box appears.&#x20;
+   - **On Message:** Add the following lines to save the value to a Global Variable (`output1`), which can be accessed by other flows, nodes, and functions:
+     `var temp = (JSON.parse(msg.payload)).value;     `
+     `global.set("output1",temp);     `
+     `return msg;`
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/m0dlWb7NMBcdfTXrj1GCx_image.png" size="70" width="480" height="272" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+4. Double-click the other **Function** node.
+   The *Edit function node&#x20;*&#x64;ialog box appears.&#x20;
+   - **On Message:** Enter the following lines of code.
+     `var temp = (JSON.parse(msg.payload)).value;     `
+     `global.set("output2",temp);     `
+     `return msg;`
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8OHFTVaK8NvSEhm-jINwy_image.png" size="70" width="480" height="258" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+5. Double-click one of the **DataHub Subscribe&#x20;**&#x6E;odes.
+   The *Edit Datahub Subscribe node&#x20;*&#x64;ialog box appears.
+   - **Datahub:&#x20;**&#x43;onfigure the Datahub connection if needed. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="kR15wDiWr6qqJeBRq9TVh" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel href="../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx"} to learn more.&#x20;
+   - **Topic:** Paste the topic for *input1* tag.
+   - **Name:** Enter **Input1**.
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HKueza9tx2Wr7Jl0AWXL5_image.png" size="72" width="376" height="243" position="center" caption="Edit Datahub Subscribe node dialog box" showCaption="true"></Image>
+6. Repeat the last step for the other **DataHub Subscribe** node and paste the topic for *input2&#x20;*&#x74;ag.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/X267EyM_xhNjK7qqxFLQW_image.png" size="72" width="397" height="157" position="center" caption="Flows canvas with nodes" showCaption="true"></Image>
+7. On the same canvas, drag an **inject&#x20;**&#x6E;ode, a **Function&#x20;**&#x6E;ode, and a **Write file&#x20;**&#x6E;ode and wire them together as shown.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/BWk9uCIdnR9IpGthQqvAS_image.png "Flows canvas with nodes")
+8. Double-click the **inject** node.
+   The *Edit inject node* dialog box appears.
+   - **Repeat:** Select an **interval&#x20;**&#x66;or every **10 seconds** to read the global variable values.
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ngyXIFkF-YVABklGKCvnQ_image.png" size="60" width="567" height="940" position="center" caption="Edit inject node dialog box" showCaption="true"></Image>
+9. Double-click the **Function&#x20;**&#x6E;ode.
+   The *Edit function node&#x20;*&#x64;ialog box appears.
+   - **On Message:** Enter the following lines of code to set up the output for the CSV file.
+     `//create CSV     `
+     `var temp = global.get("output1") + "," + global.get("output2");     `
+     `msg.payload = temp;     `
+     `return msg;`
+   - Click **Done**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/WgmISwJ5_ABw2eeq5vgcr_image.png" size="70" width="635" height="335" position="center" caption="Edit function node dialog box" showCaption="true"></Image>
+10. Double-click the **Write file** node.
+    The *Edit write file node* dialog box appears.
+    - **Filename:** Enter a **filename&#x20;**&#x70;refaced with a forward slash ( `/` ).&#x20;
+      - The forward slash is required in the filename.
+        Example: `/ftp-data/sample.csv`
+      - The file is created on the Litmus Edge device.
+      - If a subdirectory already exists, you can supply the full path to the file.
+        Example: `/ftp-data/sample`or `/logfiles/sample`.
+    - **Action:&#x20;**&#x53;elect **append to file** from the drop-down menu and click **Done**.
+      <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JG8yMZHw5P57mXC8FUrK2_image.png" size="70" width="456" height="446" position="center" caption="Edit write file node dialog box" showCaption="true"></Image>
+11. Click **Deploy** to save the flow.
+12. Drag the **Sidebar&#x20;**&#x75;p from the bottom of the canvas and select the **Debug** icon.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/0G13ZxTOTWJCeZb19m58b_image.png "Completed flows canvas with debug message icon")
+13. Click the button on the left side of the **inject&#x20;**(timestamp) node to inject the current timestamp into the **write file** node, which creates the CSV file locally if it does not already exist.&#x20;
+    In this example, the `/ftp-data/sample.csv` file is saved.
+
+# Step 4: Read Contents of CSV File
+
+To read the output of the CSV file, refer to [Create, Write to, and Read from a Log File](5cBQMCrE_jr1_Kx9eo6SX.mdx).&#x20;
+
+<hint type="info">
+  **Note:** Change the name of the file with the CSV file you created to save multiple register values.
+</hint>
+
+The CSV file holds the current register values from the two inputs and updates them in real-time.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/UvFbYz1_NgCWM4WlKLkms_image.png "Output of flows canvas")
+

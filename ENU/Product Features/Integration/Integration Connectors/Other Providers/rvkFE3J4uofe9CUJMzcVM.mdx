@@ -1,0 +1,198 @@
+---
+title: REST API
+slug: rvkFE3J4uofe9CUJMzcVM
+description: Review parameters for the REST API connector. 
+docTags: 
+createdAt: Fri Dec 01 2023 20:40:21 GMT+0200 (Eastern European Standard Time)
+---
+
+## Overview
+
+REST API integration enables an Edge System to connect with RESTful API.
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to REST Server ) - Yes
+- Inbound (Subscribe data from REST Server to Edge) - No
+
+## Configurations
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="205,205,205">
+  <tr>
+    <td>
+      **Variable**
+    </td>
+    <td>
+      **Detail**
+    </td>
+    <td>
+      **Required**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Enter a name for the connector
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Method
+    </td>
+    <td>
+      HTTP methods in REST APIs: GET, POST, PUT, and DELETE
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Endpoint
+    </td>
+    <td>
+      Endpoints are the entry points to interact with the API
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Headers
+    </td>
+    <td>
+      A request header is an HTTP header that can be used in an HTTP request to provide information about the request context
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Params
+    </td>
+    <td>
+      URL parameters (query strings) additional information for a given URL
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Mapping
+    </td>
+    <td>
+      Data from a payload could be mapped into a custom one. Example: \{"from": "to"} where "from" is a key from predefined payload, and "to" is a key from destination payload.&#x20;
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Parallel publish count
+    </td>
+    <td>
+      Parallel publish count indicates how many data streams or data items are being sent from the edge system to a central system or cloud simultaneously.
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Insecure skip verify
+    </td>
+    <td>
+      InsecureSkipVerify controls whether a client verifies the server's certificate chain and host name. Select to disable verification
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      OAuth2 - Token Endpoint
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Token Endpoint URL
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      OAuth2 - Client Secret
+    </td>
+    <td colSpan="1" rowSpan="1">
+      OAuth2 - Client Secret Key
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      OAuth2 - Client ID
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Client ID
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      OAuth2 - Scope
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Scope (comma separated value)
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Throttling limit
+    </td>
+    <td>
+      Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Persistent storage
+    </td>
+    <td>
+      If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Queue mode
+    </td>
+    <td>
+      Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+</table>
+

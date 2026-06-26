@@ -1,0 +1,223 @@
+---
+title: Amazon AWS IoT Core over SSL Integration Guide
+slug: YQgPOxj5m-f_3B_KVRokp
+description: Learn how to set up the AWS IoT Core over SSL connector. 
+docTags: 
+createdAt: Mon Nov 28 2022 20:23:32 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide to set up an integration between Litmus Edge and AWS IoT Core with SSL authentication.&#x20;
+
+# Before You Begin
+
+You must have an AWS account with the appropriate user privileges.&#x20;
+
+# Set Up Integration in AWS
+
+## Step 1: Onboard Device
+
+**To onboard a device:&#x20;**
+
+1. Open the AWS IoT browser tab and click **Manage&#x20;**>**&#x20;Things**.
+   The *Things&#x20;*&#x70;ane appears.
+2. From the left pane, click **Onboard**.
+   The *Connect to AWS IoT* pane appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/V3BO-G9gCkJgBquUU1wEG_aws-iot-onboard.png" size="80" width="1397" height="588" caption="Connect to AWS IoT pane" position="center" showCaption="true"></Image>
+3. From the Onboard a device box, click **Get Started**.
+   The *Connect to AWS IoT* wizard appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/BHiU0IKv0X6aUQDOo0UdD_aws-iot-wizard.png" size="80" width="740" height="493" caption="Connect to AWS IoT wizard" position="center" showCaption="true"></Image>
+4. Click **Get Started**.
+   The *How are you connecting to AWS IoT* screen appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/hsDisp19aOwYBl-wpuGtc_aws-iot-how.png" size="80" width="743" height="566" caption="How are you connecting to AWS IoT screen" position="center" showCaption="true"></Image>
+5. From the *Choose a platform***&#xA0;**&#x73;ection, select **Linux/OSX**.
+6. From the *Choose a AWS IoT Device SDK* section, select **Java**, and then click **Next**.
+   The *Register a thing* screen appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/E-Fl8AkTeMQeWdkRi_4vG_aws-iot-register.png" size="80" width="741" height="335" caption="Register a thing screen" position="center" showCaption="true"></Image>
+7. In the **Name&#x20;**&#x66;ield, enter **Thing1**, and then click **Next step**.
+   The *Download a connection kit&#x20;*&#x73;creen appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JcU-bFVza3ql5LxJWwnCD_aws-iot-download.png" size="80" width="743" height="581" caption="Download a connection kit screen" position="center" showCaption="true"></Image>
+8. Click **Linux/OSX**, view the downloaded .zip file at the bottom of the screen, and then click **Next step**.
+   The *Configure and test your device&#x20;*&#x73;creen appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Sjr9VXe3uXxpsrKksZ_RU_aws-iot-test-device.png" size="80" width="742" height="472" caption="Configure and test your device screen" position="center" showCaption="true"></Image>
+9. View the downloaded .zip file at the bottom of the screen, and then click **Done**.
+   The *Connected successfully* screen appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nGT4A0Jc2g1xP8YmtleOM_aws-iot-connected.png" size="80" width="740" height="523" caption="Connected successfully screen" position="center" showCaption="true"></Image>
+10. Click **Done**.
+    The named *Thing1* appears in the Things pane.
+
+## Step 2: Create Policy
+
+**To create the policy:&#x20;**
+
+1. From the left pane in the AWS Things pane, click **Secure > Policies**.
+2. Refresh the page.&#x20;
+   The named *Thing1-Policy* appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Sxu_BWI5z7d3niexH9xGb_aws-iot-thing-policy.png" size="80" width="1409" height="433" caption="Policy item" position="center" showCaption="true"></Image>
+
+## Step 3: Create and Download Certificate and Private Key
+
+You will need to download the certificate and private key that you will use to configure the AWS connector in Step 8.&#x20;
+
+**To create and download the certificate and private key:&#x20;**
+
+1. From the left pane, click **Certificates**.
+   The certificate for the named Thing appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/csua6h_nIb2AtvPRf7XrW_aws-iot-thing-certificate.png" size="80" width="1410" height="490" caption="Certificate pane" position="center" showCaption="true"></Image>
+2. Click the **Actions&#xA0;**&#x69;con for the certificate, and select **Delete**.
+   The *Confirmation&#x20;*&#x64;ialog box appears.
+3. Click **Yes, continue with delete**.
+4. Refresh the page.
+   The *Certificates&#x20;*&#x77;izard appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/0wDcTp89OT15aFLewKYbq_aws-iot-certificates.png" size="50" width="388" height="408" caption="Certificate wizard" position="center" showCaption="true"></Image>
+5. Click **Create a certificate**.
+   The *Create a certificate* screen appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/sehdtYmb71A0NICh4Nyml_aws-iot-create-certificate.png" size="80" width="746" height="382" caption="Create a certificate screen" position="center" showCaption="true"></Image>
+6. Click **Create certificate**.
+   The *Certificate created* screen appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/4xECEOxkSnjbd8n6dKL7r_aws-iot-certificate-success.png" size="80" width="1037" height="526" caption="Certificate created screen" position="center" showCaption="true"></Image>
+7. Click **Download&#xA0;**&#x6E;ext to *A certificate for this thing*.
+8. Click **Download&#xA0;**&#x6E;ext to *A private key*.
+9. Click **Keep&#xA0;**&#x6E;ext to the downloaded files.
+10. Click **Activate**, and then click **Attach a policy**.
+    The *Add authorization to certificate* screen appears.
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/CER_7HJZXXmFRNvhXVaWO_aws-iot-policy.png" size="80" width="751" height="402" caption="Add authorization to certificate screen" position="center" showCaption="true"></Image>
+11. Select the named **Thing1-Policy**, and then click **Done**.
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/xT6c811L9MGH58HgKZa8J_aws-iot-certificate-success.png" size="80" width="1037" height="526" position="center" showCaption="false"></Image>
+
+## Step 4: Edit Policy
+
+**To edit the policy:&#x20;**
+
+1. From the left pane, click **Policies**.
+   The *Policies&#x20;*&#x70;ane appears.&#x20;
+2. Click the named **Thing1-Policy**.
+   The named *Thing1-Policy* dialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/klxQ58Tn_WLxFba6BIi68_aws-iot-policy-details.png" size="80" width="749" height="530" caption="Policy dialog box" position="center" showCaption="true"></Image>
+3. Click **Edit policy document**.
+   The *Edit Policy* screen appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cRhCT48jqWCWdGVcb-8hn_aws-iot-policy-edit.png" size="80" width="752" height="526" caption="Edit Policy screen" position="center" showCaption="true"></Image>
+4. Scroll down the policy document, copy the last line, paste the copied line below, and edit it as follows:
+   Change **sdk-nodejs** to *sdk-golang*.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Fnaf_Q5NpkRt77wlgHJ7P_aws-iot-policy-edit-golang.png" size="80" width="590" height="101" caption="Edit policy code" position="center" showCaption="true"></Image>
+5. Click **Save as new version**.
+6. Click the **Back&#xA0;**&#x61;rrow to return to the *Policies&#x20;*&#x70;ane.
+
+# Set Up Integration in Litmus Edge
+
+After setting up your AWS account, you will need to log in to Litmus Edge to complete the steps below and complete the integration.&#x20;
+
+## Step 5: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+## Step 6: Add Tag to Device
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+## Step 7: Retrieve Parameters for AWS Connector
+
+You will have to log in to your AWS account to retrieve the parameters for the AWS connector.&#x20;
+
+**To retrieve the parameters:**
+
+1. Log in to your AWS account.&#x20;
+2. Open the AWS IoT browser tab and click **Manage&#x20;**>**&#x20;Things**.
+   The *Things&#x20;*&#x70;ane appears.&#x20;
+3. Click **Thing\[#]**.
+   The *Thing\[#}* dialog box appears.
+4. From the left pane, click **Interact**.
+   The pane changes to reflect your selection.
+5. Copy the **REST API Endpoint&#xA0;**&#x75;nder the HTTPS section. This is the *Hostname&#x20;*&#x70;arameter for the AWS connector.&#x20;
+6. Click **Secure > Policies**.
+   The *Policies&#x20;*&#x70;ane appears.
+7. Click **Thing\[#]-Policy**.
+   The *Thing\[#]-Policy&#x20;*&#x64;ialog box appears.
+8. Scroll to the bottom and copy SDK resource to your clipboard. For this use case, the SDK resource is **sdk-golang**. This is the *Client ID* parameter for the AWS connector.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cobC0-16iXGjmwvUbVR0X_aws-iot-things-sdk.png" size="80" width="927" height="647" caption="The SDK resource value" position="center" showCaption="true"></Image>
+9. Copy the first topic value. In this use case, the topic is **topic\_1**. This the *Integration Topic* value.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/et2d9FRdGwyIfg82wBQcF_aws-iot-things-topic.png" size="80" width="951" height="606" caption="The topic value" position="center" showCaption="true"></Image>
+
+## Step 8: Add AWS IoT Core Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/xQi5POxWkMPNQ1-YhUBJa.mdx>) and select the **MQTT - Amazon AWS IoT Core over SSL&#x20;**&#x70;rovider.
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Paste the *REST API Endpoint* value copied in Step 6.&#x20;
+- **Port**: Enter the MQTT broker port. The default value is **8883**.&#x20;
+- **Certificate**: Paste the downloaded certificate in Step 3. &#x20;
+- **Private key**: Paste the downloaded private key in Step 3.&#x20;
+- **Client ID**: Paste the *SDK resource* copied in Step 6.&#x20;
+- **QoS**: Confirm that the default value **0** is entered. The Quality of Service (QoS) level is an agreement between the sender of a message and the receiver of a message that defines the guarantee of delivery for a specific message.
+- **Parallel Publish Count**: The number of messages being published simultaneously. Once the defined limit has been reached, subsequent messages are silently dropped. The default value is **100**.
+- **Integration Topic**: Paste the topic value copied in Step 6.&#x20;
+- **LWT topic**: The topic for Last Will and Testament feature of MQTT.
+- **LWT payload**: The payload for Last Will and Testament feature of MQTT.&#x20;
+- **LWT payload type**: The payload type for MQTT's Last Will and Testament feature. The options are *string&#x20;*&#x61;nd *base64*.&#x20;
+- **LWT QoS**: The Quality of Service value for MQTT's Last Will and Testament feature.
+- **LWT retained**: Select this check box to retain the value for MQTT's Last Will and Testament feature.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+## Step 9: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3Zn4dsoTADVWs5tUSHlfM_awsiot.png" size="60" width="369" height="345" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="X6qOs6TGqjdrhkd-nc70a" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/jsuQzIbwdzLIqKgO6zwOe/vqMjejrjwJrnsSK4qpg0q.mdx"} and relevant error messages.&#x20;
+
+## Step 10: Create Topics for Connector
+
+You will now need to create topics for the connector. To create outbound topics, you have the option of importing the tag created in Step 6. To create inbound topics, you will have to manually create the topic.
+
+<ContentSnippet docRefId="5xrEoBNiGFI2NwvBmdA9Y">
+
+</ContentSnippet>
+
+## Step 11: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+## Step 12: Verify Outbound Messages
+
+You will need to log in to your AWS account to verify that outbound messages are being sent.&#x20;
+
+**To verify outbound messages:&#x20;**
+
+1. Log in to your AWS account.&#x20;
+2. Navigate to the *AWS Things* pane and click **Monitor**.
+   The *Monitor&#x20;*&#x70;ane appears.&#x20;
+3. Select **Hour&#xA0;**&#x66;rom the **Time range&#xA0;**&#x64;rop-down list.
+   The charts change to reflect your selection.
+4. Click the browser **Refresh&#x20;**&#x74;o refresh the page.
+   The *Successful connections* chart shows a connection.
+5. Scroll down to the Messages published chart.
+   The *Messages published* chart shows messages arriving.
+
+## Step 13: View Outbound Messages in Litmus Edge Flow
+
+You can create a flow in Litmus Edge to view the outbound messages.&#x20;
+
+**To create a flow:**
+
+1. Follow the steps to [Create a Flow](<../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx>) and add the following nodes.
+   - **DataHub Subscribe&#x20;**
+   - **Debug**
+2. Double-click the **DataHub Subscribe&#xA0;**&#x6E;ode.
+   The *Edit DataHub Subscribe node* dialog box appears.
+3. Paste the local topic you created in Step 9. &#x20;
+4. If needed, configure the *Datahub Subscribe* connection. See the "Step 3: Configure Connector Nodes" section in :Link[Create a Flow]{docId="kR15wDiWr6qqJeBRq9TVh" label="Create a Flow" spaceId version="v2" docAnchorId="#sQhVJ" overridedLabel="Create a Flow" href="../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx"} to learn more.&#x20;
+5. Click **Done**, and then click **Deploy**.
+6. Click the **debug&#xA0;**&#x74;ab. See the *Additional Options* section in [Manage the Flow Canvas](<../../Product Features/68WrvuaKK8gVSMbo8bVxq/Afi9wqefeN0u5YmHVBn5G.mdx>) for more details.&#x20;
+7. Verify that *Test Message* appears in the debug results.&#x20;
+
+You can return to *AWS Monitor* browser tab and view the *Messages published&#x20;*&#x63;hart to see the outbound messages are being sent.

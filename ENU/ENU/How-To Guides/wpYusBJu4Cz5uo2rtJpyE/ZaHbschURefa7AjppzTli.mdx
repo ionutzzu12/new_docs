@@ -1,0 +1,73 @@
+---
+title: Use Access to Read from a Topic
+slug: ZaHbschURefa7AjppzTli
+description: You can use Flows to read a topic from a tag through the local message broker using an Access Subscribe node.
+docTags: 
+createdAt: Tue Jun 06 2023 21:08:19 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Flows to read a topic from a tag through the local message broker using an **Access Subscribe&#x20;**&#x6E;ode.
+
+# Before you Begin
+
+Make sure you create an Access API account. See [Create an API Account](<../../ENU/ENU/Product Features/1TTPnNQxOKs8_8WGjZEuE/v9vRrzg8jEVnKl5YVD-z7/JsMEG7ozPUm1U8p3CSKMe/8t42uCsIeSODat6BIhkxJ.mdx>) and :Link[Manage API Accounts]{label="Manage API Accounts" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="atukaX50t8-5GItPtUr8m" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more information.
+
+# **Step 1: Add a Device**
+
+Follow the steps to :Link[Connect a Device]{href newTab="true"} and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{href newTab="true"} to learn more.&#x20;
+
+## **Tag 1**
+
+- **Name**: Select **S - Random value generator**.
+- **Value Type**: Select **int64**.&#x20;
+- **Polling Interval**: Enter **5**.
+- **Tag Name**: Enter **tag 1**.&#x20;
+
+After the tag is created, click the **Copy&#x20;**&#x69;con for the topic name for the tag. You will refer to this later.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/mEGGMuMlsreHyxmJAoVkv_a.png "The copy icon for the tag")
+
+# Step 3: Create Access Flow
+
+**To read a topic from a tag using Access:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow.&#x20;
+   See [Create a Flow](<../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx>) to learn more.&#x20;
+2. Drag the **Access Subscribe** and **Debug** nodes to the canvas and wire them together.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/GE8GmsiNA7lY7RxUIEnxr_image.png" size="70" width="430" height="96" position="center" caption="Access Subscribe node" showCaption="true"></Image>
+3. In Litmus Edge, navigate to **System&#x20;**>**&#x20;Tokens**.
+4. Click th&#x65;**&#x20;Action menu** for the API account you created previously and select **Edit topics**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ulieET8TXxv4ZDLvatucb_image.png "System Tokens page")
+5. From the *Edit topics***&#xA0;**&#x64;ialog box, do the following:
+   - Paste the topic name from Step 2 in the **Read Topics** field, and click **Add Read Topic**.
+     The topic name appears below the *Topic Name field*.
+   - Click **Update**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6H3Qzx3atDGas5fu_Baj1_image.png" size="70" width="621" height="296" position="center" caption="Edit topics dialog box" showCaption="true"></Image>
+6. Return to the **Flows&#xA0;**&#x62;rowser tab and double-click the **Access Subscribe&#xA0;**&#x6E;ode.
+   The *Edit access-subscribe node&#x20;*&#x64;ialog box appears.
+   - **Topic Name**: Paste the topic name from Step 2. If you paste a topic from the Tags pane that has not been added to the Access **Read Topic&#x20;**&#x66;ield, you will get an error.
+   - Click the **Edit&#x20;**&#x69;con next to the *Access&#x20;*&#x66;ield.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5xemEvAFN5gSeTVG20ce7_image.png" size="70" width="450" height="290" position="center" caption="Edit access-subscribe node dialog" showCaption="true"></Image>
+7. Return to the **System&#x20;**>**&#x20;Tokens&#xA0;**&#x62;rowser tab and do the following:
+   - Click the **Action menu&#x20;**&#x66;or the API account and select **View API Key**.
+   - Click the **Copy** icon next to the *API Key*.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/570PRoC_TXb83Yo_HdcGe_image.png "Access accounts table")
+8. Return to the *Add new Access Connect config node* dialog box in the **Flows&#xA0;**&#x62;rowser tab and do the following:
+   - **API Key**: Paste the API key you copied.
+   - Click **Add&#x20;**&#x6F;r **Update**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-NQYM8NR2H7Mq-hcjI5-V_image.png" size="70" width="455" height="233" position="center" caption="Add new Access Connect config node dialog box" showCaption="true"></Image>
+9. Click **Done&#x20;**&#x61;nd then click **Deploy.**
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/FUQ9crAbIGcM1UrBIDgbS_image.png" size="70" width="455" height="281" position="center" caption="Edit access-subscribe node dialog box" showCaption="true"></Image>
+10. Expand the message window beneath the flow and click the **Debug&#x20;**&#x69;con.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/wI_bbReMPplhSo_AuY11c_image.png "Flows canvas debug section")
+11. Click the **Debug&#x20;**&#x6E;ode button to view the output in the *Debug message* window.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/uVPzBGImLVrjepqSUyj_P_image.png "View the output for Access Subscribe node")
+

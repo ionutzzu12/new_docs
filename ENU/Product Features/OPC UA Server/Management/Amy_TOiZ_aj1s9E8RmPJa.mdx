@@ -1,0 +1,30 @@
+---
+title: Manage OPC UA Policies
+slug: Amy_TOiZ_aj1s9E8RmPJa
+description: Learn how to manage OPC UA policies. 
+docTags: 
+createdAt: Mon Sep 26 2022 19:07:10 GMT+0300 (Eastern European Summer Time)
+---
+
+You can enable and disable policies by navigating t&#x6F;**&#x20;OPC&#x20;**>**&#x20;Management.**&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/yNz1tj_buxrl31lyASpUm_image.png)
+
+- **None**: No encryption type.
+- **Sign**: Litmus Edge signs messages from the server to assure recipients that the sender is authentic and not an imposter.
+- **SignAndEncrypt**: Litmus Edge both signs and encrypts messages from the server to prevent any attackers from reading plain text messages from the server.
+
+## Security Policies
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ag6YnMXsbc97ALHEA_jxP_image.png)
+
+- **None**: No encryption type.
+- **Basic256Sha256**: 256-Bit encryption. It supports Sha256 or stronger hash algorithms for certificates.
+- **Basic256**: 256-Bit encryption. It supports the Sha1 and Sha256 hash algorithms for certificates.
+- **Basic128Rsa15**: 128-Bit encryption that uses RSA15 as a Key-Wrap. It supports Sha1 or stronger hash algorithms for certificates.
+- **Aes256\_Sha256\_RsaPss**: 256-bit Advanced Encryption Standard (AES) using the RSA Probabilistic Signature Scheme. &#x20;
+- **Aes128\_Sha256\_RsaOaep**: 128-bit Advanced Encryption Standard (AES) using the RSA with Optimal Asymmetric Encryption Padding.&#x20;
+
+## Restart OPC UA Server
+
+After enabling or disabling a policy, you must restart the OPC UA Server. See :Link[Manage the OPC UA Server]{docId="auzIPeIw63IOIZXLEQ3xe" label="Manage the OPC UA Server" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} to learn more.&#x20;

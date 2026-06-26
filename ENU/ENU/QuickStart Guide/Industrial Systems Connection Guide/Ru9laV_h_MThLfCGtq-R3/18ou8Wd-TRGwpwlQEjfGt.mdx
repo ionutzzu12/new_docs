@@ -1,0 +1,155 @@
+---
+title: Danfoss FC/TSC
+slug: 18ou8Wd-TRGwpwlQEjfGt
+description: Review the following information for setting up and configuring the Danfoss FC/TSC driver. 
+docTags: 
+createdAt: Thu Jun 30 2022 23:01:55 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Danfoss FC/TSC driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="239,241" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Danfoss VLT AQUA Drive FC 202]{href="https://www.danfoss.com/en/products/dds/low-voltage-drives/vlt-drives/vlt-aqua-drive-fc-202/" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="174,569" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Danfoss
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Danfoss FC/TSC
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port&#x20;**
+    </td>
+    <td>
+      4000
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="100,135,115,118,118,103" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      PNU
+    </td>
+    <td>
+      Number, String
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Parameters
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="kOuHB4xXiMjczDITkV59L">
+
+</ContentSnippet>
+

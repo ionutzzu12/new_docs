@@ -1,0 +1,85 @@
+---
+title: Manufacture Counter and Capacity Utilization
+slug: a1-CcrpHqp2pAb6x8z4Qk
+description: Learn more about the Manufacture and Capacity Utilization KPI. 
+docTags: 
+createdAt: Fri Oct 21 2022 17:40:56 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the **Manufacture Counter** KPI processor to count the total number of manufactured units in a period.&#x20;
+
+# Manufacture Counter and Capacity Utilization Overview
+
+- Use **Total Units manufactured&#xA0;**&#x69;f you need a simple count of the total number of units manufactured in a period.
+- Use **Capacity Utilization&#xA0;**&#x69;f you want to monitor how much output is being produced compared to an ideal scenario.
+- The **timer interval&#xA0;**&#x70;arameter is useful if the connected input tag is offline but you still want this KPI to look for a value every few seconds, defined by the timer.
+- You should have an input connected with this KPI with the definition on its connection as *manufactureEnd*.
+  For example, if you define **Manufacture From Value**: `0 `and **Manufacture To Value**: `1`, this means that when the value from the input tag, with the definition on the connection as *manufactureEnd*, goes from 0 to 1, it is an indication that a unit was manufactured.
+- After creating this KPI, you need to add a definition called *manufactureEnd* to the connecting wire, which is an event trigger, triggering whenever there is end of a manufacturing cycle.
+
+# Manufacture Counter and Capacity Utilization Parameter
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="159">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device Reset
+    </td>
+    <td>
+      This parameter resets the KPI when the connected device is reset.    </td>
+  </tr>
+  <tr>
+    <td>
+      Unit
+    </td>
+    <td>
+      Enter the unit of time (e.g., minute, hour, day, week) for which you are entering the ideal count.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Ideal Count
+    </td>
+    <td>
+      Define the ideal count of manufactured units per chosen unit of time (e.g., per hour, day, week).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      From Value
+    </td>
+    <td>
+      Enter the value that indicates the end of a manufacturing cycle.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      To Value
+    </td>
+    <td>
+      Enter the value that indicates the end of a manufacturing cycle.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer Interval
+    </td>
+    <td>
+      Timer in milliseconds. If no event, use this timer to keep displaying the output continually. Enter zero to disable.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/gTQpHcmb5gDurgwvBvfOE_image.png" size="80" width="942" height="562" caption="Manufacture Counter parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Manufacture Counter and Capacity Utilization&#x20;*&#x4B;PI, refer the :Link[Use the Manufacture Counter KPI]{label="Use the Manufacture Counter KPI" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="DCkbC57P2aQF4c95EuFsH" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}  guide for more details.
+</hint>
+

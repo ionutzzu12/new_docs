@@ -1,0 +1,145 @@
+---
+title: ISO Installation on an Industrial PC (IPC)
+slug: VLdlKFKZW0OchrmALVjrH
+description: You can install Litmus Edge with a physical gateway from a USB.
+docTags: 
+createdAt: Mon Apr 11 2022 21:09:54 GMT+0300 (Eastern European Summer Time)
+---
+
+You can install Litmus Edge with a physical gateway from a USB.
+
+<hint type="warning">
+  **Important**: The data storage virtualization technology RAID (redundant array of inexpensive disks) is not supported when installing Litmus Edge on an industrial PC.&#x20;
+</hint>
+
+# Before You Begin
+
+<ExpandableHeading>
+  *USB Pre-Installation Checklist*
+
+  - [ ] Format a USB flash drive with at least 8GB of storage space to FAT32.
+  -  [ ]   Download and install software to create a bootable USB drive (for example, :Link[balenaEtcher]{href="https://www.balena.io/etcher/" newTab="true" hasDisabledNofollow="false"}. If using balenaEtcher, you must skip the validation step when creating the bootable flash drive.)
+  - [ ] Load the Litmus Edge Installer ISO file on the USB drive.&#x20;
+  -  [ ]   Litmus Edge must have an x86 or amd64 device for installation. See :Link[System Requirements]{docId="2HvbAMnACQvd83h0QIQDT" label="System Requirements" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" overridedLabel="System Requirements"}  for more information.
+  - [ ] Ensure that there is enough space on the desired partition for Litmus Edge.
+  - [ ] Set the correct system time in the device BIOS to prevent any license activation issues. UTC is recommended.
+  - [ ] To ensure that the device boots after a power loss, set the boot mode in the BIOS to UEFI.
+  - [ ] Set the boot order to boot from USB in the BIOS.
+  - [ ] Connect a monitor and keyboard to the device.
+  - [ ] Connect a mouse to non-serial devices for navigating the install GUI.
+</ExpandableHeading>
+
+- Make sure you have a basic knowledge of BIOS and selecting bootable media.
+- Adjust the system clock using the BIOS prior to installing Litmus Edge. UTC is recommended. The 15-day trial period may be rejected and invalidated by the license server if the system clock is not adjusted. If this happens, contact your Litmus representative.
+- Adjust the **Boot Mode** setting to **UEFI** using the BIOS prior to installing.
+- Obtain a valid file in the ISO format (example filename: `<litmusedge-std_3.1.5.0-amd64>.iso`). You can get the ISO file from Litmus or download it from the :Link[Litmus Central portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+- Make sure you have more than 16GB disk space to run 3.x images on a Bare Metal server.&#x20;
+
+To use a physical gateway to install Litmus Edge, you will need to do the following:
+
+- Step 1: Download ISO File
+- Step 2: Create a Bootable USB Flash Drive
+- Step 3: Install On a Device
+- Step 4: Log in to Litmus Edge
+
+# Step 1: Download ISO File
+
+Download the Litmus Edge ISO file from the :Link[Litmus Central portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+
+# Step 2: Create a Bootable USB Flash Drive
+
+You will need to create a bootable USB flash drive and then load the ISO file onto the flash drive.
+
+## Important
+
+- The boot mode should be UEFI.
+- If you are using :Link[balenaEtcher]{href="https://www.balena.io/etcher/" newTab="true"}, you must skip the validation step while creating the flash drive. Otherwise, Litmus Edge won't install successfully.&#x20;
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/nWZRKYCTt-bu4-omBK66Y_image.png "Skip validation step")
+
+After preparing the USB drive, choose the instructions that are relevant for the device for which you are installing Litmus Edge.
+
+# Step 3: Install on a Device
+
+There are two methods to installing Litmus Edge on a device:
+
+- Install on a Device with Graphic Capability
+- Install on a Device with No Graphic Capability (Headless Installer)
+
+Select the method relevant for your device.&#x20;
+
+These instructions are applicable for VGA devices that can render the graphics displayed in the installer.
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - During the installation, the progress bar may decrease at times due to partitioning.
+  - The time to complete the installation is based on the size of the hard disk drive. Large disk drives will cause the installation to take longer to partition the disk and therefore longer to complete setting up the virtual machine.&#x20;
+</hint>
+
+## Install on a Device with Graphic Capability
+
+Complete these steps to install from a USB flash drive.&#x20;
+
+**To install on a device with graphic capability:**
+
+1. Insert the USB flash drive (USB installation media) that contains the Litmus Edge Installer image into the USB port on the gateway device. To execute the installer, the gateway device must boot from the USB flash drive.&#x20;
+2. Perform one of the following:
+   - Start the gateway device.&#x20;
+   - Reboot the gateway device from the USB flash drive to begin the installation.&#x20;
+     If the gateway device is not booting from the USB drive, bring up a list of boot devices.     &#x20;Each manufacturer has a specific button which must be pressed immediately after the device has been turned on or rebooted. The button is briefly displayed when the device boots after or while the logo is displayed. Common buttons are F12, the Windows key, and F9. Refer to your IPC manufacturer for more information.&#x20;
+3. After the device initiates the installer, respond to the questions in the terminal user interface (TUI). `Welcome to Operating System Installer. Are you installing over Serial (for advanced users)? Yes/No :`
+4. Enter **No**,  and then press **Enter**.
+5. Select **Install Operating System**, and then select **OK**. Use the arrow keys to navigate to selections.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/A4UWO97dROCtNRKnB-EzO_01-kwpqybbzbplcmlbmy0m3yloopedgeinstallvgastep-2.png" size="80" width="721" height="398" position="flex-start" caption="Install Operating System option" showCaption="true"></Image>
+6. Select the partition to install, and then select **Ok**.
+   The list is device-specific. Typically, the installation location is *sda*. If the device/gateway has embedded MMC (eMMC) components, the partition name may be listed as *mmcblk&#x20;*&#x69;nstead of *sda*. Make sure you select the correct hard-drive location.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/A-A6njgmzQZv5ZG1Ebtdb_02-17iyxlgmrtvmincy0hubiloopedgeinstallvgastep-3.png" size="80" width="722" height="397" position="flex-start" caption="Select Partition and Install option" showCaption="true"></Image>
+7. Verify the OS installation location by selecting **Yes**. If you select **No**, you are returned to the beginning of the installation.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/PLvX9ozyXQXtUOvbNX5h__03-e9ddghxncrawxvqvcew2mloopedgeinstallvgastep-4.png" size="80" width="716" height="394" position="flex-start" caption="Select Partition and Install message" showCaption="true"></Image>
+8. A second verification ensures that you are overwriting the correct device partition during the formatting process. Select **Yes** to continue formatting the device and installing the operating system.
+   The installer indicates its progress, followed by a success message.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/a5lI5pFNdliROWKbIpMoC_04-svsbvtrkv5qsv2i7oweffloopedgeinstallvgastep-5.png" size="80" width="664" height="372" position="flex-start" caption="Format Devices and Install message" showCaption="true"></Image>
+9. Power off the device and remove the USB drive (installation media).
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/hQS6JwE-eiZDdh6Lw0-rF_06-25n6hfel9hwglngkjhf32loopedgeinstallvgastep-7.png" size="80" width="662" height="135" position="flex-start" caption="Power off message" showCaption="true"></Image>
+10. Reboot the gateway device.                                                                                                                                 &#x20;
+
+The terminal window displays the URL that must be used to access the device using the Web UI.
+
+<hint type="info">
+  **Note**: If several URLs are displayed, the first one is used for accessing the device through the Web UI.
+</hint>
+
+You can now jump to "Step 3: Log in to Litmus Edge".&#x20;
+
+## Install on a Device with No Graphic Rendering Capabilities (Headless Installer)
+
+Complete these steps to install from a serial device.&#x20;
+
+**To install on a device with no graphic rendering capabilities:&#x20;**
+
+1. Insert the USB flash drive (USB installation media) that contains the Litmus Edge Installer image into the USB port on the gateway device. To execute the installer, the gateway device must boot from the USB flash drive.&#x20;
+2. Perform one of the following:
+   - Start the gateway device.&#x20;
+   - Reboot the gateway device from the USB flash drive to begin the installation.&#x20;
+     If the gateway device is not booting from the USB drive, bring up a list of boot devices.     &#x20;Each manufacturer has a specific button that must be pressed immediately after the device has been turned on or rebooted. The button is briefly displayed when the device boots after or while the logo is displayed. Common buttons are F12, the Windows key, and F9. Refer to your IPC manufacturer for more information.&#x20;
+3. After the device initiates the installer, respond to the questions in the terminal user interface (TUI). `Welcome to Operating System Installer. Are you installing over Serial (for advanced users)? Yes/No :`
+4. Enter **Yes** to continue with a text-only interface, and then press **Enter**.&#x20;
+   A list of partitions are displayed. This list is specific to the device.
+5. Enter the partition name. In this example, **sda**.
+   If the device/gateway has embedded MMC (eMMC) components, the partition name may be listed as *mmcblk&#x20;*&#x69;nstead of *sda*. Make sure you select the correct hard drive location.&#x20;
+   You must type the name of the device. If you press **Enter&#x20;**&#x77;ithout typing the name, the installation fails.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/c2lrRE-fDfLzEMMl90qHq_07-ne1fe-bncgl9ffjqosgarloopedgeinstallserialstep-2.png" size="80" width="350" height="150" position="flex-start" caption="partition name prompt" showCaption="true"></Image>
+6. Confirm the installation and format partitions, enter **Yes**, and then press **Enter**.
+   The installer displays the installation status, followed by a success message.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NNeahNuzbTIMZbVuYuayk_08-qjnmfkcmbct9dsxjkxtutloopedgeinstallserialstep-3.png" size="80" width="531" height="164" position="flex-start" caption="Confirmation message" showCaption="true"></Image>
+7. Remove the USB flash drive.
+8. Reboot the gateway device.                                                                                                          &#x20;
+
+The terminal window displays the URL that must be used to access the device using the Web UI. If several URLs are displayed, use the first one.&#x20;
+
+# Step 4: Log in to Litmus Edge
+
+- See :Link[Access the Litmus Edge Web UI]{docId="LbLmSFlmNs_bilhIHDuVF" label="Access the Litmus Edge Web UI" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Litmus Edge Web UI"} for details on logging in.&#x20;
+- See :Link[Access the Terminal User Interface]{docId="8sxmrg9ZcVUXt6V2i6Cxt" label="Access the Terminal User Interface" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Terminal User Interface"} for instructions on how to navigate and log in for the first time.
+

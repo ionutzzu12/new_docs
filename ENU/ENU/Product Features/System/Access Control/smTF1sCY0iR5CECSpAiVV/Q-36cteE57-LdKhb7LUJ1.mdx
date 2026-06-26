@@ -1,0 +1,505 @@
+---
+title: Role Permissions
+slug: Q-36cteE57-LdKhb7LUJ1
+description: Review the available role permissions and the specific areas they can view/modify. 
+docTags: 
+createdAt: Wed Nov 02 2022 15:55:28 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the available role permissions and the specific areas of Litmus Edge they can view/modify.&#x20;
+
+<hint type="info">
+  **Note**: Consider the following:
+
+  - If a role has a Modify permission, any relevant View permission will be automatically added to the role as well.&#x20;
+  - Click **Individual Permissions** for DeviceHub, Flows Manager, or Marketplace to view granular permissions for each component.&#x20;
+</hint>
+
+There are several default permissions that apply to all users. See the "Default User Permissions" section in [Users](<../../../../../Product Features/System/Access Control/smTF1sCY0iR5CECSpAiVV.mdx>) for details.&#x20;
+
+<table columnWidths="170,110,326" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Resource Name**
+    </td>
+    <td>
+      **Permission**
+    </td>
+    <td>
+      **Access to Litmus Edge Modules**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Access
+      (Provides access to data from external systems)
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - System > Tokens
+      Can view created tokens in System > Tokens
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Access
+      (Provides access to data from external systems)
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can  view and make changes to:
+      - System > Tokens
+        - Can add access accounts
+        - Can enable/disable NATS Proxy
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Analytics
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - Analytics
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Analytics
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - Analytics
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Auth
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - System > Users
+      - System > Device Management
+      - System > LDAP/AD Auth
+      - System > Tokens
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Cloud Storage Sync
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - Integration > Object
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Cloud Storage Sync
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - Integration > Object
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Datahub
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - DataHub
+      Note: This user permission can't enable Data Store
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Datahub
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - DataHub
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DeviceHub
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - DeviceHub
+    </td>
+  </tr>
+  <tr>
+    <td>
+      DeviceHub
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - DeviceHub
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device Management
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - System > Device Management
+      - System > Info
+      - System > Certificates
+      - System > Network
+      - System > Remote Access
+      - System > Services
+      - System > External Storage
+      - System > Policy Management > Change disk space policy
+      - System > Backup/Restore
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Digital Twin
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - Digital Twins
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Digital Twin
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - Digital Twins
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Downloads
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Can do the following:
+      - View status in System > Support > Status > Components
+      - Download files from System > Support > Support Bundle > Download
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Events
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - System > Events
+    </td>
+  </tr>
+  <tr>
+    <td>
+      FTP Server
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - System > Services > FTP Service
+    </td>
+  </tr>
+  <tr>
+    <td>
+      FTP Server
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - System > Services
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Flows Manager
+      You can select **Modify permissions** to individual Flows Managers.
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - Flows Manager
+      - Individual Flows Managers.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Flows Manager
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - Flows Manager
+      Can do the following:
+      - Flows Manager > Go To Flow Definition
+      - Flows Manager > Download Flow File
+      - Flows Manager > Got To Flow Definition > Debug messages
+      - Flows Manager > Go To Flow Definition > Export
+      - Make changes but can't Deploy in Flows Manager > Go To Flow Definition
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Integrations
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - Integration > Click a Connector > Dashboard
+      - Integration > Click a Connector > Configuration
+      - Integration > Click a Connector > Topics
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Integrations
+    </td>
+    <td>
+      ViewConnectors
+    </td>
+    <td>
+      Read-only access to:
+      - Integration > Click a Connector > Configuration
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Integrations
+    </td>
+    <td>
+      ViewTopics
+    </td>
+    <td>
+      Read-only access to:
+      - Integration > Click a Connector > Topics
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Integrations
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - Integration
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Integrations
+    </td>
+    <td>
+      ModifyConnectors
+    </td>
+    <td>
+      Can do the following:
+      - Integration > Add a connector
+      - Integration > Edit
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Integrations
+    </td>
+    <td>
+      ModifyTopics
+    </td>
+    <td>
+      Can view and make changes to the following:
+      - Integration > Click a Connector > Topics
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Licensing
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - System > License
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Marketplace
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - Applications
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Marketplace
+    </td>
+    <td colSpan="1" rowSpan="1">
+      View
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Read-only access to:
+      - All Applications pages except for Configure
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Marketplace
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Granular Modify
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Can create, update, or delete applications.
+      Use to allow users to maintain Marketplace applications and containers that are running, while preventing them from launching or removing Docker containers. 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Marketplace
+    </td>
+    <td>
+      ModifyPrivileged
+    </td>
+    <td>
+      Can launch Docker containers in privileged mode and perform volume binding. Use with caution as enabling this privilege can give the container full root access to the host machine.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Network Discovery
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - DeviceHub > Device Discovery
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Network Discovery
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:&#x20;
+      - DeviceHub > Device Discovery
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Network Util
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - DeviceHub devices under the Network Util device type.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Network Util
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - DeviceHub devices under the Network Util device type.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      OPC UA Server
+    </td>
+    <td>
+      Modify
+    </td>
+    <td>
+      Can view and make changes to:
+      - OPC UA
+    </td>
+  </tr>
+  <tr>
+    <td>
+      OPC UA Server
+    </td>
+    <td>
+      View
+    </td>
+    <td>
+      Read-only access to:
+      - OPC UA
+    </td>
+  </tr>
+</table>
+

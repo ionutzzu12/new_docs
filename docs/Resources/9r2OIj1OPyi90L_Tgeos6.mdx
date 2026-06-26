@@ -1,0 +1,281 @@
+---
+title: Litmus Edge FAQs
+slug: 9r2OIj1OPyi90L_Tgeos6
+description: Review our frequently asked questions. 
+docTags: 
+createdAt: Thu Mar 31 2022 00:25:57 GMT+0300 (Eastern European Summer Time)
+---
+
+# Get Started with Litmus Edge
+
+<ExpandableHeading>
+  What is Litmus Edge?
+
+  Litmus Edge is an operating system on an Industrial PC (IPC) appliance. This edge-level software seamlessly collects data from IoT devices/systems (such as sensors and PLCs) and integrates the data into the cloud or into on-premise enterprise systems. Extensive knowledge of 250+ device drivers, both legacy and newer systems, enables Litmus Edge to manage the variety of devices in an industrial environment. Litmus Edge software provides support for many protocols/buses (RS232, RS485, CAN, Ethernet, Fieldbus). The raw or processed data can be visualized and analyzed at the edge or sent to Litmus Edge Manager, in near real time.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  How can I try Litmus Edge?
+
+  Contact Litmus to schedule a Litmus Edge Demo.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  How do I access Litmus Edge?
+
+  - Enter the IP address into a browser running on the same network as the Litmus Edge device.
+  - For example, enter `https://192.168.1.49`, into the address bar.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  What browsers does Litmus Edge support?
+
+  The latest versions of the following browsers:
+
+  - Google Chrome
+  - Mozilla Firefox
+  - Safari
+  - Microsoft Edge
+
+  If you encounter any issues with Litmus Edge, make sure to remove any ad blockers.&#x20;
+</ExpandableHeading>
+
+<ExpandableHeading>
+  I am new to Litmus Edge, how do I get started?
+
+  Try the Litmus Edge [Installation and Deployments](<../QuickStart Guide/FFlLvhjNaNExmljNgh6eC.mdx>) guide to start using Litmus Edge concepts and procedures.
+
+
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Can I use Litmus Edge without Litmus Edge Manager?
+
+  Yes, you can use Litmus Edge without Litmus Edge Manager. You can collect data from a device and visualize data through Litmus Edge with the DeviceHub and Flows components.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Can I SSH into the machine running Litmus Edge software?
+
+  No, you should only access the machine using the WebUI or the provided Terminal User Interface.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  What is the list of ports required for Litmus Edge?
+
+  - Port 443 must be open to access the Litmus Edge Web User Interface.&#x20;
+  - To allow a connection with Litmus Edge and Litmus Edge Manager, ports 80, 443, 8883, and 51820 must be open.&#x20;
+
+  See :Link[Firewall Port Configuration Requirements]{label="System Requirements" spaceId docId="zR6z1Pq-0YdPCLeACa58b" version="v2" docAnchorId="#firewall-port-configuration-requirements" loadingMethod="dynamic" overridedLabel="Firewall Port Configuration Requirements" href="../QuickStart Guide/WVlytzrPAyAnw3JKLOu7p.mdx"} to learn more about other ports used by Litmus Edge services.&#x20;
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Is it possible to connect using external authentication?
+
+  Yes. You can use the LDAP/Active Directory. In the Litmus Edge navigation panel, select **System > LDAP/AD Auth**.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  What is the maximum number of times I can attempt a log in? How do I recover from a lock out?
+
+  You can attempt to log in five times before you are locked out. With each attempt, the timeout increases until you are locked out after the fifth try. You can restart to reset the timeout counter.
+
+  An admin can reset a user's password from the **System > User** pane. The user must restart after a reset by the admin. An admin password cannot be reset due to security. If you are an admin that has forgotten your password, you must reinstall.
+</ExpandableHeading>
+
+# Upgrading Litmus Edge
+
+<ExpandableHeading>
+  How do I know that there is a new release of Litmus Edge?
+
+  Visit the :Link[Litmus Central portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  What is the difference between **Upgrade&#x20;**&#x61;nd **Add License** on the License pane?&#x20;
+
+  *Upgrade&#x20;*&#x69;s next to the core license on the License pane. Only a single core license is allowed. If you have a different core license, you can use Upgrade. Using Upgrade replaces the current core license.
+
+  *Add License* on the License pane is used to add a feature/pack license such as Analytics or a Marketplace add-on.&#x20;
+</ExpandableHeading>
+
+<ExpandableHeading>
+  How do I upgrade to a new version of Litmus Edge without doing a fresh install?
+
+  Use Upgrade next to the core license on the License pane. You need a `.upd` file for the new version and a currently installed version of Litmus Edge that supports upgrades to the new version. See [Software Updates](<../QuickStart Guide/Installation and Deployments/3IeYShQnl-tts7ne21_OS.mdx>) for details on which version you must start from to begin the upgrade process from Litmus Edge.
+</ExpandableHeading>
+
+# Edge Devices and Drivers
+
+<ExpandableHeading>
+  Why does my DeviceHub device display a `DISCONNECTED` status or a `success=false` message for a tag?
+
+  Refer to :Link[DeviceHub Troubleshooting]{label="DeviceHub Troubleshooting" spaceId docId="5PJ2jfZ3fzXcefzIK2c-U" version="v2" docAnchorId="#XMn0S" loadingMethod="dynamic" overridedLabel href="../Troubleshooting/IUR7NSnyHfBz2qbIS9VXz.mdx"} for reasons and steps to resolve these issues.&#x20;
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Why is my CSV file not able to upload tags?
+
+  Refer to :Link[DeviceHub Troubleshooting]{label="DeviceHub Troubleshooting" spaceId docId="5PJ2jfZ3fzXcefzIK2c-U" version="v2" docAnchorId="#25ovv" loadingMethod="dynamic" overridedLabel href="../Troubleshooting/IUR7NSnyHfBz2qbIS9VXz.mdx"} for possible reasons for this issue and how to resolve it.&#x20;
+</ExpandableHeading>
+
+<ExpandableHeading>
+  What devices and drivers are supported?
+
+  Check out the extensive lists of [Industrial Systems Connection Guide](<../QuickStart Guide/shwmWlfjHWDMjeLg1E_jU.mdx>).
+</ExpandableHeading>
+
+<ExpandableHeading>
+  What is the DeviceHub?
+
+  DeviceHub provides the mechanism for connecting to physical devices (PLCs, sensors) to collect data from them.
+
+  - DeviceHub needs to be configured for *southbound* connections, including connections to PLCs.
+  - DeviceHub collects data from physical devices and publishes it to an internal message broker. The data can be managed locally and sent to any desired destination.
+  - DeviceHub's main purpose is to collect data from PLCs (Programmable Logic Controller) and publish it to a Message Broker subject for further distribution.
+  - PLC-level statistics and input/output data can be obtained at the edge using DeviceHub.
+  - There are 250+ device drivers included in DeviceHub. DeviceHub supports many PLC manufacturers, such as Siemens, Allen-Bradley, Mitsubishi, Omron. See also [Industrial Systems Connection Guide](<../QuickStart Guide/shwmWlfjHWDMjeLg1E_jU.mdx>).
+</ExpandableHeading>
+
+<ExpandableHeading>
+  What is the purpose of a Tag in DeviceHub?
+
+  - A DeviceHub device tag refers to the PLC tag/register. PLC registers hold PLC runtime information.
+  - Tags are the actual input and output registers in a device to which sensors are connected. Every PLC has a tag and tags differ from PLC to PLC.
+  - Examples of tags include: digital input, digital output, analog input, analog output, timers, counters.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Why is my device not connecting to Litmus Edge?
+
+  Try double-checking connection parameters and firewall settings.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  How can I remotely manage the device?
+
+  Use the Remote Access service, along with Litmus Edge and Litmus Edge Manager configurations.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Can I program a PLC using Litmus Edge?
+
+  No, the PLC cannot be programmed from Litmus Edge. The PLC (Programmable Logic Controller) needs to be already programmed before setting up in Litmus Edge. Litmus Edge reads the PLC data.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Why is Litmus Edge using a lot of my networks bandwidth or data limit?
+
+  Try setting the polling interval for DeviceHub Tags. See :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} for more information about length of time. Polling PLC registers too often may cause too much data to be sent over the network from which the Litmus Edge is connected.
+</ExpandableHeading>
+
+# Flows Manager
+
+<ExpandableHeading>
+  What is Flows?
+
+  Flows offers flow-based programming with a drag-and-drop flow editor. It is for data manipulation, data normalization, and visualization.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  How can I push a flow to many devices?
+
+  Flows has an import/export feature to share flows.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Why does flow stop working even though it is shown as “running”?
+
+  The Flows Manager module has a max limit of 4 concurrently running flows. If a flow crashes, the module tries to restart it 5 times, and then stops it permanently. This causes the module to reach the limit, which generated the “limit reached” error. When you see that error, download the flow file, delete the flow instance. start a new one, import it, and then edit the flow logic to make sure it will not crash. Soon a warning status will be implemented for the flows, which is expected to obviate the confusion.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Why doesn't the Flows "export to clipboard" option copy the data to the clipboard?
+
+  Before exporting nodes, select the nodes and connecting wires within a flow tab. See [Manage the Flow Canvas](<../Product Features/34sTTMTBZO9bOWxfOE7kC/CKl1LMeZrekjdNexLVk4k.mdx>).&#x20;
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Why aren't all my nodes included in my Flows backup?
+
+  The most likely cause of this is due to the use of custom nodes. If a custom node is used in your flow, you must download and reinstall the custom nodes. Custom nodes are not included in backups.
+</ExpandableHeading>
+
+# OPC UA
+
+<ExpandableHeading>
+  Which servers are supported with OPC UA Client driver?
+
+  See [OPC UA Client](<../QuickStart Guide/shwmWlfjHWDMjeLg1E_jU/rIrlK44klKlJRbYC9_d5Z/9lLy273ZqR3Nc7s7PpZaU.mdx>) for more information about supported servers.
+</ExpandableHeading>
+
+# Applications and Integrations
+
+<ExpandableHeading>
+  How can I prevent the deployment of unknown or unsecured containers into Marketplace? Is there a certificate authentication mechanism that I can apply?
+
+  For containers, we rely on the security that Docker offers. For deployment, you can use certificate-based authentication to add a private registry (Litmus Edge Manager, quay.io, Google Container Registry - GCR, Azure Registry, Docker Trusted Registry, Docker Hub.) and then use images on these registries to launch containers.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Why do I see my image under the Images section and not under the Containers section?
+
+  The **Applications > Containers** section only displays containers that are currently active or stopped.
+
+  Since none of the uploaded images have been used with a Docker command, th&#x65;**&#x20;Applications > Containers** section does not display anything related to those images. You must construct the correct Docker command and run it.
+
+  Only after running the Docker command will anything related to the uploaded images appear in the **Applications > Containers&#x20;**&#x73;ection.
+
+  See [The Docker Run Command-Line Reference](https://docs.docker.com/engine/reference/commandline/run/) for more information about how to structure a Docker command to run a container.
+
+  If you ran the Docker command and the image does not appear in the **Applications > Containers** section, open a new ticket, and provide the Docker command that was used.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Can I directly interact with MQTT on a local Litmus Edge?
+
+  Litmus Edge does NOT have MQTT broker. It has an MQTT client. However, you can launch a container with MQTT broker and connect to it.
+</ExpandableHeading>
+
+# System Settings
+
+<ExpandableHeading>
+  Why am I having problems logging into my External Mount?
+
+  For the **System**>**External** **Storage** feature, passwords with the special character comma(`,`) are not supported. Change the password to not contain comma or commas.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  What is the difference between a Device Backup and a Device Configuration Template?
+
+  A Backup is a `.DAT` file that cannot be customized and contain a predetermined list of configuration settings.
+
+  A Template is a `.json` file that can be customized to contain a list of selectable configuration settings.
+
+  The key difference between the two are the use purposes. Restoring a hardware-damaged Litmus Edge Device should be done with a Backup while cloning a Litmus Edge Device to other devices should be done with a Template.
+
+  Furthermore, a restore operation will replicate and overwrite the Litmus Edge device's system state from the backup (`.DAT`) file. On the contrary, a Template upload operation will append (and not overwrite) its configurations settings to the Litmus Edge device.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  How do I backup my Litmus Edge Instance?
+
+  A Backup is a `.DAT` file that cannot be customized and contain a predetermined list of configuration settings.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  What is the difference between Litmus Edge and Litmus Edge Manager backup files, and how can they be restored?
+
+  LE backup files have a `.dat` file extension, while LEM backup files do not have any file extension. Both types of files are used to restore devices to their last backed-up state, but LE backups can only be restored through the LE user interface, while LEM backups must be restored through the LEM platform and cannot be uploaded directly to the LE UI.
+</ExpandableHeading>
+
+# Digital Factory Demo
+
+<ExpandableHeading>
+  Why does my Digital Factory Demo Portainer deployment fail with a timeout error in the `template-applier` container?
+
+  A deployment may fail with a `first login failed: Post "https://172.172.0.1:8443/auth/v2/login": dial tcp 172.172.0.1:8443: connect: connection timed out` timeout error. This issue is typically caused by networking limitations in older Docker Desktop versions, for example with 4.51.0. To resolve the issue, upgrade Docker Desktop to 4.55.0 or higher and redeploy the Digital Factory Demo stack.
+
+  For more information on deploying Digital Factory Demo through Portainer, see :Link[Digital Factory Demo via Portainer]{label="Digital Factory Demo via Portainer" spaceId="SHlZRB8sbLUIhUOl3qzzX" docId="xI6R_dBHkDpXf7WXhjWR9" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+</ExpandableHeading>
+

@@ -1,0 +1,226 @@
+---
+title: AB CompactLogix (Gen1)
+slug: v6RDL03WbMGss30PStBNs
+description: Review the following information for setting up and configuring the AB CompactLogix (Gen1) driver. 
+docTags: 
+createdAt: Fri May 05 2023 23:21:04 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="warning">
+  **Important**: This driver was deprecated in Litmus Edge version 3.5.2. We recommend using the Gen 2 :Link[AB CompactLogix Ethernet FreeTag]{docId="89FcGuGQJvbVn8pX5mDoj" label="AB CompactLogix Ethernet FreeTag" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="AB CompactLogix Ethernet FreeTag"}.&#x20;
+</hint>
+
+Review the following information for setting up and configuring the AB CompactLogix (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="237,415" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Rockwell Automation Allen-Bradley CompactLogix]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/small-controllers/compactlogix-family.html" newTab="true"}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaced with Gen 2 driver**
+    </td>
+    <td>
+      :Link[AB CompactLogix Ethernet FreeTag]{label="AB CompactLogix Ethernet FreeTag" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="89FcGuGQJvbVn8pX5mDoj" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1\. Note down the following information and refer to it when needed.&#x20;
+
+**Device**: AB CompactLogix L24ER-QB1B
+
+**Communication I/F**: Ethernet, USB. Refer to the following figure.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/16_zsafVn6V7n8lOUaTLz_ab-compactlogix.png" size="80" width="914" height="662" caption="Reference image of device" position="center" showCaption="true"></Image>
+
+2\. Connect the device to a PC using a USB port.
+
+3\. Launch Rockwell's driver configuration tool, RXLinx classic, and add the SmartGuard USB driver.
+
+4\. Right-click the device and configure the module.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/oh-wD8SV1RJnNg6kSM-cn_ab-compactlogix-parameters.png" size="80" width="894" height="544" caption="Network parameters section" position="center" showCaption="true"></Image>
+
+5\. Add driver: EtherNet/IP device.
+
+6\. Choose adapter: make sure it's the same subnet as the device.
+
+7\. Detect the device.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/h6Dna7P6FeeDE_qwu7vqv_ab-compactlogix-detect.png" size="80" width="1088" height="599" caption="Device detection option" position="center" showCaption="true"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB CompactLogix (Gen1)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot Number**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+When you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to the connected device, use the following tag/register mapping table.
+
+<hint type="info">
+  **Note**: 
+
+  - The **Browse** icon displayed on the device tile means that this PLC uses Browse Tags. See :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#X8Me2" overridedLabel="Add Tags"}  for more information.&#x20;
+  - Certain device drivers do not have a list of register names in the DeviceHub Add Tag form. These ar&#x65;*&#xA0;Free Tag PLCs*. For Free Tag requirements, see :Link[Troubleshooting - DeviceHub]{docId="okFkYcmKRIrYz8gtRQMh9" label="Troubleshooting - DeviceHub" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId}.&#x20;
+</hint>
+
+<hint type="warning">
+  **Caution**: Because this device belongs to a free tag PLC, the case-sensitive register name must be entered exactly as it is defined in the PLC. The device does not display a *Connected&#xA0;*&#x73;tatus until a tag with a correct register name is created.
+</hint>
+
+<table columnWidths="143,372" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      BOOL
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      SINT
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      INT
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      BIT(INT)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      DINT
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      REAL
+    </td>
+  </tr>
+  <tr>
+    <td>
+      R
+    </td>
+    <td>
+      LINT
+    </td>
+  </tr>
+</table>
+

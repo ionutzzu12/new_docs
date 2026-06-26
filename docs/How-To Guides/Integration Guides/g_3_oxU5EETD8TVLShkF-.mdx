@@ -1,0 +1,215 @@
+---
+title: Set Up Edge Cascading with the NATS Connector
+slug: g_3_oxU5EETD8TVLShkF-
+description: Learn how to set up Edge Cascading. 
+docTags: 
+createdAt: Mon Nov 07 2022 19:52:19 GMT+0200 (Eastern European Standard Time)
+---
+
+Edge Cascading is an integration of multiple Litmus Edge instances with a NATS connector.&#x20;
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/niEdj9OKLHU?si=EGlaBkC3yWZdIsfR&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# Before You Begin
+
+Before you begin:
+
+- Ensure that every Litmus Edge instance used to set up the NATS Proxy connection is on version 3.3.1 or newer.&#x20;
+- Determine which Litmus Edge instance to use as the NATS server (host the API access account) and the instances to use as the NATS clients (host the NATS connector). The NATS server and clients can both send and receive data through the NATS proxy connection.&#x20;
+- If your network has a firewall, make sure it allows port 4222.
+- If you are deploying Litmus Edge in a Docker container, use the following command to run the container on port 4222. Replace `--name LE`  with the name of your container.
+
+```linux
+docker run --name LE -d --cap-add=NET_ADMIN -p 8443:443 -p 4222:4222 -v data-volume:/var litmusedge.azurecr.io/litmusedge-std-docker:latest
+```
+
+# Set up Edge Cascading with One NATS Client and One NATS Server
+
+The following workflow shows two Litmus Edge instances setup with Edge Cascading where the:
+
+- Litmus Edge 1 instance represents the NATS server.
+- Litmus Edge 2 instance represents the NATS Client that connects to the OT layer. You will be able to view data from the NATS Server.
+
+![](https://app.archbee.com/api/optimize/AdrlsWCC5-Zz9U2yVwEC6-CQ9H1ARq3U7mBePPoiS9O-20241122-205157.jpg)
+
+## Step 1: Enable NATS Proxy (NATS Server)
+
+You will need to enable the NATS Proxy connection in Litmus Edge A (Server). The connection is disabled by default.&#x20;
+
+**To enable NATS Proxy:**
+
+1. In Litmus Edge 1 (Server), navigate to **System** > **Access Control** > **Tokens**.&#x20;
+2. In the **NATS Proxy** section, click the **Disabled&#x20;**&#x74;oggle to **Enabled**.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/c531axHt08fwIWFyydnTC_natstoggle.png" size="80" width="1128" height="363" position="flex-start" caption="Enable/Disable toggle for NATS Proxy" showCaption="true" indent="2"></Image>
+
+## Step 2: Create and Configure Access Account (NATS Server)
+
+You will now need to enable a NATS server. To do this, you will need to create an access account. Once you create the account, copy the API key that you will use to set up the NATS integration connector.&#x20;
+
+**To create the access account:**
+
+1. From Litmus Edge A (Server), navigate to **System&#x20;***>&#x20;***Tokens**.&#x20;
+2. From the *Access Accounts* section, click the **Add&#x20;**&#x69;con. The *Create API Account&#x20;*&#x64;ialog box appears.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NVtrGVuV7qCbClj9j5_dO_createaccessaccount.png" size="80" width="1902" height="659" position="flex-start" caption="Add Access Account icon" showCaption="true" indent="2"></Image>
+
+3. Enter a name for the account and ensure the *Enable Account&#x20;*&#x63;heckbox is selected.&#x20;
+4. Click **Create Account**.&#x20;
+5. Click the **Action menu** for the account you just created and select **Edit topics**.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/_PNVW1neviVz4jtjO5zXh_edittopics.png" size="80" width="1708" height="418" position="flex-start" caption="Edit topics option" showCaption="true" indent="2"></Image>
+
+6. In the **Read Topics** field, enter the relevant NATS topics and click **Add Read Topic** for each one. Ensure that you follow proper NATS topics conventions for topic names. By default, a wildcard topic is created (`>`). This topic will read all topics.
+7. In the **Write Topics** field, enter the relevant NATS topics and click **Add Write Topic** for each one. Ensure that you follow proper NATS topics conventions for topic names. To create a wildcard topic, enter `>` for the topic name.&#x20;
+8. When done entering read and write topics, click **Update**.&#x20;
+9. Click the **Action menu** again for the account and select **View API Key**.&#x20;
+10. Click the **Copy&#x20;**&#x69;con for the API key and paste it somewhere so you can access it later.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/zQBCvvbN5la_Tn7SFdZ_x_copyapi.png" size="80" width="778" height="229" position="flex-start" caption="Copy API Key icon" showCaption="true" indent="2"></Image>
+
+## Step 3: Add the NATS Connector (NATS Client)
+
+You will now have to set up the NATS Client by adding a NATS integration connector.&#x20;
+
+**To create the NATS Integration Connector:**
+
+1. From Litmus Edge B (Client), navigate to **Integration***.&#x20;*
+2. Click the **Add a connector&#x20;**&#x69;con.
+   The *Add a connector* dialog box appears.&#x20;
+3. Use the *Provider&#x20;*&#x64;rop-down list to select the **NATS&#x20;**&#x63;onnector.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/iF05MAkJ-FOiAV9HWw7gI_natsconnector.png" size="80" width="1171" height="358" position="flex-start" caption="NATS connector" showCaption="true" indent="2"></Image>
+
+4. &#x20;Enter the details for the connector.&#x20;
+   - **Name**: Enter a name for the connector.&#x20;
+   - **Hostname**: Copy the URL of the Litmus Edge instance with the NATS server and the access account you previously created. For example, if the URL of the instance with the NATS server is https\://192.168.0.175, enter **192.168.0.175**.&#x20;
+   - **Port**: Verify the default port is correct and make any necessary changes.&#x20;
+   - **NATS Username**: You can leave the field blank.&#x20;
+   - **NATS Password**: This field is required. Paste the API key you copied from the access account you previously created.&#x20;
+   - **Default topic name**: Enter a default topic name. The default topic name does not need to have data and does not need to be present in all systems sending/receiving data. It can also be overwritten. It will be used in *Step 7: View Data* to view the data from the NATS connection.&#x20;
+   - **Enable TLS secure connection**: Make sure the check box is selected. This allows the connector to successfully connect with the NATS server.&#x20;
+   - **Insecure skip verify**: Make sure the check box is selected. This allows for a successful connection with a NATS server that may have a self-signed certificate that is not formally recognized by a certificate authority.&#x20;
+   - **Throttling limit**: You have an option to enter a throttling limit.&#x20;
+   - **Persistent storage**: You have the option of selecting this option. When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+   - **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+5. Click **Add**.&#x20;
+
+## Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7PMf-IOMkOWJCjds-RLGL_nats.png" size="60" width="369" height="345" position="flex-start" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="hQzTgprZXW8nnmcue-E9Q" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs"} and relevant error messages.&#x20;
+
+## Step 5: Add Device
+
+Now that you've set up the connection between the NATS Server and NATS Client, you can create the DeviceHub device that will store the tags that will be used to create topics for the NATS connector.&#x20;
+
+From Litmus Edge B (Client), follow the steps to :Link[Connect a Device]{docId="IxDarLhX06j-kM1HeO34R" label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+Make the following configurations:
+
+- Select Device Type **Simulator&#x20;**&#x61;nd Driver Name **Generator**. You have the option of setting up a different device to your specific requirements.&#x20;
+
+## Step 6: Add Tags
+
+After connecting the device, you can :Link[Add a Tag]{docId="XgWOkQbTPevII7OR82LL0" label="Add a Tag" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the device. The tags will be used to create topics in the NATS connector.&#x20;
+
+## Step 7: Create Topics for Connector
+
+You will need to create topics in the NATS connector you created.&#x20;
+
+**To create connector topics:**
+
+1. From Litmus Edge B (Client), navigate to **Integration**.&#x20;
+2. Click the NATS connector tile.&#x20;
+   The connector *Dashboard&#x20;*&#x64;isplays.&#x20;
+3. Click the **Topics&#x20;**&#x74;ab.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/purOttFQT_GmSLrhBRVoQ_topicstab.png" size="80" width="813" height="495" position="flex-start" caption="Topics tab" showCaption="true" indent="2"></Image>
+
+4. Click the **Import from DeviceHub tags** icon.&#x20;
+   Th&#x65;*&#x20;DeviceHub Import* dialog box appears.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/3QoqWW7UzM2Gzn14kLr_4_importfromdevicehub.png" size="80" width="950" height="419" position="flex-start" caption="Import from DeviceHub tags icon" showCaption="true" indent="2"></Image>
+
+5. Select the check box to import all tags from the device you created earlier and click **Import**.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/UivNkogGDzT2nmWH3hy0j_select-all-tags.png" size="80" width="973" height="283" position="flex-start" caption="DeviceHub Import dialog box" showCaption="true" indent="2"></Image>
+
+6. Click the **Enable all topics** icon.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/wiN9XoOvWUhGj4c4mxU8O_enablealltopics.png" size="80" width="1293" height="516" position="flex-start" caption="Enable all topics icon" showCaption="true" indent="2"></Image>
+
+7. Navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+## Step 8: View Data
+
+Once the connection is successfully set up, you can use the :Link[Flows Manager]{docId="6hq1_hiIQCZv5wlN42q6c" label="Flows Manager" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} or [Analytics](<../../Product Features/mYDvaNX_uKDhol0ElJfJA.mdx>) in the NATS Server to view data from the connection.&#x20;
+
+### Before You Begin
+
+You will need to use the default topic name you configured for the NATS connector in the NATS Client. Click the **Edit** icon for the NATS connector tile and copy the default topic name.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/vNGj5iTv5n-mJgBmaH6fC_image.png" size="80" width="1163" height="482" position="flex-start" caption="Default topic name" showCaption="true"></Image>
+
+### View Data in Flows Manager
+
+You can create a flow to view data from the connector topics.&#x20;
+
+**To view data from the Flows Manager:**
+
+1. From Litmus Edge A (Server), navigate to **Flows Manager**.&#x20;
+2. For a Flows Manager, click the **Go To Flow Definition** icon.&#x20;
+   The Flow canvas opens in a new browser tab.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/t2rTotjVdzoBvR3kOruKK_go-to-flow-definition.png" size="80" width="1010" height="490" position="flex-start" caption="Go To Flow Definition icon" showCaption="true" indent="2"></Image>
+
+3. On the flow canvas, drag the **Datahub Subscribe** node and **debug&#x20;**&#x6E;ode onto the canvas. Then, connect the two nodes.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7CHgVLn3EpkwH-VMrw-d4_nodes.png" size="80" width="870" height="494" position="flex-start" caption="The DataHub Subscribe and Debug nodes" showCaption="true" indent="2"></Image>
+
+4. Double-click the **DataHub Subscribe** node.
+   The *Edit DataHub Subscribe node* dialog box appears.
+   - In the **Topic&#x20;**&#x66;ield, paste the default topic name for the NATS connector.
+   - If needed, configure the Datahub Subscribe connection. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="Nay58AX-cu8eMvJ5jUcQm" label="Create a Flow" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+   - Click **Done**, and then click **Deploy**.&#x20;
+5. Expand the message window beneath the flow to view debug messages.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/lz-qs1cWlGXGmyB37FgSn_expand-message-window.png" size="80" width="1294" height="858" position="flex-start" caption="The message window" showCaption="true" indent="2"></Image>
+
+6. Click the **Debug&#x20;**&#x69;con.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/VcYhsouq_alRxhjvziSnG_debug-icon.png" size="80" width="1317" height="858" position="flex-start" caption="The Debug icon" showCaption="true" indent="2"></Image>
+
+7. Confirm the **Debug&#x20;**&#x6E;ode is activated and review the messages in the debug window. The `"success" :true` message confirms the connection is successful.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/KtgWj7qK9x4WPDGPBu3dz_pgkbero2uus39idohrigsuccess-messages.png" size="80" width="1317" height="858" position="flex-start" caption="Review messages" showCaption="true" indent="2"></Image>
+
+### View Data in Analytics
+
+You can view data by using the Analytics canvas.&#x20;
+
+**To view data in Analytics:**
+
+1. From Litmus Edge A (Server), navigate to **Analytics**.
+2. Click **Add Processor** and select **DataHub Subscribe**.&#x20;
+3. In the **Topic&#x20;**&#x66;ield, paste the default topic name for the NATS connector.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/YVK2-K2-dRNFMKGIUiGM8_analytics-topic.png" size="80" width="778" height="397" position="flex-start" caption="Topic name" showCaption="true" indent="2"></Image>
+
+4. Click **Save**.&#x20;
+5. Click the **View&#x20;**&#x69;con.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/_07URQKl1dtMNvu9MXALi_view-icon.png" size="80" width="832" height="471" position="flex-start" caption="The View icon" showCaption="true" indent="2"></Image>
+
+6. Review the *Instance Messages*. The `"success" :true` message confirms the connection is successful.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/CEBeESk-2hJdzgww1SZdu_analytics-messages.png" size="80" width="1294" height="773" position="flex-start" caption="Instance Messages" showCaption="true" indent="2"></Image>
+

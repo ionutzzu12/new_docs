@@ -1,0 +1,91 @@
+---
+title: Generic MQTT Over SSL Integration Guide (Mosquitto)
+slug: lnJON699RXN5GMv9lvXLy
+description: Learn how to set up the Generic MQTT Over SSL connector using Mosquitto. 
+docTags: 
+createdAt: Thu Nov 24 2022 22:42:44 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and an MQTT broker using Mosquitto and SSL authentication.&#x20;
+
+Mosquitto is a lightweight open source message broker that Implements MQTT versions 3.1.0, 3.1.1 and version 5.0.&#x20;
+
+# Before You Begin
+
+Make sure you :Link[Install the Mosquitto MQTT Broker on Ubuntu]{docId="eyuPNBmSdxTeA9TBPPloe" label="Install the Mosquitto MQTT Broker on Ubuntu" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId}.&#x20;
+
+# Step 1: Retrieve Contents of ca.crt File
+
+You will need to retrieve the contents of the ca.crt file, so that you can add it to the CA Certificate parameter value in the connector you'll configure in Step 2. &#x20;
+
+**To retrieve the contents of the ca.crt file:**
+
+1. Go to the Ubuntu system.
+2. Open your **Home&#xA0;**&#x64;irectory using the *Files&#x20;*&#x61;pp.
+3. Open the **ca.crt** file.
+4. If you see the message *Could Not Display "ca.crt"*, click **Cancel**.
+5. Right-click the **ca.crt** file and select **Open with Other Application**.
+6. Select **View All Applications**.
+7. Select **Text Editor&#xA0;**&#x61;nd click **Select**.
+8. Copy the entire contents of the file.
+
+# Step 2: Add the Generic MQTT Over SSL Connector
+
+Follow the steps to [Add a Connector](<../../Product Features/Integration/C5bo-JHYKWiLNMFY9iVsj.mdx>) and select the **MQTT - Generic over SSL&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Since Mosquitto is running locally on your PC, enter your IP address.
+- **Port**: Confirm that the default value **8883** is entered.&#x20;
+- **CA Certificate**: Paste or upload the ca.crt file you copied in Step 1.&#x20;
+- **Certificate&#x20;**(Optional): Upload the certificate.&#x20;
+- **Private key&#x20;**(Optional)
+- **Client ID**: Enter **\<username>-with-ssl**.&#x20;
+- **Username&#x20;**(Optional)
+- **Password&#x20;**(Optional)
+- **QoS**: Confirm that the default value **0** is entered. The Quality of Service (QoS) level is an agreement between the sender of a message and the receiver of a message that defines the guarantee of delivery for a specific message.
+- **Parallel Publish Count**: Confirm that the default value of **100&#x20;**&#x69;s entered. The number of messages being published simultaneously. Once the defined limit has been reached, subsequent messages are silently dropped.&#x20;
+- **Integration Topic**: Enter **test**.&#x20;
+- **LWT topic**: Enter **lwtTopicName**.&#x20;
+- **LWT payload**: Enter **Some LWT Payload**.&#x20;
+- **LWT payload type**: The payload type for MQTT's Last Will and Testament feature. The options are *string&#x20;*&#x61;nd *base64*.&#x20;
+- **LWT QoS**: The Quality of Service value for MQTT's Last Will and Testament feature.
+- **LWT retained**: Select this check box to retain the value for MQTT's Last Will and Testament feature.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 3: Observe the Log File
+
+**To observe the log file:&#x20;**
+
+1. Return to the Ubuntu system.
+2. Open a Terminal window if none is open.
+3. Enter `sudo tail -f /var/log/mosquitto/mosquitto.log` and press **ENTER&#xA0;**&#x74;o open the log file.
+4. View the incoming requests.
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2hIWlh9tiTKeU38_RGJKR_mqttgenericssl.png" size="60" width="369" height="345" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="hQzTgprZXW8nnmcue-E9Q" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/Integration/-0RapYS2oFAjW_T6DQC39.mdx"} and relevant error messages.&#x20;
+
+# Step 5: View the Connection in the Log File
+
+**To view the connection in the log file:&#x20;**
+
+1. Return to the Ubuntu system log file.
+2. Enter `sudo tail -f /var/log/mosquitto/mosquitto.log`.
+   The log file shows the new connection.&#x20;
+
+You should see something like this:
+
+<BlockQuote>
+  1576338704: New connection from 192.168.1.15 on port 8883.
+
+  1576338704: New client connected from 192.168.1.15 as JohnSmith-with-SSL (p2, c1, k2, u'JohnSmith').
+</BlockQuote>
+

@@ -1,0 +1,98 @@
+---
+title: Sparkplug B Client
+slug: zru5cpxmVTywUlr0UP3UD
+description: Review the following information for setting up and configuring the Sparkplug B Client driver. 
+docTags: 
+createdAt: Tue Sep 10 2024 22:41:44 GMT+0300 (Eastern European Summer Time)
+---
+
+You can set up a Sparkplug B Client through DeviceHub.&#x20;
+
+<hint type="info">
+  **Note**: You can't connect the MQTT Client to the DeviceHub [Industrial OT Server](<../../Industrial Systems Connection Guide/MQTT/ACrhHvGLG_GpHpOvQQvnL.mdx>) if they are using the same Litmus Edge instance. This includes connecting through the Flows Manager or an Integration connector. If they are using different Litmus Edge instances, they can connect. &#x20;
+</hint>
+
+# Step 1: Add Sparkplug B Client to DeviceHub
+
+**To add the Sparkplug B Client to Device Hub:**
+
+1. In Litmus Edge, navigate to **DeviceHub**.&#x20;
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device* dialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/4WzJkTieEFwi1rirnct9O_adddevice.png" size="80" width="1046" height="528" caption="Connect a device icon" position="center" showCaption="true"></Image>
+3. For *Driver Type*, select **MQTT**. Then, for *Driver Name*, select **Sparkplug B&#x20;****Client**.&#x20;
+4. Enter a name for the client. Optionally, add a description and Client ID.&#x20;
+5. For **Broker Address**, enter the broker IP address or host name.&#x20;
+6. For **Port**, enter the port of the broker.&#x20;
+7. For **Namespace**, enter the Sparkplug topic namespace.
+
+Configure the client with the following options.&#x20;
+
+## Client Authentication
+
+Select one of the following client authentication methods:
+
+- Anonymous
+- Certificate (only for SSL mode)
+- Username/Password
+- Username/Password & Certificate
+
+Update the default username and password values as needed.&#x20;
+
+## TLS Support
+
+If you enable TLS, upload or paste the certificate in the **Certificate Authority** field.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Q5m6AgZEjLDaSe0gxKDfN_image.png" size="80" width="1146" height="739" position="center" caption="Certificate Authority field" showCaption="true"></Image>
+
+## Trigger Rebirth
+
+If you enable trigger rebirth, our driver will always be up to date with details on all nodes and devices.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8XWbA0d9cOIFCmEPf6VQZ_image.png" size="80" width="1127" height="125" position="center" caption="Trigger Rebirth field" showCaption="true"></Image>
+
+## Advanced
+
+If you show these options, configure the following as needed.&#x20;
+
+- **Protocol Version**: Select the MQTT protocol version: v3 (3.1), v4 (3.1.1), v5 (5.0).&#x20;
+- **Keep Alive Period**: Configure the keep-alive period in seconds.&#x20;
+- **Write Timeout**: Configure the write timeout in seconds.&#x20;
+- **Connect Timeout**: Configure the connect timeout in seconds.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qL-ClcVSONdRZR5kzvmf9_image.png" size="80" width="1128" height="474" position="center" showCaption="false"></Image>
+
+## Additional Options
+
+See the :Link[Define Optional Parameters]{docId="IxDarLhX06j-kM1HeO34R" label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#step-3-additional-attributes" loadingMethod="dynamic" overridedLabel="Define Optional Parameters"} section to learn more about additional options.&#x20;
+
+When done configuring the device, click **Add Device**.&#x20;
+
+# Step 2: Add Tags
+
+To add tags from Sparkplug B MQTT broker to Litmus Edge, use the :Link[Browse Tags]{label="Browse Tags" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="akkXnVv6EdVzAZ40SHbWM" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}  functionality.
+
+## Browse Parameters
+
+- **Trigger Rebirth:** If you enable the rebirth trigger, it will issue a 'Node Rebirth' NCMD before browsing to obtain all node and device metrics, including aliases and details.
+- **Display Birth Death:** If you enable display birth death, it will display birth/death topics for each device and node.
+- **Subscribe Wildcard:** If you enable subscribe wildcard, you can subscribe to all NDATA/DDATA messages.
+- **Data window:** Enter the duration to wait for data messages after subscribing to wildcard.
+- **JSON Types:** If you enable JSON type it will display all result datatypes as metric objects instead of `metric.value` specific types.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EzHNXO1Qs8CXEnr4yBG3D_image.png" size="80" width="1535" height="755" position="center" caption="Browse Parameters field" showCaption="true"></Image>
+
+When you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to the connected device without using the  browse functionality, refer to the following tag parameters.
+
+<ContentSnippet docRefId="4xznahKgNGyLUYTZ5MSgu">
+
+</ContentSnippet>
+
+# Step 3: Verify Data in MQTT Server
+
+Once the client is connected in Litmus Edge with tags, you can connect it to an MQTT server and view the data in Litmus Edge. 
+
+<hint type="info">
+  **Note**: You can't connect the MQTT Client to the DeviceHub [Industrial OT Server](<../../Industrial Systems Connection Guide/MQTT/ACrhHvGLG_GpHpOvQQvnL.mdx>), if they are using the same Litmus Edge instance. If they are using different Litmus Edge instances, they can connect. &#x20;
+</hint>
+

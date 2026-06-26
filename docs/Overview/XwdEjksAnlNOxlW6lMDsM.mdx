@@ -1,0 +1,245 @@
+---
+title: Flows and Analytics
+slug: XwdEjksAnlNOxlW6lMDsM
+description: Learn more about Flows and Analytics and compare the capabilities of each Litmus Edge feature. 
+docTags: 
+createdAt: Tue Jan 16 2024 17:15:41 GMT+0200 (Eastern European Standard Time)
+---
+
+Flows and Analytics offer robust data manipulation and analysis tools in industrial settings. You can enhance your data-driven decision-making and operational efficiency with these tools. See :Link[Flows Manager]{label="Flows Manager" spaceId="0c3K9AkyXsnPI4j8vUaa5" docId="6hq1_hiIQCZv5wlN42q6c" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} and :Link[Analytics]{label="Analytics" spaceId="0c3K9AkyXsnPI4j8vUaa5" docId="tESx12_m6qDQJnFef7SvI" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more about each feature. This topic compares the features and helps you determine when you should use them.
+
+# Flows
+
+Flows are a series of processes that handle data in a way that can be customized to meet various operational requirements. Flows are particularly useful for tackling complex operational tasks as they permit detailed data processing and tailored workflows. The Flows Manager is a central feature that enables you to create and manage individual flows.
+
+Litmus Edge provides a user-friendly interface that allows you to easily create, edit, and manage workflows by dragging-and-dropping nodes onto the flow canvas. You can design workflows with this interface if you have limited programming experience. However, you need to have a good understanding of [JSON](https://www.json.org/json-en.html) and [Node-RED](https://nodered.org/) to effectively customize these flows.
+
+The ability to visually customize flows with low-code development and in a web-browser-based flow editor is a key feature of Litmus Edge. This tool is ideal for complex industrial applications, allowing you to tailor the flows to their specific requirements. You can integrate various data sources, apply diverse processing rules, and execute sophisticated logic.&#x20;
+
+**Litmus Edge Flows offers many filter nodes, including:**
+
+- DataHub Subscribe and Publish
+- Inject
+- Debug
+- Trigger
+- Execute
+- JSON Parser
+- Read File
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/8GDaq7AUziuVsCfB2MlcU_image.png "Flows Canvas")
+
+## User Scenarios
+
+- **Automate your manufacturing workflows with Flows:&#x20;**&#x46;lows automate complex manufacturing workflows, controlling the sequence of operations and adjusting settings, routing materials, and changing schedules dynamically based on real-time data inputs.
+- **Customized Data Processing for Equipment Optimization**: Use Flows to create customized data processing algorithms for specialized manufacturing settings.. For example, in facilities that use high-precision tools, Flows can analyze sensor data to optimize tool usage, predict maintenance needs, and prevent equipment failure.
+- For additional detailed guides and user scenarios for leveraging Flows, see :Link[Flows Guides]{label="Flows Guides" spaceId="0c3K9AkyXsnPI4j8vUaa5" docId="xAGkmI3oUQpmDd9yVpr6C" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+## Limitations
+
+Review the following limitations for Flows to determine if the Analytics feature is a more appropriate tool for your specific requirements.&#x20;
+
+- **Technical Complexity for Non-Experts:&#x20;**&#x43;orrectly configuring your JSON and Flows canvas without syntax errors and bugs is crucial in Litmus Edge. Mistakes in JSON code can cause malfunctions in flow processes, affecting the efficiency and reliability of manufacturing operations.
+- **Scalability Concerns in Large-Scale Operations:&#x20;**&#x41;s the number and complexity of flows increase, managing and maintaining these flows can also be complex. This is especially true in large manufacturing settings where data from thousands of sensors and devices must be processed and analyzed continuously.
+
+# Analytics
+
+Analytics is a powerful tool for simplifying industrial data interpretation and visualization. It is designed to provide users of varying technical expertise levels with a straightforward and accessible method of processing, calculating, and computing analytical functions.
+
+The analytics feature in Litmus Edge offers a full set of readily deployable processors, allowing you to quickly and efficiently add different mathematical functions to make informed decision-making in industrial environments.
+
+The Analytics feature is user-friendly and does not require extensive programming knowledge, making it an ideal tool for users who need to analyze industrial data but need more specialized data science or programming skills.
+
+**Litmus Edge Analytics offers many processor functions, including:**
+
+- Anomaly Detection
+- ARIMA Filter
+- Feature Extraction
+- Linear Prediction
+- Normalization
+- Statistical Prediction
+- XMR Chart
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/E5DYJod2PXWJouX9bczU__image.png "Analytics canvas")
+
+## User Scenarios
+
+- **Routine Performance Monitoring:&#x20;**&#x41;nalytics is an ideal tool for regularly monitoring manufacturing processes. It can track key performance indicators (KPIs), such as production output, operational efficiency, and machine uptime. The data can be presented in an easily understandable format, and various customization options are available for each function.
+- **Predictive Maintenance:&#x20;**&#x41;nalytics can predict machine or component failures based on historical and real-time data. This enables proactive maintenance scheduling, which minimizes downtime and saves money in the long term.
+- For additional detailed guides and user scenarios for leveraging Analytics, see :Link[Analytics Guides]{label="Analytics Guides" spaceId="0c3K9AkyXsnPI4j8vUaa5" docId="mqARIRwkCsQQmiDp8XhiJ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+## Limitations
+
+Review the following limitations for Analytics to help you determine if the Flows feature is a more appropriate tool for your specific requirements.&#x20;
+
+- **Limited Customizability:&#x20;**&#x54;he Analytics feature has limitations in terms of customization and works best with predefined processes and functions that can be configured for different parameters. It may be useful only for certain specialized industrial requirements.
+- **Surface-Level Insights for Complex Data:&#x20;**&#x41;dvanced data sets require more sophisticated analytical tools to provide in-depth insights beyond surface-level analysis. In such cases, more sophisticated, customized analysis (such as that offered by Flows) might be necessary to uncover deeper patterns and correlations.
+
+# Flows and Analytics Compared
+
+Review the following capabilities of both features.&#x20;
+
+<table isTableHeaderOn="true" columnWidths="132,132,132,132,133" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Capability/Requirement**
+    </td>
+    <td align="left">
+      **Flows**
+    </td>
+    <td align="left">
+      **Comment**
+    </td>
+    <td align="left">
+      **Analytics**
+    </td>
+    <td align="left">
+      **Comment**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Knowledge of JSON required
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      Required for customizing certain nodes and functions
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      Pre-defined functions are ready to use and only require limited configurations
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Viewing data output on canvas    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      Use the **debug&#x20;**&#x6E;ode to view output
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      Click the **View&#x20;**&#x69;con on a processor to view data output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Publishing output to defined topic
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      DataHub Publish node available
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      DataHub Publish output function available
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Out-of-the-box functions available    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      Functions and data processing need to be manually configured
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      A number of pre-defined functions and KPIs are available to use
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Easy-to-use workflow for setting up data processing and publishing    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      Flows need to be manually set up and configured
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      You can easily set up a flow by selecting the input, processor, and output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Customizing functions and processes    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      You can fully customize flows to your specific requirements
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      Pre-defined functions have limited customization options
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Parsing data into different formats    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      Parser nodes are available for formats such as CSV, XML, and YAML
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      This option is not available    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Creating a dashboard to view data    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      You can create and customize Flow dashboards
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      This option is not available
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Sending alerts through email and text message
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      The **email&#x20;**&#x61;nd **Twilio out** nodes are available
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      This option is not available    </td>
+  </tr>
+</table>
+

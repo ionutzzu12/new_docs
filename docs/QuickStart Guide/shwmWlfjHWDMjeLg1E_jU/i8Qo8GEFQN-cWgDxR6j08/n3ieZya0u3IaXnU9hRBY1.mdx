@@ -1,0 +1,1689 @@
+---
+title: Opto22 MMIO Protocol Ethernet (Gen1.3)
+slug: n3ieZya0u3IaXnU9hRBY1
+description: Review the following information for setting up and configuring the Opto22 MMIO Protocol Ethernet (Gen1)  driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Opto22 MMIO Protocol Ethernet (Gen1.3)&#x20;driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="242,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[OPTO22 SNAP PAC System]{href="http://www.opto22.com/" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure your device for Ethernet access.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="170,616" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Opto Devices    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Opto22 MMIO Protocol Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      2001
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="ZQLh2fGSiFmwvvt3baCtt">
+
+</ContentSnippet>
+
+<table columnWidths="241,100,101,100,100,100" selectedRows="" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      STATE
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ONLATCH
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OFFLATCH
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ACTIVECOUNTER
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ONLATCH\_READCLEAR
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OFFLATCH\_READCLEAR
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_STATE
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1531
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_ONLATCH
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1531
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_OFFLATCH
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1531
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_ONLATCH\_CLEAR
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1531
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_OFFLATCH\_CLEAR
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1531
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ALARM\_HI\_STATE
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ALARM\_HI\_ENABLE
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ALARM\_LO\_STATE
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ALARM\_LO\_ENABLE
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SP\_BIT
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EU
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      COUNTS
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MIN
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MAX
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MIN\_READCLEAR
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MAX\_READCLEAR
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EU\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      COUNTS\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MIN\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MAX\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MIN\_READCLEAR\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MAX\_READCLEAR\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      COUNTERDATA
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      COUNTERDATA\_READCLEAR
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_COUNTER
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      15
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_COUNTER\_READCLEAR
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      15
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_BANK\_STATE
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      15
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_BANK\_ONLATCH
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      15
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HDD\_BANK\_OFFLATCH
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      15
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MODULETYPE
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      POINTTYPE
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      FEATURE
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OFFSET
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      GAIN
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HISCALE
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOSCALE
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MODULETYPE\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4096
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      POINTTYPE\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4096
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      FEATURE\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4096
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OFFSET\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4096
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      GAIN\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4096
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      MODUHISCALE\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4096
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LOSCALE\_4096
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4096
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ALARM\_HI\_SETPOINT
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ALARM\_HI\_DEADBAND
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ALARM\_LO\_SETPOINT
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      ALARM\_LO\_DEADBAND
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      63
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SP\_INTEGER
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10239
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SP\_FLOAT
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10239
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SP\_STRING
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6300
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CV\_IN
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CV\_SP
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CV\_OUT
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CV\_FF
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CV\_ERROR
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CV\_P
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CV\_I
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CV\_D
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CV\_INTEGRAL
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_LSV\_IN
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_LSV\_SP
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_STATUS
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_STATUS\_ON
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_STATUS\_OFF
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_TUNE\_P
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_TUNE\_I
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_TUNE\_D
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_TUNE\_FF
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_MAX\_OUT
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_MIN\_OUT
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_SCAN\_TIME
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_LOW\_RANGE
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_HI\_RANGE
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_ALG
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_MAN\_MODE
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_FLAGS
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_FLAGS\_ON
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID-CFG\_FLAGS\_OFF
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_MM\_IN
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_MM\_SP
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_CFG\_MM\_OUT
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_SCALE\_IN\_LOW
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_SCALE\_IN\_HI
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_SCALE\_OUT\_LOW
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_SCALE\_OUT\_HI
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      PID\_SCAN\_COUNTER
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

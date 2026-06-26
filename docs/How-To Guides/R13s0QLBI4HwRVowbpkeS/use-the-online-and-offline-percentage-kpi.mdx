@@ -1,0 +1,71 @@
+---
+title: Use the Online and Offline Percentage KPI
+slug: use-the-online-and-offline-percentage-kpi
+docTags: 
+createdAt: Tue Aug 06 2024 22:43:49 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Online and Offline Percentage** KPI is a raw number indicating how long a sensor was functional and how long it was offline.
+
+# User Scenario
+
+Review the following scenario for the online and offline KPI processor. Then, using an input processor, you will simulate PLC data and use this KPI to have more detailed knowledge of the time.
+
+At a busy automotive manufacturing plant, the production line relies on a critical sensor to monitor engine performance. The maintenance team uses the online and offline percentage KPI to track the sensor's functionality. For instance, if the sensor was operational for 550 minutes but offline for 25 minutes during a specific shift, the team analyzes this data to optimize maintenance schedules and ensure continuous production efficiency.
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../Product Features/DeviceHub/BsCZeopVvxIBRMcyy7USc/P8ECCvXLg-LwowsB7Leyc.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: tag1**
+
+- **Name**: Select **S - Random value generator.**
+- **Value Type:** Select **float64.**
+- **Polling Interval**: Enter **1.**
+- **Tag Name**: Enter **tag1.**
+
+# Step 3: Create Analytics Flow
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Online and Offline Processor functions:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the *Topic* field, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for **tag1**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **Online and Offline Percentage&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Unit:** Time units for displaying online/offline status.
+   - **resetOnStatus:&#x20;**&#x49;f you enable this parameter, the KPI will reset every time the status changes from **ON&#x20;**&#x6F;r **OFF**.
+   - **Device Reset:&#x20;**&#x45;nable this parameter to reset everything when the device changes.
+   - **Time Interval:** If the tag publishes at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/UMDHYVOJN4oopLwXsqlrL_image.png" size="80" width="755" height="507" position="center" caption="Edit a Processor dialog box" showCaption="true"></Image>
+7. Connect the *DataHub Subscribe* processor (tag: *tag1*) to the *Online and Offline Percentage&#x20;*&#x70;rocessor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JHOn9FudnFH24BpO9OSKD_image.png" size="80" width="702" height="187" position="center" caption="Completed Flows Canvas" showCaption="true"></Image>
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Online and Offline Percentage* processor to view the output values.
+
+The output shows the offline and online durations along with the timestamp indicating when the device was last offline. It also provides the total time elapsed since the KPI was initiated.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qcZbAXu5ys03jYqUynquI_image.png "Output of Online and Offline Percentage processor")
+

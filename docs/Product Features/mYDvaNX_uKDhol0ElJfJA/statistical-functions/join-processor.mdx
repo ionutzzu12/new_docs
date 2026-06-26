@@ -1,0 +1,90 @@
+---
+title: Join Processor
+slug: join-processor
+docTags: 
+createdAt: Tue Aug 06 2024 22:05:44 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Join processor** allows you to combine the output for multiple inputs. When multiple input processors are connected to a Join Processor, you must define the connector.
+
+# Join Processor Overview
+
+- Output mode
+  - Two options available here are *map* and *array* form
+  - **Map** option is better if standard JSON format is needed (eg. for Database output)
+  - **Array** option is better if all values are needed in an array format
+- Map Field Prefix
+  - This field can remain empty, but you can add a prefix if you want, in front of the output fields when they are combined
+- Array Sort Order
+  - In array mode, you can chose to arrange field values in either Ascending and Descending order
+- Input Source
+  - What to show as the input source? Device Name, or the connecting wire definition name?
+  - If Device Name is chosen, it is *required* to have "deviceName" and "tagName" field in the input
+
+# Join Processor Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Array Sort By
+    </td>
+    <td>
+      Specifies the data type of the value being processed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Array Sort Order
+    </td>
+    <td>
+      Indicates whether to sort the array in ascending or descending order.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Field
+    </td>
+    <td>
+      Specifies which output field to join.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Input Source
+    </td>
+    <td>
+      Defines what to show as the input source.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Map Field Prefix
+    </td>
+    <td>
+      Allows adding a prefix in front of the output fields when they are combined. This field is optional and can remain empty.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Output Mode
+    </td>
+    <td>
+      Specifies the output format. Two options are available: map and array form. The map option is suitable for standard JSON format (e.g., for Database output), while the array option is better if all values are needed in an array format.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/QJ4ZRRHXv8TCAvMqtunbH_image.png" size="80" width="943" height="518" caption="Join Processor parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Join Processor&#x20;*&#x70;rocessor, refer the :Link[Use the Join Processor Function]{label="Use the Join Processor Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="aj4khVta-tN7vyhREvuBT" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

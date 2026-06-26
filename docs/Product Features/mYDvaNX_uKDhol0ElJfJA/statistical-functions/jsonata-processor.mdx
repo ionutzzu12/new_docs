@@ -1,0 +1,133 @@
+---
+title: JSONata Processor
+slug: jsonata-processor
+docTags: 
+createdAt: Thu Mar 20 2025 17:37:23 GMT+0200 (Eastern European Standard Time)
+---
+
+The **JSONata processor&#x20;**&#x61;llows you to transform incoming JSON payloads using a specified JSONata schema. By connecting multiple input processors to the JSONata processor, you can perform flexible queries and data transformations.&#x20;
+
+You must accurately define the input wires and JSONata expressions to ensure the correct mapping of fields in the incoming data.
+
+# JSONata Processor Overview
+
+JSONata is a flexible query and transformation language for JSON data. The JSONata processor uses a specified JSONata schema to transform incoming payloads. With the processor, you must define the correct input wires and JSONata expression to match. You can use Event and Value wire types with the processor.
+
+Define your script in the Code Editor. The editor is a user-friendly interface for writing and editing JSONata expressions, supporting syntax highlighting and real-time validation.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/wWa7iU2l4daQx-RbPwGKc_image.png" size="80" width="770" height="713" position="flex-start" showCaption="false"></Image>
+
+At the right you can access:
+
+- **Fullscreen**
+  Show the Code Editor in full screen mode.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/HDxB6k3cSJxt8HKehTyPx_image.png" size="80" width="1182" height="295" position="flex-start" showCaption="false" indent="2"></Image>
+
+- **Playground**
+  Test, write, and validate processors in real-time before deploying them.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7TREs58cdW0RF-hYVQ6S7_image.png" size="100" width="1905" height="971" position="flex-start" showCaption="false" indent="2"></Image>
+
+- **Validate**
+  Validate your code.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/IvYI3s5cYjLqRPLJfrRPU_image.png" size="80" width="768" height="291" position="flex-start" showCaption="false" indent="2"></Image>
+
+## Examples
+
+Using Event wires as input:
+
+- When using the Event wire type, there is no need to specify the wire name when defining the fields in the JSONata expression.
+- You can define multiple inputs into a single JSONata process. However, each input is considered as it’s own process flow and generates a new payload.
+
+Input payload:
+
+```json
+{
+  "datatype": "float64",
+  "description": "",
+  "deviceID": "75F601CA-0F7A-4C26-90F0-470E2424BAC1",
+  "deviceName": "Gen",
+  "metadata": {},
+  "registerId": "D5DCF52F-342B-4211-8F4F-B92E4406BC4C",
+  "success": true,
+  "tagName": "tag1",
+  "timestamp": 1739558895577,
+  "value": 0.38164469548275337
+}
+```
+
+JSONata expression. In this example, you simply define the field name from the input in the expression:
+
+```json
+{ 
+  "metric": $substring(tagName,3), 
+  "value": value, 
+  "date": $fromMillis(timestamp, '[M01]/[D01]/[Y0001] [h#1]:[m01][P]') 
+}
+```
+
+Output payload:
+
+```json
+{
+  "date":"02/14/2025 6:51pm",
+  "metric":"1",
+  "value":0.38164469548275337
+}
+```
+
+Using Value wires as input:
+
+- When using the Value wire type, every input field must be a prefix wire name.
+- The JSONata processor will not produce a payload until all input payloads are present. For example, the payload from input 1 is stored in memory until input 2 produces a payload.
+
+Input payload 1:
+
+```json
+// wirename = Input_1
+{ 
+  "datatype":"float64", 
+  "description":"current metric",
+  "deviceID":"75F601CA-0F7A-4C26-90F0-470E2424BAC1",
+  "deviceName":"Gen",
+  "metadata":{},
+  "registerId":"D5DCF52F-342B-4211-8F4F-B92E4406BC4C",
+  "success":true,
+  "tagName":"tag1",
+  "timestamp":1739558895577,
+  "value":0.38164469548275337 
+}
+```
+
+Input payload 2:
+
+```json
+//wirename = Input_2
+{ 
+  "datatype":"float64",
+  "description":"temp metric",
+  "deviceID":"75F601CA-0F7A-4C26-90F0-470E2424BAC1",
+  "deviceName":"Gen",
+  "metadata":{},
+  "registerId":"D5DCF52F-342B-4211-8F4F-B92E4406BC4C",
+  "success":true,
+  "tagName":"tag2",
+  "timestamp":1739558895577,
+  "value":-1.8813568907902232 
+}
+```
+
+Output payload:
+
+```json
+{ 
+  "metric_1": tsg1, 
+  "metric_2": tag2, 
+  "value_1": 0.38164469548275337, 
+  value_2": -1.8813568907902232, 
+  "date": "date":"02/14/2025 6:51pm" 
+}
+```
+

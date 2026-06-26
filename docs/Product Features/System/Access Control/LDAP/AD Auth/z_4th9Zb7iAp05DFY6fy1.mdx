@@ -1,0 +1,321 @@
+---
+title: LDAP and AD User Interface Examples
+slug: z_4th9Zb7iAp05DFY6fy1
+description: The following examples can be used to set up the LDAP Active Directory and LDAP rfc2307bis.
+docTags: 
+createdAt: Fri Sep 30 2022 16:47:48 GMT+0300 (Eastern European Summer Time)
+---
+
+The following examples can be used to set up the LDAP Active Directory and LDAP rfc2307bis.
+
+# Form Example
+
+The following form examples are Active Directory and LDAP rfc2307bis.&#x20;
+
+## Active Directory
+
+```Text
+
+const PROVIDER_CONFIG = {
+  name:              'openldap',
+  type:              'ldap2307bis',
+ 
+  host:              'ldap.example.com',
+  port:              389,
+  tls:               false,
+  bindDN:            'cn=system,dc=example,dc=com',
+  bindDNPassword:    'password',
+ 
+  userSearchBaseDN:  'ou=People,dc=example,dc=com',
+  userSearchScope:   'sub',
+  userFilter:        '(objectClass=posixAccount)',
+  userAttrID:        'uidNumber',
+  userAttrUsername:  'uid',
+  userAttrFirstName: 'givenName',
+  userAttrLastName:  'sn',
+ 
+  groupSearchBaseDN: 'ou=Groups,dc=example,dc=com',
+  groupSearchScope:  'sub',
+  groupFilter:       '(objectClass=posixGroup)',
+  groupAttrName:     'cn',
+  groupAttrUser:     'dn',
+  groupAttrType:     'member'
+};
+```
+
+## LDAP rfc2307bis
+
+
+
+```Text
+
+const PROVIDER_CONFIG = {
+  name:              'openldap',
+  type:              'ldap2307bis',
+ 
+  host:              'ldap.example.com',
+  port:              389,
+  tls:               false,
+  bindDN:            'cn=system,dc=example,dc=com',
+  bindDNPassword:    'password',
+ 
+  userSearchBaseDN:  'ou=People,dc=example,dc=com',
+  userSearchScope:   'sub',
+  userFilter:        '(objectClass=posixAccount)',
+  userAttrID:        'uidNumber',
+  userAttrUsername:  'uid',
+  userAttrFirstName: 'givenName',
+  userAttrLastName:  'sn',
+ 
+  groupSearchBaseDN: 'ou=Groups,dc=example,dc=com',
+  groupSearchScope:  'sub',
+  groupFilter:       '(objectClass=posixGroup)',
+  groupAttrName:     'cn',
+  groupAttrUser:     'dn',
+  groupAttrType:     'member'
+};
+```
+
+More examples for Active Directory filter can be found at :Link[Active Directory]{href="http://adfilters.blogspot.com/2015/03/active-directory-ldap-filter-querys.html" newTab="true"}.&#x20;
+
+# Field Definitions
+
+<table columnWidths="143,521,247" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Definition**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Name of this connector.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Type
+    </td>
+    <td>
+      The connector type. Only the Generic type is currently supported.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Connection
+    </td>
+    <td>
+      These fields are attributes of the server connection.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Host
+    </td>
+    <td>
+      Domain name or IP address of the LDAP host.    </td>
+  </tr>
+  <tr>
+    <td>
+      Port
+    </td>
+    <td>
+      The LDAP port.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use TLS
+    </td>
+    <td>
+      Enable or disable LAPS protocol for a secure connection. TLS settings should match the port. LDAP servers use port 389 for LDAP protocol and port 636 for LDAPS protocol. The connection fails if port 389 is specified and the Use TLS option is enabled.    </td>
+  </tr>
+  <tr>
+    <td>
+      Bind DN
+    </td>
+    <td>
+      Account used to connect to the LDAP server (only requires read and browse permissions). The distinguished name of the account used for accessing LDAP server. An anonymous connect is used of Bind DN is not specified.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CA Certificate Chain
+    </td>
+    <td>
+      Trusted root certificate chain (only required if private CA is used by the server).&#x20;
+      - The CA Certificate Chain file is only available if the **Use TLS&#xA0;**&#x6F;ption is selected.
+      - The CA Certificate Chain field can be left blank if the server certificate is issued by a public CA.
+      - Private root certificates can be added to the trusted store using **System** >**&#x20;Certificates**. In this case, the CA Certificate Chain field can be left blank.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Bind DN Password
+    </td>
+    <td>
+      Password for Bind DN
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Users
+    </td>
+    <td>
+      These attributes are used to find user accounts in the LDAP server.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      User Search Base DN
+    </td>
+    <td>
+      Distinguished name of the entity where search for users starts      .
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Search Scope
+    </td>
+    <td>
+      The Search Scope is an option. sub, one or base indicate the search scope (sub is the default).
+      - **sub&#xA0;**&#x69;s used to indicate searching of all entries at all levels under and including the specified base DN.
+      - **one&#xA0;**&#x69;s used to indicate searching all entries on level under the base DN. This does not include the base DN and any entries under that one level under the base DN.
+      - **base&#xA0;**&#x69;s used to indicate searching only the entry being returned. It must meet the search filter criteria.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      User Search Filter
+    </td>
+    <td>
+      The LDAP filter used to identify user accounts.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Attribute for Unique User ID
+    </td>
+    <td>
+      LDAP attribute to uniquely identify a user. The typical value is uidNumber for rfc2307 and object GUID for AD      .
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Attribute for Username
+    </td>
+    <td>
+      An LDAP attribute containing the username for logging in. It is usually uid for sAMAccountName for AD      .
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Attribute for First Name
+    </td>
+    <td>
+      An LDAP attribute that contains the first name of the user. The default value is givenName.    </td>
+  </tr>
+  <tr>
+    <td>
+      Attribute for Last Name
+    </td>
+    <td>
+      An LDAP attribute contains the last name of the user. The default value is sn      .
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Groups
+    </td>
+    <td>
+      These attributes are used to find groups in the LDAP server. User roles are derived from group names. For example, administrator is matched against Litmus Edge user roles.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Group Search Base DN
+    </td>
+    <td>
+      The distinguished name of the entity where search for group starts.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Group Search Filter
+    </td>
+    <td>
+      The LDAP filter used to identify user groups      .
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Group Name Attribute
+    </td>
+    <td>
+      The attribute name containing the group name (usually cn)      .
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Group Membership Attribute
+    </td>
+    <td>
+      The attribute name that contains the list of group members (usually member)      .&#x20;
+      - The most common group membership scheme is when the group object contains multiple member attributes that contain the DN name of the member account.      - However, there is an old rfc2703 standard that uses the reverse mechanism when the user object contains a list of group names.      - The old rfc2703 standard is not supported by the Generic connector.    </td>
+  </tr>
+  <tr>
+    <td>
+      Member value type
+    </td>
+    <td>
+      The type of the member value (values are dnor uid). This attribute is case sensitive.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Test
+    </td>
+    <td>
+      These values are used for testing connectivity.    </td>
+  </tr>
+  <tr>
+    <td>
+      UserID
+    </td>
+    <td>
+      The userid.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Password
+    </td>
+    <td>
+      The password.
+    </td>
+  </tr>
+</table>
+
+# Test Failure
+
+If the test fails, you should receive a detailed message about the reason for failure. Here is a list of a few possible failure reasons:
+
+- **Unable to connect to the server**: Wrong address/DNS name or port of the of the LDAP host.
+- **Protocol mismatch**: Connecting with TLS to the port that doesn't support authentication.
+- **Certificate validation failure**: Missing or invalid rootCA.
+- **User not found**: Indicates broad range of possible problems like invalid search path, invalid filter, or invalid attributes for username or userid.
+- **User attribute not found**: When one of the user attributes is either missing or empty.
+- **Group not found**: If search path, scope, or filter are invalid.
+- **Group attribute not found**: If any of the group attributes is empty or missing.
+- **Authentication failure**: If authentication fails, this usually means invalid username or password.
+- **Authorization failure**: Means that returned set of scopes does not match those of the requested role.
+
+<hint type="info">
+  **Note**: The **Save&#xA0;**&#x62;utton is only available if the test is successfully completed.
+</hint>
+

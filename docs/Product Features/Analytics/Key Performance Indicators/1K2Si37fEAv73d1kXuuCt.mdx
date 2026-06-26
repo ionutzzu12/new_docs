@@ -1,0 +1,89 @@
+---
+title: Maintenance and Failure
+slug: 1K2Si37fEAv73d1kXuuCt
+description: Learn more about the Maintenance and Failure KPI. 
+docTags: 
+createdAt: Fri Oct 21 2022 17:40:57 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Maintenance and Failure** KPI mainly deals with the maintenance event and a fault/failure event in a production cycle.
+
+# Maintenance and Failure Overview
+
+- For **Maintenance events per cycle**, you can see the number of maintenance events (planned or unplanned) in a production cycle.
+- For **Time since last maintenance**, If you know that a machine needs to be checked periodically, you can see the time elapsed between maintenance events.
+- **Timestamp of last maintenance&#xA0;**&#x69;s used to keep track of the previous time maintenance occurred.
+- For **Number of faults / failures detected in a period**, you can see the number of failures that have occurred in a period.
+- For **Time since last failure**, if you know that the machine needs to be checked periodically, you can see the time elapsed between failure events.
+- **Timestamp of last failure&#xA0;**&#x69;s used to keep track of the previous time when a failure occurred.
+- The **timer interval&#xA0;**&#x70;arameter is useful if the connected input tag is offline but you still want this KPI to look for a value every few seconds, defined by the timer.
+- Within the KPI you can define how you want to trigger the mechanism of a maintenance event, and a failure event.
+  For example, if you define **Maintenance From**: `0 `and **Maintenance To**: `1`, this means that when the value from the input tag, with the definition on the connection as *maintenance*, goes from 0 to 1, it is an indication that there was a maintenance event.
+  **Failure From**: `2 `and **Failure To**: `4 `means whenever the input tag the definition on the connection as \*failure \*goes from 2 to 4, it is an indication that there was a failure event.
+
+# Maintenance and Failure Parameter
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="159">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Maintenance From
+    </td>
+    <td>
+      This parameter specifies the value at which a maintenance event is considered to be triggered.    </td>
+  </tr>
+  <tr>
+    <td>
+      Maintenance To
+    </td>
+    <td>
+      This parameter specifies the value at which a maintenance event is considered to be completed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Failure From
+    </td>
+    <td>
+      This parameter specifies the value at which a failure event is considered to be triggered.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Failure To
+    </td>
+    <td>
+      This parameter specifies the value at which a failure event is considered to be completed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Unit
+    </td>
+    <td>
+      This parameter allows you to select the time unit in which the time since the last Maintenance/Failure will be displayed (Seconds, Minutes, Hours, Days, or Weeks).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer Interval
+    </td>
+    <td>
+      Timer in milliseconds. If no event, use this timer to keep displaying the output continually. Enter zero to disable.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/NrkLKM7PVL5eUKX__qEUg_image.png" size="80" width="945" height="589" caption="Maintenance/Failure parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Maintenance and Failure&#x20;*&#x4B;PI, refer the :Link[Use the Maintenance and Failure KPI]{label="Use the Maintenance and Failure KPI" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="lCGQd3RmVCg_iJgdVPUZS" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

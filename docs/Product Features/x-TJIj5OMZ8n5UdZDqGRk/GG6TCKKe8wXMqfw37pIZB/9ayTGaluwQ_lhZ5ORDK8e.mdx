@@ -1,0 +1,49 @@
+---
+title: System Services
+slug: 9ayTGaluwQ_lhZ5ORDK8e
+description: You can manage the following services: FTP Server, SSH, Remote Access services. 
+docTags: 
+createdAt: Fri May 13 2022 21:57:01 GMT+0300 (Eastern European Summer Time)
+---
+
+You can manage system services by navigating to **System&#x20;**> **Device Management** > **System Services**.&#x20;
+
+You can manage following services:&#x20;
+
+- FTP (File Transfer Protocol) Server
+- SSH (Secure Socket Shell)
+
+# FTP Service
+
+<hint type="info">
+  **Note**: If you reboot Litmus Edge, the FTP Server will not start unless **Start service automatically** is enabled and at least one FTP user is created.&#x20;
+</hint>
+
+FTP is a standard network protocol used to transfer files between a client and server on a computer network.
+
+- Litmus Edge supports FTP, which allows devices to securely exchange files with the edge device. Litmus Edge is the server in this exchange and the client is running on the device that is on the same network as Litmus Edge.
+- FTP can be used to transfer data through a CSV file or similar formats. It also can be used to read a file from the drive and send data to the cloud.
+
+The FTP client must be running on a device that is on the same network as Litmus Edge.
+
+Use the following details to configure the FTP client, to establish a connection to the Litmus Edge server.
+
+- **Host**: The IP address of the Litmus Edge device.
+- **Username**: The Litmus Edge FTP username.
+- **Password**: The password that was generated.
+- **Port**: The default FTP port is 21.
+
+[Filezilla](https://filezilla-project.org/) works well as the FTP client communicating with Litmus Edge. To establish a connection with Litmus Edge (the FTP server) from Filezilla, you enter the Host, Username, and Password values (as described above), then click **Quickconnect**. Once connected, drag files from their source location to the default FTP directory in Litmus Edge. This directory is /ftp-data.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ep4jPPTA-fdh70l8S8GAe_image.png" size="80" width="1010" height="650" position="flex-start" caption="Filezilla Client for FTP Server" showCaption="true"></Image>
+
+# System Services
+
+You can start and stop the SSH service from this section.&#x20;
+
+# Next Steps
+
+- :Link[Manage FTP and System Services]{docId="LdV5xKwp4NtrLQa4p2a-b" label="Manage FTP and System Services" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage FTP and System Services"}&#x20;
+- :Link[Add an FTP User]{docId="yRRWGSSfhEdnz3q9jgQJc" label="Add an FTP User" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add an FTP User"}&#x20;
+- [Manage FTP Users](<../../System/Device Management/Services/dzzGyfijaHSp8KvhlWAHS.mdx>)&#x20;
+

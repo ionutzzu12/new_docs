@@ -1,0 +1,129 @@
+---
+title: Applications dashboard
+slug: wbOOgU8zfho_GY8lrGGzM
+description: The Applications dashboard summarizes up-to-date information about the module's components. 
+docTags: 
+createdAt: Fri May 13 2022 22:02:30 GMT+0300 (Eastern European Summer Time)
+---
+
+The Applications Dashboard provides a live view of your edge device's containerized workloads and resource consumption. Use it to confirm that the right containers are running, identify stopped or errored resources before they affect production, and check whether the device is approaching storage or CPU limits. Access the dashboard from **Applications** > **Dashboard**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/zi1B7u5catZXWl7pHtMfI_image.png" size="80" width="1577" height="748" position="flex-start" darkWidth="1577" darkHeight="748" showCaption="false"></Image>
+
+# Resource status
+
+Resource Status shows the current state of every resource type managed by the Applications module. Note that detail tiles displays information ordered by attention required. For example, exited containers display before running containers.
+
+Summary tiles across the top show a count and health breakdown for each resource type. Color-coded status indicators let you see at a glance whether something needs attention. Click a tile to navigate directly to that section.
+
+<table isTableHeaderOn="true" columnWidths="268,730" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Tile**
+    </td>
+    <td align="left">
+      **Status indicators shown**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Catalog Apps
+    </td>
+    <td align="left">
+      Running, Stopped, Error
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Containers
+    </td>
+    <td align="left">
+      Running, Exited, or Error
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Container Images
+    </td>
+    <td align="left">
+      Total storage consumed
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Storage Volumes
+    </td>
+    <td align="left">
+      Total storage consumed
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Virtual Networks
+    </td>
+    <td align="left">
+      Number of networks connected
+    </td>
+  </tr>
+</table>
+
+Detail panels in the bottom row list the individual resources behind each count, so you can identify exactly which container has stopped or which network is inactive without leaving the dashboard. Each panel includes a **View More** link to open the full section.
+
+<table isTableHeaderOn="true" columnWidths="265,733" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Panel**
+    </td>
+    <td align="left">
+      **Shows per resource**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Catalog Applications
+    </td>
+    <td align="left">
+      App names and running status
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Containers
+    </td>
+    <td align="left">
+      Container names
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Container Images
+    </td>
+    <td align="left">
+      Image names and total storage consumed across all images
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Storage Volumes
+    </td>
+    <td align="left">
+      Volume names and total storage consumed across all volumes
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Virtual Networks
+    </td>
+    <td align="left">
+      Network name, driver type, and number of containers attached
+    </td>
+  </tr>
+</table>
+
+# System performance
+
+The System Performance section shows two charts that update continuously so you can monitor device-level resource pressure without leaving the dashboard.
+
+- **CPU Utilization** charts current load as a percentage of total CPU capacity over time.
+- **Storage Usage** charts total consumption and breaks it down between images and volumes. This breakdown helps you identify which resource type is driving disk growth when storage is running low.
+

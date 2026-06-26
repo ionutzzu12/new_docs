@@ -1,0 +1,53 @@
+---
+title: Tokens
+slug: miEvgXqnwKPk2uk7mNQps
+description: On the Tokens pane you can create and manage NATS Proxy, REST API keys, and API access accounts.
+docTags: 
+createdAt: Fri May 13 2022 21:57:07 GMT+0300 (Eastern European Summer Time)
+---
+
+Create and manage NATS Proxy, REST API keys, and API access accounts in **Access Control** > **Tokens**.
+
+# NATS Proxy
+
+In NATS Proxy, set up a data connection with multiple Litmus Edge instances or  with a Litmus Edge instance and another developer application. &#x20;
+
+## NATS Proxy Use Cases
+
+&#x20;Consider the following use cases for using NATS Proxy. Setup a connection with:
+
+- Two Litmus Edge instances. Data in one instance is sent through a NATS connector that receives and visualizes the data in the other instance.&#x20;
+- Three or more Litmus Edge instances. Data in one instance is sent through a NATS connector that receives and visualizes the data in multiple instances.&#x20;
+- One Litmus Edge instance and an external developer application. Data in the instance is sent through a NATS connector and the developer application is set up as a NATS client to subscribe to and receive NATS data.
+
+Review the how-to guide to [Set Up Edge Cascading with the NATS Connector](<../../../How-To Guides/Integration Guides/g_3_oxU5EETD8TVLShkF-.mdx>).&#x20;
+
+# API Credentials
+
+<hint type="info">
+  **Note**: This feature is only available on the Scale plan.&#x20;
+</hint>
+
+This section allows users to create, edit, remove and validate API credentials for API access. Optionally, create an API Key or OAuth 2.0 client credentials.&#x20;
+
+To make requests and updates using a REST API endpoint, you need to use curl from the command line or a GUI-based software like Postman. See :Link[Test REST API using Postman or Curl]{docId="MrYwYLEopZkb7mTnEpNJe" label="Test REST API using Postman or Curl" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+# Access Accounts
+
+This section allows users to create new accounts, enable or disable accounts and modify topics, view the API key, reset the account and remove the account.
+
+# Access Tokens UI
+
+From the Litmus Edge navigation menu, navigate to **System&#x20;**> **Access Control&#x20;**> **Tokens**.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NAkuCAtC_JulRKTHcEWym_image.png)
+
+# Next Steps
+
+- :Link[Create API Credentials]{label="Create API Credentials" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="0sE4JsFt37RgMw4ZzQFZa" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Manage API Credentials]{label="Manage API Credentials" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="HeGHw1dOac9xDStTeekz8" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Create an API Account]{docId="u3NpMIev1rrnlqV3m0vPA" label="Create an API Account" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Create an API Account"}&#x20;
+- [Manage API Accounts](Tokens/-mQ4gQ9TY-4OCp--xrQVm.mdx)&#x20;
+- :Link[Test REST API using Postman or Curl]{docId="MrYwYLEopZkb7mTnEpNJe" label="Test REST API using Postman or Curl" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- [Set Up Edge Cascading with the NATS Connector](<../../../How-To Guides/Integration Guides/g_3_oxU5EETD8TVLShkF-.mdx>)
+

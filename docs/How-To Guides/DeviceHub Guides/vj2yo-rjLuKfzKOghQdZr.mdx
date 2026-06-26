@@ -1,0 +1,145 @@
+---
+title: Use the Status Register to Connect a PLC
+slug: vj2yo-rjLuKfzKOghQdZr
+description: Learn how to use the status register option, which allows you to use a custom configuration to connect to PLC devices. 
+docTags: 
+createdAt: Mon Feb 27 2023 16:20:39 GMT+0200 (Eastern European Standard Time)
+---
+
+The status register option in device configurations allows you to set up a connection with a PLC device that won't successfully connect using the default connection configuration between Litmus Edge and the device.&#x20;
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/RO7jqr-F0og?si=5R3BxdMkt_5hPJZS&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# User Scenario
+
+The default configuration for a PLC in your production environment can't connect to Litmus Edge. You will therefore use the status register option to create a custom configuration to connect the PLC to Litmus Edge.&#x20;
+
+# Set Up and Use the Status Register Option
+
+Complete the following tasks to use the status register option.&#x20;
+
+## Before You Begin
+
+For this user scenario, the Modbus slave simulator is used. To complete these steps, you will need to download the :Link[Modbus slave simulator]{href="https://www.modbustools.com/download.html" newTab="true"}.
+
+## Step 1: Set up Modbus Simulator
+
+**To set up the Modbus slave simulator:&#x20;**
+
+1. Open Modbus slave simulator.&#x20;
+2. Navigate to **Setup&#x20;**> **Slave Definition...**
+3. Configure the following parameters.
+   **Slave ID**: 1
+   **Function**: 03 Holding Register (4x)
+   **Address**: 0
+   **Quantity**: 10
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/a7JBxIn3Auyh7J5gNPX33_slave-definition.png" size="50" width="402" height="339" caption="Slave Definition dialog box" position="center" showCaption="true"></Image>
+4. Click **OK**.&#x20;
+5. Navigate to **Connection&#x20;**> **Connect...**
+6. Configure the following parameters.
+   **Connection**: Modbus TCP/IP
+   **IP Address**: Enter the IPv4 address for your computer. If needed, use the `ipconfig` command in the command prompt window and copy the **IPv4 Address**.
+   **Port**: 502
+   **IPv4**: Select this option.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vdS2B3mGsNRoHup9jQWqF_connect.png" size="50" width="407" height="422" caption="Connection Setup dialog box" position="center" showCaption="true"></Image>
+7. Click **OK**.&#x20;
+
+The simulator successfully connects.&#x20;
+
+## Step 2: Connect Modbus Device in Litmus Edge
+
+You can now follow the steps to [Connect a Device](<../../Product Features/DeviceHub/BsCZeopVvxIBRMcyy7USc/P8ECCvXLg-LwowsB7Leyc.mdx>).&#x20;
+
+Configure the following parameters:&#x20;
+
+- **Device Type**: Modbus
+- **Driver Name**: Modbus TCP
+- **Name**: Enter a name for the Modbus TCP Ethernet Driver.
+- **Network Address**: Enter the IP address you configured in the Modbus slave simulator.&#x20;
+- **Network Port**: 502
+- **Station ID**: This is the Slave ID configured in the Slave Definition in the Modbus slave simulator. Enter **1**.&#x20;
+
+After adding the device, the device shows a successful connection to the slave simulator.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/OMi36lMOMXNQav79F8Eo8_image.png" size="50" width="420" height="344" caption="Successful connection to slave simulator" position="center" showCaption="true"></Image>
+
+Now that the device is successfully connected, you can test the status register function.&#x20;
+
+## Step 3: Update Slave Definition Function
+
+To test the status register function, you will need to update the function parameter in the slave definition of the slave simulator. This simulates a PLC device with a default configuration that can't connect to Litmus Edge.&#x20;
+
+**To update the slave definition function:**
+
+1. In the Modbus slave simulator, navigate to **Connection&#x20;**> **Disconnect**.&#x20;
+2. Navigate to **Setup&#x20;**> **Slave Definition...**
+3. Update the **Function&#x20;**&#x74;o **04 Input Register (3x)**.&#x20;
+4. Click **OK**.&#x20;
+5. Navigate to **Connection&#x20;**> **Connect...** and click **OK**.&#x20;
+
+The Litmus Edge device you created should now show a disconnected status due to the change in function from the simulator.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/35DbO-a6ptVU5ti7Fjk9P_image.png" size="50" width="419" height="343" caption="Disconnected status for device" position="center" showCaption="true"></Image>
+
+## Step 4: Configure Status Register in Litmus Edge
+
+You can now set up the status register option in the device configuration to successfully connect to the slave simulator.&#x20;
+
+**To configure the status register in Litmus Edge:**
+
+1. In Litmus Edge, click the **Edit&#x20;**&#x69;con for the device.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3zsxHN39b4XhTMQI10ih3_edit-icon.png" size="50" width="419" height="343" caption="Edit icon" position="center" showCaption="true"></Image>
+2. Select the **Status Register** check box.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/N37RTBhvBEwQmkawPZqyG_status-register.png" size="80" width="1182" height="751" position="center" showCaption="false"></Image>
+3. Configure the following parameters.&#x20;
+   - **Name**: I - Analog Input Registers
+   - **Value Type**: int32
+4. Click **Update Device**.&#x20;
+
+The device now shows a successful connection again based on the status register configuration.&#x20;
+
+## Step 5: Test Tags
+
+Now that the device is successfully connected using status register, you can now test that tags in the device can be read.&#x20;
+
+You will do the following:
+
+1. Create a tag in Litmus Edge.&#x20;
+2. Update register values for the connected device in Modbus slave simulator.&#x20;
+3. Use [Analytics](<../../Product Features/mYDvaNX_uKDhol0ElJfJA.mdx>) to read the tag values and confirm the tags are successfully configured.&#x20;
+
+**To test the tags for the device:&#x20;**
+
+1. In Litmus Edge, navigate to DeviceHub > Tags.
+2. Select the Modbus TCP device.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/LjWlxnCLpv9Q4FawFAR2Y_select-modbus-tcp-device.png" size="80" width="1573" height="472" caption="Select Modbus TCP device" position="center" showCaption="true"></Image>
+3. Click the **Add Tag** icon and select **Add a Tag**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qrtNoC3vZQrvyoRWgWvF2_add-tag.png" size="80" width="1573" height="671" caption="Add Tag icon" position="center" showCaption="true"></Image>
+4. Configure the following parameters.&#x20;
+   - **Name**: This needs to be the same register as used in the Modbus slave simulator. Select **I - Analog Input Registers**.
+   - **Tag Name**: Enter a name for the Modbus TCP Ethernet Driver tag.
+   - **Value Type**: int16
+   - **Polling Interval**: The interval in seconds that the tag will poll for data. Enter **1**.&#x20;
+   - **Address**: The register that the tag will start reading data. Enter **1**.&#x20;
+   - **Count**: The number of registers that the tag will read. Enter **5**.&#x20;
+5. Click **Add Tag**.
+6. Click the **Copy&#x20;**&#x69;con for the tag's RAW Topic. You will refer to this later.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_8j8Ugrr8L-72n3hvwGdl_copy-tag.png" size="80" width="1573" height="457" caption="Copy icon for tag" position="center" showCaption="true"></Image>
+7. In Modbus slave simulator, double-click the cell in column 00000 and row 1. This is the cell that the tag you created will start reading from (Address parameter). Enter the value **5** and click **OK**. Do the same for row 2 to 5 and enter the following values: **11**, **22**, **44**, **66**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/x_JvBMV25vfWrdp__ZKP2_register-tags.png" size="80" width="946" height="483" caption="Modbus slave simulator register tag values" position="center" showCaption="true"></Image>
+8. In Litmus Edge, navigate to **Analytics**.&#x20;
+9. Open the **Action menu** and select **Add a processor**.&#x20;
+   The *Create a Processor* dialog box opens.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KCWg6yYzlltqQunzgVPf7_add-processor.png" size="80" width="1525" height="441" caption="Action menu for Analytics canvas" position="center" showCaption="true"></Image>
+10. Select **DataHub Subscribe**.&#x20;
+11. In the **Topic&#x20;**&#x66;ield, paste the tag's RAW topic that you copied earlier from step 6.&#x20;
+12. Click **Save**.&#x20;
+13. Click the **View&#x20;**&#x69;con for the processor.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/yPS_DeHjLM_5p7q51_YY7_view-icon.png" size="80" width="1573" height="497" caption="The View icon" position="center" showCaption="true"></Image>
+14. Under *Instance Messages*, verify that *success&#x20;*&#x64;isplays **true&#x20;**&#x61;nd *value&#x20;*&#x64;isplays the five values you configured in the Modbus slave simulator (**5**,**11**,**22**,**44**,**66**).&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Bu0ggVRG-onTZhDAIUbij_tag-messages.png" size="80" width="1573" height="731" caption="Instance messages for tag" position="center" showCaption="true"></Image>
+

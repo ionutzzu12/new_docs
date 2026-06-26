@@ -1,0 +1,136 @@
+---
+title: AB FlexLogix (Gen1.3)
+slug: ocgpdcKuu4vGRmULGjOAu
+description: Review the following information for setting up and configuring the AB FlexLogix (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB FlexLogix (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="213,277" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      FlexLogix
+      When configuring tags for this driver, you must enter the case-sensitive register name exactly as defined in the PLC. See the *Free Tags* section below to learn more.&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device**
+
+1. Record the following information and refer to it as needed.&#x20;
+   - **Device**: AB FlexLogix L24ER-QB1B
+   - **Communication I/F**: Ethernet and USB. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/GbbzCKrgmVLWpRH5UjYkv_ab-flexlogix.png" size="80" width="613" height="341" position="flex-start" caption="AB FlexLogix reference" showCaption="true" indent="2"></Image>
+
+2. Connect the device to a PC using a serial port.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/mJdLZWqx7p9MbnipjxQWQ_ab-flexlogix-serial.png" size="80" width="407" height="197" position="flex-start" caption="Serial port" showCaption="true" indent="2"></Image>
+
+3. Launch RSLinx classic and click **Configure Drivers**.
+4. Select **RS232 DF1 Device driver** and click **Add New**.
+5. Set up the *Comm&#x20;*&#x61;nd click **Auto-Configure**. Make sure the device can be detected successfully. The new device appears.&#x20;
+6. Right-click the **02 1788-ENBT/A module > Module Configuration**.
+7. Set up Ethernet parameters in *Port Configuration* page.
+8. Create another Ethernet driver. Select and add the **EthernetIP** Driver.
+9. Select the adapter with the same subnet as the device. The Rockwell device appears including the target.&#x20;
+10. Launch RSLogix5000 v16. Create a project with the correct device model and version and then navigate to **Communication > Who Active**.
+11. Select the target.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB FlexLogix (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="AWa1-gOs6_B9p9uMjYJPE">
+
+</ContentSnippet>
+
+- `bool`
+- `sint`
+- `int`
+- `dint`
+- `real`
+- `lint`
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

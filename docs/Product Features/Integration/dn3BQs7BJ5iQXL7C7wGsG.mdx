@@ -1,0 +1,165 @@
+---
+title: Add Topics to Connectors
+slug: dn3BQs7BJ5iQXL7C7wGsG
+description: You have several options to add topics to integration connectors. 
+docTags: 
+createdAt: Thu Dec 14 2023 17:24:53 GMT+0200 (Eastern European Standard Time)
+---
+
+After adding a connector, you can now add topics to it.&#x20;
+
+You have several options for adding topics to connectors.&#x20;
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - You can now only define local or remote topics without any spaces or special characters across all connectors.
+</hint>
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/PmeNTqPWqpQ?si=qA768WLMgMjwrnZ-&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# Add Individual Topics
+
+You can add Outbound (Local to Remote) and Inbound (Remote to Local) topics to connectors.&#x20;
+
+## Before You Begin
+
+If you are adding individual outbound topics, you will need to connect the DeviceHub device and tags that will be used to create the topics. See :Link[Connect a Device]{docId="IxDarLhX06j-kM1HeO34R" label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Connect a Device"} and :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to learn more.&#x20;
+
+**To add a topic to a connector:**
+
+1. From the *Integration&#x20;*&#x70;ane, click the connector tile you want to add the topic to.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.
+3. Click the **Add&#x20;**&#x69;con and select **Add a new subscription**.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/x6iO_2rGLqGRY-yhkbjFl_add-a-new-subscription.png" size="100" width="1173" height="522" position="center" caption="Add icon" darkWidth="1173" darkHeight="522" showCaption="true" indent="2"></Image>
+
+4. Select a data direction from the *Data Direction* drop-down list.&#x20;
+   - **Local to Remote - Inbound**
+   - **Remote to Local - Outbound**
+5. In the **Local Data Topic** field, paste the *Raw Topic&#x20;*&#x66;or the tag or click the search icon and select the appropriate DeviceHub device and tag.&#x20;
+6. The **Remote Data Topic** field may have a default value for the *Integration topic* parameter of the connector. If the field is blank,  enter the remote data topic name. &#x20;
+7. Enter a short description in the **Description** field.
+8. (If available) From the **Qos** dropdown menu, select a :Link[Quality of Service]{href="https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/" newTab="true"} value.
+   Available values: `default`, `0`, `1`, `2`
+9. (MQTT v5 connectors only) Select the **Retain** checkbox to instruct the broker to retain the last published message on this topic. New subscribers will immediately receive the most recently retained message when they connect.
+10. Click the **Enable** toggle to enable the connection.
+11. Click **OK**.
+    If the connector is CONNECTED, the *Confirmation&#x20;*&#x64;ialog box appears.
+12. Click **Yes**. Follow the prompt to restart the connector.
+    The new topic appears on the Topics pane and is enabled.
+
+# Import Tags from DeviceHub
+
+You can import tags from DeviceHub, Digital Twins, and Analytics, and convert them into topics.
+
+**To import tags from DeviceHub:**
+
+1. From the *Integration&#x20;*&#x70;ane, click the connector tile you want to add the topic to.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Click the **Import topics&#x20;**&#x69;con.&#x20;
+   The *Manage Data Import* dialog box displays.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/EwB6F7DQ44lPzYqgte5FQ_import-tags.png" size="100" width="1173" height="465" position="center" caption="Import from DeviceHub tags icon" darkWidth="1173" darkHeight="465" showCaption="true" indent="2"></Image>
+
+4. In the *Select the source&#x20;*&#x70;ane, use the drop-down menu to choose the source of topics.
+   Options include *DeviceHub*, *Digital Twins*, *Analytics*
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AQt4BFTRvDm0lI4i03sgz_image.png" size="100" width="1108" height="282" position="center" caption="Manage Data Import dialog box " darkWidth="1108" darkHeight="282" showCaption="true" indent="2"></Image>
+
+5. Select the checkbox for individual devices to import all the tags for that device and select **Choose Topics**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/J-N6ah69fAOKrBc-sl98t_image.png" size="100" width="1429" height="396" position="center" caption="Manage Data Import dialog box " darkWidth="1429" darkHeight="396" showCaption="true" indent="2"></Image>
+
+6. Select the checkbox for *Name&#x20;*&#x74;o choose tags from all selected devices. Then click **Next**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nryWxdXwz7ATByzNbUsuB_image.png" size="100" width="1413" height="558" position="center" caption="Manage Data Import dialog box " darkWidth="1413" darkHeight="558" showCaption="true" indent="2"></Image>
+
+7. On the *Review Selection&#x20;*&#x70;age, confirm the imported topics from *DeviceHub*, *Digital* *Twins*, and *Analytics&#x20;*&#x66;or their respective devices and tags.
+8. When done reviewing tags, click **Import**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9cccoBI4jw2n6eZrdE5uV_image.png" size="100" width="1433" height="573" position="center" caption="Manage Data Import dialog box " darkWidth="1433" darkHeight="573" showCaption="true" indent="2"></Image>
+
+# Use CSV File
+
+You can upload a CSV file of topics and automatically add them to the connector.&#x20;
+
+## Step 1: Download Sample CSV File
+
+You will first need to download the sample file that will be used to upload the topics to add to the connector.&#x20;
+
+To download the sample file:
+
+1. From the *Integration&#x20;*&#x70;ane, click the connector tile you want to add the topic to.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Click the **Download&#x20;**&#x69;con and select **Download a sample**.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/B0bD-FMYBshLZB0R5faKW_image.png" size="80" width="1196" height="470" position="center" caption="Download a sample option" darkWidth="1196" darkHeight="470" showCaption="true"></Image>
+
+## Step 2: Create CSV File
+
+After downloading the file, use the template to enter all the topics that will be added to the connector.&#x20;
+
+### Required Parameters
+
+<hint type="warning">
+  **Important**: Review the following for configuring the Instance ID and Instance Name for the CSV file:&#x20;
+
+  - If the Instance ID and Instance Name aren't configured correctly, the entire CSV file will be rejected and no topics will be uploaded.&#x20;
+  - If the Instance ID isn't configured correctly but the Instance Name is configured correctly, the appropriate Instance ID will be retrieved from the associated Instance Name and the CSV file will upload topics successfully to the retrieved Instance ID.&#x20;
+</hint>
+
+You must enter data for the following parameters:
+
+- **Instance ID**: This field must be entered correctly. See the *Important&#x20;*&#x6E;ote above. Retrieve this parameter by copying the Instance Identifier field from the connector tile.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/OfbT-1-EMlVMirUmbfr98_image.png" size="60" width="375" height="351" position="center" caption="Instance Identifier field" darkWidth="375" darkHeight="351" showCaption="true"></Image>
+
+- **Instance Name**: See the *Important&#x20;*&#x6E;ote above. Retrieve this parameter from the name configured for the connector.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/I7hQoNbJaaXAmw4zBY5ZX_image.png" size="60" width="375" height="351" position="center" caption="Instance Name parameter" darkWidth="375" darkHeight="351" showCaption="true"></Image>
+
+- **Direction**: Enter one of the following based on the direction of data for the topic: `Inbound` or `Outbound`.&#x20;
+- **Local Remote Topic**: If the topic is `Outbound`, you will need to define the topic that will be sending the data our of Litmus Edge. Enter the local topic name or click the copy icon for the topic name from **DeviceHub&#x20;**> **Tags**. If the topic is `Inbound`, you can leave the field blank.&#x20;
+- **Remote Data Topic**: If the topic is `Inbound`, you will need to define the topic that will be used to pull data into Litmus Edge. Enter the name of the remote data topic. If the topic is `Outbound`, you can leave the field blank.&#x20;
+- **Enable**: You must enter one of the following statuses depending on how you want the topic enabled: `True` or `False`.&#x20;
+- **QoS**: Only required for the following connectors. Enter one of the following values: `default`, `0`, `1`, `2`.&#x20;
+  - MQTT - Amazon AWS IoT Core over SSL
+  - MQTT - Azure IoT Hub using Device Certificates
+  - MQTT - Azure IoT Hub using SAS Key
+  - MQTT Generic
+  - MQTT - Generic over SSL
+  - MQTT - IBM Watson over SSL
+  - MQTT - System Protobuf SSL
+  - MQTT - System Protobuf TCP
+
+### Optional Parameters
+
+The *Description&#x20;*&#x66;ield is optional and can be left empty.&#x20;
+
+Once you update the template CSV file, you can upload it. &#x20;
+
+## Step 3: Upload CSV File
+
+**To upload the CSV file:&#x20;**
+
+1. From the *Integration&#x20;*&#x70;ane, click the connector tile you want to add the topic to.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Click the **Add&#x20;**&#x69;con and selec&#x74;**&#x20;Upload CSV**.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/p8lHlbuxkTlvxDeAnl37A_add-a-new-subscription.png" size="100" width="1173" height="522" position="flex-start" caption="Add icon" darkWidth="1173" darkHeight="522" showCaption="true" indent="2"></Image>
+
+4. Select the file and click **Open**.&#x20;
+
+## CSV File Example
+
+Refer to the following CSV file example that includes one inbound topic and one outbound topic.&#x20;
+
+<File src="https://archbee-doc-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/xAi8XNzUpmexqedYIA6DZ_csvfileexample.csv" label="CSV_File_Example.csv">
+
+</File>
+

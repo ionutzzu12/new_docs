@@ -1,0 +1,771 @@
+---
+title: System Requirements
+slug: WVlytzrPAyAnw3JKLOu7p
+description: Review minimum system requirements and recommended configurations based on your specific needs.
+docTags: 
+createdAt: Thu Mar 31 2022 00:22:55 GMT+0300 (Eastern European Summer Time)
+---
+
+This topic provides minimum requirements for running Litmus Edge, describes the three most common configurations, and explains firewall port requirements.
+
+# Minimum Requirements&#x20;
+
+A Litmus Edge instance is designed to collect, analyze, and forward data. These data operations may require heavy computing resources to manage the day-to-day processes that a Litmus Edge instance executes. While you can run Litmus Edge on a wide range of devices, ensure that you have sufficient computing resources to avoid performance issues.
+
+Consider the following factors when deciding on the hardware your Litmus Edge instance:
+
+- What is the amount of data that will be processed?
+- What is your hardware budget?
+- How many devices will you connect to Litmus Edge?
+- How many flows, analytics, applications, and integrations will you need?
+- What programming language and frameworks will you use?
+- Will you need frequent Litmus Edge and Litmus Edge Manager interactions (for example, automatic backups) as well?
+
+To address some of these questions, we recommend you first install Litmus Edge on a test Virtual Machine (VM). Then, run a partial execution of all your possible workloads to see how it performs. This will provide you with a better idea whether you need less, about the same, or a multiplying factor of your test VM's computing resources. See below for setting up this VM.
+
+# Recommended Configurations
+
+A Litmus Edge instance is typically configured for one of three deployment patterns: data pass-through, in-stream processing, or heavy in-stream processing and application usage.
+
+## Data Pass-Through
+
+- Reading and passing data executed externally exclusively on integrations.
+- Minimal data processing and storage performed on the Litmus Edge instance.
+- Most computing resources consumed by only DeviceHub and data storage/forwarding to Integrations.
+
+## In-Stream Processing
+
+- Low-volume in-stream processing of data using flows or analytics (for example, value change or anomaly detection).
+- Data stored in InfluxDB for local visualization using a container running the Grafana or Python application.
+- Computing resources consumed by InfluxDB, flows, analytics, containers, and DeviceHub.
+
+## Heavy In-Stream Processing and Application Usage
+
+- High-volume in-stream processing of all collected data involving complex flows and analytics.
+  - Multiple flows are configured with the maximum allowed RAM.
+  - In analytics, many groups operate, each including multiple processors.
+  - Several containers may run for further data processing, traceability, downtime recording, and so on.
+- InfluxDB requires additional CPU and RAM resources if a large number of devices and tags are configured.
+  - Each device becomes its own InfluxDB data table (measurement).
+- Computing resources consumed by user-defined code within flows, applications, and analytics flows.
+
+The following table summarizes parameters for the three starting configurations when sizing a Litmus Edge instance.
+
+<table columnWidths="127,175,166,187" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      &#x20;     &#x20;
+    </td>
+    <td align="left">
+      **Data pass-through**
+    </td>
+    <td align="left">
+      **In-stream processing**
+    </td>
+    <td align="left">
+      **Heavy in-stream processing and application usage**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Devices
+    </td>
+    <td align="left">
+      1-5
+    </td>
+    <td align="left">
+      5-10
+    </td>
+    <td align="left">
+      10+
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Average Tags per Device
+    </td>
+    <td align="left">
+      10-20
+    </td>
+    <td align="left">
+      20-100
+    </td>
+    <td align="left">
+      100+
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Flows Instances
+    </td>
+    <td align="left">
+      0-4
+    </td>
+    <td align="left">
+      1-4
+    </td>
+    <td align="left">
+      1-4
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Average Flow Nodes
+    </td>
+    <td align="left">
+      \< 10&#x20;
+    </td>
+    <td align="left">
+      10-50
+    </td>
+    <td align="left">
+      50+
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Analytics
+    </td>
+    <td align="left">
+      0-5
+    </td>
+    <td align="left">
+      5-25
+    </td>
+    <td align="left">
+      25+
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Applications/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Containers
+    </td>
+    <td align="left">
+      0&#x20;
+    </td>
+    <td align="left">
+      1-2
+    </td>
+    <td align="left">
+      2+
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Integrations
+    </td>
+    <td align="left">
+      1-2
+    </td>
+    <td align="left">
+      1-5
+    </td>
+    <td align="left">
+      5+
+    </td>
+  </tr>
+  <tr>
+    <td>
+      InfluxDB Usage
+    </td>
+    <td align="left">
+      Optional
+    </td>
+    <td align="left">
+      Mandatory&#x20;
+    </td>
+    <td align="left">
+      Mandatory
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Cores
+    </td>
+    <td align="left">
+      4
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="left">
+      12+
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Memory(RAM)
+    </td>
+    <td align="left">
+      8-16 GB
+    </td>
+    <td align="left">
+      16-32 GB
+    </td>
+    <td align="left">
+      32+ GB
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Storage (Disc)
+    </td>
+    <td align="left">
+      100-250 GB
+    </td>
+    <td align="left">
+      250- 500 GB
+    </td>
+    <td align="left">
+      500+ GB
+    </td>
+  </tr>
+  <tr>
+    <td>
+      NIC (Network Interface)
+    </td>
+    <td align="left">
+      Typically at least two:
+      - One for IT network (users, Litmus Edge Manager, Integrations)
+      - One for OT network (PLC connectivity)
+    </td>
+    <td align="left">
+      Typically at least two:
+      - One for IT network (users, Litmus Edge Manager, Integrations)
+      - One for OT network (PLC connectivity)
+    </td>
+    <td align="left">
+      Typically at least two:
+      - One for IT network (users, Litmus Edge Manager, Integrations)
+      - One for OT network (PLC connectivity)
+    </td>
+  </tr>
+</table>
+
+# Firewall Port Configuration Requirements
+
+<hint type="info">
+  **Note:** You can also managing port in Litmus Edge. See :Link[Manage Firewall Rules]{label="Manage Firewall Rules" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="MJhGEnPS8ybM_rJtI_JjM" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+</hint>
+
+The firewall managing Litmus Edge's traffic must **always&#x20;**&#x6F;pen the following port to allow you to access the Web User Interface.
+
+<table columnWidths="126,64,96,90,80,100,100,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Function for Litmus Edge**
+    </td>
+    <td>
+      **Port #**
+    </td>
+    <td>
+      **Encrypted**
+    </td>
+    <td>
+      **Direction**
+    </td>
+    <td>
+      **Protocol**
+    </td>
+    <td>
+      **Description**
+    </td>
+    <td>
+      **Source**
+      **(Port is used by who/what)**
+    </td>
+    <td>
+      **Destination**
+      **(Port must be opened at)**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Access Litmus Edge through a Web User Interface
+    </td>
+    <td>
+      443
+    </td>
+    <td>
+      Yes
+      SSL
+    </td>
+    <td>
+      Inbound
+    </td>
+    <td>
+      TCP
+    </td>
+    <td>
+      HTTPS
+    </td>
+    <td>
+      Litmus Edge Users
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+  </tr>
+</table>
+
+To allow a connection between Litmus Edge and Litmus Edge Manager, the following ports must be open.&#x20;
+
+<table columnWidths="126,64,96,90,80,100,100,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Function for Litmus Edge**
+    </td>
+    <td>
+      **Port #**
+    </td>
+    <td>
+      **Encrypted**
+    </td>
+    <td>
+      **Direction**
+    </td>
+    <td>
+      **Protocol**
+    </td>
+    <td>
+      **Description**
+    </td>
+    <td>
+      **Source**
+      **(Port is used by who/what)**
+    </td>
+    <td>
+      **Destination**
+      **(Port must be opened at)**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Redirects 443
+    </td>
+    <td>
+      80
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      Inbound
+    </td>
+    <td>
+      TCP
+    </td>
+    <td>
+      HTTP
+    </td>
+    <td>
+      Litmus Edge Users
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Connect Litmus Edge to Litmus Edge Manager
+    </td>
+    <td>
+      8883
+    </td>
+    <td>
+      Yes
+      MQTTS
+    </td>
+    <td>
+      Outbound
+    </td>
+    <td>
+      TCP
+    </td>
+    <td>
+      MQTT-SSL
+    </td>
+    <td>
+      Litmus Edge&#x20;
+    </td>
+    <td>
+      Litmus Edge Manager
+      and Customer MQTT Broker
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Connect Litmus Edge to Litmus Edge Manager
+    </td>
+    <td>
+      443
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Outbound
+    </td>
+    <td>
+      TCP
+    </td>
+    <td>
+      HTTPS
+    </td>
+    <td>
+      Litmus Edge&#x20;
+    </td>
+    <td>
+      Litmus Edge Manager
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Connect Litmus Edge to Litmus Edge Manager
+    </td>
+    <td>
+      51820
+    </td>
+    <td>
+      Yes
+    </td>
+    <td>
+      Outbound
+    </td>
+    <td>
+      UDP
+    </td>
+    <td>
+      UDP
+      Litmus Edge Manager Remote Access
+    </td>
+    <td>
+      Litmus Edge&#x20;
+    </td>
+    <td>
+      Litmus Edge Manager
+    </td>
+  </tr>
+</table>
+
+The firewall managing Litmus Edge's traffic must open **Only if corresponding services are present and running.**
+
+<table columnWidths="120,63,110,91,85,108,111,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Function for Litmus Edge**
+    </td>
+    <td>
+      **Port #**
+    </td>
+    <td>
+      **Encrypted**
+    </td>
+    <td>
+      **Direction**
+    </td>
+    <td>
+      **Protocol**
+    </td>
+    <td>
+      **Description**
+    </td>
+    <td>
+      **Source**
+      **(Port is used by who/what)**
+    </td>
+    <td>
+      **Destination**
+      **(Port must be opened at)**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use Litmus Edge as an FTP Server
+    </td>
+    <td>
+      21, 2121
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      Inbound
+    </td>
+    <td>
+      TCP
+    </td>
+    <td>
+      FTP
+    </td>
+    <td>
+      Customer FTP Server
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use Litmus Edge as an SSH Server. Used for backend support access
+    </td>
+    <td>
+      22
+    </td>
+    <td>
+      Yes
+      Session key
+    </td>
+    <td>
+      Inbound
+    </td>
+    <td>
+      TCP
+    </td>
+    <td>
+      SSH
+    </td>
+    <td>
+      Litmus Support Team
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use Litmus Edge as an LDAP Client
+    </td>
+    <td>
+      389
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      Outbound
+    </td>
+    <td>
+      TCP
+    </td>
+    <td>
+      LDAP
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+    <td>
+      Customer LDAP Server
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use Litmus Edge as an LDAP Client
+    </td>
+    <td>
+      636
+    </td>
+    <td>
+      Yes
+      SSL
+    </td>
+    <td>
+      Outbound
+    </td>
+    <td>
+      TCP
+    </td>
+    <td>
+      LDAP with SSL&#x20;
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+    <td>
+      Customer LDAP Server
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use Litmus Edge as an OPC UA Server
+    </td>
+    <td>
+      4840
+    </td>
+    <td>
+      Yes
+      (Depends on server settings)
+    </td>
+    <td>
+      Inbound
+    </td>
+    <td>
+      TCP/UDP
+    </td>
+    <td>
+      OPC UA Server
+    </td>
+    <td>
+      Customer Northbound Application
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Collaboration with name servers to replace IP of Litmus Edge with a name server&#x20;
+    </td>
+    <td>
+      5353
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      Outbound
+    </td>
+    <td>
+      UDP
+    </td>
+    <td>
+      mDNS (Multicast DNS)
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+    <td>
+      Multicast Local Network
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Collaboration with name servers to replace IP of Litmus Edge with a name server
+    </td>
+    <td>
+      5355
+    </td>
+    <td>
+      No
+    </td>
+    <td>
+      Inbound
+    </td>
+    <td>
+      TCP/UDP
+    </td>
+    <td>
+      LLMNR
+      (Link-Local Multicast Resolution)
+    </td>
+    <td>
+      224.0.0.252
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Remote access over internet when accessing Litmus Edge
+    </td>
+    <td>
+      9993
+    </td>
+    <td>
+      Yes (asymmetric public key encryption)
+    </td>
+    <td>
+      Outbound
+    </td>
+    <td>
+      UDP
+    </td>
+    <td>
+      Remote Access
+    </td>
+    <td>
+      Litmus Support Team
+    </td>
+    <td>
+      Litmus Edge
+    </td>
+  </tr>
+</table>
+
+## PLC-Specific Ports
+
+The firewall managing Litmus Edge's traffic must open specific ports for certain PLC devices to connect to Litmus Edge. To manage firewall rules in Litmus Edge, see :Link[Manage Firewall Rules]{label="Manage Firewall Rules" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="MJhGEnPS8ybM_rJtI_JjM" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+Ports for Industrial Systems and Sensors Connections are PLC specific and should be open on a case-by-case basis. See the :Link[Industrial Systems Connection Guide]{docId="Lm0yYnrLgDO2M3Z_rW6dd" label="Industrial Systems Connection Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Industrial Systems Connection Guide"} for more information.&#x20;
+
+## Marketplace Ports
+
+Marketplace applications manage their own ports. Those ports are application-specific and are outside of the `iptables` firewall.
+
+## Other Ports
+
+Any other ports are blocked by the `iptables` firewall. This means that the Litmus Edge flows application can initiate only outgoing traffic and cannot listen to incoming connections.
+
+# Supported Browsers
+
+Litmus Edge 4.0.4 and 4.0.8 support the following browsers.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="238,238,238">
+  <tr>
+    <td align="left">
+      **Browser**
+    </td>
+    <td align="left">
+      **Version**
+    </td>
+    <td align="left">
+      **Release date**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Chrome
+    </td>
+    <td align="left">
+      107
+    </td>
+    <td align="left">
+      2022-10-27
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Edge
+    </td>
+    <td align="left">
+      107
+    </td>
+    <td align="left">
+      2022-10-27
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Firefox
+    </td>
+    <td align="left">
+      104
+    </td>
+    <td align="left">
+      2022-08-23
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Safari
+    </td>
+    <td align="left">
+      16
+    </td>
+    <td align="left">
+      2022-09-12
+    </td>
+  </tr>
+</table>
+

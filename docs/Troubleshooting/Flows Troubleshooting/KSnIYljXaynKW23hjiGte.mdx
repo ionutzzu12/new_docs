@@ -1,0 +1,9 @@
+---
+title: MySQL Error Message: Too Many Connections
+slug: KSnIYljXaynKW23hjiGte
+description: Learn how to troubleshoot the MySQL error of too many connections. 
+docTags: 
+createdAt: Thu Dec 07 2023 16:48:21 GMT+0200 (Eastern European Standard Time)
+---
+
+If you get the MySQL error message `Error: Too many connections`, this could be caused by the connection limit of 150 connections configured in MySQL. Each MySQL node on the Flows canvas creates a connection pool of 50 connections to the MySQL server, so using 4 MySQL nodes in 4 different Flows Managers could trigger this error. To resolve this, you can manually increase the MySQL connection limit up to 100,000. Refer to GitHub documentation on :Link[68-mysql.js]{href="https://github.com/node-red/node-red-nodes/blob/master/storage/mysql/68-mysql.js" newTab="true" hasDisabledNofollow="false"} to learn more.&#x20;

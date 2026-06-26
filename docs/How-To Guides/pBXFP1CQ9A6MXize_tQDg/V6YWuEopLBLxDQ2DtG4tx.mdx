@@ -1,0 +1,225 @@
+---
+title: Work with Tables in SQL Connectors (Create Table and Show Mapping)
+slug: V6YWuEopLBLxDQ2DtG4tx
+description: When you set up and configure a connection with SQL connectors, you have the option of selecting how the data will be transferred to database tables. 
+docTags: 
+createdAt: Tue Feb 21 2023 15:38:26 GMT+0200 (Eastern European Standard Time)
+---
+
+When you set up and configure a connection with the following SQL connectors, you have the option of selecting how the data will be transferred to database tables.&#x20;
+
+- [DB - Microsoft SQL Server](<../../Product Features/Integration/Integration Connectors/Databases/RvoF4ZEd2v7JFg14nm6ZL.mdx>)
+- [DB - Microsoft SQL Server SSL](<../../Product Features/Integration/Integration Connectors/Databases/lq02ZBIWI2SHw2qKA3pT9.mdx>)
+- [DB - MySQL](<../../Product Features/Integration/Integration Connectors/Databases/7S9qoxlip4tpnC4Y4qW3w.mdx>)
+- [DB - MySQL SSL](<../../Product Features/Integration/Integration Connectors/Databases/4m56UoQlM4EP864oByetW.mdx>)
+- [DB - PostgreSQL](<../../Product Features/Integration/Integration Connectors/Databases/WXMCm5at9q_GXlsdBuika.mdx>)
+- [DB - PostgreSQL SSL](<../../Product Features/Integration/Integration Connectors/Databases/yk-ZZyRdRwAePfi5ZTEDF.mdx>)
+- [DB - MongoDB](<../../Product Features/Integration/Integration Connectors/Databases/WAbDrtDFKZ1Ao4bVSkDsJ.mdx>)
+- [DB - Mongo v4+](<../../Product Features/Integration/Integration Connectors/Databases/GNERiVbMpJBtZ5DrqfRXa.mdx>)
+
+When configuring the connector, make sure to select only one of the following options.
+
+# Option 1: Create Table
+
+If you select the **Create table** checkbox, a default table will be created if one doesn't already exist. The table will be used to store data sent through the connector.&#x20;
+
+If you select this checkbox, make sure to unselect the **Show Mapping** checkbox.&#x20;
+
+## Microsoft SQL Server Default Table
+
+If you set up a connection with [DB - Microsoft SQL Server](<../../Product Features/Integration/Integration Connectors/Databases/RvoF4ZEd2v7JFg14nm6ZL.mdx>) or [DB - Microsoft SQL Server SSL](<../../Product Features/Integration/Integration Connectors/Databases/lq02ZBIWI2SHw2qKA3pT9.mdx>) and select **Create table**, an existing table will be used or a new one will be created using the following commands.&#x20;
+
+```sql
+IF NOT EXISTS(SELECT *
+              FROM sysobjects
+              WHERE NAME = '"TABLE_NAME"'
+                AND xtype = 'U')
+CREATE TABLE "TABLE_NAME"
+(
+    id          BIGINT IDENTITY(1,1) NOT NULL,
+    record_uuid CHAR(36)       NOT NULL,
+    arrived_at  DATETIME       NOT NULL,
+    device_id   VARCHAR(64)    NULL,
+    register_id VARCHAR(64)    NULL,
+    tag_name    VARCHAR(64)    NULL,
+    datatype    VARCHAR(32)    NULL,
+    value       TEXT           NULL,
+    success     BIT            NULL,
+    PRIMARY KEY (id)
+)
+```
+
+## MySQL Default Table
+
+If you set up a connection with [DB - MySQL](<../../Product Features/Integration/Integration Connectors/Databases/7S9qoxlip4tpnC4Y4qW3w.mdx>) or [DB - MySQL SSL](<../../Product Features/Integration/Integration Connectors/Databases/4m56UoQlM4EP864oByetW.mdx>) and select **Create table**, an existing table will be used or a new one will be created using the following commands.
+
+```mysql
+CREATE TABLE IF NOT EXISTS `TABLE_NAME`
+(
+    id          BIGINT AUTO_INCREMENT NOT NULL,
+    record_uuid CHAR(36)              NOT NULL,
+    arrived_at  DATETIME              NOT NULL,
+    device_id   VARCHAR(64)           NULL,
+    register_id VARCHAR(64)           NULL,
+    tag_name    VARCHAR(64)           NULL,
+    datatype    VARCHAR(32)           NULL,
+    value       TEXT                  NULL,
+    success     TINYINT               NULL,
+    PRIMARY KEY (id)
+);
+```
+
+## PostgreSQL Default Table
+
+If you set up a connection with [DB - PostgreSQL](<../../Product Features/Integration/Integration Connectors/Databases/WXMCm5at9q_GXlsdBuika.mdx>) or [DB - PostgreSQL SSL](<../../Product Features/Integration/Integration Connectors/Databases/yk-ZZyRdRwAePfi5ZTEDF.mdx>) and select **Create table**, an existing table will be used or a new one will be created using the following commands.
+
+```pgsql
+CREATE TABLE IF NOT EXISTS "TABLE_NAME"
+(
+    id BIGSERIAL NOT NULL,
+    record_uuid UUID NOT NULL,
+    arrived_at  TIMESTAMP WITH TIME ZONE NOT NULL,
+    device_id   VARCHAR(64)    NULL,
+    register_id VARCHAR(64)    NULL,
+    tag_name    VARCHAR(64)    NULL,
+    datatype    VARCHAR(32)    NULL,
+    value       VARCHAR NULL,
+    success     BOOLEAN        NULL,
+    PRIMARY KEY (id)
+);
+```
+
+# Option 2: Show Mapping
+
+If you select the **Show Mapping** checkbox, you can send data to a custom table in the database. This table can be configured in your preferred format and structure.&#x20;
+
+<hint type="warning">
+  **Important**:&#x20;
+
+  - If you make any changes to the data type or destination table in the database, make sure to disable and enable the connector. If the connector isn't restarted, Litmus Edge will not have access to the latest table schema. This may affect the data transfer.
+  - When configuring the table, there are no limitations on what data types are supported. You can put any field type into the custom table as long as this type can store data from the respective field.
+</hint>
+
+## Before You Begin
+
+- Make sure you have sufficient knowledge of SQL when configuring the mapping for the custom table. Any errors in the format will cause failures in sending data to the database.&#x20;
+- The database table that will store the data from this connection will be need to be created before completing these steps. This task only maps the data that will be sent to the pre-existing table.&#x20;
+
+## Configure Custom Table Mapping
+
+To configure custom table mapping, begin by following Step 1, Step 2, and Step 3 for one of the following guides:
+
+- :Link[Microsoft SQL Server Integration Guide]{docId="lE9ADJbeB-yH620fJImG3" label="Microsoft SQL Server Integration Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+- [MySQL Integration Guide](<../Integration Guides/HtAicum8itidY64TqDqeL.mdx>)
+- [PostgreSQL Integration Guide](<../Integration Guides/tDkdztvRr2rIyUt67aTra.mdx>)
+
+These guides use DeviceHub data from devices and tags to create the data that will be sent to the database. Alternatively, you can also use [Analytics](<../../Product Features/mYDvaNX_uKDhol0ElJfJA.mdx>) or the [Flows Manager](<../../Product Features/34sTTMTBZO9bOWxfOE7kC.mdx>) to create this data.&#x20;
+
+When you get to Step 4 to add the connector in Litmus Edge, configure the following parameters for the custom table:
+
+- **Table**: This is the name of the pre-existing custom table that will store the transferred data.&#x20;
+- **Show Mapping**: Select this checkbox. See the *Configure Key/Value Pairs&#x20;*&#x73;ection below to learn how to format key/value pairs.&#x20;
+- **Create Table**: Make sure to unselect this checkbox.&#x20;
+
+### Configure Key/Value Pairs
+
+Once you select the *Show Mapping* checkbox, you'll be able to map the key/value pairs for the custom table.&#x20;
+
+**To configure key/value pairs:**
+
+1. From the *Add a connector* o&#x72;*&#x20;Edit connector&#x20;*&#x64;ialog box, select the **Show Mapping** checkbox. Make sure the *Create table* checkbox is not selected.&#x20;
+   The Key/Value section appears.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5WNE83rVoi-LUO5K3O0tU_show-mapping-check-box.png" size="80" width="1170" height="751" position="center" caption="Show Mapping checkbox" showCaption="true"></Image>
+2. In the **Key&#x20;**&#x66;ield, enter the name of the first column in the table.&#x20;
+3. In the **Value&#x20;**&#x66;ield, enter the value name that will be stored in the first column in the following format: `{{.value_name}}`. Replace *value\_name* with the corresponding key value of the JSON. See the example below.&#x20;
+4. Click **+Add**.&#x20;
+   The key/value pair is added to the mapping for the connector.&#x20;
+5. Continue adding columns and corresponding values for your table.&#x20;
+
+### Mapping Example
+
+You have the following data in JSON format.&#x20;
+
+<BlockQuote>
+  \{“deviceName”: “PLC1”, “timestamp”: 1239423823, "value": 123},&#x20;
+  \{“deviceName”: “PLC1”, “timestamp”: 1247382948, "value": 545},&#x20;
+  \{“deviceName”: “PLC1”, “timestamp”: 1294859324, "value": 787}
+</BlockQuote>
+
+You have created the following database table.&#x20;
+
+<table columnWidths="199,204,239" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Device Name
+    </td>
+    <td>
+      Timestamp
+    </td>
+    <td>
+      Data Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
+
+The Show Mapping section would be formatted as shown below.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JHQ2iAcrCggVPAvjvOo1J_image.png" size="80" width="1165" height="500" caption="Show Mapping formatting example" position="center" showCaption="true"></Image>
+
+The database table would be updated with the data as shown below.&#x20;
+
+<table columnWidths="182,195,239" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Device Name
+    </td>
+    <td>
+      Timestamp
+    </td>
+    <td>
+      Data Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      PLC1
+    </td>
+    <td>
+      1239423823
+    </td>
+    <td>
+      123
+    </td>
+  </tr>
+  <tr>
+    <td>
+      PLC1
+    </td>
+    <td>
+      1247382948
+    </td>
+    <td>
+      545
+    </td>
+  </tr>
+  <tr>
+    <td>
+      PLC1
+    </td>
+    <td>
+      1294859324
+    </td>
+    <td>
+      787
+    </td>
+  </tr>
+</table>
+

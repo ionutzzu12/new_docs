@@ -1,0 +1,67 @@
+---
+title: Tengo Script
+slug: tengo-script
+docTags: 
+createdAt: Tue Aug 06 2024 21:55:53 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Tengo Script** processor is used for creating scripts to manipulate data in various ways.
+
+# Tengo Script Parameters
+
+The **Timeout** parameter specifies the timeout in milliseconds for the script execution. You can set the timeout to control how long the script is allowed to run before it is considered as timed out.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/GRpsX8049L2wtne6aqynd_image.png" size="80" width="768" height="714" position="flex-start" showCaption="false"></Image>
+
+At the right you can access:
+
+- **Fullscreen**
+  Show the Code Editor in full screen mode.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ydRwRzxTAchIUWb-yRG4S_image.png" size="80" width="1291" height="867" position="flex-start" showCaption="false" indent="2"></Image>
+
+- **Playground**
+  Test, write, and validate processors in real-time before deploying them.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7sHUytCjJgNd8MWnJrvnI_image.png" size="80" width="1916" height="965" position="flex-start" showCaption="false" indent="2"></Image>
+
+- **Validate**
+  Validate your code.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/KJJxmrAyAIRXnf5oBRl9i_image.png" size="80" width="767" height="444" position="flex-start" showCaption="false" indent="2"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Tengo Script&#x20;*&#x70;rocessor, refer the :Link[Use the Tengo Script Function]{label="Use the Tengo Script Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="-s05SbZsb5rd6ST4-OOE-" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+
+# Tengo Script Overview
+
+This processor uses Tengo scripting, with its rules similar to GoLang.
+
+**Simple Use case**: The output you receive from DeviceHub message or from Analytics, might not be helpful, and you want to change the name of a field within that message. For example:
+
+- Instead of "value" you want your data to show "furnace pressure".
+- Instead of having all fields of the message, you only want to have "success", "deviceId" and "value" and skip everything else.
+- You want to add a custom field to the message, based on the "value" field, such as: if value = 2, "error": "overheating".
+- You only want to change the timestamp to human readable format instead of Unix timestamp, but keep otherwise keep the message as-it-is.
+- In general, if you want to add, remove or modify *ANY* field in the input, this scripting processor is very useful.
+
+**Single Input:** Every message from the input, is stored as an array called "values".
+
+- Using "for i, message in values\{}" statement, allows to access this input and manipulate it.
+- Here "i" represents what is the *definition* defined in the connection wire, more useful for multi-inputs, to identify and distinguish between each inputs, so for single input, "i" can be replaced with "\_".
+- "message" contains the entire message in the input, and you can perform your manipulations to this "message" parameter.
+- **Note:** "i" and "message" can be any custom variable name.
+
+**Multiple Input:** Suppose you have 3 different inputs attached to this scripting processor, with the connecting wires named A, B and C.
+
+- "for i, message in values\{}" will now have 3 inputs.
+- "i" represents from which connection wire is the input coming from.
+- with if-else statements, every input can be manipulated in isolation, or a common manipulation can be applied to all inputs
+- You can choose to output "result" only for one input, or all of the inputs.
+
+**Miscellaneous information:**
+
+- [Available Standard Library](https://github.com/d5/tengo/blob/master/docs/stdlib.md)
+- [Syntax details Github:](https://github.com/d5/tengo) or [Official site](https://tengolang.com/)
+

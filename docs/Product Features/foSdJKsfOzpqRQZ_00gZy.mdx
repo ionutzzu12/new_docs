@@ -1,0 +1,79 @@
+---
+title: Applications
+slug: foSdJKsfOzpqRQZ_00gZy
+description: The Applications module provides access to public and private marketplace application repositories.
+docTags: 
+createdAt: Thu Mar 31 2022 00:10:20 GMT+0300 (Eastern European Summer Time)
+---
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/iCS4107iXw_wtf-xuZOD-_mp-architecture-1.png" size="80" width="1021" height="431" caption="Litmus Edge Applications Architecture" position="center" showCaption="true"></Image>
+
+# Overview
+
+The Applications module provides access to two types of application repositories:
+
+- **Public marketplaces**: Publicly available, such as Docker Registry.
+- **Private marketplace**: Repositories of your own Docker container-based applications with privately controlled access. They are often created and maintained on a private network with no internet access.
+
+
+You can deploy and launch applications on demand from any of the available marketplace catalogs.
+
+See :Link[Applications Guides]{label="Applications Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="9httvKp5iCiMJtDH1e49D" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to review how to leverage different applications in Litmus Edge.&#x20;
+
+<hint type="info">
+  **Important**: Internet connectivity is required to deploy the default marketplace and to install applications. Once an instance is created, internet access is no longer required to create additional instances of the same application.
+</hint>
+
+# Before You Begin
+
+Ensure you have enough disk space (See *Data Partition Usage* section of :Link[Info]{docId="vuU7y2UswWzbCqJbu2CHN" label="Info" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}) before pulling any new Docker images onto a Litmus Edge and its Catalog Apps. Certain Docker images may exceed the disk size of your Litmus Edge instance.
+
+# Public Marketplaces
+
+Litmus and partner vendors populate the Default Public Marketplace. This repository is available to every Litmus Edge system by default. You can add other public marketplaces to your Edge device as required.
+
+Here is a sampling of the available applications in the default public marketplace:
+
+- **Elasticsearch**: A distributed RESTful search and analytics engine.
+- **Kx**: A time-series database that processes (in memory) real-time, streaming, and historical data.
+- **Minio**: An open-source cloud object-storage server that is compatible with the Amazon Simple Storage Service (S3).
+- **MongoDB**: A free and open-source cross-platform document-oriented database.
+- **SQL Server**: A Microsoft relational database management system that uses SQL.
+- **MySQL**: An open-source relational database management system that uses SQL.
+- **PipelineDB**: An open-source relational database that continuously streams SQL queries.
+- **PostgreSQL**: An object relational database management system (ORDBMS) with an emphasis on extensibility and standard compliance.
+- **Python**: The Python programming language.
+
+# Private Marketplaces
+
+You can add multiple private marketplaces to your Edge device. An organization, such as an OEM or systems integrator, can provide clients with a marketplace by leveraging custom applications that may have already been developed or need to be developed in the future. In addition, third-party applications may also be run in this marketplace. All applications in a private marketplace run within Docker containers.
+
+# Marketplace and Application Security
+
+Applications can be integrated into Litmus Edge to enable further edge processing of collected data. The data can then be analyzed and incorporated into existing business systems.
+
+- Applications run locally at the edge device
+- Applications run completely isolated in containers (Docker) to enforce security and support multi-tenancy
+
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZYy7mADI3j4uo5qyKRQLC_loopedgesecurityapplicationdeployment.png" size="80" width="1138" height="326" caption="Marketplace and Application Security Architecture" position="center" showCaption="true"></Image>
+
+# Data Normalization and Application Integration
+
+Once data is collected and sent to the Litmus Edge platform from many different device driver structures, it is normalized into one standard format. The data is then made available to Litmus Edge applications or third-party enterprise applications. Litmus Edge applications cover a variety of functions, such as Database, Machine Learning, Analytics, Triggers and Alerts, and Dashboard Builder. Enterprise applications can include Databases, Analytics and ML (Machine Learning), Big Data Platforms, ERPs (Enterprise Resource Planning), CRMs (Customer Relationship Management), and BI (Business Intelligence) tools.
+
+# Next Steps
+
+- :Link[Applications Guides]{label="Applications Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="9httvKp5iCiMJtDH1e49D" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- [Applications Dashboard](Applications/wbOOgU8zfho_GY8lrGGzM.mdx)&#x20;
+- :Link[Catalog Apps]{docId="1DNhOhXIYeX7QQwQpWdLO" label="Catalog Apps" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Catalog Apps"}&#x20;
+- :Link[Configure]{docId="H7oQU2eRRMxVZ1lZX5rNH" label="Configure" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Configure"}&#x20;
+- :Link[Marketplace]{docId="HXXX29gOeva46GRTmi4l7" label="Marketplace" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Marketplace"}&#x20;
+- :Link[Containers]{docId="477RswWaMCwUL4FGy5Gi6" label="Containers" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Containers"}&#x20;
+- :Link[Networks]{docId="IQCDiiMe8TzW_2fQIEr2M" label="Networks" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Networks"}&#x20;
+- :Link[Images]{docId="0Q3c9jAPhAm7juOoBcVie" label="Images" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Images"}&#x20;
+- :Link[Registry]{docId="_RSseu1OsUbI2DYoCRXuM" label="Registry" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Registry"}&#x20;
+- :Link[Volumes]{docId="Xnz8ATyXAqgFp5NVSozUy" label="Volumes" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Volumes"}&#x20;
+- :Link[System Info]{docId="JZAWkg-45OZJfqicGv2pX" label="System Info" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="System Info"}&#x20;
+- :Link[Disk Usage]{docId="JLPHpHam0I22q9yScZk_J" label="Disk Usage" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Disk Usage"}&#x20;
+

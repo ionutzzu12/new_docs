@@ -1,0 +1,196 @@
+---
+title: VirtualBox ISO
+slug: kZckz7LQZInyol0v3vsWg
+description: You can use Oracle VirtualBox to install Litmus Edge using an ISO file.
+docTags: 
+createdAt: Thu Mar 31 2022 00:23:30 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Oracle VirtualBox to install Litmus Edge using an ISO file.
+
+# Video
+
+<Iframe code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/IVGKFc3ScLA?si=27j3xp5wrzdM2OSO&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; referrerpolicy=&#x22;strict-origin-when-cross-origin&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# Before You Begin
+
+- Prepare your environment for running virtualization by using Oracle VirtualBox.&#x20;
+  - Review :Link[Verified VM Versions]{docId="63G76uVqdu-MMF3NKLMFr" label="Verified VM Versions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" overridedLabel="Verified VM Versions"} and confirm the correct version to download. See  [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads).&#x20;
+  - Refer to [VirtualBox Documentation](https://www.virtualbox.org/wiki/Documentation) to learn more.&#x20;
+  - The virtual machine will run on the same physical network card as the host environment. To ensure that the device can communicate with data sources such as PLC, DCS or CNC and can be accessed through the Web UI, make sure that communication can be established.
+- Adjust the system clock for the host environment prior to installing Litmus Edge. UTC is recommended. The 15-day trial period may be rejected and invalidated by the license server if the system clock is not adjusted. If this happens, contact your Litmus representative.
+- Obtain a valid file in the ISO format (example filename: `<litmusedge-std_3.1.5.0-amd64>.iso`). You can get the ISO file from Litmus or download it from the :Link[Litmus Central portal]{href="https://portal.litmus.io/" newTab="true" hasDisabledNofollow="false"}.
+
+To use Oracle VirtualBox to install Litmus Edge using an ISO file, you will need to do the following.&#x20;
+
+- Step 1: Create a Virtual Machine
+- Step 2: Configure the Virtual Machine
+- Step 3: Install the ISO File
+- Step 4: Run Litmus Edge On the Virtual Machine
+- Step 5: Log in to Litmus Edge
+
+To jump to a specific section, refer to the Table of Contents on the right side and click the corresponding step.&#x20;
+
+# Step 1: Create a Virtual Machine
+
+You will need to create a virtual machine (VM) that will be used to run Litmus Edge.&#x20;
+
+**To create a virtual machine**:
+
+1. Start the Oracle VirtualBox application.
+2. From the *Oracle VM VirtualBox Manager* window, click **New&#xA0;**&#x6F;n the toolbar.
+   The *Create Virtual Machine* dialog box appears.
+3. If needed, toggle **Guided Mode** to **Expert Mode**.
+   The dialog box expands.
+4. Enter a name for the virtual machine in the **Name** field.
+5. Select **Linux** from the **Type** drop-down list.
+6. Select **Other Linux (64-bit)** from the **Version** drop-down list. You can select Linux 2.6, 3.x, or 4.x (64-bit).
+7. Move the **Memory Size&#xA0;**&#x73;lider to set the memory size. The minimum is 2 GB of (2048 MB). Select more memory if the host system permits.
+8. From the *Hard disk&#x20;*&#x73;ection, select **Create a virtual hard disk now**.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Vp1-c36calrAwVDWXAqTi_01-1tpt74joo7cuctby3ksysimage.png" size="80" width="896" height="779" position="flex-start" caption="Create virtual machine dialog box" showCaption="true"></Image>
+9. Click **Create**.
+   The **Create Virtual Hard Disk** dialog box appears.
+10. From the *Hard disk file type* section, select the **VMDK (Virtual Machine Disk)**.
+11. From the *Storage on physical hard disk&#x20;*&#x73;ection, select **Dynamically allocated**.
+12. Move the **File Size** slider to set the file size. The minimum value is 16 GB, which enables the VM to run. This size provides the resulting VM with about 2 GB of data storage. This is enough for a small-scale PoC without much data storage on the disk. If this VM is deployed as a production system or the PoC requires more storage for databases, increase the file size beyond 16 GB.
+    <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/m1M0gTirOrXvxJFfhp_1F_02-ihklwlmgncgehevbnbrgbimage.png" size="80" width="782" height="703" position="flex-start" caption="Virtual Disk parameters" showCaption="true"></Image>
+13. Click **Create**.&#x20;
+    The new VM is deployed. It appears on the list in the *Oracle VM VirtualBox Manager* window.
+    <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/RZyc7VEocj7Z4rmB10Y9O_03-dnydbqsiqqkn8btoo9mbyimage.png" size="80" width="1496" height="820" position="flex-start" caption="New VM listed in left pane" showCaption="true"></Image>
+
+# Step 2: Configure the Virtual Machine
+
+After installing the VM, you will need to configure it.&#x20;
+
+From the *Oracle VM VirtualBox Manager* window, select the new VM on the left pane, then click **Settings** on the toolbar. Th&#x65;**&#xA0;***Settings&#xA0;*&#x64;ialog box appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/vvnGa-VSuxdgMxO58VKJ6_image.png" size="80" width="1326" height="886" position="flex-start" caption="The Settings dialog box" showCaption="true"></Image>
+
+## Step 2a Configure System Settings
+
+Configure the following system settings from the *Motherboard&#x20;*&#x74;ab.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/8VWC2MFb1kggnE0RE0S9i_image.png" size="80" width="1326" height="886" position="flex-start" caption="Motherboard system settings" showCaption="true"></Image>
+
+- &#x20;**Boot Order**: Highlight **Optical&#x20;**&#x61;nd click the **Up&#x20;**&#x61;rrow to make it the first item in the boot order.&#x20;
+- **Pointing Device**: Select **PS/2 Mouse**.&#x20;
+- **Extended Features**: Make sure **Enable EFI (special OSes only)** is selected.&#x20;
+
+Configure the following settings from the **Processor&#x20;**&#x74;ab.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/oZIzJgZPcVImNjrWK38FI_image.png" size="80" width="1226" height="741" position="flex-start" caption="Processor system settings" showCaption="true"></Image>
+
+Move th&#x65;**&#xA0;Processor(s)** slider to set the cores for the VM to **2** (the recommended minimum). If the host system permits or the VM is a production deployment, more cores should be allocated.
+
+## Step 2b: Configure Storage Settings
+
+1. From the left pane, select **Storage**.
+2. From the *Storage Devices* section, select the **Controller**.&#x20;
+3. From the *Type&#x20;*&#x64;rop-down list, select **AHCI**.&#x20;
+   If *AHCI&#x20;*&#x69;s not available, select, **PIIX4**. The PIIX4 option works, but displays a number of messages throughout the installation.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/L2AdCESfXAhBySmoPgJCo_isovirtualboxstorage01.png" size="80" width="1227" height="908" position="flex-start" caption="Storage controller settings" showCaption="true"></Image>
+4. From the *Storage Devices&#x20;*&#x73;ection, select the **Optical&#x20;**&#x64;rive (currently shown as *Empty*).&#x20;
+5. From the *Attributes&#x20;*&#x73;ection, click the **Optical Drive** icon and select **Choose a disk file**.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eVugEq9xGgKm7zKxmSX4z_isovirtualboxstorage02.png" size="80" width="1227" height="908" position="flex-start" caption="Optical settings" showCaption="true"></Image>
+6. Navigate to the ISO file from which you want to install, and then click **Open**.
+   The Optical drive in the *Storage Devices* section displays the name of the ISO file you selected.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/oJ7hbeMpF2Ayni7Zl_EQV_17-koj9jzs-hssiheusny6luimage.png" size="80" width="1226" height="742" position="flex-start" caption="ISO file listed in Controller: IDE" showCaption="true"></Image>
+
+## Step 2c: Configure Audio Settings
+
+1. From the left pane, select **Audio**.&#x20;
+2. Clear the **Enable Audio Output** checkbox.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/m9KzWcLcJS2H8U942Pj3U_18-h9garqgevxhxeogguqimage.png" size="80" width="1226" height="742" position="flex-start" caption="Audio settings" showCaption="true"></Image>
+
+## Step 2d: Configure Network Settings
+
+1. From the left pane, select **Network**.
+2. Click the **Adapter 1** tab.
+3. Select th&#x65;**&#xA0;Enable Network Adapter** checkbox.
+4. From the *Attached to* drop-down list, select **Bridged Adapter**.
+5. Select the appropriate network card name from the **Name&#xA0;**&#x64;rop-down list.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/K_DNC1QPR0pB_ykymRAII_19-hmapy5hnqugbgzukao9rtimage.png" size="80" width="1226" height="742" position="flex-start" caption="Network settings" showCaption="true"></Image>
+6. Select the **Adapter 2** tab.
+7. Select th&#x65;**&#xA0;Enable Network Adapter** checkbox.
+8. From th&#x65;*&#x20;Attached to* drop-down list, select **NAT**.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/qsMYFRsg3hQnlRa2MJhrc_20-kdvuafcs96jzh3shc4eadimage.png" size="80" width="1226" height="742" position="flex-start" caption="Adapter 2 tab" showCaption="true"></Image>
+
+## Step 2e: Configure USB Settings
+
+1. From the left pane, select **USB**.
+   The **USB** pane appears on the right.
+2. Deselect the **Enable USB Controller** checkbox.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/or72WzxrUtsEoLIMKHrLh_21-fnusb9qr-htqgcqsmnllvimage.png" size="80" width="1226" height="742" position="flex-start" caption="USB settings" showCaption="true"></Image>
+3. Click **OK**.&#x20;
+
+# Step 3: Run the Operating System Installer
+
+You will run the operating system installer that will install Litmus Edge.&#x20;
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - During the installation, the progress bar may decrease at times due to partitioning.
+  - The time to complete the installation is based on the size of the hard disk drive. Large disk drives will cause the installation to take longer to partition the disk and therefore longer to complete setting up the virtual machine.&#x20;
+</hint>
+
+**To install the ISO file:**
+
+1. From the *Oracle VM VirtualBox Manager* window, select your VM and click **Start** on the toolbar.
+2. If prompted, select the ISO file you added to the Optical device in the **Storage&#xA0;**&#x73;ettings, then click **Start**. If the Start button does not close the prompt box, click **Cancel**. This will not interfere with the installation.&#x20;
+   The Terminal User Interface (TUI) appears. If a message appears warning you that the mouse you are using is not supported in TUI, ignore it. You can navigate the TUI using arrow keys and make selections by pressing the `ENTER` key.
+   During loading, the Terminal User Interface may display the following warning/error messages. These can be ignored.&#x20;
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/XpcrGKSTdXToEskOH347Z_22-j99c4rqmqic80gzv-hb7doc454-screenshot-1.png "Warning/error messages")
+3. After the device initiates, respond to the questions in the TUI. Enter **No** to continue with the installation using the graphical interface.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/fdv6yuZoLjvvMW8WdklsI_23-if9prgtfougvok8qothuoimage.png" size="80" width="720" height="90" position="flex-start" caption="Question asking if you are installing over Serial interface" showCaption="true"></Image>
+4. Select **Install Operating System**, and then select **Ok**.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/l8vADEN0UVOa1g9SNGDJc_24-wbmapjshnkw4qnrvimaaaimage.png" size="80" width="720" height="400" position="flex-start" caption="Install Operating System message" showCaption="true"></Image>
+5. Select the partition to install, and then select **Ok**.
+   The list is device-specific. Typically, the installation location is *sda*. If the device/gateway has embedded MMC (eMMC) components, the partition name may be listed as *mmcblk&#x20;*&#x69;nstead of *sda*. Make sure you select the correct hard-drive location.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/v2H4KZ6UWvp_IkfhiyG10_25-0oizj2isjura3lff6zrrimage.png" size="80" width="719" height="400" position="flex-start" caption="Partition selection option" showCaption="true"></Image>
+6. Select **Yes&#xA0;**&#x74;o verify the OS installation location. If you selec&#x74;**&#xA0;No**, you return to the beginning of the installation.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/UXBG6qqb1_30UuC-G7Dx4_26-r1tw9wawtgicjqiv276nimage.png" size="80" width="719" height="400" position="flex-start" caption="Select Partition and Install message" showCaption="true"></Image>
+7. Select **Yes** to continue formatting the device and installing the operating system.
+   The installer indicates its progress followed by a success message.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/EkP6nk11UbkJL4g81ckBa_27-bdvxoumzyrintkn9s2y6yimage.png" size="80" width="720" height="400" position="flex-start" caption="Format Devices and Install message" showCaption="true"></Image>
+8. After installation, the Terminal User Interface may display the following warning/error messages. These can be ignored.&#x20;
+   ![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/xVGgGmSB5qFEuah90hA0T_29-ne7kjp5ak6bwcec4d62-qdoc454-screenshot-2.png "Warning/error messages")
+9. Select **Yes** to power off the device.
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/zqc9QOlQ1ypEjRljni2Iy_30-e9ok6r03gmpmslrhgn4l5image.png" size="80" width="720" height="400" position="flex-start" caption="Power Off message" showCaption="true"></Image>
+
+# Step 4: Run Litmus Edge on the Virtual Machine
+
+Once the ISO file is successfully installed, you can run Litmus Edge on the virtual machine.&#x20;
+
+**To run Litmus Edge on the virtual machine:**
+
+1. You will need to remove the ISO file from the Optical drive. From the *Oracle VM VirtualBox Manager* window, select your VM on the left pane. On the right pane, click the **\[Optical Drive]** text in the *Storage&#xA0;*&#x73;ection.
+   The selected file turns blue.
+2. Right-click the file and deselect the ISO file.&#x20;
+   The Optical Drive shows empty.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/2l5RbfhMeAgnIG5ZL1Ieo_storagefile.png" size="80" width="1140" height="919" position="flex-start" caption="Optical Drive settings" showCaption="true"></Image>
+3. In the *System* section, select **Boot Order**.&#x20;
+4. Highlight **Hard Disk**, click the **Up&#xA0;**&#x61;rrow to move the Hard Disk to the top, and then click **OK**. The order should be Hard Disk, Optical, and Floppy.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/nXiPAv1--cO-tNBaQFzAb_boot-order.png" size="80" width="1140" height="919" position="flex-start" caption="Boot Order settings" showCaption="true"></Image>
+5. Click **Start**.&#x20;
+   <Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Pe54p8g3-znr4AwMAxmep_startvm.png" size="80" width="1140" height="919" position="flex-start" caption="Start VM" showCaption="true"></Image>
+
+During loading, the Terminal User Interface may display the following warning/error messages. These can be ignored.&#x20;
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/5J-6KMWRWLIh4x301cCq2_33-i5ojuy6lnrqequ00ztydoc454-screenshot-3.png "Warning/error messages")
+
+The VM starts up and the terminal window displays the URLs to be used to access the edge device through the Web UI. If several URLs are shown, use the first one.
+
+![](https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/JJVFrtma1Ce-ow2-N7VQL_image.png "URLs to access Web UI")
+
+# Step 5: Log in to Litmus Edge
+
+- See :Link[Access the Litmus Edge Web UI]{docId="n0k6TCKcwyoSZSLcm-nl0" label="Access the Litmus Edge Web UI" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Litmus Edge Web UI"} for details on logging in.&#x20;
+- See :Link[Access the Terminal User Interface]{docId="4RwHNOMCuCNwFuOVq5gSc" label="Access the Terminal User Interface" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Terminal User Interface"} for instructions on how to navigate and log in for the first time.
+
+# Troubleshooting
+
+If you don't see an option for a 64-bit version and only see a 32-bit version, refer to :Link[VirtualBox only Showing 32-bit and no 64-bit Versions]{label="VirtualBox only Showing 32-bit and no 64-bit Versions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="yIODZlFFMcwfGHdzfcJ64" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+

@@ -1,0 +1,265 @@
+---
+title: Set Up LDAP Using an OpenLDAP Container
+slug: lHozasry1ppIQEu8u7gAO
+description: Learn how to set up LDAP in Litmus Edge using the OpenLDAP container. 
+docTags: 
+createdAt: Tue Apr 09 2024 22:45:20 GMT+0300 (Eastern European Summer Time)
+---
+
+Litmus Edge allows you to set up an LDAP server for managing user access to Litmus Edge devices eliminating the need to define users locally on each Litmus Edge device.
+
+# **Before You Begin**
+
+Before completing these steps, make sure to do the following:
+
+- Have access to Litmus Edge version 3.11.1 or later.
+- Have basic knowledge of LDAP protocol.
+
+# Step 1: Set Up the OpenLDAP Container
+
+**To set up the OpenLDAP container and access the PHP LDAP Admin UI:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**> **Containers**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/xlLsh-YiIcg7DfBJRZtbQ_image.png" size="100" width="1374" height="460" darkWidth="1374" darkHeight="460" position="flex-start" caption="Applications > Containers page" showCaption="true" indent="2"></Image>
+
+2. Click **Run** and copy and paste the below commands in **Enter command to run**.
+   - Command to run the **OpenLDAP server:&#x20;**
+     `docker run -dit -p 389:389 -p 636:636 --name my-openldap-container osixia/openldap:latest`
+   - Command to run the **web UI** to configure users and groups:
+     `docker run -dit --name phpldapadmin-service -p 9080:80 --env PHPLDAPADMIN_LDAP_HOSTS=<IP-OF-MY-OPENLDP-CONTAINER> -e PHPLDAPADMIN_HTTPS=false osixia/phpldapadmin:latest`
+     Replace `<IP-OF-MY-OPENLDP-CONTAINER>` with the *IP address* of the openLDAP container.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/MiT2g0uVtfuPvcEwjs6LZ_image.png" size="100" width="840" height="158" darkWidth="840" darkHeight="158" position="flex-start" caption="LDAP docker container images" showCaption="true" indent="3"></Image>
+
+3. Once both containers are running, you can access PHP LDAP Admin UI by going to `<IP Address of LE>:9080` in your web browser.
+   You should see this landing page:
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/MsQ7FWWNtxJmlIeUTwxIx_image.png" size="100" width="1277" height="445" darkWidth="1277" darkHeight="445" position="flex-start" caption="PHP LDAP Admin UI Landing Page" showCaption="true" indent="2"></Image>
+
+# Step 2: Create Users and Groups
+
+To configure the Litmus Edge LDAP container, first create some users and groups on the LDAP server. You will create two users, Alice Smith and Bob Jones, and two groups, `litmus-admin` and `litmus-viewer`.
+
+These LDAP groups correspond to the Administrator and *Viewer&#x20;*&#x67;roups in Litmus Edge, respectively.&#x20;
+
+To proceed, log in to the LDAP server using the default credentials from the container.
+
+**Login DN:** `cn=admin,dc=example,dc=org`&#x20;
+
+**Password:** `admin`&#x20;
+
+**To log into the PHP LDAP Admin UI:**&#x20;
+
+1. Click the **login&#x20;**&#x62;utton.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Th_tLRLOD_Sngv-syRJ2b_image.png" size="100" width="1277" height="445" darkWidth="1277" darkHeight="445" position="flex-start" caption="PHP LDAP Admin UI Landing Page - Login" showCaption="true" indent="2"></Image>
+
+2. Enter the default **Login DN** and **Password**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/N7GnerPFnbgHXUUlnYOmz_image.png" size="100" width="1374" height="420" darkWidth="1374" darkHeight="420" position="flex-start" caption="PHP LDAP Admin UI - Login Dialog Box" showCaption="true" indent="2"></Image>
+
+3. Upon successful login, the landing page and an empty tree structure displays on the left side.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/tPLifSCvsVa4az6MbM0oZ_image.png" size="100" width="1374" height="466" darkWidth="1374" darkHeight="466" position="flex-start" caption="PHP LDAP Admin UI Landing Page " showCaption="true" indent="2"></Image>
+
+<hint type="info">
+  **Note:** To keep this guide simple, you add the groups and users under this root level. However, in an actual LDAP server, the structure is more complicated and contains many subfolders.
+</hint>
+
+## Step 2a: Add Users
+
+**To add users to the LDAP server:**
+
+1. Click the **Globe&#x20;**&#x69;con and then select **Create a child entry**.&#x20;
+   The *Create Object* page appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/lxnze7qWupISmDdsVr5ff_image.png" size="100" width="1275" height="776" darkWidth="1275" darkHeight="776" position="flex-start" caption="PHP LDAP Admin UI Create User Page" showCaption="true" indent="2"></Image>
+
+2. From *Templates*, select **Default**.
+3. From the ObjectClasses list for the LDAP server container, select **inetOrgPerson**.
+4. Click **Proceed >>**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JmwTeMya3JxD5EhKfzJ16_image.png" size="100" width="904" height="494" position="center" caption="PHP LDAP Admin UI Create User Dialog Box" darkWidth="904" darkHeight="494" showCaption="true" indent="2"></Image>
+
+5. Fill out the basic details for the users:
+   - **cn:** asmith
+   - **sn:** Smith
+   - **givenName:** Alice
+   - **employeeNumber:&#x20;**&#x31;2345
+   - **Password:&#x20;**\<enter a password>
+6. Click **Create Object** and then **Commit**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/GPdt1M2U818xctwuXTD5F_image.png" size="100" width="1277" height="446" darkWidth="1277" darkHeight="446" position="flex-start" caption="PHP LDAP Admin UI Create LDAP Entry Page" showCaption="true" indent="2"></Image>
+
+7. Repeat the above for Bob Jones (make sure you do this on the root of the LDAP by clicking on **dc=example, dc=org** and **Create a child entry**).
+   Enter the following details:
+   - **cn:** bjones&#x20;
+   - **sn:** Jones&#x20;
+   - **givenName:** Bob&#x20;
+   - **employeeNumber:** 54321&#x20;
+   - **Password:&#x20;**\<enter a password>
+8. Click **Create Object** and then **Commit**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/la3VVO6Lj-EdJLuxdmH_m_image.png" size="100" width="1277" height="450" darkWidth="1277" darkHeight="450" position="flex-start" caption="PHP LDAP Admin UI Create LDAP Entry Page" showCaption="true" indent="2"></Image>
+
+You should see both Alice and Bob added to the LDAP server:&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/g66K265aDwy6PgemOq9Pa_image.png" size="60" width="304" height="262" darkWidth="304" darkHeight="262" position="flex-start" caption="PHP LDAP Admin UI Side Option" showCaption="true"></Image>
+
+## Step 2b: Add Groups
+
+**To add groups to the LDAP server:**
+
+1. Click the **Globe&#x20;**&#x69;con and then select **Create a child entry**.&#x20;
+   The *Create Object* page appears.
+2. From *Templates*, select **Default**.
+3. From the *ObjectClasses&#x20;*&#x6C;ist for the LDAP server container, select **groupOfNames**.
+4. Click **Proceed >>**.
+5. Fill out the basic details for the groups:
+   - **cn:** litmus-admin
+   - **member:&#x20;**&#x43;lick the *search icon&#x20;*&#x61;nd select **cn=asmith**
+6. Click **Create Object**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/6aGEnfp7425bBSXxyR3Ph_image.png" size="80" width="753" height="719" darkWidth="753" darkHeight="719" position="flex-start" caption="PHP LDAP Admin UI - Create Groups" showCaption="true" indent="2"></Image>
+
+7. Click **Commit.**
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eDBXaq_KMuX4WagSnBrio_image.png" size="70" width="513" height="275" darkWidth="513" darkHeight="275" position="flex-start" caption="PHP LDAP Admin UI Create LDAP Entry Page" showCaption="true" indent="2"></Image>
+
+8. Repeat the above for **Litmus-viewer** group (make sure you do this on the root of the LDAP by clicking on **dc=example, dc=org** and **Create a child entry**).
+   Enter the following details:
+   - **cn:** litmus-viewer&#x20;
+   - **member:&#x20;**&#x43;lick the *search icon&#x20;*&#x61;nd select **cn=bjones**
+9. Click **Create Object.**
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/3laUsgiT9mPUmAtqi1aEC_image.png" size="70" width="581" height="712" darkWidth="581" darkHeight="712" position="flex-start" caption="PHP LDAP Admin UI - Create Groups" showCaption="true" indent="2"></Image>
+
+10. Click **Commit.**
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Fj8xMIhxpHn-K_nn9Wh4b_image.png" size="70" width="475" height="277" darkWidth="475" darkHeight="277" position="flex-start" caption="PHP LDAP Admin UI Create LDAP Entry Page" showCaption="true" indent="2"></Image>
+
+You should now have four entries under the root folder of the LDAP server. Next, you configure Litmus Edge.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/PLL_EIG6js49b0EQpT8Vu_image.png" size="60" width="346" height="370" darkWidth="346" darkHeight="370" position="flex-start" caption="PHP LDAP Admin UI Side Option" showCaption="true"></Image>
+
+# Step 3: Litmus Edge LDAP Configuration&#x20;
+
+**To define the LDAP server connection from Litmus Edge:**
+
+1. Navigate to **System&#x20;**> **Access Control** > **LDAP/AD Auth** and then click the plus  button **+** to define a new LDAP Provider.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/f1H0e-ydSeXcooMK2jAvn_image.png" size="100" width="1406" height="490" darkWidth="1406" darkHeight="490" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. The Add Provider dialog box appears. Here, we have the option to start from a template or to define everything manually.
+   Select **Advanced** to fill in all details and understand each parameter.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ELAuTeeF9WEah3VGkcaQ1_image.png" size="100" width="855" height="324" darkWidth="855" darkHeight="324" position="flex-start" caption="Add Provider dialog box " showCaption="true" indent="2"></Image>
+
+3. On the Generic tab, give the provider a **name&#x20;**&#x61;nd click **Next**.
+   The default selection for **Type** is **generic**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/tpFmkUQw2ZOsbksR9Vwdz_image.png" size="100" width="855" height="258" darkWidth="855" darkHeight="258" position="flex-start" caption="Add Provider dialog box - Generic tab" showCaption="true" indent="2"></Image>
+
+4. On the Connection tab, enter the following:&#x20;
+   - **Host:&#x20;**&#x45;nter th&#x65;**&#x20;IP address&#x20;**&#x6F;f the LDAP container as the host.
+   - **Port:&#x20;**&#x45;nter the **port number&#x20;**&#x75;sed to define the docker container for the LDAP server. For this guide, you used port **389&#x20;**&#x69;n *Step 1*.
+   - **Bind DN and Bind DN Password:&#x20;**&#x45;nter the same **admin user credentials** to authenticate *PHP LDAP Admin UI*.
+   - Click **Next**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/m1N2ORWJjJ_fiFuSxw-4p_image.png" size="100" width="853" height="359" darkWidth="853" darkHeight="359" position="flex-start" caption="Add Provider dialog box - Connection tab" showCaption="true" indent="3"></Image>
+
+# Step 4: Define User Search Details
+
+In the *User&#x20;*&#x74;ab, define the parameters for Litmus Edge to search and parse relevant information from the LDAP server, such as first name, last name, username, and UserID.
+
+**The following information defines the User configuration:**
+
+- **User Search Base DN:&#x20;**&#x54;he DN (Distinguished Name) of the folder in the LDAP server is the starting point for searching users. As our LDAP server is simple, start searching from the top-level folder, which is **dc=example, dc=org**.
+- **Search Scope:** Litmus Edge can use this setting to determine the level at which it should search for users.&#x20;
+  There are three options in the drop-down menu to choose from:
+  - **base:** Search at the base level of the User Search Base DN.
+  - **one:** Search one level below the base level of the User Search Base DN.&#x20;
+  - **sub:** Search all levels below the User Search Base DN.&#x20;
+    For this guide, select **sub** to search everything under the top level folder.
+- **User Search Filter:** You require a filter to provide Litmus Edge with a list of users who should have access to it.&#x20;
+  In a practical scenario, individuals may want to limit access to only specific employees, but for our guide, you match any entry that has an objectClass of *inetOrgPerson*: `(&(objectClass=inetOrgPerson))`.
+  If you need more information on how to write LDAP filters, you can refer to :Link[How to write LDAP search filters]{href="https://confluence.atlassian.com/kb/how-to-write-ldap-search-filters-792496933.html" newTab="true" hasDisabledNofollow="false"}.
+- **Attribute For Unique UserID:** This is the attribute that Litmus Edge will use as a unique identifier for each user. In this example, use **employeeNumber**.
+- **Attribute For Username:** This is the attribute that Litmus Edge will use for the username when logging in to Litmus Edge. In this example, use **cn**.&#x20;
+  So Alice's username will be *asmith* and Bob's username will be *bjones*.&#x20;
+- **First Name:** This is the attribute that Litmus Edge will use for the user's first name. This is the **givenName&#x20;**&#x61;ttribute that you filled out when creating Alice and Bob's user accounts in the LDAP server.&#x20;
+- **Last Name:** This is the attribute that Litmus Edge will use for the user's last name. For this example, use **sn** attribute.
+
+After configuring your *User* tab, it will look like the screenshot below.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/izu7xVn1qn0QnVggbTWpl_image.png "Add Provider dialog box - User tab")
+
+# Step 5: Define Group Search Details&#x20;
+
+The *Group&#x20;*&#x74;ab is same as the user section, but this time you are telling Litmus Edge how to search for the groups.
+
+**The following information defines the Group configuration:**
+
+- **Group Search Base DN:&#x20;**&#x54;he DN (Distinguished Name) of the folder in the LDAP server will be our starting point for searching groups. As our LDAP server is simple, start searching from the top-level folder, which is **dc=example, dc=org**.
+- **Search Scope:** Litmus Edge can use this setting to determine the level at which it should search for groups.&#x20;
+  There are three options in the drop-down menu to choose from:
+  - **base:** Search at the base level of the Group Search Base DN.
+  - **one:** Search one level below the base level of the Group Search Base DN.&#x20;
+  - **sub:** Search all levels below the Group Search Base DN.&#x20;
+    For this guide, select **sub** to search everything under the top level folder.
+- **Group Search Filter:** We require a filter to provide Litmus Edge with a list of groups who should have access to it.&#x20;
+  For this guide, you match any entry that has an objectClass of *groupOfNames* and then add an additional filter to only include the *groupOfNames* that have a *cn* that starts with *Litmus*.&#x20;
+  The filter looks like the following: `(&(objectClass=groupOfNames)(cn=litmus*))`.
+- **Group Name Attribute:** This is the attribute Litmus Edge will use to display the group name.&#x20;
+  In this example, use **cn**.
+- **Group Membership Attribute:** This attribute informs Litmus Edge which users belong to the group. This information is necessary for Litmus Edge to determine a user's permissions upon login.&#x20;
+  In this example, use **member&#x20;**&#x61;ttribute.
+- **Group Member Value Type:** This attribute tells Litmus Edge about the type of information stored in the list of members. When you added Bob and Alice to the group, their user account DN was inserted.
+  In this example, Litmus Edge can use the attribute **DN** to identify members in the list.
+
+After configuring your *Groups&#x20;*&#x74;ab, it will look like the screenshot below.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Rly3GFhXMnP5BYLi73F9j_image.png "Add Provider dialog box - Groups tab")
+
+# Step 6: Test the Configuration
+
+You will find a *Test&#x20;*&#x62;utton on this screen that will verify the input settings.
+
+Click the **Test&#x20;**&#x62;utton. The *Update Provider* dialog box appears. It shows the expected results for two users and two groups.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/iMC3sBpc1smrCnv0-BEe-_image.png "Update Provider dialog box ")
+
+# Step 7: Map LDAP Groups to Litmus Edge Groups
+
+After a successful test of the connection, click **Create and Map Groups**. The *Map Groups* dialog box appears.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Hf0XB5sGcp6IygnREtTsF_image.png "Map Groups dialog box")
+
+Litmus Edge was able to connect to the LDAP server and find the list of groups that you created.
+
+Next, map these groups to the local groups on Litmus Edge. This mapping will let Litmus Edge know which permissions the user should be granted when they log in.
+
+From the drop-down menu, map *litmus-admin* to **Administrators&#x20;**&#x61;nd *litmus-viewer* to **Viewers&#x20;**&#x61;nd click **Save**.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/tALNSIXeYAbZL-bcjtXgY_image.png "Map Groups dialog box - With Permissions")
+
+# Step 8: Check User Access to Edge Device
+
+Now, log in as Alice or Bob and verify that they each have the *Administrator&#x20;*&#x61;nd *Viewer&#x20;*&#x70;ermissions, respectively.
+
+<hint type="info">
+  **Note:** Please use the login credentials that were configured for Alice and Bob in Step 2a.
+</hint>
+
+Select **openldap&#x20;**&#x66;rom *Provider ID* drop-down to log in via LDAP.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/CmMddPBc-cQgmylXp2dQQ_image.png" size="70" width="504" height="440" darkWidth="504" darkHeight="440" position="flex-start" caption="Litmus Edge Login Page" showCaption="true"></Image>
+
+If you select *Internal&#x20;*&#x70;rovider, Litmus Edge will look for a local user with the username of asmith, which does not exist. If your login was successful, you should see the EULA and need to accept it (this is only the case for the first login).
+
+When you log in as Alice, you have complete access to Litmus Edge. To check, navigate to *System/Users/Groups&#x20;*&#x61;nd select **Administrators**. You will notice that Alice has been added to the Administrators group. This is expected because Alice is part of the litmus admin on the LDAP server.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/MioB7wEIZ-oGxWUe608PG_image.png "List of Members dialog box")
+
+If you log in as Bob and try to access the same page as *System/Users/Groups*, you will find that you do not have the necessary access to view the page. This is because Bob has been assigned the Viewers group permissions and does not have the required privileges to view the page.

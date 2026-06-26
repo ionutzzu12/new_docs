@@ -1,0 +1,303 @@
+---
+title: Aveva Data Hub Integration Guide
+slug: 4jMQpey08OhJqtrlJPMQp
+description: Learn how to set up the Aveva Data Hub connector. 
+docTags: 
+createdAt: Wed Jun 14 2023 16:58:41 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following guide for setting up and integration between Litmus Edge and Aveva Data Hub. Once the integration is set up, you can send and receive data through OSIsoft Messaging Format.
+
+# Before You Begin
+
+You must have access to :Link[Aveva Data Hub]{href="https://datahub.connect.aveva.com/" newTab="true"} and have the correct admin permissions.&#x20;
+
+# Step 1: Add a Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Create Client in Aveva Data Hub
+
+You will need to create a client-credentials client and do the following:
+
+- Set the role to Tenant Administrator.&#x20;
+- Copy the *Client Secret* for use later.&#x20;
+
+See the Aveva Data Hub documentation :Link[Get started with client-credentials]{href="https://docs.aveva.com/bundle/data-hub/page/overview/get-started/clients/gs-client-credentials-clients.html" newTab="true"} clients to learn more.&#x20;
+
+# Step 4: Add Type in Aveva Data Hub
+
+Add a type in Aveva Data Hub to define the schema of the data coming from Litmus Edge. This allows Aveva Data Hub to identify the payload and associate events with streams of data.&#x20;
+
+When you add the type, do the following:
+
+- Select **Standard Type**.
+- Enter values for **Id**, **Name**, and **Description**.&#x20;
+- Add the following properties.
+
+<table columnWidths="148,171,175" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Key**
+    </td>
+    <td>
+      **Id**
+    </td>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Base Type**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Select checkbox
+    </td>
+    <td>
+      timestamp
+    </td>
+    <td>
+      timestamp
+    </td>
+    <td>
+      Int64
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Select checkbox
+    </td>
+    <td>
+      tagName
+    </td>
+    <td>
+      tagName
+    </td>
+    <td>
+      String
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Select checkbox
+    </td>
+    <td>
+      deviceName
+    </td>
+    <td>
+      deviceName
+    </td>
+    <td>
+      String
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      success
+    </td>
+    <td>
+      success
+    </td>
+    <td>
+      Boolean
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      datatype
+    </td>
+    <td>
+      datatype
+    </td>
+    <td>
+      String
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      value
+    </td>
+    <td>
+      value
+    </td>
+    <td>
+      String
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      deviceID
+    </td>
+    <td>
+      deviceID
+    </td>
+    <td>
+      String
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      description
+    </td>
+    <td>
+      description
+    </td>
+    <td>
+      String
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      registerId
+    </td>
+    <td>
+      registerId
+    </td>
+    <td>
+      String
+    </td>
+  </tr>
+</table>
+
+See the Aveva Data Hub documentation :Link[Add a type]{href="https://docs.aveva.com/bundle/data-hub/page/add-organize-data/store-data/types/types-procedure.html" newTab="true"} to learn more.&#x20;
+
+# Step 5: Add Stream in Aveva Data Hub
+
+After adding the type, add a stream that will index data based on the properties of the type you created previously.&#x20;
+
+When you create the stream, select the type you created in Step 2.&#x20;
+
+See the Aveva Data Hub documentation :Link[Manage streams]{href="https://docs.aveva.com/bundle/data-hub/page/add-organize-data/store-data/streams/streams-manage-streams.html" newTab="true"} to learn more.&#x20;
+
+# Step 6: Add the Aveva Data Hub Connector
+
+Follow the steps to [Add a Connector](<../../Product Features/Integration/C5bo-JHYKWiLNMFY9iVsj.mdx>) and select the **Aveva Data Hub** provider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Description&#x20;**(Optional): Enter a description. &#x20;
+- **Endpoint**: Enter the appropriate regional endpoint (U.S. West, North Europe, Australia East), which can be found in Aveva Data Hub by navigating to **Security&#x20;**> **Clients&#x20;**> **Client&#x20;**> **Connection Information** > **Regional Endpoints**.&#x20;
+  - U.S. West: https\://uswe.datahub.connect.aveva.com/
+  - North Europe: https\://euno.datahub.connect.aveva.com/
+  - Australia East: https\://auea.datahub.connect.aveva.com/
+- **Client Id**: Enter your Aveva Data Hub Client ID, which can be found by navigating to **Security&#x20;**> **Clients&#x20;**> **Client&#x20;**> **Details**> **Client ID**.
+- **Client Secret**: Enter your Aveva Data Hub Client Secret, which can be copied when creating a client in Step 1. If you need to create a new secret, navigate to **Security&#x20;**> **Clients&#x20;**> **Client&#x20;**> **Secrets**.
+- **Tenant Id**: Enter your Aveva Data Hub Tenant ID. You can find it by navigating to **Security&#x20;**> **Client&#x20;**> **Details**.&#x20;
+- **Stream Id**: Enter the Stream ID you created in Step 3. You can find it by navigating to **Data Management**.&#x20;
+- **Namespace**: Enter the namespace of the Default SDS stream name. You can find it in the stream details.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 7: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/08DVjM7ZnFiItUg4jUyUD_aveva.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="hQzTgprZXW8nnmcue-E9Q" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/Integration/-0RapYS2oFAjW_T6DQC39.mdx"} and relevant error messages.&#x20;
+
+After adding the connector in Litmus Edge, you have the option of viewing the data flowing through the connector in Aveva Data Hub or Litmus Edge.&#x20;
+
+# View Data in Aveva Data Hub
+
+You can view the stream data in Aveva Data Hub.&#x20;
+
+## Create Outbound Topics for Connector
+
+You will need to create outbound topics for the connector from the tags created in Step 2. If there any existing inbound topics already created for the connector, disable them before creating the outbound topics.&#x20;
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+## Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+## View Stream Data in Aveva Data Hub
+
+You can now view the data from the DeviceHub tag(s) in Aveva Data Hub. When you configure the stream data view, select **Get Range Values** from the *Query Type* drop-down list.&#x20;
+
+See the Aveva Data Hub documentation :Link[View stream data]{href="https://docs.aveva.com/bundle/data-hub/page/add-organize-data/store-data/streams/streams-view-data.html" newTab="true"} to learn more.&#x20;
+
+# View Data in Litmus Edge
+
+You have the option of adding inbound topics in the Aveva Data Hub connector, so that you can view data in the Litmus Edge Flows Manager.&#x20;
+
+## Create Inbound Topic for Connector
+
+You will use the stream ID from Aveva Data Hub to create the inbound topic. If there any existing outbound topics already created for the connector, disable them before creating the inbound topic.&#x20;
+
+**To create the inbound topic:**
+
+1. Click the connector tile.&#x20;
+   The connector *Dashboard&#x20;*&#x61;ppears.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Click the **Add a new subscription** icon.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/FwlN--YLxnjlv2RjsB7GJ_add-topic.png" size="80" width="1043" height="444" position="center" showCaption="false"></Image>
+4. Configure the topic.&#x20;
+   - **Data Direction**: Select **Remote to Local - Inbound**.&#x20;
+   - **Local Data Topic** (Optional): Paste the Stream ID value for the local data topic name. A prefix will be automatically added to the name.&#x20;
+   - **Remote Data Topic**: Copy the stream ID you created in Aveva Data Hub and paste it here.&#x20;
+   - **Description&#x20;**(Optional): Enter a description for the topic.&#x20;
+   - **Enable**: Click the toggle to enable the topic.&#x20;
+5. Click **OK**.&#x20;
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+## Copy Inbound Topic Name
+
+From the *Topics&#x20;*&#x74;ab for the connector, copy the *Local Topic* name for the new topic and refer to it when creating the flow.&#x20;
+
+## Create Flow&#x20;
+
+You can now create the flow that will display the data from the connector.&#x20;
+
+**To create the flow:**
+
+1. Navigate to **Flows Manager**.&#x20;
+2. For a Flows Manager, click the **Go To Flow Definition** icon.&#x20;
+   The flow canvas opens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/t2rTotjVdzoBvR3kOruKK_go-to-flow-definition.png" size="80" width="1010" height="490" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+3. On the flow canvas, drag the **Datahub Subscribe** node and **debug&#x20;**&#x6E;ode onto the canvas. Then, connect the two nodes.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/7CHgVLn3EpkwH-VMrw-d4_nodes.png" size="80" width="870" height="494" caption="The DataHub Subscribe and Debug nodes" position="center" showCaption="true"></Image>
+4. Double-click the **DataHub Subscribe** node.
+   The *Edit DataHub Subscribe node* dialog box appears.
+   - In the **Topic&#x20;**&#x66;ield, paste the inbound topic name you previously copied (Remote Data Topic) .
+   - If needed, configure the Datahub Subscribe connection. See the *Step 3: Configure Connector Nodes* section in [Create a Flow](<../../Product Features/Flows Manager/M-7nGo-rJyXZ37GawCjly.mdx>) to learn more.&#x20;
+   - Optionally, add a name for the node.&#x20;
+   - Click **Done**, and then click **Deploy**.&#x20;
+5. Expand the message window beneath the flow to view debug messages.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/WT7s2416YA3IyVPLb1XrD_aveva-message-window.png" size="80" width="1103" height="824" caption="The message window" position="center" showCaption="true"></Image>
+6. Click the **Debug&#x20;**&#x69;con.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/TE6Fo-dPlgqCDguff7BDf_aveva-debug-icon.png" size="80" width="1103" height="824" caption="The Debug icon" position="center" showCaption="true"></Image>
+7. Confirm that messages are displaying in the message window.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9xXhqW5qRNu6dUYahMX65_aveva-debug-message.png" size="80" width="1242" height="661" caption="Data message displayed in debug window" position="center" showCaption="true"></Image>
+

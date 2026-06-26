@@ -1,0 +1,193 @@
+---
+title: Use the JavaScript Processor Function
+slug: use-the-javascript-processor-function
+docTags: 
+createdAt: Mon Dec 16 2024 21:27:10 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use the JavaScript processor function for customizing and manipulating data from input tags using :Link[JavaScript programming language]{href="https://www.w3schools.com/js/" newTab="true" hasDisabledNofollow="false"}. This processor is helpful for scenarios where you need to add, remove, or modify fields in incoming messages.&#x20;
+
+You can rename fields, modify timestamps, or aggregate data based on your processing needs.
+
+# **User Scenario**
+
+Review the following scenarios where the JavaScript processor function is used to manipulate incoming data for real-world applications. Then, you will simulate PLC data to customize input data in manufacturing settings effectively.&#x20;
+
+## **User Scenario 1 (Using one Input Function)**
+
+In a manufacturing plant, temperature sensors send data to a monitoring system. The sensor readings include several fields, but you only need specific ones to analyze furnace pressure. Using the JavaScript processor, you can filter out unnecessary fields and rename required fields for clarity.&#x20;
+
+**Code Example:**
+
+```javascript
+var ids = inputProcessors();
+
+function transformMessage(message) {
+    // Rename 'value' to 'furnacePressure'
+    if (message.hasOwnProperty('value')) {
+        message.furnacePressure = message.value;
+        delete message.value;
+    }
+    // Keep only selected fields
+    return {
+        success: message.success,
+        deviceId: message.deviceId,
+        furnacePressure: message.furnacePressure
+    };
+}
+
+if (ids.length > 0) {
+    if (values && values[ids[0]]) {
+        result = transformMessage(values[ids[0]]);
+    }
+}
+```
+
+## **User Scenario 2 (Using multiple Input Functions)**
+
+In an assembly line, multiple devices report operational data, including pressure, speed, and temperature. To calculate the total pressure from all devices, you aggregate the value fields of each input message using the JavaScript processor.&#x20;
+
+**Code Example:**&#x20;
+
+```javascript
+var ids = inputProcessors();
+var totalPressure = 0;
+
+if (ids.length > 0) {
+    result["ids"] = ids; // Store input identifiers
+    for (var i = 0; i < ids.length; i++) {
+        var message = values[ids[i]];
+        if (message && message.value !== undefined) {
+            totalPressure += message.value; // Aggregate 'value' fields
+        }
+    }
+    result["total_pressure"] = totalPressure; // Output the total pressure
+}
+
+```
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../Product Features/DeviceHub/BsCZeopVvxIBRMcyy7USc/P8ECCvXLg-LwowsB7Leyc.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tags. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. Each tag will represent one of the user scenarios noted above.&#x20;
+
+## Tag 1&#x20;
+
+- **Name**: Select **S - Random value generator**.
+- **Value Type**: Select **float****64**.&#x20;
+- **Polling Interval**: Enter **5**.
+- **Tag Name**: Enter **Tag1**.
+- **Min Value:** Enter **1**.
+- **Max Value:** Enter **10**.
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created. Follow the appropriate step out of 3a or 3b based on the two user scenarios for the JavaScript processor function you want to use.
+
+## Step 3a: Configure Single Input JavaScript Function (User Scenario 1)
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **Tag1&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select **JavaScript&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Text Editor**: Write the JavaScript code you want to execute.&#x20;
+     Learn more :Link[here]{href="https://www.w3schools.com/js/" newTab="true" hasDisabledNofollow="false"}.&#x20;
+     For this example, paste the code from *User Scenario 1* above.
+   - `var ids = inputProcessors();     `
+     `     `
+     `function transformMessage(message) {     `
+     `     // Rename 'value' to 'furnacePressure'      `
+     `     if (message.hasOwnProperty('value')) {      `
+     `         message.furnacePressure = message.value;      `
+     `         delete message.value;      `
+     `     }      `
+     `     // Keep only selected fields      `
+     `     return {      `
+     `         success: message.success,      `
+     `         deviceId: message.deviceId,      `
+     `         furnacePressure: message.furnacePressure      `
+     `     };      `
+     `}     `
+     `     `
+     `if (ids.length > 0) {     `
+     `     if (values && values[ids[0]]) {      `
+     `         result = transformMessage(values[ids[0]]);      `
+     `     }      `
+     `}`
+7. Click **Save**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RDmXS2p4o_EhlZozhFpyM_image.png" size="80" width="760" height="540" position="center" caption="Edit a Processor Dialog Box" showCaption="true"></Image>
+8. Connect the DataHub Subscribe processor (tag: *Tag1)* to the JavaScript processor with a wire and enter the definition of **A&#x20;**&#x66;or the **value-type** connection.
+9. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/xh-yU5MbNw5P5UzN32Fl6_image.png "Completed canvas flow with one input")
+
+## Step 3b: Configure Multiple Inputs JavaScript Function (User Scenario 2)
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **Tag1&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Repeat steps 2-4 in *Step 3b* to add another *DataHub Subscribe* node. Select the alias topic for the **Tag1** tag again.&#x20;
+6. Click **Save**.
+7. Click **Add processor** again and select **JavaScript&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Text Editor**: Write the JavaScript code you want to execute.&#x20;
+     Learn more :Link[here]{href="https://www.w3schools.com/js/" newTab="true" hasDisabledNofollow="false"}.&#x20;
+     For this example, paste the code from *User Scenario 2* above.
+   - `var ids = inputProcessors();     `
+     `var totalPressure = 0;     `
+     `     `
+     `if (ids.length > 0) {     `
+     `     result["ids"] = ids; // Store input identifiers      `
+     `     for (var i = 0; i < ids.length; i++) {      `
+     `         var message = values[ids[i]];      `
+     `         if (message && message.value !== undefined) {      `
+     `             totalPressure += message.value; // Aggregate 'value' fields      `
+     `         }      `
+     `     }      `
+     `     result["total_pressure"] = totalPressure; // Output the total pressure      `
+     `}`
+8. Click **Save**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/fCVzulGOikfn1XyGVziaw_image.png" size="80" width="751" height="516" position="center" caption="Edit a Processor Dialog Box" showCaption="true"></Image>
+9. Connect the DataHub Subscribe processor (tag: *Tag1)* to the JavaScript processor with a wire and enter the definition of **A&#x20;**&#x66;or the **value-type** connection.
+10. Connect another DataHub Subscribe processor (tag: *Tag1)* to the JavaScript processor with a wire and enter the definition of **B&#x20;**&#x66;or the **value-type** connection.
+11. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5d4qXIJX51peOgUMxYmhP_image.png "Completed canvas flow with multiple inputs")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *JavaScript* processor to view the output values.
+
+## View Output for User Scenario 1
+
+The JavaScript function filters the furnace pressure from the defined tag values.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3NTAjtyz4JL7N6OhuSg4N_image.png "Output for single input JavaScript")
+
+## View Output for User Scenario 2
+
+The JavaScript function calculates the sum from the defined tag values and gives the output `Total_pressure`.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/lvpe4mkynD_drqdt65Vst_image.png "Output for multiple input JavaScript")
+

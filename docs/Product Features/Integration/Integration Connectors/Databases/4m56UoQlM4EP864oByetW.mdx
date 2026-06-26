@@ -1,0 +1,34 @@
+---
+title: DB - MySQL SSL
+slug: 4m56UoQlM4EP864oByetW
+description: Review parameters for the DB - MySQL SSL connector. 
+docTags: 
+createdAt: Fri Dec 01 2023 20:43:09 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the :Link[MySQL SSL Integration Guide]{label="MySQL SSL Integration Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="o4kL4_LfAkSYD_c5KqXfe" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+<ContentSnippet docRefId="89HWAQ6MBepSNqtcuBKnX">
+
+</ContentSnippet>
+
+<hint type="info">
+  **Note**: When the *Create table* checkbox is not selected, the table format (columns) that you will create must still adhere to the following format.&#x20;
+</hint>
+
+```mysql
+#CREATE TABLE IF NOT EXISTS `TABLE_NAME`
+(
+	id          BIGINT AUTO_INCREMENT NOT NULL,
+	record_uuid CHAR(36)              NOT NULL,
+	arrived_at  DATETIME              NOT NULL,
+	device_id   VARCHAR(64)           NULL,
+	register_id VARCHAR(64)           NULL,
+	tag_name    VARCHAR(64)           NULL,
+	datatype    VARCHAR(32)           NULL,
+	value       TEXT                  NULL,
+	success     TINYINT               NULL,
+	PRIMARY KEY (id)
+);
+```
+

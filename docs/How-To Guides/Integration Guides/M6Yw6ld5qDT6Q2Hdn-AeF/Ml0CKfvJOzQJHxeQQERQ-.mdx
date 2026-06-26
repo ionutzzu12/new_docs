@@ -1,0 +1,119 @@
+---
+title: Receive Data from Azure IoT Hub with a Device Certificate
+slug: Ml0CKfvJOzQJHxeQQERQ-
+description: Learn how to receive data from Azure IoT Hub with a device certificate. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:16:55 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an inbound data integration between Litmus Edge and Azure IoT Hub using a Device Certificate.&#x20;
+
+# Additional Resources
+
+Refer to the following resources for more information.&#x20;
+
+- [Send device-to-cloud and cloud-to-device messages with IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messaging?WT.mc_id=Portal-Microsoft_Azure_IotHub#message-format)
+- [Using the MQTT protocol directly (as a module)](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support#using-the-mqtt-protocol-directly-as-a-module)
+- [Receiving cloud-to-device messages](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support#receiving-cloud-to-device-messages)
+
+<hint type="info">
+  **Note**: Integration does not support wildcard characters for inbound messages.
+</hint>
+
+# Before You Begin
+
+You must first [Set up an Azure IoT Hub](<../Azure IoT Hub Guides/cBE2vVrgnJYNq8FK63UBX.mdx>). When you add the IoT device to the hub, select **X.509 Self-Signed** as the **Authentication type&#xA0;**&#x77;hen you add the IoT device in Azure.&#x20;
+
+# Step 1: Retrieve Connector Parameters
+
+You will need to log in to Azure to retrieve the parameters for configuring the connector in Litmus Edge.&#x20;
+
+<hint type="info">
+  **Tip**: Use the following command to generate a public/private key pair:
+
+  <BlockQuote>
+    openssl req -newkey rsa:2048 -nodes -keyout myprivatekey.pem -x509 -days 365 -out mydevicekeycer.pem
+  </BlockQuote>
+</hint>
+
+**To retrieve the connector parameters:**
+
+1. From the Microsoft Azure home page, click your IoT Hub.
+2. From the Navigation panel under *Explorers*, click **IoT devices**.
+3. From the *Azure IoT devices&#x20;*&#x70;ane, copy the device name from the **Device ID&#xA0;**&#x63;olumn.
+4. Click the **Device ID&#xA0;**&#x66;or the device you want to connect.
+5. Copy the **key ID&#xA0;**&#x61;nd paste it to the **Primary Thumbprint&#xA0;**&#x66;ield, and then copy the **certificate ID&#xA0;**&#x61;nd paste it to the **Secondary Thumbprint&#xA0;**&#x66;ield.
+
+# Step 2: Add the Azure IoT Hub using Device Certificates Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/C5bo-JHYKWiLNMFY9iVsj.mdx>) and select the **MQTT - Azure IoT Hub using Device Certificates** provider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name the connector.&#x20;
+- **Hostname**: IP Address or Server FQDN of MQTT broker. 
+- **Port**: Verify the default value of 8883 is entered.&#x20;
+- **Device ID**: Copy the **Device ID** retrieved in Step 1.
+- **Certificate**: Paste the certificate from the **mydevicekeycer.pem** file generated in Step 1.&#x20;
+- **Private key**: Paste the key certificate from the **myprivatekey.pem&#xA0;**&#x66;ile generated in Step 1.&#x20;
+- **Parallel Publish Count**: The maximum number of concurrently published messages. The default value is 16.&#x20;
+- **Integration Topic**: The default topic to publish or subscribe to.&#x20;
+- **Token TTL**: The token expiry time in minutes. The default value is 1440.&#x20;
+- **LWT Topic**: The topic for MQTT's Last Will and Testament feature.&#x20;
+- **LWT payload**: The payload for MQTT's Last Will and Testament feature.&#x20;
+- **LWT payload type**: The payload type for MQTT's Last Will and Testament feature. The options are *string&#x20;*&#x61;nd *base64*.&#x20;
+- **LWT QoS**: The Quality of Service value for MQTT's Last Will and Testament feature.&#x20;
+- **LWT retained**: Select this check box to retain the value for MQTT's Last Will and Testament feature.&#x20;
+- **Throttling Limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as lifo (last in first out) or fifo (first in first out). Selecting lifo means that the last data entry is processed first, and selecting fifo means the first data entry is processed first.&#x20;
+
+# Step 3: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/mCTxa7bfolpQ05zQnEJS8_azureiotdevice.png" size="60" width="369" height="345" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="hQzTgprZXW8nnmcue-E9Q" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../../Product Features/Integration/-0RapYS2oFAjW_T6DQC39.mdx"} and relevant error messages.&#x20;
+
+# Step 4: Create Inbound Topics for Connector
+
+You will now need to create inbound topics to receive data from Azure IoT Hub.&#x20;
+
+**To create topics:**
+
+1. Click the connector tile.
+   The connector *Dashboard&#x20;*&#x61;ppears.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Add topics to the connector with the details below. See the *Add a Topic to a Connector* section in :Link[Manage Connectors]{docId="hQzTgprZXW8nnmcue-E9Q" label="Manage Connectors" spaceId version="v2" docAnchorId="#add-a-topic-to-a-connector" href="../../../Product Features/Integration/-0RapYS2oFAjW_T6DQC39.mdx"} for more information.&#x20;
+   - **Data Direction**: Select **Remote to Local - Inbound**.&#x20;
+   - **Local Data Topic**: Enter **integration.raw\.inboundtest**.&#x20;
+   - **Remote Data Topic**: Replace **devices/\[Device ID]/messages/events/** with **devices/\[Device ID]/messages/devicebound/%24.to=%2Fdevices%2Fmessages%2Fdevicebound**. Replace \[Device ID] with the Device ID value configured for the connector.&#x20;
+   - **Enable**: Click the toggle to enable the topic.&#x20;
+4. Click **Yes&#x20;**&#x74;o add the topic.&#x20;
+5. After adding all required topics, navigate to the *Integration&#x20;*&#x70;ane.
+6. From the connector tile, ensure the connector is not disabled and still shows a CONNECTED status.
+
+# Step 5: Initiate and View Inbound Messages
+
+You will need to create a flow to view the inbound messages from the connector.&#x20;
+
+**To initiate and view inbound messages:**
+
+1. Follow the steps to [Create a Flow](<../../../Product Features/Flows Manager/M-7nGo-rJyXZ37GawCjly.mdx>) and add the following nodes.
+   - **DataHub Subscribe**:&#x20;
+   - **Debug**
+2. Double-click the **DataHub Subscribe&#xA0;**&#x6E;ode.
+   The *Edit DataHub Subscribe node* dialog box appears.
+3. Enter **Azure inbound&#xA0;**&#x69;n the **Name&#xA0;**&#x66;ield.
+4. Paste the Topic you created in Step 4 in the **Topic&#xA0;**&#x66;ield.&#x20;
+5. If needed, configure the *Datahub Subscribe* connection. See the "Step 3: Configure Connector Nodes" section in :Link[Create a Flow]{docId="Nay58AX-cu8eMvJ5jUcQm" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" href="../../../Product Features/Flows Manager/M-7nGo-rJyXZ37GawCjly.mdx"} to learn more.&#x20;
+6. Click **Done**, and then click **Deploy**.
+7. Click the **debug&#xA0;**&#x74;ab.
+8. Log in to Azure.&#x20;
+9. Open the device pane and click **Message to Device**.
+   The *Message to device* pane appears.&#x20;
+10. Enter **Test Message&#xA0;**&#x69;n the **Message Body&#xA0;**&#x66;ield and click **Send Message**.
+11. Open the flow you created in Litmus Edge and check the *Debug messages* tab. See the *Additional Options* section in [Manage the Flow Canvas](<../../../Product Features/34sTTMTBZO9bOWxfOE7kC/CKl1LMeZrekjdNexLVk4k.mdx>) for more details.&#x20;
+12. Verify that *Test Message* appears in the debug results.&#x20;
+

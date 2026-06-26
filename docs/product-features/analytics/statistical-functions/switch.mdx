@@ -1,0 +1,94 @@
+---
+title: Switch
+slug: switch
+docTags: 
+createdAt: Tue Aug 06 2024 21:57:15 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Switch** processor sends the content of incoming messages to an output only when rule checks are met.
+
+# Switch Overview
+
+- Available rules to be checked are:
+  - **==** - Equals
+    - For strings, **input value** and **checked value** need to be lexicographically equal.
+  - **!=** - Not Equals
+    - For strings, **input value** and **checked value** need to be lexicographically different.
+  - **\<** - Less than
+    - For strings, **input value** needs to be lexicographically before **checked value.**
+  - **\<=** - Less than, or equals
+    - For strings, **input the value needs to be lexicographically equal to or before the checked value.**
+  - **>** - Greater than
+    - For strings, **input value** needs to be lexicographically after **checked value.**
+  - **>=** - Greater than or equals
+    - For strings, **input value** needs to be lexicographically equal to or after **checked value.**
+  - **is true** - Only applicable for fields having **Bool** data type
+  - **is false** - Only applicable for fields having **Bool** data type
+  - **is null** - Given field should not be present in the input
+  - **is not null** - Given field should be present in the input
+  - **is of type** - Compares the datatype of field with given
+  - **contains** - Only applicable for fields having **String** or **JSON** data type
+- For string datatype, the rules for comparison are done through *GoLang&#x20;*`strings.compare`
+- **Field Name**, **Check Value,** and **Check Value Type** Represent what field to look for, for the comparison, what value to check for, and what is the expected type for the mentioned value.
+- **Output Name** is used to restrict/filter where to publish the output to.
+  - If left empty, output will be published to all connected processors.
+
+# Switch Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Rule
+    </td>
+    <td>
+      The Rule specifies the condition to be checked (e.g., Equals or Not Equals).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Field Name
+    </td>
+    <td>
+      The Field Name indicates the specific field in the input message for comparison.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Check Value
+    </td>
+    <td>
+      The Check Value is the value against which the Field Name is evaluated.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Check Value Type
+    </td>
+    <td>
+      The Check Value Type defines the expected data type of the Check Value.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Output (Optional)
+    </td>
+    <td>
+      The Output determines where the result will be published or if it goes to all connected processors if left empty.
+    </td>
+  </tr>
+</table>
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/4fve-Byodk2ItDz8n3HVg_image.png)
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Switch&#x20;*&#x70;rocessor, refer the :Link[Use the Switch Processor Function]{label="Use the Switch Processor Function" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="8v-BttpnSCRBkJENTe9CW" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

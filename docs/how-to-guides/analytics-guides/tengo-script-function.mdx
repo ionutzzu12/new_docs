@@ -1,0 +1,285 @@
+---
+title: Use the Tengo Script Function
+slug: how-to-guides/analytics-guides/tengo-script-function
+description: Learn how to use the Tengo Script statistical function in Analytics. 
+docTags: 
+createdAt: Wed Jan 31 2024 17:07:07 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use Tengo Script to manipulate data. The processor uses Tengo scripting rules similar to the Go programming language.
+
+<hint type="info">
+  **Note:&#x20;**&#x49;f you need further information on Tengo scripting, please refer to the following:
+
+  - :Link[Available Standard Library]{href="https://github.com/d5/tengo/blob/master/docs/stdlib.md" newTab="true"}
+  - :Link[Syntax details Github]{href="https://github.com/d5/tengo" newTab="true"}
+</hint>
+
+# Understanding the Tengo Script Processor
+
+This function allows adding, removing, or modifying fields from a single input or multiple inputs.
+
+## **Single In**p**ut&#x20;**
+
+Each message from the input is stored in an array called values. It is important to note:
+
+- Using the `for _, message in values{}` statement allows you to access this input and manipulate it.
+- The definition in the connection wire is optional for single input but helpful for multi-inputs to differentiate between them.
+- The `message` parameter contains the entire input message, and you can manipulate it as needed.&#x20;
+
+<hint type="info">
+  **Note:** `_` and `message` can be any custom variable name.
+</hint>
+
+## **Multiple Inputs**
+
+Suppose you have three different inputs attached to this scripting processor, with the connecting wires named A, B, and C:
+
+- `for i, message in values{}` will now have three inputs.
+- `i` represents the connection wire from which the input is coming.
+- With `if-else` statements, each input can be either individually manipulated or receive a common manipulation.
+- You have the option to output the result for one or all inputs.
+
+# User Scenario
+
+Review the following scenario for the Tengo Script processor function. Then, you will simulate PLC data and manipulate outputs using a single input and multiple inputs processor.
+
+## **Single Input User Scenario: Environmental Monitoring in a Factory**
+
+In a factory setting, many sensors constantly monitor air quality by measuring parameters such as CO2 levels, humidity, and temperature. Using the Tengo Script and inputting a single value, such as a CO2 emission reading, it is possible to manipulate this data stream to create a comprehensive air quality index. This can be achieved by dividing the data reading by the standard average of the factory and then multiplying it by 100.
+
+<CodeblockTabs>
+  Tengo Script
+
+  ```go
+  // Single input example
+
+  result := 0
+
+  for _, message in values{
+    
+    // 'value' is the CO2 emission reading.
+    // Normalize this reading by dividing by a standard average and multiplying by 100
+    standardAverage := 400 // Example value for standard CO2 level in parts per million
+    normalizedCO2Index := (float(message["value"]) / standardAverage) * 100
+    
+    result = {
+      "timestamp": message["timestamp"],
+      "normalizedCO2": normalizedCO2Index,
+      "success": message["success"],
+      "actual value": message["value"]
+    }
+  }
+
+  ```
+</CodeblockTabs>
+
+## **Multiple Inputs User Scenario: Manufacturing Plant Management**
+
+In a manufacturing plant, three key sensors track the production line's efficiency: one measures the speed of the conveyor belt, another monitors the temperature of machinery, and the third tracks the number of units produced for adjusting the output rate of finished products. Using the Tengo Script with these three inputs, you can optimize production efficiency. It adjusts production speed based on output rate data, converts temperature to a normalized scale for monitoring, and adjusts production rate for the number of units produced.
+
+<CodeblockTabs>
+  Tengo Script
+
+  ```go
+  // Multiple inputs example
+
+  result := 0
+
+  for i, message in values{
+    
+    // Adjusting conveyor speed based on output rate
+    if i == "A"{
+      // 'value' is the conveyor speed, adjust it based on output rate (C)
+      speedAdjustmentFactor := 1 + (float(values["C"]["value"]) * 0.01)
+      message["adjustedSpeed"] = float(message["value"]) * speedAdjustmentFactor
+    }
+
+    // Machinery temperature monitoring
+    if i == "B"{
+      // Convert temperature to a normalized scale for monitoring
+      message["normalizedTemperature"] = float(message["value"]) / 100
+    }
+
+    // Monitoring and adjusting production based on output rate
+    if i == "C"{
+      // Adjusting production rate, 'value' is the number of units produced
+      productionAdjustmentFactor := 1 + (float(message["value"]) * 0.005)
+      message["adjustedProduction"] = float(message["value"]) * productionAdjustmentFactor
+    }
+    
+    result = {
+      "timestamp": values[i]["timestamp"],
+      "original_value": values[i]["value"],
+      "customized_value": message["adjustedSpeed"] || message["normalizedTemperature"] || message["adjustedProduction"], 
+      "input_source": i,
+      "success": message["success"]
+    }
+  }
+
+  ```
+</CodeblockTabs>
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](../../product-features/devicehub/devices/connect-a-device.mdx) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tags. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. Each tag will be used for simulating the different user scenarios mentioned above.
+
+## **Tag 1: co2emission**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **co2emission**
+- **Min\_value**: Enter **50**
+- **Max\_value**: Enter **800**
+
+## **Tag 2: speed**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **speed**
+- **Min\_value**: Enter **0**
+- **Max\_value**: Enter **250**
+
+## **Tag 3: temperature**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **temperature**
+- **Min\_value**: Enter **10**
+- **Max\_value**: Enter **150**
+
+## **Tag 4: units**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **units**
+- **Min\_value**: Enter **1**
+- **Max\_value**: Enter **1000**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created. Follow the appropriate step (3a or 3b) based on the two user scenarios for the Tengo Script function you want to use.
+
+## Step 3a: Configure **Single Input User Scenario**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **co2emission&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select **Tengo script&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Timeout**: Enter **waiting period** in ms in the system before a specific event occurs.
+   - **Code Block**: Copy and paste the Single Input User Scenario **code&#x20;**&#x65;xample.
+     `// Single input example`
+     `result := 0`
+     `for _, message in values{`
+     `  `
+     `  // 'value' is the CO2 emission reading.`
+     `  // Normalize this reading by dividing by a standard average and multiplying by 100`
+     `  standardAverage := 400 // Example value for standard CO2 level in parts per million`
+     `  normalizedCO2Index := (float(message["value"]) / standardAverage) * 100`
+     `  `
+     `  result = {`
+     `    "timestamp": message["timestamp"],`
+     `    "normalizedCO2": normalizedCO2Index,`
+     `    "success": message["success"],`
+     `    "actual value": message["value"]`
+     `  }`
+     `}`
+7. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/oYjmtoKt25hIwEkwf4U1L_image.png "Tengo script processor dialog box")
+8. Connect the DataHub Subscribe processor (tag: *co2emission*) to the Tengo script processor with a wire and enter the definition of **co2emission&#x20;**&#x66;or the **value-type** connection.
+9. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/VeR_0EzlSYGUGzBfbJznm_image.png "Completed analytics canvas with one input")
+
+## Step 3b: Configure **Multiple Inputs User Scenario**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **speed&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Repeat steps 2-5 to add another *DataHub Subscribe* node. Select the alias topic for the **temperature&#x20;**&#x61;nd **units&#x20;**&#x72;espectively.&#x20;
+7. Click **Add processor** again and select **Tengo script&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Timeout**: Enter **waiting period** in ms in the system before a specific event occurs.
+   - **Code Block**: Copy and paste the Multiple Inputs User Scenario **code&#x20;**&#x65;xample.
+     `// Multiple inputs example`
+     `result := 0`
+     `for i, message in values{`
+     `  `
+     `  // Adjusting conveyor speed based on output rate`
+     `  if i == "A"{`
+     `    // 'value' is the conveyor speed, adjust it based on output rate (C)`
+     `    speedAdjustmentFactor := 1 + (float(values["C"]["value"]) * 0.01)`
+     `    message["adjustedSpeed"] = float(message["value"]) * speedAdjustmentFactor`
+     `  }`
+     `  // Machinery temperature monitoring`
+     `  if i == "B"{`
+     `    // Convert temperature to a normalized scale for monitoring`
+     `    message["normalizedTemperature"] = float(message["value"]) / 100`
+     `  }`
+     `  // Monitoring and adjusting production based on output rate`
+     `  if i == "C"{`
+     `    // Adjusting production rate, 'value' is the number of units produced`
+     `    productionAdjustmentFactor := 1 + (float(message["value"]) * 0.005)`
+     `    message["adjustedProduction"] = float(message["value"]) * productionAdjustmentFactor`
+     `  }`
+     `  `
+     `  result = {`
+     `    "timestamp": values[i]["timestamp"],`
+     `    "original_value": values[i]["value"],`
+     `     "customized_value": message["adjustedSpeed"] || message["normalizedTemperature"] || message["adjustedProduction"],  `
+     `    "input_source": i,`
+     `    "success": message["success"]`
+     `  }`
+     `}`
+8. Click **Save.**
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Gzd4lUMVexpi9P9fusTHv_image.png "Tengo script processor dialog box")
+9. Connect the DataHub Subscribe processor (tag: *speed*) to the Tengo script processor with a wire and enter the definition of **A&#x20;**&#x66;or the **value-type&#x20;**&#x63;onnection.
+10. Connect the DataHub Subscribe processor (tag: *temperature*) to the Tengo script processor with a wire and enter the definition of **B** for the **value-type** connection.
+11. Connect the DataHub Subscribe processor (tag: *units*) to the Tengo script processor with a wire and enter the definition of **C** for the **value-type** connection.
+12. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/u5W-7VUO6ymzRc-JA2z8u_image.png "Completed analytics canvas with multiple inputs")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Tengo Script&#x20;*&#x70;rocessor to view the output values.
+
+## View Output for **Single Input User Scenario**
+
+The Tengo Script function calculates the air quality index from the defined tag values and gives the output.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/aYlqsd-zYvQHe1zH2Yol6_image.png "Output for Tengo script function with one input")
+
+## View Output for **Multiple Inputs User Scenario**
+
+The Tengo Script function manipulates the data from the defined tag values and gives the output.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/mw92h07UhSd2EcQel5Bgj_image.png "Output for Tengo script function with multiple inputs")
+

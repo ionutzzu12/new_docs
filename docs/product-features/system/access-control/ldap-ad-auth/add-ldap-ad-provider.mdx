@@ -1,0 +1,97 @@
+---
+title: Add an LDAP/AD Provider
+slug: product-features/system/access-control/ldap-ad-auth/add-ldap-ad-provider
+description: You must configure providers to activate LDAP/AD authentication. 
+docTags: 
+createdAt: Tue Sep 27 2022 20:50:12 GMT+0300 (Eastern European Summer Time)
+---
+
+You must configure providers in Litmus Edge to activate LDAP/AD authentication. The edge device contains a client that communicates with the LDAP server and receives information based on the client access level.
+
+You can add an LDAP/AD Provider by navigating to **System&#x20;**>**&#x20;Access Control&#x20;**>**&#x20;LDAP/AD Auth**.&#x20;
+
+Review the :Link[Set Up LDAP Using an OpenLDAP Container]{label="Set Up LDAP Using an OpenLDAP Container" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="gmFG-6WjseBVxq8iHVOHw" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} how-to guide.&#x20;
+
+<hint type="warning">
+  **Important**:
+
+  - Litmus Edge Authentication Providers do not support nested groups. A separate group for each role is required.
+  - Once you have added a provider, you need to select a provider on the login screen.
+</hint>
+
+To configure LDAP for Litmus Edge, you must find the DN information from the LDAP server.
+
+An LDAP Bind DN supplies the user and the user location in the LDAP directory tree. The LDAP client configuration file contains this information. See [Find LDAP Distinguished Names (DN)](find-ldap-distinguished-names-dn.mdx) for more information.
+
+**To add an LDAP provider:**
+
+1. Navigate to **System&#x20;**>**&#x20;Access Control**.
+2. Click the **LDAP / AD Auth** tab.&#x20;
+3. Click the **Add a Provider** icon.
+   The *Add Provider&#x20;*&#x64;ialog box appears.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/sRBZdhWWqAmiAhT6KqcMj_add-ldap.png "Add a provider icon")
+4. Select the type of method for adding the provider.&#x20;
+   - **Load AD Template**: Load pre-defined template for the Active Directory LDAP.
+   - **Load OpenLDAP Template**: Load pre-defined template for the OpenLDAP server.
+   - **Load**: Load a file with pre-defined settings for the provider.&#x20;
+   - **Advanced**: Create a provider without a template.&#x20;
+5. Configure the settings for the provider.&#x20;
+
+# Generic
+
+1. Enter the provider name in the **Name&#x20;**&#x66;ield.&#x20;
+2. &#x20;The default selection for **Type&#x20;**&#x69;s generic. Confirm the generic settings and click **Next**.&#x20;
+   The *Connection&#x20;*&#x73;ection displays.&#x20;
+
+# Connection
+
+1. Configure the *Connection&#x20;*&#x73;ettings.&#x20;
+   - **Host**: Enter the fully qualified domain name or IP address of your LDAP server.&#x20;
+   - **Port**: Enter the LDAP host port number in the Port field. The default LDAPS (Secure LDAP) port is 636. The default LDAP port is 389.
+   - **Use TLS**: Select the checkbox to enable TLS authentication. When TLS is not enabled, Litmus Edge expects to find a configured Custom Certificate. See :Link[Add a Custom CA Certificate]{docId="ifuyfnv42ngJAQxvTsGhk" label="Add a Custom CA Certificate" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+   - **TLS Root CA**: If you select TLS authentication, paste the root SSL/TLS certificate or click **Upload&#x20;**&#x61;nd load the file.&#x20;
+   - **Bind DN**: Enter the bind DN identifier. The bind DN identifies the user and the location of the user in the LDAP directory tree. See [Find LDAP Distinguished Names (DN)](find-ldap-distinguished-names-dn.mdx).
+   - **Bind DN Password**: Enter the password used to authenticate against LDAP.&#x20;
+2. When done, click **Next**.&#x20;
+   The *User&#x20;*&#x73;ection displays.&#x20;
+
+# User
+
+1. Configure the *User&#x20;*&#x73;ettings.&#x20;
+   - **User Search Base DN**: Enter a value. This Base DN (Distinguished Name) is the point in the LDAP directory tree that the LDAP service uses to initiate a user search. The Base DN is the latter part of the Bind DN. See [Find LDAP Distinguished Names (DN)](find-ldap-distinguished-names-dn.mdx).
+   - **Search Scope**: Select an option from the drop-down list.
+     - **Base&#xA0;**&#x6C;imits the search to the base object. 
+     - **One&#xA0;**&#x72;estricts the search to "one level", or in other words, the immediate children of the base object. 
+     - **Sub&#xA0;**&#x65;nables a full LDAP tree search, including all children of the base object.
+   - **User Search Filter**: Enter a filter to search LDAP users.
+   - **Attribute for Unique UserID**: Enter the unique user ID number (uidNumber).
+   - **Attribute for Username (for logging in)**: Enter the attribute that will be used for logins.&#x20;
+   - **First Name**: Enter the user's first name. &#x20;
+   - **Last Name**: Enter the user's surname.&#x20;
+2. When done, click **Next**.&#x20;
+   The *Groups&#x20;*&#x73;ection displays.&#x20;
+
+# Group
+
+1. Configure the *Group&#x20;*&#x73;ettings.&#x20;
+   - **Group Search Base DN**: Enter a value. This Base DN (Distinguished Name) is the starting point that the LDAP service uses to find a group in the LDAP directory tree.
+     Example of Group Base ND:&#x20;
+     CN=Users,CN=Builtin,DC=MyDomain,DC=com
+   - **Search** **Scope**: Select an option from the drop-down list.&#x20;
+     - **Base&#xA0;**&#x6C;imits the search to the base object.
+     - **One&#xA0;**&#x72;estricts the search to "one level", as in the immediate children of the base object.
+     - **Sub&#xA0;**&#x65;nables a full LDAP tree search, including all children of the base object.
+   - **Group Search Filter**: Enter a filter to query the Active Directory in the Group Search Filter field.
+     See :Link[How to write LDAP search filters]{href="https://confluence.atlassian.com/kb/how-to-write-ldap-search-filters-792496933.html" newTab="true"} for more information about creating search filters.
+     Example of a filter to query group objects with a common name (CN) starting with Admin:
+     (&(objectCategory=group)(cn=Admin\*))
+   - **Group Name Attribute**: Enter the common name (CN) for the group to search.&#x20;
+   - **Group Membership Attribute**: Enter the distinguished name (DN) for the group to search.
+   - **Member Value Type**: Enter the value type for members in the group, DN or CN.&#x20;
+2. When done do one of the following:
+   - Click **Test&#x20;**&#x74;o test the provider.&#x20;
+   - Click **Save&#x20;**&#x74;o save the settings for the provider.&#x20;
+   - Click **Create & Map Groups** to create the provider.&#x20;
+
+Once the provider is created, use it when logging in to Litmus Edge.
+

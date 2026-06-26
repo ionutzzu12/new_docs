@@ -1,0 +1,255 @@
+---
+title: Litmus Edge 4.1.0
+slug: litmus-edge-410
+docTags: 
+createdAt: Tue May 12 2026 20:49:45 GMT+0300 (Eastern European Summer Time)
+---
+
+Release Date: May 26, 2026
+
+Review the current list of [Limitations](../../resources/limitations.mdx).
+
+## New Features
+
+<table isTableHeaderOn="true" columnWidths="998" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub:**
+      - The following new drivers are available in this release:
+        - **Automation Direct**
+          - AutomationDirect Productivity Series Ethernet
+        - **CodeSys Devices**
+          - Codesys v2.3 Ethernet Symbolic (Gen1.3) experimental
+        - **GE Fanuc**
+          - GE FanucGE Ethernet Global Data (Gen2) experimental
+        - **IEC**
+          - IEC61850 MMS client
+        - **Mettler Toledo**
+          - Mettler Toledo IND256x
+        - **Yokogawa**
+          - Yokogawa DX Ethernet
+          - Yokogawa MX Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integration:**
+      - The following new connectors are available in this release:
+        - Azure IoT Hub Gen 2
+        - AWS IoT SiteWise Edge Gen 2
+        - Databricks Zerobus Ingest
+        - InfluxDB v3 Integration
+        - Snowflake Snowpipe Stream
+    </td>
+  </tr>
+</table>
+
+## Enhancements
+
+<table isTableHeaderOn="true" columnWidths="998" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub:**
+      - Allen-Bradley CompactLogix Ethernet Advanced and Allen-Bradley Logix Ethernet
+        Renamed the Access Mode option from **CompactLogix** to **Logical**. Logical mode now uses ID-based requests for FlexLogix, CompactLogix, and ControlLogix PLCs for all firmware versions. The **Global** variables folder is now pinned to the top of the browse results.
+      - Improved B\&R PVI Ethernet driver performance. The driver has been optimized to reliably support up to 10,000 tags to enable high-density deployments with large B\&R PLC installations.
+      - Improved CODESYS V2 Symbolic (Gen1.3) driver. Fixed connectivity issues, added support for browsing devices with or without SYM/SDB files, and introduced user-configurable options for Motorola byte order and protocol settings.
+      - Improved EUROMAP 63 driver session file handling to automatically clean up `.REQ` files when the controller does not respond to prevent shared folder clutter.
+      - Added float data type support for the GE Ethernet Absolute driver. `R`, `AI`, `AQ`, and `W` registers now support float data types to enable accurate reading of floating-point values from GE PLCs.
+      - Fanuc CNC Ethernet driver enhancements. Added support for the `cnc_rdtimer` function to read cycle and cutting times, and extended macro variable read/write range up to `#98499`. This enables access to high-numbered common variables.
+      - Added password authentication support for the S7CommPlus driver. PLCs configured with legacy access control in TIA Portal can now be connected by specifying a password in the device settings. Device settings have also been reorganized with advanced options moved to a collapsible section for a cleaner configuration experience.
+      - Added a configurable sampling interval property for LioN-X and OPC UA Client Advanced subscriptions to prevent server overload and align with OPC UA best practices.
+      - The OPC UA Advanced Client driver now supports OPU CA HDA.
+      - Improved Toyopuc Ethernet driver addressing for bit registers. `bit` (boolean) tags now use discontinuous addressing, requiring both a Word and Bit address component to match PLC programming software conventions. Existing configurations are automatically migrated during upgrade.
+      - Improved other Toyopuc Ethernet driver issues. Fixed read/write issues for EB register addresses above 32767, corrected maximum address ranges across multiple register types to align with PLC specifications, and added support for JL and JS registers (PC10G Nano).
+      - Fixed inconsistent field ordering in driver configuration settings. Device and tag settings fields across multiple drivers (including Allen-Bradley, Siemens, GE, Yokogawa, and others) now display in a consistent, predictable order.
+      - Added bulk **Add All** option for browsed tags. When browsing tags on a device, you can add all discovered tags quickly as adds. Select and add tags within a selected folder and children folders.
+      - A new count field is available at the tag level for all register types to enable batch reads of consecutive registers as arrays. Added array read support for the following drivers.
+        - Keyence Nano Ethernet
+        - Saia Ethernet
+      - Added logging support for Gen1.3 drivers. A **Debug Logging** option is now available in the **Add/Edit** device dialog for enabling verbose debug-level logs alongside default warn and error logs. View logs in the **Logs** tab on the device page when the device is running.
+      - At startup, the DeviceHub page is available right away and updates as devices start up. Previously, all devices had to be started before the page was viewable.
+      - Fixed an issue during upgrading where a device could enter a stopped state instead of disconnected if the device was not reachable.
+      - Updated the DeviceHub UI device card label to display **IP Address** without a dash. This matches previous versions for consistent formatting.
+      - Increased the DeviceHub driver start timeout to 120 seconds for more reliable driver initialization.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Digital Twins:**
+      - The code editor now provides autocomplete suggestions, type information tooltips, and syntax error highlighting as you type, delivering a smarter scripting experience.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DataHub:**
+      - Improved the **Full Log** view in Edge Cascading Logs by formatting timestamps in a single, human-readable style, for example `` `2026-01-28 19:36:45 UTC` `` for easier log scanning.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - New processor grouping support in Analytics canvas. Processors within an Analytics workspace can now be visually grouped together with a custom name, description, and background color. Groups can be moved, copied, pasted, and managed directly on the canvas making it easier to organize complex analytics flows.
+      - Analytics Group has been renamed to Analytics Workspace.
+      - Added dynamic configuration fields for Analytics processors. Processor settings now support linked fields. Configuration options are shown or hidden based on other selected settings to provide a cleaner experience.
+      - Added comprehensive user event tracking for Analytics. All user actions within Analytics workspaces now generate detailed audit events, including processor create, update, delete, enable or disable, connect or disconnect, invoke, rename, and move operations, as well as variable and AI model changes. Each event captures the user, timestamp, affected processor, and workspace context for full traceability.
+      - Added execution timeout protection for analytics script processors. JavaScript, Tengo, and JSONata processors now enforce configurable execution timeouts. This prevents bad or runaway scripts (such as circular references) from crashing the analytics engine. Faulty processors are automatically disabled with an error status.
+      - Improved readability of timestamps in **Full Log** view. For example, timestamps now display in the following formatting: `2026-01-28 19:36:45 UTC`.
+      - Added a quick-access **Create Group** button in Analytics. You can now create a new group directly from the group header using a convenient plus (+) icon without needing to navigate elsewhere.
+      - Added snap-to-grid support in the Analytics canvas. You can now enable helper lines from the action menu to easily align and organize processors on the canvas.
+      - Added a searchable **Variables** panel to the Analytics canvas. A new action menu button lets you quickly view all user-defined variables and their details directly from the flow map without navigating away to the **Variables** page.
+      - The code editor now provides autocomplete suggestions, type information tooltips, and syntax error highlighting as you type, delivering a smarter scripting experience.
+      - Added a default JSONata code example to help you get started when creating a new JSONata processor.
+      - Additional Analytics UI improvements.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - The dashboard has been redesigned to show more useful information at a glance. Key changes include:
+        - **Summary tiles** now show status details including the number of running containers or storage use instead of just a count.
+        - **Resource Status** panels show the names and details of your active catalogs, containers, images, and networks so you can see what's running without clicking into each section.
+        - **System Performance** charts for CPU and storage are now visible directly on the dashboard.
+        - **Storage Volumes** now list their mount paths and sizes rather than just a total count.
+        - The new dark theme with color-coded indicators makes it easier to spot issues quickly.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **ntegration:**
+      - The AWS IoT SiteWise connector now supports high-precision timestamps through `timestamp.timeInSeconds` and `timestamp.offsetInNanos` fields in DeviceHub payloads.
+      - Integration connector tiles now display human-readable provider names. Connector instances show the provider name, for example InfluxDB v3, instead of an internal identifier making it easier to identify configured connectors.
+      - Added retain support for MQTT v5 outbound publishing. When defining outbound subscriptions in the MQTT v5 cloud connector, a **Retain** option is now available to allow published messages to be retained by the broker for new subscribers.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **OPC UA Server:**
+      - OPC UA Server now forwards `StatusCode` tag values from DeviceHub payloads to OPC UA clients for improved diagnostic visibility.
+      - Added the ability to configure Read, Write, or Read and Write permissions on individual or multiple OPC UA tags. You can view tag access in the **Hierarchy Information** tab and configure them through a new dropdown in the **Hierarchy Configuration** tab with support for bulk editing permissions.
+      - OPC UA server configuration now requires explicit saves. Configuration changes to the OPC UA server settings are no longer auto-saved. A dedicated **Save** button has been added with inline validation that disables the button when errors are present and prompts for a server restart when changes are applied.
+      - OPC UA server now supports network interface selection. A new dropdown in the OPC UA server configuration lets you select which network interface the server listens on. This provides greater control over network binding in multi-interface edge environments.
+      - The OPC UA server URL now displays at the top-right corner of the **OPC UA** > **Management** page for quick reference.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Templates:**
+      - Template management provides a centralized way to create, store, apply, and manage configuration templates directly from the LE web interface.
+        - **Template Listing**: View all your templates in a sortable list with details including name, description, creation date, and creator. Sort by template name or creation timestamp.
+        - **Create & Upload Templates**: Create new templates locally with a custom name and description or upload existing template files. Templates can also be created automatically when applied remotely via Litmus Edge Manager.
+        - **Template Details**: View full template contents at a glance, including associated Devices, Connectors, Flows, Analytics, Digital Twin Models & Instances, Marketplaces, Marketplace Apps, and Registries.
+        - **Edit and Delete**: Update template names and descriptions or remove templates you no longer need. Duplicate template names are automatically prevented.
+        - **Apply Templates**: Apply saved templates to configure your edge instance quickly and consistently.
+        - **Encryption Support**: Choose between encrypted or plain text when creating or uploading templates to protect sensitive credentials.
+        - **RBAC & Licensing**: Templates are visible to all users, but editing, deleting, and applying require the appropriate permissions and a valid Litmus Edge license. Viewer-role users have read-only access.
+        - **Backup, Restore, and HA**: Template storage is included in backup/restore operations and supported in high-availability deployments.
+      - Additional enhancements include:
+        - Added JSON validation of templates during import to catch errors before applying.
+        - Credentials in templates are now encrypted for relevant components.
+        - Added support for bulk delete of templates.
+        - Progress loader now displays when applying a template.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System:**
+      - After successfully applying a template, the success message now displays the number of connectors added, updated, skipped, and failed. Messages also indicate why connectors fail to upload.
+      - Added an option to disable storing event logs in the database to reduce disk usage.
+      - Improved performance for event log deletion.
+      - Improvements to High Availability (HA) including better synchronization, backup node visibility, and failover reliability.
+      - Added help text that provides guidance on PKCS#1, RSA, and PE key formats when adding certificates.
+    </td>
+  </tr>
+</table>
+
+## Resolved Issues
+
+<table isTableHeaderOn="true" columnWidths="998" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Dashboard:**
+      - Fixed issue with overlapping and misaligned font in the Dashboard.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub:**
+      - Fixed issue where the deviceName value was incorrectly masking special characters to `_` (underscore) in payloads published on `devicehub.plcstatus.>` and `system.events` topics.
+      - Fixed error response payload returned by a POST to the `/access/accounts` Access REST endpoint.
+      - Fixed Euromap 63 driver compatibility with KM MC4 controllers. Removed special characters (including underscores) from generated JOB and SESS file names to resolve connection failures with controllers that do not accept special characters in file names.
+      - Fixed FTP root path handling in the Heidenhain 640 Ethernet driver. Resolved an issue where the FTP path was not correctly configured in the Gen1.3 driver. This ensures reliable file transfer connectivity with Heidenhain CNC controllers.
+      - Fixed Allen Bradley CompactLogix driver issue with bad tags disrupting valid tag reads. Resolved a regression where a single misconfigured or invalid tag in a Multiple Service request would cause other properly defined tags to fail. Invalid tags are now isolated so they no longer impact the reading of valid tags.
+      - Fixed an issue where the ListRegisters API call could contain different properties between Tags within the same DeviceHub Device after upgrading from 3.16 to 4.0.x.
+      - Fixed issue where drivers with StatusRegister defined by default returned empty registers when devices were imported using a template.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DataHub:**
+      - Fixed TLS certificate issue that occurred when initially adding a TLS-enabled stream to a spoke during Edge Cascading setup.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - Fixed Analytics output pane and debug button behavior. Resolved an issue where the processor output message pane would auto-collapse when paused and the Debug button was unresponsive. This enables you to inspect and debug processor data on the Analytics canvas again.
+      - Fixed file permission issue with Analytics File Writer output. Files generated by the Analytics File Writer processor are now accessible to other system components such as Flows and the File Browser solution. This allows you to move, delete, and manage output files without encountering permission errors.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - Fixed issue where deleting images with **Select All** > **Delete** removed only one or no images.
+      - Fixed issue with incorrect error message when a non-privileged user attempted to launch a privileged application. A `failed to create an application,undefined` error message  displayed instead of `Failed to create an application. rejected by administrative policy: privileged and some directories require additional permission`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Integration:**
+      - Fixed InfluxDB version 1 and 2 integration connector remote topic formatting. The remote topic incorrectly included the tag name when left empty and now correctly defaults to `deviceName.deviceID` as expected.
+      - Fixed issue where InfluxDB v2 cloud connector failed to automatically reconnect. The connector now correctly recovers and resumes data streaming after the InfluxDB service is restarted, eliminating the need to manually disable and re-enable the connector.
+      - Fixed issue where MQTT v5 connector rejected ISO timestamps with lowercase field names. The connector now accepts ISO-8601 timestamp strings regardless of key casing (for example, "timestamp" or "Timestamp"). This is consistent with MQTT v3.1.1 connector behavior.
+      - Fixed issue with MQTT v5 connector status flapping in the UI. The MQTT v5 connector repeatedly showed `Connected` and `Disconnected` states in the UI despite the broker connection being stable and data flowing without interruption.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System:**
+      - Proxy URLs are now preserved after software updates.
+      - Fixed issue where `HTTPS_PROXY` environment variable was not respected by Device Manager and Licensing components.
+      - Fixed issue where OIDC providers did not display in **System** > **Access Control** > **Template Details** > **Template Content** > **Auth**.
+      - Fixed template file mismatch caused by Unicode character incorrectly added to download file.
+      - Fixed an issue where Litmus Edge was not fully accessible via jump servers, SSH tunnels, or port forwarding on non-standard ports.
+      - Fixed issue where localhost did not resolve to 127.0.0.1 in the default Litmus Edge and Litmus Edge Docker configurations.
+      - Fixed issue where LDAP searches may have returned an excessive number of records that resulted in a Size Limit Exceeded error.
+      - Fixed issue where certain services (such as DeviceHub API, Analytics API, and Message Broker) fail to initialize and remain in a failed state regardless of subsequent reboots. This occurred after a system reset of an `.iso` deployment.
+      - High Availability:
+        - Backup nodes now display idle status information instead of appearing offline.
+        - Fixed issue where the original primary node incorrectly continued to display its role as primary after being brought back online following a failover event.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Docker:**
+      - Fixed issue where the access token was not properly refreshed in Docker and ARM Docker builds, causing unexpected logouts when switching between multiple running instances.
+      - Fixed issue where Docker Litmus Edge could not be restarted in some cases, for example after a proxy configuration change.
+    </td>
+  </tr>
+</table>
+

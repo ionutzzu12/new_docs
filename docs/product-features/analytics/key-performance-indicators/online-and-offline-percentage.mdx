@@ -1,0 +1,67 @@
+---
+title: Online and Offline Percentage
+slug: product-features/analytics/key-performance-indicators/online-and-offline-percentage
+description: Learn more about the Online and Offline Percentage KPI.
+docTags: 
+createdAt: Fri Oct 21 2022 17:40:55 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Online and Offline Percentage** KPI is a raw number indicating how long a sensor was functional and how long it was offline.
+
+# Online and Offline Percentage Overview
+
+- If you do not care for how long the sensor has been ON for, but care for how long was it functional, Online/Offline is a raw number to have more detailed knowledge of the time.
+- If you enable the "resetOnStatus" parameter, this KPI will only show how long the device has been ON, or how long it has been OFF, and will reset every time the status changes from ON or OFF.
+- The **timer interval** parameter is useful if the connected input tag is offline, but you still want this KPI to "look" for a value every few seconds, defined by the aforementioned timer.
+  - If you know your tag is going to reliably publish at the expected interval, it is better to disable this timer by entering 0 in the field.
+
+# Online and Offline Percentage Parameter
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="159">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device Reset
+    </td>
+    <td>
+      This parameter resets the KPI when the connected device is reset.    </td>
+  </tr>
+  <tr>
+    <td>
+      Unit
+    </td>
+    <td>
+      This parameter determines the unit in which the Online/Offline time is displayed (Seconds, Minutes, Hours, Days, or Weeks).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Reset On Status Change
+    </td>
+    <td>
+      If enabled, this parameter will show how long the device has been ON or OFF and will reset every time the status changes from ON to OFF or vice versa.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer Interval
+    </td>
+    <td>
+      Timer in milliseconds. If no event, use this timer to keep displaying the output continually. Enter zero to disable.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/w9id3Rxz1tstqssvqPztA_image.png" size="80" width="939" height="389" caption="Online and Offline parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Online and Offline Percentage&#x20;*&#x4B;PI, refer the [Use the Online and Offline Percentage KPI](../../../how-to-guides/analytics-guides/use-the-online-and-offline-percentage-kpi.mdx) guide for more details.
+</hint>
+

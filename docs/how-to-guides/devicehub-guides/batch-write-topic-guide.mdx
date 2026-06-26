@@ -1,0 +1,122 @@
+---
+title: Use the Batch-Write Topic to Send Multiple Write Requests
+slug: how-to-guides/devicehub-guides/batch-write-topic-guide
+description: Learn how to use the Batch-Write topic. 
+docTags: 
+createdAt: Thu Sep 07 2023 20:25:48 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Notes**:
+
+  - You need to follow the following guidelines for topic names: :Link[Subject-Based Messaging]{href="https://docs.nats.io/nats-concepts/subjects" newTab="true"}.&#x20;
+  - When publishing structured data such as JSON, you must convert to a byte array (string) first. To do this in a flow, you can use the **json&#x20;**&#x6E;ode.&#x20;
+</hint>
+
+You can use the Batch-Write topic to send multiple write requests simultaneously.&#x20;
+
+<hint type="warning">
+  **Important**:
+
+  - Only Gen 2 drivers can use batch write topics. See the :Link[Industrial Systems Connection Guide]{docId="eR7j0MOGTLktBXYupdcD-" label="Industrial Systems Connection Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Industrial Systems Connection Guide"} to review available Gen 2 drivers.&#x20;
+  - If **Enable Alias Topics** is selected in the device configuration, then the *DeviceName&#x20;*&#x61;nd *TagName&#x20;*&#x70;arameters need to be used for setting up batch-write topics. If Enable Alias Topics is not selected, then *deviceID&#x20;*&#x61;nd *registerID&#x20;*&#x6E;eed to be used. See :Link[Connect a Device]{docId="pal6ABPZbrimdU9LvGJ30" label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Connect a Device"} and :Link[Manage Devices]{docId="85vpuGInv8G3DWmxA2MaJ" label="Manage Devices" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage Devices"} for more information.&#x20;
+</hint>
+
+# User Scenario
+
+Litmus Edge collects process data on a PLC, and the setpoint values for the PLC are continuously re-calibrated. These new setpoints and other control values can be collected and sent in one request through the Batch-Write topic.&#x20;
+
+# Set Up and Use the Batch-Write Topic
+
+Complete the following tasks to use the Batch-Write topic.&#x20;
+
+## Before You Begin
+
+We will be using the *DeviceName&#x20;*&#x61;nd *TagName&#x20;*&#x70;arameters to set up the device. If you don't enable Alias topics for the device, you will need to use the *deviceID&#x20;*&#x61;nd *registerID&#x20;*&#x70;arameters. To get the registerIDs, you will need to set up a flow and view the payload of the device.&#x20;
+
+## Step 1: Connect Device
+
+Follow the steps to :Link[Connect a Device]{label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="pal6ABPZbrimdU9LvGJ30" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+## Step 2: Add Tags
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+### **Tag 1**
+
+- **Name**: Select **M - Memory Register**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **10**
+- **Tag Name**: Enter **Tag\_1**
+- **Address**: Enter **1**
+
+### Tag 2
+
+- **Name**: Select **M - Memory Register**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **10**
+- **Tag Name**: Enter **Tag\_2**
+- **Address**: Enter **2**
+
+### Tag 3
+
+- **Name**: Select **M - Memory Register**
+- **Value Type:** Select **int64**
+- **Polling Interval**: Enter **10**
+- **Tag Name**: Enter **Tag\_3**
+- **Address**: Enter **3**
+
+## Step 3: Collect Topic Names
+
+You will need to copy and store the Manage topic and Alias topic for the device. You will use these topic names later on.&#x20;
+
+**To collect the topic names:**
+
+1. Navigate to **DeviceHub&#x20;**> **Devices**.
+2. In the Generator device tile, click the **Display Copy Options** icon and select the **Manage&#x20;**&#x74;opic. This will copy the PLC Manage topic. Save (paste) this topic somewhere secure.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZlFu-Md3hLtAD-8QlWcHW_manage-topic.png" size="50" width="415" height="361" position="center" showCaption="false"></Image>
+3. Copy the Alias topic. You will refer to this topic later on. Save (paste) this topic somewhere secure.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3SBt0j12gUzvnA9fISi5n_alias-topic.png" size="50" width="415" height="361" position="center" showCaption="false"></Image>
+
+## Step 4: Create Flow
+
+You will now create the Flow that will set up the batch-write topics.&#x20;
+
+**To create the Flow:**
+
+1. Navigate to **Flows Manager**.&#x20;
+2. For a Flows Manager, click the **Go To Flow Definition** icon.&#x20;
+   The Flow canvas opens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/kNr8nC8m2jwwx3dYuHdlR_use-case-5-pic.png" size="80" width="1017" height="493" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+3. On the Flow canvas, drag the **DataHub Subscribe** node and **debug&#x20;**&#x6E;ode on the canvas and connect them. Then, drag the **inject&#x20;**&#x6E;ode and the **DataHub Publish&#x20;**&#x6E;ode onto the canvas and connect them. &#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Shx9UdNx5PcnpI-CzhyQX_batch-write-four-nodes.png" size="80" width="922" height="536" caption="Set up the four nodes for batch write" position="center" showCaption="true"></Image>
+4. &#x20;Double-click the **DataHub Subscribe** node.&#x20;
+   The *Edit DataHub Subscribe&#x20;*&#x6E;ode dialog box displays.
+   - In the **Topic&#x20;**&#x66;ield, paste the Alias topic you copied previously.&#x20;
+   - If needed, configure the Datahub Subscribe connection. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="wh4ZihWF0PwMRYRbAZbco" label="Create a Flow" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel} to learn more.
+   - Click **Done**, and then click **Deploy**.&#x20;
+5. Double-click the **inject&#x20;**&#x6E;ode.&#x20;
+   - For **msg.payload**, update the **timestamp&#x20;**&#x73;election and select **string**.
+   - In the **string&#x20;**&#x66;ield, enter the payload in the following format: `{"TagName_1": value_1, "TagName_2": value_2, "TagName_3": value_3}`. Keep in mind that the order of the register IDs you configure is based on the address values you configured for the tags. `value_1`, `value_2`, `value_3` can be replaced with any value of your choosing.
+   - For example, for this use case, the payload will be: `{"Tag_1": 11, "Tag_2": 22, "Tag_3": 33}`. The first tag name is the one configured with **Address&#x20;**&#x31; in the tag configuration, the second tag name is the one configured with **Address&#x20;**&#x32;, and the third tag name is the one configured with **Address&#x20;**&#x33;. `11`, `22`, `33` are values chosen for this example.
+   - Click **Done**.&#x20;
+6. Double-click the **DataHub Publish** node.&#x20;
+   The *Edit DataHub Publish* node dialog box displays.
+   - In the **Topic&#x20;**&#x66;ield, paste the Manage topic you copied previously. Then, replace `manage` in the topic with `batch_write`. For example, `devicehub.manage.Simulator` is changed to `devicehub.batch_write.Simulator`.
+   - Click **Done**, and then click **Deploy**.&#x20;
+
+You can now send the batch data to the device tags.&#x20;
+
+## Step 5: Send Batch Data
+
+**To send the batch data:**
+
+1. Click the **inject&#x20;**&#x62;utton. This sends the data to all the tags configured in the inject node simultaneously. For this use case, the inject node sends the values 11, 22, and 33 to the three device tags.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9hY_bkZ_RBmCL8J0Igo5i_batch-write-inject-button.png" size="80" width="1564" height="427" caption="The inject node button" position="center" showCaption="true"></Image>
+2. Wait up to 10 seconds for the next debug message. The three values display based on the **Address&#x20;**&#x61;nd **value&#x20;**&#x70;arameters you configured previously.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5fUCh4bpouOO4c-SQosx3_batch-write-messages.png" size="80" width="1920" height="937" caption="The batch write messages" position="center" showCaption="true"></Image>
+

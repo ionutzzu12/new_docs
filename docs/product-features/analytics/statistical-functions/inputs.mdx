@@ -1,0 +1,74 @@
+---
+title: Inputs
+slug: inputs
+docTags: 
+createdAt: Tue Aug 06 2024 22:07:00 GMT+0300 (Eastern European Summer Time)
+---
+
+The multiple **Input&#x20;**&#x70;rocessors help you calculate the statistical properties of the data from the PLC machines.
+
+# Inputs Overview
+
+Use one of the following processors for your inputs:
+
+- **Inputs Average&#xA0;**&#x67;ives you the average of the inputs values in the Flow.
+- **Inputs Maximum&#xA0;**&#x67;ives you the maximum value between the inputs in the Flow.
+- **Inputs Minimum&#xA0;**&#x67;ives you the minimum value between the inputs in the Flow.
+- **Inputs Sum&#xA0;**&#x61;dds all the inputs values in the Flow.
+
+The following information describes these processors:
+
+- For **Field Name**, you can enter the field name for which you want to apply the function. The field name must be available in all the inputs. For example, **value&#xA0;**&#x6F;r **downtime**.
+- For **Processing Type**, you can select from **float**, **signed&#xA0;**(signed integer) or **unsigned&#xA0;**(unsigned integer).
+- Connect the inputs to the function using the **values&#xA0;**&#x63;onnection. The values connection acts as a time synchronizer.
+- Connect the function to the output using the **events&#xA0;**&#x63;onnection.
+
+# Inputs Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Processing Type
+    </td>
+    <td>
+      Data type of the value being processed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Field Name
+    </td>
+    <td>
+      Usually left unchanged. Use it if incoming is message type, and/or non-default "value" field name.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Pass Through Value
+    </td>
+    <td>
+      The Pass Through Value parameter enables you to specify how anomalous data should be handled.&#x20;
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tDZwpF9hq1lu7yegQqHtw_image.png" size="80" width="960" height="540" caption="Inputs Average parameters" position="center" showCaption="true"></Image>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/h3bGwCjMlIrF6MbNdmCl2_image.png" size="80" width="960" height="540" caption="Inputs Maximum parameters" position="center" showCaption="true"></Image>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/mKEPM_tobX0l6pqUxyytE_image.png" size="80" width="960" height="540" caption="Inputs Maximum parameters" position="center" showCaption="true"></Image>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/yUyRQ-FLVXxEtsCVUyVlx_image.png" size="80" width="960" height="540" caption="Inputs Sum parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Inputs&#x20;*&#x70;rocessor, refer the [Use the Inputs Processor Function](../../../how-to-guides/analytics-guides/inputs-processor-function.mdx) guide for more details.
+</hint>
+

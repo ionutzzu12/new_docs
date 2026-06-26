@@ -1,0 +1,48 @@
+---
+title: Limitations 4.0.4
+slug: limitations-404
+docTags: 
+createdAt: Fri Nov 28 2025 18:33:01 GMT+0200 (Eastern European Standard Time)
+---
+
+The following limitations have been identified. When they are resolved, they will be reported in the latest :Link[Product Updates]{label="Product Updates" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="RGohkxkYN_PAMu2kgYFZK" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} under *Resolved Issues*.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="606">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - The first flow created in Flows Manager cannot be stopped or restarted in Safe Mode.
+      - Analytics wire connection types default to events for processors that support both types, when uploading a template or after an upgrade.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - When a container crashes with an exit code 1, a container.deleted event is generated even though the container is visible and hasn't been deleted.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integrations:**
+      - Updating the **Bulk Insert Count** from `0` to any other value causes connectors to enter a failed state.
+      - A `bulk operation limit of 1000 exceeded` error message displays when performing a bulk edit on less than 100 subscriptions.
+      - Results are not returned when filtering by a large number of inbound subscriptions for a connector.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System****:**
+      - Updates to user role permissions are not persisted even though a confirmation message indicates that changes were applied.
+      - When adding a static route, duplicate routes are generated.
+      - Importing a template with multiple connectors failed when a configuration issue occurred with one component.
+      - In some case, a `Failed to check firmware upgrade status. Max retry attempts exceeded error` displays in Litmus Edge Manager after upgrading a Litmus Edge device even though the device is upgraded successfully.
+      - Litmus Edge may closed unexpectedly if you delete all analytics groups in the system and then attempt to create new processors.
+    </td>
+  </tr>
+</table>
+

@@ -1,0 +1,132 @@
+---
+title: Use the OPC UA Client Advanced driver for OPC UA Alarms & Events
+slug: use-the-opc-ua-client-advanced-driver-for-opc-ua-alarms-and-events
+docTags: 
+createdAt: Wed Feb 05 2025 18:37:26 GMT+0200 (Eastern European Standard Time)
+---
+
+<hint type="info">
+  **Note:&#x20;**&#x54;his feature is available from Litmus Edge *3.16.2&#x20;*&#x72;elease.
+</hint>
+
+You can use the OPC UA Client Advanced driver in Litmus Edge to browse, integrate, and manage OPC UA Alarms & Events (A\&E).&#x20;
+
+These events are imported as tags within your device configuration and can be customized to include specific event properties. This includes attributes such as **EventType**, **Message**, **Severity**, **ReceiveTime**, **EventId**, **SourceName**, **SourceNode**, and more.
+
+# **Before You Start**
+
+Make sure you meet the following prerequisites before configuring your device:
+
+- A stable network connection between your Litmus Edge device and the OPC UA server to send alarms and events data.
+- Your OPC UA login details, including authentication tokens or certificates.
+
+# Use the OPC UA Client Advanced for OPC UA Alarms & Events
+
+Follow the steps below to add an *OPC UA Client Advanced* device, browse event tags, and view the event data using the *Analytics DataHub Subscribe&#x20;*&#x66;unction node.
+
+# Step 1: **Add OPC UA Client Advanced Device to DeviceHub**
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Devices**.
+2. Click the **Connect a Device** box.
+   The *Connect Device&#x20;*&#x64;ialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/atJL37pPuLGI2bM_w2ibz_adddevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" showCaption="true"></Image>
+3. In the **Driver Name** drop-down list, select **OPC UA&#x20;**> **OPC UA Client Advanced**.
+4. Configure the parameters for the device.&#x20;
+   See [Connect a Device](../../product-features/devicehub/devices/connect-a-device.mdx) and [OPC UA](../../quickstart-guide/industrial-systems-connection-guide/opc-ua.mdx) or [OPC UA Client Advanced](../../quickstart-guide/industrial-systems-connection-guide/opc-ua/opc-ua-client-advanced.mdx) to learn more.
+
+# **Step 2: Set Up the OPC UA Client Advanced Browse Tags**
+
+1. In **DeviceHub**, click on the *OPC UA Client Advanced* device you just added.
+2. Navigate to *Tags&#x20;*&#x73;ection and click the **Add Tag (+)** icon.&#x20;
+   - Select **Browse Tags&#x20;**&#x74;o open the *Browse Parameters&#x20;*&#x64;ialog box.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/miYXM0FZlgc98u4v0KA3L_image.png" size="80" width="1872" height="717" position="center" caption="Tags section" showCaption="true"></Image>
+3. Choose between two options for *Browse Mode*:
+   - **Data Access:** For accessing real-time data variables.
+   - **Events:** To monitor alarms and conditions. For this guide, select **Events**.
+   - Click **Apply parameters** to open the OPC UA server’s tag tree for exploration.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2uxLXW4RBr7lBVuf5rjd0_image.png" size="50" width="502" height="277" position="center" caption="Browse Parameters dialog box" showCaption="true"></Image>
+4. Expand the tag tree to find the events you want to track (e.g., *Alarms & Conditions*).
+5. Select the desired alarms/events from the tree structure and click **Add&#x20;**&#x74;o include them as tags.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/By8as4m5hHn71JzAerCxL_image.png" size="70" width="1223" height="687" position="center" showCaption="false"></Image>
+
+<hint type="info">
+  ## **Important Note**
+
+  Understanding the significance of the *Namespace Index&#x20;*&#x76;alues linked to *Event Properties* is crucial when adding an OPC UA A\&E tag in Litmus Edge. The *Namespace Index&#x20;*&#x69;s mandatory for the unique identification of the event property within the OPC UA server's address space. Every OPC UA event property is distinctly identified by both its *Name&#x20;*&#x61;nd *Namespace Index*.
+
+  ### **Finding the Namespace Index**&#xD;
+
+  To determine the correct *Namespace Index&#x20;*&#x66;or a specific event property beyond the default set, you may need to use an OPC UA client tool, such as *UaExpert*, to inspect the details of the events available from your OPC UA server. These tools typically display the *Namespace Index&#x20;*&#x61;ssociated with each property.
+
+  When you select an OPC UA A\&E tag, a standard set of event properties (such as *EventId*, *EventType*, *SourceNode*, *SourceName*, and *Time*) will be added by default to the tag configuration. These are defined by the OPC UA A\&E specification.
+
+  ### Namespace Index Ordering Behavior
+
+  For nested and non-nested OPC UA event properties, the order of *Namespace Index* values affects Litmus Edge's responses. See [Manage Tags](../../product-features/devicehub/tags/manage-tags.mdx) for more details.
+
+  <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/lzhbMFcgdZxfBn_CbrsAP_image.png" size="80" width="1254" height="763" position="center" caption="Edit Tag Dialog Box" showCaption="true"></Image>
+</hint>
+
+# Step 3: **Modify Event Properties in Edit Tag Dialog Box**
+
+To add or customize event properties beyond this default set, click the **Add Item** button within the *Edit Tag* dialog box.&#x20;
+
+This will allow you to enter the **Namespace Index** and the **Event Property name** of the additional property you wish to include in the tag's payload.
+
+
+
+<hint type="success">
+  **Key Points:&#x20;**
+
+  - Enter the correct *Namespace Index&#x20;*&#x76;alue obtained from your OPC UA server information (potentially via a tool like *UaExpert*), and the precise name of the event property. Incorrect values will lead to incorrect or missing data.
+  - The OPC UA A\&E model defines a hierarchy of event types and their properties. Litmus Edge offers a standard set of commonly used properties, but not all OPC UA specification or custom extension event properties are shown in the **Edit Tag&#x20;**&#x76;iew initially. This design prioritizes relevant information.&#x20;
+  - However, using the **Add Item** function and specifying the *Namespace Index&#x20;*&#x61;nd *Event Property name&#x20;*&#x61;llows you to access and include additional properties in your data.
+  - While adding the **nested&#x20;**&#x61;nd **non**-**nested&#x20;**&#x65;vent properties, the ascending *Namespace Index* ordering is important as an incorrect sequence may lead to unresolved or missing nested data.
+</hint>
+
+**To add a custom event property:**
+
+1. To add a custom event property which, upon inspection in your OPC UA client tool, has a *Namespace Index* of **1**.
+2. In the *Edit Tag&#x20;*&#x64;ialog box, click the **Add Item** button.
+3. In the *Namespace Index* field, enter **1**.
+4. In the *Event Property name* field, enter a suitable name.
+5. Click **Update Tag** to save your changes.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/hUfeKglfYaDRpfGKf2xhg_image.png" size="70" width="1264" height="624" position="center" showCaption="false"></Image>
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the **Start&#x20;**&#x69;con in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/f1R1uGsmKgZ1BZc7Lx38P_image.png" size="50" width="379" height="327" position="center" caption="OPC UA Client Advanced  connector tile " showCaption="true"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="BEQQ0sSzwsv9v9rIF3rhk" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../product-features/integration/manage-connectors.mdx"} and relevant error messages.&#x20;
+
+# Step 4: **Copy the Raw Topic**
+
+1. Click the *OPC UA Client Advanced&#x20;*&#x63;onnector tile.&#x20;
+2. Navigate to *Tags&#x20;*&#x73;ection and click the **OPC UA** device in the side menu.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/YtlGvWj49va5sLtqWaCN4_image.png" size="80" width="1817" height="553" position="center" caption="Tags section" showCaption="true"></Image>
+3. Find the *Raw Topic* field in the tag details and click the **Copy&#x20;**&#x62;utton to copy the topic.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/lz7548_oC9j-ZFnsivI_P_image.png" size="80" width="1426" height="272" position="center" caption="Tags section" showCaption="true"></Image>
+4. Save this topic somewhere safe. You'll need it to configure the *Analytics&#x20;*&#x6E;ode later.
+
+# **Step 5: Use Analytics to Verify the Data Transfer**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the *Topic&#x20;*&#x66;ield, paste the **Raw Topic&#x20;**&#x79;ou copied earlier from *Step 4*.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png" size="80" width="1142" height="604" position="center" caption="Create a Processor dialog box" showCaption="true"></Image>
+5. Click **Save**.
+6. On the analytics canvas, click **Save**.
+   The configured analytics flows should look like the following:
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/5xY5eney18jzo4WAS-IQM_image.png" size="80" width="1180" height="202" position="center" caption="Completed Flows Canvas" showCaption="true"></Image>
+7. Click the **View&#x20;**&#x69;con in the *DataHub Subscribe&#x20;*&#x70;rocessor to view the event data.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/KriqP_3kuL3avYrFmZk8e_image.png" size="80" width="1607" height="756" position="center" showCaption="false"></Image>
+
+Monitor the real-time event data published to the Litmus Edge message broker, which includes key-value fields such as `EventId`, `EventType`, `Message`, `ReceiveTime`, and `Severity`.
+

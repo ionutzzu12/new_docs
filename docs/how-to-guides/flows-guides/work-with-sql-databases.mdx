@@ -1,0 +1,127 @@
+---
+title: Work with SQL Databases
+slug: how-to-guides/flows-guides/work-with-sql-databases
+description: You can create flows to connect with SQL databases. This how-to guide shows how to set up and use MySQL through the Applications Marketplace. 
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:25 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use flows to make a connection with SQL databases.&#x20;
+
+# Step 1: Install MySQL in Litmus Edge
+
+**To install MySQL in Litmus Edge:**
+
+1. Navigate to **Applications&#x20;**> **Marketplace**.
+2. Click **Marketplace List&#x20;**&#x61;nd select **Default Marketplace Catalog**.&#x20;
+3. Click the **MySQL** tile.
+   The *MySQL configuration&#x20;*&#x64;ialog box opens.&#x20;
+   - **Installation script version:&#x20;**&#x46;rom the drop-down list, select **latest**.&#x20;
+   - **Name:** Enter a name for the application.
+   - Leave the other fields with their default values.&#x20;
+4. Click **Launch**.&#x20;
+5. Navigate to **Applications&#x20;**> **Catalog Apps&#x20;**&#x74;o ensure the application is running successfully.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ps6YZzvgb4j3IDg0zcZvC_image.png "Running MySQL application")
+
+If you have any issues installing MySQL, do the following:
+
+- Check **System** > **Info** to make sure that you have enough space on your edge device.
+- Make sure that you do not have any network connectivity issues.
+- Navigate to **Applications&#x20;**> **Catalog Apps&#x20;**&#x61;nd click the **MySQL&#x20;**&#x61;pplication tile to view the logs. Review any errors.&#x20;
+- If you get the MySQL error message `Error: Too many connections` , refer to :Link[MySQL Error Message: Too Many Connections]{label="MySQL Error Message: Too Many Connections" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="yPixfjFn7sfUIs_j7JXdt" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+# Step 2: Create Flow
+
+**To create the flow:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow. See [Create a Flow](../../product-features/flows-manager/create-a-flow.mdx) to learn more.&#x20;
+2. On the Flow canvas, drag and connect an **Inject** node, a **Template** node, a **MySQL** node, and a **Debug** node.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RL1A0jk0jCy6xc3Pc705G_flow-21.png" size="80" width="600" height="150" position="center" caption="Flows canvas with MySQL nodes connection" showCaption="true"></Image>
+
+## Configure MySQL Node
+
+You need to configure a database connection for the MySQL node.&#x20;
+
+**To configure the MySQL node:&#x20;**
+
+1. Double-click the **MySQL&#x20;**&#x6E;ode.
+   The *Edit mysql node* dialog box opens.
+2. In the **Database&#x20;**&#x66;ield, click the **Edit&#x20;**&#x69;con.&#x20;
+3. Configure the properties for the node.&#x20;
+   - **Host**: Enter the IP address for your SQL server. It is **127.0.0.1** if your MySQL instance is running on the same device as Litmus Edge.
+   - **Port**: If needed, update the default port value **3306**.&#x20;
+   - **User**: Enter the user value from the MySQL application configuration. The default value is **user**.
+   - **Password**: Enter the password value from the MySQL application configuration. The default value is `loopedge-s3cr3t!`.
+   - **Database**: Enter the database value from the MySQL application configuration. The default value is **sample**.
+   - If needed, configure the remaining parameters. &#x20;
+4. Click **Add**, and then **Done**.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/BXNAYwWR86mgjG2i5FX6V_image.png" size="50" width="570" height="913" position="center" caption="Edit mysql node dialog box" showCaption="true"></Image>
+
+## Configure Template Node
+
+**To configure the Template node:**
+
+1. Double-click the **Template&#x20;**&#x6E;ode.
+   The *Edit template node* dialog box opens.&#x20;
+   - **Property: &#x20;**&#x53;elect `msg.` and enter **topic**.&#x20;
+   - **Template:&#x20;**&#x45;nter below **query&#x20;**&#x69;nto the form.
+     `CREATE TABLE Example (`
+     `    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,`
+     `    name VARCHAR(255)`
+     `);`
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6bmoP0A5i920y148XHNRX_edit-template-node1.png" size="80" width="600" height="350" position="center" caption="Edit template node dialog box" showCaption="true"></Image>
+2. Click **Done**, and then **Deploy**.&#x20;
+
+## Review Flow Payload
+
+**To review the flow payload:**
+
+1. Expand the message window beneath the flow and click the **Debug&#x20;**&#x69;con.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/wI_bbReMPplhSo_AuY11c_image.png "Flows canvas debug section")
+2. Click the **Inject Node** button to run queries after writing them.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Z2IuIkT-ueFYEUYj2xY_3_debug-message17.png" size="80" width="900" height="149" position="center" caption="The output result for mysql query" showCaption="true"></Image>
+
+# Example Queries
+
+Review the following example queries.&#x20;
+
+## Create a Table
+
+```mysql
+CREATE TABLE Example (
+
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+name VARCHAR(255)
+
+);
+```
+
+## Insert Values
+
+```mysql
+INSERT INTO Example (name)
+
+VALUES ("Jane"),("John"),("Chris");
+```
+
+## Read the Inserted Values
+
+```mysql
+SELECT * FROM Example;
+```
+
+## Update Inserted Values
+
+```mysql
+UPDATE Example
+SET name = "Christine"
+WHERE name = "Chris";
+```
+
+## Delete Values
+
+```mysql
+DELETE FROM Example WHERE name = "Christine";
+```
+

@@ -1,0 +1,76 @@
+---
+title: Use the Signal Decomposition Function
+slug: how-to-guides/analytics-guides/signal-decomposition-function
+description: Learn how to use the Signal Decomposition function in Analytics. 
+docTags: 
+createdAt: Fri Mar 01 2024 22:42:42 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use the Signal Decomposition function to extract and separate signal components from composite signals, which are related to semantic units.&#x20;
+
+This function decomposes signals by computing trends through linear regression and seasonality through naive differencing.
+
+# User Scenario
+
+Review the following scenario for the Signal Decomposition function. Then, you will simulate PLC data and calculate the trend in the data.
+
+In a wind farm, the Signal Decomposition function is utilized to analyze the output from turbines. It helps to separate the consistent patterns due to seasonal wind changes from the overall trends in turbine performance. This information is crucial for scheduling maintenance during expected low-wind periods and optimizing energy production throughout the year.
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](../../product-features/devicehub/devices/connect-a-device.mdx) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: input1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **1**
+- **Tag Name**: Enter **input1**
+- **Min\_value**: Enter **101**
+- **Max\_value**: Enter **199**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Signal Decomposition Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **input1&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select th&#x65;**&#xA0;Signal Decomposition&#x20;**&#x70;rocessor.
+   The *Edit a Processor* dialog box appears.
+   - **Window Size:** Enter a value that represents the range to apply the signal decomposition function. For this example, we input a value of **10**.
+   - **Model Type:** Select between **additive&#xA0;**&#x61;nd **multiplicative.**
+     - **Additive model:** Signal = Trend + Seasonality + Residue
+     - **Multiplicative model:** Signal = Trend \* Seasonality \* Residue
+   - **Periodicity**: Enter a value to determine how frequently the observations are spaced in time. For this example, we input a value of **5**.
+   - Click **Save**.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZVoO-IVdhIMaWEh_zMqnY_image.png "Edit a Processor dialog box")
+7. Connect the *DataHub Subscribe* processor (tag: *input1*) to the *Signal Decomposition&#x20;*&#x70;rocessor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+   The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/jvRfgNhcYYeMG43pBXeVi_image.png "Completed Flows Canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Signal Decomposition&#x20;*&#x70;rocessor to view the output values.
+
+The output shows the data with the trend removed at **166.05**, a seasonal component of **131.78**, and a positive trend in the data at **26.16**. ​
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/sj9W45UraN1I9SOtGSrca_image.png "Output of Signal Decomposition processor")
+

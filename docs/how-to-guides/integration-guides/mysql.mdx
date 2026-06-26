@@ -1,0 +1,142 @@
+---
+title: MySQL Integration Guide
+slug: how-to-guides/integration-guides/mysql
+description: Learn how to set up the MySQL connector. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:28:37 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and a MySQL database.&#x20;
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/aWjUEaNorqw?si=WDvEyuX-Ph4bdtz7&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# User Scenario
+
+In this guide you will deploy a MySQL database container from Litmus Edge and then integrate with the database using the DB-MySQL connector. For your specific scenario you may use an external MySQL database to set up the integration.&#x20;
+
+If using a database not deployed through Litmus Edge, you can use the following supported versions:
+
+- MySQL (4.1+)
+- MariaDB&#x20;
+- Percona Server
+- Google CloudSQL
+- Sphinx (2.2.3+)
+
+For external MySQL databases, refer to the following to learn more:
+
+- :Link[MySQL Docker Image]{href="https://hub.docker.com/_/mysql" newTab="true" hasDisabledNofollow="false"}
+- :Link[MySQL Documentation]{href="https://dev.mysql.com/doc/" newTab="true" hasDisabledNofollow="false"}
+
+# Step 1: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add MySQL Marketplace Application
+
+<hint type="info">
+  **Note**: The version used in this guide for MySQL version is 8.0. See the :Link[MySQL 8.0 Reference Manual]{href="https://dev.mysql.com/doc/refman/8.0/en/" newTab="true"} for more information.&#x20;
+</hint>
+
+**To add the MySQL Marketplace Application:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**> **Marketplace**.
+2. Click **Marketplace List** and select **Default Marketplace Catalog**.
+3. Click the **MySQL** application tile.&#x20;
+4. From the **Installation script version** drop-down list, select **latest**.&#x20;
+5. Configure the following parameters.
+   - **Name**: Enter **MySQL**.&#x20;
+   - **Database**: Enter **sample**.&#x20;
+   - **User**: Enter **user**.&#x20;
+   - **Password**: Enter the user password.&#x20;
+   - **MySQL password**: Enter the same value as the *Password&#x20;*&#x70;arameter.&#x20;
+6. Click **Launch**.&#x20;
+7. Navigate to **Applications&#x20;**> **Catalog Apps**.&#x20;
+   The MySQL application appears, pulls the image, and then starts the application. The MySQL application shows as running.
+8. Navigate to **Applications&#x20;**> **Containers**.&#x20;
+   The MySQL application Container is running.
+9. Copy the IP address for the MySQL application.
+
+# Step 4: Add the DB - MySQL Connector
+
+Follow the steps to :Link[Add a Connector]{docId="ytsWGWeU6H6oEUnHj5hW3" label="Add a Connector" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} and select the **DB - MySQL&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Paste the IP address you copied in Step 3. &#x20;
+- **Port**: The MySQL Server port. The default value is **3306**.&#x20;
+- **Username**: Enter **user**.&#x20;
+- **Password&#x20;**(Optional): Enter the user password.&#x20;
+- **Database**: Enter **sample**.&#x20;
+- **Table**: Enter **test\_table**. If you are sending data to an existing table, use the corresponding name.&#x20;
+- **Show Mapping**: If you want to send data to a custom table, select this check box and unselect *Create table*. See :Link[Work with Tables in SQL Connectors (Create Table and Show Mapping)]{docId="YCgpMZEdeEwIO4MeS3mto" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. To add key/value pairs for the custom table, see :Link[Configure Key/Value Pairs]{docId="YCgpMZEdeEwIO4MeS3mto" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#configure-keyvalue-pairs" loadingMethod="dynamic" overridedLabel="Configure Key/Value Pairs"}.&#x20;
+- **Create table**: If you want to send data to an existing table in the default format, or you want to create a new table in the default format, select this checkbox and unselect *Show Mapping*. See :Link[Work with Tables in SQL Connectors (Create Table and Show Mapping)]{docId="YCgpMZEdeEwIO4MeS3mto" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+- **Commit timeout**: Enter the transaction commit timeout in (ms).
+- **Max transaction size**: Enter the maximum number of messages before a transaction is committed, regardless of timeout parameter.&#x20;
+- **Bulk insert count**: To enable this option, enter the number of messages to group together and send as one bulk insert statement. Enabling this option can improve how quickly data is processed when dealing with high volumes of tags.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/UCTN6TwDoDpYB_nliMqgK_mysql.png" size="60" width="388" height="358" position="flex-start" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="BEQQ0sSzwsv9v9rIF3rhk" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs"} and relevant error messages.&#x20;
+
+# Step 6: Create Topics for Connector
+
+You will now need to import the tags created in Step 2 as topics for the MySQL connector. The topics will be created as outbound topics.&#x20;
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 7: Enable Topics
+
+To enable the topics, return to the *Topics* tab and click the **Enable all topics** icon.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Iq7BWYqGWueu4US73iBl3_image.png" size="80" width="1220" height="330" position="flex-start" caption="Enable all topics icon" showCaption="true"></Image>
+
+# Step 8: Make MySQL Queries
+
+You can now verify that you can view data through the terminal command window.&#x20;
+
+Update the credentials, database name, and table name to your own specific configurations.&#x20;
+
+**To make queries in the container terminal:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**>**&#x20;Containers**.
+2. Click the **Terminal&#xA0;**&#x69;con next to the MySQL container.
+   The MySQL shell opens.
+3. From the MySQL container terminal, enter `mysql -u user -p` and press **ENTER**.
+   *Enter password:&#xA0;*&#x61;ppears.
+4. Enter your user password, and then press **ENTER**.
+   *Welcome to the MySQL monitor&#xA0;*&#x61;ppears.
+5. Enter `show databases;`**,&#x20;**&#x61;nd then press **ENTER**.
+   The database name appears.
+6. Enter `use sample;`, and then press **ENTER**.
+   *Reading table information for completion of table and column names&#xA0;*&#x61;ppears in the console.
+7. Enter `show tables;`, and then press **ENTER**.
+   The table names for *sample&#x20;*&#x61;ppear.
+
+8. Enter `select * from test_table;` (or the table name you configured in Step 4), and press **ENTER**.
+   Data appears from the imported tags for the connector.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8ySxZhLyQ3WRBEtWPRdq2_applications-mysql-terminal-data.png" size="80" width="1619" height="744" position="flex-start" caption="MySQL connection messages" showCaption="true"></Image>
+

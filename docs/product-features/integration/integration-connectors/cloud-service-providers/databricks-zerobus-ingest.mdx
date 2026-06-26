@@ -1,0 +1,211 @@
+---
+title: Databricks Zerobus Ingest
+slug: databricks-zerobus-ingest
+docTags: 
+createdAt: Fri Apr 17 2026 22:06:07 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note:** This feature is available starting with Litmus Edge 4.1.x.
+</hint>
+
+Databricks integration enables Edge System to connect with Databricks via Zerobus Ingest. For more information, see the [Databricks Zerobus Ingest Integration Guide](../../../../how-to-guides/integration-guides/databricks-integration/databricks-zerobus-ingest-integration-guide.mdx).
+
+## Supported Communication
+
+- Outbound (Write from Edge to Databricks): Yes
+- Inbound (Read from Databricks to Edge): No
+
+## Connector Configuration
+
+<table isTableHeaderOn="true" columnWidths="199,159,404.2666666666667,116.98487115544474,118.74846217788854" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Field**
+    </td>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+    <td align="left">
+      **Required**
+    </td>
+    <td align="left">
+      **Default**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      User defined name of connector instance
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Workspace URL
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Databricks workspace URL (for example, [https://abcd-teste2testspcse2.cloud.databricks.com](https://abcd-teste2testspcse2.cloud.databricks.com))
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Zerobus Server URL
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Databricks Zerobus Server URL
+      AWS format: `.zerobus..cloud.databricks.com` Azure format: `.zerobus..azuredatabricks.net`
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Client ID
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      OAuth client ID to authenticate with Databricks
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Client Secret
+    </td>
+    <td align="left">
+      String (Secret)
+    </td>
+    <td align="left">
+      OAuth client secret to authenticate with Databricks
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Catalog
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Databricks Catalog name
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Schema
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Databricks Schema name
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Default Table
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Default table name to publish data
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Record Type
+    </td>
+    <td align="left">
+      Dropdown
+    </td>
+    <td align="left">
+      Data record format: JSON
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      JSON
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Batch Ingest
+    </td>
+    <td align="left">
+      Integer
+    </td>
+    <td align="left">
+      Set to `1` to use single ingest and `>1` for batch ingest
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      1
+    </td>
+  </tr>
+</table>
+

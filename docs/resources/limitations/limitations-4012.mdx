@@ -1,0 +1,52 @@
+---
+title: Limitations 4.0.12
+slug: limitations-4012
+docTags: 
+createdAt: Mon Jun 15 2026 22:46:23 GMT+0300 (Eastern European Summer Time)
+---
+
+The following limitations have been identified. When they are resolved, they will be reported in the latest :Link[Product Updates]{label="Product Updates" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="RGohkxkYN_PAMu2kgYFZK" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} under *Resolved Issues*.&#x20;
+
+<table columnWidths="648" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - FileReader processor is unable to read files that are generated from Flows Manager. As a workaround, in Flows use the exec node to run `chmod` commands to update file and directory access.
+      - The first flow created in Flows Manager cannot be stopped or restarted in Safe Mode.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - When a non-privileged user attempts to launch a privileged application, a `failed to create an application,undefined` error message incorrectly displays instead of `Failed to create an application. rejected by administrative policy: privileged and some directories require additional permission`.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Integration:**
+      - Updating the **Bulk Insert Count** from `0` to any other value causes connectors to enter a failed state.
+      - A `bulk operation limit of 1000 exceeded` error message displays when performing a bulk edit on less than 100 subscriptions.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System:**
+      - After a system reset of an `.iso` deployment, certain services (such as DeviceHub API, Analytics API, and Message Broker) fail to initialize and remain in a failed state regardless of subsequent reboots.
+      - LDAP searches can return an excessive number of records resulting in a `Size Limit Exceeded` error.
+      - When the system generates a high volume of events from a single database file, the UI may become unresponsive in **System** > **Events**. Additionally, CSV files may not generate and download. As a workaround, use APIs to query events.
+      - Importing a template with multiple connectors fails when a configuration issue occurred with one component.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **High Availability:**
+      - Changes in **Network** > **Interfaces** are not reflected on the backup node.
+    </td>
+  </tr>
+</table>
+

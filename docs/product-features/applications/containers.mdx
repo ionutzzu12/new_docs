@@ -1,0 +1,43 @@
+---
+title: Containers
+slug: product-features/applications/containers
+description: Use the Containers pane to manage Docker containers for deployed applications in your marketplace catalogs. 
+docTags: 
+createdAt: Fri May 13 2022 22:02:10 GMT+0300 (Eastern European Summer Time)
+---
+
+Manage Docker containers for all applications on the **Applications** > **Containers** page. Each installed application runs at least one container and can run multiple containers depending on the configuration.
+
+When you install an application from a marketplace, its containers display here. You can also deploy a custom container using a Docker run command. See [Overview of 'docker run'](containers/overview-of-docker-run.mdx) to learn more about `docker run` commands.
+
+<hint type="info">
+  You can use the `ModifyPrivileged` privilege to control which users can launch containers in privileged mode. This lets you grant specific rights without granting full system access. For details, see the Marketplace role in :Link[Role Permissions]{label="Role Permissions" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="AOcSGbhJTzK7vFNuSYnoe" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+</hint>
+
+All containers run on the Docker Engine located on the Litmus Edge instance. If the instance becomes unavailable, so will all running containers. Each container's state is color-coded:
+
+- A running container displays green
+- A paused container displays orange
+- An exited container displays black
+
+<hint type="info">
+  **Note:** The **Run&#x20;**&#x62;utton in **Containers** pane can only be used for `docker run` commands. Other commands, including any other `docker` commands, cannot be used.&#x20;
+</hint>
+
+# Access Applications Containers UI
+
+**To access the Applications Containers pane:&#x20;**
+
+1. Log in to Litmus Edge.
+2. From the Navigation panel, select **Applications**.
+   The *Dashboard&#x20;*&#x70;ane appears.
+3. Click **Containers**.&#x20;
+   The *Containers&#x20;*&#x70;ane appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/5ovyf-vgWf-HQ9zbW_wCn_image.png" size="80" width="1207" height="438" position="flex-start" caption="The Applications Containers pane" showCaption="true" indent="2"></Image>
+
+# Next Steps
+
+- [Manage Containers](containers/manage-containers.mdx)
+- [Overview of 'docker run'](containers/overview-of-docker-run.mdx)
+

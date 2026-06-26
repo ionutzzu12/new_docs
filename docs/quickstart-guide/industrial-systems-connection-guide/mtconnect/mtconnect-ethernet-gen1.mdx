@@ -1,0 +1,107 @@
+---
+title: MTConnect Ethernet (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/mtconnect/mtconnect-ethernet-gen1
+description: Review the following information for setting up and configuring the MTConnect Ethernet (Gen1)  driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the MTConnect Ethernet (Gen1.3)&#x20;driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="236,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Devices that support the :Link[MTConnect]{href="https://www.mtconnect.org/" newTab="true"} standard
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure your device for Ethernet access.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="170,616" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      MTConnect Ethernet    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      MTConnect Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      47808
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+When you :Link[Add a Tag]{docId="XgWOkQbTPevII7OR82LL0" label="Add a Tag" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, select the name **R** and value type **raw**, and then configure the remaining parameters.&#x20;
+
+You can also browse for tags to add to this device. See :Link[Browse Tags]{docId="akkXnVv6EdVzAZ40SHbWM" label="Browse Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+<ContentSnippet docRefId="61oHVyM4yrSlma79kfjlz">
+
+</ContentSnippet>
+

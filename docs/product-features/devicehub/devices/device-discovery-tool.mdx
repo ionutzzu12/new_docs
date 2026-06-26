@@ -1,0 +1,27 @@
+---
+title: Asset Discovery Tool
+slug: product-features/devicehub/devices/device-discovery-tool
+description: When you use Device Discovery when configuring a device, it searches for devices on the network that are specific to the device protocol and respective driver. 
+docTags: 
+createdAt: Tue Dec 20 2022 16:01:32 GMT+0200 (Eastern European Standard Time)
+---
+
+The Asset Discovery Tool is available during device configuration in DeviceHub. The tool scans specifically for devices that match the selected protocol and driver, and pre-fills connection parameters for any device you select. This reduces manual configuration when connecting a device.
+
+To search for any device on the network, use the :Link[Device Discovery (Network)]{docId="v4tNATJlih1UOzoZHCHFz" label="Device Discovery (Network)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Device Discovery (Network)"} feature. This feature is not specific to device protocols or devices.&#x20;
+
+# How It Works
+
+When connecting a device, if the selected driver supports Asset Discovery, a discovery option appears in the device configuration. The tool scans the network for devices matching that protocol and driver and returns a list of results. When you select a device from the list, its connection parameters are automatically populated in the configuration form.
+
+# Supported Protocols and Drivers
+
+Asset Discovery Tool is only available for the following device protocols and drivers:
+
+- **BACnet**: available for the [BacnetIP]() driver
+- **OPC UA**: only available for the [OPC UA Client Advanced]() driver
+
+# Considerations
+
+The Asset Discovery Tool is protocol-specific and only appears during device configuration when a supported driver is selected. To discover any device on the network regardless of protocol, use [Asset Discovery]() instead.
+

@@ -1,0 +1,176 @@
+---
+title: Snowflake Snowpipe Stream Connector
+slug: snowflake-snowpipe-stream-connector
+docTags: 
+createdAt: Thu May 07 2026 22:40:46 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note:** This feature is available starting with Litmus Edge 4.1.x.
+</hint>
+
+The Snowflake Snowpipe Stream connector allows you to connect Litmus Edge with Snowflake. For more information, see the [Snowflake Snowpipe Stream Integration Guide](../../../../how-to-guides/integration-guides/snowflake-snowpipe-stream-integration-guide.mdx).
+
+## Supported Communication
+
+- Outbound (Write from Edge to Snowflake): Yes
+- Inbound (Read from Snowflake to Edge): No
+
+## Connector Configuration
+
+<table isTableHeaderOn="true" columnWidths="200,105,464,87,85" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Field**
+    </td>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+    <td align="left">
+      **Required**
+    </td>
+    <td align="left">
+      **Default**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Account
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Snowflake account identifier (for example, xy12345.us-east-1)
+    </td>
+    <td align="left">
+      Yes
+      \-
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Username
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Snowflake username used for key-pair authentication
+    </td>
+    <td align="left">
+      Yes
+      \-
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Private Key
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      PEM-encoded RSA private key for JWT authentication with the Snowpipe REST API
+    </td>
+    <td align="left">
+      Yes
+      \-
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Private Key Passphrase
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Passphrase for the encrypted private key. Leave empty if the private key is not encrypted.
+    </td>
+    <td align="left">
+      No
+      \-
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Database
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Snowflake database name
+    </td>
+    <td align="left">
+      Yes
+      \-
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Schema
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Snowflake schema name
+    </td>
+    <td align="left">
+      Yes
+      \-
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Table Name
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Snowflake table name
+    </td>
+    <td align="left">
+      Yes
+      \-
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Request Timeout Sec
+    </td>
+    <td align="left">
+      Integer
+    </td>
+    <td align="left">
+      HTTP request timeout in seconds for Snowpipe REST API calls
+    </td>
+    <td align="left">
+      No
+      30
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+</table>
+

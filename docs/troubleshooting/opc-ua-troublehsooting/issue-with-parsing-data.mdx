@@ -1,0 +1,27 @@
+---
+title: Issues with Parsing Data
+slug: troubleshooting/opc-ua-troublehsooting/issue-with-parsing-data
+docTags: 
+createdAt: Fri Nov 24 2023 17:39:45 GMT+0200 (Eastern European Standard Time)
+---
+
+If you are trying to convert the data type of topics going through the OPC UA server and have issues with viewing the data (you see `null` values), keep in  mind the following:
+
+- The OPC UA server can't convert data types of topics
+- The OPC UA server will work with the original data types coming from the topic
+
+## Solution: Parse Data before Sending to OPC UA Server
+
+To resolve this issue, you will need to create a custom OPC UA tag by creating a JSON object and sending it to the appropriate topic.&#x20;
+
+Refer to the following to learn more:
+
+- :Link[Mozilla Developer Documentation - parseint()]{href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt" newTab="true" hasDisabledNofollow="false"}
+- [Data Type Mapping](../../LMrH-product-features/opc-ua-server/hierarchy/data-type-mapping.mdx)
+
+You can also review the following JSON file example that creates a flow to convert the data type of data before sending it to the OPC UA Server. See :Link[Manage the Flow Canvas]{label="Manage the Flow Canvas" spaceId docId="Fd9Bu5dD1Nbv3Xvy-0xxn" version="v2" docAnchorId="#import-nodes" loadingMethod="dynamic" overridedLabel href="../../product-features/flows-manager/manage-the-flow-canvas.mdx"} to learn more about importing JSON files.&#x20;
+
+<File src="https://archbee-doc-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AaE_5MAXQOAUXsb8LJCMX_parsing-datatypeexample.json" label="Parsing Data_Type_Example.json">
+
+</File>
+

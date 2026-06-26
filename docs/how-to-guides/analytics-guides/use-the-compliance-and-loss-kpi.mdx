@@ -1,0 +1,84 @@
+---
+title: Use the Compliance and Loss KPI
+slug: use-the-compliance-and-loss-kpi
+docTags: 
+createdAt: Tue Aug 06 2024 22:41:32 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Compliance and Loss&#x20;**&#x4B;PI mainly deals with manufactured units and defective units.
+
+For this KPI, two input definitions are required: `manufactureEnd` and `defectiveUnit`. These are event triggers, signifying the end of the manufacturing cycle and the discovery of a defective unit, respectively. When the input tag associated with the *defectiveUnit&#x20;*&#x67;oes from one value to another, it indicates that the unit was defective.
+
+The compliance rate is calculated by subtracting the number of defective units from the total manufactured units. The loss percentage is defined as the ratio of defective units to the total manufactured units.
+
+# User Scenario
+
+Review the following scenario for the compliance and loss KPI processor. Then, using an input processor, you will simulate PLC data and calculate the compliance rate and production loss.
+
+In a manufacturing setting, the Compliance and Loss KPI is essential for monitoring product quality. For instance, a production manager can use this KPI to identify manufacturing issues and ensure product quality. For example, if 40 out of 100 products are defective, it indicates a 40% production loss, prompting the need for process improvement to maintain high-quality standards.
+
+# **Step 1: Add a Device**
+
+Follow the steps to :Link[Connect a Device]{label="Connect a Device" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="pal6ABPZbrimdU9LvGJ30" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: manufacture**
+
+- **Name**: Select **S - Random value generator.**
+- **Value Type:** Select **float64.**
+- **Polling Interval**: Enter **1.**
+- **Tag Name**: Enter **manufacture.**
+
+## **Tag 2: defective**
+
+- **Name**: Select **S - Random value generator.**
+- **Value Type:** Select **float64.**
+- **Polling Interval**: Enter **1.**
+- **Tag Name**: Enter **defective.**
+
+# Step 3: Create Analytics Flow
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Compliance and Loss Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the *Topic* field, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for tag1: **manufacture**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png" size="80" width="1142" height="604" position="center" caption="Create a Processor dialog box" showCaption="true"></Image>
+5. Click **Save**.
+6. Repeat steps 2-5 to add another *DataHub Subscribe&#x20;*&#x70;rocessor for the **defective&#x20;**&#x74;ag.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/pKjlKpBb8jF3Sr6cJ6wWj_image.png" size="80" width="507" height="303" position="center" caption="Canvas flow with two DataHub Subscribe processor" showCaption="true"></Image>
+7. Click **Add processor** again and select the **Compliance and Loss&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Defective From & Defective To:&#x20;**&#x49;f your input changes *Defective From* value to *Defective To* value, it will trigger a defective unit.
+   - **Manufacture From & Manufacture To:&#x20;**&#x49;f your input changes *Manufacture From* value to *Manufacture To* value, it will trigger the end of the manufacturing cycle.
+   - **Time Interval:** If the tag publishes at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/kCGH6gAIsKRidhmhug0wS_image.png" size="80" width="756" height="768" position="center" caption="Edit a Processor dialog box" showCaption="true"></Image>
+8. Connect the *DataHub Subscribe* processor (tag: *manufacture*) to the *Compliance and Loss* processor with a wire. Use the **Events** connection and enter a definition of **manufactureEnd&#x20;**&#x66;or the connection.
+9. Repeat step 8 for tag: *defective&#x20;*&#x61;nd enter a definition of **defectiveUnit** for the connection.
+10. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/uiRp7PcuHVUL4yVM8Fv5y_image.png" size="80" width="757" height="332" position="center" caption="Completed Flow Canvas" showCaption="true"></Image>
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Compliance and Loss* processor to view the output values.
+
+The output displays the calculated compliance rate and production loss using data from the previously created device and tags.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/isX_OmLCjfVQEL1E3AE3j_image.png "Output of Compliance and Loss processor")
+

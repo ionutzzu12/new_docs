@@ -1,0 +1,634 @@
+---
+title: Mitsubishi FX5U-Ethernet ASCII (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/mitsubishi/mitsubishi-fx5u-ethernet-ascii-gen1
+description: Review the following information for setting up and configuring the Mitsubishi FX5U-Ethernet ASCII (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi FX5U-Ethernet ASCII (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="234,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[MELSEC iQ-F]{href="https://www.mitsubishielectric.com/fa/products/cnt/plcf/items/index.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Note**: Only one connection is allowed per port defined in the PLC. See the steps below to view and edit the open ports on the PLC.
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Mitsubishi FX5U Ethernet ASCII FX5U-32M
+   - **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/lTXYbKV5HwJLobE_-4nhQ_mitsubishi-fx5u-ethernet-binary-reference.png" size="80" width="955" height="588" position="flex-start" caption="Reference image of device" showCaption="true" indent="2"></Image>
+
+2. Launch GXWork3 V1.035M software, and then click **Online > Read from PLC**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Sw3n3iOUDE9NhWXoF5MjS_mitsubishi-fx5u-gx-online-read482x338.png" size="80" width="482" height="338" position="flex-start" caption="Read from PLC option" showCaption="true" indent="2"></Image>
+
+3. Select the series.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/VCGUFwGmsLbIgU9TSSMr9_mitsubishi-fx5u-ethernet-binary-series-select.png" size="70" width="323" height="111" position="flex-start" caption="Series Selection dialog box" showCaption="true" indent="2"></Image>
+
+4. Select the connection destination.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/6SBNb9RA0DbV-q7dU55w7_mitsubishi-fx5u-ethernet-binary-destination.png" size="80" width="820" height="429" position="flex-start" caption="Select Connection Destination dialog box" showCaption="true" indent="2"></Image>
+
+5. Double-click the PLC module icon, and click Find to browse the device on the network.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/MrFx2s2JWTYdvd5BZOph-_mitsubishi-fx5u-ethernet-binary-browse.png" size="80" width="1121" height="550" position="flex-start" caption="Network browse step" showCaption="true" indent="2"></Image>
+
+6. From the Navigation panel, click **Ethernet Port&#xA0;**&#x74;o set up communication parameters. Use **ASCII&#x20;**&#x66;or this device.&#x20;
+7. Double-click **External Device Configuration**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/z_GMbNgF_qKC9kS9laMs2_mitsubishi-fx5u-ethernet-binary-communication.png" size="80" width="1048" height="510" position="flex-start" caption="External Device Configuration option" showCaption="true" indent="2"></Image>
+
+8. Set up the connections. In this case, ports 4996 through 4999 are able to connect.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/SzbfndO0OvOkjsWGUqMu2_mitsubishi-fx5u-ethernet-binary-ports.png" size="80" width="975" height="185" position="flex-start" caption="Connection setup screen" showCaption="true" indent="2"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Mitsubishi
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Mitsubishi FX5U-Ethernet-ASCII (Gen1)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      5002
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      255
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="100,100,124,101,105,212" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Special Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Input Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      HHHH
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Output Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      Internal Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      L
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32237
+    </td>
+    <td align="left">
+      Latch Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      F
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32237
+    </td>
+    <td align="left">
+      Annunciator
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32237
+    </td>
+    <td align="left">
+      Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Timer Contact
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Timer Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter Contact
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CC
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter Coil
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SB
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32737
+    </td>
+    <td align="left">
+      Special Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Step Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Z
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      19
+    </td>
+    <td align="left">
+      Index Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SW
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Special Link Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Counter Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Retentive Timer Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TN
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Timer current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Link Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      File Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7999
+    </td>
+    <td align="left">
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      11999
+    </td>
+    <td align="left">
+      Special Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LZ
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      Long Index Register
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

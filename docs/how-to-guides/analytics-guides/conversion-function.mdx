@@ -1,0 +1,152 @@
+---
+title: Use the Conversion Function
+slug: how-to-guides/analytics-guides/conversion-function
+description: Learn how to use the Conversion statistical function in Analytics. 
+docTags: 
+createdAt: Thu Jun 15 2023 21:21:39 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the Conversion processor to convert commonly used units.
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/rpfDaY0DIL4?si=tVN9sfaIXSB1nrCA&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+You have the following base conversion options:
+
+- timestamp -> local time&#x20;
+- timestamp -> UTC&#x20;
+- Celsius -> Fahrenheit&#x20;
+- Fahrenheit -> Celsius&#x20;
+- degree -> radian&#x20;
+- radian -> degree&#x20;
+- degree -> gon&#x20;
+- gon -> degree&#x20;
+- radian -> gon&#x20;
+- gon -> radian
+
+# User Scenarios
+
+Review the following scenarios for converting several tag values. For these scenarios, you will simulate data coming from a PLC and make the following conversions.&#x20;
+
+## User Scenario 1
+
+You have multiple manufacturing sites across several time zones. For monitoring and analysis purposes, you'd like to synchronize your data based on time measurements for all sites.&#x20;
+
+You will then complete the following conversion:
+
+- timestamp -> UTC&#x20;
+
+## Use Scenario 2
+
+Some of your manufacturing equipment uses Fahrenheit for temperature control, while other equipment uses Celsius. This requires you to standardize the temperature measurements of all equipment for consistent and efficient process control.&#x20;
+
+You will then complete the following conversion:
+
+- Fahrenheit -> Celsius
+
+## Use Scenario 3
+
+Your manufacturing site has CNC machines, which use toolpaths defined in degrees. However, some trigonometric calculations and algorithms used in CNC programming require angular measurements to be in radians.&#x20;
+
+You will then complete the following conversion:
+
+- degree -> radian
+
+# Step 1: Add a Device
+
+Follow the steps to [Connect a Device](../../product-features/devicehub/devices/connect-a-device.mdx) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tags. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. Each tag will represent one of the user scenarios noted above.&#x20;
+
+## Tag 1 (User Scenario 1)
+
+- **Name**: Select **S - Random value generator**.
+- **Value Type**: Select **int64**.&#x20;
+- **Polling Interval**: Enter **5**.
+- **Tag Name**: Enter **Timestamp**.&#x20;
+
+## Tag 2 (User Scenario 2)
+
+- **Name**: Select **S - Random value generator**.
+- **Value Type**: Select **int64**.&#x20;
+- **Polling Interval**: Enter **5**.
+- **Tag Name**: Enter **Temperature**.&#x20;
+- **Min\_value**: Enter **75**.
+- **Max\_value**: Enter **75**.
+
+## Tag 3 (User Scenario 3)
+
+- **Name**: Select **S - Random value generator**.
+- **Value Type**: Select **int64**.&#x20;
+- **Polling Interval**: Enter **5**.
+- **Tag Name**: Enter **Angle**.&#x20;
+- **Min\_value**: Enter **65**.
+- **Max\_value**: Enter **65**.
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tags you previously created.&#x20;
+
+**To create the analytics flow:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.&#x20;
+4. In the **Topic** field, click the search icon, select the device you previously created, and then select the alias topic for the Timestamp tag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cPrHzIeJ18g7uszL1jCux_createprocessor01.png)
+5. Click **Save**.&#x20;
+6. Click **Add processor** again and select **Conversion**.&#x20;
+7. In the **Conversion&#x20;**&#x66;ield, select **timestamp to UTC**, and click **Save**.&#x20;
+8. Connect the two processors, select **Events**, and enter a definition of **timestamp&#x20;**&#x66;or the connection.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/XBb8yNuNyguyGyb6lMx2X_conversion-timestamp-flow.png" size="80" width="831" height="408" caption="Processor flow for Timestamp tag" position="center" showCaption="true"></Image>
+9. Repeat steps 2-8 for the Temperature tag and configure the following:
+   - In the *DataHub Subscribe* processor, select the alias topic for the Temperature tag.&#x20;
+   - In the *Conversion* processor, select a conversion of **Celsius -> Fahrenheit**.&#x20;
+   - When you connect the two processors, select **Events&#x20;**&#x61;nd enter a definition of **temperature** for the connection.&#x20;
+10. Repeat steps 2-8 for the Angle tag and configure the following:
+    - In the *DataHub Subscribe* processor, select the alias topic for the Angle tag.&#x20;
+    - In the *Conversion* processor, select a conversion of **degree -> radian**.&#x20;
+    - When you connect the two processors, select **Events&#x20;**&#x61;nd enter a definition of **angle** for the connection.&#x20;
+11. On the analytics canvas, click **Save**.&#x20;
+
+The configured analytics flows should look like the following.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/fHvSLRvnctAa18I9M8pZ6_image.png" size="80" width="930" height="510" position="center" caption="Completed analytics flows canvas" showCaption="true"></Image>
+
+# Step 4: View Conversion Data
+
+You can view data on the analytics canvas by clicking the **View&#x20;**&#x69;con in each *Conversion&#x20;*&#x70;rocessor.&#x20;
+
+
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/PpKCH2b8ov5WDKRiMAImO_image.png" size="80" width="930" height="510" caption="View icons for Conversion processors" position="center" showCaption="true"></Image>
+
+## Conversion Data for Timestamp Tag11.
+
+A value for the time the data was generated in UTC is included in the payload.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/X2SXhnSGvK2oqodbz_vZc_image.png" size="80" width="950" height="788" caption="Time in UTC included in payload" position="center" showCaption="true"></Image>
+
+## Conversion Data for Temperature Tag
+
+The temperature value of 75 Celsius is converted to 167 Fahrenheit.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vnXJA-VENBBHVQF65QG_U_image.png" size="80" width="926" height="722" caption="Converted value from Celsius to Fahrenheit" position="center" showCaption="true"></Image>
+
+## Conversion Data for Angle Tag
+
+The value of 65 degrees is converted to 1.1344640137963142 radian.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3gzjEqvYUheYVzoqma8Lo_image.png" size="80" width="925" height="722" caption="Converted value from degrees to radian" position="center" showCaption="true"></Image>
+

@@ -1,0 +1,88 @@
+---
+title: Digital Twins
+slug: product-features/digital-twins
+description: Digital Twins are virtual representations of industrial assets. These industrial assets can be anything associated with the production of industrial products. 
+docTags: 
+createdAt: Thu Sep 08 2022 22:10:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Digital Twins is a Litmus Edge feature that lets you create virtual representations of assets (machines, devices, or production lines) and combine static metadata with real-time data from your shop floor into a single, structured payload. Use Digital Twins to monitor asset performance, feed contextualized data to northbound systems, and optimize operations without relying on those systems to understand how raw data is structured.
+
+<hint type="info">
+  **Note**: Digital Twins requires a Scale or Growth Litmus license.
+</hint>
+
+## How Digital Twins works
+
+Digital Twins occupies the middle of a five-layer stack. At the bottom, PLCs, sensors, and machines produce raw tag and I/O data. Litmus Edge ingests and normalizes those raw data streams, adds contextualization such as metadata and asset info, and preprocesses and filters data at the edge before passing structured, contextual data upward. Digital Twins is part of Litmus Edge and combines that structured data with static metadata to produce a complete digital representation of each physical asset. The assembled twin data (including metadata and context) then feeds the layers above: analytics systems for real-time KPIs, thresholds, historical trending, "what-if" simulations, and ML/AI pattern detection; and visualization and integration systems for dashboards, MES/ERP connections, cloud exports, and cross-site reuse.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/jv-PSAlW8LwhoLIye0cmY_dt-diagram.png" size="80" isUploading="false" width="5922" height="7930" darkWidth="5922" darkHeight="7930" position="flex-start" showCaption="false"></Image>
+
+Within Litmus Edge, Digital Twins uses a two-level hierarchy: models and instances.
+
+A model is a template. It defines the structure of a digital twin: the static attributes (metadata such as manufacturer, plant, and area) and dynamic attributes (real-time data fields such as temperature, current, or pressure). Models also hold transformation schemas and topic expression parameters that apply to all instances built from that model. A physical asset can have more than one model applied to it. For example, the same machine might have a model for energy monitoring, a separate model for maintenance tracking, and another for production output. Each model produces its own set of instances and topic-based data streams.
+
+An instance is a specific asset. It inherits its structure from a model and lets you fill in the actual values: the real device name, the specific NATS topics that feed live data into each dynamic attribute, and any parameter overrides. You can create many instances from a single model, for example, one model for a CNC machine type and one instance per physical machine on the floor. When an instance runs, Litmus Edge assembles a structured JSON payload combining static metadata and live tag data, then publishes it on a NATS topic at the interval you configure.
+
+## Models
+
+You configure the following in a model:
+
+- **Static attributes:** fixed metadata fields such as `Device ID`, `Serial`, and `Model`. You define them as placeholders in the model and set the real values in each instance.
+- **Dynamic attributes:** variable data fields such as `Temperature`, `Vibration`, and `Downtime`. Each dynamic attribute is mapped to a live data topic in an instance.
+- **Transformations:** rules that convert raw JSON data into a desired format before it enters the instance payload. Use JSON transformations to filter key-value pairs, or JSONata for conditional logic and computed outputs.
+- **Parameters:** named variables that you define in a model and set by instance. They allow a single topic expression to resolve to a different topic for each instance. This saves time when a model has many dynamic attributes and many instances.
+- **Schema:** a custom data structure that groups static and dynamic attributes into a named hierarchy for downstream systems that expect a specific JSON structure.
+
+## Instances
+
+Every instance is associated with a model. The model's attribute configuration determines the data the instance collects. Each instance generates a NATS topic and publishes its assembled payload to the internal message broker at the interval you configure.
+
+When you configure an instance, you can:
+
+- Set real values for static attributes
+- Map live data topics to dynamic attributes
+- Set parameter values for the instance
+- View real-time data in the **Data Access** tab
+- Publish attributes on individual topics
+- Publish flattened payloads for tabular databases
+
+## Workflow
+
+**To set up a model:**
+
+1. Configure static attributes that represent the metadata of the asset.
+2. Configure transformation rules for input data using JSON or JSONata.
+3. Define parameters to use as variables in topic expressions for dynamic attributes.
+4. Configure dynamic attributes that represent the real-time data of the asset.
+5. Define the schema of the resulting object.
+6. Optionally, import or export the model as a JSON file or clone it as needed.
+
+**To set up an instance:**
+
+1. Select the model to create the instance from.
+2. Specify the time interval to publish data to the message broker.
+3. Optionally, enable flatten payload and publish attributes.
+4. Update static attribute values for this specific asset.
+5. Define dynamic attribute topics by mapping input topics or defining parameter values.
+6. View the complete Digital Twins JSON payload in the **Data Access** tab.
+
+After setting up an instance, start and stop it as needed. If you update the model, you must manually upgrade the instance to apply the updated model configuration.
+
+## Access Digital Twins UI
+
+**To access Digital Twins:**
+
+1. Log in to Litmus Edge.
+2. From the navigation panel, select **Digital Twins**.
+   The *Models* pane appears.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/E-epMowGO9BvS7Rxt8Y97_image.png" size="80" width="1266" height="482" position="flex-start" caption="The Models pane" indent="2" darkWidth="1266" darkHeight="482" showCaption="true"></Image>
+
+# Next Steps
+
+- [Create and Import Models](digital-twins/create-and-import-models.mdx)&#x20;
+- [Manage Models](digital-twins/manage-models.mdx)&#x20;
+- [Add an Instance](digital-twins/add-an-instance.mdx)&#x20;
+- :Link[Manage Instances]{docId="req2RsHyWFuZlNeZqLS0t" label="Manage Instances" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Manage Instances"}&#x20;
+- [Use Digital Twins to Contextualize Data](../how-to-guides/digital-twins-guide.mdx)

@@ -1,0 +1,101 @@
+---
+title: Snowflake Integration Guide
+slug: how-to-guides/integration-guides/snowflake
+description: Learn how to set up the Snowflake connector. 
+docTags: 
+createdAt: Fri Jan 12 2024 17:38:40 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and the Snowflake data warehouse.
+
+# Before You Begin
+
+You will need a Snowflake account with the **SysAdmin&#x20;**&#x70;rivilege.&#x20;
+
+# Step 1: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Create Snowflake Database
+
+You will need to create a database in Snowflake that will be used to receive the data from Litmus Edge.&#x20;
+
+**To create the Snowflake database:**
+
+1. Log in to Snowflake.&#x20;
+2. Navigate to **Data&#x20;**> **Databases**.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/M0NtyT0g313ZiAyVU8Sf9_snowflake-guide01.png)
+3. Click **+ Database**.&#x20;
+   The *New Database&#x20;*&#x64;ialog displays.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/1H5k96N7FMINlTtn6gHgl_snowflake-guide02.png)
+4. Enter a name for the database. Optionally, add a comment.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/jl-jUByKlgkah59e4xfYA_snowflake-guide03.png" size="50" width="413" height="351" position="center" showCaption="false"></Image>
+5. Click **Create**.&#x20;
+   The new database is created.&#x20;
+6. Click the new database name, and then click **+ Schema**.&#x20;
+   The *New Schema* dialog displays.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HSr7cq_qIxVAq_iMSD1iN_snowflake-guide04.png)
+7. Enter a name for the schema. Optionally, add a comment.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JUPmtfr_hil5S_M5vLzrA_snowflake-guide05.png" size="50" width="409" height="382" position="center" caption="New Schema dialog" showCaption="true"></Image>
+8. If needed, select the checkbox for **Managed access**.&#x20;
+9. Click **Create**.&#x20;
+   The new schema is created.&#x20;
+
+You can now set up the connector in Litmus Edge to send data to this new database and schema.&#x20;
+
+# Step 4: Add the DB - Snowflake Connector&#x20;
+
+Follow the steps to [Add a Connector](../../product-features/integration/add-a-connector.mdx) and select the **DB - Snowflake** provider.
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name to identify the connector.&#x20;
+- **Account**: Enter the Snowflake account Name and ID. Refer to the Account Identifier located under the account details in Snowflake. See :Link[Account Identifiers]{href="https://docs.snowflake.com/en/user-guide/admin-account-identifier" newTab="true" hasDisabledNofollow="false"} to learn more. 
+  *Example:* `QCLLYMW-BZ92275`
+- **Username**: Enter your Snowflake username.&#x20;
+- **Password**: Enter your Snowflake password.&#x20;
+- **Database**: Enter the database name you configured in Step 3.&#x20;
+- **Schema**: Enter the schema name you configured in Step 3.&#x20;
+- **Warehouse**: Enter the warehouse name that will be used for the integration. Navigate to **Admin&#x20;**> **Warehouse&#x20;**&#x66;or your list of current warehouses. See :Link[Virtual Warehouses]{href="https://docs.snowflake.com/en/user-guide/warehouses" newTab="true" hasDisabledNofollow="false"} to learn more.&#x20;
+- **Table**: Enter a table name where the data will be displayed. &#x20;
+- **Create table**: Select this checkbox if the table name configured doesn't exist yet. A new table will be created. &#x20;
+- **Commit timeout**: Enter the transaction commit timeout in (ms).
+- **Max transaction size**: Enter the maximum number of messages before a transaction is committed, regardless of timeout parameter.&#x20;
+- **Bulk insert count**: To buffer messages, enter a value. Bulk insert will be performed once this value is reached.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ro7wR3XbzZxds5vPQHHI__snowflake.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="BEQQ0sSzwsv9v9rIF3rhk" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../product-features/integration/manage-connectors.mdx"} and relevant error messages.&#x20;
+
+# Step 6: Create Outbound Topics for Connector&#x20;
+
+You will now need to import the tags you added in Step 2 to the connector as topics.&#x20;
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+# Step 7: Enable Topics
+
+Ensure the topics you imported are enabled by returning to the *Topics&#x20;*&#x74;ab and clicking the **Enable all topics** icon.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Iq7BWYqGWueu4US73iBl3_image.png" size="80" width="1220" height="330" caption="Enable all topics icon" position="center" showCaption="true"></Image>
+
+# Step 8: Verify Connection in Snowflake Database
+
+Access the Snowflake database you created to verify that data is successfully being sent.&#x20;

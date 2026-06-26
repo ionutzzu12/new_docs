@@ -1,0 +1,87 @@
+---
+title: Use the Production Time and Cycle Time Ratio KPI
+slug: use-the-production-time-and-cycle-time-ratio-kpi
+docTags: 
+createdAt: Tue Aug 06 2024 22:44:20 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Production Time and Cycle Time Ratio&#x20;**&#x4B;PI mainly deals with production time and the ideal production cycle.&#x20;
+
+You can utilize this KPI to monitor the production cycle time compared to an ideal production cycle time and keep a record of how long it takes to complete the production cycle with a total number of manufactured units in that cycle.
+
+For this KPI, two input definitions are required: `manufactureStart` and `manufactureEnd`&#x20;
+
+These are event triggers that are activated at the start and end of the manufacturing cycle.
+
+# User Scenario
+
+Review the following scenario for the production time and cycle time ratio KPI processor. Then, using an input processor, you will simulate PLC data and calculate the cycle time ratio and production time.
+
+In a manufacturing plant, the Production Time/Cycle Time Ratio KPI can be used to keep track of the time it takes to complete production. A production manager can use the KPI to ensure that the time taken to finish manufacturing aligns with the set benchmarks used to compare the actual production cycle time to the ideal standard. This can help the team identify areas for improvement and make the production process more efficient.
+
+# **Step 1: Add a Device**
+
+Follow the steps to :Link[Connect a Device]{label="Connect a Device" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="pal6ABPZbrimdU9LvGJ30" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: manufactureS**
+
+- **Name**: Select **S - Random value generator.**
+- **Value Type:** Select **float64.**
+- **Polling Interval**: Enter **1.**
+- **Tag Name**: Enter **manufactureS.**
+
+## **Tag 2: manufactureE**
+
+- **Name**: Select **S - Random value generator.**
+- **Value Type:** Select **float64.**
+- **Polling Interval**: Enter **1.**
+- **Tag Name**: Enter **manufactureE.**
+
+# Step 3: Create Analytics Flow
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Production Time and Cycle Time Ratio function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the *Topic* field, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for tag1: **manufactureS**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png" size="80" width="1142" height="604" position="center" caption="Create a Processor dialog box" showCaption="true"></Image>
+5. Click **Save**.
+6. Repeat steps 2-5 to add another *DataHub Subscribe* processor for the **manufactureE&#x20;**&#x74;ag.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/4q-fTlpRdyglOxxOXNBcX_image.png" size="70" width="380" height="285" position="center" caption="Canvas flow with two DataHub Subscribe processor" showCaption="true"></Image>
+7. Click **Add processor** again and select the **Production Time and Cycle Time Ratio** processor.
+   The following information defines this function:
+   - **Manufacture Start From & Manufacture Start To:&#x20;**&#x49;f your input changes *Manufacture Start From* value to *Manufacture Start To* value, it will trigger the start of the manufacturing cycle.
+   - **Manufacture End From & Manufacture End To:&#x20;**&#x49;f your input changes *Manufacture End From* value to *Manufacture End To* value, it will trigger the end of the manufacturing cycle.
+   - **Ideal Cycle Time:&#x20;**&#x45;nter the standard production cycle time in seconds.
+   - **Time Interval:** If the tag publishes at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZhCQLCeANOPABhLtVYtow_image.png" size="80" width="838" height="748" position="center" caption="Edit a Processor dialog box" showCaption="true"></Image>
+8. Connect the *DataHub Subscribe* processor (tag: *manufactureS*) to the *Production Time and Cycle Time Ratio* processor with a wire. Use the **Events** connection and enter a definition of **manufactureStart&#x20;**&#x66;or the connection.
+9. Repeat step 8 for tag: *manufactureE&#x20;*&#x61;nd enter a definition of **manufactureEnd&#x20;**&#x66;or the connection.
+10. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Cf3Lju5BItUm7Vgudfyus_image.png" size="80" width="626" height="380" position="center" caption="Completed Flow Canvas" showCaption="true"></Image>
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Production Time and Cycle Time Ratio* processor to view the output values.
+
+In the output, you will find the total count of manufactured units along with the production time and the ratio of the current cycle time to the production time.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Q3I5hTYOPEIr1bvLdzI9__image.png "Output of Production Time and Cycle Time Ratio processor")
+

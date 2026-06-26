@@ -1,0 +1,62 @@
+---
+title: OPC UA
+slug: quickstart-guide/industrial-systems-connection-guide/opc-ua
+description: Review the different OPC UA DeviceHub drivers and what they do. 
+docTags: 
+createdAt: Mon Jul 04 2022 23:49:58 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **NOTE**: If the server is running on Windows, make sure to add the Domain name to the list of local hosts. See the *Hosts File* section in [Configure DNS/NTP Servers](../../product-features/system/network/configure-dns-ntp-servers.mdx) for more information.
+</hint>
+
+Here are the major differences for the OPC UA Client drivers:
+
+<table columnWidths="224,341" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **This driver**
+    </td>
+    <td>
+      **Does this**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      :Link[DeviceHub Agent]{docId="JyCLRxdTaXknOy_XgkH-0" label="DeviceHub Agent" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+    <td>
+      Connects to the Litmus Edge DeviceHub Agent, which forwards data from an OPC Classic (Data Access) Server.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      :Link[OPC UA Client Advanced]{docId="dymfNqY-4gQlrykF0ckey" label="OPC UA Client Advanced" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+    <td>
+      - Recommended driver to use to connect to an OPC UA Server.
+      - Has subscribe and polling modes.
+      - Support OPC UA Alarms and Events. See :Link[Use the OPCUA Client Advanced for OPCUA Alarm & Events]{label="Use the OPCUA Client Advanced for OPCUA Alarm & Events" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="ZB_zpxjmx3FEM8BkJfu5o" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more details.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      :Link[OPC UA Client]{docId="10tYPn86wH3boiDPtk2H7" label="OPC UA Client" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+    <td>
+      - Used to subscribe data from OPC UA servers.
+      - Only sends a message to the broker if the value changes at the server level.
+      - Subscription interval is defined at the driver level and does not have a polling interval at the tag level.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      [OPC UA Client Poll](opc-ua/opc-ua-client-poll.mdx)
+    </td>
+    <td>
+      - Polls the OPC UA server at regular user-defined intervals, returning the latest status from all specified nodes.
+      - As soon as a record is generated, the status is passed to the pipeline to avoid delays in processing.
+    </td>
+  </tr>
+</table>
+

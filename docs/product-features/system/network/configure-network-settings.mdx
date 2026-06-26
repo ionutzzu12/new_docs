@@ -1,0 +1,35 @@
+---
+title: Configure Network Settings
+slug: product-features/system/network/configure-network-settings
+description: You can configure network settings from the Configure tab.
+docTags: 
+createdAt: Tue Sep 27 2022 16:21:32 GMT+0300 (Eastern European Summer Time)
+---
+
+You can configure the network settings by navigating to **System&#x20;**>**&#x20;Network** > **Configure**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4XspSQTNJB8poRoLVDlKA_image.png" size="80" width="1918" height="908" position="flex-start" showCaption="false"></Image>
+
+# Host Information
+
+In the *Friendly Name* field, update the host friendly name and click **Change**. You can verify the updated friendly name by clicking the **Overview&#x20;**&#x74;ab and reviewing the *Host Information* section.
+
+# **Labels**
+
+Add and manage labels for your Edge instances with custom key-value pairs. For example, label an instance with `environment : production` or `environment: development`.
+
+# Timezone
+
+- In the *Country&#x20;*&#x66;ield, update the country and click **Change**. Refer to the list of :Link[country codes for ISO 3166]{href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes" newTab="true" hasDisabledNofollow="false"} when choosing the appropriate country.
+- In the Timezone field, use the drop-down list to update the time zone and click **Change**. You must reboot the device for the time zone change to take effect.&#x20;
+
+You can verify the updated time zone by clicking the **Overview&#x20;**&#x74;ab and reviewing the *Host Information* section.&#x20;
+
+# Docker Interface
+
+You can modify the Docker binding IP address range for your system. Changing the Docker binding IP restarts the Docker service. All deployments restart.
+
+In the *Docker Binding IP* field, enter an IP address range and click **Change**. For example: `10.30.50.1/24`.&#x20;
+
+You can verify the updated Docker binding IP address range by clicking the **Overview&#x20;**&#x74;ab and reviewing the *Docker Interface* section.&#x20;
+

@@ -1,0 +1,174 @@
+---
+title: B&R PVI Ethernet
+slug: bandr-pvi-ethernet
+docTags: 
+createdAt: Wed Jan 21 2026 19:36:31 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the B\&R PVI Ethernet driver.
+
+<hint type="info">
+  **Note:** The B\&R PVI Ethernet driver supports up to 10,000 tags and enables high-density deployments with large B\&R PLC installations.
+</hint>
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      B\&R X20CP Series
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left">
+      N/A
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+1. Ensure your B\&R PLC is configured with PVI (Process Visualization Interface) enabled.
+2. Record the PLC's IP address for Ethernet communication.
+3. Verify that the PVI service is running on the PLC (default port: 11169).
+4. Ensure network connectivity between Litmus Edge and the B\&R PLC.
+5. Confirm that the necessary variables are defined in your Automation Studio project.
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you :Link[Connect a Device]{label="Connect a Device" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="pal6ABPZbrimdU9LvGJ30" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      B\&R
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      B\&R PVI Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Network Address**
+    </td>
+    <td align="left">
+      The IP address you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Port**
+    </td>
+    <td align="left">
+      11169
+    </td>
+  </tr>
+</table>
+
+## Step 3: Configure the List of Registers
+
+When you :Link[Add a Tag]{label="Add a Tag" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="Tuy-hh0Gi8DjVOT70wRoh" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- :Link[Organize Device and Tag Data by Using Metadata]{label="Organize Device and Tag Data by Using Metadata" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="MU-6j6Zhi0CvCHDad0w8n" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Tag Formula Variables]{label="Tag Formula Variables" spaceId="wrAXt1hpevKwz3x_oRuPB" docId="Io7xgyrdVv_vmpnFXOACi" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="151,151,151,153">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Types
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      BOOL, USINT, UINT, UDINT, SINT, INT, DINT, REAL, LREAL, STRING
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      Variables
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list.&#x20;
+- **Polling Interval**: Enter a value in milliseconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Task**: Enter the task name where the variable is defined in the B\&R PLC. Leave blank to use the default task context.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power (`x`) performs the operation `10^x`
+  - log: log (`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp (`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes from a previous value to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

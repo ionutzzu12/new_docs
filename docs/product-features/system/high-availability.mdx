@@ -1,0 +1,137 @@
+---
+title: High Availability
+slug: high-availability
+docTags: 
+createdAt: Thu Dec 11 2025 21:07:26 GMT+0200 (Eastern European Standard Time)
+---
+
+High Availability (HA) provides a built-in backup node that keeps Litmus Edge running when the primary node goes down or is taken offline. The backup node stays in sync and takes over automatically if the primary fails to protect your configuration and state. HA works reliably even with low bandwidth or uncertain connectivity to provide continuous data collection with predictable recovery times.
+
+HA also handles:
+
+- Offline scenarios with either the primary or backup node
+- Disabling and enabling High Availability again
+
+<BlockQuote>
+  **Note:** High Availability is available as a beta feature only.
+</BlockQuote>
+
+## Prerequisites
+
+- Two separate Litmus Edge instances with compatible versions and valid licenses
+- Network connectivity between the primary and backup nodes
+
+## Heartbeat Model
+
+When enabled, HA performs regular heartbeat checks between the primary and backup node at 2-second intervals. If 3 consecutive heartbeats are missed, the system initiates automatic failover.
+
+Heartbeat activity, current role, rsync status, and sync timestamps are recorded in log files. The following fields also display on the primary node:
+
+<table isTableHeaderOn="true" columnWidths="205,580" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Field
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Last Sent
+    </td>
+    <td align="left">
+      Last heartbeat sent to the backup node
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Last Received
+    </td>
+    <td align="left">
+      Last heartbeat received from the backup node
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Consecutive Failures
+    </td>
+    <td align="left">
+      Number of consecutive missed heartbeats
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Peer Reachable
+    </td>
+    <td align="left">
+      Whether the backup node is currently reachable from the primary
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Interval
+    </td>
+    <td align="left">
+      Heartbeat frequency in seconds
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Failure Threshold
+    </td>
+    <td align="left">
+      Number of missed heartbeats that triggers failover
+    </td>
+  </tr>
+</table>
+
+## System Validation
+
+Before completing setup, the system verifies that:
+
+- The backup node is not the same instance as the primary node
+- Both nodes are running compatible versions
+- Both nodes have valid license status
+
+## Configuration Workflow
+
+Setup follows a specific order:
+
+- Configure the backup node first
+- Register backup node credentials on the primary node.
+
+**Configure the backup node**
+
+1. Navigate to **System > High Availability** and enable **High Availability Configuration**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eOpOm1zGpJ-T9OqsZvbVw_image.png" size="80" width="1378" height="561" darkWidth="1378" darkHeight="561" position="flex-start" showCaption="false" indent="2"></Image>
+
+2. Enable **High Availability Configuration**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/41ZG4wF5Z93H_7R6IHXlF_image.png" size="80" width="1353" height="611" darkWidth="1353" darkHeight="611" position="flex-start" showCaption="false" indent="2"></Image>
+
+3. Click **Configure as Backup**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/6unx32XcUOjTnbgxWRkYQ_image.png" size="80" width="1496" height="543" darkWidth="1496" darkHeight="543" position="flex-start" showCaption="false" indent="2"></Image>
+
+4. Copy the hostname and token values. The token values will not display again after you close this page.
+5. Click **Close**.
+
+**Configure the primary node**
+
+1. Navigate to **System > High Availability**.
+2. Enter the hostname and token from the backup node in the **Backup Hostname** and **Backup Token** fields.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/67aE-2DSRJF-2O0VZUsOH_image.png" size="80" width="1497" height="615" darkWidth="1497" darkHeight="615" position="flex-start" showCaption="false" indent="2"></Image>
+
+3. Save the configuration and click **Enable** in the confirmation dialog.
+
+After enabling, the primary node displays live status for the backup relationship.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/xSFIGVSFLphk1iBFwf5qm_image.png" size="80" width="1222" height="618" darkWidth="1222" darkHeight="618" position="flex-start" showCaption="false"></Image>
+
+The backup node typically remains dormant after HA is enabled. Note that the backup node displays the primary instance IP address. You can also download a support bundle from the backup node if required.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/SJ3S8gARIkKAZ3Up5tSw7_image.png" size="80" width="1366" height="403" darkWidth="1366" darkHeight="403" position="flex-start" showCaption="false"></Image>
+

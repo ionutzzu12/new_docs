@@ -1,0 +1,65 @@
+---
+title: XMR Chart
+slug: xmr-chart
+docTags: 
+createdAt: Tue Aug 06 2024 21:54:17 GMT+0300 (Eastern European Summer Time)
+---
+
+The **XMR Chart** processor calculates and establishes a central line which remains constant.
+
+# XMR Chart Overview
+
+- Once the window is filled with values, a **central line** is calculated which remains constant moving forward.
+- Other fields that are calculated once window is filled are:
+  - **Moving ranges** : Difference of successive values.
+  - **Average moving range** : Average of the moving ranges.
+  - **Process Limit Multiplier** is used to calculate the upper and lower process limits.
+  - **Upper and Lower Natural Process limit** : Calculated by taking the product of process limit multiplier and average moving range, and adding/subtracting it to the central line.
+- In some cases, the central line is adjusted. Here are the cases:
+  - If current value is outside the process limits, multiple times in a row.
+  - If the multiple values in a row are closer to either limits, than they are to the central line.
+- The **timer interval** parameter is useful if the connected input tag is currently not polling, but you still want this KPI to publish a value every few seconds, defined by the aforementioned timer.
+  - If you know your input is going to publish at the expected interval, it is better to disable this timer by entering 0 in this field.
+
+# XMR Chart Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Window Size
+    </td>
+    <td>
+      This parameter represents the window in which the calculations are performed and is defined in terms of the number of seconds. It determines the duration over which the central line and other calculated fields are established.    </td>
+  </tr>
+  <tr>
+    <td>
+      Process Limit Multiplier
+    </td>
+    <td>
+      The Process Limit Multiplier parameter specifies the factor used to calculate the upper and lower process limits. It influences the range within which the process is considered to be in control.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer Interval
+    </td>
+    <td>
+      The Timer Interval parameter denotes the interval, in milliseconds, at which values are pushed or published. Setting this parameter to zero disables the timer.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/DEuMmI_frhedht0tIPb6h_image.png" size="80" width="941" height="379" caption="XMR Chart parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *XMR Chart&#x20;*&#x70;rocessor, refer the :Link[Use the XMR Chart Function]{label="Use the XMR Chart Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="mYhAhjGKuSa9bWNGWVRJ0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

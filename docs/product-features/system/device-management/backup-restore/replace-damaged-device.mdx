@@ -1,0 +1,50 @@
+---
+title: Replace a Damaged Device
+slug: product-features/system/device-management/backup-restore/replace-damaged-device
+description: Review what you need to do to replace a damaged device. 
+docTags: 
+createdAt: Fri Oct 07 2022 17:45:29 GMT+0300 (Eastern European Summer Time)
+---
+
+Whenever a Litmus Edge device needs to be replaced, several steps must be taken to get the new device configured and online with minimal interruption.
+
+If you only need to restore a device configuration to a device that isn't damaged, see [Restore a Device](restore-device.mdx).&#x20;
+
+# Important
+
+- You should regularly back up Litmus Edge. See [Back Up a Device](back-up-device.mdx).&#x20;
+- The replacement device must be on the same network as the device that was backed up. If the backed up device has a static IP address assigned to it, then the replacement device gets that same IP address. For example, a replacement device has an IP address of 10.0.0.120 and the backed up device is on a network with an IP address of 192.168.1.1. After restoration, the replacement device is no longer accessible with the 10.0.0.120 address because it now assumes the 192.168.1.1 address.
+- The backup can only be restored to the same device or to a replacement device.
+- The backup can only be restored to a device with the same license key.
+- The Restore operation overwrites all configurations collected since the last backup.
+
+# Before You Begin
+
+Make sure you have obtained a license for backup and restore.
+
+# Replace a Damaged Device
+
+To replace a damaged device, you will need to do the following:
+
+- Step 1: Activate the license
+- Step 2: Restore backup file
+
+## Step 1: Activate License
+
+See :Link[Activate a Node-Locked License Online]{docId="92RbXbyDbFWkkUo1jt5lZ" label="Activate a Node-Locked License Online" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} to learn how to activate the license for the device.
+
+## Step 2: Restore Backup File
+
+**To restore the backup file:**
+
+1. In Litmus Edge, navigate to **System&#x20;**> **Device Management**.
+2. Click the **Backup/Restore** tab.&#x20;
+3. From the *Backup/Restore Configuration* section, click **Restore**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/63KyojHKFAEL7_bj3kFIk_restore-button.png)
+4. Navigate to the backup.dat file you stored on your local drive, and click **Open**.
+5. Click **OK**.
+   Once restored, the Litmus Edge device restarts with the configuration backed up on the selected file.
+   When the device reboots, refresh the Litmus Edge application.
+6. Activate the Litmus Edge Manager connection by setting the device status to **Online**.
+   This action registers the new device with Litmus Edge Manager and the corresponding LWM2M and MQTT protocols.
+

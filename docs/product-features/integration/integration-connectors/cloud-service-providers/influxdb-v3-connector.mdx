@@ -1,0 +1,205 @@
+---
+title: InfluxDB v3 Connector
+slug: influxdb-v3-connector
+docTags: 
+createdAt: Fri May 08 2026 18:34:57 GMT+0300 (Eastern European Summer Time)
+---
+
+The InfluxDB v3 connector allows Litmus Edge to stream time-series data to an InfluxDB v3 database. Also see the [InfluxDB v3 Integration Guide](../../../../how-to-guides/integration-guides/influxdb-v3-integration-guide.mdx).
+
+<hint type="info">
+  **Note:&#x20;**&#x54;his feature is available starting with Litmus Edge 4.1.x
+</hint>
+
+## Supported Communication
+
+- Outbound (Write from Edge to InfluxDB v3): Yes
+- Inbound (Read from InfluxDB v3 to Edge): No
+
+## Connector Configuration
+
+<table isTableHeaderOn="true" columnWidths="186,147.2377972465582,414.4794639132249,124.20514969876102,126.07758914145596" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Field**
+    </td>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+    <td align="left">
+      **Required**
+    </td>
+    <td align="left">
+      **Default**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Name defined for the connector instance
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Host URL
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Full URL of the InfluxDB v3 instance. Length: `3` to `1024`)
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Connection Type
+    </td>
+    <td align="left">
+      Dropdown
+    </td>
+    <td align="left">
+      Transport protocol used to connect to InfluxDB
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+      tcp
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Organization
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      InfluxDB organization name or ID. Required for Cloud Serverless. Leave blank for Cloud Dedicated and Clustered deployments.
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Database
+    </td>
+    <td align="left">
+      String
+    </td>
+    <td align="left">
+      Name of the target InfluxDB v3 database. Length: `1` to `256`
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      API Token
+    </td>
+    <td align="left">
+      String (Secret)
+    </td>
+    <td align="left">
+      API token with write permissions scoped to the target database. Stored securely and never logged.
+    </td>
+    <td align="left">
+      Yes
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Show Static Tags
+    </td>
+    <td align="left">
+      Checkbox
+    </td>
+    <td align="left">
+      When enabled, expands a key-value input for configuring static tags appended to every data point written by this connector
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      Disabled
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Write Precision
+    </td>
+    <td align="left">
+      Dropdown
+    </td>
+    <td align="left">
+      Timestamp precision for Line Protocol writes: `ns` (nanoseconds), `us` (microseconds), `ms` (milliseconds), `s` (seconds). Located under Advanced Parameters
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      ms
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Batch Size
+    </td>
+    <td align="left">
+      Integer
+    </td>
+    <td align="left">
+      Number of records per write batch. Range: `1` to `10000`. Located under Advanced Parameters.
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      5000
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Batch Interval (ms)
+    </td>
+    <td align="left">
+      Integer
+    </td>
+    <td align="left">
+      Maximum time to wait before flushing a batch in milliseconds. The batch is sent when either Batch Size or Batch Interval is reached (whichever comes first). Range: `100` to `60000`. Located under Advanced Parameters
+    </td>
+    <td align="left">
+      No
+    </td>
+    <td align="left">
+      1000
+    </td>
+  </tr>
+</table>
+

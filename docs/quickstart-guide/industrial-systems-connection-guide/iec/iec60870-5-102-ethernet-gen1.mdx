@@ -1,0 +1,830 @@
+---
+title: IEC60870-5-104 Ethernet (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/iec/iec60870-5-102-ethernet-gen1
+description: Review the following information for setting up and configuring the IEC60870-5-104 Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Fri Jun 09 2023 21:36:45 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the IEC60870-5-104 Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="235,273" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Device standard**
+    </td>
+    <td>
+      IEC 60870-5-104
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="172,358" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      IEC
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      IEC60870-5-104 Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port&#x20;**
+    </td>
+    <td>
+      2404
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="127,80,111,92,87,103" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      Access Types&#x20;
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_SP\_NA\_1
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Single point
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_SP\_TB\_1
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Single point
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_DP\_NA\_1
+    </td>
+    <td>
+      byte
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Double point
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_DP\_TB\_1
+    </td>
+    <td>
+      byte
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Double point
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_ST\_NA\_1
+    </td>
+    <td>
+      byte
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Step position
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_ST\_TB\_1
+    </td>
+    <td>
+      byte
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Step position
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_BO\_NA\_1
+    </td>
+    <td>
+      dword
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Bit string of 32bits
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_BO\_TB\_1
+    </td>
+    <td>
+      dword
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Bit string of 32bits
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_ME\_NA\_1
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Measured Normalized
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_ME\_TD\_1
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Measured Normalized
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_ME\_NB\_1
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Measured Scaled
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_ME\_TE\_1
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Measured Scaled
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_ME\_NC\_1
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDddd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Measured short float
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_ME\_TF\_1
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Measured short float
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_NA\_1
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Integrated totals
+    </td>
+  </tr>
+  <tr>
+    <td>
+      M\_IT\_TB\_1
+    </td>
+    <td>
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Integrated totals
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SC\_NA\_1
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Single command information
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SC\_TA\_1
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Single command information
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_DC\_NA\_1
+    </td>
+    <td>
+      byte
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Double command information
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_DC\_TA\_1
+    </td>
+    <td>
+      byte
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Double command information
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_RC\_NA\_1
+    </td>
+    <td>
+      byte
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Regulating step command
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_RC\_TA\_1
+    </td>
+    <td>
+      byte
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Regulating step command
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_BO\_NA\_1
+    </td>
+    <td>
+      dword
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Bit string of 32bits command
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_BO\_TA\_1
+    </td>
+    <td>
+      dword
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Bit string of 32bits command
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SE\_NA\_1
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Set point command - Normalized value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SE\_TA\_1
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Set point command - Normalized value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SE\_NB\_1
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Set point command - Scaled value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SE\_TB\_1
+    </td>
+    <td>
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Set point command - Scaled value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SE\_NC\_1
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Set point command - Float value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C\_SE\_TC\_1
+    </td>
+    <td>
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td>
+      DDDDDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      16777215
+    </td>
+    <td>
+      Set point command - Float value
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

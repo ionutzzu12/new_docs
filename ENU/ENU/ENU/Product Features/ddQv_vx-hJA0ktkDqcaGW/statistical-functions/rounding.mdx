@@ -1,0 +1,52 @@
+---
+title: Rounding
+slug: rounding
+docTags: 
+createdAt: Tue Aug 06 2024 21:58:40 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Rounding** processor allows you to make a number simpler while keeping its value close to the absolute value.
+
+# Rounding Overview
+
+- Enter the number of digits you would like to round to e.g. entering 2, will give results like 10.22. 10.44 (but not 10.556).
+  - Entering 0 will ignore all floating point values, and just give the integer value.
+- RoundNearest returns the nearest decimal e.g. 10.6 gives 11, 10.1 gives 10.
+- RoundUp returns the next smallest decimal e.g. 10.6 gives 11, 10.1 also gives 11.
+- RoundDown returns the previous largest decimal e.g. 10.6 gives 10, 10.1 also gives 10.
+- RoundEven returns the nearest integer, rounding ties to even (number of digits entered are irrelevant for this case).
+
+# Rounding Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Digits
+    </td>
+    <td>
+      This parameter determines the number of decimal places to round to.&#x20;    </td>
+  </tr>
+  <tr>
+    <td>
+      Method
+    </td>
+    <td>
+      This parameter allows you to select the rounding method.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/80oxL69h4HAoswGvn98jR_image.png" size="80" width="960" height="688" caption="Rounding parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Rounding&#x20;*&#x70;rocessor, refer the :Link[Use the Rounding Function]{label="Use the Rounding Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="TW-4a3lCahTKLWqwEJ5LW" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

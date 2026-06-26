@@ -1,0 +1,431 @@
+---
+title: Organize Device and Tag Data by Using Metadata
+slug: lkWhymsu4A44dALapu0hO
+description: Learn how to use metadata in device and tag configurations. 
+docTags: 
+createdAt: Wed May 10 2023 18:11:27 GMT+0300 (Eastern European Summer Time)
+---
+
+When configuring DeviceHub devices and tags, you have the option of adding metadata, which allows you to define key-value pair data for the device output payload. The metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+Some examples where using metadata would be beneficial include the following:
+
+- Device category metadata organizes devices.&#x20;
+- Tag type metadata organizes tag categories.&#x20;
+- Plant Floor ID metadata organizes different areas of a production site.&#x20;
+- Location metadata organizes devices and plants across multiple worldwide sites.&#x20;
+
+# User Scenario
+
+For this user scenario, you will use device and tag metadata to organize your data using the following parameters:
+
+- The country and city the device is located in. In a real-life scenario, you may be using multiple Litmus Edge instances across different locations that are managed by Litmus Edge Manager.&#x20;
+- The location (wing area) of the devices within each plant.&#x20;
+- The category for each tag.&#x20;
+
+You will create four devices, with two tags each, totaling eight tags.
+
+## Step 1: Connect Devices
+
+You will first connect all relevant devices in DeviceHub.&#x20;
+
+**To connect devices:**
+
+1. Navigate to **DeviceHub**.&#x20;
+   The *Devices&#x20;*&#x70;ane opens.&#x20;
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device&#x20;*&#x64;ialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/oSZM3kzzeLi-lItO0BMLO_connectdevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" showCaption="true"></Image>
+3. Click the **Device Type** drop-down list and select **Simulator**.
+4. Click the **Driver Name** drop-down list, and select **Generator**.
+
+Configure the following four devices.&#x20;
+
+### Device 1
+
+- **Name**: PLC\_1
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair 1**
+  - **Key**: Country
+  - **Value**: US
+- **Key/Value pair 2**
+  - **Key**: City
+  - **Value**: Chicago
+- **Key/Value pair 3**:&#x20;
+  - **Key**: Device\_Location
+  - **Value**: South\_Wing
+- **Enable Alias Topics**: To view the topic with an alias name instead of in raw format, select this checkbox. For Litmus Edge version 3.5.2 and later, it is selected by default. Learn more about :Link[Alias Topics]{docId="OBs8xcnZ-B0J2D1Gaipna" label="Connect a Device" spaceId version="v2" docAnchorId="#yer7G" loadingMethod="dynamic" overridedLabel="Alias Topics" href="../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx"}.&#x20;
+
+### Device 2
+
+- **Name**: PLC\_2
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair 1**
+  - **Key:&#x20;**&#x43;ountry
+  - **Value**: US
+- **Key/Value pair 2**
+  - **Key**: City
+  - **Value**: Chicago
+- **Key/Value pair 3**&#x20;
+  - **Key**: Device\_Location
+  - **Value**: East\_Wing
+- **Enable Alias Topics**: To view the topic with an alias name instead of in raw format, select this checkbox. For Litmus Edge version 3.5.2 and later, it is selected by default. Learn more about :Link[Alias Topics]{docId="OBs8xcnZ-B0J2D1Gaipna" label="Connect a Device" spaceId version="v2" docAnchorId="#yer7G" loadingMethod="dynamic" overridedLabel="Alias Topics" href="../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx"}.&#x20;
+
+### Device 3
+
+- **Name**: PLC\_3
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair 1**
+  - **Key:&#x20;**&#x43;ountry
+  - **Value**: US
+- **Key/Value pair 2**
+  - **Key**: City
+  - **Value**: Cleveland
+- **Key/Value pair 3**&#x20;
+  - **Key**: Device\_Location
+  - **Value**: North\_Wing
+- **Enable Alias Topics**: To view the topic with an alias name instead of in raw format, select this checkbox. For Litmus Edge version 3.5.2 and later, it is selected by default. Learn more about :Link[Alias Topics]{docId="OBs8xcnZ-B0J2D1Gaipna" label="Connect a Device" spaceId version="v2" docAnchorId="#yer7G" loadingMethod="dynamic" overridedLabel="Alias Topics" href="../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx"}.&#x20;
+
+### Device 4
+
+- **Name**: PLC\_4
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair 1**
+  - **Key:&#x20;**&#x43;ountry
+  - **Value**: Canada
+- **Key/Value pair 2**
+  - **Key**: City
+  - **Value**: Toronto
+- **Key/Value pair 3**&#x20;
+  - **Key**: Device\_Location
+  - **Value**: North\_Wing
+- **Enable Alias Topics**: To view the topic with an alias name instead of in raw format, select this checkbox. For Litmus Edge version 3.5.2 and later, it is selected by default. Learn more about :Link[Alias Topics]{docId="OBs8xcnZ-B0J2D1Gaipna" label="Connect a Device" spaceId version="v2" docAnchorId="#yer7G" loadingMethod="dynamic" overridedLabel="Alias Topics" href="../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx"}.&#x20;
+
+## Step 2: Add Tags
+
+You can now add tags to the devices you created. For this user scenario, the tags will be used to capture air pressure and temperature values, and each device can have multiple tags for each measurement.&#x20;
+
+**To add tags:&#x20;**
+
+1. Navigate to **DeviceHub&#x20;**> **Tags**.&#x20;
+2. From the *Tags&#x20;*&#x70;ane, click **Add Tag**, and then select **Add Tag**.
+   The *Add Tag* dialog box appears.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qtBEZhjluowlxDF9hMdmC_add-tag.png" size="80" width="1582" height="478" caption="The Add Tag icon" position="center" showCaption="true"></Image>
+3. Click the **Select a Device** field, and then select the first device to add tags to.&#x20;
+
+Add the following eight tags.&#x20;
+
+### PLC\_1
+
+Tag 1
+
+- **Name**: S - Random value generator
+- **Value Type**: int64
+- **Polling Interval**: Enter **5**. This is the time interval in seconds that the tag will be polled for data.&#x20;
+- **Tag Name**: Temperature\_1
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair**
+  - **Key**: Category
+  - **Value**: Temp
+
+Tag 2
+
+- **Name**: S - Random value generator
+- **Value Type**: int64
+- **Polling Interval**: Enter **5**. This is the time interval in seconds that the tag will be polled for data.&#x20;
+- **Tag Name**: Temperature\_2
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair**
+  - **Key**: Category
+  - **Value**: Temp
+
+### PLC\_2
+
+Tag 1
+
+- **Name**: S - Random value generator
+- **Value Type**: int64
+- **Polling Interval**: Enter **5**. This is the time interval in seconds that the tag will be polled for data.&#x20;
+- **Tag Name**: Temperature\_1
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair**
+  - **Key**: Category
+  - **Value**: Temp
+
+Tag 2
+
+- **Name**: S - Random value generator
+- **Value Type**: int64
+- **Polling Interval**: Enter **5**. This is the time interval in seconds that the tag will be polled for data.&#x20;
+- **Tag Name**: Air\_Pressure\_1
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair**
+  - **Key**: Category
+  - **Value**: Pressure
+
+### PLC\_3
+
+Tag 1
+
+- **Name**: S - Random value generator
+- **Value Type**: int64
+- **Polling Interval**: Enter **5**. This is the time interval in seconds that the tag will be polled for data.&#x20;
+- **Tag Name**: Air\_Pressure\_1
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair**
+  - **Key**: Category
+  - **Value**: Pressure
+
+Tag 2
+
+- **Name**: S - Random value generator
+- **Value Type**: int64
+- **Polling Interval**: Enter **5**. This is the time interval in seconds that the tag will be polled for data.&#x20;
+- **Tag Name**: Air\_Pressure\_2
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair**
+  - **Key**: Category
+  - **Value**: Pressure
+
+### PLC\_4
+
+Tag 1
+
+- **Name**: S - Random value generator
+- **Value Type**: int64
+- **Polling Interval**: Enter **5**. This is the time interval in seconds that the tag will be polled for data.&#x20;
+- **Tag Name**: Air\_Pressure\_1
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair**
+  - **Key**: Category
+  - **Value**: Pressure
+
+Tag 2
+
+- **Name**: S - Random value generator
+- **Value Type**: int64
+- **Polling Interval**: Enter **5**. This is the time interval in seconds that the tag will be polled for data.&#x20;
+- **Tag Name**: Temperature\_1
+- **Meta Data**: Select checkbox.&#x20;
+- **Key/Value pair**
+  - **Key**: Category
+  - **Value**: Temp
+
+## Step 3: View Data
+
+You can now view the data from the devices and tags in Litmus Edge through the [Flows Manager](<../../../Product Features/68WrvuaKK8gVSMbo8bVxq.mdx>).&#x20;
+
+### View Data in Flows Manager
+
+1. Navigate to **DeviceHub**.                                                                                                                          The *Devices&#x20;*&#x70;ane opens.&#x20;
+2. For the PLC\_1 device tile, open the menu and copy the device topic name. Store the topic name somewhere for use later.&#x20;
+   The ">" indicates a wildcard character, so the topic name applies to all tags for the device.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/0AZCp1qH2aNacarnbzQDb_copydevicetopic.png" size="80" width="598" height="358" caption="Device topic name" position="center" showCaption="true"></Image>
+3. Copy and store the device topic names for all other devices.&#x20;
+4. Navigate to **Flows Manager**.&#x20;
+5. For a Flows Manager, click the **Go To Flow Definition** icon.&#x20;
+   The Flow canvas opens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/YJuq2bpVLRQFztDx388IL_go-to-flow-definition.png" size="80" width="1010" height="490" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+6. On the Flow canvas, drag four **DataHub Subscribe&#x20;**&#x6E;odes and four **debug&#x20;**&#x6E;odes onto the canvas. Then, connect the nodes.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/daVvuPYlZHXYyrKm8Wwid_flowcanvas1.png" size="80" width="779" height="459" caption="Flow canvas nodes" position="center" showCaption="true"></Image>
+7. Double-click the first DataHub subscribe node.&#x20;
+   The *Edit DataHub Subscribe node* dialog box appears.
+   - In the **Topic&#x20;**&#x66;ield, paste the wildcard topic name for the device copied in step 2.&#x20;
+   - If needed, configure the Datahub Subscribe connection. See the :Link[Configure Connector Nodes]{docId="kR15wDiWr6qqJeBRq9TVh" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" loadingMethod="dynamic" overridedLabel="Configure Connector Nodes" href="../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx"} section to learn more.&#x20;
+   - In the **Name&#x20;**&#x66;ield, enter **PLC\_1**.&#x20;
+   - Click **Done**.&#x20;
+8. Continue configuring the other three **DataHub Subscribe** nodes for the other devices.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tbrHE39C68jiTrVTs3hVK_flowcanvas2.png" size="80" width="791" height="503" caption="Four DataHub Subscribe nodes configured" position="center" showCaption="true"></Image>
+9. Click **Deploy**.&#x20;
+10. Expand the message window beneath the flow to view debug messages.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/uJmaK_cPXEt6DKZtj9pSU_flowcanvas3.png" size="80" width="1354" height="769" caption="The message window" position="center" showCaption="true"></Image>
+11. Click the **Debug&#x20;**&#x69;con.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/rez2kWBOzmYTRB8QEie0x_flowcanvas4.png" size="80" width="1347" height="547" caption="The Debug icon" position="center" showCaption="true"></Image>
+12. Make sure the four debug nodes are activated.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/iUOi53j-y0mK5oJeT5Ujr_flowcanvas5.png" size="80" width="843" height="613" caption="Activate buttons" position="center" showCaption="true"></Image>
+13. View the data in the debug window.&#x20;
+    The payload below shows data from each tag in each of the four devices. The device and tag metadata is included at the end of each payload item.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HQZTEg2Day87q0AaQbgak_image.png" size="80" width="1920" height="937" caption="Payload from four devices" position="center" showCaption="true"></Image>
+
+### View Payload Data
+
+Review the payload data from the debug window for each DeviceHub device.&#x20;
+
+<CodeblockTabs>
+  PLC\_3
+
+  ```json
+  {
+    "success": true,
+    "datatype": "int64",
+    "timestamp": 1683901823577,
+    "registerId": "DBE0C6D2-A91D-49D1-9CB7-DBF3C6D9C919",
+    "value": -1,
+    "deviceID": "7C01E851-FE46-463A-90EC-98AA3F12BE09",
+    "tagName": "Air_Pressure_1",
+    "deviceName": "PLC_3",
+    "description": "",
+    "metadata": {
+      "Country": "US",
+      "Device_Location": "North_Wing",
+      "City": "Cleveland",
+      "Category": "Pressure"
+    }
+  }
+  ```
+
+  PLC\_3
+
+  ```json
+  {
+    "success": true,
+    "datatype": "int64",
+    "timestamp": 1683901823577,
+    "registerId": "E2A6A9E3-697B-436D-8682-866950BF96AC",
+    "value": -1,
+    "deviceID": "7C01E851-FE46-463A-90EC-98AA3F12BE09",
+    "tagName": "Air_Pressure_2",
+    "deviceName": "PLC_3",
+    "description": "",
+    "metadata": {
+      "Device_Location": "North_Wing",
+      "City": "Cleveland",
+      "Country": "US",
+      "Category": "Pressure"
+    }
+  }
+  ```
+
+  PLC\_1
+
+  ```json
+  {
+    "success": true,
+    "datatype": "int64",
+    "timestamp": 1683901824688,
+    "registerId": "7425F365-9D97-4B6C-BB01-DCCAFC04F383",
+    "value": 1,
+    "deviceID": "C9C3F3DF-954F-4233-834C-4B381741357C",
+    "tagName": "Temperature_1",
+    "deviceName": "PLC_1",
+    "description": "",
+    "metadata": {
+      "Device_Location": "South_Wing",
+      "City": "Chicago",
+      "Country": "US",
+      "Category": "Temp"
+    }
+  }
+  ```
+
+  PLC\_1
+
+  ```json
+  {
+    "success": true,
+    "datatype": "int64",
+    "timestamp": 1683901824688,
+    "registerId": "C35CB204-5A00-4753-B7AF-F1D6059A2E1B",
+    "value": 1,
+    "deviceID": "C9C3F3DF-954F-4233-834C-4B381741357C",
+    "tagName": "Temperature_2",
+    "deviceName": "PLC_1",
+    "description": "",
+    "metadata": {
+      "Country": "US",
+      "Category": "Temp",
+      "Device_Location": "South_Wing",
+      "City": "Chicago"
+    }
+  }
+  ```
+
+  PLC\_2
+
+  ```json
+  {
+    "success": true,
+    "datatype": "int64",
+    "timestamp": 1683901825029,
+    "registerId": "008A21C1-FE0A-41EC-83A6-48C60831C11C",
+    "value": 1,
+    "deviceID": "5D4EF199-AC0D-4510-839E-F3256650D0B8",
+    "tagName": "Temperature_1",
+    "deviceName": "PLC_2",
+    "description": "",
+    "metadata": {
+      "Device_Location": "East_Wing",
+      "City": "Chicago",
+      "Country": "US",
+      "Category": "Temp"
+    }
+  }
+  ```
+
+  PLC\_2
+
+  ```json
+  {
+    "success": true,
+    "datatype": "int64",
+    "timestamp": 1683901825029,
+    "registerId": "C083DE09-F6BD-428A-9710-6579ADB03F9C",
+    "value": 1,
+    "deviceID": "5D4EF199-AC0D-4510-839E-F3256650D0B8",
+    "tagName": "Air_Pressure_1",
+    "deviceName": "PLC_2",
+    "description": "",
+    "metadata": {
+      "City": "Chicago",
+      "Country": "US",
+      "Category": "Pressure",
+      "Device_Location": "East_Wing"
+    }
+  }
+  ```
+
+  PLC\_4
+
+  ```json
+  {
+    "success": true,
+    "datatype": "int64",
+    "timestamp": 1683901827473,
+    "registerId": "0D918230-21CD-4D89-9CF2-F4E3550B599B",
+    "value": 0,
+    "deviceID": "629145EB-2549-4BC1-8ECB-ACD86BC44061",
+    "tagName": "Temperature_1",
+    "deviceName": "PLC_4",
+    "description": "",
+    "metadata": {
+      "Country": "Canada",
+      "Device_Location": "North_Wing",
+      "City": "Toronto"
+    }
+  }
+  ```
+
+  PLC\_4
+
+  ```json
+  {
+    "success": true,
+    "datatype": "int64",
+    "timestamp": 1683901827473,
+    "registerId": "7782779E-1582-4773-AB02-0A8CE8BD3597",
+    "value": 0,
+    "deviceID": "629145EB-2549-4BC1-8ECB-ACD86BC44061",
+    "tagName": "Air_Pressure_1",
+    "deviceName": "PLC_4",
+    "description": "",
+    "metadata": {
+      "Device_Location": "North_Wing",
+      "City": "Toronto",
+      "Country": "Canada",
+      "Category": "Pressure"
+    }
+  }
+  ```
+</CodeblockTabs>
+

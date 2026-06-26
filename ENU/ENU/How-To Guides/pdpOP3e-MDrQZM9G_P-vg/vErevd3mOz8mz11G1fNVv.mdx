@@ -1,0 +1,188 @@
+---
+title: Google Cloud Pub/Sub Integration Guide
+slug: vErevd3mOz8mz11G1fNVv
+description: Learn how to set up the Google Cloud Pub/Sub connector. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:24:54 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and [Google Pub/Sub service](https://cloud.google.com/pubsub/docs/overview).&#x20;
+
+Once the integration is set up, you can use it for the following:&#x20;
+
+- Publishing data from a topic in your edge device to a *Subscription&#x20;*&#x74;opic in the Google Cloud Platform (GCP)
+- Subscribing to data published by a *Publication&#x20;*&#x74;opic in the Google Cloud Platform
+
+<hint type="info">
+  **Note:** With Persistent Storage enabled, ensure that you have sufficient network stability and bandwidth to stream large amounts of data to the Cloud. The publishing process starts when Litmus Edge publishes data and ends when receiving acknowledgement from Pub/Sub. If publishing takes longer than 20 seconds, the connector timeouts, enters a failed state and adds a `"timeout"` error to the connector log files.
+
+
+</hint>
+
+# Before You Begin
+
+- You need to create a Google Service Account. Make sure the account has the correct roles and permissions required for setting up the connection.&#x20;
+- Refer to the following Google resources for learning more about Pub/Sub and configuring connections:
+  - [Google Pub/Sub service](https://cloud.google.com/pubsub/docs/overview)
+  - :Link[Configure Private Google Access for on-premises hosts > Domain Options ]{href="https://cloud.google.com/vpc/docs/configure-private-google-access-hybrid#config-choose-domain" newTab="true" hasDisabledNofollow="false"}(information regarding private access to GCP services)
+  - :Link[Supported products and limitations > Pub/Sub ]{href="https://cloud.google.com/vpc-service-controls/docs/supported-products#table_pubsub" newTab="true" hasDisabledNofollow="false"}(information regarding private access to GCP services)
+  - :Link[SDK on Publish Settings]{href="https://pkg.go.dev/cloud.google.com/go/pubsub#PublishSettings" newTab="true"}
+  - :Link[Publish messages to topics]{href="https://cloud.google.com/pubsub/docs/publisher" newTab="true"}
+
+# Set up the Outbound Connection (Publish to Google Pub/Sub)
+
+Follow the steps below to set up the outbound connection.&#x20;
+
+## Step 1: Create Publication Topic in Google Cloud Platform
+
+In the Google Cloud Platform, create a *publication&#x20;*&#x74;opic. A matching *subscription&#x20;*&#x74;opic is created automatically, with the *-sub* suffix appended to the topic name.
+
+## Step 2: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+## Step 3: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+## Step 4: Add the Google Cloud Pub/Sub Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/xQi5POxWkMPNQ1-YhUBJa.mdx>) and select the **Google Cloud Pub/Sub Connector** provider.&#x20;
+
+For more information about message publication settings, see the :Link[SDK on Publish Settings]{href="https://pkg.go.dev/cloud.google.com/go/pubsub#PublishSettings" newTab="true"}.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Service Account Key (.json)**: Copy or save the JSON key from your Google Cloud Platform and paste or upload it here.&#x20;
+- **The project ID of the cloud project**: Copy the ID from your Google Cloud Platform and paste it here.&#x20;
+- **The private key ID of the cloud project**: Copy the key ID from your Google Cloud Platform and paste it here.&#x20;
+- **The client email of the cloud project**: Enter the email from your Google Cloud Platform.&#x20;
+- **Integration Topic**: Copy the name of the *Publication&#x20;*&#x74;opic (without the "-sub" suffix) from your Google Cloud Platform and paste it here.
+- **Custom Attributes**:  You can add custom attributes in key/value pairs for further data processing. Refer to the following to learn more:
+  - [Use Custom Attributes in the Google Cloud Pub/Sub Connector](<../../../How-To Guides/Integration Guides/Google Cloud Pub/Sub Integration Guide/tmBx98mSK_oSJnSai0ibF.mdx>)
+  - Google documentation for :Link[Using attributes]{href="https://cloud.google.com/pubsub/docs/publisher#using-attributes" newTab="true"}
+- **Parallel Publish Count**: The number of messages being published simultaneously. The default value is **100**. &#x20;
+- **Parallel byte threshold**: The minimum size of a batch (in bytes) for the batch to be published. The default value is zero, which means that there is no threshold (limit).&#x20;
+- **Publish count threshold**: The minimum number of messages in a batch for the batch to be published. The default value is zero, which means that there is no threshold (limit).&#x20;
+- **Publish delay threshold (Milliseconds)**: The maximum time that the client will attempt to publish a batch of messages. The default value is zero, which means that there is no threshold (limit).&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+## Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/z8pQ_cSdvBAp-YYmvkyFf_google.png" size="60" width="388" height="358" position="flex-start" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="X6qOs6TGqjdrhkd-nc70a" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/jsuQzIbwdzLIqKgO6zwOe/vqMjejrjwJrnsSK4qpg0q.mdx"} and relevant error messages.&#x20;
+
+## Step 6: Create Outbound Topics for Connector
+
+You will now need to import the tags you added in Step 2 to the connector as topics.&#x20;
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After importing the tag(s), do the following:
+
+- Edit the tag and configure the **Remote Data Topic**. Copy and paste the name of the *Subscription&#x20;*&#x74;opic  (with the `-sub` suffix) from your Google Cloud Platform. &#x20;
+- Make sure the connector has a CONNECTED status.&#x20;
+
+## Step 7: Enable Topics
+
+Because you imported DeviceHub tags for a *CONNECTED* connector, all topics will be disabled.&#x20;
+
+To enable the topics, return to the *Topics&#x20;*&#x74;ab and click the **Enable all topics** icon.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Iq7BWYqGWueu4US73iBl3_image.png "Enable all topics icon")
+
+## Step 8: Verify Connection in Google Cloud Platform
+
+**To verify the connection in Google Cloud Platform:**
+
+1. Pull the *subscription&#x20;*&#x74;opic to see messages it receives from the Litmus Edge outbound topics created previously.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-VdXPYXn3ue8QmzOVGPMD_pubsubmsg1000x272.png "List of Litmus Edge outbound topics")
+2. View the *subscription&#x20;*&#x73;tatistics.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/u-2c_cHty2BoX6BGFJBKN_pubsubgraph1000x235.png "Graph of subscription statistic")
+
+# Set up the Inbound Connection (Subscribe to Google Pub/Sub)
+
+Follow the steps below to set up the inbound connection.&#x20;
+
+See :Link[Publish messages to topics]{href="https://cloud.google.com/pubsub/docs/publisher" newTab="true"} to learn more about publishing messages in Google Pub/Sub.&#x20;
+
+## Step 1: Create Publication Topic in Google Cloud Platform
+
+In the Google Cloud Platform, create a *publication&#x20;*&#x74;opic.
+
+## Step 2: Add the Google Cloud Pub/Sub Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/xQi5POxWkMPNQ1-YhUBJa.mdx>) and select the **Google Cloud Pub/Sub Connector** provider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Service Account Key (.json)**: Copy or save the JSON key from your Google Cloud Platform and paste or upload it here.&#x20;
+- **The project ID of the cloud project**: Copy the ID from your Google Cloud Platform and paste it here.&#x20;
+- **The private key ID of the cloud project**: Copy the key ID from your Google Cloud Platform and paste it here.&#x20;
+- **The client email of the cloud project**: Enter the email from your Google Cloud Platform.&#x20;
+- **Integration Topic**: Copy the name of the *Publication&#x20;*&#x74;opic (without the "-sub" suffix) from your Google Cloud Platform and paste it here.
+- **Custom Attributes**:  You can add custom attributes in key/value pairs for further data processing. Refer to the following to learn more:
+  - [Use Custom Attributes in the Google Cloud Pub/Sub Connector](<../../../How-To Guides/Integration Guides/Google Cloud Pub/Sub Integration Guide/tmBx98mSK_oSJnSai0ibF.mdx>)
+  - Google documentation for :Link[Using attributes]{href="https://cloud.google.com/pubsub/docs/publisher#using-attributes" newTab="true"}
+- **Parallel Publish Count**: The number of messages being published simultaneously. The default value is **100**. &#x20;
+- **Parallel byte threshold**: The minimum size of a batch (in bytes) for the batch to be published. The default value is zero, which means that there is no threshold (limit).&#x20;
+- **Publish count threshold**: The minimum number of messages in a batch for the batch to be published. The default value is zero, which means that there is no threshold (limit).&#x20;
+- **Publish delay threshold (Milliseconds)**: The maximum time that the client will attempt to publish a batch of messages. The default value is zero, which means that there is no threshold (limit).&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+## Step 3: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/eiB32iROGzvFcrs6xBjad_google.png" size="60" width="388" height="358" position="flex-start" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="X6qOs6TGqjdrhkd-nc70a" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/jsuQzIbwdzLIqKgO6zwOe/vqMjejrjwJrnsSK4qpg0q.mdx"} and relevant error messages.&#x20;
+
+## Step 4: Create Inbound Topic for Connector
+
+You will now need to create a topic in Litmus Edge from the Google Cloud Platform publication topic created in Step 1.&#x20;
+
+**To create inbound topics:&#x20;**
+
+1. Navigate to **Integration**.&#x20;
+2. Click the connector tile.&#x20;
+3. Click the **Topics&#x20;**&#x74;ab.&#x20;
+4. Click the **Add a new subscription** icon.
+   The *Data Integration* dialog box appears.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RhLASRY6moVGfDkGhz12N_googleaddsubscriptionle.png)
+5. Configure the following parameters.&#x20;
+   - **Data Direction**: Select **Remote to Local - Inbound**.&#x20;
+   - **Local Data Topic**: Enter a name for the topic name in Litmus Edge.&#x20;
+   - **Remote Data Topic**: Copy and paste the *Publication&#x20;*&#x74;opic from your Google Cloud Platform.&#x20;
+   - **Enable**: Select the toggle to enable the topic.&#x20;
+6. Click **Yes&#x20;**&#x74;o add the topic.&#x20;
+7. From the connector tile, ensure the connector is not disabled and still shows a CONNECTED status. Also verify the topic shows an *Enabled&#x20;*&#x73;tatus.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/dbobD_VeGJHP75dKmzgM0_image.png)
+
+## Step 5: Send Messages in Google Cloud Platform
+
+Start sending messages through the *publication&#x20;*&#x74;opic (created in Step 1) from the Google Cloud Platform. See :Link[Publish messages to topics]{href="https://cloud.google.com/pubsub/docs/publisher" newTab="true"} to learn more.&#x20;
+
+## Step 6: Verify Connection in Litmus Edge
+
+You can do one of the following to verify the connection in Litmus Edge. When configuring the Flow or application, use the th&#x65;**&#x20;Local Data Topic** name configured in Step 4.&#x20;
+
+- [Create a Flow](<../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx>) to view the messages coming from Google Pub/Sub through the connector you created.&#x20;
+- Visualize the incoming data using one of the dedicated [Applications](<../../../Product Features/0vRF5bj1ZBmIj-wPDSPf1.mdx>) such as [Grafana](../C3fzsinpnjPwNfDGmQXhw/vA5ZP1_MFR-n9SeHvqfri.mdx).&#x20;
+

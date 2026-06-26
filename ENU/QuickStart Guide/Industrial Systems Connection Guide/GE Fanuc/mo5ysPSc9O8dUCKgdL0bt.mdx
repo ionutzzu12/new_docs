@@ -1,0 +1,575 @@
+---
+title: GE Fanuc 90-30 Ethernet (Gen1.3)
+slug: mo5ysPSc9O8dUCKgdL0bt
+description: Review the following information for setting up and configuring the GE Fanuc 90-30 Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the GE Fanuc 90-30 Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="216,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      GE Fanuc Series 90-30
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+Refer to the following device details:
+
+- Device: GE Fanuc 90-30 IC693CPU363
+- Device type (driver): GE 90-30 Series (Ethernet)
+- I/F: Ethernet
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      GE Fanuc
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      GE Fanuc 90-30 Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      18245
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="117,117,113,119,124,117" selectedRows="" isTableHeaderOn="true" selectedColumns="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td>
+      **Access Types&#x20;**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      G\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SA\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SB\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SC\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32753
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32753
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32753
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      G
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32753
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32753
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SA
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32753
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SB
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32753
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SC
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32753
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32753
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AI
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AQ
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32768
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      5000000
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

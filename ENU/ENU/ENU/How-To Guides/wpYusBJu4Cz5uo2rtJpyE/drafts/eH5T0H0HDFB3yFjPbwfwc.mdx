@@ -1,0 +1,55 @@
+---
+title: Read Data from Keyence SR-2000 Barcode Reader
+slug: eH5T0H0HDFB3yFjPbwfwc
+description: You can create a flow to read data from a Keyence SR-2000 barcode reader. 
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:21 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use flows to read data from a Keyence SR-2000 barcode reader.&#x20;
+
+# Before You Begin
+
+**To use the barcode reader:**
+
+- You need to set up its communication settings.
+- Download the user's manual for the SR-2000 model from the :Link[Barcode Reader Resource Center: 2D/1D code Readers Downloads]{href="https://www.keyence.com/support/user/barcode/download/codereader2d1d.jsp#point7" newTab="true"}.&#x20;
+- After downloading the manual, do the following:
+  - Under the Ethernet Connection section in "Chapter 5-3 Communication Settings (page 13)", configure the Ethernet connection.
+  - Follow the instructions provided in the "Chapter 5-4 Sending Settings (page 14)" section to complete the necessary steps.
+- When configuring the ethernet connection, do the following:
+  - Ensure the subnet and subnet mask of the reader's IP address match the IP settings of the Litmus Edge instance.
+  - Set the communication protocol to TCP.&#x20;
+  - In the Setup Wizard's "Step 4: Detailed Settings" (page 14), enter the IP address and port number of the Litmus Edge you wish to connect to.
+
+# Create Flow to Read Data
+
+**To create the flow to read data from the Keyence SR-2000 Barcode Reader:**
+
+1. From your Litmus Edge, navigate to **Flows Manager** and create a new flow.&#x20;
+   See [Create a Flow](<../../../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx>) to learn more.
+2. Add the **Inject&#x20;**&#x6E;ode and **Function&#x20;**&#x6E;ode to the canvas and connect them with a wire.&#x20;
+3. Add the **TCP Out** node and connect it to the **Function&#x20;**&#x6E;ode.&#x20;
+4. Add the **Debug&#x20;**&#x6E;ode and connect it to the **TCP Request&#x20;**&#x6E;ode.&#x20;
+5. Double-click the **Inject&#x20;**&#x6E;ode.
+   The *Edit inject node* dialog box appears.
+   - **msg.payload**: Select **string** from the drop-down list.&#x20;
+   - After selecting the string, ente&#x72;**&#x20;LON** in the same field.&#x20;
+   - Click **Done**.&#x20;
+6. Double-click the **Function&#x20;**&#x6E;ode.
+   The *Edit function node* dialog box appears.&#x20;
+   - **On Message**: Enter the following code.&#x20;
+     `msg.payload = msg.payload + '/r';     `
+     `return msg;`
+   - Click **Done**.&#x20;
+7. Double-click the **TCP Request** node.&#x20;
+   The *Edit tcp request node* dialog box appears.
+   - **Serve:** Enter the **IP address&#x20;**&#x61;nd **port number&#x20;**&#x79;ou configured in the *Before You Begin* section.&#x20;
+   - Click **Done.**&#x20;
+8. Click **Deploy**.
+9. Expand the message window beneath the flow.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Zy8ybHzr9L7Zr34GsUSZH_image.png "Flow canvas message window")
+10. Click the **Inject node button** to activate it. &#x20;
+11. Click the **Debug&#xA0;**&#x69;con to view the data output.
+    The Debug pane should display the barcode reader's output.
+

@@ -1,0 +1,268 @@
+---
+title: Connect a Device
+slug: gSsNirLsd4NUDb4kkXLMQ
+description: Learn how to connect and configure devices. 
+docTags: 
+createdAt: Fri May 13 2022 22:50:45 GMT+0300 (Eastern European Summer Time)
+---
+
+Connecting a device to Litmus Edge allows DeviceHub to collect data from the device using the appropriate industrial driver. Once connected, the device's data is normalized and published to the message broker, where it becomes available for flows, analytics, integrations, and other platform features.
+
+Before connecting a device, make sure it is physically configured and that you have its connection parameters. Refer to the [Industrial Systems Connection Guide](<../../../QuickStart Guide/-7aeKA0Yvj7t8RGFEgbww.mdx>) and locate your device for specific instructions.
+
+Connect a device by selecting a driver, entering its connection parameters, and configuring optional properties like metadata, alias topics, and logging. Once created, DeviceHub begins collecting data from the&#x20;device immediately.
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/zUMQYuGHHZs?si=Lqx-f9mrRVf0BU2i&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# Connection Types
+
+Litmus Edge supports the following device connection types:
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="151,464">
+  <tr>
+    <td align="left">
+      **Connection Type**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Ethernet**
+    </td>
+    <td align="left">
+      Connects to devices over TCP/IP using an IP address and port number. The most common connection type for modern PLCs and networked industrial equipment.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Serial**
+    </td>
+    <td align="left">
+      Connects to devices over a serial interface (RS232, RS485). Requires a communication port, baud rate, data bits, parity, and stop bits.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **CAN**
+    </td>
+    <td align="left">
+      Connects to devices on a Controller Area Network (CAN) bus. Requires a CAN bus module to be present on the hardware.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **File-based**
+    </td>
+    <td align="left">
+      Connects to data sources through a shared file path, such as a network share.
+    </td>
+  </tr>
+</table>
+
+# Step 1: Select Device to Connect
+
+You will first need to select the device type you want to connect and enter a name and description.&#x20;
+
+**To connect a device:**
+
+1. Navigate to **DeviceHub&#x20;**> **Devices**.&#x20;
+2. From the *DeviceHub&#x20;*&#x70;ane, click the **Connect a Device&#x20;**&#x62;ox.
+   The *Connect Device* dialog box appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AON8AdMdrmxJB5taUBXgl_image.png" size="80" width="1050" height="839" position="flex-start" darkWidth="1050" darkHeight="839" showCaption="false" indent="2"></Image>
+
+3. Click the **Device Type** drop-down list and select a Device Type from the list.
+4. Click the **Driver Name** drop-down list, and select a Driver Name from the list.
+5. Enter a name and description for the device. The name can have numbers, uppercase and lowercase characters, and special characters. It can't start or end with whitespaces.&#x20;
+
+# Step 2: Define Device-Specific Parameters
+
+Depending on the type of device you are connecting, you will need to define specific parameters.&#x20;
+
+Refer to the following resources for information on specific drivers and how-to guides:
+
+- [Industrial Systems Connection Guide](<../../../QuickStart Guide/-7aeKA0Yvj7t8RGFEgbww.mdx>)
+- :Link[DeviceHub Use Cases]{docId="nBI08FjwXsMnXZRXbs57h" label="DeviceHub Use Cases" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="DeviceHub Use Cases"}&#x20;
+- [Gen1 and Gen2 Driver Differences](A3ulP10Evdgyze6nZUqmx.mdx)
+
+<hint type="warning">
+  **Important**: If you are connecting a device with a serial connection and using an RS232 to USB adapter, only those with FTDI chips are recommended. Other adapters are not validated or recommended. If Litmus Edge doesn't have the driver for the adapter you are using, you will not be able to install it separately.
+</hint>
+
+### Asset Discovery Tool
+
+Depending on the device and driver you select, you may have the option of using the [Asset Discovery Tool](AxRcOC4rTVJIp-nleYbah.mdx), which searches for devices and pre-fills network parameters to connect the device to Litmus Edge.&#x20;
+
+Refer to the table below for the required and optional parameters for device types.&#x20;
+
+<table columnWidths="118,530" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Device Type**
+    </td>
+    <td>
+      **Required and Optional Parameters**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Ethernet device
+    </td>
+    <td>
+      - **Network Address:** Enter a network address. This is the IP address for the device.&#x20;
+      - **Network Port:** Enter a network port.&#x20;
+      - **Slot Number&#x20;**(Optional): Enter a value that indicates the position of the CPU located in a slot.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Serial device
+    </td>
+    <td>
+      - **Communication Port:&#x20;**&#x45;nter up to three characters, and then select an available port.
+      - **Baud Rate** (Optional): Enter a value.&#x20;
+      - **Data Bits**: Enter a value.
+      - **Parity&#x20;**(Optional): Select a value from the drop-down list.&#x20;
+      - **Slot Number** (Optional): Enter a value that indicates the position of the CPU located in a slot.
+      - **Stop Bits** (Optional): Enter a value.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CAN device
+    </td>
+    <td>
+      - **Channel:** Make sure that there is a can bus module already available as a part of the hardware by checking that there is a value in the field.
+      - **Bit Rate:** Enter a value.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      File-based device
+    </td>
+    <td>
+      - **Path:** Enter the shared path.
+      - **Min Req. Number** (Optional): Enter a value.&#x20;
+      - **Max Req. Number** (Optional): Enter a value.&#x20;
+    </td>
+  </tr>
+</table>
+
+# Step 3: Additional Attributes
+
+You have the option of configuring the additional attributes of metadata and status register settings.&#x20;
+
+## Meta Data
+
+The *Meta Data&#x20;*&#x6F;ption summarizes basic information about data. It enables you to define, modify or delete key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>
+
+See :Link[Organize Device and Tag Data by Using Metadata]{docId="ky8n65N8noj1AuQXZt93Z" label="Organize Device and Tag Data by Using Metadata" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+If you enable **Meta Data**, the section expands with parameters to complete. By default, the list of Meta Data key-value pairs displays *No records defined*.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/LPjPIDltza_oaSh_xphCC_image.png" size="80" width="1142" height="799" position="flex-start" darkWidth="1142" darkHeight="799" showCaption="false"></Image>
+
+**To define meta tags:**
+
+1. In the *Key&#x20;*&#x66;ield, enter the meta tag key.&#x20;
+2. In the *Value&#x20;*&#x66;ield, enter the meta tag value.&#x20;
+3. Click **+ Add**.&#x20;
+4. Continue adding key-value pairs you want to add.&#x20;
+
+## Status Register
+
+The *Status Register* option allows you to define a register for keeping track of the device status (either connected or disconnected).&#x20;
+
+See :Link[Use the Status Register to Connect a PLC]{docId="D6zCeH2qzZ8tg9j-13RJ9" label="Use the Status Register to Connect a PLC" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.
+
+If you select the **Status Register** check box, the section expands. The parameters to configure depend on the specific device and tag parameters. See the [Industrial Systems Connection Guide](<../../../QuickStart Guide/-7aeKA0Yvj7t8RGFEgbww.mdx>) and refer to the *Tag Parameters* section for the device you are configuring.&#x20;
+
+As long as the above register responds to polling by DeviceHub, the device appears in the UI as&#x20;*Connected*, regardless of the status of any other tags added to that device.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/VdWhJao44_sWGp640fPIc_image.png" size="80" width="1170" height="717" position="flex-start" darkWidth="1170" darkHeight="717" showCaption="false"></Image>
+
+# Step 4: Optional Settings
+
+You have the following optional settings you can configure for the device.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/T83CWc952hHt4Q3ZNosMZ_image.png" size="80" width="1132" height="623" position="flex-start" darkWidth="1132" darkHeight="623" showCaption="false"></Image>
+
+## Enable Alias Topics
+
+The *Enable alias topics* option allows you to substitute long, unreadable device and tag IDs with human-readable device and tag names in topic names. See :Link[Default Topics and Descriptions]{docId="8U4c20-xGyzkJRP24GEvM" label="Default Topics and Descriptions " spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Default Topics and Descriptions"} for more information.&#x20;
+
+The **Enable alias topics** check box is selected by default.  &#x20;
+
+<hint type="info">
+  **Notes:**
+
+  - When you enable alias topics, DeviceHub stops publishing to raw topics and publishes only to alias topics.
+  - Litmus Edge substitutes all special characters in aliases with "\_" (underscore).
+  - When alias topics are enabled for a device, you can't use batch write topics. To use batch write topics, you must not select the **Enable alias topics** check box in the device configuration. See :Link[Default Topics and Descriptions]{docId="8U4c20-xGyzkJRP24GEvM" label="Default Topics and Descriptions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Default Topics and Descriptions"} for more information.&#x20;
+</hint>
+
+## Enable Logging
+
+The Enable Logging option is available only for Gen 2 drivers. Once you connect the device, click the device tile and select the **Logs&#x20;**&#x74;ab to view the log.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/_SicUYZ2w2QIIAmXkVPNV_image.png" size="80" width="1294" height="569" position="flex-start" caption="Logs tab" darkWidth="1294" darkHeight="569" showCaption="true"></Image>
+
+## Enable Data Store
+
+The Enable Data Store option allows you to define how long you want to store data locally.&#x20;
+
+To enable this option, select the **Enable Data Store** check box, and then define the number of hours in the **Retention Hours** field.&#x20;
+
+After creating the device, a data store icon appears in the top-right corner of the device tile.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/N7_pDCKBhSYHHCzIRc_s9_image.png" size="60" width="428" height="328" position="flex-start" caption="The Enable Data Store icon" darkWidth="428" darkHeight="328" showCaption="true"></Image>
+
+## Publish on Polling Interval
+
+<hint type="info">
+  **Note**: This option is only available for Gen 2 drivers.&#x20;
+</hint>
+
+- If this option is selected, the driver will always publish messages according to the polling interval configuration. If the driver has not completed the request to read the data at a polling interval, the payload will have a `success=false` message.&#x20;
+- If this option is not selected, the driver will not publish a message at the polling interval if the request to read data has not completed.&#x20;
+
+## Watchdog
+
+<hint type="info">
+  **Note**: This option is not available for all drivers. For example, drivers that act as servers don't have this option, such as Industrial OT Server and OSI Agent.&#x20;
+</hint>
+
+If this option is selected, the driver will be monitored based on the Watchdog period (in seconds) you configure. If an issue is detected, then the driver will restart. &#x20;
+
+## Publish Additional Attributes
+
+This option is disabled by default. Users can enable or disable this option, which includes the status code, source timestamp, and server timestamp in the new DeviceHub payload fields.
+
+<hint type="info">
+  **Note**: This option is only available for the following Gen 2 drivers:
+
+  - OPC UA
+  - BACnet
+  - DNP3
+  - Modbus
+</hint>
+
+- **Source Timestamp**: This option reflects the exact time the data source applied the timestamp to a variable value. If selected, the driver will ensures accurate tracking of when data was generated and allows for better incident analysis.
+- **Server Timestamp**: This option captures the moment the server received the value, providing additional information for the timing of data accuracy and reliability.
+- **Status Code**: This option indicates the quality or state of the data being received, helping users identify any errors or issues with communication.
+
+# Step 5: Create Device
+
+When done defining the new device, click **Create Device**. A tile for the new device appears in the *Devices&#x20;*&#x70;ane. A green **CONNECTED** indicator means that a connection to the device has been established. You can stop a device to disconnect it.&#x20;
+
+If you have connectivity issues, see :Link[Device Connectivity Issues]{label="Device Connectivity Issues" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="v9DyGwtOozax7uD1HJ8mp" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for troubleshooting information.&#x20;

@@ -1,0 +1,446 @@
+---
+title: Mitsubishi FX3U Serial (Gen1.3)
+slug: v2zY9C95hsAS0B5rMtgLU
+description: Review the following information for setting up and configuring the Mitsubishi FX3U Serial (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi FX3U Serial (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="231,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[MELSEC-F]{href="https://www.mitsubishielectric.com/fa/products/cnt/plc_fx/items/index.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="ZPTCmzo7MNjZIP6UvGpD8">
+
+</ContentSnippet>
+
+**To configure your device:**
+
+1. Record the following information and refer to it as needed.&#x20;
+   - **Device**: Mitsubishi Fx3U-16M
+   - **Communication I/F**: RS232. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/lZ-3TYfHOPmEHymLCsqAw_mitsubishi-q02-02h-serial-connection1reference.png" size="80" width="480" height="840" position="flex-start" caption="Reference image of device" showCaption="true" indent="2"></Image>
+
+2. Launch GX Works2 v1.560J software, click **Create a Project**, and then click **Connection 1&#xA0;**&#x69;n the navigation panel.
+3. Set up communication parameters, and then click **Connection Test**.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="236,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Mitsubishi
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      3Mitsubishi FX3U Serial (Gen1.)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      7
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      9600
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Odd, None
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="105,105,134,107,112,177" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      OOO
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      500
+    </td>
+    <td align="left">
+      Input Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      OOO
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      500
+    </td>
+    <td align="left">
+      Output Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7999
+    </td>
+    <td align="left">
+      Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Timer Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Counter Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      8000
+    </td>
+    <td align="left">
+      8511
+    </td>
+    <td align="left">
+      Special Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      State Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extended Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SD
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      8000
+    </td>
+    <td align="left">
+      8511
+    </td>
+    <td align="left">
+      Special Data Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CV2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      200
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Counter Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7999
+    </td>
+    <td align="left">
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CV
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      199
+    </td>
+    <td align="left">
+      Counter Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TV
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Timer Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Z
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      7
+    </td>
+    <td align="left">
+      Index Register
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

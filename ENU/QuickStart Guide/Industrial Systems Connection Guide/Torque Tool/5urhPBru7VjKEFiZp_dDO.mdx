@@ -1,0 +1,141 @@
+---
+title: Open Protocol Ethernet
+slug: 5urhPBru7VjKEFiZp_dDO
+description: Set up and configure the Open Protocol Ethernet driver. 
+docTags: 
+createdAt: Thu Jun 30 2022 23:01:55 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Open Protocol Ethernet driver.# Litmus Edge Compatible Series&#x20;<table columnWidths="217,287" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Atlas Copco Power Focus 6000, Firmware v3.6]{href="https://www.atlascopco.com/en-us/itba/products/assembly-solutions/electric-assembly-systems/powerfocus-6000" newTab="true" hasDisabledNofollow="false"}
+      :Link[Cleco mPro300 Series]{href="https://www.clecotools.com/products/product-catalog/mpro300-series-global-controllers" newTab="true" hasDisabledNofollow="false"}
+    </td>
+  </tr>
+</table>To set up and configure this device in Litmus Edge, do the following:* Step 1: Set up and Configure the PLC Device
+* Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+* Step 3: Configure the List of Registers# Atlas Copco Open ProtocolThe Atlas Copco Open Protocol is used to connect to network-enabled nutrunners and torque drivers directly. -unhandled content type-# Step 1: Set up and Configure the PLC Device1) Enable Open Protocol on the controller. Refer to your controller's documentation for instructions.
+2) Note the controller's **IP address** and **TCP port** (default: `4545`).
+3) Ensure the controller is reachable from your Litmus Edge instance over the network.<hint type="info">
+  **Note:&#x20;**&#x4D;ulti-client connection support varies by controller model. For example, PF6000 controllers support multi-client connections, whereas older models such as the PF4000 support only single-client connections. Verify your controller's documentation to confirm.
+</hint># Step 2: Set up the PLC Device in Litmus Edge DeviceHub<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet><table columnWidths="162,352" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter&#x20;
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Type&#x20;
+    </td>
+    <td>
+      Torque Tool
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Driver&#x20;
+    </td>
+    <td>
+      Open Protocol Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Network Address&#x20;
+    </td>
+    <td>
+      The IP address of the controller
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Network Port&#x20;
+    </td>
+    <td>
+      4545
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Driver Mode&#x20;
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Subscription (default). In Publishing mode, tags publish according to the polling interval. In Subscription mode, tags publish only when the controller sends a reply; the polling interval is ignored.
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Keep Alive Time&#x20;
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Keep Alive Time (ms). Optional, default: 10000, range: 1000–150000
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Message Timeout&#x20;
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Message Response Timeout (ms). Optional, default: 2000
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Link Ack Timeout&#x20;
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Link Acknowledgement Timeout (ms). Optional, default: 1000
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Max Outstation Messages&#x20;
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Optional, default: 1
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      Message Retries&#x20;
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Number of times to retry a message. Optional, default: 3, range: 0–3
+    </td>
+  </tr>
+</table><ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>-unhandled content type-<ContentSnippet docRefId="lAs0H40TjkjOsQPVQnE9I">
+
+</ContentSnippet># **Troubleshooting**If you are unable to write the PSET (parameter set) on the Atlas Copco PF6000 Torque Controller, follow these steps to configure the controller correctly:### 1. Access the Source Configuration* Navigate to the section where sources are managed.
+* Identify the existing source that maps tightening programs or create a new one if required.### 2. Create or Select a Source* If a new source is needed, create it and define its parameters.
+* If modifying an existing source, ensure it is correctly configured before proceeding.### 3. Map the Tightening Programs to Identifiers* Within the source configuration, assign tightening programs to their respective identifiers (e.g., program numbers or tag mappings).
+* Double-check the associations to ensure accuracy.### 4. Verify Mapping and Configuration* Confirm that all mapped programs correspond correctly to their intended identifiers.
+* Validate settings to avoid mismatches that could affect operations.### 5. Write and Validate* Use the Litmus Edge write topic to write to the PSET parameter and retrieve the complete list of program numbers.
+* Ensure the system correctly reflects the new tags and that mapped programs execute as expected.

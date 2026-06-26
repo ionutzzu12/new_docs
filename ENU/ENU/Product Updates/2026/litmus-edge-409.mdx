@@ -1,0 +1,94 @@
+---
+title: Litmus Edge 4.0.9
+slug: litmus-edge-409
+docTags: 
+createdAt: Tue Feb 24 2026 16:35:34 GMT+0200 (Eastern European Standard Time)
+---
+
+Release Date: April 17, 2026
+
+Review the current list of [Limitations](../../../Resources/0frN6CU6GJ_uNo25QorZ0.mdx).
+
+<hint type="danger">
+  The Litmus Edge 4.0.9 release is not publicly available.&#x20;
+</hint>
+
+## Enhancements
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Events:**
+      - Added the option to disable storing event logs in the database.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - Added an information overview panel for processors. Use the panel to view processor configurations.
+      - Simplified and improved the behavior of Rearrange functionality for Analytics processors.
+    </td>
+  </tr>
+</table>
+
+## Resolved Issues
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="661">
+  <tr>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **DeviceHub:**
+      - Fixed issue where drivers with `StatusRegister` defined by default returned empty registers when devices were imported using a template.
+      - Fixed issue with consistency of tab, enter, and arrow key behavior when adding or editing a device.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Analytics:**
+      - Fixed issue where containers do not appear under the application in the Catalog App page when the application was launched with more than one whitespace in name.
+      - Fixed issue with selecting AI processor models when editing a processor.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Applications:**
+      - Fixed issue where containers do not appear under the application in the Catalog App page when the application was launched with more than one whitespace in name.
+      - Fixed issue where launching certain Marketplace apps with named volumes created an extra unused Docker volume.
+      - Fixed an issue where a container could attach to both the default and configured networks when only one network was specified.
+      - Removed invalid Docker bridge network interfaces added during upgrades to 4.0.8 from the database to prevent network disruptions.
+      - Fixed issue where the container terminal returned a blank page when attempting to output raw binary data.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **System:**
+      - Fixed issue where templates created in Litmus Edge (LE) and imported into Litmus Edge Manager (LEM) could not be applied to LE instances from LEM.
+      - Proxy URLs are now correctly preserved after software updates in **System** > **Network** > **Proxy**.
+      - Fixed issue where static routes were lost in Litmus Edge.
+      - Fixed issue where applying a template that includes authentication or device management proxy configuration could cause a partial restore error.
+      - Fixed issue where support bundle downloads failed at times with a `You provided 'function text() { [native code] }' where a stream was expected` error.
+      - Fixed issue where the system reported a success status during Litmus Edge Manager activation, even when all individual underlying network tests failed.
+      - Fixed issue with increased CPU usage during event log cleanup.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **APIs:**
+      - Fixed an issue where API responses could contain different properties between tags in the same DeviceHub device. This occurred after upgrading from 3.16 to 4.0.x.
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+    </td>
+  </tr>
+</table>
+

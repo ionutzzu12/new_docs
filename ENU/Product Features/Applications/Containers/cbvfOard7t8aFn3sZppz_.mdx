@@ -1,0 +1,86 @@
+---
+title: Overview of 'docker run'
+slug: cbvfOard7t8aFn3sZppz_
+description: Learn more about the "docker run' command. 
+docTags: 
+createdAt: Fri Sep 15 2023 21:47:50 GMT+0300 (Eastern European Summer Time)
+---
+
+You can run custom images in Docker containers within Litmus Edge.
+
+The Docker command used for this purpose is `docker run` and several options can be passed to this command to change its behavior. In this section, you will view some examples of how the `docker run` command can be used to run a Docker container in Litmus Edge.
+
+<hint type="info">
+  **Notes:**&#x20;
+
+  - The Docker run command is a very versatile tool with numerous configuration options. This section is only intended as an introduction to some of the possible uses of `docker run`. It does not serve as a comprehensive reference.
+
+    See the :Link[Docker documentation]{href="https://docs.docker.com/engine/reference/commandline/run/" newTab="true" hasDisabledNofollow="false"} for the official, maintained and complete description of `docker run` and its capabilities.
+  - The **Run&#x20;**&#x62;utton in the *Containers* pane can only be used for `docker run` commands. Other commands, including any other `docker` commands, cannot be used.&#x20;
+</hint>
+
+The most basic example of a `docker run` command is `docker run <image>`, where `<image>` is the path to the image to be run in Docker.
+
+To use options to modify the behavior of `docker run`, insert the option between `docker run` and the path to the image. `docker run -d <image>` adds the `-d` option, for example. This is called 'passing' the option to the (`docker run`) command.
+
+**To run a custom Docker image:**
+
+1. Log in to Litmus Edge.
+2. From the navigation panel, select **Applications.**
+   The *Dashboard* pane appears.
+3. Click **Containers** in the navigation sub-panel.
+   The *Containers* pane appears.
+4. Click **Run&#x20;**&#x61;t the upper-right corner of the pane.
+   The *Enter command to run* text field appears.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Y6V8W4zSapR1wR4fY4bdq_2023-09-1411-30-41.png "Run button")
+5. Enter the `docker run` command you wish to run into the field.
+6. Click **Run.**
+   The command runs and the custom image container is created.
+
+This section covers the use of the following options:&#x20;
+
+- `-d` or `--detach`
+- `--restart <restart options>`
+- `-it`
+- `--expose` or `-p`
+- `--volume`
+- `-e`
+
+## Detach
+
+Pass the `-d` or `--detach` option to `docker run` to run the Docker container in the background.&#x20;
+
+<hint type="warning">
+  **Important:&#x20;**&#x55;sing the `-d` option is mandatory to run a Docker container in Litmus Edge.
+</hint>
+
+## Restart
+
+There are several ways the `--restart` option can be passed to `docker run`.&#x20;
+
+<hint type="info">
+  **Note:&#x20;**&#x54;he typical approach is to pass `--restart always`. If this option is not set (or set differently), the container will have to be started again manually after the Litmus Edge instance is rebooted.
+</hint>
+
+## Interactive bash Shell and TTY&#x20;
+
+The `-it` option, when passed to `docker run`, starts an interactive `bash` shell in the container and allows the user to interact with said shell through a pseudo-TTY. This is a combination of the `-t` and `-i` options (short for `--tty` and `--interactive` respectively).
+
+## Expose and/or Publish Ports
+
+The `--expose` option allows the user to expose one or several ports of the container. Similarly, `-p` (short for `--publish`) publishes a container's port or ports to the host device. These options are passed by following an option by `<IP address of host>:<port number>` or just `<port number>`. For example, port `X` could be exposed by passing the option `--expose X` to `docker run`.
+
+See :Link[System Requirements]{label="System Requirements" spaceId docId="2HvbAMnACQvd83h0QIQDT" version="v2" docAnchorId="#firewall-port-configuration-requirements" loadingMethod="dynamic" overridedLabel href="../../../QuickStart Guide/ZsUv8XPBAcnL7VJ3pFBEr.mdx"} to review the list of required and optional ports.&#x20;
+
+## Bind Mount a Volume
+
+You can mount and bind a volume into the container by using the `--volume` option ( `-v` for short).
+
+The general syntax is `--volume <host path of the directory to be mounted>:<mount path in container>`.
+
+## Set Environment Variables
+
+You can set environment variables in the container by passing the `--env` option ( `-e` for short).
+
+The syntax is `--env <variable name>=<variable value>`, where `<variable name>` is generally in all capital letters.
+

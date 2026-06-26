@@ -1,0 +1,74 @@
+---
+title: Use the Statistical Prediction Function
+slug: 0-xYvbpsAvJYq5A66gcCB
+description: Learn how to use the Statistical Prediction function in Analytics. 
+docTags: 
+createdAt: Wed Feb 28 2024 21:18:17 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use the Statistical Prediction function to make future value predictions by applying the Fast Fourier Transform (FFT) on time-series signals.
+
+# **User Scenario**
+
+Review the following scenario for the statistical prediction processor function. Then, using an input processor, you will simulate PLC data and predict future data from the window of generated values.
+
+In a manufacturing plant, you can use the Statistical Prediction Function to predict future equipment failures. The function analyzes sensor data from the equipment and generates predictions based on past performance. The maintenance team uses these predictions to proactively schedule repairs and avoid costly downtime.
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: input1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **1**
+- **Tag Name**: Enter **input1**
+- **Min\_value**: Enter **1**
+- **Max\_value**: Enter **25**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Statistical Prediction Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **input1&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **Statistical Prediction&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Window Size:** Enter a value that represents the range to observe before making each prediction. For this example, we input a value of **10**.
+   - **Number of Predictions**: Enter a value to determine how many predictions you want. For this example, we input a value of **2**.
+   - **Frequency Difference:** Enter a value to represent the sampling rate of discretization. For this example, we input a value of **1**.
+   - **Number of Harmonics:&#x20;**&#x45;nter a value to represent the number of waves added to the fundamental wave to reach the desired signal. For this example, we input a value of **4**.
+   - For now, the polling interval of the subscription tag is assumed to be 1 second.
+   - Click **Save**.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/r1kq2jK8wVTc3RtPSsp-v_image.png "Edit a Processor dialog box")
+7. Connect the *DataHub Subscribe* processor (tag: *input1*) to the *Statistical Prediction* processor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+   The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/I_Chy7cbbx5IGFISkR9PJ_image.png "Completed Flows Canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Statistical Prediction&#x20;*&#x70;rocessor to view the output values.
+
+Before you can see any output, the input window size needs to be filled. After that, the output will include the prediction along with its timestamp.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/GVPiTHRTtGlyLAC5JBqhj_image.png "Output of Statistical Prediction")
+

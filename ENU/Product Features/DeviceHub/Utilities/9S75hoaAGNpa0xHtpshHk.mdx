@@ -1,0 +1,30 @@
+---
+title: Test an IP Address
+slug: 9S75hoaAGNpa0xHtpshHk
+description: You can test connectivity to a host name or an IP address that belongs to the network where your edge device resides.
+docTags: 
+createdAt: Fri May 13 2022 22:50:25 GMT+0300 (Eastern European Summer Time)
+---
+
+You can test connectivity to a host name or an IP address that belongs to the network where your edge device resides by navigating to **DeviceHub&#x20;**>**&#x20;Utilities&#x20;**&#x61;nd referring to the *Test IP Address* section.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Rzr2T96PKhuQksAq0wK3-_image.png "Test IP Address section")
+
+**To test connectivity**:
+
+1. Navigate to **DeviceHub&#x20;**> **Utilities**.&#x20;
+2. From the *Test IP Address* section of the *Utilities&#x20;*&#x70;ane, enter a host name or an IP address to test in the **Hostname or IP** field.
+3. In the **Count&#x20;**&#x66;ield, enter the number to packets to send (the default is 4).
+4. In the **Timeout&#x20;**&#x66;ield, enter the response timeout in seconds (the default is 60).
+5. Click **Test Address**.
+   If the selected IP address is accessible, the testing stats per packet show at the bottom of the Test IP Address section.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/0qEENxWJ87I3goU-b7Ii__utility-ip-success-1.png" size="80" width="651" height="269" caption="Test IP Address interface" position="center" showCaption="true"></Image>
+
+If the selected IP address is not accessible, only the initial ping shows:
+
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/e3QomRJnZvvG55NovTzSA_utility-ip-failure.png" size="80" width="651" height="212" caption="Test IP Address interface : only initial ping" position="center" showCaption="true"></Image>
+
+To stop the process before all of the transmitted packets are either received or timed out, click **Cancel**.
+

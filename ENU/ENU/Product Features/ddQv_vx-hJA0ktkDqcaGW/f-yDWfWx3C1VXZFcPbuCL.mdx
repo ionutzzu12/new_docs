@@ -1,0 +1,43 @@
+---
+title: Machine Learning Models
+slug: f-yDWfWx3C1VXZFcPbuCL
+description: The Analytics module allows you to execute your Machine Learning (ML) models “run time”. You can feed live data to the model and get live output from it.
+docTags: 
+createdAt: Fri May 13 2022 22:02:44 GMT+0300 (Eastern European Summer Time)
+---
+
+The Analytics module allows you to upload Machine Learning (ML) models, feed live data into the model, and receive live output from the model.
+
+<hint type="info">
+  **Note**: To work with ML models in Analytics, your computer has to meet certain [TensorFlow requirements](https://www.tensorflow.org/install/gpu). If it does not, the ML-specific processors will not be available for flow building.
+</hint>
+
+# Create a Machine Learning Model for Upload
+
+To upload a model to Analytics, you need a SavedModel format from [TensorFlow](https://www.tensorflow.org/guide/saved_model). Once you have created and saved a model, you must compress and zip it prior to uploading it to Analytics. SavedModel is a directory containing serialized signatures and the state needed to run them, including variable values and vocabularies. The SavedModel (`saved_model.pb`) file stores the TensorFlow model and a set of named signatures, each identifying a function that accepts tensor inputs and produces tensor outputs. SavedModels may contain multiple variants of the model.
+
+Once your ML model is ready, proceed as follows:
+
+1. Upload the model. See [Upload a Model](<../../../Product Features/Analytics/Machine Learning Models/Ov5v5QyOEisVWNMqHNUlm.mdx>) for details.&#x20;
+2. Create an analytics flow based on your model.&#x20;
+   - TensorFlow processor for time-series data. See [Create an Analytics Flow](<../../../Product Features/Analytics/Analytics Flows and Processors/p1kg4r7O_pH2AHG-bmsT_.mdx>) for details.&#x20;
+   - TensorFlow Images processor for images. See :Link[TensorFlow Images Processor]{label="TensorFlow Images Processor" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="bjjNDUpZfhq14keHrn6Zl" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}for details.&#x20;
+3. (Optional) Add the Tengo Script processor to modify the model output. See [Tengo Script](<../../../Product Features/Analytics/Statistical Functions/tengo-script.mdx>) for details.&#x20;
+4. Visualize the ML-based output in the [Flows Manager](<../../../Product Features/68WrvuaKK8gVSMbo8bVxq.mdx>) or through :Link[Applications]{docId="JHSPozFHV4fCs9iYIEk8Z" label="Applications" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Applications"}.&#x20;
+
+# Access Analytics Models UI
+
+**To access Analytics Models:**
+
+1. Log in to Litmus Edge.
+2. From the Navigation panel, navigate to **Analytics&#x20;**> **Models**.
+   The *Models* pane appears.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Emguio_RaNeFVY_6WTcOf_image.png" size="80" width="884" height="460" caption="The Analytics Models pane" position="center" showCaption="true"></Image>
+
+# Next Steps
+
+- [Upload a Model](<../../../Product Features/Analytics/Machine Learning Models/Ov5v5QyOEisVWNMqHNUlm.mdx>)&#x20;
+- :Link[Obtain Field Values from a Model]{docId="paM2BeoBBJKyBzIK_aHpS" label="Obtain Field Values from a Model" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Obtain Field Values from a Model"}&#x20;
+- :Link[Model Types]{docId="NjcWuGPo0rc4hPEB36ThP" label="Model Types" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Model Types"}&#x20;
+

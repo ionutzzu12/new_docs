@@ -1,0 +1,160 @@
+---
+title: Machine Learning Classification
+slug: 95KnSN8iRnZLb5gyeBTHX
+description: This use case is a customized classification version of a CNN classification model from the TensorFlow website.
+docTags: 
+createdAt: Thu Oct 20 2022 22:05:09 GMT+0300 (Eastern European Summer Time)
+---
+
+Machine Learning Classification uses models created in TensorFlow. See [Upload a Model](../Ov5v5QyOEisVWNMqHNUlm.mdx). The TensorFlow Images Processor feeds images to an already created TensorFlow Model. The TensorFlow Processor feeds timeseries data to an already created TensorFlow Model.
+
+This use case is a customized classification version of a CNN classification model from the TensorFlow website.
+
+<BlockQuote>
+  \# cnn model
+  from numpy import mean
+  from numpy import std
+  from numpy import dstack
+  from pandas import read\_csv
+  import numpy as np
+  import tensorflow as tf
+  from tensorflow import keras
+  from sklearn.preprocessing import StandardScaler
+  import matplotlib.pyplot as plt
+
+  \# load a single file as a numpy array
+  def load\_file(filepath):
+  dataframe = read\_csv(filepath, header=None, delim\_whitespace=True)
+  return dataframe.values&#x20;
+
+  \# load a list of files and return as a 3d numpy array
+  def load\_group(filenames, prefix=''):
+  loaded = list()
+  for name in filenames:
+  data = load\_file(prefix + name)
+  loaded.append(data)&#x20;
+  \# stack group so that features are the 3rd dimension
+  loaded = dstack(loaded)
+  return loaded&#x20;
+
+  \# load a dataset group, such as train or test
+  def load\_dataset\_group(group, prefix=''):
+  filepath = prefix + group + '/Inertial Signals/'
+  \# load all 9 files as a single array
+  filenames = list()&#x20;
+  \# total acceleration&#x20;
+  filenames += \['total\_acc\_x\_'+group+'.txt', 'total\_acc\_y\_'+group+'.txt', 'total\_acc\_z\_'+group+'.txt']
+  body acceleration
+  filenames += \['body\_acc\_x\_'+group+'.txt', 'body\_acc\_y\_'+group+'.txt', 'body\_acc\_z\_'+group+'.txt']
+  \# body gyroscopefilenames += \['body\_gyro\_x\_'+group+'.txt', 'body\_gyro\_y\_'+group+'.txt', 'body\_gyro\_z\_'+group+'.txt']
+  \# load input data
+  X = load\_group(filenames, filepath)&#x20;
+  load class output&#x20;
+  y = load\_file(prefix + group + '/y\_'+group+'.txt')
+  return X, y&#x20;
+
+  \# load the dataset, returns train and test X and y elements
+  def load\_dataset(prefix=''):
+  \# load all train
+  trainX, trainy = load\_dataset\_group('train', prefix + 'HARDataset/')
+  print(trainX.shape, trainy.shape)
+  \# load all test
+  testX, testy = load\_dataset\_group('test', prefix + 'HARDataset/')
+  print(testX.shape, testy.shape)
+  zero-offset class values
+  trainy = trainy - 1
+  testy = testy - 1
+  one hot encode y
+  trainy = tf.keras.utils.to\_categorical(trainy)
+  testy = tf.keras.utils.to\_categorical(testy)
+  print(trainX.shape, trainy.shape, testX.shape, testy.shape)
+  return trainX, trainy, testX, testy
+
+  \# standardize data
+  def scale\_data(trainX, testX, standardize):
+  \# remove overlap
+  cut = int(trainX.shape\[1] / 2)
+  longX = trainX\[:, -cut:, :]
+  \# flatten windows
+  longX = longX.reshape((longX.shape\[0] \* longX.shape\[1], longX.shape\[2]))
+  \# flatten train and test
+  flatTrainX = trainX.reshape((trainX.shape\[0] \* trainX.shape\[1], trainX.shape\[2]))
+  flatTestX = testX.reshape((testX.shape\[0] \* testX.shape\[1], testX.shape\[2]))
+  \# standardize
+  if standardize:
+  s = StandardScaler()
+  \# fit on training data
+  s.fit(longX)
+  \# apply to training and test data
+  longX = s.transform(longX)
+  flatTrainX = s.transform(flatTrainX)
+  flatTestX = s.transform(flatTestX)
+  \# reshape
+  flatTrainX = flatTrainX.reshape((trainX.shape))
+  flatTestX = flatTestX.reshape((testX.shape))
+  return flatTrainX, flatTestX
+
+  \# fit and evaluate a model
+  def evaluate\_model(trainX, trainy, testX, testy, param, n\_filters, kernal\_size):
+  verbose, epochs, batch\_size = 0, 10, 32
+  n\_timesteps, n\_features, n\_outputs = trainX.shape\[1], trainX.shape\[2], trainy.shape\[1]
+
+  \# scale data
+  trainX, testX = scale\_data(trainX, testX, param)
+  model = keras.Sequential()
+  model.add(tf.keras.layers.Conv1D(filters=n\_filters, kernel\_size=kernal\_size, activation='relu', input\_shape=(n\_timesteps,n\_features)))
+  model.add(tf.keras.layers.Conv1D(filters=n\_filters, kernel\_size=kernal\_size, activation='relu'))
+  model.add(tf.keras.layers.Dropout(0.5))
+  model.add(tf.keras.layers.MaxPooling1D(pool\_size=2))
+  model.add(tf.keras.layers.Flatten())
+  model.add(tf.keras.layers.Dense(100, activation='relu'))
+  model.add(tf.keras.layers.Dense(n\_outputs, activation='softmax'))
+  model.compile(loss='categorical\_crossentropy', optimizer='adam', metrics=\['accuracy'])
+  \# fit network
+  model.fit(trainX, trainy, epochs=epochs, batch\_size=batch\_size, verbose=verbose)
+  \# evaluate model
+  \_, accuracy = model.evaluate(testX, testy, batch\_size=batch\_size, verbose=0)
+  return accuracy, model
+
+  \# summarize scores
+  def summarize\_results(scores, params):
+  print(scores, params)
+  summarize mean and standard deviation
+  for i in range(len(scores)):
+  m, s = mean(scores\[i]), std(scores\[i])
+  print('Param=%s: %.3f%% (+/-%.3f)' % (params\[i], m, s))
+  \# boxplot of scores
+  \# plt.boxplot(scores, labels=params)
+  \# plt.savefig('exp\_cnn\_standardize.png')
+
+  \# run an experiment
+  def run\_experiment(params, repeats=1):
+  \# load data
+  trainX, trainy, testX, testy = load\_dataset()
+  \# test each parameter
+  all\_scores = list()
+  for p in params:
+  \# repeat experiment
+  scores = list()
+  model = keras.Sequential()
+  for r in range(repeats):
+  score, model = evaluate\_model(trainX, trainy, testX, testy, p, n\_filters=64, kernal\_size=3)
+  score = score \* 100.0
+  model.summary()
+  \# if p:
+  \#   model.save("/motionModel/")
+  yy = model.predict(trainX)
+  print(np.round(yy,3))
+  print(testy)
+  print('>p=%s #%d: %.3f' % (p, r+1, score))
+  scores.append(score)
+  all\_scores.append(scores)
+  \# summarize results
+  summarize\_results(all\_scores, params)
+
+  \### run the experiment
+  n\_params = \[False, True]
+  run\_experiment(n\_params)
+  \# plt.show()
+</BlockQuote>
+

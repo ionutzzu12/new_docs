@@ -1,0 +1,276 @@
+---
+title: Default Topics and Descriptions
+slug: ZijcY3nv5LHOY9vj_jwUG
+description: Learn more about the different types of topics you can use to transfer data.
+docTags: 
+createdAt: Fri Jun 17 2022 01:13:39 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information on default topics and descriptions.&#x20;
+
+To review how-to guides for topics, see :Link[DeviceHub Guides]{label="DeviceHub Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="nBI08FjwXsMnXZRXbs57h" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.&#x20;
+
+<hint type="info">
+  **Notes**:
+
+  - You need to follow the following guidelines for topic names: :Link[Subject-Based Messaging]{href="https://docs.nats.io/nats-concepts/subjects" newTab="true"}.&#x20;
+  - When publishing structured data such as JSON, you must convert to a byte array (string) first. To do this in a flow, you can use the **json&#x20;**&#x6E;ode.&#x20;
+</hint>
+
+<hint type="warning">
+  **Important:&#x20;**&#x54;he current topic name generation rule uses a byte-specific replacement protocol to create topic names. In this system:
+
+  - **ASCII Special Characters:** Symbols and spaces are replaced with a single underscore (“\_”) since they are represented in 1 byte.
+  - **Accented and Extended Unicode Characters:** Characters with accents (e.g., “ó”) are replaced by a double underscore (“\_\_”), reflecting their 2-byte representation. The 3-byte and 4-byte Unicode characters are replaced with three (“\_\_\_*”) and four (“\_*\_\_\_”) underscores, respectively.
+</hint>
+
+# Data Publishing Formats
+
+DeviceHub collects data from PLCs and sends data to a message broker for further distribution. Data flows trigger using an API call or execute according to a schedule. Litmus Edge supports multiple data formats.
+
+Refer to the following formats used for data in devices.&#x20;
+
+## Raw Topics
+
+DeviceHub [Tags](<../../../../Product Features/o1SOmeIprit2fauHD3CX9/lV8wjACGkGKndgtTE7YfD.mdx>) generate a Raw Topic, which is a local topic for publishing and subscribing data through the message broker.&#x20;
+
+Litmus Edge publishes each value to a tag-specific topic in the following topic format: **devicehub.raw.\{deviceID}.\{tagID}**.&#x20;
+
+### Device Raw Topics
+
+When you copy a raw topic for a device in Litmus Edge, the topic is copied in the following format: `devicehub.raw.{DeviceID}.>`. The ">" character represents a wildcard. This means that the topic will be used for any tag associated with the device.&#x20;
+
+### Example of a Raw Topic
+
+`devicehub.raw.F7F72687-2F29-46E7-95E2-B5532471EBAA.2d7473c0-83a0-4174-83cc-b48a63c1b1cf`
+
+### Example of a Raw Device Topic
+
+`devicehub.raw.16AC16F7-5E36-4EA0-8D00-17386C051281.>`
+
+## Alias Topics
+
+When you :Link[Connect a Device]{docId="OBs8xcnZ-B0J2D1Gaipna" label="Connect a Device" spaceId version="v2" docAnchorId="#JL7O7" overridedLabel="Connect a Device" href="../../../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx"}, you have the option of using the **Enable alias topics** option. If you select to use alias topics for a device, then you won't be able to use raw topics as well. Each connected device can either use alias topics or raw topics, not both.&#x20;
+
+<hint type="warning">
+  **Important**: When alias topics are enabled for a device, you can't use batch write topics. To use batch write topics, you must not select the **Enable alias topics** check box in the device configuration. See [Connect a Device](<../../../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx>) and [Manage Devices](<../../../../../Product Features/DeviceHub/Devices/6pJz8SkMcWaxT06dJRBmi.mdx>) for more information.&#x20;
+</hint>
+
+When th&#x65;*&#x20;Enable alias topics&#x20;*&#x63;heck box is selected:
+
+- deviceId in the raw topic format is replaced with deviceName
+- tagId in the raw topic format is replaced with tagName
+
+Alias topics use the following format: **devicehub.alias.\{devicename}.\{tagname}**.
+
+### Example of an Alias Topic
+
+`devicehub.alias.plc2.tag1`
+
+## Write Topics
+
+Write topics write data to a tag-specific topic in the following topic format: **devicehub.write.\{deviceID}.\{tagID**}. Each device instance on the **devicehub.write.\{deviceID}.\*** topic receives all messages for the corresponding device. The device instance executes a write to the specified tag on the connected device.&#x20;
+
+### Example of a Write Topic
+
+`devicehub.write.F7F72687-2F29-46E7-95E2-B5532471EBAA.2d7473c0-83a0-4174-83cc-b48a63c1b1cf`
+
+## Batch-Write Topics
+
+Batch-write topics can send multiple write requests simultaneously in the following format: **devicehub.batch\_write.\{DeviceName}&#x20;**&#x6F;&#x72;**&#x20;devicehub.batch\_write.\{deviceID}**.&#x20;
+
+<hint type="warning">
+  **Important**:
+
+  - Only Gen 2 drivers can use batch write topics. See the [Industrial Systems Connection Guide](<../../../../../QuickStart Guide/-7aeKA0Yvj7t8RGFEgbww.mdx>) to review available Gen 2 drivers.&#x20;
+  - If **Enable Alias Topics** is selected in the device configuration, then the *DeviceName&#x20;*&#x61;nd *TagName&#x20;*&#x70;arameters need to be used for setting up batch-write topics. If Enable Alias Topics is not selected, then *deviceID&#x20;*&#x61;nd *registerID&#x20;*&#x6E;eed to be used. See [Connect a Device](<../../../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx>) and [Manage Devices](<../../../../../Product Features/DeviceHub/Devices/6pJz8SkMcWaxT06dJRBmi.mdx>) for more information.&#x20;
+</hint>
+
+### Example of a Batch Write Topic
+
+`devicehub.batch_write.710B913B-B915-4450-9122-8D57E803499B`
+
+## Poll-Once Topics&#x20;
+
+Poll-once topics can be used to trigger a poll to a tag for data in the following topic formats:
+
+- If raw topics are enabled: **devicehub.pollonce.\{deviceID}.\{tagID}**
+- If alias topics are enabled: **devicehub.pollonce.\{deviceName}.\{tagName}**
+
+When a poll-once topic is triggered by a message, Litmus Edge will get data for that tag and publish a message to the raw or alias topic for that tag.
+
+### Example of a Poll-Once Topic
+
+`devicehub.pollonce.F7F72687-2F29-46E7-95E2-B5532471EBAA.2d7473c0-83a0-4174-83cc-b48a63c1b1cf`
+
+## Topic Formats
+
+The following table summarizes the types of device-level and tag-level topics, either with or without aliases. You have the option of using raw topics or alias topics.&#x20;
+
+
+
+<table columnWidths="91,302,260" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Category**
+    </td>
+    <td>
+      **Topics**
+    </td>
+    <td>
+      **Notes**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device
+    </td>
+    <td>
+      devicehub.plcstatus.\{DeviceID}
+    </td>
+    <td>
+      Subscription to a device status
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device
+    </td>
+    <td>
+      devicehub.manage.\{DeviceID}
+    </td>
+    <td>
+      To START/STOP the device's CONNECTION
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device
+    </td>
+    <td>
+      devicehub.raw.\{DeviceID}.>
+    </td>
+    <td>
+      Publish/Subscribe to all data from a specific Device. The ">" character represents a wildcard.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device
+    </td>
+    <td>
+      devicehub.plcstatus.\{DeviceName}
+    </td>
+    <td>
+      To monitor the device's CONNECTION/DISCONNECTION status with Alias topics enabled
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device
+    </td>
+    <td>
+      devicehub.manage.\{DeviceName}
+    </td>
+    <td>
+      To START/STOP the device CONNECTION with Alias topics enabled
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device
+    </td>
+    <td>
+      devicehub.alias.\{DeviceName}.>
+    </td>
+    <td>
+      A wildcard to receive messages from all tags added to the device with Alias topics enabled. The ">" character represents a wildcard.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Device
+    </td>
+    <td>
+      devicehub.batch\_write.\{DeviceID}
+    </td>
+    <td>
+      Send multiple write requests simultaneously
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Tag
+    </td>
+    <td>
+      devicehub.pollonce.\{DeviceID}.\{TagID}
+    </td>
+    <td>
+      Trigger this topic to get data from a tag one time
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Tag
+    </td>
+    <td>
+      devicehub.pollonce.\{DeviceName}.\{TagName}
+    </td>
+    <td>
+      To receive data from a poll-once raw topic with Alias topics enabled
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Tag
+    </td>
+    <td>
+      devicehub.raw.\{DeviceID}.\{TagID}
+    </td>
+    <td>
+      To receive data in raw format
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Tag
+    </td>
+    <td>
+      devicehub.write.\{DeviceID}.\{TagID}
+    </td>
+    <td>
+      To write data
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Tag
+    </td>
+    <td>
+      devicehub.alias.\{DeviceName}.\{TagName}
+    </td>
+    <td>
+      To receive data in raw format with Alias topics enabled    </td>
+  </tr>
+  <tr>
+    <td>
+      Tag
+    </td>
+    <td>
+      devicehub.write.\{DeviceName}.\{TagName}    </td>
+    <td>
+      To write data with Alias topics enabled    </td>
+  </tr>
+  <tr>
+    <td>
+      Events
+    </td>
+    <td>
+      system.events
+    </td>
+    <td>
+      Subscription to all system events
+    </td>
+  </tr>
+</table>
+

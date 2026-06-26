@@ -1,0 +1,241 @@
+---
+title: CODESYS V2 Ethernet Symbolic (Gen1.3)
+slug: codesys-v2-ethernet-symbolic-gen13
+docTags: 
+createdAt: Wed Jan 21 2026 20:21:57 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the CODESYS V2 Ethernet Symbolic driver.
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      ABB PM564
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left">
+      N/A
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+1. Configure your CODESYS V2 device for Ethernet access and note its network parameters (IP address and port).
+2. Ensure the CODESYS device is accessible on the network from your Litmus Edge instance.
+3. (Optional) Export a symbol file from your CODESYS device to enable symbolic tag browsing:
+   - In your CODESYS programming environment, create a symbol configuration file.
+   - Export the symbol file in **.SYM** or **.SDB** format.
+   - Save this file for upload to Litmus Edge.
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you :Link[Connect a Device]{label="Connect a Device" spaceId="uscaaRRprMldzn77HKGZr" docId="OBs8xcnZ-B0J2D1Gaipna" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      CODESYS
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      CODESYS V2 Ethernet Symbolic
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Motorola Byte Order**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Enable if your CODESYS device uses Motorola (big-endian) byte order. Disable for Intel (little-endian) byte order.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Network Address**
+    </td>
+    <td align="left">
+      The IP address of your CODESYS device (for example, 10.17.0.97)
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Path**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      /data/registers.sym (optional path to uploaded SYM or SDB file)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Port**
+    </td>
+    <td align="left">
+      1201
+    </td>
+  </tr>
+  <tr>
+    <td align="left" colSpan="1" rowSpan="1">
+      **Protocol**
+    </td>
+    <td align="left" colSpan="1" rowSpan="1">
+      Select the protocol variant that matches your CODESYS device configuration.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note**: If you are using a SYM or SDB file for symbolic addressing, upload it to the path specified in the **Path** field before starting the device. If no file is provided, the driver will connect and browse using device information directly.
+</hint>
+
+## Step 3: Configure the List of Registers
+
+When you :Link[Add a Tag]{label="Add a Tag" spaceId="uscaaRRprMldzn77HKGZr" docId="pg-6Xtr10autJdpVRfNXq" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- :Link[Organize Device and Tag Data by Using Metadata]{label="Organize Device and Tag Data by Using Metadata" spaceId="uscaaRRprMldzn77HKGZr" docId="ky8n65N8noj1AuQXZt93Z" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Tag Formula Variables]{label="Tag Formula Variables" spaceId="uscaaRRprMldzn77HKGZr" docId="ZyKcV1im7Rn9JrfBw4bTZ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+
+## Register Table
+
+<hint type="info">
+  **Note:** This driver uses symbolic addressing based on the variable names defined in your CODESYS program (for example, PLC\_PRG.test1, PLC\_PRG.DWORD). When a SYM or SDB file is provided, it supplies the mapping between symbolic names and memory addresses. Without a symbol file, symbolic names are resolved directly from the device.
+</hint>
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="100,100,100,100,100,100,100">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Types
+    </td>
+    <td align="left">
+      Address Format
+    </td>
+    <td align="left">
+      Min Address
+    </td>
+    <td align="left">
+      Max Address
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      BOOL, BYTE, SINT, USINT, WORD, INT, UINT, DWORD, DINT, UDINT, REAL, STRING
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      Symbolic name (e.g., PLC\_PRG.variableName)
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      Read/Write symbolic variables
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options are:&#x20;
+  - BOOL: Boolean value
+  - BYTE: 8-bit unsigned integer
+  - SINT: 8-bit signed integer
+  - USINT: 8-bit unsigned integer
+  - WORD: 16-bit unsigned integer
+  - INT: 16-bit signed integer
+  - UINT: 16-bit unsigned integer
+  - DWORD: 32-bit unsigned integer
+  - DINT: 32-bit signed integer
+  - UDINT: 32-bit unsigned integer
+  - REAL: 32-bit floating point
+  - STRING: Character string
+- **Polling Interval**: Enter a value in milliseconds. This determines how often the tag should poll the register for data. Minimum value is 1000 ms.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Address**: Enter the symbolic address of the variable as defined in your CODESYS program. Use the format: `PLC_PRG.variableName `(for example `PLC_PRG.test1`, `PLC_PRG.D_STRING`). If a SYM or SDB file has been uploaded, symbolic names must match those defined in that file. If no file is provided, names are resolved directly from the device.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: **value** (current tag value) and **timestamp** (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power (`x`) performs the operation `10^x`
+  - log: log (`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp (`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  * **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

@@ -1,0 +1,47 @@
+---
+title: Manage the Disk Space Policy
+slug: 8zmbiFQsPqMuUlTP0Eq-F
+description: You can set disk space limits and warning messages as needed.
+docTags: 
+createdAt: Wed Sep 28 2022 21:19:40 GMT+0300 (Eastern European Summer Time)
+---
+
+You can manage the disk space policy by navigating to **System&#x20;**>**&#x20;Device Management&#x20;**>**&#x20;Disk Space Policy**.&#x20;
+
+<hint type="info">
+  **Note**: The system limit is set to default and cannot be changed. Monitor your storage to ensure that you do not run out.
+
+  <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6cq58dCW1KZNc55RxkKNr_image.png" size="50" width="486" height="127" position="center" showCaption="false"></Image>
+</hint>
+
+# Disk Space Policy Overview
+
+You can add or modify a disk space policy from the User Limit panel in the *Disk Space Policy* section. An action of *Warning&#xA0;*&#x6F;r *Stop data collection* must be selected before you can save the policy. This means that if you have added a policy for additional disk space, the system will warn you about the disk space limit or stop the data collection, depending on your settings, when the disk space you have designated has been reached. You can view any warnings fro&#x6D;**&#xA0;System&#x20;**>**&#x20;Events.**
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zhR_AvMWUN2zR4TtKzkRn_image.png "System > Events pane")
+
+Th&#x65;*&#xA0;System Limit* cannot be modified. This is the amount of disk space reserved for the system. You can add a policy for additional disk space for user data from the User Limit. You cannot assign less disk space than what is reserved for the System Limit.&#x20;
+
+If the System Limit is exceeded, an immediate stop data collection action occurs. If the User Limit is low, a ten minute delay occurs before a warning or stop data collection action occurs. Service is restored once disk space becomes available.
+
+When you view the Data Partition Usage section in **System** >**&#x20;Info**, you can view the used, available, and total disk space. This helps you determine how much disk space you should add to the User Limit policy.
+
+<hint type="info">
+  **Note:&#x20;**&#x46;rom the *Data Partition Usage* section, the *Total&#x20;*&#x64;isk space amount shown is the total disk space physically available, some of which is reserved for updating the system. The *Used&#x20;*&#x64;isk space amount shown is the amount of disk space used for both the user and the system at the current time. The *Available&#x20;*&#x64;isk space shown is the amount of disk space available for use at the current time.
+</hint>
+
+# Before You Begin
+
+You must be an administrator to view the *Disk Space Policy* pane and make changes.
+
+# Manage Disk Space Policy
+
+You can make changes to the following disk space policy fields:
+
+- **User defined hard disk space limit**: You can modify the current value.&#x20;
+- **Action**: Select **Warning&#x20;**&#x6F;r **Stop data collection** from the drop-down list.&#x20;
+
+When done updating the policy, click **Save Policy**.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/e7oxMxqsfAKgWuM3GERtA_image.png "The Disk Space Policy section")
+

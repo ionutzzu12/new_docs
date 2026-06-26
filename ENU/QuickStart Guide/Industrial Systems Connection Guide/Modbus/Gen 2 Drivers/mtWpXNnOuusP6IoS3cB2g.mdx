@@ -1,0 +1,440 @@
+---
+title: Enron Modbus
+slug: mtWpXNnOuusP6IoS3cB2g
+description: Review the following information for setting up and configuring the Enron Modbus driver. 
+docTags: 
+createdAt: Tue Nov 21 2023 20:52:30 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the Enron Modbus driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="207,404" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial (RS-485) or Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **When to use&#x20;**
+    </td>
+    <td>
+      Serial connection or TCP connection to an Enron Modbus device
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+- If you are setting up an Ethernet connection, find the device's network parameters.&#x20;
+- If you are setting up a serial connection, record the serial communication parameters for the device.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="231,100" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Modbus
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Enron Modbus
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Transport Type**
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Serial
+      TCP/IP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+      If TCP/IP selected
+    </td>
+    <td>
+      The device address you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+      If TCP/IP selected
+    </td>
+    <td>
+      The network port you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Device File**
+      If Serial selected
+    </td>
+    <td>
+      The device file you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+      If Serial selected
+    </td>
+    <td>
+      1200
+      2400
+      4800
+      9600
+      19200
+      38400
+      57600
+      115200
+      230400
+      460800
+      921600
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+      If Serial selected
+    </td>
+    <td>
+      5
+      6
+      7
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+      If Serial selected
+    </td>
+    <td>
+      1
+      1.5
+      2
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+      If Serial selected
+    </td>
+    <td>
+      Even
+      Mark
+      None
+      Odd
+      Space
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Override Station ID**
+      Override registers' Station ID setting
+    </td>
+    <td colSpan="1" rowSpan="1">
+      False
+      True
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Station ID**
+      If Override Station ID is `True`
+    </td>
+    <td colSpan="1" rowSpan="1">
+      The station ID you recorded in Step 1.
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Override BW Order**
+      Override registers' Bytes And Words Order setting
+    </td>
+    <td colSpan="1" rowSpan="1">
+      False
+      True
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Bytes and Words Order**
+      If Override BW Order is `True`
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Bytes-BigEndian, Words-BigEndian
+      Bytes-BigEndian, Words-LittleEndian
+      Bytes-LittleEndian, Words-BigEndian
+      Bytes-LittleEndian, Words-LittleEndian
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Protocol Mode**
+    </td>
+    <td colSpan="1" rowSpan="1">
+      RTU
+      ASCII
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Request Timeout (ms)**
+    </td>
+    <td colSpan="1" rowSpan="1">
+      2000
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Retry Request Count**
+    </td>
+    <td colSpan="1" rowSpan="1">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Pause Between Retries (ms)**
+    </td>
+    <td colSpan="1" rowSpan="1">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Connection Timeout (s)**
+    </td>
+    <td colSpan="1" rowSpan="1">
+      5
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<table columnWidths="147,74,89,81,84,172" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1x
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+      1DDD
+    </td>
+    <td>
+      100
+    </td>
+    <td>
+      1999
+    </td>
+    <td>
+      Boolean Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3x
+    </td>
+    <td>
+      int16
+    </td>
+    <td>
+      3DDD
+    </td>
+    <td>
+      3001
+    </td>
+    <td>
+      1999
+    </td>
+    <td>
+      Short 16-bit Integer Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5x
+    </td>
+    <td>
+      int32
+    </td>
+    <td>
+      5DDD
+    </td>
+    <td>
+      5001
+    </td>
+    <td>
+      1999
+    </td>
+    <td>
+      Long 32-bit Integer Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      7x
+    </td>
+    <td>
+      float32
+    </td>
+    <td>
+      7DDD
+    </td>
+    <td>
+      7001
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Floating Point Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      EventAlarm
+    </td>
+    <td>
+      JSON
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+      Event/Alarm Register
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Acknowledgment
+    </td>
+    <td>
+      bool
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+      Event/Alarm Acknowledgment (write only)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Archive
+    </td>
+    <td>
+      JSON
+    </td>
+    <td>
+      7DD
+    </td>
+    <td>
+      701
+    </td>
+    <td>
+      799
+    </td>
+    <td>
+      Hourly and Daily Archive
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Str
+    </td>
+    <td>
+      string
+    </td>
+    <td>
+      5DDD    </td>
+    <td>
+      5001
+    </td>
+    <td>
+      5999
+    </td>
+    <td>
+      String Registers (5x)
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="r3S3rd3VoLidg8iUlvKOh">
+
+</ContentSnippet>
+

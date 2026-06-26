@@ -1,0 +1,67 @@
+---
+title: Installation and Deployments
+slug: EmHliFGv5ujr9ktoGwG5Y
+description: Review the different options for installing Litmus Edge based on your specific needs and setup. 
+docTags: 
+createdAt: Thu Mar 31 2022 00:23:09 GMT+0300 (Eastern European Summer Time)
+---
+
+The Litmus Edge operating system can be deployed in several ways.
+
+# Litmus Edge Deployment Models
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/UDWFHX-Io-377aGRJKoHO_image.png "Litmus Edge Deployment Models")
+
+Litmus Edge is most commonly installed:
+
+- On a physical hardware device such as an IPC (Industrial PC)
+- As a VM (virtual machine). You can install as a VM using the following virtual environments:
+  - Oracle VirtualBox
+  - VMWare ESXi
+  - VMware Workstation Player
+  - QEMU Emulator KVM
+  - Windows Hyper-V
+- On Docker
+- On Kubernetes
+
+To determine the best approach for installation, determine how you will use Litmus Edge.
+
+# Collect Data for an Asset or Line Base
+
+If Litmus Edge is used to collect data on an asset or line base, the most common form of deployment is an installation on a physical device such as an IPC (Industrial PC) device.
+
+If you'll use Litmus Edge to collect data on an asset or line base, the most common form of deployment is an installation on a physical device such as an IPC (Industrial PC) device.
+
+The IPC is installed close to the asset or line, often within the same cabinet as the data source, such as a PLC (Programmable Logic Controller), CNC (Computer Numerical Control), robotic system, or DCS (Distributed Control System).
+
+It is connected through one of its network cards to the VLAN of the asset or line. The second network card connects the device to the plant OT (Operational Technology) network and allows for access using the Web UI (User Interface).
+
+# Collect Data For a Section or Plant
+
+If Litmus Edge is used to collect data for a section or plant level that includes several lines or assets, consider deploying it as a virtual system.
+
+This is usually done using managed virtual environments such as VMWare ESXi. The virtual machine runs inside the virtualized environment and connects to the data sources through the plant OT network.
+
+This requires routing that allows the VM to reach every data source located within isolated VLANs.
+
+# Development System
+
+The installation as virtual machine using Oracle VirtualBox is another option. This is usually a development system. For example, in a PoV (proof of value) project, or where many stakeholders test the system and it is not feasible to provide a physical device to everyone.
+
+# Mixed Installation
+
+It is also possible to use a mixed installation. This combines the deployment of physical devices on an asset or line basis and the deployment of a virtualized system as a consolidation layer.
+
+See [Verified VM Versions](../Resources/ITtETNLFLPJYINPgWJK7D.mdx)  and :Link[Validated Gateway Devices]{docId="RCrLLoDYq29Fh5YSdxTQX" label="Validated Gateway Devices" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" overridedLabel="Validated Gateway Devices"} for more information.
+
+# Next Steps
+
+- [OVA Installation on Virtual Machine](<Installation and Deployments/TovKHITMU1CwUPew7sv_A.mdx>)&#x20;
+- [ISO Installation on Virtual Machine](<Installation and Deployments/XG4BHmjqcb4QnKj0ov9bf.mdx>)&#x20;
+- [Physical Gateway Installation](<Installation and Deployments/VLdlKFKZW0OchrmALVjrH.mdx>)&#x20;
+- [Docker Installation](<Installation and Deployments/4v27IJVi78tcs1xlhsf3X.mdx>)&#x20;
+- [Zerotouch Installation](<Installation and Deployments/QRHOm75sxT_V-s-PP5V7p.mdx>)&#x20;
+- [Kubernetes Installation](<Installation and Deployments/4RXMDp5yJ9XMI13eBsRUv.mdx>)&#x20;
+- [Raspberry Pi Installation](<Installation and Deployments/erDCR0sD-Cf16MCV0A0cW.mdx>)
+- [License Server Installation](<Installation and Deployments/f4DryEJp1x0W6Bn-5Fm4D.mdx>)
+

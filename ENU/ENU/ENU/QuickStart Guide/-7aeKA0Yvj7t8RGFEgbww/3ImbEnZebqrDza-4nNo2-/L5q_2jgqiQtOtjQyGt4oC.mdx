@@ -1,0 +1,347 @@
+---
+title: SAIA Ethernet (Gen1.3)
+slug: L5q_2jgqiQtOtjQyGt4oC
+description: Review the following information for setting up and configuring the SAIA Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the SAIA Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="230,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[SAIA PLC series]{href="https://www.saia-pcd.com/en-gb/products/" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PG5 v2.3.165 software on your computer to configure your device for Ethernet access.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="171,618" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      SAIA
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      SAIA Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="116,116,147,118,129,116" selectedRows="" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Register
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      16383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Counter
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1599
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Timer
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1599
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Reg\_Float
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      16383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      536016383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB\_String
+    </td>
+    <td align="left">
+      string
+    </td>
+    <td align="left">
+      DDDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      536016383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R\_String
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      16383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB\_Float
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td align="left">
+      DDDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      536016383
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Flag
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8191
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Output
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Input
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Reg\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1638331
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      53601638331
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

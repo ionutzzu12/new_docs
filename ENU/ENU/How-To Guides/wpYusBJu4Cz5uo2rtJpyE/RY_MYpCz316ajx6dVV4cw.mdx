@@ -1,0 +1,95 @@
+---
+title: Write to Databases with Integration Topics
+slug: RY_MYpCz316ajx6dVV4cw
+description: You can create flows to send data to a database through integration topics. 
+docTags: 
+createdAt: Thu Jan 12 2023 20:11:23 GMT+0200 (Eastern European Standard Time)
+---
+
+You can create Flows to send data to a database through integration topics.&#x20;
+
+# Before You Begin
+
+Make sure you follow the preferable database integration in the :Link[Integration Guides]{label="Integration Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="vdeoo_H5CzN4PUkjCyx-9" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}. For this tutorial, we will use the :Link[MySQL Integration Guide]{label="MySQL Integration Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="UFzARlMVV8hYZcb-YhNR5" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+# **Step 1: Add a Device**
+
+Follow the steps to :Link[Connect a Device]{href newTab="true"} and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, :Link[Add Tags]{href newTab="true"} to the device.
+
+## **Tag 1: tag1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **tag1**
+- **Min\_value**: Enter **10**
+- **Max\_value**: Enter **50**
+
+# Step 3: Add a Database Integration Topic
+
+**To add a database integration topic:**
+
+1. In Litmus Edge, navigate to **Integration**.&#x20;
+2. Click a **database integration** tile. Make sure the tile has a *Connected* status.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_42wOKGHoQz3lWzbSr5Pu_image.png" size="50" width="440" height="417" position="center" caption="Database integration tile" showCaption="true"></Image>
+3. Click **Topics**.&#x20;
+4. Click **Add a new subscription** icon.&#x20;
+   The *Data Integration dialog* box appears.&#x20;
+   - **Data Direction:&#x20;**&#x53;elect **Local to Remote - Outbound**.
+   - **Local Data Topic:** Click the **Search&#x20;**&#x69;con, and then select the device and alias topic for the tag you previously created.
+   - Toggle **Enable** to enable the topic.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/GOOZFKntAqWWOAiQoVcR9_image.png "Topics page in integration")
+5. Click **Yes**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ci9Ebe2s891h0ZB9QRtLv_image.png "Edit data integration dialog box")
+
+<hint type="info">
+  **Note:** Modifying topics restarts the connector.
+</hint>
+
+# Step 4: Create Flow
+
+**To create the flow:**
+
+1. Navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow.&#x20;
+   See [Create a Flow](<../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx>) to learn more.
+2. Drag the **Inject**, **Function**,**&#xA0;**&#x61;nd **DataHub Publish&#xA0;**&#x6E;odes to the canvas and wire them together.
+3. Drag the **DataHub Subscribe&#xA0;**&#x61;nd **Debug&#xA0;**&#x6E;odes to the canvas and wire them together.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/12GYDgUk5fD3sbCt9FSn__flow-22339x203.png" size="50" width="339" height="203" position="center" caption="Flows canvas " showCaption="true"></Image>
+4. Double-click the **Function&#x20;**&#x6E;ode.&#x20;
+   - In the **On Message** tab, input the code below, ensuring to update the variables *obj.name*, *obj.num*, and *msg.subjectInput* to match your topic and database.&#x20;
+     `var obj = {}; // Create an empty JSON object.     `
+     `obj.name ="test_table"; // Write the name of your database integration remote data topic in the quotation marks.     `
+     `obj.num = 99000; // Change num to be one of the names of your columns or change 99000 to a value that you want to insert into the database.     `
+     `msg.payload = JSON.stringify(obj); // Puts the JSON object into the message payload.     `
+     `msg.subjectInput = "test_table"; // Write the name of your database integration remote data topic in the quotation marks.     `
+     `return msg;`
+   - Click **Done**.
+5. Double-click the **Datahub Publish&#xA0;**&#x6E;ode.&#x20;
+   - **Datahub:** Configure the *Datahub Publish&#x20;*&#x63;onnection if needed. See :Link[Configure Connector Nodes]{docId="kR15wDiWr6qqJeBRq9TVh" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" overridedLabel="Configure Connector Nodes" href="../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx"} to learn more.&#x20;
+   - **Topic:&#x20;**&#x45;nter your topic name.
+   - Click **Done**.
+6. Double-click the **Datahub Subscribe** node.&#x20;
+   - **Datahub:** Configure the *Datahub Subscribe&#x20;*&#x63;onnection if needed. See :Link[Configure Connector Nodes]{docId="kR15wDiWr6qqJeBRq9TVh" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" overridedLabel="Configure Connector Nodes" href="../../Product Features/68WrvuaKK8gVSMbo8bVxq/Dl_unmfRV6alPsSkyT4lP.mdx"} to learn more.&#x20;
+   - **Topic:&#x20;**&#x45;nter your topic name.
+   - Click **Done**.
+7. Click **Deploy**.
+8. Expand the message window beneath the flow.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Zy8ybHzr9L7Zr34GsUSZH_image.png "Flow canvas message window")
+9. Click the **Inject node button** to insert rows into the database. &#x20;
+10. Click the **Debug&#xA0;**&#x69;con to view the data output.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/sEDZRZpwbEVgyqOTnG7vO_image.png "Flows canvas debug tab ")
+
+# Step 5: Verify the Results in Database
+
+You can query the database to confirm that the integration topic inserted the data properly. See :Link[Make Queries in the Container Terminal]{label="MySQL Integration Guide" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="UFzARlMVV8hYZcb-YhNR5" version="v2" docAnchorId="#step-8-make-mysql-queries" loadingMethod="dynamic" overridedLabel="Make Queries in the Container Terminal"} to learn more.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/uk0Xf0bUijUyMnJApVDvT_image.png "Output of custom query on test_table")
+

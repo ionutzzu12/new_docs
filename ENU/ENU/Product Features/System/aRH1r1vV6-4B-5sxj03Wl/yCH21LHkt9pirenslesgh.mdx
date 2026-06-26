@@ -1,0 +1,198 @@
+---
+title: Manage Firewall Rules
+slug: yCH21LHkt9pirenslesgh
+description: Learn how to manage firewall rules in Litmus Edge. 
+docTags: 
+createdAt: Thu Dec 14 2023 16:32:09 GMT+0200 (Eastern European Standard Time)
+---
+
+You can manage firewall rules to open specific ports or port ranges for inbound communication by navigating to **System&#x20;**> **Network&#x20;**&#x61;nd clicking the **Firewall&#x20;**&#x74;ab.&#x20;
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - These firewall rules apply only to IPv4 traffic.&#x20;
+  - Only Admin users are able to add and edit firewall rules. See :Link[Access Control]{label="Access Control" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="79TRd7lbrr88qX25_zFo8" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+</hint>
+
+The **Firewall&#x20;**&#x70;ane allows you to do the following:
+
+- Review what ports are being used by Litmus Edge system components, applications, and containers.&#x20;
+- Ensure that any DeviceHub drivers and Docker container applications are not running on conflicting ports.&#x20;
+- Open ports and port ranges with appropriate protocol (TCP/UDP) for Docker applications, containers, and DeviceHub drivers.
+- Manage and close ports as needed.&#x20;
+
+You can review any firewall changes in **System&#x20;**> **Events**.&#x20;
+
+The pane shows a summary of what ports are currently open.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tm9WObT3X8hy4h6I4nklk_image.png "The Firewall pane")
+
+# List of Reserved Ports
+
+There are some ports that cannot be used for firewall rules because they are reserved for system services.&#x20;
+
+Review the list of reserved ports.&#x20;
+
+<table columnWidths="238" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Reserved Port or Port Range**
+    </td>
+    <td>
+      **System Service that Uses Port(s)**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      21
+    </td>
+    <td>
+      FTP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      22
+    </td>
+    <td>
+      SSH
+    </td>
+  </tr>
+  <tr>
+    <td>
+      80
+    </td>
+    <td>
+      HTTP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      123
+    </td>
+    <td>
+      NTP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      389
+    </td>
+    <td>
+      LDAP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      443
+    </td>
+    <td>
+      Litmus Edge Manager API
+    </td>
+  </tr>
+  <tr>
+    <td>
+      636
+    </td>
+    <td>
+      LDAP with SSL
+    </td>
+  </tr>
+  <tr>
+    <td>
+      1880
+    </td>
+    <td>
+      Litmus Edge UI REST endpoint
+    </td>
+  </tr>
+  <tr>
+    <td>
+      2121
+    </td>
+    <td>
+      FTP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      4840
+    </td>
+    <td>
+      OPC UA
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5353
+    </td>
+    <td>
+      mDNS
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5355
+    </td>
+    <td>
+      LLMNR
+    </td>
+  </tr>
+  <tr>
+    <td>
+      8081-8199
+    </td>
+    <td>
+      REST API endpoints
+    </td>
+  </tr>
+  <tr>
+    <td>
+      9081-9199
+    </td>
+    <td>
+      gRPC API endpoints
+    </td>
+  </tr>
+  <tr>
+    <td>
+      8883
+    </td>
+    <td>
+      MQTT to Litmus Edge Manager
+    </td>
+  </tr>
+  <tr>
+    <td>
+      51820
+    </td>
+    <td>
+      Litmus Edge Manager Remote Access
+    </td>
+  </tr>
+</table>
+
+# Add Port Rule
+
+1. Navigate to **System&#x20;**> **Network&#x20;**&#x61;nd click the **Firewall&#x20;**&#x74;ab.&#x20;
+2. Click **Add Rule**.
+   Th&#x65;*&#x20;Add Inbound Rule&#x20;*&#x64;ialog displays.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/oHLKEKUX-P39fay4fZ5lc_add-firewall-rule.png)
+3. Configure the parameters for the firewall rule.
+   - **Port or Port Range**: Enter a single port number or a range of port numbers separated by a hyphen (-).&#x20;
+   - **Protocol**: Select **TCP&#x20;**(transmission control protocol) or **UDP&#x20;**(user datagram protocol).&#x20;
+   - **Interface**: Select **eth0&#x20;**&#x6F;r **eth1**.&#x20;
+   - (**Optional) Service Name or Description**: Enter a name for the rule.&#x20;
+4. Click **Add**.&#x20;
+   The new rule displays on the pane.&#x20;
+
+# Manage Port Rules
+
+To manage port rules, click the **Action menu&#x20;**&#x66;or a rule.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/v72sslwt-zBmFCv659K6a_image.png "Firewall rule action menu")
+
+- **Edit**: Update the rule.&#x20;
+- **Delete**: Remove the rule and close the port or port range.&#x20;
+

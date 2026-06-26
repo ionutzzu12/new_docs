@@ -1,0 +1,1120 @@
+---
+title: Omron Fins Serial
+slug: omron-fins-serial
+docTags: 
+createdAt: Tue Jan 20 2026 21:32:58 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the Omron Fins Serial driver.
+
+## Overview
+
+The Omron Fins Serial driver enables communication with Omron PLCs using the FINS (Factory Interface Network Service) protocol over serial RS-232/RS-422/RS-485 connections. This driver supports reading and writing data from various memory areas including CIO, Work Area, Holding Area, Auxiliary Relay, Counter, Timer, Data Memory, and Extended Memory.
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Serial
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      Omron CS/CJ/CP/NJ/NX Series
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left">
+      N/A
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+1. Configure the PLC's serial communication port settings. Record the following parameters:&#x20;
+   - **Baud Rate**: Communication speed (default: 9600)
+   - **Data Bits**: Number of data bits (default: 7)
+   - **Stop Bits**: Number of stop bits (default: 2)
+   - **Parity**: Parity setting (default: Even)
+2. Note the PLC's node addresses:&#x20;
+   - **Source Address**: The PC/Litmus Edge address (default: 0)
+   - **Source Node ID**: The PC/Litmus Edge node ID (default: 0)
+   - **Destination Address**: The PLC network address (default: 0)
+   - **Destination Node ID**: The PLC node ID (default: 0)
+   - **Destination Unit ID**: The PLC unit ID (default: 0)
+3. Identify the serial port connection on your Litmus Edge device (for example, /dev/ttyS0 or /dev/ttyUSB0).
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you :Link[Connect a Device]{label="Connect a Device" spaceId="uscaaRRprMldzn77HKGZr" docId="OBs8xcnZ-B0J2D1Gaipna" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      Omron
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      Omron Fins Serial
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Communication Port**
+    </td>
+    <td align="left">
+      /dev/ttyS0 (or your specific serial port)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Baud Rate**
+    </td>
+    <td align="left">
+      9600
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Data Bits**
+    </td>
+    <td align="left">
+      7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Stop Bits**
+    </td>
+    <td align="left">
+      2
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Parity**
+    </td>
+    <td align="left">
+      Even
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Source Address**
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Source Node ID**
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Destination Address**
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Destination Node ID**
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Destination Unit ID**
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+</table>
+
+## Step 3: Configure the List of Registers
+
+When you :Link[Add a Tag]{label="Add a Tag" spaceId="uscaaRRprMldzn77HKGZr" docId="pg-6Xtr10autJdpVRfNXq" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- :Link[Organize Device and Tag Data by Using Metadata]{label="Organize Device and Tag Data by Using Metadata" spaceId="uscaaRRprMldzn77HKGZr" docId="ky8n65N8noj1AuQXZt93Z" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Tag Formula Variables]{label="Tag Formula Variables" spaceId="uscaaRRprMldzn77HKGZr" docId="ZyKcV1im7Rn9JrfBw4bTZ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="100,100,100,100,100,100,100">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Types
+    </td>
+    <td align="left">
+      Address Format
+    </td>
+    <td align="left">
+      Min Address
+    </td>
+    <td align="left">
+      Max Address
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CIO
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      6143
+    </td>
+    <td align="left">
+      Channel I/O
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CIO\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      614315
+    </td>
+    <td align="left">
+      Channel I/O
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Work Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      51115
+    </td>
+    <td align="left">
+      Work Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      H
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      511
+    </td>
+    <td align="left">
+      Holding Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      H\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      51115
+    </td>
+    <td align="left">
+      Holding Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      A
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      959
+    </td>
+    <td align="left">
+      Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      A\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      95915
+    </td>
+    <td align="left">
+      Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      flag, int, bcd, word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      flag, int, bcd, word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Data Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Data Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM0
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM0\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 0
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM1
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM1\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 1
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM2
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 2
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM2\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 2
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM3
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 3
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM3\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 3
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM4
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 4
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM4\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 4
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM5
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM5\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 5
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM6
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 6
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM6\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 6
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM7
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM7\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM8
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 8
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM8\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 8
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM9
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 9
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM9\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 9
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM10
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 10
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM10\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 10
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM11
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 11
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM11\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 11
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM12
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory Bank 12
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM12\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extend Memory Bank 12
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.
+- **Polling Interval**: Enter a value in milliseconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Address**: Enter a tag address in decimal format, within the allowed min/max range. Omit leading zeros. The lowercase letters in the address format indicate how many digits you should enter for the bit address. For bit tags, append the bit address (0-15) without a separator to the word address.
+  **Example Addresses**:&#x20;
+  - CIO100 - Channel I/O word 100
+  - CIO10005 - Channel I/O word 100, bit 5
+  - D1000 - Data Memory word 1000
+  - W50 - Work Area word 50
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`
+  - log: log (`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp (`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

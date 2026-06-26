@@ -1,0 +1,242 @@
+---
+title: Output Processors
+slug: output-processors
+docTags: 
+createdAt: Tue Aug 06 2024 21:51:34 GMT+0300 (Eastern European Summer Time)
+---
+
+The Analytics module makes use of built-in Output processors to write the results of Statistical Functions and KPIs to a topic or database.&#x20;
+
+The following describes the output processors that are currently available.
+
+# Database Output Processors
+
+## Database Output Overview
+
+- Publish all inputs to a specified DB metric.
+
+## Database Output Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="139,100">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Database
+    </td>
+    <td>
+      &#x20;If left empty, the default database will be used.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Measurement
+    </td>
+    <td>
+      Name of the measurement to publish.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Typed
+    </td>
+    <td>
+      Publish typed name.
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note**: The *Measurement&#x20;*&#x70;arameter is a required field.&#x20;
+</hint>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/JDCI9S3TMnie_cKt3ofxf_image.png" size="80" width="960" height="499" position="flex-start" caption="Database Output parameters" showCaption="true"></Image>
+
+# DataHub Publish Processors
+
+## DataHub Publish Overview
+
+- Publish events from input to a specified DataHub topic.
+
+## DataHub Publish Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="166,100">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Single Topic
+    </td>
+    <td>
+      Select if there is only one topic to export.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Topic
+    </td>
+    <td>
+      Topic name for DataHub publish.
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note:&#x20;**&#x59;ou can now publish dynamic topics using the *DataHub Publish* function to manage and distribute your data.
+</hint>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ASXffEXBU02-9f1Z8zL8M_image.png" size="80" width="958" height="428" position="flex-start" caption="DataHub Publish parameters" showCaption="true"></Image>
+
+# File Write Processors
+
+## File Write Overview
+
+- Converts input data to specified format, and writes it to a file.
+  - This can be done by either adding to the end of the file, or replacing the existing content.
+  - Alternatively, it can also delete the file.
+- If the **"Generate Filename From Expression"** option is enabled, the filename will be evaluated as expression.
+  - For example, if you want to get the filename from "path" and name" properties of incoming connection "AAA", your expression could be: **AAA\_path + AAA\_name + ".txt"**
+  - Please note that static text in expressions should be put into quotes.
+- Timer interval in seconds acts as a **"Re-write file on timer"** option.
+  - This is useful if you want to keep generating new file names after every few intervals.
+- If ***"Output File Type"*** is set to **value only** processor will save incoming data from **"value""** payload field as is.
+- If ***"Output File Type"*** is set to **CSV** following options will affect output:
+  - **CSV Comma** contains CSV-file delimiter (only first character will be used from string entered).
+  - **CSV Header** controls whether column names will be included or not.
+  - **CSV Columns From Payload** controls whether column names will be generated from payload.
+  - **CSV Custom Columns** contains comma-separated list of columns names (overrides **CSV Columns From Payload**!)
+- If ***"Output File Type"*** is set to **Parquet** output file will be rewritten on each incoming payload.
+  - If  **Write file Method &#x20;**&#x69;s set to "append" then last **Parquet Buffer Capacity** records will be written to file.
+
+## File Write Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="166,100">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      File Name
+    </td>
+    <td>
+      Specifies the name of the file to which data will be written.                   &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      File Write Method
+    </td>
+    <td>
+      Determines how the data will be written to the file (e.g., appending, overwriting, delete).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Output File Type
+    </td>
+    <td>
+      Defines the format of the output file (e.g., JSON, CSV, Parquet).&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Add New Line
+    </td>
+    <td>
+      Indicates whether to append a new line after each entry in the output file. &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Create Directories
+    </td>
+    <td>
+      Option to automatically create any necessary directories if they do not exist. &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Generate Filename From Expression
+    </td>
+    <td>
+      Enables dynamic filename generation based on specified expressions.    &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Time Interval in Seconds
+    </td>
+    <td>
+      Sets a timer for rewriting the file at specified intervals.                 &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CSV Comma
+    </td>
+    <td>
+      Specifies the delimiter to be used in CSV files; only the first character will be applied.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CSV Header
+    </td>
+    <td>
+      Controls the inclusion or exclusion of column names in the output CSV file. &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CSV Columns From Payload
+    </td>
+    <td>
+      Determines if column names should be generated based on the incoming payload.  &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CSV Custom Columns
+    </td>
+    <td>
+      Allows the specification of custom column names, overriding those from the payload.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Parquet Capacity
+    </td>
+    <td>
+      Defines the buffer size for records in Parquet files, influencing how data is written.&#x20;
+    </td>
+  </tr>
+</table>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/RxSZ99OfzfQp-a4ZTsO5Y_image.png" size="80" width="569" height="528" position="flex-start" showCaption="false"></Image>
+
+# StdOut Processors
+
+## StdOut Overview
+
+- Just consumers that print to the console.****
+  **Note:** The output is meant for support logs, not for display on the UI.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/YzJwpGXb-4ivagyBPtho__image.png" size="80" width="955" height="321" position="flex-start" caption="StdOut parameters" showCaption="true" indent="2"></Image>
+

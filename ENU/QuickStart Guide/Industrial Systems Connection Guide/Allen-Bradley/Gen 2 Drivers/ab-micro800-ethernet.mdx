@@ -1,0 +1,153 @@
+---
+title: AB Micro800 Ethernet
+slug: ab-micro800-ethernet
+docTags: 
+createdAt: Tue Dec 10 2024 18:14:09 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the AB Micro800 Ethernet driver.
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="214,419" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Allen-Bradley Micro800
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td>
+      [AB Micro850 (Gen1.3)](<../Gen 1 Drivers/4spAJmbcKkmv-Kn14xjA5.mdx>)
+      Learn more about :Link[Gen1 and Gen2 Driver Differences]{docId="0Qk2WQP-FsvJJEByAKz2I" label="Gen1 and Gen2 Driver Differences" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Gen1 and Gen2 Driver Differences"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Start the Connected Components Workbench application.
+2. Select **File** > **Open**, then select your PLC project.
+3. Select **Device&#x20;**> **Configure**.
+   The device configuration tab opens.
+4. Go to **Controller&#x20;**> **Ethernet**, and copy the IP address from the **IP address** field.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="175,585" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB Micro800 Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+  <tr>
+    <td colSpan="1" rowSpan="1">
+      **Global Variables CSV**
+    </td>
+    <td colSpan="1" rowSpan="1">
+      Optional. If you want to browse for UDT instances, upload the global variables CSV file exported from Connected Components Workbench to `/ftp-data/devicehub/` and paste the file name here.
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+Browse for tags to add to this FreeTag device. See [Browse and Add Tags from a Device](<../../../../Product Features/DeviceHub/Tags/Browse and Add Tags from a Device/Yg2866VSV7D6bDcq2h2V-.mdx>) to learn more. Alternatively, when you :Link[Add a Tag]{label="Add a Tag" spaceId="uscaaRRprMldzn77HKGZr" docId="pg-6Xtr10autJdpVRfNXq" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}, type the tag name in the **Name** field exactly as it is defined in the device (case-sensitive). You can find a list of tags by navigating to **Project Organizer > \[Your Controller] > Global Variables** in Connected Components Workbench.
+
+The following data types are supported:&#x20;
+
+- `bool`
+- `byte`
+- `sint`
+- `int`
+- `uint`
+- `dint`
+- `udint`
+- `real`
+- `lint`
+- `ulint`
+- `lreal`
+- `string`
+
+## Addressing Tips
+
+- To access the elements of a two- or three-dimensional array, use multiple square brackets instead of commas to separate the indices. For example, if the array in Connected Components Workbench has the name `MyArray` with the data type `dint[2,2,2]`, you can access the 0th index by entering `MyArray[0][0][0]` in Litmus Edge.
+- Only Global variables are supported by the driver. The driver cannot access Local (Program) variables.&#x20;
+- Only User-Defined Tag structures are supported by the driver. Predefined structures, such as Counters or Timers are not supported.&#x20;
+
+Refer to the following tag parameters in Litmus Edge.&#x20;
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

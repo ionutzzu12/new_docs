@@ -1,0 +1,511 @@
+---
+title: MQTT - v5 Generic
+slug: MPiCnIri2voDwjutHsgmc
+description: Review parameters for the MQTT Generic connector. 
+docTags: 
+createdAt: Fri Dec 01 2023 20:40:47 GMT+0200 (Eastern European Standard Time)
+---
+
+# Overview
+
+The MQTT Generic integration enables Edge System to connect to the MQTT v5 broker.
+
+# Supported Versions
+
+Compatible with MQTT Protocol version `3.1.0`, `3.1.1`, and `5.0.0`.
+
+# Supported Communication
+
+- Outbound (Publish data from Edge to MQTT Broker) - Yes
+- Inbound (Subscribe data from MQTT Broker to Edge) - Yes
+
+# Configurations
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="197,631.2972972972973,169.7027027027027">
+  <tr>
+    <td>
+      **Variable**
+    </td>
+    <td>
+      **Detail**
+    </td>
+    <td>
+      **Required**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Connector name
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Hostname
+    </td>
+    <td>
+      IP Address or Server FQDN of MQTT broker (Must be reachable from Edge system)
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Port
+    </td>
+    <td>
+      MQTT broker port
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Client id
+    </td>
+    <td>
+      Unique client identity
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Username
+    </td>
+    <td>
+      User name
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Password
+    </td>
+    <td>
+      User password
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      QoS
+    </td>
+    <td>
+      The Quality of Service (QoS) level represents an understanding between the message sender and receiver, outlining the assurance of message delivery for a particular message. Simultaneously publishing multiple messages can enhance throughput, but opting for higher values may increase the risk of message loss, even when QoS is set to 1. Please note that the actual QoS options available may vary based on the server configuration.
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Parallel publish count
+    </td>
+    <td>
+      It refers to the number of messages that can be simultaneously published or sent in parallel. It is a measure of how many messages can be transmitted at the same time.
+      As an example, in Mosquitto, you have the following settings:
+      \* max\_queued\_messages (default 100)
+      \* max\_queued\_bytes (default 0)
+      As per the Mosquitto documentation, when this limit is reached, any additional messages are silently discarded. You have the option to either adjust the server configuration or specify this value based on the server settings.
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Integration topic
+    </td>
+    <td>
+      Default topic for Publishing (Support Dynamic Topic publishing, please refer to Format Directive section below).
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Response Topic
+    </td>
+    <td>
+      Response Topic for Request/Response messages in MQTT v5.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Payload Format Indicator
+    </td>
+    <td>
+      Payload Format Indicator to indicate the format of the payload for CONNECT and PUBLISH MQTT packets. Allowing the server to understand packet without having to operate on the actual data
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Content Type
+    </td>
+    <td>
+      Content Type is a UTF-8 encoded string that describes the content of the application message, which helps the receiver understand how to parse the application message payload.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Topic Alias Maximum
+    </td>
+    <td>
+      Maximum number of Topic Alias allowed. Decrease the size of the MQTT packet overhead by allowing the topic name to be abbreviated to a small integer.
+    </td>
+    <td>
+      Yes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      LWT topic
+    </td>
+    <td>
+      It refers to the specific topic where the last will message will be published.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      LWT payload
+    </td>
+    <td>
+      It is the information or message that will be sent to the specified topic when the client disconnects unexpectedly or goes offline without sending a proper "goodbye" message.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      LWT payload type
+    </td>
+    <td>
+      A payload type (raw string or base64 encoded bytes) for Last Will and Testament feature of MQTT
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      LWT QoS
+    </td>
+    <td>
+      A QoS value for Last Will and Testament feature of MQTT
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      LWT retained
+    </td>
+    <td>
+      If enabled, the broker will store the LWT message, and any new subscribers to the LWT topic will immediately receive this retained LWT message.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Will Delay Interval
+    </td>
+    <td>
+      Add the ability to specify a delay between the end of the connection and sending the will message.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Session Expiry Interval
+    </td>
+    <td>
+      The number that specifies how long a broker keeps a client's session information.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Message Expiry Interval
+    </td>
+    <td>
+      Allow an expiry interval to be set when a message is published
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      User Properties
+    </td>
+    <td>
+      User-defined properties that allow users to add their metadata to MQTT messages and transmit additional user-defined information
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Request Response Info
+    </td>
+    <td>
+      Enable to receive Response Info on Request Topic
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Request Problem Info
+    </td>
+    <td>
+      Enable to receive Problem Info on Request Topic
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Throttling limit
+    </td>
+    <td>
+      Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Persistent storage
+    </td>
+    <td>
+      If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Queue mode
+    </td>
+    <td>
+      Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Persistent Storage size Limit
+    </td>
+    <td>
+      Set the size limit for storing persisted data in MB
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Keep Alive
+    </td>
+    <td>
+      Enter the keep alive duration in seconds. It is a mechanism to ensure that an Litmus Edge MQTT Integration and MQTT broker connection remain active even if no data is transmitted. MQTT 5.0 protocol, for clients with Keep Alive enabled, if the server does not receive an MQTT Control Packet from the client within 1.5 times the Keep Alive duration, it must close the network connection with the client.
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Connection Timeout
+    </td>
+    <td>
+      Enter the duration to wait for a connection timeout in seconds
+    </td>
+    <td>
+      No
+    </td>
+  </tr>
+</table>
+
+<hint type="info">
+  **Note**: When defining outbound subscriptions for this connector, a **Retain** option is available. When enabled, the broker retains the last published message on that topic so new subscribers receive it immediately upon connecting. See :Link[Add Topics to Connectors]{label="Add Topics to Connectors" spaceId="uscaaRRprMldzn77HKGZr" docId="_UOVFh7mautWK2gXBa9CO" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}  for details.
+</hint>
+
+## Format Directives
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="176,555.7657657657658,266.23423423423424">
+  <tr>
+    <td>
+      **Symbol**
+    </td>
+    <td>
+      **Definition**
+    </td>
+    <td>
+      **Context**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      $
+    </td>
+    <td>
+      Special character indicate a variable character follows. A variable represents some dynamic string value. Supported variables defined as follows:
+    </td>
+    <td>
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td>
+      $S
+    </td>
+    <td>
+      Additional Alias definition
+    </td>
+    <td>
+      from Connector Settings
+    </td>
+  </tr>
+  <tr>
+    <td>
+      $D
+    </td>
+    <td>
+      Device Name
+    </td>
+    <td>
+      from DeviceHub Tag
+    </td>
+  </tr>
+  <tr>
+    <td>
+      $N
+    </td>
+    <td>
+      Tag Name
+    </td>
+    <td>
+      from DeviceHub Tag
+    </td>
+  </tr>
+  <tr>
+    <td>
+      $R
+    </td>
+    <td>
+      Raw Tag Type
+    </td>
+    <td>
+      from DeviceHub Tag
+    </td>
+  </tr>
+  <tr>
+    <td>
+      $P
+    </td>
+    <td>
+      Tag Description
+    </td>
+    <td>
+      from DeviceHub Tag
+    </td>
+  </tr>
+  <tr>
+    <td>
+      $H
+    </td>
+    <td>
+      Hostname
+    </td>
+    <td>
+      from OS
+    </td>
+  </tr>
+  <tr>
+    <td>
+      %
+    </td>
+    <td>
+      Special character indicating a function character follows. A function represents some action to be taken on the next variable. Supported functions defined as follows:
+    </td>
+    <td>
+      \-
+    </td>
+  </tr>
+  <tr>
+    <td>
+      %L
+    </td>
+    <td>
+      Lowercase()
+    </td>
+    <td>
+      apply to next variable
+    </td>
+  </tr>
+  <tr>
+    <td>
+      %U
+    </td>
+    <td>
+      Uppercase()
+    </td>
+    <td>
+      apply to next variable
+    </td>
+  </tr>
+</table>
+
+## Format Directives Notes
+
+To use a special character in its literal form, enter symbol twice `($$ -> $, %% -> %)`
+
+
+**Example:** `$$$D.%%$N" -> "$deviceABC.%tagXYZ`
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above: `Product`, `Version`, `Date`

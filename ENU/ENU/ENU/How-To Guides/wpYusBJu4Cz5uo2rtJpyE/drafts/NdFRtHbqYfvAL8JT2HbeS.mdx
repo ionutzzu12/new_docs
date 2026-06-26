@@ -1,0 +1,34 @@
+---
+title: Create a Topic and Write to a Topic
+slug: NdFRtHbqYfvAL8JT2HbeS
+description: You can create new topics and send data to them through the local message broker with DataHub nodes.
+docTags: 
+createdAt: Tue Jun 06 2023 21:15:41 GMT+0300 (Eastern European Summer Time)
+---
+
+You can create new topics and send data to them through the local message broker with **DataHub** nodes.
+
+<hint type="info">
+  **NOTE:** This procedure was created using Litmus Edge 3.1.5.0.
+</hint>
+
+**To create the flow:**
+
+1. From the navigation panel, select **Flows Manager**.
+2. Click the **Expand&#x20;**&#x69;con (box with a arrow pointing outward) next to a selected Flow.
+   The selected Flow view opens to display the associated Flow tabs in another browser tab.
+3. Drag the **Inject&#xA0;**&#x61;nd **DataHub Publish&#xA0;**&#x6E;odes to the canvas and wire them together.
+4. Drag the **DataHub Subscribe** and **Debug&#xA0;**&#x6E;odes to the canvas and wire them together.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HOyXh1aemDDxHnTSWqcp__flow-2.png "Nodes wired together")
+5. Double-click the**DataHub Publish&#x20;**&#x6E;ode. Enter the name of the topic to create and write to.
+6. Double-click the **DataHub Subscribe&#x20;**&#x6E;ode. Enter the same topic name that you entered in Step 3.
+7. Click the button on the left of the **Inject** node to create the topic and send a message to it.
+   The **Datahub Subscribe** node sends the message to the Debug tab.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/iJHepPyc3MHUQVnloPLy-_debug-message7.png "Message in the debug tab")
+8. You can check **DataHub** > **Stats** to view the new topic in the *Topic List*.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Mrdh9yKCgnN5Q44eV059x_image.png "DataHub stats")
+
+ 
+
+

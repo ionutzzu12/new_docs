@@ -1,0 +1,102 @@
+---
+title: OSI PI Historian Integration Guide
+slug: osi-pi-historian-integration-guide
+docTags: 
+createdAt: Fri Jul 19 2024 22:27:16 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following guide for setting up an integration to allow the Litmus Edge Systems to connect with the PI Historian Web API for data exchange and interaction.
+
+# Before You Begin
+
+You will need the following:
+
+- Access to :Link[OSI PI Server]{href="https://techsupport.osisoft.com/products/" newTab="true" hasDisabledNofollow="false"} and :Link[PI System Management Tools]{href="https://techsupport.osisoft.com/Products/System-Management/PI-System-Management-Tools/Overview" newTab="true" hasDisabledNofollow="false"}.
+- Make sure to update your Litmus Edge version to 3.16.0 or later to access the OSI PI Historian connector in the Integrations.
+
+# Step 1: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add the OSI PI Historian Connector
+
+Follow the steps to :Link[Add a Connector]{docId="b7eMDh8AO2-NOqDHwPD7Y" label="Add a Connector" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add a Connector"} and select the **OSI PI Historian&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters:
+
+- **Name**: Enter a name for the connector.
+- **Description** (Optional): Enter a description for the connection.
+- **Endpoint**: Enter the address of the OSI PI Historian Web API (configured with OMF plugin).
+- **Username**: Enter the username for access.
+- **Password**: Enter the user password.
+- **CA Certificate** (Optional): Upload or paste the SSL CA certificate.&#x20;
+- **Gzip Compression**: Enable gzip compression for OMF requests.
+- **Request Timeout**: Set the HTTP request timeout in milliseconds.
+- **Data Timezone&#x20;**(Optional): UTC zone information to append to outbound data timestamps.
+- **Data Source Type** (Optional): Text to be used as the root name for the data source. If empty, PI points will show "PIWebAPI\_OMF".
+- **Data Source Version** (Optional): Text to be used as the data source suffix. Requires a non-empty Data Source Type.
+- **Point Name Format**: Text with format directives to generate PI point names.
+- **Point DataType Format**: Text with format directives to generate AF type names.
+- **Point Description Format** (Optional): Text with format directives to generate PI point descriptions.
+- **Check Tags** (Optional): Select to check if the point name exists before attempting to create a new one.
+- **Publish Count Threshold**: Set the publish count threshold (1 disables batching).
+- **Publish Delay Threshold**: Set the publish delay threshold in milliseconds (0 disables batching).
+- **PI Data Server Name** (Optional): Enter the name of the PI Data Archive server. Defaults to the first found.
+- **Subscribe Interval**: Enter the polling interval in seconds.
+- **Max Subscription Events**: Enter the maximum number of events processed per subscription poll (prioritized by the most recent).
+- **Insecure Skip Verify** (Optional): Select to disable verification if you do not want the client to verify the server's certificate chain and host name.
+- **Parallel Publish Count**: Set the number of simultaneously publishing messages.
+- **Persistent Storage** (Optional): When enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.
+- **Queue Mode** (Optional): Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/IlW401CGPStCStMG6pw-a_image.png "Edit a connector dialog box")
+
+## **Format Directive Notes**
+
+Make sure to handle format directives with care when making changes. Refer to the points below for more details:
+
+- Any change to metadata format settings is only applicable to proceeding data. Once ingested to PI, metadata of existing PI points will not be modified.
+- Point names will change if inner variable value changes (e.g. Tag Description). This may result in new PI points being created.
+- The following characters will be removed from any format string: `*?;{}[]\'"|`
+- To use a special character in its literal form, enter the symbol twice: `$$ -> $`, `%% -> %`
+  **Example:** `$$$D.%%$N" -> "$deviceABC.%tagXYZ`
+- A special character must be followed by either itself or one of the supported characters. Refer to [OSI PI Historian](<../../../Product Features/Integration/Integration Connectors/Other Providers/osi-pi-historian.mdx>) to get the list of symbols with their definition. Any other condition will result in an error:
+  **Example 1:** `$D.$N$%` -> error
+  **Example 2:** `$D.$N$` -> error
+  **Example 3:** `$D.$N$#` -> error
+- Functions only act on the next variable found in the string.
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/UxMp8ixLI3DFIc2twdrvw_image.png" size="60" width="597" height="500" position="center" caption="OSI PI Historian Connector" showCaption="true">If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="5hctoRLhgaX3Ikh_lvi0A" version="v2" docAnchorId="#R2G2z" loadingMethod="dynamic" overridedLabel="Connector Logs"} and relevant error messages. </Image>
+
+# Step 5: Create Topics for Connector&#x20;
+
+You will now need to import the tags you added in Step 2 to the *OSI PI Historian* connector as topics.
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+   
+</ContentSnippet>
+
+# Step 6: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+# Step 7: Verify Data in PI System Management Tools
+
+Access the *PI System Management Tools* and verify that Litmus Edge is successfully sending data.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/w15dzwKcf4qZH_o3Fzjhm_image.png "PI System Management Tools ")
+

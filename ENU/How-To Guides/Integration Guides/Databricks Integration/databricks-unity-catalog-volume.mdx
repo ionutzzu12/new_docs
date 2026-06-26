@@ -1,0 +1,117 @@
+---
+title: Databricks Unity Catalog Volume
+slug: databricks-unity-catalog-volume
+docTags: 
+createdAt: Tue Aug 13 2024 18:38:37 GMT+0300 (Eastern European Summer Time)
+---
+
+You can configure the Databricks Unity Catalog Volume on the Litmus Edge webUI to send files directly to the Databricks Unity Catalog (supports AWS, Azure, and GCP).
+
+# **Before You Begin**
+
+Make sure you have the following:
+
+- Access to Litmus Edge WebUI. See [Access the Litmus Edge Web UI](<../../../QuickStart Guide/yQxcXE12X4qvj2U1lrzcw.mdx>).
+- Access to Databricks workspace URL and access token.
+
+# Step 1: Add Device
+
+Follow the steps to [Connect a Device](<../../../Product Features/DeviceHub/Devices/gSsNirLsd4NUDb4kkXLMQ.mdx>). The device will be used to store tags that will be eventually used to create outbound topics in the connector. Make sure to select the **Enable Data Store** checkbox.&#x20;
+
+# Step 2: Add Tags
+
+After connecting the device in Litmus Edge, you can :Link[Add Tags]{label="Add Tags" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the device. Create tags that you want to use to create outbound topics for the connector.&#x20;
+
+# Step 3: **Add Cloud Sync Job**
+
+**To add the cloud storage sync job:**
+
+1. Navigate to **Integration&#x20;**> **Object**.&#x20;
+2. Click **Add sync job**.
+   The *Add Cloud Sync Job* dialog box displays.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/m5ZtWxPzpedVMOpdfyv60_image.png)
+3. From the *Add Cloud Sync Job&#x20;*&#x64;ialog box, enter the following details:
+   - **Name:&#x20;**&#x45;nter a **name** for the cloud sync job.
+   - **Provider:** Select **Databricks Unity Catalog Volume** provider from the drop-down list.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/3mwfdbLwnA9WOUjRTfZ6j_image.png "Add Cloud Sync Job dialog box")
+
+# Step 4: Configure Databricks Unity Catalog Volume
+
+<hint type="info">
+  **Note:&#x20;**&#x49;t is recommended to review the :Link[Run your first ETL workload on Databricks | Databricks]{href="https://docs.databricks.com/en/getting-started/etl-quick-start.html" newTab="true" hasDisabledNofollow="false"} on AWS guide before starting this section.
+</hint>
+
+**To configure the Databricks Unity Catalog Volume:**
+
+1. From the *Add Cloud Sync Job&#x20;*&#x64;ialog box, enter the following details:
+   - **Name:&#x20;**&#x45;nter a friendly user defined **name**.
+   - **Workspace URL:&#x20;**&#x45;nter the **URL&#x20;**&#x6F;f your Databricks workspace.&#x20;
+     See :Link[Get identifiers for workspace objects | Databricks on AWS]{href="https://docs.databricks.com/en/workspace/workspace-details.html#workspace-url" newTab="true" hasDisabledNofollow="false"} for more details.
+   - **Access Token:&#x20;**&#x43;opy and paste the **access token&#x20;**&#x66;rom your Databricks account.&#x20;
+     See :Link[Databricks SQL Driver for Go | Databricks on AWS]{href="https://docs.databricks.com/en/dev-tools/go-sql-driver.html#databricks-personal-access-token-authentication" newTab="true" hasDisabledNofollow="false"} for more details.
+   - **Source:&#x20;**&#x45;nter the source path from where the files will be copied.&#x20;
+   - **Destination:** Enter the path of the remote destination. For this scenario, it is the path for your unity catalog volume on *Databricks&#x20;*&#x77;hich must be created prior to setting your Litmus Edge.&#x20;
+     See :Link[Create and work with volumes | Databricks on AWS]{href="https://docs.databricks.com/en/connect/unity-catalog/volumes.html#create-and-work-with-volumes" newTab="true" hasDisabledNofollow="false"} for more details.
+   - **Transfer mode:&#x20;**&#x53;elect **Copy&#x20;**&#x74;o ensure files are copied from the source to the destination.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Bh8R4rsLgE7mzWIZYbm_Z_image.png "Databricks workspace environment")
+2. Click **Save**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/JtHnHINPrpx1TdLZHCpph_image.png "Add Cloud Sync Job dialog box")
+
+<hint type="info">
+  **Note:&#x20;**&#x54;o generate *CSV*, *JSON*, or *Parquet* files for syncing with the Databricks Unity Catalog, you can utilize the [File Reading Processor](<../../../ENU/ENU/Product Features/ddQv_vx-hJA0ktkDqcaGW/statistical-functions/file-reading-processor.mdx>) in Litmus Edge.
+</hint>
+
+# Step 5: Enable the Cloud Storage Sync
+
+Click the toggle button to **enable&#x20;**&#x74;he storage sync job and start transferring files from the source to the destination.
+
+Once a successful connection is established, the status changes to *connected* from *transferring*.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/lElsvo6bCgcUolmnoYIys_image.png "Cloud Storage Sync pane")
+
+# Step 6: Confirm Transfer Completion&#x20;
+
+**To verify the files in the Databricks Unity Catalog Volume:**
+
+1. Go to you&#x72;**&#x20;Databricks Unity Catalog Volume&#x20;**&#x77;orkspac&#x65;**.**&#x20;
+2. Refresh the page to see the newly uploaded files.&#x20;
+3. Confirm that the *test.csv&#x20;*&#x68;as been uploaded successfully.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/TPwwA_E9dtHrC6qUziPKa_image.png "Databricks Unity Catalog Volume")
+
+# Example Notebook&#x20;
+
+This notebook will use the data transferred to the *Databricks&#x20;*&#x55;nity Catalog Volume. Follow these steps to create and run a *Delta Live Tables (DLT)* pipeline:
+
+1\. Import the necessary libraries and dependencies.&#x20;
+
+```python
+from pyspark.sql.functions import col, current_timestamp
+import dlt
+```
+
+2\. Define the file path, table name, and DLT configuration variables.&#x20;
+See [Create a Delta Live Tables materialized view](https://docs.databricks.com/en/delta-live-tables/python-ref.html#create-a-delta-live-tables-materialized-view-or-streaming-table) for more details.&#x20;
+
+```python
+# Define variables used in code below
+file_path = "<VOLUME_PATH>"
+table_name = "<TABLE_NAME>"
+checkpoint_path = "<CHECK_POINT_PATH>"
+
+@dlt.table(table_properties={"<key>" : "<value>", "<key>" : "<value>"})
+def <DLT_NAME>():
+  return (
+     spark.readStream.format('cloudFiles')
+     .option('cloudFiles.format', '<file-format>')
+     .load(f'{file_path}')
+ )
+```
+
+3\. After defining the variables, create and publish a pipeline. See [Create and publish a pipeline](https://docs.databricks.com/en/ingestion/onboard-data.html#step-4-create-and-publish-a-pipeline) guide for detailed steps.&#x20;
+
+4\. Schedule the pipeline to run at desired intervals. See [Schedule the pipeline](https://docs.databricks.com/en/ingestion/onboard-data.html#step-5-schedule-the-pipeline) guide for detailed steps.&#x20;
+
+**5.&#x20;**&#x4D;onitor the pipeline to ensure data is being processed as expected. You can query the table created in the Unity Catalog Volume to confirm that the data is correctly ingested.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ls8hdD-XKcg5HrEHOzq6K_image.png "Dataframe table")
+

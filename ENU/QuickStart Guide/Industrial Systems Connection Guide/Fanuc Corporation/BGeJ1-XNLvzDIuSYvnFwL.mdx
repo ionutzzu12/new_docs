@@ -1,0 +1,4109 @@
+---
+title: Fanuc CNC Ethernet (Gen1.3)
+slug: BGeJ1-XNLvzDIuSYvnFwL
+description: Review the following information for setting up and configuring the Fanuc CNC Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Fanuc CNC Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="231,273" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Any PLC model that supports FANUC FOCAS
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+<hint type="info">
+  **Note:** Incorrect tag configurations, unsupported tags, or tags missing from the PLC cause the device to cycle repeatedly between Connected and Disconnected statuses. A stable connection that all configured tags are valid, supported by the driver, and correctly mapped to the PLC.
+</hint>
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+Review the following parameters for the PLC Configuration.
+
+**Supported Data Types**
+
+Refer to the following supported data types by Fanuc and Litmus Edge. Below is the Fanuc PMC (Programmable Machine Control).
+
+Fanuc Macro variables support the FLOAT data type.
+
+**Table 1**
+
+<table columnWidths="162,331" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Data Type**
+    </td>
+    <td align="left">
+      **Size**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      BYTE
+    </td>
+    <td align="left">
+      1 byte
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WORD
+    </td>
+    <td align="left">
+      2 bytes
+    </td>
+  </tr>
+</table>
+
+**Table 2**
+
+<table columnWidths="226,157,163" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Signed Value**
+    </td>
+    <td align="left">
+      **Data Type**
+    </td>
+    <td align="left">
+      **Size**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      INT8
+    </td>
+    <td align="left">
+      SINT
+    </td>
+    <td align="left">
+      1 byte
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      INT16
+    </td>
+    <td align="left">
+      INT
+    </td>
+    <td align="left">
+      2 bytes
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      INT32
+    </td>
+    <td align="left">
+      DINT
+    </td>
+    <td align="left">
+      4 bytes
+    </td>
+  </tr>
+</table>
+
+**Table 3**
+
+<table columnWidths="170,157,132" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Unsigned Value**
+    </td>
+    <td align="left">
+      **Data Type**
+    </td>
+    <td align="left">
+      **Size**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      UINT8
+    </td>
+    <td align="left">
+      USINT
+    </td>
+    <td align="left">
+      1 byte
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      UINT16
+    </td>
+    <td align="left">
+      UINT
+    </td>
+    <td align="left">
+      2 bytes
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      UINT32
+    </td>
+    <td align="left">
+      UDINT
+    </td>
+    <td align="left">
+      4 bytes
+    </td>
+  </tr>
+</table>
+
+The Fanuc PMC System is the interface between the Fanuc CNC and the machine tool. For information on the PMC system, visit the [Fanuc Corporation website](https://www.fanucamerica.com/fanuc-america-product-support/fanuc-product-training/cnc-robodrill-training/online-cnc-training-2018/fanuc-pmc-training-online).
+
+**RDPMC Tags**
+
+RDPMC tags provide all information about the **Address Type**, the **Address Number** to read data from, and **Size** within the tag itself.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/rp4b-YEbLXAoBUPp-mjoo_image.png" size="80" width="501" height="289" position="flex-start" caption="Address types" showCaption="true"></Image>
+
+**Example of an RDPMC Tag**
+
+<table columnWidths="161,130,154,97" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Tag**
+    </td>
+    <td align="left">
+      **Address Type**
+    </td>
+    <td align="left">
+      **Address Number**
+    </td>
+    <td align="left">
+      **Size**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rdpmc \[9\_746\_2]
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      746
+    </td>
+    <td align="left">
+      4 bytes
+    </td>
+  </tr>
+</table>
+
+In the previous example, 9 refers to an address type listed in the image, 746 is the address number to read data from, and 2 means that the data is four bytes long.
+
+## Configure Device
+
+Refer to the following configurations if the device doesn't connect right away.&#x20;
+
+**To configure the device:**
+
+1. Note down the following information and refer to it when needed. ****
+   **Device**: Fanuc 0i-F****
+   **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/fwoBsmtOAexVXak7alS2T_01fanuc-cnc-ethernet.png" size="80" width="471" height="545" position="flex-start" caption="Fanuc CNC Ethernet reference" showCaption="true" indent="2"></Image>
+
+2. Press **Soft key** five times to set up the IP Address.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/fwvMVtQf330-iyRTm01Vq_02fanuc-cnc-ethernet-ip482x338.png" size="80" width="482" height="338" position="flex-start" caption="IP Address set up screen" showCaption="true" indent="2"></Image>
+
+3. Press the Soft key **Embed Port&#xA0;**&#x74;o set up the network parameters, and then press the Soft key **OPRT**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/LPmF1PLNNS_a0oZ7-ByJM_03fanuc-cnc-ethernet-ip482x338.png" size="80" width="535" height="386" position="flex-start" caption="Set up network parameters screen" showCaption="true" indent="2"></Image>
+
+4. Press the Soft key **Restart&#xA0;**&#x74;o activate the settings.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/TBGmJBCz6DUz3H9rvKBj2_04fanuc-cnc-ethernet-settings.png" size="80" width="624" height="372" position="flex-start" caption="Activate settings screen [1]" showCaption="true" indent="2"></Image>
+
+5. Press the Soft key **Execute&#xA0;**&#x74;o activate the settings.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/OdVxfjpyDOFcc9_GS-9-R_05fanuc-cnc-ethernet-activate.png" size="80" width="624" height="392" position="flex-start" caption="Activate settings screen [2]" showCaption="true" indent="2"></Image>
+
+6. Press the Soft key two times to reach this page, and then press the Soft key **FOCAS2**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/yKdznXawbByL6y0g2gJxp_06fanuc-cnc-ethernet-focas2.png" size="80" width="606" height="406" position="flex-start" caption="FOCAS2 button reference" showCaption="true" indent="2"></Image>
+
+7. Set up the port number, and then press the Soft key **OPRT**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ccr3yWUc7OHaoNw4yGRI__07fanuc-cnc-ethernet-port.png" size="80" width="695" height="421" position="flex-start" caption="Port setup screen" showCaption="true" indent="2"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="170,356" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Fanuc Corporation
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Fanuc CNC Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      8191
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="188,136,108,98,85,146,100" isTableHeaderOn="true" selectedRows="" selectedColumns="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td>
+      Access Types
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="center">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      G\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999977
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      F\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      A\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      599997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      K\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      E\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      G
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      F
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      A
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      59999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      K
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      E
+    </td>
+    <td align="left">
+      usint,sint,int,uint,dint,udint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_absolute
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_absolute2
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_machine
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_relative
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_distance
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_acts
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_acts2
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_actf
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdmacror
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtoolrng\_number
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtoolrng\_life
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtoolrng\_count
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdparam
+    </td>
+    <td align="left">
+      sint, int,float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999947
+    </td>
+    <td align="center">
+      Address consists of 2 parts. last 2 numbers are axis.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdparam3
+    </td>
+    <td align="left">
+      sint,int,float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TDDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      19999947
+    </td>
+    <td align="center">
+      Address consists of 3 parts; last 2 number are axis, T:0 Relative axis, 1 Absolute axis.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdalmmsg
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdalmmsg2
+    </td>
+    <td align="left">
+      alarm
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdalminfo
+    </td>
+    <td align="left">
+      alarmInfo
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      19
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_statinfo
+    </td>
+    <td align="left">
+      statinfo
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_statinfo2
+    </td>
+    <td align="left">
+      statinfo
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_gettimer\_date
+    </td>
+    <td align="left">
+      date
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_gettimer-time
+    </td>
+    <td align="left">
+      time
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtpfsr
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      19999
+    </td>
+    <td align="center">
+      T 0: Machining Mode, 1: Lathe mode
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdsvmeter
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdspmeter\_meter
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdspmeter\_speed
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_exeprgname
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdseqnum
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdblkcount
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdopnlsgnl
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_sysinfo
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_sysinfo\_ex
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_alarm
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_alarm2
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdposition
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtofsinfo
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtofsinfo2
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_tofs\_mge
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1029999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdparainfo
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdparainfo3
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdactfixofs
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      48
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      pmc\_rdpmcinfo
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      pmc\_getdtailerr
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      pmc-rdalmmsg
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      99
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_diagnoss
+    </td>
+    <td align="left">
+      sint,int,float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999947
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_diagnosr
+    </td>
+    <td align="left">
+      sint,int,float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999947
+    </td>
+    <td align="center">
+      Address consist of 2 parts. last 2 numbers are axis,
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rddiaginfo
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdopmsg
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdopmsg2
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdopmsg3
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      -1
+    </td>
+    <td align="left">
+      9
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdspcss
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdspeed
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdspload
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdspmaxrpm
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdspgear
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdgrpid2
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdngrp
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdntool
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdlife
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdcount
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd1length
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd2length
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd1radius
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd2radius
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_t1info
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_t2info
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_toolnum
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtoolgrp
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtoolgrp
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdusegrpid
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdmaxgrp
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdmaxtool
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdusetlno
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd1tlifedata
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd1tlifedat2
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd2tlifedata
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdgrpinfo
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdgrpinfo2
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdgrpinfo3
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdgrpinfo4
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtinfo
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtlusegrp
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtlgrp
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtltool
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      TTTTTDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999999999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 5 numbers are group number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdexchgtgrp
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99999
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdtlgeomsize\_ext
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      199999
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 1 numbers are coordinate.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdzofs
+      &#x20;
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99948
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 3 numbers are offset number, second 2 numbers are axis.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdzofsinfo
+      &#x20;
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdfixofs
+      &#x20;
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      Ddd
+    </td>
+    <td align="left">
+      101
+    </td>
+    <td align="left">
+      848
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 1 numbers are c fixture offset number.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdintchk
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      99997
+    </td>
+    <td align="center">
+      Address consist of 2 parts. first 4 numbers are check data number, second 1 number is type of coordinate.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdwkcdshft
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      48
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdwkcdsfms
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      48
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_wksft\_rnge
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      48
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_dtsvcnclupdn
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_dtsvgetdncpg
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rddncfname
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rddsdncfile
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="center">
+      0: DATA SERVER, 1: DATA SERVER Host    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_dsftpstat
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_dsftpcancel
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdloopgain
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdcurrent
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdsrvspeed
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdnspdl
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdopmode
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdposerrs
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_loadtorq
+    </td>
+    <td align="left">
+      short
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      Ddd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      147
+    </td>
+    <td align="center">
+      D 1: Spindle motor, 0: Servo motor, dd: Axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rddiag\_ext
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="center">
+      DDDD: Specify the pointer to the array of the diagnosis data numbers.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_getpath
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/WR/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_sysconfig
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+      Reads the CNC system configuration information.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdmenuswitch
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdradofs
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdlenofs
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdfixcycle
+    </td>
+    <td align="left">
+      customcustom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdcdrotate
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd3dcdcnv
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdmirimage
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdscaling
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd3dtofs
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdposofs
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdaxisdata
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      Dd
+    </td>
+    <td align="left">
+      10
+    </td>
+    <td align="left">
+      59
+    </td>
+    <td align="center">
+      D: class of data, d: type
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_skip
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      48
+    </td>
+    <td align="center">
+      DD: axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_srvdelay
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      48
+    </td>
+    <td align="center">
+      DD: axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_accdecdly
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      48
+    </td>
+    <td align="center">
+      DD: axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdmovrlap
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      48
+    </td>
+    <td align="center">
+      DD: axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_canmovrlap
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      48
+    </td>
+    <td align="center">
+      DD: axis
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdhndintrpt
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="center">
+      0: input unit, 1: output unit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd3dtooltip    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd3dpulse
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd3dmovrlap
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rd3dofschg
+    </td>
+    <td align="left">
+      dint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdunsolicprm
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdunsolicprm2
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdunsolicmsg
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdunsolicmsg2
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="center">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_modal
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3033
+    </td>
+    <td align="left">
+      Address consist of 2 parts. First 3 numbers are the type.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdgcode
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1032
+    </td>
+    <td align="left">
+      Address consist of 2 parts. First 3 numbers are the group of G code.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdcommand
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      10
+    </td>
+    <td align="left">
+      32
+    </td>
+    <td align="left">
+      Address consist of 2 parts. First number is type. 1: Read all modal data except G code at a time, 2: Read all commanded data at a time, 3: Read all commanded data concerning axis at a time. Second Number is block.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdmacro
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      custom macro variable number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_rdmacror2
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      custom macro variable number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_wrmacro
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      custom macro variable number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_wrmacror
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      custom macro variable number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      cnc\_wrmacror2
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      custom macro variable number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      pmc\_wrcntldata
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      group number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      pmc\_wrcntlgrp
+    </td>
+    <td align="left">
+      uint
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      group number
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      pmc\_wrkpm
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      start address
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      pmc\_wrkpm2
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      65535
+    </td>
+    <td align="left">
+      start address
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      pmc\_wrmsg
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      start address
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      pmc\_wrpmcparam
+    </td>
+    <td align="left">
+      custom
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      start address
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="p47JsNKhoaBd6KBtflh9Y">
+
+</ContentSnippet>
+

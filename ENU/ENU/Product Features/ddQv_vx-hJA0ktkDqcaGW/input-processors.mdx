@@ -1,0 +1,279 @@
+---
+title: Input Processors
+slug: input-processors
+docTags: 
+createdAt: Tue Aug 06 2024 21:50:03 GMT+0300 (Eastern European Summer Time)
+---
+
+The Analytics module makes use of built-in input processors to retrieve data from a topic, database, or generator. The following describes the input processors that are currently available.
+
+
+
+# Database Batch Input Processors
+
+## Database Batch Input Overview
+
+- Generate events by periodically polling specified DB measurements.
+- **Filtering:**
+  - Add filtering for queries.
+  - The available fields depends on database and measurement. For device data, standard filters are `datatype`, `device_id`, `is_device_status`, `register_id`, `success`, `tag`, `topic`, and `value`.
+- **Examples:**
+  - Filter by tag:
+    `"tag" = 'tag1'`
+  - Filter by tag and success:
+    `"tag" = 'tag1' AND "success" = 1`
+
+## Database Batch Input Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="118,100">
+  <tr>
+    <td align="left">
+      **Parameters**
+    </td>
+    <td align="left">
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Database
+    </td>
+    <td align="left">
+      Select the name of the database from which data will be retrieved.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Filter
+    </td>
+    <td align="left">
+      Specify the SQL filter for the `WHERE` part of the query to filter the data from the database.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Metric Name
+    </td>
+    <td align="left">
+      Name of the metric for TimeSeriesDB polling.    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Period Secs
+    </td>
+    <td align="left">
+      Set the polling interval in seconds for retrieving data from the database.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Typed
+    </td>
+    <td align="left">
+      Define the data typed policy for processing the retrieved data.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4ZJjjetAgS2DwcXUEJXs4_image.png" size="80" width="939" height="342" position="flex-start" caption="Database Batch Input parameters" showCaption="true"></Image>
+
+# DataHub Subscribe Processors
+
+## DataHub Subscribe Overview
+
+- Generate events from specified DataHub topic and attach to output.
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen using the *DataHub Subscribe* processor, number values in your JSON payload are parsed as `float` datatypes.&#x20;
+
+  If you're working with processors like :Link[Switch]{label="Switch" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="Vbmbn0w8Yu8L_MqUqGvq2" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}, :Link[Change]{label="Change" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="vd4E0jVhy6kwznpdgSqQp" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}, :Link[JavaScript Processor]{label="JavaScript Processor" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="wYNVo3Ew-NL9Z43YEYiSZ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}, or [Tengo Script](<../../../Product Features/Analytics/Statistical Functions/tengo-script.mdx>), ensure your input value and data type configurations are correct.
+</hint>
+
+## DataHub Subscribe Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="166,100">
+  <tr>
+    <td align="left">
+      **Parameters**
+    </td>
+    <td align="left">
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Format
+    </td>
+    <td align="left">
+      Choose the format of the data, with possible values of json or fb (flat buffer).
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Topic
+    </td>
+    <td align="left">
+      Select the specific device and tag from which data will be collected.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Ignore Failed Data (Litmus Edge version 3.11.0 and later)
+    </td>
+    <td align="left">
+      Select to ignore data with the output `success=false`.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Ignore Null Value (Litmus Edge version 3.11.0 and later)
+    </td>
+    <td align="left">
+      Select to ignore data with the output `value=null`.
+    </td>
+  </tr>
+</table>
+
+
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/28QEUcDCzQ40HcImkXnuc_image.png" size="80" width="755" height="372" position="flex-start" caption="DataHub Subscribe Input parameters" showCaption="true"></Image>
+
+# Generator Processors
+
+## Generator Overview
+
+- Simple generator for testing, use **t** as the variable.
+
+## Generator Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="166,100">
+  <tr>
+    <td align="left">
+      **Parameters**
+    </td>
+    <td align="left">
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Amplitude Multiplier
+    </td>
+    <td align="left">
+      Specify the amplitude multiplier for the generated signal.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Formula
+    </td>
+    <td align="left">
+      Choose the supported math functions for generating the signal, such as sin, cos, tan, power, sqrt, log, exp, or abs.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Generator Type
+    </td>
+    <td align="left">
+      User defined signal generation or pre-defined generation.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Periodicity
+    </td>
+    <td align="left">
+      Define the periodicity of the signal in seconds.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Strength
+    </td>
+    <td align="left">
+      Specify the strength of the simulated wave approximation, with the maximum value being 10.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Timer Interval
+    </td>
+    <td align="left">
+      Set the timer in milliseconds. If no event occurs, this timer is used to keep displaying the output continually. Enter zero to disable the timer.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/2mSWPmCSfLhsuVGQusDDB_image.png" size="80" width="960" height="534" position="flex-start" caption="Generator parameters" showCaption="true"></Image>
+
+# Inject Processors
+
+## Inject Overview
+
+- Generates a new message event based on the provided inputs.
+- You can manually trigger the *Inject&#x20;*&#x70;rocessor using the **Invoke&#x20;**&#x62;utton.
+
+## Inject Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="166,100">
+  <tr>
+    <td align="left">
+      **Parameters**
+    </td>
+    <td align="left">
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Inject Field
+    </td>
+    <td align="left">
+      This parameter specifies the name of the field in the message where the data will be injected.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Inject Value Type
+    </td>
+    <td align="left">
+      This defines the type of value being injected. Options include String, Integer, Boolean, etc.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Injected Value
+    </td>
+    <td align="left">
+      This is the actual value that will be injected into the specified field.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Timing Mode
+    </td>
+    <td align="left">
+      This parameter controls when the message injection occurs. Options include **once&#x20;**&#x61;nd **interval**.
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Timer Interval Type
+    </td>
+    <td align="left">
+      If you're using a timed injection, this parameter defines the type of interval (e.g., seconds, minutes, or hours).
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Timer Interval Value
+    </td>
+    <td align="left">
+      This specifies the duration for the timer interval.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Ymm1SSRzFgnh98hW4zyKg_image.png" size="80" width="568" height="391" position="flex-start" showCaption="false"></Image>
+

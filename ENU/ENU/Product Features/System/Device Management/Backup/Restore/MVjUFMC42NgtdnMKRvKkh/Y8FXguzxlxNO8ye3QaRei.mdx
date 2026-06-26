@@ -1,0 +1,73 @@
+---
+title: Backup File Contents and File Management
+slug: Y8FXguzxlxNO8ye3QaRei
+description: Review the following information for backup file contents and file management. 
+docTags: 
+createdAt: Fri May 27 2022 18:24:42 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for backup file contents and file management.&#x20;
+
+# What Gets Backed Up
+
+Configurations, including OPC UA configurations, are saved in a `.DAT` file, which is downloadable from the *Backup/Restore Configuration* section in the *Backup/Restore* tab.&#x20;
+
+Backup consists of:
+
+- User, role, and group configurations
+- Device IP
+- Authentication Settings
+  - API-keys
+  - Users
+  - Password Policy
+- DeviceHub settings (device and tags)
+  - Including metadata
+- Marketplace catalogues
+- Device Management Settings
+  - Certificates
+  - Timezone
+  - Friendly names
+  - Network Card Configurations
+  - DNS
+  - NTP
+- Flow Instance and Flows File
+- OPC UA settings including hierarchy
+- Saved firewall rules and static routes
+- Integration Connectors, Configurations and Subscribed Topics
+- Analytics Groups and Processors
+- Licensing Information
+
+# What Is Not Backed Up
+
+Databases, containers, and volume/images are not part of backup.
+
+# Backup File Characteristics
+
+The lightweight backup file:
+
+- Makes efficient use of storage resources
+- Uses encryption to secure credentials
+
+# Best Practices
+
+The following recommendations help to ensure seamless recovery:
+
+- The default backup file is named something like `backup_1624983948318.dat`. Rename the file based on a naming convention that identifies the date the backup was taken.
+
+<hint type="info">
+  **Example**: `2020-09-18 12:51-backup.dat`
+</hint>
+
+- Move the backup file from the default `Downloads` directory to an operational directory on a server that can be accessed by the operations team.
+
+# Successful Backup
+
+The backup `.DAT` file must be extracted and opened in Notepad.
+
+- This `.DAT` file contains the Litmus Edge configurations, as well as OPC UA configurations and Flows configurations.
+- Use this file to restore your Litmus Edge device.
+
+<hint type="warning">
+  **Caution**: Modifications to the contents of the backup `.DAT` file may render it unusable for restoring a Litmus Edge device.
+</hint>
+

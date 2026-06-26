@@ -1,0 +1,221 @@
+---
+title: Siemens S7CommPlus
+slug: spI2naLUBZ0TPVdu5YYL-
+description: Review the following information for setting up and configuring the Siemens S7CommPlus driver. 
+docTags: 
+createdAt: Tue Nov 21 2023 20:15:17 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the Siemens S7CommPlus driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="213,385" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      S7-1200 V2.2
+      S7-1200 V4.1-4.5
+      S7-1500 V2.9
+      S7-1500 V3.1
+      When configuring tags for this driver, you must enter the case-sensitive register name exactly as it is defined in the PLC. See the *Free Tags* section below to learn more.&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure your device for Ethernet access.
+
+1. Open your TIA Portal project.&#x20;
+2. In the project tree, right-click your PLC and select **Properties&#x20;**&#x66;rom the popup menu. The *Properties&#x20;*&#x77;indow opens.
+3. To obtain the device’s IP address (if you do not already have it):
+   - From the left pane, select **PROFINET** **interface > Ethernet addresses**.
+   - In the right pane, go t&#x6F;**&#x20;Internet protocol version 4 (IPv4)**, find the IP address of the PLC, and copy it aside.
+4. From the left pane, select **PROFINET interface** > **Advanced options** > **Port \[X1 P1]** > **Port interconnection.**
+5. In the right pane, enter `Any partner` in the **Partner port** field.
+6. From the left pane, select **Protection & Security > Access control.**
+7. In the right pane, under **Access control configuration**, ensure that **Disable access control** is selected.
+8. In the project tree, right-click the data block you want to read and select **Properties&#x20;**&#x66;rom the popup menu.
+   The *Properties&#x20;*&#x77;indow opens.
+9. From the left pane, select **Attributes**.
+10. In the right pane, disable the **Only store in load memory** check box.
+11. Click **OK.**
+12. Repeat steps 8-11 for all data blocks you want to read.
+13. Click th&#x65;**&#x20;Compile&#x20;**&#x69;con on the toolbar.
+14. When the project finishes compiling, clic&#x6B;**&#x20;Download to Device**.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="161,367" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Siemens
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Siemens S7CommPlus
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      102
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **PLC Type**
+    </td>
+    <td>
+      Auto
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Firmware Version**
+    </td>
+    <td>
+      Auto
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Read Timeout (ms)**
+    </td>
+    <td>
+      1000
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Retry Count**
+      **Read Retries**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Keep Alive**
+      **TCP Keep-Alive**
+    </td>
+    <td>
+      60
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="YhIBOXxInBR2x2JtF77IY">
+
+</ContentSnippet>
+
+- `bool`&#x20;
+- `byte`&#x20;
+- `word`&#x20;
+- `dword`&#x20;
+- `lword`&#x20;
+- `usint`&#x20;
+- `uint`&#x20;
+- `udint`&#x20;
+- `ulint`&#x20;
+- `sint`&#x20;
+- `int`&#x20;
+- `dint`
+- `lint`
+- `real`
+- `lreal`
+- `s5time`
+- `dt`
+- `dtl`
+- `time`
+- `ltime`
+- `tod`
+- `ltod`
+- `ldt`
+- `date`
+- `char`
+- `wchar`
+- `string`
+- `wstring`
+- `bool[]`
+- `byte[]`
+- `word[]`
+- `dword[]`
+- `lword[]`
+- `usint[]`
+- `uint[]`
+- `udint[]`
+- `ulint[]`
+- `sint[]`
+- `int[]`
+- `dint[]`
+- `lint[]`
+- `real[]`
+- `lreal[]`
+- `s5time[]`
+- `time[]`
+- `ltime[]`
+- `tod[]`
+- `ltod[]`
+- `ldt[]`
+- `date[]`
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

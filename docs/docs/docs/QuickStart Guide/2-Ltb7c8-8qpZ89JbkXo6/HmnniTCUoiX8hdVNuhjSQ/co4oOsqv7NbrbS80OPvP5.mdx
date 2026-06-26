@@ -1,0 +1,503 @@
+---
+title: Sick Flexi Serial (Gen1.3)
+slug: co4oOsqv7NbrbS80OPvP5
+description: Review the following information for setting up and configuring the Sick Flexi Serial (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Sick Flexi Serial (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="230,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Sick Flexi FX3-CPU1
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="ZPTCmzo7MNjZIP6UvGpD8">
+
+</ContentSnippet>
+
+**To configure your device:**
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Sick Flexi FX3-CPU1
+   - **Communication I/F**: RS232. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/aL0EikBMT3iu7lXU2pY_4_sickflexiserialdevice.png" size="80" width="623" height="690" position="flex-start" caption="Reference image of device" showCaption="true" indent="2"></Image>
+
+2. Launch the Flexi Soft Designer v2.01.0 software and click **Com Settings**.&#x20;
+3. Edit the connection profile.&#x20;
+4. Check **COM auto-detection**.&#x20;
+5. Test the connection.&#x20;
+6. Click **Connect**. &#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="211,618" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Sick Flexi
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Sick Flexi Serial (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      115200
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Odd, None
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="217,100,97,87,88,101" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+    <td align="left">
+      Input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      127
+    </td>
+    <td align="left">
+      Output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Logic result
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      197
+    </td>
+    <td align="left">
+      Logic Result
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RS232 to Flexi soft\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      Do
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      37
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Flexi soft to RS-232\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      997
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Module Status Bit Array\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      597
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Operating Data Block\_bit
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      Do
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      97
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Configuration CRCs\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      197
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CPU Module Type Key\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      177
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Extension Modules Type\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3377
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Extension Modules Type
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      336
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CPU Module Type Key
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      16
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Configuration CRCs
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      18
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Operating Data Block
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      8
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Module Status Bit Array
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      58
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Flexi soft to RS-232
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      98
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RS-232 to Flexi soft
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      O
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

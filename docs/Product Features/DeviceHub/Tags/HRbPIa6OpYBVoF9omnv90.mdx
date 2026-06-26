@@ -1,0 +1,176 @@
+---
+title: Browse and Add Tags from a Device
+slug: HRbPIa6OpYBVoF9omnv90
+docTags: 
+createdAt: Wed Apr 30 2025 17:54:12 GMT+0300 (Eastern European Summer Time)
+---
+
+Browse Tags allows you to browse to a connected device and discover, add, and manage tags for the device. Browse Tags is useful for adding and managing a large number of tags from a device. Instead of providing configuration information on specific tags, you can browse and obtain tag information directly from the device. You can also set browse parameters and filters to narrow the scope of the tags that you want to find.
+
+Browse Tags provides you with:
+
+- **Unified search:&#x20;**&#x53;earch and manage tags in one location.
+- **Persistent results:** Search results load once and persist for faster searches.
+- **Bulk management of tags:** Perform bulk edits on tags, such as changing the polling frequency, before adding them to DeviceHub.
+- **Spreadsheet support:** Download your search results for further processing in Excel.
+- **Multitasking support:** Browse tasks run in the background. Notifications alert you about in-progress and completed tasks.
+- **Highly performative search:** Easily search a browsable server, device, or system that has hundreds of thousand of tags.
+
+<hint type="info">
+  **Note:** The protocol of the device that you connect to must support browsing to use Browse Tags. Only devices that support browsing display in the **Select Device** drop-down.
+</hint>
+
+# Create a Browse Task
+
+A browse task represents a saved search for tags for a specific device. When you create a browse task, you select a device and then create a browse task that contains search parameters and other information. Some parameters depend on the device that you access. For example, for MQTT SparkplugB device you define device, group, node, and metric matches and other setttings. For OPCUA, you only define the browse mode as data or event access.
+
+Litmus Edge automatically starts browse tasks after you create them. Multiple tasks created on:
+
+- the same device start in the order they were created.
+- different devices run simultaneously.
+
+You can perform other tasks in Litmus Edge as the browse processes data.
+
+<hint type="info">
+  The time that a browse task takes to complete depends on the:
+
+  - Number of available tags on the device.
+  - Resources of the Litmus Edge instance.
+  - Resources of the device or system being browsed.
+  - Network bandwidth.&#x20;
+</hint>
+
+To create a browse task:
+
+1. Navigate to **DeviceHub** > **Browse**.
+2. In the Browse pane, choose a device from the **Select Device** drop-down.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/D4v3yamAWFDfEpDS438wA-20251008-194739.png" size="100" width="1537" height="610" position="flex-start" darkWidth="1537" darkHeight="610" showCaption="false" indent="2"></Image>
+
+3. To the right of **Select Task**, click **+****Create New Task**.
+4. In the Create Browse Task dialog:
+   1. Enter a task name. The task name cannot contain spaces.
+   2. Define additional browse task parameters. The parameters available to you vary depending on the device that you selected.
+   3. Select&#x20;      **Delete empty folders&#x20;**&#x74;o delete empty folders from browse results. An empty folder can represent a data point that Litmus Edge cannot read.
+   4. Click **Create Task**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/fXVUPHnUmPDNeOrwqQIYt-20251008-194957.png" size="80" width="1487" height="692" position="flex-start" darkWidth="1487" darkHeight="692" showCaption="false" indent="3"></Image>
+
+Litmus Edge starts the browe tasks and obtains tag data from your device.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/idjAX5V0W59nSUDLrUVY2-20251008-195809.png" size="80" width="1535" height="626" position="flex-start" darkWidth="1535" darkHeight="626" showCaption="false"></Image>
+
+After the browse task completes, tags are available in the hierarchy.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eIrr4rfDMFCQUfJQVdQIU_image.png" size="80" width="1916" height="906" position="flex-start" darkWidth="1916" darkHeight="906" showCaption="false"></Image>
+
+# Manage Browse Tasks
+
+You can view and manage tasks associated with a device in one place. For each task, you can see parameters defined when the task was created, a status (pending, in progress, and done), number of folders and tags, and disk size of the browse results.
+
+To manage tasks:
+
+1. In the Browse pane, choose a device and task from the **Select Device** and **Select Task** drop-downs.
+2. To reload data, click **Reload tree**. A message appears indicating that data is being collected.
+3. To see the progress of the browse, click the notification icon in the top toolbar.
+4. Click **Manage Tasks**.
+   The *Manage Tasks* dialog displays.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/LL2I9_D8gIfKHJh_QjsCt_image.png" size="100" width="1816" height="444" position="flex-start" darkWidth="1816" darkHeight="444" showCaption="false" indent="2"></Image>
+
+5. To start or stop a browse task, click the start or stop icon.
+6. To delete a task, click the delete icon.
+
+# Add Tags from the Navigation Tree
+
+You can add tags in several ways. You can browse the navigation tree or through advanced search. You can:
+
+- Add tags to DeviceHub from a single folder immediately
+- Add tags from multiple folders by storing them in the tag collection and adding them all at once.
+
+To add tags:
+
+1. In the right pane, select the tags that you want to add.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eqTx7WkQMrJGtB6RbNXEH_image.png" size="100" width="1179" height="515" position="flex-start" darkWidth="1179" darkHeight="515" showCaption="false" indent="2"></Image>
+
+2. To add a tag immediately, click **Create Tags**. The Creation Results dialog displays showing the number of tags created, skipped, or updated.
+3. To add tags later, click **Add To Collection**. You can also navigate to other folders and add additional tags.
+4. To manage tags from the collecton, click the total tags icon at the right. The *Total Tags* dialog displays.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/imVMY47v7o-D2OyCFIA5i_image.png" size="100" width="1824" height="508" position="flex-start" darkWidth="1824" darkHeight="508" showCaption="false" indent="2"></Image>
+
+<Paragraph listStyleType="disc" indent="2">
+  To add all tags to DeviceHub, click **Create All**.
+</Paragraph>
+
+<Paragraph listStyleType="disc" listStart="2" indent="2">
+  To edit the description or polling interval for values for an individual tag, click the edit icon in the right column and modify values.
+</Paragraph>
+
+<Paragraph listStyleType="disc" listStart="3" indent="2">
+  To edit the description of polling interval for values for multiple tags, click **Global Update**. Select all or multiple tags and modify values.
+</Paragraph>
+
+<Paragraph listStyleType="disc" listStart="4" indent="2">
+  To remove all tags from the collection, click **Clear Collection**.
+</Paragraph>
+
+<Paragraph listStyleType="disc" listStart="5" indent="2">
+  To remove individual tags, select those tags and click **Delete Selected**.
+</Paragraph>
+
+# Basic Search
+
+Basic search lets you quickly find tags through search as an alternative to navigating the tree.
+
+<hint type="info">
+  You can search with common operators and regular expressions. Operators include Blank and NotBlank, Contains and NotContain, EndsWith and StartsWith, Equals and NotEqual, and MatchesRegEx and NotMatchRegEx.
+</hint>
+
+To perform a basic search:
+
+1. In the Browse pane, choose a device and task from the **Select Device** and **Select Task** drop-downs.
+2. At the right, click the search icon. Search displays.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/-pXewK-L5EQ1fUSiAPsc__image.png" size="100" width="1172" height="296" position="flex-start" darkWidth="1172" darkHeight="296" showCaption="false" indent="2"></Image>
+
+3. In **Search Option**, select a search operator and enter tag text to search on.
+4. To make the search case sensitive, select **Case Sensitive**. This only applies to StartsWith, EndsWith, Contains, and NotContain search options.
+5. Click **Search**.
+
+# Advanced Search
+
+You can perform basic and advanced searches to find tags that you want to add. This can be a useful alternative to navigating large and complex tree structures.
+
+<hint type="info">
+  You can search with common operators and regex expressions. Operators include Blank and NotBlank, Contains and NotContain, EndsWith and StartsWith, Equals and NotEqual, and MatchesRegEx and NotMatchRegEx.
+</hint>
+
+1. In the Browse pane, choose a device and task from the **Select Device** and **Select Task** drop-downs.
+2. At the right, click the search icon. Search displays.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/-pXewK-L5EQ1fUSiAPsc__image.png" size="100" width="1172" height="296" position="flex-start" darkWidth="1172" darkHeight="296" showCaption="false" indent="2"></Image>
+
+3. Select **Advanced Search**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ubgp8dS9ZS8pxwWlGs-yt_image.png" size="100" width="1183" height="367" position="flex-start" darkWidth="1183" darkHeight="367" showCaption="false" indent="2"></Image>
+
+4. In **Field Name**, select a field to search on. Fields map to the column names such as **Tag Name**, **Description**, and **Polling Interval**.
+5. In **Search Option**, select a search operator and enter tag text to search on.
+6. To make the search case sensitive, select **Case Sensitive**. This only applies to StartsWith, EndsWith, Contains, and NotContain search options.
+7. If necessary, click the plus sign to add further search conditions and to perform and And or Or search.
+8. Click **Search**.
+
+# Download Tags
+
+You can download tags to CSV format for further processsing in Excel. You can also choose to update tags information in Excel and import the changes back to Litmus Edge.
+
+To download tags:
+
+1. In the Browse pane, choose a device and task from the **Select Device** and **Select Task** drop-downs.
+2. Click **Download Tags**.
+   Tags download in CSV format.
+
+You can now open tags in your preferred spreadsheet application.
+

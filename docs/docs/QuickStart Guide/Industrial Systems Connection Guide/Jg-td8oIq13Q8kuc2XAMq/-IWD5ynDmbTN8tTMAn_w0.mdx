@@ -1,0 +1,112 @@
+---
+title: HID Device (Gen1.3)
+slug: -IWD5ynDmbTN8tTMAn_w0
+description: Review the following information for setting up and configuring the HID Device (Gen1) driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the HID Device (Gen1.3) driver.&#x20;
+
+# Introduction
+
+Human Interface Devices (HID), USB-connected peripheral devices such as scanners (generally for barcodes or QR codes), can be polled for data.
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="211,210" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Human Interface Devices. Examples include scanners used for barcodes and QR codes.&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="XLia8YLDcxASLgOKnWai3">
+
+</ContentSnippet>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="196,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      HID Devices
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      HID Device (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+In the context of Litmus Edge, the following characteristics are relevant for this serial device:
+
+- The HID remains disconnected because HIDs send data only when there is data to send.
+- Only one tag is required in order to read the data. Only one register name and data type are available to select. Use this one name and data type to connect to the HID device.
+- The tag supports only ASCII characters.
+- By default, the polling interval is set to `1`. You cannot change this default value in Litmus Edge. The actual interval is defined by the device's publishing rate.
+- Data can be collected onto flows when it is scanned.
+
+Refer to the following tag parameters.&#x20;
+
+<ContentSnippet docRefId="61oHVyM4yrSlma79kfjlz">
+
+</ContentSnippet>
+

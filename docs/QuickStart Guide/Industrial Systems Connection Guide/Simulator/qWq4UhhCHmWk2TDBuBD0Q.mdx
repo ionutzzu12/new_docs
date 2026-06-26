@@ -1,0 +1,141 @@
+---
+title: Generator
+slug: qWq4UhhCHmWk2TDBuBD0Q
+description: Review the following information for setting up and configuring the Generator driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 20:42:27 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Generator driver.
+
+<hint type="info">
+  **Note:** When you add tags, ensure that tag addresses are unique. Tags with the same address produce identical values.
+</hint>
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="240,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Used to generate simulated data
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td>
+      Learn more about :Link[Gen1 and Gen2 Driver Differences]{docId="61mMjiy4gQ32pwfy6x1_x" label="Gen1 and Gen2 Driver Differences" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Gen1 and Gen2 Driver Differences"}.&#x20;
+    </td>
+  </tr>
+</table>
+
+# Configure the List of Registers
+
+When you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to the connected device, refer to the following register table and tag parameters.&#x20;
+
+<hint type="info">
+  **Note**: The address format in this Gen 2 driver is different from the Gen 1 driver (:Link[Simulator (Gen1)]{docId="ty1ExD_T3cdIGi1kJuoZr" label="Simulator (Gen1)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Simulator (Gen1)"}) for the same device. Learn more about :Link[Gen1 and Gen2 Driver Differences]{docId="61mMjiy4gQ32pwfy6x1_x" label="Gen1 and Gen2 Driver Differences" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Gen1 and Gen2 Driver Differences"}.&#x20;
+</hint>
+
+## Register Table
+
+<table columnWidths="100,183,113,100,102,143" isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Data Type**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      S
+    </td>
+    <td>
+      float64, int64, unit64, bit, char, string
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      32768
+    </td>
+    <td>
+      Random value generator
+    </td>
+  </tr>
+  <tr>
+    <td>
+      H
+    </td>
+    <td>
+      int64
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      1
+    </td>
+    <td>
+      32768
+    </td>
+    <td>
+      Holding Register
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="Pbmd2yNk-_pGiKA9p0jRG">
+
+</ContentSnippet>
+
+<hint type="success">
+  **Tip**:
+
+  - If the **Min\_value** and **Max\_value** tag parameters are set, any generated tag values are overridden.
+  - The supported functions for the Formula tag parameter are&#x20;
+    - `sin`
+    - `cos`
+    - `tan`
+    - `power`
+    - `log`
+    - `exp`
+    - `rand`
+    - `sqrt`
+  - We recommend that you use a cyclic function in the formula. The parameter t represents Unix time in milliseconds. When using trigonometric functions such as sine, adjust the period of the function by dividing `t` by 10,000, for example, `sin(t/10000)`.
+  - All simulated tags have a default range of **-50** to **50**.
+  - Users can override or restrict these defaults using a `CSV` upload.
+  - Entering `-` in the *MIN&#x20;*&#x61;nd *MAX* columns prevents the default constraints from being applied.
+  - Numeric values in the *MIN&#x20;*&#x61;n&#x64;*&#x20;MAX&#x20;*&#x63;olumns will replace the default settings.
+  - The *MIN&#x20;*&#x61;nd *MAX&#x20;*&#x63;onstraints apply to the defined tag formula and do not affect *Boolean&#x20;*&#x74;ags.
+</hint>
+

@@ -1,0 +1,35 @@
+---
+title: Change of Value
+slug: xnSwW3QQSXihLXT6HE8H5
+description: Learn more about the Change of Value KPI. 
+docTags: 
+createdAt: Fri Oct 21 2022 17:40:59 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Change of Value** KPI displays the complete message payload when the current value differs from the previous value. If there is no substantial change, no output is displayed.
+
+# Change of Value Overview
+
+- Show the entire message payload when the current value is different than the previous value.
+- A simple use-case of this KPI is: you want to see a message ONLY if there is a significant change from the previous value, otherwise if things are normal, no output is expected.
+- By entering a **delta**, you can ignore some precision errors.
+- If you enter delta as 0.0, even the smallest change will be detected by this KPI, or you can enter a delta of 0.1 (for example) if you want to allow ignore a change of +/- 0.1 from your previous value.
+- **Map Field Name** asks you what is the field you want to observe for COV. This can be "value" or "asset\_online" etc. depending entirely on what is the input message you are sending to this KPI.
+- The **timer interval** parameter is useful if the connected input tag is currently not polling, but you still want this KPI to publish a value every few seconds, defined by the aforementioned timer.
+  - If you know your input is going to publish at the expected interval, it is better to disable this timer by entering 0 in this field.
+- **Expected Output:** No output if the current value is the same as the previous value (+ or - *delta*), but outputs the entire input message if there is a change.
+
+# Change of Value Parameter
+
+| **Parameters**     | **Details**                                                                                                                                                      |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Map Field Name     | This parameter specifies the field to observe for Change of Value (COV), such as "value".                                                                        |
+| Delta of Tolerance | This parameter allows you to specify the amount of difference between the current and previous values to ignore, thus helping to disregard some rounding errors. |
+| Timer Interval     | Timer in milliseconds. If no event, use this timer to keep displaying the output continually. Enter zero to disable.                                             |
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2-WUpFbI3y6fFMES4J-co_image.png" size="80" width="945" height="383" caption="Change of Value parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Change of Value&#x20;*&#x4B;PI, refer the :Link[Use the Change of Value KPI]{label="Use the Change of Value KPI" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="YThf3qiM2vO6ydV5NDgFy" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

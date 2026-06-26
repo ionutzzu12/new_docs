@@ -1,0 +1,127 @@
+---
+title: Backup/Restore
+slug: 1qy8ML3KNLeptBNtmxPOQ
+description: The Backup/Restore pane allows you to manage backups and templates.
+docTags: 
+createdAt: Fri May 13 2022 21:47:38 GMT+0300 (Eastern European Summer Time)
+---
+
+The *Backup/Restore* and *Template&#x20;*&#x74;abs allow you to do the following:
+
+- Configure and initiate system backups and restore operations. To prepare for possible hardware failures, Litmus Edge provides a disaster recovery plan to support device replacement.&#x20;
+- Create detailed, granular backup templates and exchange these templates between edge devices as JSON files.
+
+# Backup/Restore Tab
+
+<hint type="warning">
+  **Important**:
+
+  - Backup/restore operations are not intended for replication of configurations. These operations will fail when attempted.&#x20;
+  - If you create a backup on an instance of Litmus Edge running on a virtual machine, you can't use the same backup to restore an instance of Litmus Edge running on a physical device.
+</hint>
+
+Litmus Edge offers a backup option which consists of generating a backup file with a list of configuration settings that can be applied to the same device or a new device.&#x20;
+
+You can use Backup and Restore in the following ways:&#x20;
+
+- From the Litmus Edge UI&#x20;
+- From Litmus Edge Manager&#x20;
+
+An alternative non-Litmus Edge backup option is also available, see [Image Backup](Backup/Restore/gPDM3h47bOpEGKprH70Ll.mdx) for more details.
+
+The following use cases are supported:
+
+- Set up a newly installed Litmus Edge device with a different device’s configuration.
+- A user deleted or overwrote a portion of the configuration and wants to reset to a last-known good configuration.
+- Device hardware fails and the device must be replaced with another one. See :Link[Replace a Damaged Device]{docId="ZwKHTM4RO5xGIOWhlwUSh" label="Replace a Damaged Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Replace a Damaged Device"}.&#x20;
+- Device hardware is upgraded. See the *Upload a Template* section in [Manage Templates](fCQT-2xaKWNq2n7nh9sn6.mdx). &#x20;
+
+
+# Template Tab
+
+The *Template&#xA0;*&#x74;ab allows you to select configurations available for the Litmus Edge device and download them to a JSON file, thereby creating an edge device configuration template, which can be used for replication of Litmus Edge configurations.&#x20;
+
+To review what configurations are included in a template file, see [Manage Templates](fCQT-2xaKWNq2n7nh9sn6.mdx). &#x20;
+
+You can create multiple versions of edge device configuration files. You can then upload the template file to another edge device. A successful upload applies the configuration to that device.
+
+You can also apply templates to Litmus Edge using Litmus Edge Manager, potentially changing the configurations for hundreds of edge devices.
+
+For more information about templates, see :Link[Templates]{docId="Me1x3I4rPT_IIgNPCY1GA" label="Templates" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId overridedLabel="Templates"} and :Link[Edge Device Templates]{docId="nNxhGGYezqqsdyajOkc8F" label="Edge Device Templates" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" version="v2" docAnchorId}&#x20;
+
+# How Backup Works&#x20;
+
+Upon a backup operation, Litmus Edge create a snapshot of a predetermined list of configuration settings (specified in :Link[Backup File Contents and File Management]{docId="Oak9ouhWffaJwMTzrQcW7" label="Backup File Contents and File Management" spaceId version="v2" docAnchorId="#successful-backup" overridedLabel="Backup File Contents and File Management" href="Backup/Restore/Back Up a Device/sj5y7dCT-DqXGqir-KS7s.mdx"}) and stores it into a `.DAT` file.
+
+# How Restore Works&#x20;
+
+Upon a restore operation, the Litmus Edge is temporarily set into a blank state. Then it retrieves all the configuration settings stored in the `.DAT` file and applies all the settings into the Litmus Edge instance appropriately. The Litmus Edge instance is then automatically rebooted.
+
+# Choose Between Backup/Restore or Download/Upload Template
+
+<table columnWidths="143,217,299" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+    </td>
+    <td>
+      **Backup and Restore**
+    </td>
+    <td>
+      **Download/Upload Template**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Purpose
+    </td>
+    <td>
+      Restore a hardware-damaged Litmus Edge Device
+    </td>
+    <td>
+      Clone a Litmus Edge Device to other devices
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Customizability
+    </td>
+    <td>
+      Cannot be customized and contains a predetermined list of configuration settings.
+    </td>
+    <td>
+      Can be customized to contain a list of selectable configuration settings.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Files Generated/Used
+    </td>
+    <td>
+      `.DAT` file
+    </td>
+    <td>
+      `.json` file
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Operation
+    </td>
+    <td>
+      Replicate and overwrite the Litmus Edge device's system state from the backup (.DAT) file
+    </td>
+    <td>
+      Append (and not overwrite) its configurations settings to the Litmus Edge device.
+    </td>
+  </tr>
+</table>
+
+# Next Steps
+
+- :Link[Prepare for Backup]{docId="Afy0J78gZCeYNd_u_HAst" label="Prepare for Backup" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Prepare for Backup"}&#x20;
+- [Back Up a Device](Backup/Restore/k3lgAyGNXqAdzZG78Seh7.mdx)&#x20;
+- [Restore a Device](Backup/Restore/ugnam2T7aO0f1wjDjSglm.mdx)&#x20;
+- :Link[Replace a Damaged Device]{docId="ZwKHTM4RO5xGIOWhlwUSh" label="Replace a Damaged Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Replace a Damaged Device"}&#x20;
+- [Manage Templates](fCQT-2xaKWNq2n7nh9sn6.mdx)&#x20;
+- [Image Backup](Backup/Restore/gPDM3h47bOpEGKprH70Ll.mdx)&#x20;
+

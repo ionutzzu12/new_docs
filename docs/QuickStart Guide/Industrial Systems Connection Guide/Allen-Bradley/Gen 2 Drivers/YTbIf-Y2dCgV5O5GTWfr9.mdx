@@ -1,0 +1,159 @@
+---
+title: AB CompactLogix Ethernet Advanced
+slug: YTbIf-Y2dCgV5O5GTWfr9
+description: Review the following information for setting up and configuring the AB CompactLogix Ethernet Advanced driver. 
+docTags: 
+createdAt: Thu May 26 2022 23:56:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB CompactLogix Ethernet Advanced driver.&#x20;
+
+# Overview
+
+This driver can be used for better performance. Multiple tags that belong to the same polling cycle can be read in a single request/response.
+
+<hint type="info">
+  **Notes**:
+
+  - The maximum-length custom string that the driver can read as a string is 480 characters.&#x20;
+  - This driver provides faster performance over other compatible drivers. If you prefer stability over speed, you can use :Link[AB CompactLogix Ethernet FreeTag]{label="AB CompactLogix Ethernet FreeTag" spaceId="wQD1Hy26GI4GkT5CfHoGL" docId="p1OyleioaIedjGwPifVo7" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+</hint>
+
+The driver implements two modes: Symbolic and Logical.&#x20;
+
+## Symbolic Mode
+
+In Symbolic mode, the driver supports both CompactLogix and ControlLogix connections. This mode makes tag grouping more efficient compared to the standard driver by trying to combine as many tags as possible but not exceeding the maximum transmission unit (MTU) size for both requests and responses. Compared to CompactLogix mode, it performs better when dealing with PLC changes.&#x20;
+
+## Logical Mode
+
+In Logical mode, the driver uses ID-based requests for FlexLogix, CompactLogix, and ControlLogix PLCs for all firmware versions. The driver uses numeric handles instead of symbolic names. Usually this allows reading of more tags per single request compared to Symbolic mode, especially when symbolic names are long. Compared to Symbolic mode, it performs better overall without taking into account PLC changes.
+
+## PLC Changes
+
+The driver does not detect PLC program changes. Structure templates are read once when a connection is established. If the PLC program is changed, you need to restart the connection.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="216,252" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[CompactLogix]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/small-controllers/compactlogix-family.html" newTab="true"}      :Link[ControlLogix]{href="https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/large-controllers/controllogix.html" newTab="true"}
+      When configuring tags for this driver, you must enter the case-sensitive register name exactly as it is defined in the PLC. See the *Free Tags* section below to learn more.&#x20;
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,345" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB CompactLogix Ethernet Advanced
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      44818
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Access Mode**
+    </td>
+    <td>
+      Select Symbolic or Logical
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot Number**
+    </td>
+    <td>
+      0&#x20;
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="YhIBOXxInBR2x2JtF77IY">
+
+</ContentSnippet>
+
+- `bool`
+- `byte`
+- `sint`
+- `int`
+- `dint`
+- `real`
+- `dword`
+- `lint`
+- `lreal`
+- `string`
+
+<ContentSnippet docRefId="z3CVSk3yH2X1hHI1nGI0S">
+
+</ContentSnippet>
+

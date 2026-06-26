@@ -1,0 +1,92 @@
+---
+title: Generic MQTT Over SSL Integration Guide (Self-Signed Certificates using Litmus UNS)
+slug: DvD11smDdsOg5_1fhtlAc
+description: Learn how to set up the Generic MQTT Over SSL connector using Mosquitto. 
+docTags: 
+createdAt: Thu Nov 24 2022 22:42:44 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide to connect Litmus Edge to an MQTT broker over SSL using self-signed certificates.
+
+# Before You Begin
+
+Make sure you have:
+
+- Access to a Litmus UNS instance to download the self-signed certificate.
+- The permissions needed to edit the host file and add integrations in Litmus Edge.
+
+# Step 1: Download the Self-Signed Certificate from Litmus UNS
+
+**To download the self-signed from Litmus UNS:**
+
+1. Log in to your Litmus UNS instance.&#x20;
+   See :Link[Install and Access Litmus UNS]{href="https://docs.litmus.io/uns" newTab="true" hasDisabledNofollow="false"} for details.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/uSj2yDOww7Hg6c6W_Tf1d_image.png "Litmus UNS Litmus UNS Dashboard")
+2. Go to *Connect&#x20;*&#x61;nd click **Download Certificate**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/XJY3deOkmWeSBzWWOVzPN_image.png "Litmus UNS Dashboard")
+3. Save the self-signed certificate (*CA certificate*) to your computer.
+   You will upload this certificate in the next step.
+
+# Step 2: Add the Generic MQTT Over SSL Connector
+
+Follow the steps to :Link[Add a Connector]{docId="5u9mvu2ie0NAFNbBvfJDT" label="Add a Connector" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} and select the **MQTT - Generic over SSL&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector (e.g., *MQTT\_SSL\_Connector*).&#x20;
+- **Hostname**: Enter `uns.local`.
+- **Port**: Confirm that the default value **8883** is entered.&#x20;
+- **CA Certificate**: Paste or upload the self-signed certificate downloaded from Litmus UNS in *Step 1*.&#x20;
+- **Certificate&#x20;**(Optional): Upload if additional certificates are needed.&#x20;
+- **Private key&#x20;**(Optional)
+- **Client ID&#x20;**(Optional): Enter `<username>-with-ssl`.&#x20;
+- **Username&#x20;**(Optional): Enter your *MQTT Account&#x20;*&#x75;sername.
+- **Password&#x20;**(Optional): Enter your *MQTT Account&#x20;*&#x70;assword.
+- **QoS**: Confirm that the default value **1** is entered. The Quality of Service (QoS) level is an agreement between the sender of a message and the receiver of a message that defines the guarantee of delivery for a specific message.
+- **Parallel Publish Count**: Confirm that the default value of **100&#x20;**&#x69;s entered. The number of messages being published simultaneously. Once the defined limit has been reached, subsequent messages are silently dropped.&#x20;
+- **LWT payload type**: The payload type for MQTT's Last Will and Testament feature. The options are *string&#x20;*&#x61;nd *base64*.&#x20;
+- **LWT QoS**: The Quality of Service value for MQTT's Last Will and Testament feature.
+- **LWT retained**: Select this check box to retain the value for MQTT's Last Will and Testament feature.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, messages will undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9yunO1mw_obam6m-w0kwE_image.png "MQTT - Generic over SSL connector tile")
+
+# Step 3: Configure Your Domain Entry in the Host File
+
+You need to configure the host file so Litmus Edge can identify the Litmus UNS instance using a hostname instead of just an IP address.
+
+**To configure the host file:**
+
+1. Navigate to **System** > **Network** > **DNS/NTP Servers** > **Host File**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/NRtEqcCue6mp3nUdfQSYi_image.png "System > Network > DNS/NTP Servers > Host File")
+2. Click **Add a new Host Binding&#x20;**&#x62;utton and enter the following entry to the host file:
+   - **Names**: Enter `uns.local`.&#x20;
+   - **IP Address**: Enter the *IP address* of the Litmus UNS instance.
+3. Click **Create**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8bcGeUiWELmS1_taMZnEp_image.png "Add a new Host Binding dialog box")
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/XDpwHPQVa4LW4Lq4YeSPb_image.png" size="60" width="374" height="282" position="center" caption="MQTT - Generic over SSL connector tile" showCaption="true"></Image>
+
+You can review the Connector Logs﻿ and relevant error messages if you see a Failed status:Link[Connector Logs]{label="Manage Connectors" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="p4fwhKRt2q2hsjboZv6hk" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs"} and relevant error messages.&#x20;
+
+# Step 5: Add a Topic and Check Connection
+
+**To add a topic and check the connection:&#x20;**
+
+1. Navigate to **Integration**.&#x20;
+2. Click the *MQTT - Generic over SSL&#x20;*&#x63;onnector tile.&#x20;
+3. Click the **Topics&#x20;**&#x74;ab.&#x20;
+4. Click the **Add a new subscription&#x20;**&#x69;con and add a new topic (Outbound).
+   See [Add Topics to Connectors](<../../Product Features/Integration/IpEKAiQ3fiY4nSjX4KYHZ.mdx>) for details.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/cSn_yKd70BrI8Lnc0rlNu_image.png "MQTT - Generic over SSL connector tile")
+5. To test the connection:
+   - Use a wildcard (e.g., test/#) to ensure you receive messages.
+6. If everything is set up correctly, you’ll see messages from the MQTT broker to Litmus Edge.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/8MNvkEzxpdeMec8HnUrdC_image.png)
+

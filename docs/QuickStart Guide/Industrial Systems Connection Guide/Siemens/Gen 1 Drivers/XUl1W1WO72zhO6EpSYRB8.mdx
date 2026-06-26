@@ -1,0 +1,457 @@
+---
+title: Siemens Logo Ethernet (Gen1.3)
+slug: XUl1W1WO72zhO6EpSYRB8
+description: Review the following information for setting up and configuring the Siemens Logo Ethernet (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Siemens Logo Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="231,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Siemens LOGO!]{href="https://new.siemens.com/global/en/products/automation/systems/industrial/plc/logo.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it when needed.&#x20;
+   - **Device**: LOGO BM 24CE
+   - **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/EsaqC7hQh5_I2caKzX_wO_siemens-logo-ethernet-gen1.png" size="80" width="371" height="390" position="flex-start" caption="Reference image of device" showCaption="true" indent="2"></Image>
+
+2. Set up the IP address under ADMIN mode. The default password to switch from Operator mode is LOGO.
+3. Select **Network > IP address**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/owz8tFDqQ2U46uXCMjnw3_siemens-logo-ethernet-gen1-devices.png" size="80" width="308" height="649" position="flex-start" caption="Reference image of device" showCaption="true" indent="2"></Image>
+
+4. Enter the IP address for your device. For example: 192.168.447.110.&#x20;
+5. Log in to the web server to configure the device. The default password is LOGO.
+6. Launch the Logo Soft Comfort v1.08.02 software and select **Tools > Transfer > Logo > PC**.
+7. Enter the IP address in the **Target IP Address&#xA0;**&#x66;ield, and then click **OK**.
+8. Select **Tools > Ethernet connection**.
+9. From the *Configure Ethernet Connection* dialog box, click **Ethernet Connectors**.
+10. From the *Local Properties (Server)* section, select **Accept all connection results**.
+11. From the *Remote Properties (Client)* section, enter the local TSAP in the **TSAP&#xA0;**&#x66;ield. The local TSAP default is 20.00. For this configuration, the Remote TSAP is set to 21.00.
+12. Click **OK**.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,618" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Siemens
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Siemens Logo Ethernet (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined during Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      102
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Local TSAP**
+    </td>
+    <td>
+      4096
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Remote TSAP**
+    </td>
+    <td>
+      512
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="114,114,145,116,121,132" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      64
+    </td>
+    <td align="left">
+      Input bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      64
+    </td>
+    <td align="left">
+      Output bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      112
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NI
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      128
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NQ
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      128
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      14697
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AI
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      16
+    </td>
+    <td align="left">
+      Analog Input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AQ
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      16
+    </td>
+    <td align="left">
+      Analog Output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AM
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      64
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NAI
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      64
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      NAQ
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DD
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      32
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VB
+    </td>
+    <td align="left">
+      byte
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1469
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VW
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1468
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      VD
+    </td>
+    <td align="left">
+      dword
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1466
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      RTC
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      1
+    </td>
+    <td align="left">
+      7
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

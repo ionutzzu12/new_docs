@@ -1,0 +1,128 @@
+---
+title: MongoDB Integration Guide
+slug: 2Sabmks5xIns1QMMaP0bd
+description: Learn how to set up the MongoDB and MongoDB v4+ connectors. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:29:19 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and a MongoDB database.&#x20;
+
+For this integration, you can use either the DB-MongoDB or DB-MongoDB v4+ connector.&#x20;
+
+See the the :Link[MongoDB documentation]{href="https://www.mongodb.com/docs/" newTab="true"} for more information.&#x20;
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/HftByawxDu0?si=_iYQnvEl5Oz4nOkf&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# User Scenario
+
+In this guide you will deploy a MongoDB database container from Litmus Edge and then integrate with the database using the DB-MongoDB connector. For your specific scenario you may use an external MongoDB database to set up the integration.&#x20;
+
+If you do use an external MongoDB database, make sure to use the appropriate connector depending on the version of MongoDB you are using (DB-MongoDB or DB-MongoDB v4+).&#x20;
+
+# Step 1: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add MongoDB Marketplace Application
+
+<hint type="info">
+  **Note**: The version used in this guide for MongoDB is 4.4.4.
+</hint>
+
+**To add the MongoDB Marketplace Application:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**> **Marketplace**.
+2. Click **Marketplace List** and select **Default Marketplace Catalog**.
+3. Click the **MongoDB** application tile.&#x20;
+4. From the **Installation script version** drop-down list, select **latest**.&#x20;
+5. Enter **MongoDB&#x20;**&#x69;n the **Name&#x20;**&#x66;ield. &#x20;
+6. Click **Launch**.&#x20;
+7. Navigate to **Applications&#x20;**> **Catalog Apps**.&#x20;
+   The MongoDB application appears, pulls the image, and then starts the application. The MongoDB application shows as running.
+8. Navigate to **Applications&#x20;**> **Containers**.&#x20;
+   The MongoDB application Container is running.
+9. Copy the IP address for the MongoDB application.
+
+# Step 4: Add the DB - MongoDB Connector
+
+Follow the steps to [Add a Connector](<../../Product Features/Integration/2-UCRLFSRK14ramqhVm36.mdx>) and select the **DB - MongoDB&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Paste the IP address you copied in Step 3. &#x20;
+- **Port**: The MongoDB Server port. The default value is **27017**.&#x20;
+- **Username&#x20;**(Optional): Leave the field blank.&#x20;
+- **Password&#x20;**(Optional): Leave the field blank.&#x20;
+- **Auth database** (Optional): The authentication database name. The default value is **admin**.&#x20;
+- **Auth mechanism**: Select **PLAIN**.&#x20;
+- **Database**: Enter **db-sample**.&#x20;
+- **Collection**: Enter **devicehub**.&#x20;
+- **Show Mapping**: If you want to send data to a custom table, select this check box and unselect *Create table*. See :Link[Work with Tables in SQL Connectors (Create Table and Show Mapping)]{docId="MEnhPdqNbkR2MFY8Z1Ogq" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more. To add key/value pairs for the custom table, see :Link[Configure Key/Value Pairs]{docId="MEnhPdqNbkR2MFY8Z1Ogq" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId="#configure-keyvalue-pairs" loadingMethod="dynamic" overridedLabel="Configure Key/Value Pairs"}.&#x20;
+- **Commit timeout**: Enter the transaction commit timeout in (ms).
+- **Max transaction size**: Enter the maximum number of messages before a transaction is committed, regardless of timeout parameter.
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it. &#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/l7IT7q26XOgrZmdSD1Xs3_mongodb.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="p4fwhKRt2q2hsjboZv6hk" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../docs/Product Features/sg--6i_X4_uGD7by2g88L/A4IRTEnfEkJidIw7T_Lsd.mdx"} and relevant error messages.&#x20;
+
+# Step 6: Create Topics for Connector
+
+You will now need to import the tags created in Step 2 as topics for the MongoDB connector. The topics will be created as outbound topics.
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 7: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+# Step 8: Make MongoDB Queries
+
+You can now verify that you can view data through the terminal command window.&#x20;
+
+Update the database and collection names to your own specific configurations.&#x20;
+
+**To make queries in the MongoDB container terminal:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**>**&#x20;Containers**.
+2. Click the **Terminal&#xA0;**&#x69;con next to the MongoDB container.
+   The MongoDB shell opens.
+3. From the MongoDB container terminal, enter `mongo`**&#xA0;**&#x61;nd press **ENTER**.
+   The *MongoDB shell version v4.4.4&#xA0;*&#x61;ppears and connects.
+4. Enter `show databases`**&#xA0;**&#x61;nd press **ENTER**.
+   The *db-sample* database name appears in the console.
+5. Enter `use db-sample`**&#xA0;**&#x61;nd press **ENTER**.
+   The directory switches to *db-sample*.
+6. Enter `show collections`**&#xA0;**&#x61;nd press **ENTER**.
+   The devicehub collection list appears.&#x20;
+7. Enter `db.devicehub.find()` and press **ENTER**.
+   Confirm you see data being loaded into the collection.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/dfXIjA4RtCThnNkcyT-QE_image.png)
+

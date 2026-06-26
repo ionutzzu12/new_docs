@@ -1,0 +1,710 @@
+---
+title: AB MicroLogix (Gen1)
+slug: 5G8mGZRQw_YFUe0Jqgn8O
+description: Review the following information for setting up and configuring the AB MicroLogix (Gen1) driver. 
+docTags: 
+createdAt: Fri May 05 2023 23:21:27 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="warning">
+  **Important**: This driver was deprecated in Litmus Edge version 3.5.2.  We recommend using the Gen 2 :Link[AB EthernetIP Ethernet]{docId="8Y4gO1M9xuHIQe-2qwd5A" label="AB EthernetIP Ethernet" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="AB EthernetIP Ethernet"}. &#x20;
+</hint>
+
+Review the following information for setting up and configuring the AB MicroLogix (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+<table columnWidths="227,435" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      Rockwell Automation Allen-Bradley MicroLogix 1000
+      Rockwell Automation Allen-Bradley MicroLogix 1100
+      Rockwell Automation Allen-Bradley MicroLogix 1200
+      Rockwell Automation Allen-Bradley MicroLogix 1400
+      Rockwell Automation Allen-Bradley MicroLogix 1500
+      Rockwell Automation Allen-Bradley SLC 5/03
+      Rockwell Automation Allen-Bradley SLC 5/04 with 1761-NET-ENI
+      Rockwell Automation Allen-Bradley SLC 5/05 Ethernet port &#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaced with Gen 2 driver**
+    </td>
+    <td>
+      :Link[AB EthernetIP Ethernet]{label="AB EthernetIP Ethernet" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="8Y4gO1M9xuHIQe-2qwd5A" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+Refer to the following parameters.&#x20;
+
+**Communication mode**: Port Setting: 10/100 Mbps Full Duplex/Half Duplex
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="184,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Allen-Bradley
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      AB MicroLogix (Gen1)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      102
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Slot Number**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+# Step 3: Configure the List of Registers
+
+When you :Link[Add Tags]{docId="XgWOkQbTPevII7OR82LL0" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add Tags"} to the connected device, use the following tag/register mapping table.
+
+<table columnWidths="100,100,122,101,105,214" isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Type**
+    </td>
+    <td>
+      **Access  Types&#x20;**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Input bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      O
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Output bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Status bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      B3
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Bit Data file (B3)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Bfn
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDDdd
+    </td>
+    <td align="left">
+      100000
+    </td>
+    <td align="left">
+      25525515
+    </td>
+    <td align="left">
+      Bit Data File
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T4ACC
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Timer Accumulator (T4)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T4PRE
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Timer Prese (T4)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      TfnACC
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Timer Accumulator
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Tfn\_PRE
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Timer Preset
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS\_ACC
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Counter Accumulator (CS)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CS\_PRE
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Counter Preset (CS)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Cfn\_ACC
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Counter Accumulator
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Cfn\_PRE
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Counter Preset
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R6
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Control File (R6)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R6.POS
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Control file pointer position (R6)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      R6.LEN
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Control file length (R6)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rfn
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Control File
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rfn\_POS
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Control file pointer position
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rfn\_LEN
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255255
+    </td>
+    <td align="left">
+      Control file length
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      N7
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Integer Data File (N7)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Nfn
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255999
+    </td>
+    <td align="left">
+      Integer Data File
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Lfn
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255999
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      F8
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Floating Point data file (F8)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Ffn
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td>
+      R/W
+    </td>
+    <td align="left">
+      FFFDDD
+    </td>
+    <td align="left">
+      1000
+    </td>
+    <td align="left">
+      255999
+    </td>
+    <td align="left">
+      Floating Point data file
+    </td>
+  </tr>
+</table>
+

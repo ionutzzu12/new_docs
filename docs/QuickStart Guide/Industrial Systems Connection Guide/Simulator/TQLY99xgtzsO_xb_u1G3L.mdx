@@ -1,0 +1,142 @@
+---
+title: Simulator (Gen1.3)
+slug: TQLY99xgtzsO_xb_u1G3L
+description: Review the following information for setting up and configuring the Simulator (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Simulator (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="220,281" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Used to generate simulated data
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      This driver is used to generate simulated data. It supports all the standard python math functions such as **math.sin(X)&#x20;**&#x61;nd **math.cos(X)**.
+    </td>
+  </tr>
+</table>
+
+# Configure the List of Registers
+
+When you :Link[Add a Tag]{label="Add a Tag" spaceId="wQD1Hy26GI4GkT5CfHoGL" docId="M1eMHMddeLvQ61KpA3eQ_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, refer to the following register table and tag parameters.&#x20;
+
+## Register Table
+
+<table columnWidths="117,117,148,119,124,117" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      boolean
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      int
+    </td>
+    <td align="left">
+      int
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      integer 
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      float
+    </td>
+    <td align="left">
+      float
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      float 
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="ita39L0ljDxsRrXL1QHWG">
+
+</ContentSnippet>
+
+<hint type="success">
+  **Tip:**
+
+  - All simulated tags have a default range of **-50** to **50**.
+  - Users can override or restrict these defaults using a `CSV` upload.
+  - Entering `-` in the *MIN&#x20;*&#x61;nd *MAX* columns prevents the default constraints from being applied.
+  - Numeric values in the *MIN&#x20;*&#x61;n&#x64;*&#x20;MAX&#x20;*&#x63;olumns will replace the default settings.
+  - The *MIN&#x20;*&#x61;nd *MAX&#x20;*&#x63;onstraints apply to the defined tag formula and do not affect *Boolean&#x20;*&#x74;ags.
+</hint>
+

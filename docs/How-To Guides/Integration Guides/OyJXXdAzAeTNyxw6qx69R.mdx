@@ -1,0 +1,124 @@
+---
+title: InfluxDB v2.x SSL Integration Guide
+slug: OyJXXdAzAeTNyxw6qx69R
+description: Learn how to set up the InfluxDB v2.x SSL connector. 
+docTags: 
+createdAt: Fri Nov 25 2022 20:59:42 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and an InfluxDB database (version 2.x) using SSL authentication.&#x20;
+
+<hint type="info">
+  **Note**: The following data types and formats are not viewable in InfluxDB:
+
+  - string
+  - char
+  - JSON payloads
+</hint>
+
+# User Scenario
+
+In this guide you will deploy InfluxDB from the same computer (Windows-based) running Litmus Edge and then use the DB - InfluxDB v2.x SSL connector to connect locally Litmus Edge and the database.&#x20;
+
+# Before You Begin
+
+You will need to set up your computer so that it can run Docker commands.&#x20;
+
+# Step 1: Set up InfluxDB
+
+You will first need to run the InfluxDB Docker image and then configure SSL authentication.&#x20;
+
+## Step 1a: Run InfluxDB Docker Image
+
+1. On your computer, open the command prompt window.&#x20;
+2. Run the following command.&#x20;
+   `docker run --name influxdb -p 8086:8086 influxdb:2.0.9`
+   The command will create the InfluxDB container with the name "influxdb", on port 8086, and install InfluxDB version 2.0.9. If you are using a different version of InfluxDB, update the version number.&#x20;
+3. Once the pulling and running of InfluxDB is complete, open a browser window and enter http\://localhost:8086 in the address window.&#x20;
+   The setup screen for InfluxDB displays.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-AE-DmvxDBy5oTN-pgRrK_influxdbinitial-user.png "InfluxDB initial setup screen")
+4. Configure the details for the initial user. You will need to refer to these values when setting up the connector in Litmus Edge.&#x20;
+   - **Username**
+   - **Password**
+   - **Initial Organization Name**
+   - **Initial Bucket Name**
+5. Click **Continue**.&#x20;
+6. Continue setting up the database as needed.&#x20;
+7. Return to the homepage of InfluxDB.&#x20;
+8. Navigate to **Data&#x20;**> **Tokens**. Then, click the token name already created.&#x20;
+   Details for the token display
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Q5Fk7tvFfH8I6AO9-FY8k_tokens.png "The Tokens page")
+9. Click **Copy to Clipboard** and store the token somewhere securely. You will refer to this when setting up the connector in Litmus Edge.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/W_Y_npKkQcRaTnMKokMR4_copytoken.png "Token details")
+
+## Step 1b: Configure SSL authentication
+
+You will need to configure SSL authentication in InfluxDB and use the authentication parameters to configure the connection in Litmus Edge. See :Link[Enable TLS encryption]{href="https://docs.influxdata.com/influxdb/v2/admin/security/enable-tls/" newTab="true" hasDisabledNofollow="false"} to learn more.&#x20;
+
+Now that InfluxDB is configured to your specific requirements and you've collected the parameters needed to set up the connection, you can complete the setup in Litmus Edge.&#x20;
+
+# Step 2: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 3: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 4: Add the InfluxDB v2.x SSL Connector
+
+Follow the steps to [Add a Connector](<../../Product Features/Integration/2-UCRLFSRK14ramqhVm36.mdx>) and select the **DB - InfluxDB v2.x SSL&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **InfluxDB address**: Enter **http\://localhost:8086**.&#x20;
+- **InfluxDB bucket name**: Enter the bucket name configured in the InfluxDB setup in Step 1.&#x20;
+- **Organization**: Enter the organization name configured in the InfluxDB setup in Step 1.&#x20;
+- **Auth token**: Paste the token copied in Step 1.&#x20;
+- **Username**: Enter the username configured in the InfluxDB setup in Step 1.&#x20;
+- **Password**: Enter the password configured in the InfluxDB setup in Step 1.&#x20;
+- **CA Certificate**: Paste or upload CA certificate required to access InfluxDB.&#x20;
+- **Certificate**: Paste or upload the SSL certificate.&#x20;
+- **Private key**: Enter or paste the SSL private key.&#x20;
+- **Insert batch size**: Enter the number of messages to be collected as a batch before inserting into the database&#x20;
+- **Insert batch commit time**: Enter the time, in seconds, before the next commit, regardless of batch size. &#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/svCiXvEys-LNUn3oAx1lz_influxdb17ssl.png" size="60" width="388" height="358" position="flex-start" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="p4fwhKRt2q2hsjboZv6hk" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../docs/Product Features/sg--6i_X4_uGD7by2g88L/A4IRTEnfEkJidIw7T_Lsd.mdx"} and relevant error messages.&#x20;
+
+# Step 6: Create Topics for Connector
+
+You will now need to import the tags you added in Step 3 to the connector as topics.&#x20;
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.
+
+<ContentSnippet docRefId="kEsbvNf6nGz5aaOFdwdT-">
+
+</ContentSnippet>
+
+# Step 7: Enable Topics
+
+<ContentSnippet docRefId="RHCrl1P54-hmJKyyiCBU-">
+
+</ContentSnippet>
+
+# Step 8: Verify Connection
+
+Return to the InfluxDB browser window and explore the metrics to ensure that data is being successfully sent from Litmus Edge to InfluxDB.&#x20;

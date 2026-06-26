@@ -1,0 +1,80 @@
+---
+title: Asset Discovery
+slug: Wu10NwHhUSZNinklqH5IQ
+description: The device discovery service scans the network and returns a list of devices it finds. This allows you to easily find devices and copy their IP addresses.
+docTags: 
+createdAt: Fri May 13 2022 22:50:33 GMT+0300 (Eastern European Summer Time)
+---
+
+The asset discovery service scans the network and returns a list of devices it finds. This allows you to easily find Litmus Edge devices and copy their IP addresses.
+
+- Discovery is disabled on all interfaces by default. You can enable it at any time.
+- Once enabled, Discovery scans all network addresses at one-second intervals. It may take time to scan an entire network.
+- Scanning doesn't stop until it is disabled. If a device is not recognized after ten minutes, it is removed from the list.
+
+To search for devices that are specific to device protocols and drivers, use the [Device Discovery Tool](../DeviceHub/T8nX0itgnIY8ltxcJAFsG/Z5RGdlkhrU78_2eO-HeBp.mdx).&#x20;
+
+<hint type="warning">
+  **Important**: Litmus Edge enforces restrictions to prevent the following issues.
+
+  - **Security Alerts**: Because discovery regularly scans the network, security systems (such as Trojan detection systems) might flag this activity. To avoid security warnings, network scans are limited to one-second intervals, and devices are removed from the list after ten minutes of inactivity.
+  - **Missing Devices**: Discovery only supports subnet / 24 networks to limit the number of nodes to discover. This restriction prevents discovery from taking longer than ten minutes for each device.
+</hint>
+
+# Access Asset Discovery UI
+
+You can access *Asset Discovery&#x20;*&#x66;rom the *DeviceHub*.&#x20;
+
+**To access Asset Discovery:**
+
+1. Log in to Litmus Edge.
+2. From the Navigation panel, navigate to **DeviceHub&#x20;**>**&#x20;Asset Discovery**.
+   The *Asset Discovery* pane appears listing all the Ethernet interfaces.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/j83XYZxxCuhn60_RC7psU_image.png)
+
+# Build Availability&#x20;
+
+The Asset discovery feature is supported in the following builds:
+
+- **Litmus Edge Standard**
+- **Litmus Edge Docker**
+
+To utilize this feature in *Litmus Edge Docker*, you will need to configure the container to use **Macvlan network mode**. This allows the container to appear as a unique MAC address on the physical network.
+
+## Enabling Asset Discovery in LE Docker with Macvlan&#x20;
+
+To configure Litmus Edge Docker for Asset Discovery using the Macvlan network mode, follow these steps:&#x20;
+
+1\. Use the following command to create a **Macvlan network&#x20;**&#x6F;n your *Docker&#x20;*&#x68;ost.&#x20;
+
+<hint type="info">
+  **Important Notes:** This is just an example. Please consider the below points:
+
+  - Adjust the parameter values to match your specific network configuration.
+  - Replace `10.17.2.169` with a suitable IP address from your network range, and `litmusedge-std-docker:3.16.1` with the name of your Docker image.
+  - Ensure that the `eth1` network interface matches your Docker host configuration.
+</hint>
+
+<CodeblockTabs>
+  bas
+
+  ```shell
+  docker network create -d macvlan --subnet=10.17.0.0/22 --gateway=10.17.0.1 -o parent=eth1 mymacvlan
+  ```
+</CodeblockTabs>
+
+2\. After creating the *Macvlan&#x20;*&#x6E;etwork, run the following command to start the Litmus Edge Docker container with the appropriate network settings:
+
+<CodeblockTabs>
+  shel
+
+  ```shell
+  docker run --name LE --rm -d --cap-add=NET_ADMIN --network mymacvlan --ip 10.17.2.169 litmusedge-std-docker:3.16.1
+  ```
+</CodeblockTabs>
+
+# Next Steps
+
+- [Discover Devices on the Network](<../../../Product Features/DeviceHub/Asset Discovery/4q_5NKLY7PHn1ctVwqpdb.mdx>)
+

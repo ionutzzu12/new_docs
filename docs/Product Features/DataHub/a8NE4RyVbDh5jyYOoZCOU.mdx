@@ -1,0 +1,169 @@
+---
+title: Edge Cascading v2
+slug: a8NE4RyVbDh5jyYOoZCOU
+docTags: 
+createdAt: Tue Jan 27 2026 20:17:31 GMT+0200 (Eastern European Standard Time)
+---
+
+Edge Cascading v2 enables secure, topic-based data streaming between multiple Litmus Edge instances deployed across your industrial environment. This feature supports flexible architectures that align with ISA-95 hierarchies, allowing you to aggregate data from edge collectors, process the data through intermediate layers, and stream it to enterprise systems.
+
+# What is Edge Cascading v2?
+
+Edge Cascading v2 provides a streamlined approach to connecting Litmus Edge instances in hub-and-spoke or multi-tier configurations. Each instance can be configured as a hub (accepting connections), spoke (initiating connections), or both (hybrid configuration).
+
+Key capabilities include:
+
+- **Flexible Topologies**: Deploy hub-and-spoke, hierarchical, or mesh architectures based on your :Link[ISA-95 requirements]{href="https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard" newTab="true" hasDisabledNofollow="false"}
+- **Topic-Based Filtering**: Control exactly which data streams flow between instances using topic permissions
+- **Secure Authentication**: Each connection uses encrypted tokens with granular access controls
+- **Automatic Data Prefixing**: Identify data sources easily when aggregating from multiple spoke instances
+- **Real-Time Monitoring**: Track connection status, authentication events, and data throughput
+
+# Benefits
+
+## Simplified Multi-Instance Management
+
+Edge Cascading v2 eliminates the need for complex Integration Connector configurations when connecting Litmus Edge instances. Instead of configuring NATS connectors with manual topic subscriptions, you can define accounts and streams through an intuitive user interface.
+
+**Traditional Approach**: Configure a NATS Integration Connector on each Litmus Edge Client, manually enter the Litmus Edge Server's IP address and port, define topics, manage credentials, and configure persistent storage settings.
+
+**Edge Cascading v2**: Select the instance type, create an account with topics, copy the token, and paste it into the spoke instance. The system handles all configuration details automatically.
+
+## Enhanced Security
+
+Edge Cascading v2 provides multiple security layers:
+
+- **Token-Based Authentication**: Each connection uses a unique, encrypted authentication token
+- **Topic-Level Permissions**: Control exactly which data streams flow between instances
+- **TLS Encryption**: Enable Optional encryption for data in transit
+- **Token Rotation**: Update credentials without reconfiguring the entire system
+
+This fine-grained control ensures that compromised credentials impact only specific data streams, not your entire infrastructure.
+
+## Network Efficiency
+
+Edge Cascading v2 optimizes network bandwidth by:
+
+- **Topic Filtering**: Only subscribed topics flow between instances, reducing unnecessary data transfer
+- **Prefix-Based Organization**: Automatic topic prefixing prevents naming conflicts without duplicating data
+- **Connection Pooling**: Multiple topics share a single authenticated connection
+
+This reduces network overhead compared to running multiple Integration Connectors for different data streams.
+
+## Operational Visibility
+
+Edge Cascading v2 includes comprehensive monitoring and logging for connection health, authentication events, data throughput, and troubleshooting. View real-time status and historical logs directly from the UI to quickly identify and resolve connectivity issues across your entire Edge Cascading architecture.
+
+## Scalability
+
+Edge Cascading v2 scales to support large deployments:
+
+- **Hundreds of Spoke Instances**: A single hub can accept connections from hundreds of spokes
+- **Hierarchical Scaling**: Use hybrid instances to create multi-tier architectures that scale vertically
+- **Horizontal Scaling**: Deploy multiple hub instances to distribute load
+
+This scalability ensures Edge Cascading v2 can grow with your deployment.
+
+## ISA-95 Alignment
+
+Edge Cascading v2 naturally aligns with ISA-95 reference architectures, with spoke instances at Level 0-2 (device/control), hybrid instances at Level 3 (plant operations), and hub instances at Level 4 (enterprise integration). This alignment simplifies implementation of industry-standard architectures with proper network segmentation.
+
+# Instance Types
+
+Edge Cascading v2 supports multiple deployment patterns to match your operational architecture.
+
+## Hub
+
+A Hub instance accepts incoming connections from other Litmus Edge instances (spokes). Hubs are typically deployed in aggregation layers such as DMZ or IT zones.
+
+**Use When**:
+
+- You need to aggregate data from multiple edge collectors
+- You want centralized data collection and processing
+- Your architecture requires a single point of data consolidation
+- You're deploying at ISA-95 Level 3-4 for plant or enterprise-level integration
+
+**Characteristics**:
+
+- Accepts incoming connections from spoke instances
+- Manages multiple accounts with topic-level permissions
+- Can aggregate data from hundreds of spoke instances
+- Provides centralized monitoring and logging
+
+## Spoke
+
+A spoke instance initiates outbound connections to hub instances and streams data upward. Spokes are typically deployed in OT environments at ISA-95 Level 0-2.
+
+**Use When**:
+
+- You need to stream data from edge collectors to aggregation layers
+- Your OT environment requires outbound-only connections for security
+- You want to send data to one or more upstream Hub instances
+- You need redundant data paths for high availability
+
+**Characteristics**:
+
+- Initiates outbound connections to Hub instances
+- Supports connections to multiple Hubs simultaneously
+- No inbound firewall rules required on Spoke
+- Streams only permitted topics based on Hub account configuration
+
+## Both (Hybrid)
+
+A hybrid instance acts as both hub and spoke simultaneously. This configuration is ideal for intermediate layers that aggregate data from lower levels and stream to higher levels.
+
+**Use When**:
+
+- You need multi-tier data aggregation across network zones
+- Your DMZ layer aggregates OT data and streams to IT
+- You want staged data processing and filtering between layers
+- You're deploying at ISA-95 Level 3 (plant operations bridging OT and IT)
+
+**Characteristics**:
+
+- Accepts incoming connections from spoke instances
+- Initiates outbound connections to upstream hub instances
+- Enables data transformation and enrichment between layers
+- Maintains network segmentation while enabling data flow across zones
+
+# Common Use Cases
+
+## Manufacturing Data Aggregation
+
+Aggregate production data from multiple production lines into a single Litmus Edge instance for unified reporting and analytics. Each line has its own Litmus Edge collecting data from PLCs, sensors, and SCADA systems. The aggregation instance in the DMZ combines all line data and publishes to cloud services or enterprise systems.
+
+**Implementation**: Configure each line's Litmus Edge as a spoke instance. Configure the DMZ Litmus Edge as a hub instance with separate accounts for each line. Use topic prefixes to identify which line each data point originates from.
+
+## Multi-Site Data Collection
+
+Stream data from geographically distributed facilities to a central location for enterprise-wide visibility. Each facility has its own Litmus Edge instance collecting local data. A central Litmus Edge instance aggregates data from all facilities.
+
+**Implementation**: Configure each facility's Litmus Edge as a spoke instance connecting to a central hub instance. Use topic filtering to control which data streams from each site (for example, only KPIs and not raw sensor data).
+
+## Tiered Analytics Processing
+
+Implement multi-stage data processing where edge instances perform preliminary analytics, intermediate instances aggregate and enrich data, and top-tier instances perform enterprise-level analytics.
+
+**Implementation**: Configure Level 2/3 Spoke instances to publish analytics results (not raw data). Configure a Hybrid DMZ instance to receive analytics from multiple spokes, perform additional calculations, and stream to an IT hub instance.
+
+## Cloud Data Pipelines
+
+Build secure data pipelines from OT environments to cloud platforms by cascading through network security zones. This ensures that OT networks never have direct internet access while still enabling cloud connectivity.
+
+**Implementation**: Configure OT Spoke instances to stream to a DMZ Hybrid instance. The DMZ instance uses Integration Connectors to publish to cloud services while maintaining network segmentation.
+
+## Backup and Redundancy
+
+Create redundant data paths by configuring a spoke instance to stream to multiple hub instances. If one hub becomes unavailable, data continues to flow to the backup hub.
+
+**Implementation**: Configure a spoke instance with multiple stream connections, each pointing to a different hub instance. Both hubs receive the same data streams in real-time.
+
+# Getting Started
+
+To begin using Edge Cascading v2:
+
+1. **Plan Your Architecture**: Determine which instances will be hubs, spokes, or hybrid based on your network topology and data flow requirements.
+2. **Review Examples**: Explore configuration examples for common deployment patterns.
+3. **Configure Your Instances**: Follow the :Link[Edge Cascading v2 Configuration]{label="Edge Cascading v2 Configuration" spaceId="wQD1Hy26GI4GkT5CfHoGL" docId="GOmlZJ6WLbnSRQh7ga8iC" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to enable the feature and set up your Edge Cascading architecture.
+4. **Verify Data Flow**: Confirm data is streaming correctly between instances.
+

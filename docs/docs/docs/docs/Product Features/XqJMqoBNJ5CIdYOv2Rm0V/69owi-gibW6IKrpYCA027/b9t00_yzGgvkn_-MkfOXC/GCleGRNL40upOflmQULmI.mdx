@@ -1,0 +1,85 @@
+---
+title: Test REST API using Postman or Curl
+slug: GCleGRNL40upOflmQULmI
+description: Review how to access API tokens you've created using Postman or Curl. 
+docTags: 
+createdAt: Tue Sep 27 2022 22:17:11 GMT+0300 (Eastern European Summer Time)
+---
+
+This set of instructions explains how to access the Litmus Edge APIs using an external tool: curl command or Postman.
+
+API tokens are unique authentication credentials assigned to individual users. You can create API tokens to use the Litmus Edge REST APIs.
+
+The back-end APIs communicate with the front-end interface through HTTP REST.
+
+If you want to use a custom interface or some other custom application to access the underlying APIs, the Litmus Edge API Keys Management allows you to create an API token.
+
+When accessing an exposed API, you can use the same API token for any of the exposed APIs.
+
+To access API documentation, contact your Litmus representative.&#x20;
+
+For the example below, we will test the DeviceHub version of your Litmus Edge instance.&#x20;
+
+# Before You Begin
+
+- :Link[Create API Credentials]{docId="KHiz95m21m4jYZUApnVTS" label="Create API Credentials" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId}.
+- Validate the API token from the **Action menu&#x20;**&#x6F;f the API Token. See :Link[Manage API Credentials]{docId="tpNwuLxSnVNFrYe4wpDS6" label="Manage API Credentials" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+- Copy the API token (click the **Copy&#x20;**&#x69;con next to the *API token value)*. See :Link[Manage API Credentials]{docId="tpNwuLxSnVNFrYe4wpDS6" label="Manage API Credentials" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+# Option 1: Access REST APIs with Postman
+
+You can manually test a REST API with the Postman application.&#x20;
+
+You will need to install and open [Postman](https://www.postman.com/downloads/).&#x20;
+
+**To use Postman to view the component version:**
+
+1. Open Postman or access the web version of Postman.&#x20;
+2. Make sure that **GET&#xA0;**&#x69;s selected from **Action&#xA0;**&#x64;rop-down list.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/V-pWr_FjbH522MwZovChH_get-command.png" size="80" width="1920" height="1020" caption="The GET command" position="center" showCaption="true"></Image>
+3. Enter the API endpoint to verify the component version: \[Litmus Edge IP address]/\[component name]/version. For example, **https\://192.168.0.148/devicehub/version**.&#x20;
+4. Click the **Authorization&#x20;**&#x74;ab.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/yLq6AoYXP9RSS3rlehSGR_authorization-tab.png" size="80" width="1920" height="1020" caption="Authorization tab" position="center" showCaption="true"></Image>
+5. From the **Type&#x20;**&#x64;rop-down list, select **Basic Auth**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/LPwiApBU2tnERB3YCIqjA_basic-auth.png" size="80" width="1920" height="1020" caption="Basic Auth option" position="center" showCaption="true"></Image>
+6. Paste the Litmus Edge API token in the *Username&#x20;*&#x66;ield. Leave the *Password&#x20;*&#x66;ield blank.&#x20;
+7. Click **Send**.&#x20;
+8. Review the version number in the response.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ic9RSu26ifR9uyHLM7b9A_response.png" size="80" width="1920" height="1020" caption="API response" position="center" showCaption="true"></Image>
+
+See the *Verify Response* section below to cross-reference the component version in Litmus Edge.&#x20;
+
+# Option 2: Access REST APIs with Curl Command
+
+You can use a command prompt window to manually test a REST API.&#x20;
+
+In a command prompt window, enter the following command.&#x20;
+
+```curl
+curl -k -u d7izh3c4w1nwow0yvz1ypjq6h2soaoxm: --request GET https://192.168.0.147/devicehub/version
+```
+
+In the command above:
+
+- Replace d7izh3c4w1nwow0yvz1ypjq6h2soaoxm: with your own Litmus Edge API token. The format username\:password is used, but because we aren't entering a password, no characters are needed after the colon (:). &#x20;
+- Replace 192.168.0.147 with your own Litmus Edge IP address.&#x20;
+- The -k parameter allows you to use basic authorization to access the API.&#x20;
+- The -u parameter defines the user for the command, which is the Litmus Edge API token.&#x20;
+
+The response should display something like the following.&#x20;
+
+`{"version":"2.18.4","git":"0d44345d94e9"}`
+
+Complete the steps below to cross-reference the component version in Litmus Edge.&#x20;
+
+# Verify the Response
+
+**To verify the response:**
+
+1. Copy the version number in the API response from the previous step.&#x20;
+2. In Litmus Edge, navigate to **System&#x20;**> **Support&#x20;**&#x61;nd refer to the *Status&#x20;*&#x73;ection.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/DqyAEdStTMYKsl5CJMtl7_components.png)
+3. Cross-reference the version number from the API response and the version number for *DeviceHub API*.
+   The version numbers should match.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Zv-0bZ9LTJ-1Ua_s9wspK_components-version.png)
+

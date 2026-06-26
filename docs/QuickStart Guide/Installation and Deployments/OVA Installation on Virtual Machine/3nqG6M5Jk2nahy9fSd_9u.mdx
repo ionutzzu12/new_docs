@@ -1,0 +1,102 @@
+---
+title: VirtualBox OVA
+slug: 3nqG6M5Jk2nahy9fSd_9u
+description: You can use Oracle VirtualBox to install Litmus Edge using an OVA file.
+docTags: 
+createdAt: Thu Apr 14 2022 19:43:52 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Oracle VirtualBox to install Litmus Edge using an OVA file.
+
+# Video
+
+<Iframe code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/xqFLd0c4x6U?si=-Pld84YCmRAZc3NX&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; referrerpolicy=&#x22;strict-origin-when-cross-origin&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# Before You Begin
+
+- Prepare your environment for running virtualization by using Oracle VirtualBox.&#x20;
+  - Review [Verified VM Versions](../../../Resources/iQMe9GDDYXYVrURHh_0cp.mdx) and confirm the correct version to download. See  [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads).&#x20;
+  - Refer to [VirtualBox Documentation](https://www.virtualbox.org/wiki/Documentation) to learn more.&#x20;
+  - The virtual machine will run on the same physical network card as the host environment. To ensure that the device can communicate with data sources such as PLC, DCS or CNC and can be accessed through the Web UI, make sure that communication can be established.
+- Adjust the system clock for the host environment prior to installing Litmus Edge. UTC is recommended. The 15-day trial period may be rejected and invalidated by the license server if the system clock is not adjusted. If this happens, contact your Litmus representative.
+- Obtain a valid file in the OVA (Open Virtualization Alliance) format (example filename: `<litmusedge-std_3.1.5.0-amd64>.ova`).&#x20;
+
+To use Oracle VirtualBox to install Litmus Edge using an OVA file, you will need to do the following.&#x20;
+
+- Step 1: Create a Virtual Machine
+- Step 2: Enable EFI
+- Step 3: Configure Network Adapters
+- Step 4: Log in to Litmus Edge
+
+To jump to a specific section, refer to the Table of Contents on the right side and click the corresponding step.&#x20;
+
+# Step 1: Create Virtual Machine
+
+You will first need to create the virtual machine that will run Litmus Edge.&#x20;
+
+**To create the virtual machine:**
+
+1. Start the Oracle VirtualBox application.
+2. From the *File&#x20;*&#x6D;enu, select the **Import Appliance** option.
+   The *Appliance to import&#x20;*&#x64;ialog box appears.
+3. Click the **Browse&#x20;**&#x69;con, navigate to the desired .ova file, click **Open**, and then click **Next**.
+   The *Appliance settings dialog* box appears.
+4. (Optional) From the *Appliance settings* dialog box, modify the default settings:
+   - The name of the virtual machine.&#x20;
+   - The number of CPU cores assigned to the virtual machine.
+   - The amount of RAM assigned to the virtual machine.
+   - The base folder where the configuration for this virtual machine is stored by Oracle VirtualBox.
+5. Click **Import**.
+
+The virtual machine is created along with the Litmus Edge operating system.
+
+The deployed virtual machine appears in the left pane of the Oracle VirtualBox application.
+
+After you create the virtual machine, you must configure the network adapters.
+
+See :Link[VirtualBox only Showing 32-bit and no 64-bit Versions]{label="VirtualBox only Showing 32-bit and no 64-bit Versions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="89BJcYn7l7yjcRT7zYtZC" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} if you only see a 32-bit version when installing VirtualBox.
+
+# Step 2: Enable EFI
+
+After installing the virtual machine, you must enable the *EFI&#x20;*&#x6F;ption for VirtualBox deployment.&#x20;
+
+**To enable EFI:**
+
+1. From the open Oracle VirtualBox application, select the deployed virtual machine from the left pane, and then click the **Settings** icon in the right pane.
+   The *Settings* *dialog* box appears.
+2. Click **System** in the left pane.
+   The *System dialog&#x20;*&#x62;ox appears.
+3. From the *Motherboard&#x20;*&#x74;ab, select th&#x65;**&#x20;Enable EFI&#x20;**(**special OSes only**) check box from *Extended Features*.
+4. Click **OK**.
+
+# Step 3: Configure Network Adapters
+
+You will now need to configure the network adapters for the VM.&#x20;
+
+**To configure the network adapters:**
+
+1. From the open Oracle VirtualBox application, select the deployed virtual machine from the left pane, and then click the **Settings** icon in the right pane.
+   The *Settings dialog* box appears.
+2. Click **Network** in the left pane.
+   The *Network dialog* box appears.
+3. Click the **Adapter 1** tab, and do the following:
+   - Make sure the **Enable Network Adapter** check box is selected.&#x20;
+   - From the *Attached to* drop-down list, select **Bridged Adapter**.
+   - From the *Name&#x20;*&#x64;rop-down list, select the appropriate network card name, and then click **OK**.
+4. From th&#x65;*&#x20;Oracle VirtualBox&#x20;*&#x61;pplication, click **Start.**
+
+The VM starts up and the terminal window displays the URLs to be used to access the edge device through the Web UI. If several URLs are shown, use the first one.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/aYsfWsvVM4LQm81nfxo0g_image.png "URLs to access Web UI")
+
+# Step 4: Log in to Litmus Edge
+
+- See :Link[Access the Litmus Edge Web UI]{docId="FZ2fc7tQp-8ySW3EQprpK" label="Access the Litmus Edge Web UI" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Access the Litmus Edge Web UI"} for details on logging in.&#x20;
+- See [Access the Terminal User Interface](<../../Access the Litmus Edge Web UI/eNx7bJhJ3CDDgdUqOcF0y.mdx>) for instructions on how to navigate and log in for the first time.
+
+# Troubleshooting
+
+If you don't see an option for a 64-bit version and only see a 32-bit version, refer to :Link[VirtualBox only Showing 32-bit and no 64-bit Versions]{label="VirtualBox only Showing 32-bit and no 64-bit Versions" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="89BJcYn7l7yjcRT7zYtZC" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+

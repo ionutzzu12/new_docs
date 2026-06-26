@@ -1,0 +1,112 @@
+---
+title: AI Processor
+slug: ai-processor
+docTags: 
+createdAt: Tue Apr 01 2025 19:25:14 GMT+0300 (Eastern European Summer Time)
+---
+
+The **AI Processor** allows users to customize the behavior and output of the AI model through various parameters. These include defining a unique model name, setting system prompts to guide response tone and expertise, and adjusting temperature to influence response creativity.&#x20;
+
+The processor also allows users to limit the maximum length of generated responses with the completion tokens parameter and can enforce JSON formatting for structured outputs.&#x20;
+
+Additionally, it features an HTTP timeout setting to control the maximum wait time for AI responses, ensuring efficient operation and preventing delays.
+
+## AI Processor Overview
+
+Set the following:
+
+- **AI Model** defines the unique name identifier for the model being used.
+- **System Prompt** parameter allows users to provide a predefined instruction that influences the AI’s behavior and response style.
+  - This can be used to enforce a specific tone, persona, or domain expertise in responses.
+- **Temperature** parameter (default `1.0`) controls the randomness of responses.
+  - Lower values (for example, `0.2`) make the AI more focused and deterministic.
+  - Higher values (for example, `1.8`) increase creativity but may reduce consistency.
+- **Max Completion Tokens** parameter limits the maximum number of tokens the AI can generate in a single response.
+  - This ensures output length remains within expected boundaries.
+  - If not set, the model’s default value applies.
+- **Force Response Format to JSON?** parameter determines whether the AI should strictly return responses in JSON format.
+  - If enabled, all responses will be structured as valid JSON
+    **Important:** When using JSON mode, you must also instruct the model to produce JSON yourself through a system or user message
+  - If disabled, responses will follow the model's default output style
+- **HTTP Timeout** parameter sets the maximum time (in seconds) the system waits for a response from the AI.
+  - If the AI does not respond within this time, the request timeouts and is ignored. This prevents excessive delays in cases of high latency.
+
+## AI Processor Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="201,100">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      The unique identifier assigned to differentiate each customized AI model.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      AI Model
+    </td>
+    <td>
+      Specifies the actual AI model used to generate responses.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      HTTP Timeout
+    </td>
+    <td>
+      Sets the maximum wait time (in seconds) for obtaining a response from the AI before it times out.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      File Path For Image
+    </td>
+    <td>
+      Indicates the location of an image file that can be accessed or processed by the AI.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Code Editor
+    </td>
+    <td>
+      A tool or interface for writing and editing code, possibly for integration or customization involving the AI.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Temperature
+    </td>
+    <td>
+      Controls the randomness of the AI’s responses, with lower values yielding more deterministic outputs and higher values fostering creativity.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Max Completion Tokens
+    </td>
+    <td>
+      Limits the maximum number of tokens that the AI can generate in a single response.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Time Interval
+    </td>
+    <td>
+      Defines a specific duration or frequency at which certain operations or requests should occur.
+    </td>
+  </tr>
+</table>
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/wcp3pChSff_tnraUeN81W_image.png)
+

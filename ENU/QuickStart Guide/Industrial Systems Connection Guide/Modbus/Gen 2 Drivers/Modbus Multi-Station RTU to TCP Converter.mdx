@@ -1,0 +1,68 @@
+---
+title: Modbus Multi-Station RTU to TCP Converter
+slug: 0Fqe-modbus-multi-station-rtu-to-tcp-converter-testing
+docTags: 
+createdAt: Thu May 28 2026 23:47:07 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Modbus Multi-Station RTU to TCP Converter driver.
+
+## Overview
+
+The Litmus Edge Modbus Multi-Station RTU to TCP Converter driver:
+
+- Opens a Modbus TCP server
+- Listens for requests from clients
+- Translates those requests into RTU requests on a multi-drop RS485 network
+- Repackages the RTU replies as TCP replies.
+
+Use this driver instead of the Modbus RTU Advanced driver when you want to reuse identical tag names across different station IDs. To do so, create multiple instances of the Modbus TCP driver and add tags to those driver instances. You cannot directly add tags to this driver.
+
+## Litmus Edge Compatible Series
+
+| Compatibility parameter      | Compatible items                                      |
+| ---------------------------- | ----------------------------------------------------- |
+| **Driver type**              | RTU client and TCP server                             |
+| **Validated devices/series** | Modbus RTU Stations&#xA;Litmus Edge Modbus TCP driver |
+| **Replaces Gen 1 driver(s)** | N/A                                                   |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Set up Modbus TCP devices in Litmus Edge DeviceHub
+
+## Step 1: Set up and Configure the PLC Device
+
+1. Document the Modbus RTU station addresses for each connected device on the RS485 multi-drop network.
+2. Ensure your Modbus RTU stations and the Litmus Edge gateway's serial or USB port are properly connected to the serial network.
+3. Verify the serial communication parameters (baud rate, parity, stop bits) configured on the converter match your RTU devices.
+4. Note the TCP port number configured on the converter (typically 502 for Modbus TCP or a custom port). Open the port for communication on the System > Network > Firewall > Inbound Rules page.
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device](<./././././Product Features/DeviceHub/Devices/Connect a Device.md>) with this driver. Update default values to the specific setup of your device.
+
+| Parameter                  | Value                                                 |
+| -------------------------- | ----------------------------------------------------- |
+| **Type**                   | Modbus                                                |
+| **Driver**                 | Modbus Multi-Station RTU to TCP Converter             |
+| **Network Interface**      | 0.0.0.0 (or the IP Address to bind the TCP server to) |
+| **Port**                   | 502 (or custom port to bind the TCP server to)        |
+| **Max TCP Connections**    | 32                                                    |
+| **Device File**            | /dev/ttyS0                                            |
+| **Baud Rate**              | 9600                                                  |
+| **Data Bits**              | 8                                                     |
+| **Parity**                 | None                                                  |
+| **Stop Bits**              | 1                                                     |
+| **Response Timeout**       | 5000 (ms)                                             |
+| **Retry Count**            | 3                                                     |
+| **Pause Between Requests** | 10 (ms)                                               |
+
+Calculate and note down the value from this formula: `Number of Stations × ([Response Timeout × (Retry Count + 1)] + [Retry Count × Pause Between Requests])`
+
+If you are using the default values, the formula is `Number of Stations × 20030`
+
+## Step 3: Set up Modbus TCP devices in Litmus Edge DeviceHub
+
+See the [Modbus TCP](<Modbus TCP.mdx>) page and instead enter `127.0.0.1` in IP address field. The TCP drivers should set the retry count to `0` and response timeout according to the value calculated above.

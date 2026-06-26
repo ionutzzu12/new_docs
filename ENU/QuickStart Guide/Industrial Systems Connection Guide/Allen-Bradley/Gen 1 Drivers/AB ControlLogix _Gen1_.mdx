@@ -1,0 +1,92 @@
+---
+title: AB ControlLogix (Gen1)
+slug: quickstart-guide/industrial-systems-connection-guide/allen-bradley/ab-controllogix-gen1
+description: Review the following information for setting up and configuring the AB ControlLogix (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:03 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="warning">
+  **Important**: This driver was deprecated in Litmus Edge version 3.5.2.  We recommend using the Gen 2 [AB CompactLogix Ethernet FreeTag](<././Gen 2 Drivers/AB CompactLogix Ethernet FreeTag.md>).&#x20;
+</hint>
+
+Review the following information for setting up and configuring the AB ControlLogix (Gen1) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+| Compatibility parameter        | Compatible items                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**                | Ethernet                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Validated devices/series**   | [Rockwell Automation ](https://www.rockwellautomation.com/en-us/products/hardware/allen-bradley/programmable-controllers/large-controllers/controllogix.html)[Allen-Bradley ControlLogix](http://ab.rockwellautomation.com/)&#xA;Certain device drivers do not have a list of register names in the DeviceHub Add Tag form. These are *Free Tag* PLCs. For Free Tag requirements, see [Device Connectivity Status](#). |
+| **Replaced with Gen 2 driver** | [AB CompactLogix Ethernet FreeTag](<././Gen 2 Drivers/AB CompactLogix Ethernet FreeTag.md>)                                                                                                                                                                                                                                                                                                                            |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+The instructions listed here provide only the basic configuration steps. Refer to the Rockwell Automation Allen-Bradley PLC documentation for current, complete details.
+
+1. Set the PLC IP address.
+2. Create new tags (Controller and Program tags supported).
+3. Export tag data to a CSV file: **Tools > Export > Tags and Logic Comments**.
+
+The CSV consists of PLC settings along with the Tags which can be read using Litmus Edge.
+
+**To configure the PLC:**
+
+1. Note down the following information and refer to it as needed.&#x20;
+   **Device**: AB ControlLogix 1756-L55
+   **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/zEQd-2740g_Zsc2OX0rYu_ab-controllogix.png" size="100" width="866" height="281" caption="AB ControlLogix" position="center" indent="2" showCaption="true"></Image>
+
+2. Launch RSLinx 5000 v16 Software, and then click **Configure Drivers**.
+3. Add a new RS-232-DF1 driver.
+4. Set up the communication port and parameters, and then click **Auto-Configure**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7QyA_xCTHD9zAx2Q5k1Q5_ab-controllogix-parameters482x338.png" size="100" width="482" height="338" caption="AB ControlLogix parameters" position="center" indent="2" showCaption="true"></Image>
+
+5. Right-click the **Ethernet communication module > Module Configuration&#xA0;**&#x74;o set up its network parameters.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AxeVXfbt4vsV69LkCoZDY_ab-controllogix-network.png" size="100" width="785" height="294" caption="AB ControlLogix network" position="center" indent="2" showCaption="true"></Image>
+
+6. Add an Ethernet Device driver.
+7. Click **Configure&#xA0;**&#x61;nd select the IP for the device.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/XLMpMQXePiGDMqEvPduxP_ab-controllogix-configure.png" size="100" width="968" height="450" caption="AB ControlLogix configure" position="center" indent="2" showCaption="true"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                    |
+| ------------------- | ---------------------------------------- |
+| **Type**            | Allen-Bradley                            |
+| **Driver**          | AB ControlLogix (Gen1)                   |
+| **Network address** | The device address you defined in Step 1 |
+| **Port**            | 44818                                    |
+| **Slot Number**     | 0                                        |
+
+# Step 3: Configure the List of Registers
+
+<hint type="info">
+  **Note**: The **Browse** icon displayed on the device tile means that this PLC uses Browse Tags. See [Add Tags](#)  for more information. [Add a Tag](#)
+</hint>
+
+When you [Add Tags](#) to the connected device, use the following tag/register mapping table.
+
+| **Name** | **Value Type** |
+| -------- | -------------- |
+| R        | BOOL           |
+| R        | SINT           |
+| R        | INT            |
+| R        | BIT(INT)       |
+| R        | DINT           |
+| R        | REAL           |
+| R        | LINT           |

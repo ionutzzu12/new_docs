@@ -1,0 +1,65 @@
+---
+title: Litmus Edge 4.0.4 (only)
+slug: x4Ua-litmus-edge-403
+docTags: 
+createdAt: Thu May 28 2026 23:47:05 GMT+0300 (Eastern European Summer Time)
+---
+
+Release Date: November 26, 2025
+
+Review the current list of [Limitations](./././Resources/Limitations.md).
+
+## New Features
+
+| Description                                             |
+| ------------------------------------------------------- |
+| **DeviceHub:**&#xA;\* Added a new generic Scale driver. |
+
+- Added a new Mitsubishi iQ-R Ethernet driver.                                                                                                                                                                                                                                                  |
+  \| **Applications:**
+  \* Marketplace applications can now display a **Degraded** status that helps you identify issues with applications that are running. **Degraded** status displays when an application is running and one or more containers have exited.                                                                                               |
+  \| **System:**
+  \* A new privilege grants or denies launching Docker containers in `privileged` mode. This lets you to give users the rights they need for templates, backups, restores, and upgrades without granting full system access. Find the new **ModifyPrivileged** privilege under **Marketplace** in **System** > **Access Control** > **Users**. |
+
+## Enhancements and Improvements
+
+| Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- |
+| **DeviceHub:**&#xA;\* The AB EthernetIP Ethernet driver now supports integer-based reading for I and O registers. |
+
+- The AB CompactLogix Ethernet Advanced now supports `Array` datatypes.
+- The B\&R PVI Ethernet driver now supports the `Bool` datatype.
+- You can now delete a DeviceHub device during Watchdog restarts.
+- Now you can filter by **Driver Name** in table view in **DeviceHub** > **Devices&#x20;**&#x61;nd sort the **IP**, **Port**, and **Status** columns.
+- Improve status descriptions for DeviceHub devices in grid view in **DeviceHub** > **Devices**.          |
+  \| **Digital Twins:**
+  \* Improved Digital Twins static and dynamic attributes list view in **Schema** tab for models.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+  \| **Analytics:**
+  \* Pinned analytics groups are now preserved when you refresh the Analytics page.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+  \| **Integration:**
+  \* A `Disabling persistent storage will remove all saved data.` warning message now displays when disabling the **Persistent storage** size limit for an integration connector or when changing the queue mode or size limit.
+- Improved summary information when uploading subscriptions through CSV file to an integration connector.                                                                                                                                                                                                                                 |
+  \| **System:**
+  \* You can now choose to download and upload encrypted templates that are secured with a plain text password or an encryption key.
+- Remote access connection information now displays the number of bytes received in addition to bytes sent. This can help you to identify tunnel issues. The number of bytes now displays in MB or GB format depending on the value size.
+- Litmus Edge now automatically sizes packets when ICMP feedback is missing by attempting ICMP Path-MTU Discovery first and falls back to TCP MTU probing to determine the correct packet size. |
+  \| **HTTP Proxy:**
+  \* The HTTP Proxy feature introduced in Litmus Edge 4.0.3 is now available in Litmus Edge Docker.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+  \| **High Availability:**
+  \* The beta version of high availability includes improvements:
+  - Prevents selecting self as backup and validate version and license compatibility
+  - Status indicators such as the current role, rsync success/fail, last sync timestamp, and heartbeat
+  - Safeguards to prevent dual-active situations                                                                                                                                                                                                                                                      |
+
+## Resolved Issues
+
+| Description                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DeviceHub:**&#xA;\* Fixed an issue where long vendor names overlapped on the **Asset Discovery** home page.                               |
+| **Analytics:**&#xA;\* Resolved issue with Analytics template uploads where value wire connections were uploaded as events wire connections. |
+
+- Resolved issue where a `Failed to unsubscribe from processor instance` error displayed when deleting a processor. |
+  \| **Applications:**
+  \* A duplicate check-box selection for Marketplace displayed on the **System** > **Device Management** > **Template** page.                                                                                                               |
+  \| **System:**
+  \* Cloud backups did not include configurations for the default MQTT connector for Litmus Edge Manager activation. After a restore, the connector was missing from the UI even though events show it was recreated.                             |

@@ -1,0 +1,44 @@
+---
+title: DB - Snowflake
+slug: product-features/integration/integration-connectors/databases/snowflake
+description: Review parameters for the DB - Snowflake connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [Snowflake Integration Guide](<./././././How-To Guides/Integration Guides/Snowflake Integration Guide.md>).&#x20;
+
+## Overview
+
+Snowflake Integration enables an Edge System to connect with Snowflake’s data warehouse.
+
+## Supported Communication
+
+- Outbound (Write from Edge to Snowflake) - Yes
+- Inbound (Read from Snowflake to Edge) - No
+
+## Account Privilege Requirements
+
+Review the Snowflake account privilege requirements for successfully connecting.&#x20;
+
+- **SysAdmin**: Allows you to connect and create a new database table.&#x20;
+- **AccountAdmin**: Allows you to connect, but you can't create a new database table.&#x20;
+
+The following account privileges won't allow you to successfully connect: Public, UserAdmin, and SecurityAdmin.&#x20;
+
+## Configurations
+
+| **Variable**       | **Detail**                                                                                                                                                                                            | **Required** |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name               | Enter a name for the connector                                                                                                                                                                        | Yes          |
+| Account            | Snowflake account ID with Region ( `<accountid>.<region>` )                                                                                                                                           | Yes          |
+| Username           | Username                                                                                                                                                                                              | Yes          |
+| Password           | Password                                                                                                                                                                                              | Yes          |
+| Database           | Database name                                                                                                                                                                                         | Yes          |
+| Schema             | Schema name                                                                                                                                                                                           | Yes          |
+| Warehouse          | Warehouse name                                                                                                                                                                                        | Yes          |
+| Table              | Table name                                                                                                                                                                                            | Yes          |
+| Create table       | Create the table if it doesn’t exist. You must have the appropriate permissions.                                                                                                                      | No           |
+| Throttling limit   | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                | No           |
+| Persistent storage | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored. | No           |
+| Queue mode         | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.  | No           |

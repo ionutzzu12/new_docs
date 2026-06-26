@@ -1,0 +1,77 @@
+---
+title: AMQP SSL
+slug: product-features/integration/integration-connectors/message-brokers/amqp-ssl
+description: Review parameters for the AMQP SSL connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [AMQP SSL Integration Guide](<./././././How-To Guides/Integration Guides/AMQP SSL Integration Guide.md>).&#x20;
+
+## Overview
+
+AMQP SSL integration enables an Edge System to connect with an AMQP broker using SSL authentication.
+
+## Supported Versions
+
+Supports RabbitMQ versions starting with 2.0 but primarily tested against recent 3. x releases. Some features and behaviors may be server-version specific.
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to AMQP broker) - Yes
+- Inbound (Subscribe data from AMQP broker to Edge) - No
+
+## Configurations
+
+| **Variable**         | **Detail**                                                                                                                                                                                            | **Required** |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name                 | Enter a name for the connector                                                                                                                                                                        | Yes          |
+| Hostname             | IP Address or hostname of AMQP broker (Must be reachable from the Edge system)                                                                                                                        | Yes          |
+| Port                 | AMQP broker port                                                                                                                                                                                      | Yes          |
+| Virtual host         | Specifies the namespace of permissions, exchanges, queues, and bindings on the server.                                                                                                                | No           |
+| Username             | Enter the username                                                                                                                                                                                    | No           |
+| Password             | Enter the password                                                                                                                                                                                    | No           |
+| Exchange             | Enter the AMQP exchange                                                                                                                                                                               | No           |
+| Exchange type        | Select one of the following: direct, fanout, topic, x-custom                                                                                                                                          | No           |
+| Exchange durable     | See the *Exchange Options* section below                                                                                                                                                              | No           |
+| Exchange auto delete | See the *Exchange Options* section below                                                                                                                                                              | No           |
+| Exchange internal    | See the *Exchange Options* section below                                                                                                                                                              | No           |
+| Exchange no wait     | See the *Exchange Options* section below                                                                                                                                                              | No           |
+| Routing key          | Enter the AMQP routing key                                                                                                                                                                            | Yes          |
+| ISO8601 timestamp    | Convert a message timestamp into ISO8601 format before sending                                                                                                                                        | No           |
+| CA Certificate       | SSL CA Certificate                                                                                                                                                                                    | Yes          |
+| Certificate          | Self-signed SSL certificate                                                                                                                                                                           | No           |
+| Private key          | SSL private key                                                                                                                                                                                       | No           |
+| Throttling limit     | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                | No           |
+| Persistent storage   | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored. | No           |
+| Queue mode           | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.  | No           |
+
+## Exchange Options
+
+Exchange names starting with "amq." are reserved for pre-declared and standardized exchanges. The client MAY declare an exchange starting with "amq." if the passive option is set, or the exchange already exists. Names can consist of a non-empty sequence of letters, digits, hyphen, underscore, period, or colon.
+
+Each exchange belongs to one of a set of exchange kinds/types implemented by the server. The exchange types define the functionality of the exchange - i.e. how messages are routed through it. Once an exchange is declared, its type cannot be changed. The common types are "direct", "fanout", "topic" and "headers".
+
+Durable and Non-Auto-Deleted exchanges survive server restarts and remain declared when there are no remaining bindings. These selections are best for long-lived exchange configurations like stable routes and default exchanges.
+
+Non-Durable and Auto-Deleted exchanges are deleted when there are no remaining bindings and not restored on server restart. These selections are useful for temporary topologies that should not pollute the virtual host on failure or after the consumers have completed.
+
+Non-Durable and Non-Auto-deleted exchanges remain while the server is running, including when there are no remaining bindings. These selections are useful for temporary topologies that may have long delays between bindings.
+
+Durable and Auto-Deleted exchanges survive server restarts and are removed before and after server restarts when there are no remaining bindings. These selections are useful for robust temporary topologies or when you require binding durable queues to auto-deleted exchanges.
+
+<hint type="info">
+  **Note**: RabbitMQ declares the default exchange types like 'amq.fanout' as durable, so queues that bind to these pre-declared exchanges must also be durable.
+</hint>
+
+Exchanges declared as internal do not accept publishing. Internal exchanges are useful when you wish to implement inter-exchange topologies that should not be exposed to users of the broker.
+
+When No Wait is selected, you can continue without waiting for a confirmation from the server. The channel may be closed because of an error. Add a `NotifyClose` listener to respond to any exceptions.
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+| **Product** | **Version** | **Date**     |
+| ----------- | ----------- | ------------ |
+| RabbitMQ    | 3.6.6       | Nov 21, 2016 |

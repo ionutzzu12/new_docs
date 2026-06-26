@@ -1,0 +1,87 @@
+---
+title: Kafka SSL Integration Guide
+slug: how-to-guides/integration-guides/kafka-ssl
+description: Learn how to set up the Kafka SSL connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and a Kafka broker that uses SSL authentication.&#x20;
+
+# Before You Begin
+
+You will need the following:
+
+- Access to a Kafka broker that uses SSL authentication. &#x20;
+- The CA certificate and other required authentication parameters needed to access the broker.&#x20;
+
+Refer to the following links to learn more:
+
+- [Apache Kafka Download](https://kafka.apache.org/downloads)&#x20;
+- [Encrypt and Authenticate with TLS](https://docs.confluent.io/platform/current/kafka/authentication_ssl.html)
+- [OpenSSL Downloads](https://www.openssl.org/source/)
+
+# Step 1: Add Device
+
+Follow the steps to [Connect a Device](). The device will be used to store tags that will be eventually used to create outbound topics in the connector. Make sure to select the **Enable Data Store** checkbox.&#x20;
+
+# Step 2: Add Tags
+
+After connecting the device in Litmus Edge, you can [Add Tags]() to the device. Create tags that you want to use to create outbound topics for the connector.&#x20;
+
+# Step 3: Add the Kafka SSL Connector
+
+Follow the steps to [Add a Connector](<./././Product Features/Integration/Add a Connector.md>) and select the **Kafka SSL&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Brokers list separated by comma**: Enter the Kafka broker URL. For example: 192.168.56.1.&#x20;
+- **SASL mechanism**: Select an option: NONE, SASL\_PLAINTEXT, SCRAM-SHA-256, SCRAM-SHA-512.&#x20;
+- **Username&#x20;**(Optional): If needed, enter the username to access the broker.&#x20;
+- **Password**: (Optional): If needed, enter the password associated with the username.&#x20;
+- **CA Certificate**: Paste or upload the CA certificate associated with the broker. &#x20;
+- **Certificate**: Paste or upload the SSL certificate.&#x20;
+- **Private key**: Enter or paste the SSL private key.&#x20;
+- **Topic**: Enter the name of the default topic used for publishing data.&#x20;
+- **Throttling Limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/EHmzDvQKlohZ24GOFrqdR_kafkassl.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the [Connector Logs](<./././Product Features/Integration/Manage Connectors.md>) and relevant error messages.&#x20;
+
+# Step 5: Create Topics for Connector&#x20;
+
+You will now need to import the tags you added in Step 3 to the connector as topics.&#x20;
+
+<hint type="info">
+  Topics must already exist on the Kafka server to avoid errors. Using non-existent Kafka topics will result in errors in logs, failed connection and/or persisted storage.
+</hint>
+
+**To create outbound topics:**
+
+1. Click the connector tile.
+   The connector *Dashboard&#x20;*&#x61;ppears.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Click the **Import from DeviceHub** tags icon.&#x20;
+   The *DeviceHub Import&#x20;*&#x64;ialog box appears.
+
+![](https://api.archbee.com/api/optimize/xSuIWwMa6RnsbeD5Kdqd7-zaOGMDYbPZWYALvLBgotp-20250606-203859.png)
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 6: Enable Topics
+
+Ensure the topics you imported are enabled by returning to the *Topics&#x20;*&#x74;ab and clicking the **Enable all topics** icon.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/HtkW-nbWXeAvOV8ru8B1U_image.png)
+
+# Step 7: Verify Connection
+
+Access the Kafka broker and verify that Litmus Edge is successfully sending data.&#x20;

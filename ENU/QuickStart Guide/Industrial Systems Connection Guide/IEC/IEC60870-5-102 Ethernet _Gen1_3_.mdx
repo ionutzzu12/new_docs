@@ -1,0 +1,107 @@
+---
+title: IEC60870-5-102 Ethernet (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/iec/iec60870-5-102-ethernet-gen1
+description: Review the following information for setting up and configuring the IEC60870-5-102 Ethernet (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:05 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the IEC60870-5-102 Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter | Compatible items |
+| ----------------------- | ---------------- |
+| **Driver type**         | Ethernet         |
+| **Device standard**     | IEC 60870-5-102  |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                                    |
+| ---------------------- | ---------------------------------------- |
+| **Type**               | IEC                                      |
+| **Driver**             | IEC60870-5-102 Ethernet (Gen1.3)         |
+| **Network Address**    | The device address you defined in Step 1 |
+| **Network Port&#x20;** | 2404                                     |
+| **Asdu Addr Size**     | 2                                        |
+| **Link Address**       | 3                                        |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name**     | **Value Types** | **Access Types&#x20;** | **Address Format** | **Min Address** | **Max Address** | **Description**                                                                                                             |
+| ------------ | --------------- | ---------------------- | ------------------ | --------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| M\_SP\_TA\_2 | bit             | R/W                    | DDDddd             | 0               | 255999          | Single point information                                                                                                    |
+| M\_IT\_TA\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Accounting integrated totals, four octets each                                                                              |
+| M\_IT\_TB\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Accounting integrated totals, three octets each                                                                             |
+| M\_IT\_TC\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Accounting integrated totals, two octets each                                                                               |
+| M\_IT\_TD\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Periodically Reset Accounting integrated totals, four octets each                                                           |
+| M\_IT\_TE\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Periodically Reset Accounting integrated totals, three octets each                                                          |
+| M\_IT\_TF\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Periodically Reset Accounting integrated totals, two octets each                                                            |
+| M\_IT\_TG\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Operational integrated totals, four octets each                                                                             |
+| M\_IT\_TH\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Operational integrated totals, three octets each                                                                            |
+| M\_IT\_TI\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Operational integrated totals, two octets each                                                                              |
+| M\_IT\_TK\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Periodically Reset Operational integrated totals, four octets each                                                          |
+| M\_IT\_TL\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Periodically Reset Operational integrated totals, three octets each                                                         |
+| M\_IT\_TM\_2 | word            | R/W                    | DDDddd             | 0               | 255999          | Periodically Reset Operational integrated totals, two octets each                                                           |
+| C\_RD\_NA\_2 | custom          | R/W                    | D                  | 1               | 1               | Read manufacture and product specification                                                                                  |
+| C\_TI\_NA\_2 | custom          | R/W                    | D                  | 1               | 1               | Read current system time of integrated total DTE                                                                            |
+| C\_SP\_NA\_2 | custom          | R/W                    | DDD                | 0               | 255             | Read record of single-point information with time tag                                                                       |
+| C\_SP\_NB\_2 | custom          | R/W                    | DDD                | 0               | 255             | Read record of single-point information with time tag of a selected time range                                              |
+| C\_CI\_NA\_2 | custom          | R/W                    | DDD                | 0               | 255             | Read accounting integrated totals of the oldest integration period                                                          |
+| C\_CI\_NE\_2 | custom          | R/W                    | DDD                | 0               | 255             | Read periodically reset accounting integrated totals of the oldest integration period                                       |
+| C\_CI\_NI\_2 | custom          | R/W                    | DDD                | 0               | 255             | Read operational integrated totals of the oldest integration period                                                         |
+| C\_CI\_NN\_2 | custom          | R/W                    | DDD                | 0               | 255             | Read periodically reset operational integrated totals of the oldest integration period                                      |
+| C\_CI\_NB\_2 | custom          | R/W                    | DDDSSSEEE          | 0               | 255255255       | Read accounting integrated totals of the oldest integration period and of a selected range of addresses                     |
+| C\_CI\_NF\_2 | custom          | R/W                    | DDDSSSEEE          | 0               | 255255255       | Read periodically reset accounting integrated totals of the oldest integration period and of a selected range of addresses  |
+| C\_CI\_NK\_2 | custom          | R/W                    | DDDSSSEEE          | 0               | 255255255       | Read operational integrated totals of the oldest integration period and of a selected range of addresses                    |
+| C\_CI\_NO\_2 | custom          | R/W                    | DDDSSSEEE          | 0               | 255255255       | Read periodically reset operational integrated totals of the oldest integration period and of a selected range of addresses |
+| C\_CI\_NR\_2 | custom          | R/W                    | DDDSSSEEE          | 0               | 255255255       | Read accounting integrated totals of a selected time range and of a selected range of addresses                             |
+| C\_CI\_NS\_2 | custom          | R/W                    | DDDSSSEEE          | 0               | 255255255       | Read periodically reset accounting integrated totals of a selected time range and of a selected range of addresses          |
+| C\_CI\_NT\_2 | custom          | R/W                    | DDDSSSEEE          | 0               | 255255255       | Read operational integrated totals of a selected time range and of a selected range of addresses                            |
+| C\_CI\_NU\_2 | custom          | R/W                    | DDDSSSEEE          | 0               | 255255255       | Read periodically reset operational integrated totals of a selected time range and of a selected range of addresses         |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Start Date**: Enter a start date.&#x20;
+- **End Date**: Enter an end date.&#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

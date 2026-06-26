@@ -1,0 +1,59 @@
+---
+title: Browser Issues
+slug: troubleshooting/installation-and-deployments-troublehsooting/browser-issues
+docTags: 
+createdAt: Thu May 28 2026 23:47:03 GMT+0300 (Eastern European Summer Time)
+---
+
+The following sections describe common browser-related technical difficulties may occur when trying to access Litmus Edge and how troubleshoot them. The difficulties that may arise includes the following:
+
+- Browser Access Restrictions
+- Browser Cache Issues
+
+# Browser Access Restrictions
+
+Browsers typically display one of the following two warnings when trying to access Litmus Edge:
+
+- Your connection is not private
+- You connection is not secure
+
+Litmus Edge uses self-signed certificates by default. This type of warning is expected when using a self-signed certificate in a local environment.
+
+You can bypass browser warnings on Google Chrome and Mozilla Firefox as follows:
+
+- **Google Chrome**: Click **Advanced**, and then click **Proceed to \<website> (unsafe)** at the bottom of the page.
+- **Mozilla Firefox**: Click **Advanced**, and then click **Add Exception...** at the bottom of the page. Click **Confirm Security Exception** on the pop-up window
+
+The following table details some of the reasons for browser access restrictions and recommended steps to resolve the issues.
+
+| **Possible Causes**                          | **Recommended Steps**                                                                                                                |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Needs SSL Certificate from trusted authority | Litmus Edge includes a self-signed certificate, but you can add additional certificates. See [Certificates]() for more information.  |
+| Wrong date and time on computer/device       | Verify that the date and time are correct on the device.                                                                             |
+| Browser cookies and cached files             | This usually only occurs in the Chrome browser. Clear the cookies and cache.                                                         |
+| Anti-virus software block SSL connection     | Try disabling the anti-virus software.&#xA;                                                                                          |
+| DNS caching                                  | Clear the DNS cache using the ipconfig command in Windows:&#xA;`ipconfig `/ `flushdns`                                               |
+| Owner has configured website improperly      | This usually only occurs in the Firefox browser. Add the Litmus Edge IP address to the browser's website exceptions list to proceed. |
+
+# Browser Cache Issues
+
+Litmus Edge and Litmus Edge Manager applications use a web browser as their main interface. For optimized loading, web browsers keep a cache of files and images for recently visited websites. This avoids having to download the pages each time you visit a page.
+
+This optimization can sometimes cause problems when the browser reads from its cache instead of downloading the latest page. This can cause unexpected behavior such as the following:
+
+- The page looks partially loaded.
+- The page looks like it has loaded but the page has strange or unusual formatting.
+- Images on the page are in the wrong places.
+- Strange login and license activation issues.
+
+## Clear the Browser Cache
+
+You can easily fix cache issues by clearing the cache. Here are some easy ways to clear a browser’s cache. These techniques should work on all Windows and Mac browsers.
+
+- Hold down th&#x65;**&#xA0;SHIFT key while refreshing the page**. This forces a refresh with an empty cache on all browsers.
+- Press the **CTRL + SHIFT + R** key combination to force an empty cache refresh. For **Safari**, press **CMD + R**.
+- Hold th&#x65;**&#xA0;CTRL + SHIFT + DELETE** key combination to open the clear browser history menu. For **Safari**, press **CMD + SHIFT + DELETE**. Make sure to choose the cache option and the largest time range possible to clear the entire cache.
+
+## View and Clear Browser History
+
+Often, clearing the browser history can help fix issues. Press **CTRL + H** to view the history menu. You can clear the browsing data from this window or select a previous page from the list. For Safari, press **CMD +H** key combination to view the history menu.

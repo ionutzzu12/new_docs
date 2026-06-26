@@ -1,0 +1,93 @@
+---
+title: Data Type Mapping
+slug: product-features/opc-ua-server/hierarchy/data-type-mapping
+description: The following table maps the data types that DeviceHub offers to those OPC UA servers recognizes at the exposed data points.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+The following table maps the data types that DeviceHub offers to those OPC UA servers recognizes at the exposed data points.
+
+| **DeviceHub Data Type** | **OPC UA Data Type** |
+| ----------------------- | -------------------- |
+| bin                     | Boolean              |
+| bit                     | Boolean              |
+| bool                    | Boolean              |
+| int8                    | SByte                |
+| sint                    | SByte                |
+| uint8                   | Byte                 |
+| usint                   | Byte                 |
+| byte                    | Byte                 |
+| int                     | Int16                |
+| int16                   | Int16                |
+| ENUM16                  | UInt16               |
+| bcd                     | UInt16               |
+| uint                    | UInt16               |
+| uint16                  | UInt16               |
+| word                    | UInt16               |
+| dint                    | Int32                |
+| int32                   | Int32                |
+| dbcd                    | UInt32               |
+| dword                   | UInt32               |
+| udint                   | UInt32               |
+| uint32                  | UInt32               |
+| int64                   | Int64                |
+| lint                    | Int64                |
+| lbcd                    | UInt32               |
+| lword                   | UInt64               |
+| uint64                  | UInt64               |
+| ulint                   | UInt64               |
+| FL                      | Float                |
+| flt32                   | Float                |
+| float                   | Float                |
+| float32                 | Float                |
+| real                    | Float                |
+| double                  | Double               |
+| dreal                   | Double               |
+| flt64                   | Double               |
+| float64                 | Double               |
+| lreal                   | Double               |
+| number                  | Double               |
+| AC3                     | String               |
+| AC7                     | String               |
+| AC10                    | String               |
+| AC12                    | String               |
+| AC20                    | String               |
+| AC30                    | String               |
+| AC40                    | String               |
+| ATTRIBUTE               | String               |
+| auto                    | String               |
+| char                    | String               |
+| custom                  | String               |
+| date                    | String               |
+| decimal                 | String               |
+| DNP3TIME                | String               |
+| dt                      | String               |
+| dtl                     | String               |
+| DT6                     | String               |
+| hex                     | String               |
+| json                    | String               |
+| ldt                     | String               |
+| ltime                   | String               |
+| ltod                    | String               |
+| ostr                    | String               |
+| range                   | String               |
+| s5time                  | String               |
+| single                  | String               |
+| str                     | String               |
+| string                  | String               |
+| tlp                     | String               |
+| time                    | String               |
+| tod                     | String               |
+| UC10                    | String               |
+| UC20                    | String               |
+| UC30                    | String               |
+| UC40                    | String               |
+| wchar                   | String               |
+| wstring                 | String               |
+
+If a device driver supports count, OPC UA needs to have an array for the corresponding data type where the array size equals the count value.
+
+Counters and timers are defined as separate structs or data types in most PLCs. Typically, the edge device is used to read the `counter.acc` or `timer.acc` values. These values are likely to be of `dint` or `udint` type and should be mapped accordingly.
+
+For example, if DeviceHub has a tag with data type `bool` and count `10`, OPC UA must have data type defined as` ArrayOfBoolean[10]`.

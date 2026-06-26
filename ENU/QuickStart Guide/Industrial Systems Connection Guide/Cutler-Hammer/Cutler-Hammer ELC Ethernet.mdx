@@ -1,0 +1,91 @@
+---
+title: Cutler-Hammer ELC Ethernet
+slug: rih2-cutler-hammer-elc-ethernet-driver
+docTags: 
+createdAt: Thu May 28 2026 23:47:07 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Cutler-Hammer ELC Ethernet driver.
+
+## Litmus Edge Compatible Series
+
+| Compatibility parameter      | Compatible items              |
+| ---------------------------- | ----------------------------- |
+| **Driver type**              | Ethernet                      |
+| **Validated devices/series** | Cutler-Hammer ELC PV28 Series |
+| **Replaces Gen 1 driver(s)** | N/A                           |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters (IP address and port number, typically port 502).
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device](<././././Product Features/DeviceHub/Devices/Connect a Device.md>) with this driver. Update default values to the specific setup of your device.
+
+### Ethernet Connection Parameters
+
+| Parameter                 | Value                                         |
+| ------------------------- | --------------------------------------------- |
+| **Type**                  | Eaton                                         |
+| **Driver**                | ELC Ethernet & Serial                         |
+| **Network Address**       | The device IP address you recorded in Step 1. |
+| **Port**                  | 502                                           |
+| **Zero-Based Addressing** | Enabled (default)                             |
+| **Response Timeout**      | 2000 (ms)                                     |
+| **Maximum Packet Size**   | 512 (bytes)                                   |
+
+## Step 3: Configure the List of Registers
+
+When you [Add a Tag](<././././Product Features/DeviceHub/Tags/Add a Tag.md>) to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](<././././How-To Guides/DeviceHub Guides/Organize Device and Tag Data by Using Metadata.md>)
+- [Tag Formula Variables](<././././Product Features/DeviceHub/Tags/Tag Formula Variables.md>)&#x20;
+
+## Register Table
+
+| Name   | Value Types                                                         | Access Types | Address Format | Min Address | Max Address | Description           |
+| ------ | ------------------------------------------------------------------- | ------------ | -------------- | ----------- | ----------- | --------------------- |
+| X      | bit                                                                 | R/O          | OOO            | 0           | 255         | Discrete Input        |
+| Y      | bit                                                                 | R/W          | OOO            | 0           | 255         | Discrete Output       |
+| M      | bit                                                                 | R/W          | DDDD           | 0           | 4095        | Main Relay            |
+| To     | bit                                                                 | R/W          | DDD            | 0           | 255         | Timer Status          |
+| Co     | bit                                                                 | R/W          | DDD            | 0           | 255         | Counter Status        |
+| S      | bit                                                                 | R/W          | DDDD           | 0           | 1023        | Step Point            |
+| T      | word, int16, int32, uint32, int64, uint64, float32, float64         | R/W          | DDD            | 0           | 255         | Timer Current Value   |
+| T\_bit | bit                                                                 | R/W          | DDDdd          | 0           | 25515       | Timer Current Value   |
+| C      | word, int16, int32, uint32, int64, uint64, float32, float64         | R/W          | DDD            | 0           | 255         | Counter Current Value |
+| C\_bit | bit                                                                 | R/W          | DDDdd          | 0           | 25515       | Counter Current Value |
+| D      | word, int16, int32, uint32, int64, uint64, float32, float64, string | R/W          | DDDD           | 0           | 9999        | Data Register         |
+| D\_bit | bit                                                                 | R/W          | DDDDdd         | 0           | 999915      | Data Register         |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Address**: Enter a tag address in decimal format, within the allowed min/max range. Omit the leading zeros. The address format uses `D` for decimal and `O` for octal. For bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values.
+- **Length**: Available for String Data Registers. Enter the number of characters for tag values.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp(`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  * **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>

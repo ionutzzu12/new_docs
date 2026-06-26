@@ -1,0 +1,78 @@
+---
+title: Use the Write Topic to Send Data to a PLC
+slug: how-to-guides/devicehub-guides/write-topic-guide
+description: Learn how to use the Write topic.
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Notes**:
+
+  - You need to follow the following guidelines for topic names: [Subject-Based Messaging](https://docs.nats.io/nats-concepts/subjects).&#x20;
+  - When publishing structured data such as JSON, you must convert to a byte array (string) first. To do this in a flow, you can use the **json&#x20;**&#x6E;ode.&#x20;
+</hint>
+
+The Write Topic allows you to write data to a PLC device.&#x20;
+
+# Video
+
+<Iframe code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/AEshDyZg5CU?si=Jh4QfY1ZzhPGi-gf&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>" iframeHeight="0">
+
+</Iframe>
+
+# User Scenario
+
+In your production environment one of the sensors that a PLC uses malfunctions,  causing the PLC to receive inaccurate data. While waiting for the sensor to be repaired, you input a  value manually to simulate the correct sensor data.
+
+# Use the Write Topic
+
+Complete the following steps to use the write topic based on the user scenario.&#x20;
+
+**To use the Write topic:&#x20;**
+
+1. Follow the steps to [Connect a Device](<./././Product Features/DeviceHub/Devices/Connect a Device.md>). For this use case, a Simulator Generator device is used.&#x20;
+2. Follow the steps to [Add Tags](#) and create one tag with the following parameters.&#x20;
+   - **Name**: M - Memory Register
+   - **Value Type**: int64
+   - **Polling Interval**: 5
+   - **Tag Name**: Enter a name for the tag.&#x20;
+   - **Address**: 1
+3. Copy the topic name under the *RAW Topic* column. You will refer to this later.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/wWKrvxaYnXWk2WotSwg-L_copytag.png "Copy tag icon")
+4. Click th&#x65;**&#x20;Action menu&#x20;**&#x66;or the tag and select **View Write Topic**.&#x20;
+   The *Write&#x20;*&#x64;ialog box displays.
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/iE3BapB7FgBQXOhgXH8b4_viewwritetopic.png "View Write Topic option")
+5. Click the **Copy&#x20;**&#x69;con for the tag. You will refer to this later.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/v6fuUYdfgGvY1AjiX7df9_copywritetopic.png "Copy Write topic icon")
+6. Navigate to **Flows Manager**. For a Flows Manager, click the **Go To Flow Definition** icon.&#x20;
+   The Flow canvas opens in a new browser tab.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/7V-lMFoDbKs0kJVZDJlgK_go-to-flow-definition.png" size="80" width="1010" height="490" caption="Go To Flow Definition icon" position="center" indent="2" showCaption="true"></Image>
+
+7. On the Flow canvas, drag the **inject&#x20;**&#x6E;ode and **DataHub Publish** node onto the canvas. Then, connect the two nodes.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/DezwjDs5jwEmTUqko9Bqq_inject-and-publish-nodes.png "The inject and DataHub Publish nodes")
+8. Double-click the **DataHub Publish&#x20;**&#x6E;ode.&#x20;
+   The *Edit DataHub Publish* node dialog box displays.&#x20;
+   - In the **Topic&#x20;**&#x66;ield, paste the Write topic you copied previously (number 5).&#x20;
+   - If needed, configure the Datahub Publish connection. See the *Step 3: Configure Connector Nodes* section in [Create a Flow](<./././Product Features/Flows Manager/Create a Flow.md>) to learn more.&#x20;
+   - Click **Done**.&#x20;
+9. Double-click the **inject&#x20;**&#x6E;ode.
+   The *Edit inject node* dialog box displays.&#x20;
+   - For **msg.payload**, update the **timestamp&#x20;**&#x73;election and select **string**.&#x20;
+   - In the **string&#x20;**&#x66;ield, enter **\{"value"**:11&#x34;**}**. This will insert the desired value into the tag payload.&#x20;
+   - Click **Done**.&#x20;
+10. Drag the **DataHub Subscribe** node and **debug&#x20;**&#x6E;ode to the canvas and connect them.
+    ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Q_SPD2vMbkMTTo5s307ns_flow2.png)
+11. Double-click the **DataHub Subscribe** node.&#x20;
+    The *Edit DataHub Subscribe* node dialog box displays.&#x20;
+    - In the **Topic&#x20;**&#x66;ield, paste the topic name you copied previously (number 3).
+    - If needed, configure the Datahub Subscribe connection. See the *Step 3: Configure Connector Nodes* section in [Create a Flow](<./././Product Features/Flows Manager/Create a Flow.md>) to learn more.&#x20;
+    - Click **Done**.&#x20;
+12. Click **Deploy**.&#x20;
+13. Expand the message window beneath the flow.&#x20;
+    ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/CQPkR4GFHYaySoxYE7d0E_flow3.png)
+14. Click the **Debug&#x20;**&#x69;con to view messages from the debug node.&#x20;
+    ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/RNP1NwQzoi08nJXNo02j7_flow4.png)
+15. Click the **inject&#x20;**&#x6E;ode button. This will insert the value (114) into the payload of the tag. Confirm you see the value in the debug window.&#x20;
+    ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/1-GGT23fek8_YAY1APX2K_flow5.png)

@@ -1,0 +1,76 @@
+---
+title: Use the Feature Extractor Function
+slug: how-to-guides/analytics-guides/feature-extractor-function
+description: Learn how to use the Feature Extractor statistical function in Analytics.
+docTags: 
+createdAt: Thu May 28 2026 23:47:00 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the Feature Extractor processor function to extract meaningful patterns and characteristics from raw PLC data, transforming complex data into features that machine learning models can easily understand and utilize.&#x20;
+
+# User Scenario
+
+Review the following scenario for the feature extraction processor function. Then, using an input processor, you will simulate PLC data and extract features from the window of generated values.
+
+In a food processing plant, PLCs are placed strategically along the production line to monitor the moisture content of products as they pass through ovens and cooling stations. Using a window of `N` values, you can calculate the Average and Median moisture content at critical stages of the production process.&#x20;
+
+Additionally, to assess the consistency of moisture levels, you can use the Standard Deviation and Variance functions of the Feature Extractor processor to provide real-time data analysis and actionable insights. It helps to identify and address optimal features, preventing product spoilage and ensuring that each batch meets the company's strict standards.
+
+# Step 1: Add a Device
+
+Follow the steps to [Connect a Device](<./././Product Features/DeviceHub/Devices/Connect a Device.md>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# Step 2: Add Tags
+
+After connecting the device, add the following tag. See [Add Tags](#) to learn more.&#x20;
+
+## Tag 1: moisture
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **moisture**
+- **Min\_value**: Enter **1**
+- **Max\_value**: Enter **199**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Feature Extraction Processor function:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" indent="2" showCaption="true"></Image>
+
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **moisture**.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **Feature Extractor&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Window Size:&#x20;**&#x45;nter the number of values you want the function to consider.
+   - **Timeinterval:&#x20;**&#x59;ou can set a timer in milliseconds to push values. Set the timer to zero if you don't want to use it.
+   - **Feature Options:&#x20;**&#x53;elect the **Average**, **Median**, **Standard Deviation**, and **Variance&#x20;**&#x63;heckboxes to view your output.
+7. Click **Save**.
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/NzL2blaxqAZca6D1ArPjJ_image.png "Feature Extractor processor dialog box")
+8. Connect the DataHub Subscribe processor (tag: *moisture*) to the Feature Extractor processor with a wire and use the **events** connection.
+9. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/59mU8hSfEC4rmJANfo0g-_image.png "Completed analytics flow ")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Feature Extractor&#x20;*&#x70;rocessor to view the output values.
+
+Before you can see any output, the input window size needs to be filled. After that, the output will include the prediction along with its timestamp.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/saWJ8vbP4F3h7ZWAlsjfp_image.png "Feature Extractor output")

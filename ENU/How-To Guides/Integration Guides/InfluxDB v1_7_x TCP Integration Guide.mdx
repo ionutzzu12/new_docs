@@ -1,0 +1,115 @@
+---
+title: InfluxDB v1.7.x TCP Integration Guide
+slug: how-to-guides/integration-guides/influxdb-v17x-tcp-integration-guide
+description: Learn how to set up the InfluxDB v1.7.x TCP connector.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and an InfluxDB database (version 1.7 or 1.8).&#x20;
+
+<hint type="info">
+  **Note**: The following data types and formats are not viewable in InfluxDB:
+
+  - string
+  - char
+  - JSON payloads
+</hint>
+
+# User Scenario
+
+In this guide InfluxDB is installed through a Docker image. You have several other options for the installation. See the following to learn more.&#x20;
+
+- [Download InfluxDB OSS](https://docs.influxdata.com/influxdb/v1/introduction/download/)
+- [Install InfluxDB OSS](https://docs.influxdata.com/influxdb/v1/introduction/install/)
+
+# Step 1: Set up InfluxDB
+
+You will first need to pull an InfluxDB image file and then run it on your computer. For this guide InfluxDB version 1.8.0 is pulled.&#x20;
+
+**To set up InfluxDB:**
+
+1. On your computer, open the command prompt window.&#x20;
+2. Run the following command.&#x20;
+   `docker run --name influxdb -p 8086:8086 influxdb:1.8.0`
+   The command will create the InfluxDB container with the name "influxdb", on port 8086, and install InfluxDB version 1.8.0.&#x20;
+
+Once the InfluxDB container is running, refer to the following to learn more about setting up and configuring InfluxDB:
+
+- [InfluxDB v1 documentation](https://docs.influxdata.com/influxdb/v1/)
+- [Configure InfluxDB OSS](https://docs.influxdata.com/influxdb/v1/administration/config/)
+- [Creating a database](https://docs.influxdata.com/influxdb/v1/introduction/get-started/#creating-a-database)
+
+Once you set up and configure InfluxDB to your specific requirements, you can complete the setup in Litmus Edge.&#x20;
+
+# Step 2: Add Device
+
+Follow the steps to [Connect a Device](). The device will be used to store tags that will be eventually used to create outbound topics in the connector. Make sure to select the **Enable Data Store** checkbox.&#x20;
+
+# Step 3: Add Tags
+
+After connecting the device in Litmus Edge, you can [Add Tags]() to the device. Create tags that you want to use to create outbound topics for the connector.&#x20;
+
+# Step 4: Add the InfluxDB v1.7.x TCP Connector
+
+Follow the steps to [Add a Connector](<./././Product Features/Integration/Add a Connector.md>) and select the **DB - InfluxDB v1.7.x TCP&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **InfluxDB address**: Enter the InfluxDB database address and port in the following format: http\://\<InfluxDB address>:\<port>.&#x20;
+- **InfluxDB database name**: Enter the database name configured in the InfluxDB setup in Step 1.&#x20;
+- **Username&#x20;**(Optional): Enter a username to access the database.
+- **Password&#x20;**(Optional): Enter the password associated with the username.&#x20;
+- **Insert batch size**: Enter the number of messages to be collected as a batch before inserting into the database.
+- **Insert batch commit time**: The batch commit time in seconds.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/pTuZNKg_QdLQm5t7V2EVH_influxdb17tcp.png" size="60" width="388" height="358" position="flex-start" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the [Connector Logs](<./././Product Features/Integration/Manage Connectors.md>) and relevant error messages.&#x20;
+
+# Step 6: Create Topics for Connector
+
+You will now need to import the tags you added in Step 3 to the connector as topics.&#x20;
+
+**To create outbound topics:**
+
+1. Click the connector tile.
+   The connector *Dashboard&#x20;*&#x61;ppears.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Click the **Import from DeviceHub** tags icon.&#x20;
+   The *DeviceHub Import&#x20;*&#x64;ialog box appears.
+
+![](https://api.archbee.com/api/optimize/xSuIWwMa6RnsbeD5Kdqd7-zaOGMDYbPZWYALvLBgotp-20250606-203859.png)
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.
+
+## Publishing to a user-defined measurement﻿
+
+You can define the specific InfluxDB measurement that you want to publish data to. If you don't define a measurement, then **deviceName** and **deviceID** topic values (`deviceName.deviceID`) define the measurement name.
+
+For more information on InfluxDB measurements, see [InfluxDB key concepts](https://docs.influxdata.com/influxdb/v1/concepts/key_concepts/).
+
+To specify an InfluxDB measurement:
+
+1. Edit the subscription to the topic to open the *Data Integration* dialog.
+2. In **Remote Data Topic**, specify the measurement name in your InfluxDB data structure.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/r8gyW81lv2LPlNStaDEKC_remote-data-topic.png" size="80" width="803" height="615" position="flex-start" indent="2" showCaption="false"></Image>
+
+# Step 7: Enable Topics
+
+Ensure the topics you imported are enabled by returning to the *Topics&#x20;*&#x74;ab and clicking the **Enable all topics** icon.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/HtkW-nbWXeAvOV8ru8B1U_image.png)
+
+# Step 8: Verify Connection
+
+Access the InfluxDB database to ensure that data is being successfully sent from LItmus Edge to the database.&#x20;

@@ -1,0 +1,180 @@
+---
+title: Kubernetes Installation
+slug: quickstart-guide/installation-and-deployments/kubernetes-installation
+description: You can use Kubernetes to install Litmus Edge.
+docTags: 
+createdAt: Thu May 28 2026 23:47:01 GMT+0300 (Eastern European Summer Time)
+---
+
+# Before you begin
+
+- Get access to a configured Kubernetes cluster.
+- Get access to PersistentVolumeClaim (PVC). Learn more about [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) from the Kubernetes documentation.&#x20;
+- Get administrative permissions to run the *kubectl* command-line tool.
+- Depending on the specific requirements of your environment, you may need to get access to a storage class. Learn more about [Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/) from the Kubernetes documentation.
+- For full DeviceHub driver support, ensure your Linux host kernel is version 6 or higher
+
+# Step 1: Launch a Litmus Edge on Kubernetes
+
+**To launch a Litmus Edge on Kubernetes cluster:**
+
+1. Open a Command Prompt Terminal (CTRL+R).
+   2\. Execute the following commands to create a new Kubernetes namespace.
+
+<CodeblockTabs>
+  Bash
+
+  ```linux
+  kubectl create namespace le-prod
+  ```
+
+  ```powershell
+  kubectl create namespace le-prod
+  ```
+</CodeblockTabs>
+
+The command creates a namespace named le-prod.
+
+<hint type="info">
+  **Note:** le-prod should be changed to an isolated namespace to suit deployment best.
+</hint>
+
+3. Copy the following Litmus Edge deployment file and save it to litmusedge-deployment.yaml file.
+
+```yaml
+# Create ServiceAccount
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: litmusedge-docker
+  namespace: le-prod
+  labels:
+    app.kubernetes.io/name: litmusedge-docker
+    app.kubernetes.io/instance: litmusedge-instance
+---
+# Create PVC
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: litmusedge-data
+  namespace: le-prod
+  labels:
+    app.kubernetes.io/name: litmusedge-docker
+    app.kubernetes.io/instance: litmusedge-instance
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "10G"
+---
+# Create Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: litmusedge-docker
+  namespace: le-prod
+  labels:
+    app.kubernetes.io/name: litmusedge-docker
+    app.kubernetes.io/instance: litmusedge-instance
+spec:
+  type: ClusterIP
+  ports:
+    - port: 443
+      targetPort: https
+      protocol: TCP
+      name: https
+  selector:
+    app.kubernetes.io/name: litmusedge-docker
+    app.kubernetes.io/instance: litmusedge-instance
+---
+# Create Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: litmusedge-docker
+  namespace: le-prod
+  labels:
+    app.kubernetes.io/name: litmusedge-docker
+    app.kubernetes.io/instance: litmusedge-instance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: litmusedge-docker
+      app.kubernetes.io/instance: litmusedge-instance
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: litmusedge-docker
+        app.kubernetes.io/instance: litmusedge-instance
+    spec:
+      serviceAccountName: litmusedge-docker
+      securityContext:
+        {}
+      containers:
+        - name: litmusedge-docker
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+          image: "litmusedge.azurecr.io/litmusedge-std-docker:latest"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: https
+              containerPort: 443
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var
+              mountPropagation: 
+              name: litmusedge-data
+              subPath: 
+              subPathExpr: 
+          resources:
+            requests:
+              cpu: 1
+              memory: 1024Mi
+            limits:
+              cpu: 4
+              memory: 4096Mi
+      volumes:
+        - name: litmusedge-data
+          persistentVolumeClaim:
+            claimName: litmusedge-data
+```
+
+4. Execute the following command to deploy a Litmus Edge Kubernetes cluster using the deployment file from Step 4.
+
+<CodeblockTabs>
+  Bash
+
+  ```linux
+  kubectl apply -f litmusedge-deployment.yaml --namespace le-prod
+  ```
+
+  ```powershell
+  kubectl apply -f litmusedge-deployment.yaml --namespace le-prod
+  ```
+</CodeblockTabs>
+
+Refer to the command parameters:
+
+- `-f litmusedge-deployment.yaml` uses the file litmusedge-deployment.yaml for deployment. This should not be changed.
+- `--namespace le-prod` sets`le-prod` to be the deployment that Kubernetes will use.
+
+Special and Additional Considerations:
+
+- Litmus Edge can function in both single and multi Kubernetes node clusters, and can support various networking modes. Your Kubernetes admin has the responsibility to configure proper networking.​​
+- Adjust CPU/RAM/Storage for the Kubernetes cluster as needed. Storage should be set to at least 10GB. Scale additional computing resources when using Litmus Edge features that require high-computing power, such as PLC drivers, integrations, and Flows.
+- Review [Kubernetes official documentation](https://kubernetes.io/docs/home/) for best practices.
+- Ensure credentials are stored properly with Kubernetes management​.
+- `NET_ADMIN` permissions are required​.
+
+# Step 2: Log in to Litmus Edge
+
+- See [Access the Litmus Edge Web UI](<././Access the Litmus Edge Web UI.md>) for details on logging in.&#x20;
+- See [Access the Terminal User Interface](<././Access the Litmus Edge Web UI/Access the Terminal User Interface.md>) for instructions on how to navigate and log in for the first time.
+
+<hint type="info">
+  **Note:** To identify the port configured by the admin, use the following command: `kubectl get svc -n le-prod`
+</hint>

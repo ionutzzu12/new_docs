@@ -1,0 +1,55 @@
+---
+title: Import Nodes
+slug: product-features/opc-ua-server/hierarchy/import-nodes
+description: You can import nodes to the OPC hierarchy.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+You can import nodes from your DeviceHub configuration by navigating to **OPC&#x20;**>**&#x20;Hierarchy**.
+
+<hint type="info">
+  **Note**: The imported nodes merge with the existing hierarchy rather than replace it.
+</hint>
+
+# Import Nodes
+
+You can import topics from DeviceHub and Analytics simultaneously.
+
+- **Import All** adds the correct folders and tags.
+- **Import Select** allows adding a list of topics that you define.
+
+**To import nodes:**
+
+1. Navigate to **OPC&#x20;**> **Hierarchy**.
+2. To import all DeviceHub and Analytics topics:
+   1. Select **Import from DeviceHub** > **Import All**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/MuWTK4Ox907XAsPVdDJU2_image.png" size="80" width="1358" height="640" position="flex-start" indent="3" showCaption="false"></Image>
+
+<Paragraph listStyleType="decimal" listStart="2" indent="2">
+  In the Confirmation dialog, click **Yes**.
+</Paragraph>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/mffVXKRjaVAsthj6zsEMf_image.png" size="50" width="657" height="367" position="flex-start" indent="3" showCaption="false"></Image>
+
+3. To import specific topics:
+   1. Select **Import from DeviceHub** > **Select&#x20;****Import Options**.
+   2. In **Manage Data Import**, expand the **DeviceHub** or **Analytics** section.
+   3. To add DeviceHub topics, select a device and then choose topics to import and click **Next**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/fyRnFa3DT7GSdWjCGQ1Zr_image.png" size="80" width="921" height="627" position="flex-start" indent="3" showCaption="false"></Image>
+
+<Paragraph listStyleType="decimal" listStart="4" indent="2">
+  To add Analytics topics, select a device and then choose topics to import and click **Next**.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="5" indent="2">
+  Click **Import**.
+</Paragraph>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/CplrEnEPxhA76V_N157nq_image.png" size="80" width="920" height="432" position="flex-start" indent="3" showCaption="false"></Image>
+
+# Restart OPC UA server
+
+After importing nodes, you must restart the OPC UA server. See [Manage the OPC UA Server](<././Management/Manage the OPC UA Server.md>) to learn more.&#x20;

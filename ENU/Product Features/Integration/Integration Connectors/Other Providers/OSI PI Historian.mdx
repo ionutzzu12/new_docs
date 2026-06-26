@@ -1,0 +1,86 @@
+---
+title: OSI PI Historian
+slug: eyDZ-osi-pi-historian
+docTags: 
+createdAt: Thu May 28 2026 23:47:07 GMT+0300 (Eastern European Summer Time)
+---
+
+## Overview
+
+OSI PI Historian Integration enables Edge System to connect with PI Historian Web API.
+
+## Supported Communication
+
+- Outbound - Publish data from Edge to PI
+- Inbound - Subscribe to data from PI to Edge
+
+## Configurations
+
+| **Variable**             | **Detail**                                                                                                                                                                                            | **Required** |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name                     | Connector Name                                                                                                                                                                                        | Yes          |
+| Description              | Enter a description for the connection                                                                                                                                                                | No           |
+| Endpoint                 | Address of OSI PI Historian Web API (configured with OMF plugin)                                                                                                                                      | Yes          |
+| Username                 | User name                                                                                                                                                                                             | Yes          |
+| Password                 | User password                                                                                                                                                                                         | Yes          |
+| CA Certificate           | SSL CA Certificate                                                                                                                                                                                    | No           |
+| Compression              | Enable gzip compression for OMF requests                                                                                                                                                              | Yes          |
+| Request Timeout          | HTTP Request Timeout in milliseconds                                                                                                                                                                  | Yes          |
+| Data Source Type         | Text to be used as root name for datasource. If empty, PI points will show "PIWebAPI\_OMF"                                                                                                            | No           |
+| Data Source Version      | Text to be used datasource suffix. Requires non-empty DataSourceType                                                                                                                                  | No           |
+| Point Name Format        | Text with format-directives to generate PI point names                                                                                                                                                | Yes          |
+| Point DataType Format    | Text with format-directives to generate AF type names                                                                                                                                                 | Yes          |
+| Point Description Format | Text with format-directives to generate PI point descriptions                                                                                                                                         | No           |
+| Data Timezone            | UTC Timezone information to append to Outbound data timestamps                                                                                                                                        | No           |
+| Check Tags               | Check if point name exists before attempting to create new                                                                                                                                            | No           |
+| Publish Count Threshold  | Publish count threshold (1 disables batching)                                                                                                                                                         | Yes          |
+| Publish Delay Threshold  | Publish delay threshold in milliseconds (0 disables batching)                                                                                                                                         | Yes          |
+| PIServer                 | Name of PI Data Archive server. Defaults to first found                                                                                                                                               | No           |
+| Subscribe Interval       | Polling interval in seconds                                                                                                                                                                           | Yes          |
+| Max Subscription Events  | Maximum number of events processed per subscription poll (prioritised by most recent)                                                                                                                 | Yes          |
+| Insecure Skip Verify     | InsecureSkipVerify controls whether a client verifies the server's certificate chain and host name. Select to disable verification                                                                    | No           |
+| Parallel Publish Count   | The number of simultaneously publishing messages                                                                                                                                                      | Yes          |
+| Persistent Storage       | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored. | No           |
+| Queue Mode               | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.  | No           |
+
+## Format Directives
+
+<hint type="warning">
+  **Warning:&#x20;**&#x45;nsure to handle format-directives with care when making changes.
+</hint>
+
+- Any change to metadata format settings is only applicable to proceeding data. Once ingested to PI, metadata of existing PI points will not be modified.
+- Point names will change if inner variable value changes (e.g. Tag Description). This may result in new PI points being created.
+- The following characters will be removed from any format string: `*?;{}[]\'"|`
+
+| **Symbol** | **Definition**                                                                                                                                                         | **Context**                                 |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| $          | Special character indicate a variable character follows. A variable represents some dynamic string value. Supported variables defined as follows:                      | -                                           |
+| $S         | Data Source Type                                                                                                                                                       | from Connector Settings                     |
+| $V         | Data Source Version                                                                                                                                                    | from Connector Settings                     |
+| $D         | Device Name                                                                                                                                                            | from DeviceHub Tag                          |
+| $N         | Tag Name                                                                                                                                                               | from DeviceHub Tag                          |
+| $T         | Tag Type                                                                                                                                                               | from DeviceHub Tag (shown as OPCUA/PI type) |
+| $R         | Raw Tag Type                                                                                                                                                           | from DeviceHub Tag                          |
+| $P         | Tag Description                                                                                                                                                        | from DeviceHub Tag                          |
+| $H         | Hostname                                                                                                                                                               | from OS                                     |
+|            |                                                                                                                                                                        |                                             |
+| %          | Special character indicating a function character follows. A function represents some action to be taken on the next variable. Supported functions defined as follows: | -                                           |
+| %L         | Lowercase()                                                                                                                                                            | apply to next variable                      |
+| %U         | Uppercase()                                                                                                                                                            | apply to next variable                      |
+
+<hint type="info">
+  **Format Directive Notes:**
+
+  - To use a special character in its literal form, enter symbol twice: `$$ -> $`, `%% -> %`
+    **Example:** `$$$D.%%$N" -> "$deviceABC.%tagXYZ`
+  - A special character must be followed by either itself, or one of the supported characters in the table above. Any other condition will result in an error
+    **Example 1:** `$D.$N$%` -> error
+    **Example 2:** `$D.$N$` -> error
+    **Example 3:** `$D.$N$#` -> error
+  - Functions only act on the next variable found in the string
+</hint>
+
+# Next Steps:
+
+- [OSI PI Historian Integration Guide](<./././././How-To Guides/Integration Guides/OSI PI Historian Integration Guide.md>)&#x20;

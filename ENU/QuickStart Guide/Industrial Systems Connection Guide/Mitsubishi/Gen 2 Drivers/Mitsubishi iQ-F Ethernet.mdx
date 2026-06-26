@@ -1,0 +1,155 @@
+---
+title: Mitsubishi iQ-F Ethernet
+slug: quickstart-guide/industrial-systems-connection-guide/mitsubishi/mitsubishi-iq-f-ethernet
+description: Review the following information for setting up and configuring the Mitsubishi iQ-F Ethernet driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi iQ-F Ethernet driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                                                                                                                                      |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                                                                                                                                                              |
+| **Validated devices/series** | ﻿[MELSEC iQ-F&#xA;](https://www.mitsubishielectric.com/fa/products/cnt/plcf/items/index.html)[MELSEC iQ-R](https://www.mitsubishielectric.com/fa/products/cnt/plcr/items/index.html)                                  |
+| **Replaces Gen 1 driver(s)** | [Mitsubishi FX5U-Ethernet ASCII (Gen1)](<././Gen 1 Drivers/Mitsubishi FX5U-Ethernet ASCII _Gen1_3_.md>)&#xA;[Mitsubishi FX5U-Ethernet-Binary (Gen1)](<././Gen 1 Drivers/Mitsubishi FX5U-Ethernet-Binary _Gen1_3_.md>) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Note**: Only one connection is allowed per port defined in the PLC. See the steps below to view and edit the open ports on the PLC.
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+1. Open the PLC project in GXWorks 3.
+2. From the Navigation panel, click **Ethernet Port&#xA0;**&#x74;o view the communication parameters. Note down the **IP Address**, **Subnet Mask**, **Default Gateway**, and **Communication Data Code**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/z_GMbNgF_qKC9kS9laMs2_mitsubishi-fx5u-ethernet-binary-communication.png" size="80" width="1048" height="510" position="center" caption="Ethernet Port" indent="2" showCaption="true"></Image>
+
+3. Some CPUs have an **Enable/Disable Online Change&#x20;**&#x73;etting. To allow the driver to write tag values to the PLC, this setting needs to be set to **Enable All (SLMP)**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/s2tgMv9KxlDyAahTP3jr5_image.png" size="80" width="1099" height="549" position="center" indent="2" showCaption="false"></Image>
+
+4. Double-click **External Device Configuration**.
+5. View the available connections. If necessary, add more TCP connections to the SLMP Connection Module.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/PTKshBgq4vrjxR431qWrL_screenshot-2024-06-18-101802.png" size="80" width="950" height="559" position="center" indent="2" showCaption="false"></Image>
+
+<hint type="info">
+  **Note:** If you modify any CPU or module parameters, you must power cycle the PLC after downloading the changes.
+</hint>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter                                      | Value                                    |
+| ---------------------------------------------- | ---------------------------------------- |
+| **Type**                                       | Mitsubishi                               |
+| **Driver**                                     | Mitsubishi iQ-F Ethernet                 |
+| **Network Address**                            | The device address you defined in Step 1 |
+| **Network Port**&#xA;PLC Port                  | 5002                                     |
+| **Network ID**&#xA;Network No. of PLC          | 0                                        |
+| **Station ID**&#xA;Station No. of PLC          | 1&#xA;                                   |
+| **Encoding**&#xA;Encoding Format               | Select Ascii or Binary&#xA;              |
+| **Read Timeout**                               | 1000 (milliseconds)                      |
+| **Retry Count**&#xA;The number of read retries | 0&#xA;                                   |
+| **Keep Alive**&#xA;TCP Keep-Alive              | 60 (seconds)&#xA;                        |
+
+# Step 3: Configure the List of Registers
+
+When you [Add Tags]() to the connected device, refer to the following register table and tag parameters.
+
+Refer to the following additional resources:
+
+- [Device and Tag Metadata Use Case]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name**   | **Value Type**                      | **Address Format** | **Min Address** | **Max Address** | **Description**                    |
+| ---------- | ----------------------------------- | ------------------ | --------------- | --------------- | ---------------------------------- |
+| LTC        | bit                                 | DDDD               | 0               | 1023            | Long Timer Coil                    |
+| LTS        | bit                                 | DDDD               | 0               | 1023            | Long Timer Contact                 |
+| LTN        | dword, dint, string                 | DDDD               | 0               | 1023            | Long Timer Current Value           |
+| LSC        | bit                                 | DDDD               | 0               | 1023            | Long Retentive Timer Coil          |
+| LSS        | bit                                 | DDDD               | 0               | 1023            | Long Retentive Timer Contact       |
+| LSN        | dword, dint, string                 | DDDD               | 0               | 1023            | Long Retentive Timer Current Value |
+| LCC        | bit                                 | DDDD               | 0               | 1023            | Long Counter Coil                  |
+| LCS        | bit                                 | DDDD               | 0               | 1023            | Long Counter Contact               |
+| LCN        | dword, dint                         | DDDD               | 0               | 1023            | Long Counter Current Value         |
+| LZ         | dword, dint&#xD;                    | D                  | 0               | 1               | Long Index Register                |
+| SM         | bit                                 | DDDD               | 0               | 2047            | Special relay                      |
+| X          | bit                                 | DDDDD              | 0               | 16383           | Input Relay                        |
+| Y          | bit                                 | DDDDD              | 0               | 16383           | Output Relay                       |
+| M          | bit                                 | DDDDD              | 0               | 61439           | Input Relay                        |
+| L          | bit                                 | DDDDD              | 0               | 32767           | Latch Relay                        |
+| F          | bit                                 | DDDDD              | 0               | 32767           | Annunciator                        |
+| V          | bit                                 | DDDDD              | 0               | 32767           | Edge Relay                         |
+| B          | bit                                 | DDDDD              | 0               | 61439           | Link Relay                         |
+| TS         | bit                                 | DDDDD              | 0               | 25471           | Timer Contact                      |
+| TC         | bit                                 | DDDDD              | 0               | 25471           | Timer Coil                         |
+| SS         | bit                                 | DDDDD              | 0               | 25471           | Retentive Timer Contact            |
+| SC         | bit                                 | DDDDD              | 0               | 25471           | Retentive Timer Coil               |
+| CS         | bit                                 | DDDDD              | 0               | 25471           | Counter Contact                    |
+| CC         | bit                                 | DDDDD              | 0               | 25471           | Counter Coil                       |
+| SB         | bit                                 | DDDDD              | 0               | 32767           | Special Link Relay                 |
+| S          | bit                                 | DDDDD              | 0               | 16383           | Step Relay                         |
+| SD         | word, dword, int, dint, real, dreal | DDDD               | 0               | 2047            | Special Register                   |
+| SD\_string | string                              | DDDD               | 0               | 2047            | Special Register                   |
+| SD\_bit    | bit                                 | DDDDdd             | 0               | 204715          | Special Register                   |
+| D          | word, dword, int, dint, real, dreal | DDDDDDD            | 0               | 4184063         | Data Register                      |
+| D\_string  | string                              | DDDDDDD            | 0               | 4184063         | Data Register                      |
+| D\_bit     | bit                                 | DDDDDDDdd          | 0               | 418406315       | Data Register                      |
+| W          | word, dword, int, dint, real, dreal | DDDDDDD            | 0               | 4184063         | Link Register                      |
+| W\_string  | string                              | DDDDDDD            | 0               | 4184063         | Link Register                      |
+| W\_bit     | bit                                 | DDDDDDDdd          | 0               | 418406315       | Link Register                      |
+| TN         | word, dword, int, dint, string      | DDDDD              | 0               | 25471           | Timer Current Value                |
+| SN         | word, dword, int, dint, string      | DDDDD              | 0               | 25471           | Retentive Timer Current Value      |
+| CN         | word, dword, int, dint, real, dreal | DDDDD              | 0               | 25471           | Counter Current Value              |
+| CN\_string | string                              | DDDDD              | 0               | 25471           | Counter Current Value              |
+| SW         | word, dword, int, dint, real, dreal | DDDD               | 0               | 2047            | Special Link Register              |
+| SW\_string | string                              | DDDD               | 0               | 2047            | Special Link Register&#xA;         |
+| SW\_bit    | bit                                 | DDDDdd             | 0               | 204715          | Special Link Register              |
+| Z          | word, dword, int, dint, real, dreal | DD                 | 0               | 20              | Index Register                     |
+| Z\_string  | string                              | DD                 | 0               | 20              | Index Register                     |
+| R          | word, dword, int, dint, real, dreal | DDDDD              | 0               | 32767           | File Register                      |
+| R\_string  | string                              | DDDDD              | 0               | 32767           | File Register                      |
+| R\_bit     | bit                                 | DDDDDdd            | 0               | 3276715         | File Register                      |
+| ZR         | word, dword, int, dint, real, dreal | DDDDDDD            | 0               | 4184063         | Serial Num File Register           |
+| ZR\_string | string                              | DDDDDDD            | 0               | 4184063         | Serial Num File Register           |
+| ZR\_bit    | bit                                 | DDDDDDDdd          | 0               | 418406315       | Serial Num File Register           |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values.&#x20;
+- **Length**: Available when you select the `string` value type. Enter the number of characters for tag values.&#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

@@ -1,0 +1,59 @@
+---
+title: Add a Node
+slug: product-features/opc-ua-server/hierarchy/add-a-node
+description: You can manually add nodes to the OPC UA hierarchy.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+You can manually add nodes to the OPC UA hierarchy by navigating to **OPC&#x20;**>**&#x20;Hierarchy**. &#x20;
+
+# Add a Node
+
+**To add a node:**
+
+1. Navigate to **OPC&#x20;**> **Hierarchy**.&#x20;
+2. From *Hierarchy* pane, click the **Add node&#x20;**&#x69;con. If a parent node already exists, you can select it before clicking **Add node**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/D50DGZKYiW1sQYjd4jcag_image.png" size="80" width="1717" height="892" position="flex-start" darkWidth="1717" darkHeight="892" showCaption="false" indent="2"></Image>
+
+3. In the **Add node** dialog, select one of the following options:
+   - Folder
+   - Device
+   - Tag
+4. Refer to the respective type depending on your selection and enter the details for the node.&#x20;
+
+## Folder
+
+Enter a descriptive name and click **Add**.&#x20;
+
+## Device
+
+Enter a descriptive name and click **Add**.&#x20;
+
+## Tag
+
+<hint type="info">
+  **Notes**:&#x20;
+
+  - Topics you enter can come from sources other than DeviceHub devices.&#x20;
+  - The payload structure for tags must include at least the `value` and `success` strings of JSON objects. For example:
+    - `{`
+      `"value": 11.11,`
+      `"success": true`
+      `}`
+</hint>
+
+- **Node name**: Enter a descriptive name.&#x20;
+- **Topic**: Enter a topic name.&#x20;
+- **Data Type**: Select a data type. Refer to [Data Type Mapping](<Data Type Mapping.mdx>) to learn more.&#x20;
+
+When done configuring the node, click **Add**.&#x20;
+
+After clicking *Add*, click the **Save&#x20;**&#x69;con.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/TrvN5hVsKrOfhBB48SvGo_image.png "Save icon for nodes")
+
+# Restart OPC UA server
+
+After saving the new node, you must restart the OPC UA server. See [Manage the OPC UA Server]() to learn more.&#x20;

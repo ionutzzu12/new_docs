@@ -1,0 +1,219 @@
+---
+title: Set Up the DeviceHub Agent
+slug: how-to-guides/set-up-devicehub-agent
+description: Learn how to set up the DeviceHub Agent.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+The DeviceHub Agent acts as a proxy between an OPC Data Access (DA), also known as an OPC Classic server, and the Litmus Edge system. It allows you to search for available OPC DA Servers and provides a list of tags from the selected server. Multiple servers can be selected.
+
+<hint type="warning">
+  **Note:** DeviceHub Agent no longer supported.
+</hint>
+
+Review the following use case for connecting and configuring the DeviceHub Agent in Litmus Edge.
+
+# Important
+
+- To install DeviceHub Agent, your machine must support the following software versions:
+  - Windows 10.0.14393
+  - Windows SDK version 10.0.18362.0
+  - Visual Studio 16 2019
+- The DeviceHub Agent must be run on the same host as the OPC DA Server, and DCOM must be configured. For more information, see [Configure DCOM for OPC DA Connections](<././Resources/Configure DCOM for OPC DA Connections.md>).
+- The DeviceHub Agent supports reading up to 5000 tags from the OPC DA server. It does not support parallel write.
+- The DeviceHub Agent does not support OPC Classic Historical Data Access (HDA) or OPC Classic Alarms and Events (AE).
+- It is possible to configure multiple connections to several DeviceHub Agent instances inside a Litmus Edge or multiple Litmus Edge instances using only one DeviceHub Agent application. You can create each connection using the **Add (+)&#x20;**&#x69;con.&#x20;
+- The DeviceHub Agent includes options to export tags to a CSV file. The CSV file can then be used to import the tags to Litmus Edge. The status of the tags are checked periodically. Sending tags to DeviceHub is the preferred method.
+
+# Before You Begin
+
+Download the DeviceHub Agent EXE file from Litmus Edge by navigating to **System&#x20;**> **Support&#x20;**&#x69;n the *File Downloads* section. &#x20;
+
+***
+
+Setting up the DeviceHub Agent includes the following tasks:
+
+- Step 1: Add DeviceHub Agent to DeviceHub
+- Step 2: Create API Token
+- Step 3: Install Matrikon OPC Explorer and Simulation and Testing Tool
+- Step 4: Set up DeviceHub Agent
+- Step 5: Connect the OPC DA Explorer
+- Step 6: Send Tags to DeviceHub
+- Step 7: View Tag Data
+
+# Step 1: Add DeviceHub Agent to DeviceHub
+
+**To add the DeviceHub Agent to DeviceHub:**
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**> **Devices**.&#x20;
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device&#x20;*&#x64;ialog box appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/atJL37pPuLGI2bM_w2ibz_adddevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" indent="2" showCaption="true"></Image>
+
+3. In the **Device Type** drop-down list, select **OPCUA**.&#x20;
+4. In the **Driver Name** drop-down list, select **DeviceHub Agent**.&#x20;
+5. Enter a name for the device. The device name you configure is used for the *Device name* parameter in the DeviceHub Agent configuration.
+6. (Optional) Select the **Enable alias topics&#xA0;**&#x63;heck box. This allows you to name the Topic ID when creating a Tag.
+   - If you enable alias topics during device creation or modification, DeviceHub stops publishing to raw topics and publishes only to alias topics.
+   - Litmus Edge substitutes "." (period) in aliases with "/" (forward slash).
+7. Click **Add Device**.&#x20;
+   The device appears in the *Devices&#x20;*&#x70;ane.&#x20;
+
+# Step 2: Create API Token
+
+Follow the steps to [Create API Credentials](<././Product Features/System/Access Control/Tokens/Create API Credentials.md>). Copy the token and store it for later use.&#x20;
+
+# Step 3: Install Matrikon OPC Explorer and Simulation and Testing Tool
+
+<hint type="info">
+  **Note**: To install these files, you may have to enable the .NET Framework 3.5. See [Microsoft documentation](https://learn.microsoft.com/en-us/dotnet/framework/install/dotnet-35-windows) on this topic to learn more.&#x20;
+</hint>
+
+In this use case, Matrikon Server is used. You can also use Kepware Server or Prosys Server.
+
+**To download Matrikon OPC Explorer and Simulation and Testing Tool:&#x20;**
+
+1. Visit the [Matrikon ](https://matrikonopc.com/)website.&#x20;
+2. From the Matrikon search bar, enter **OPC Simulation Server Download**, and click **Search**.
+3. Click the **OPC Simulation Server Download&#xA0;**&#x6C;ink.
+4. From the download page, enter your first name, last name, and email address, and then click **Download Now**.
+5. From the registration form, enter your account information, and then click **Download Now**.
+   An activation email is sent from Matrikon.
+6. Click the link provided in the email.
+   Use your email address as your user name, and the password you provided in the form as your password for the [http://www.matrikonopc.com/portal](http://www.matrikonopc.com/portal) URL.
+7. Click **Download Now**.
+   The MatrikonOPCSimulation.exe file downloads to your hard drive.
+8. Install the MatrikonOPCSimulation file.
+9. From the Matrikon search bar, enter **MatrikonOPC Explorer Download**, and click **Search**.
+10. Click the **MatrikonOPC Explorer Download&#xA0;**&#x6C;ink.
+11. From the download page, click **Download Now**.
+12. Install the MatrikonOPCExplorer filie.
+
+The server configuration is by default. You can add an alias configuration. Explorer is used to connect to the OPC DA server and browse the tags.
+
+# Step 4: Set Up DeviceHub Agent
+
+You can now set up the DeviceHub Agent by connecting to the OPCDA server and DeviceHub in Litmus Edge.&#x20;
+
+**To set up the DeviceHub Agent:&#x20;**
+
+1. Open the DeviceHub Agent EXE file you downloaded.
+2. From the **Main&#x20;**&#x74;ab, click the **Add&#x20;**&#x62;ox.&#x20;
+   The *Add connection* dialog box appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Co0ElC-ULon1cn-EleGmI_add-connection-devicehub-agent-dialog-box-3000.png" size="80" width="528" height="452" caption="Add connection dialog box" position="center" indent="2" showCaption="true"></Image>
+
+3. Click the **Detect&#x20;**&#x69;con.
+   The servers are detected and appear in the OPCDA server drop-down list. The OPCDA host is **localhost&#xA0;**&#x62;ecause the OPC DA server is installed on the same machine as Litmus Edge.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/6M_Gmndrp9LGVFk8zb_vd_detect-icon.png" size="80" width="530" height="484" caption="Detect icon" position="center" indent="2" showCaption="true"></Image>
+
+4. Select an option from the **OPCDA server&#xA0;**&#x64;rop-down list.
+5. Configure the *Server&#x20;*&#x73;ettings section.&#x20;
+   - **Host**: Enter the IP address for your Litmus Edge instance.&#x20;
+   - **Port**: The port value should be the same one configured for the DeviceHub Agent device in LItmus Edge.&#x20;
+   - **Device name**: Enter the device name you configured for the DeviceHub Agent device in Litmus Edge.&#x20;
+   - **API key**: Paste the API key created in Step 2.&#x20;
+6. Click **OK**.
+   The OPC DA driver is added in the DeviceHub Agent in another tab, and the tags for the selected server are viewable in the tags box.
+7. Click the **Connect&#x20;**&#x69;con.&#x20;
+   The DeviceHub Agent connects to DeviceHub in Litmus Edge.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/cNwe0soYlJwpdM1si-1Ej_connect-icon.png" size="80" width="753" height="680" position="center" indent="2" showCaption="false"></Image>
+
+8. Return to the Litmus Edge instance and navigate to **DeviceHub**.&#x20;
+9. Confirm that the DeviceHub Agent tile shows a *Connected&#x20;*&#x73;tatus.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/GjP1Yy6TK3mAATexfDEJj_connected-status.png" size="60" width="419" height="341" caption="The DeviceHub device displays a Connected status" position="center" indent="2" showCaption="true"></Image>
+
+If you need to remove a connection in the DeviceHub Agent application, select the tab for the connection you want to remove and go to **Connections&#x20;**> **Remove connection**.&#x20;
+
+# Step 5: Connect the OPC DA Explorer
+
+You will need to connect the OPC Explorer to the Simulation and Testing Tool.&#x20;
+
+**To connect the OPC DA Explorer:**
+
+1. Open the MatrikonOPC Explorer.
+2. Under the **Localhost&#xA0;**&#x65;ntry in the hierarchy, click the **Matrikon.OPC.Simulation.1&#xA0;**&#x65;ntry.
+   If you get the error message "Matrikon OPC explorer machine is not browsed", go to **View&#x20;**> **Options&#x20;**> **General&#x20;**&#x61;nd select the **Registry&#x20;**&#x63;heck box in the *OPC Server Browsing* section.&#x20;
+3. Click the **Connect&#xA0;**&#x62;utton.
+   Connection information appears in the *Server Status* section.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/sNDapxH3_XYG8RFVRYCtY_image.png" size="80" width="1093" height="767" caption="Server Status section" position="center" showCaption="true"></Image>
+
+# Step 6: Send Tags to DeviceHub
+
+You can send tags from the DeviceHub Agent applicaiton directly to DeviceHub in Litmus Edge. This is the recommended method to add tags to the DeviceHub device.&#x20;
+
+**To send tags to DeviceHub:**
+
+1. Make sure the DeviceHub agent is disconnected from DeviceHub.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/1SKC7qqTGf4gQCBrLbljx_disconnect.png" size="70" width="840" height="833" position="center" indent="2" showCaption="false"></Image>
+
+2. Select the check box for tags you want to send. Alternatively, you can use the **Select all tag**s and **Unselect all tags** icons.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/BvjyRNpPVWa2RbeCKH_4o_select-tags-to-send-to-devicehub.png" size="70" width="840" height="833" position="center" indent="2" showCaption="false"></Image>
+
+3. Click the **Connect&#x20;**&#x69;con to connect to DeviceHub in Litmus Edge.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/hMA5WPOwK47d1B6Y5HU9g_connect-icon.png" size="70" width="753" height="680" caption="The Connect icon" position="center" indent="2" showCaption="true"></Image>
+
+4. Click the **CSV&#x20;**&#x69;con and select **Send Tags**.&#x20;
+   A message displays that the tags were successfully sent.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/75CC5ufi19bH7deGdOomz_send-tags-icon.png" size="70" width="706" height="800" caption="The Send tags option" position="center" indent="2" showCaption="true"></Image>
+
+You can also add tags to the DeviceHub device in the following ways:
+
+- Use [Browse Tags](#).&#x20;
+- Use the Export CSV option in the DeviceHub Agent application. Then, follow [Step 3: Upload Populated CSV File of Tags](#).&#x20;
+
+# Step 7: View Tag Data
+
+You can use the [Flows Manager](<././Product Features/Flows Manager.md>) or [Analytics](<././Product Features/Analytics.md>) in Litmus Edge to view the tag data.&#x20;
+
+**To view tag data in the Flows Manager:**
+
+1. In Litmus Edge, navigate to **DeviceHub&#x20;**>**&#x20;Tags**.
+2. Select the DeviceHub Agent device.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/gnaXnov9Z6B7nRkVJQV-Y_select-device.png" size="80" width="1588" height="646" caption="Select the DeviceHub Agent device" position="center" indent="2" showCaption="true"></Image>
+
+3. Click the **Copy&#x20;**&#x69;con for the tag you want to view.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZxDutnL4DDb_UXInmTmUO_copy-icon-for-tag.png" size="80" width="1589" height="779" position="center" indent="2" showCaption="false"></Image>
+
+4. Navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow. See [Create a Flow](<././Product Features/Flows Manager/Create a Flow.md>) to learn more.&#x20;
+5. Drag the **DataHub Subscribe** and **Debug&#xA0;**&#x6E;odes to the canvas and wire them together.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/8FImKkXONq4uHiXRX165S_nodes.png" size="80" width="835" height="410" caption="The DataHub Subscribe and Debug nodes" position="center" indent="2" showCaption="true"></Image>
+
+6. Double-click the **DataHub Subscribe&#xA0;**&#x6E;ode.&#x20;
+   - In the **Topic&#x20;**&#x66;ield, paste the tag ID you copied earlier.&#x20;
+   - If needed, configure the Datahub Subscribe connection. See the "Step 3: Configure Connector Nodes" section in [Create a Flow](<././Product Features/Flows Manager/Create a Flow.md>) to learn more.
+   - Click **Done**, and then **Deploy**.&#x20;
+7. Click the **Debug&#x20;**&#x69;con.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/UKUluHffouXWWGwIByZcC_debug-icon.png" size="80" width="1589" height="532" caption="The Debug icon" position="center" indent="2" showCaption="true"></Image>
+
+8. Drag the message window up and review the messages. A `"success": true` message confirms the connections is successful.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/q_GGrcpUi02K1Ba5tQe9B_debug-messages.png" size="80" width="1589" height="863" position="center" indent="2" showCaption="false"></Image>
+
+**To view tag data in Analytics:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. Click **Add processor&#x20;**&#x61;nd select **DataHub Subscribe**.&#x20;
+3. In the **Topic&#x20;**&#x66;ield, paste the tag ID you copied earlier.&#x20;
+4. Click **Save**.&#x20;
+5. Click the **View&#x20;**&#x69;con.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/LMiTmKGHzRxv1OclXAJfC_view-analytics-data.png" size="80" width="658" height="458" caption="The View icon" position="center" indent="2" showCaption="true"></Image>
+
+6. Review the messages. A `"success": true` message confirms the connections is successful.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4EsoVZ6AouSTe0PrX2oOv_review-analytics-data.png" size="80" width="1589" height="863" caption="Instance Messages" position="center" indent="2" showCaption="true"></Image>

@@ -1,0 +1,123 @@
+---
+title: Sparkplug B Client
+slug: quickstart-guide/industrial-systems-connection-guide/mqtt/sparkplug-b-client
+description: Review the following information for setting up and configuring the Sparkplug B Client driver.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+You can set up a Sparkplug B Client through DeviceHub.&#x20;
+
+<hint type="info">
+  **Note**: You can't connect the MQTT Client to the DeviceHub [Industrial OT Server](<Industrial OT Server.mdx>) if they are using the same Litmus Edge instance. This includes connecting through the Flows Manager or an Integration connector. If they are using different Litmus Edge instances, they can connect. &#x20;
+</hint>
+
+# Step 1: Add Sparkplug B Client to DeviceHub
+
+**To add the Sparkplug B Client to Device Hub:**
+
+1. In Litmus Edge, navigate to **DeviceHub**.&#x20;
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device* dialog box appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4WzJkTieEFwi1rirnct9O_adddevice.png" size="80" width="1046" height="528" caption="Connect a device icon" position="center" indent="2" showCaption="true"></Image>
+
+3. For *Driver Type*, select **MQTT**. Then, for *Driver Name*, select **Sparkplug B&#x20;****Client**.&#x20;
+4. Enter a name for the client. Optionally, add a description and Client ID.&#x20;
+5. For **Broker Address**, enter the broker IP address or host name.&#x20;
+6. For **Port**, enter the port of the broker.&#x20;
+7. For **Namespace**, enter the Sparkplug topic namespace.
+
+Configure the client with the following options.&#x20;
+
+## Client Authentication
+
+Select one of the following client authentication methods:
+
+- Anonymous
+- Certificate (only for SSL mode)
+- Username/Password
+- Username/Password & Certificate
+
+Update the default username and password values as needed.&#x20;
+
+## TLS Support
+
+If you enable TLS, upload or paste the certificate in the **Certificate Authority** field.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Q5m6AgZEjLDaSe0gxKDfN_image.png" size="80" width="1146" height="739" position="center" caption="Certificate Authority field" showCaption="true"></Image>
+
+## Trigger Rebirth
+
+If you enable trigger rebirth, our driver will always be up to date with details on all nodes and devices.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/8XWbA0d9cOIFCmEPf6VQZ_image.png" size="80" width="1127" height="125" position="center" caption="Trigger Rebirth field" showCaption="true"></Image>
+
+## Advanced
+
+If you show these options, configure the following as needed.&#x20;
+
+- **Protocol Version**: Select the MQTT protocol version: v3 (3.1), v4 (3.1.1), v5 (5.0).&#x20;
+- **Keep Alive Period**: Configure the keep-alive period in seconds.&#x20;
+- **Write Timeout**: Configure the write timeout in seconds.&#x20;
+- **Connect Timeout**: Configure the connect timeout in seconds.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/qL-ClcVSONdRZR5kzvmf9_image.png" size="80" width="1128" height="474" position="center" showCaption="false"></Image>
+
+## Additional Options
+
+See the [Define Optional Parameters](<././././Product Features/DeviceHub/Devices/Connect a Device.md>) section to learn more about additional options.&#x20;
+
+When done configuring the device, click **Add Device**.&#x20;
+
+# Step 2: Add Tags
+
+To add tags from Sparkplug B MQTT broker to Litmus Edge, use the [Browse Tags](#)  functionality.
+
+## Browse Parameters
+
+- **Trigger Rebirth:** If you enable the rebirth trigger, it will issue a 'Node Rebirth' NCMD before browsing to obtain all node and device metrics, including aliases and details.
+- **Display Birth Death:** If you enable display birth death, it will display birth/death topics for each device and node.
+- **Subscribe Wildcard:** If you enable subscribe wildcard, you can subscribe to all NDATA/DDATA messages.
+- **Data window:** Enter the duration to wait for data messages after subscribing to wildcard.
+- **JSON Types:** If you enable JSON type it will display all result datatypes as metric objects instead of `metric.value` specific types.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/EzHNXO1Qs8CXEnr4yBG3D_image.png" size="80" width="1535" height="755" position="center" caption="Browse Parameters field" showCaption="true"></Image>
+
+When you [Add Tags](#) to the connected device without using the  browse functionality, refer to the following tag parameters.
+
+## Tag Parameters
+
+- **Name**: Enter the case-sensitive topic name in the server without any wildcard symbols. The name must be unique for the driver. &#x20;
+- **Value Type**: Select string.&#x20;
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Qos**: Select a Quality of Service.&#x20;
+  - 0 - At most once (fire and forget)
+  - 1 - At least once (acknowledged delivery)
+  - 2 - Exactly once (assured delivery)
+- **Retain**: Select a message policy.&#x20;
+  - Don't Retain
+  - Retain last Publish
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>
+
+# Step 3: Verify Data in MQTT Server
+
+Once the client is connected in Litmus Edge with tags, you can connect it to an MQTT server and view the data in Litmus Edge.
+
+<hint type="info">
+  **Note**: You can't connect the MQTT Client to the DeviceHub [Industrial OT Server](<Industrial OT Server.mdx>), if they are using the same Litmus Edge instance. If they are using different Litmus Edge instances, they can connect. &#x20;
+</hint>

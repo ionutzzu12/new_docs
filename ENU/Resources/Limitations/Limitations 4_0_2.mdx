@@ -1,0 +1,18 @@
+---
+title: Limitations 4.0.2
+slug: 5vGi74QQgXgJNdsZfGZ5m
+docTags: 
+createdAt: Thu May 28 2026 23:47:01 GMT+0300 (Eastern European Summer Time)
+---
+
+The following limitations have been identified. When they are resolved, they will be reported in the latest [Product Updates](<./././Product Updates.md>) under *Resolved Issues*.
+
+| Description                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Analytics:**&#xA;\* Analytics wire connection types default to events for processors that support both types, when uploading a template or after an upgrade. |
+| **Integrations:**&#xA;\* Updating the **Bulk Insert Count** from `0` to any other value causes connectors to enter a failed state.                             |
+
+- A `bulk operation limit of 1000 exceeded` error message displays when performing a bulk edit on less than 100 subscriptions.                                                                                                        |
+  \| **System:**
+  \* In some case, a `Failed to check firmware upgrade status. Max retry attempts exceeded error` displays in Litmus Edge Manager after upgrading a Litmus Edge device, even though the device is upgraded successfully.
+- Litmus Edge may closed unexpectedly if you delete all analytics groups in the system and then attempt to create new processors. |

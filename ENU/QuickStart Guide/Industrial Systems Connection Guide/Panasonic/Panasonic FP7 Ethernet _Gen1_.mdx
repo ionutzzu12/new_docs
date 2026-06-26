@@ -1,0 +1,140 @@
+---
+title: Panasonic FP7 Ethernet (Gen1)
+slug: quickstart-guide/industrial-systems-connection-guide/panasonic/panasonic-fp7-ethernet-gen1
+description: Review the following information for setting up and configuring the Panasonic FP7 Ethernet (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Panasonic FP7 Ethernet (Gen1)&#x20;driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                                                                                    |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                                                                                                            |
+| **Validated devices/series** | [FP7](https://na.industrial.panasonic.com/products/industrial-automation/plc-hmi-communication/lineup/programmable-logic-controllers-interface-terminal/series/227) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it as needed.&#x20;
+   **Device**: Panasonic FP7 CPS31ES
+   **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/pjbJN6l25JZOYCwAflUpZ_panasonic-fp7-ethernet.png" size="50" width="284" height="478" caption="Reference image of de" position="center" indent="2" showCaption="true"></Image>
+
+2. Connect the device to a PC with a USB cable.
+3. Launch FPWIN GR7S v2.24, and click **Online > Communication**.
+4. Set up communication parameters.
+5. Click the **Online&#x20;**&#x69;con and then go online.
+6. Click **Options > FP7 Configuration > Build-in ET-LAN**.
+7. Set up the Ethernet communication parameters and then click **OK**.
+8. Download the setting into the PLC.
+9. Set up the communication settings.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                        |
+| ------------------- | -------------------------------------------- |
+| **Type**            | Panasonic                                    |
+| **Driver**          | Panasonic FP7 Ethernet (Gen1)                |
+| **Network Address** | The device address you defined during Step 1 |
+| **Port**            | 32769                                        |
+
+# Step 3: Configure the List of Registers
+
+When you [Add Tags]() to the connected device, refer to the following register table and tag parameters.
+
+Refer to the following additional resources:
+
+- [Device and Tag Metadata Use Case]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name**  | **Value Types** | **Address Format** | **Min Address** | **Max Address** | **Description**          |
+| --------- | --------------- | ------------------ | --------------- | --------------- | ------------------------ |
+| X         | bit             | DDDdd              | 0               | 51115           | External input           |
+| Y         | bit             | DDDdd              | 0               | 5115            | External output          |
+| R         | bit             | DDDDdd             | 0               | 204715          | Internal relay           |
+| L         | bit             | DDDDdd             | 0               | 102315          | Link relay               |
+| T         | bit             | DDDD               | 0               | 4095            | Timer                    |
+| C         | bit             | DDDD               | 0               | 1023            | Counter                  |
+| P         | bit             | DDDdd              | 0               | 25515           | Pulse relay              |
+| E         | bit             | DDDD               | 0               | 4095            | Error notification relay |
+| SR        | bit             | DDDdd              | 0               | 22315           | System relay             |
+| IN        | bit             | SSDDdd             | 0               | 6215            | Direct input             |
+| OT        | bit             | SSDDdd             | 0               | 6215            | Direct output            |
+| LD\_Bit   | bit             | DDDDDdd            | 0               | 1638315         | LD bit specification     |
+| DT\_Bit   | bit             | DDDDDDdd           | 0               | 99942315        | DT bit specification     |
+| UM\_Bit   | bit             | HHHHHdd            | 0               | 52428715        | UM bit specification     |
+| \_X       | bit             | DDDdd              | 0               | 5115            | External input           |
+| \_Y       | bit             | DDDdd              | 0               | 5115            | External output          |
+| \_R       | bit             | DDDDdd             | 0               | 204715          | Internal relay           |
+| \_L       | bit             | DDDDdd             | 0               | 102315          | Link relay               |
+| \_T       | bit             | DDDD               | 0               | 4095            | Timer                    |
+| \_C       | bit             | DDDD               | 0               | 1023            | Counter                  |
+| \_P       | bit             | DDDdd              | 0               | 25515           | Pulse relay              |
+| \_LD\_Bit | bit             | DDDDDdd            | 0               | 1638315         | LD bit specification     |
+| \_DT\_Bit | bit             | DDDDDDdd           | 0               | 99942315        | DT bit specification     |
+| WX        | word            | DDD                | 0               | 511             | External input word      |
+| WY        | word            | DDD                | 0               | 511             | External output word     |
+| WR        | word            | DDDDD              | 0               | 20480           | Internal relay word      |
+| WL        | word            | DDDD               | 0               | 1023            | Link relay word          |
+| WS        | word            | DDD                | 0               | 223             | System relay word        |
+| LD        | word            | DDDDD              | 0               | 16383           | Link register            |
+| DT        | word            | DDDDDD             | 0               | 999423          | Data register            |
+| SD        | word            | DDD                | 0               | 255             | System register          |
+| WI        | word            | SSDD               | 0               | 62              | Input register           |
+| WO        | word            | SSDD               | 0               | 62              | Output register          |
+| UM        | word            | HHHHH              | 0               | 524287          | Unit memory              |
+| TS        | word            | DDDD               | 0               | 4095            | Timer setting value      |
+| TE        | word            | DDDD               | 0               | 4095            | Timer elapsed value      |
+| CS        | word            | DDDD               | 0               | 1023            | Counter setting value    |
+| CE        | word            | DDDD               | 0               | 1023            | Counter elapsed value    |
+| I         | word            | H                  | 0               | 14              | Index register           |
+| \_WX      | word            | DDD                | 0               | 511             | External input word      |
+| \_WY      | word            | DDD                | 0               | 511             | External output word     |
+| \_WR      | word            | DDDDD              | 0               | 20480           | Internal relay word      |
+| \_WL      | word            | DDDD               | 0               | 1023            | Link relay word          |
+| \_LD      | word            | DDDDD              | 0               | 16383           | Link register            |
+| \_DT      | word            | DDDDDD             | 0               | 999423          | Data register            |
+| \_TS      | word            | DDDD               | 0               | 4095            | Timer setting value      |
+| \_TE      | word            | DDDD               | 0               | 4095            | Timer elapsed value      |
+| CS        | word            | DDDD               | 0               | 1023            | Counter setting value    |
+| \_CE      | word            | DDDD               | 0               | 1023            | Counter elapsed value    |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

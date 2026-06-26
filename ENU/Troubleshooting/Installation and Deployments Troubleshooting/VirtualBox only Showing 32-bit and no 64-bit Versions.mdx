@@ -1,0 +1,57 @@
+---
+title: VirtualBox only Showing 32-bit and no 64-bit Versions
+slug: troubleshooting/installation-and-deployments-troublehsooting/virtualbox-only-showing-32-bit-and-no-64-bit-versions
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+When creating a new VirtualBox, you should see options for 32-bit and 64-bit versions. Your host operating system needs 64-bit to run a guest operating system in VirtualBox.
+
+There is an issue when installing Litmus Edge on a VirtualBox for Windows systems that have upgraded the Windows OS.
+
+If you only see 32-bit versions when selecting the type of operating system, Windows OS has upgraded and turned on Memory Integrity for security reasons.
+
+You must have administrative access to the security in Windows to turn this off.
+
+There are two solutions to fix the Memory Integrity issue:
+
+# Solution 1: Repair VirtualBox Installation
+
+Complete these steps to repair the version of VirtualBox you currently have.&#x20;
+
+**To repair the VirtualBox installation:**
+
+1. Download the same version of the installer file that you currently have from the [VirtualBox website](https://www.virtualbox.org/).&#x20;
+2. Right-click the installer file used to install VirtualBox and select **Run as administrator**.
+3. When the Windows *User Account Control* window appears, click **Yes**. You may need to enter an administrator password in the User Account Control window.&#x20;
+   A setup window appears.&#x20;
+4. Click **Next**.
+5. Click the **Repair** icon.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/quHI4UH8BtNms_LLMWFxd_m6t6-rxiagvl2idg1dpudwindows-installer-repair-icon.png" size="50" width="594" height="250" caption="Repair icon" position="center" indent="2" showCaption="true"></Image>
+
+6. Click **Repair**.
+   VirtualBox begins the repair process.
+7. When the repair process is finished, click **Finish**.
+   VirtualBox may ask you to restart your PC.
+
+# Solution 2: Disable Memory Integrity in Windows 10
+
+Complete these steps to disable memory integrity setting in Windows 10.&#x20;
+
+**To disable memory integrity:**
+
+1. Open **Windows Security**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/aSAgGfj2t-N-F_8rbSCos_l-z9y0r2c0bdnrzh5vuowindows-security.png" size="50" width="430" height="78" caption="Windows Security icon" position="center" indent="2" showCaption="true"></Image>
+
+2. Click **Device Security**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/TZK4OdgfOMJH3q6rxottM_6vjhcsvfdnvkuwnbp63vrdevice-security.png" size="60" width="785" height="602" caption="Device Security link" position="center" indent="2" showCaption="true"></Image>
+
+3. From the *Core isolation* section, click **Core isolation details**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/VlDSJz2avFpXfW6-ZRyLx_6kc9ho799rfaz4oiruiicore-isolation-details.png" size="60" width="588" height="382" caption="Core isolation details link" position="center" indent="2" showCaption="true"></Image>
+
+4. From the *Memory Integrity* section, click the **Off** toggle.
+   You may need to restart your PC.

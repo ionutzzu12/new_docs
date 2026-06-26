@@ -1,0 +1,49 @@
+---
+title: Kafka SSL
+slug: product-features/integration/integration-connectors/message-brokers/kafka-ssl
+description: Review parameters for the Kafka SSL connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:05 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [Kafka SSL Integration Guide](<./././././How-To Guides/Integration Guides/Kafka SSL Integration Guide.md>).&#x20;
+
+## Overview
+
+Kafka SSL integration enables an Edge System to connect with a Kafka broker using SSL authentication.
+
+## Supported Versions
+
+Compatible with Kafka versions from 0.10.1.0 to 2.1.0.
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to Kafka broker) - Yes
+- Inbound (Subscribe data from Kafka broker to Edge) - Yes
+
+## Configurations
+
+| **Variable**         | **Detail**                                                                                                                                                                                            | **Required** |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name                 | Enter a name for the connector                                                                                                                                                                        | Yes          |
+| Brokers              | List of Kafka brokers separated by comma (Must be reachable from Edge system)                                                                                                                         | Yes          |
+| SASL mechanism       | SASL mechanism values include: NONE, SASL\_PLAINTEXT. SCRAM-SHA-256, and SCRAM-SHA-512. This field can only be used if username is not empty                                                          | Yes          |
+| Username             | Enter the username                                                                                                                                                                                    | No           |
+| Password             | Enter the user password                                                                                                                                                                               | No           |
+| CA certificate       | It is a digital certificate issued by a trusted Certificate Authority and is used to authenticate the identity of servers or entities in an SSL/TLS connection                                        | No           |
+| Certificate          | SSL Certificate                                                                                                                                                                                       | No           |
+| Private key          | SSL certificate private key                                                                                                                                                                           | No           |
+| Insecure skip verify | Insecure Skip Verify controls whether a client verifies the server's certificate chain and host name                                                                                                  | No           |
+| Topic                | The default topic for publishing                                                                                                                                                                      | Yes          |
+| Throttling limit     | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                | No           |
+| Persistent storage   | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored. | No           |
+| Queue mode           | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.  | No           |
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+| Product      | Version  |
+| ------------ | -------- |
+| CloudKarafka | 0.11.0.0 |
+| Confluent    | N/A      |

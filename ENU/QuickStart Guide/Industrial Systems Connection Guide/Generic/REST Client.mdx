@@ -1,0 +1,113 @@
+---
+title: REST Client
+docTags: 
+createdAt: Thu May 28 2026 23:47:10 GMT+0300 (Eastern European Summer Time)
+---
+
+| Compatibility Parameter  | Compatible Items                                    |
+| ------------------------ | --------------------------------------------------- |
+| Driver Type              | Ethernet                                            |
+| Validated Devices/Series | Any REST API endpoint accessible over HTTP or HTTPS |
+
+## Introduction
+
+Review the following information for setting up and configuring the REST Client driver. This driver connects to HTTP and HTTPS REST API endpoints, allowing you to read and write data using GET and POST requests. You can configure TLS, mutual TLS, and multiple authentication types including Bearer token, Digest, and OAuth2.
+
+## How to Configure the PLC
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and configure the REST API server
+- Step 2: Set up the device in Litmus Edge DeviceHub
+- Step 3: Configure the list of registers
+
+### Step 1: Set up and configure the REST API server
+
+1. Ensure your REST API server is accessible from the Litmus Edge host over the network.
+2. Note the server's hostname or IP address and port number.
+3. Identify the base URL path common to all tags you intend to read or write.
+4. If your server requires authentication, obtain the appropriate credentials:
+   - **None** — no credentials required.
+   - **Bearer** — obtain a bearer token.
+   - **Digest** — obtain a username and password.
+   - **OAuth2** — obtain a Client ID, Client Secret, Token Endpoint, and any required scopes or token parameters.
+5. If TLS is required, obtain the CA certificate chain in PEM format. If mutual TLS (mTLS) is required, also obtain the client certificate and client private key in PEM format.
+
+### Step 2: Set up the device in Litmus Edge DeviceHub
+
+Configure the following parameters when you connect a device with this driver. Update default values to the specific setup of your device.
+
+**Connection parameters:**
+
+| Parameter           | Value                                                                  |
+| ------------------- | ---------------------------------------------------------------------- |
+| Type                | `Generic`                                                              |
+| Driver              | `REST Client`                                                          |
+| Network Address     | The server's hostname or IP address                                    |
+| Network Port        | The server's port                                                      |
+| URL Path            | The URL path to append to the network address, common to all tag paths |
+| Authentication Type | `None`, `Bearer`, `Digest`, or `OAuth2`                                |
+| Enable TLS          | Enable TLS/HTTPS                                                       |
+
+**If an authentication type is selected:**
+
+| Parameter             | Value                                               |
+| --------------------- | --------------------------------------------------- |
+| Username              | Username — if `Digest` is selected                  |
+| Password              | Password — if `Digest` is selected                  |
+| Bearer Token          | Bearer token value — if `Bearer` is selected        |
+| Oauth2Client ID       | OAuth2 client ID — if `OAuth2` is selected          |
+| Oauth2Client Secret   | OAuth2 client secret — if `OAuth2` is selected      |
+| Oauth2 Token Endpoint | OAuth2 token endpoint URL — if `OAuth2` is selected |
+| Oauth2 Scopes         | OAuth2 scopes — if `OAuth2` is selected             |
+| Oauth2 Token Params   | OAuth2 token parameters — if `OAuth2` is selected   |
+
+**If TLS is enabled:**
+
+| Parameter             | Value                                                 |
+| --------------------- | ----------------------------------------------------- |
+| Certificate Authority | CA certificate chain in PEM format                    |
+| Enable Mutual TLS     | Enable mTLS / client certificate authentication       |
+| Client Certificate    | Client certificate in PEM format — if mTLS is enabled |
+| Client Private Key    | Client private key in PEM format — if mTLS is enabled |
+
+**Advanced parameters:**
+
+| Parameter                | Value                                                    |
+| ------------------------ | -------------------------------------------------------- |
+| Headers                  | Common HTTP headers as JSON                              |
+| Path Params              | Common HTTP path parameters as JSON                      |
+| Query Params             | Common HTTP query parameters as JSON or parameter string |
+| Request Timeout          | Request timeout in milliseconds                          |
+| Request Retry Count      | Number of times to retry a failed request                |
+| Request Retry Wait MS    | Pause between retries in milliseconds                    |
+| Certificate Verification | Verify the server's TLS certificate                      |
+
+### Step 3: Configure the list of registers
+
+When you add a tag to the connected device, refer to the following tag parameters and available value types.
+
+## Free Tags
+
+This driver doesn't have a list of available register names in the DeviceHub Add Tag form. To add tags, you must enter the request path for each tag.
+
+**Available value types:** `raw`, `json`, `string`, `bool`, `uint`, `int`, `float`, `string[]`, `bool[]`, `uint[]`, `int[]`, `float[]`
+
+**Tag parameters:**
+
+| Parameter        | Value                                                     |
+| ---------------- | --------------------------------------------------------- |
+| Request Type     | `GET` or `POST`                                           |
+| URL Path         | Request URL path to append to the device path             |
+| Path Params      | Request HTTP path parameters as JSON                      |
+| Query Params     | Request HTTP query parameters as JSON or parameter string |
+| Payload          | Request HTTP payload                                      |
+| Payload Encoding | Request payload format: `None`, `FormData`, or `JSON`     |
+
+**Advanced tag parameters:**
+
+| Parameter              | Value                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------- |
+| Headers                | Request HTTP headers as JSON                                                          |
+| Allow Multiple Matches | When enabled, returns all matches when using wildcards in the parse pattern           |
+| Allow Empty Matches    | When enabled, returns an empty array result when using wildcards in the parse pattern |

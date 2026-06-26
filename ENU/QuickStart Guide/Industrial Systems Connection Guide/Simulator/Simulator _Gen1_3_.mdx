@@ -1,0 +1,64 @@
+---
+title: Simulator (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/simulator/simulator-gen1
+description: Review the following information for setting up and configuring the Simulator (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:08 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Simulator (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                                                                          |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Used to generate simulated data                                                                                                                           |
+| **Validated devices/series** | This driver is used to generate simulated data. It supports all the standard python math functions such as **math.sin(X)&#x20;**&#x61;nd **math.cos(X)**. |
+
+# Configure the List of Registers
+
+When you [Add a Tag](<././././Product Features/DeviceHub/Tags/Add a Tag.md>) to the connected device, refer to the following register table and tag parameters.&#x20;
+
+## Register Table
+
+| **Name** | **Value Types** | **Address Format** | **Min Address** | **Max Address** | **Description** |
+| -------- | --------------- | ------------------ | --------------- | --------------- | --------------- |
+| bit      | bit             | DDD                | 0               | 255             | boolean         |
+| int      | int             | DDD                | 0               | 255             | integer         |
+| float    | float           | DDD                | 0               | 255             | float           |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Min value**: Enter the minimum value the tag can generate.&#x20;
+- **Max value**: Enter the maximum value the tag can generate.&#x20;
+- **Formula**: Enter the formula for the tag.&#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>
+
+<hint type="success">
+  **Tip:**
+
+  - All simulated tags have a default range of **-50** to **50**.
+  - Users can override or restrict these defaults using a `CSV` upload.
+  - Entering `-` in the *MIN&#x20;*&#x61;nd *MAX* columns prevents the default constraints from being applied.
+  - Numeric values in the *MIN&#x20;*&#x61;n&#x64;*&#x20;MAX&#x20;*&#x63;olumns will replace the default settings.
+  - The *MIN&#x20;*&#x61;nd *MAX&#x20;*&#x63;onstraints apply to the defined tag formula and do not affect *Boolean&#x20;*&#x74;ags.
+</hint>

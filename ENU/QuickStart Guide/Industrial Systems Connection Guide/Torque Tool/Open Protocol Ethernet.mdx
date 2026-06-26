@@ -1,0 +1,57 @@
+---
+title: Open Protocol Ethernet
+slug: quickstart-guide/industrial-systems-connection-guide/open-protocol-ethernet
+description: Set up and configure the Open Protocol Ethernet driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:01 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Open Protocol Ethernet driver.# Litmus Edge Compatible Series | Compatibility parameter      | Compatible items                                                                                                                                                                                                                                                              |
+\| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+\| **Driver type**              | Ethernet                                                                                                                                                                                                                                                                      |
+\| **Validated devices/series** | [Atlas Copco Power Focus 6000, Firmware v3.6](https://www.atlascopco.com/en-us/itba/products/assembly-solutions/electric-assembly-systems/powerfocus-6000)
+[Cleco mPro300 Series](https://www.clecotools.com/products/product-catalog/mpro300-series-global-controllers) |To set up and configure this device in Litmus Edge, do the following:\* Step 1: Set up and Configure the PLC Device
+
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers# Atlas Copco Open ProtocolThe Atlas Copco Open Protocol is used to connect to network-enabled nutrunners and torque drivers directly. -unhandled content type-# Step 1: Set up and Configure the PLC Device1) Enable Open Protocol on the controller. Refer to your controller's documentation for instructions.
+
+2. Note the controller's **IP address** and **TCP port** (default: `4545`).
+3. Ensure the controller is reachable from your Litmus Edge instance over the network.:::hint\{type="info"}
+   **Note:&#x20;**&#x4D;ulti-client connection support varies by controller model. For example, PF6000 controllers support multi-client connections, whereas older models such as the PF4000 support only single-client connections. Verify your controller's documentation to confirm.
+   \:::# Step 2: Set up the PLC Device in Litmus Edge DeviceHubConfigure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device. | Parameter                | Value                                                                                                                                                                                                   |
+   \| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   \| Type                     | Torque Tool                                                                                                                                                                                             |
+   \| Driver                   | Open Protocol Ethernet                                                                                                                                                                                  |
+   \| Network Address          | The IP address of the controller                                                                                                                                                                        |
+   \| Network Port             | 4545                                                                                                                                                                                                    |
+   \| Driver Mode              | Subscription (default). In Publishing mode, tags publish according to the polling interval. In Subscription mode, tags publish only when the controller sends a reply; the polling interval is ignored. |
+   \| Keep Alive Time          | Keep Alive Time (ms). Optional, default: 10000, range: 1000–150000                                                                                                                                      |
+   \| Message Timeout          | Message Response Timeout (ms). Optional, default: 2000                                                                                                                                                  |
+   \| Link Ack Timeout         | Link Acknowledgement Timeout (ms). Optional, default: 1000                                                                                                                                              |
+   \| Max Outstation Messages  | Optional, default: 1                                                                                                                                                                                    |
+   \| Message Retries          | Number of times to retry a message. Optional, default: 3, range: 0–3                                                                                                                                    |# Step 3: Configure the List of RegistersWhen you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.See the following additional resources if necessary: \* [Organize Device and Tag Data by Using Metadata]()
+
+- [Tag Formula Variables]()## Register Table-unhandled content type-## Tag Parameters\* **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must be in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Revision**: Enter the revision that your tool is running.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data. :::hint\{type="info"}
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+  \:::# **Troubleshooting**If you are unable to write the PSET (parameter set) on the Atlas Copco PF6000 Torque Controller, follow these steps to configure the controller correctly:### 1. Access the Source Configuration\* Navigate to the section where sources are managed.
+- Identify the existing source that maps tightening programs or create a new one if required.### 2. Create or Select a Source\* If a new source is needed, create it and define its parameters.
+- If modifying an existing source, ensure it is correctly configured before proceeding.### 3. Map the Tightening Programs to Identifiers\* Within the source configuration, assign tightening programs to their respective identifiers (e.g., program numbers or tag mappings).
+- Double-check the associations to ensure accuracy.### 4. Verify Mapping and Configuration\* Confirm that all mapped programs correspond correctly to their intended identifiers.
+- Validate settings to avoid mismatches that could affect operations.### 5. Write and Validate\* Use the Litmus Edge write topic to write to the PSET parameter and retrieve the complete list of program numbers.
+- Ensure the system correctly reflects the new tags and that mapped programs execute as expected.

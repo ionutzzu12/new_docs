@@ -1,0 +1,69 @@
+---
+title: CIP Explicit (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/odva/cip-explicit-gen1
+description: Review the following information for setting up and configuring the CIP Explicit (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:06 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the CIP Explicit (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                                                                                                                                                                                                                         |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                                                                                                                                                                                                                                                 |
+| **Validated devices/series** | Devices that support the [ODVA EtherNet/IP™ network](https://www.odva.org/technology-standards/key-technologies/ethernet-ip/)&#xA;When configuring tags for this driver, you must enter the case-sensitive register name exactly as defined in the PLC. See the *Free Tags* section below to learn more. |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                                    |
+| ---------------------- | ---------------------------------------- |
+| **Type**               | ODVA                                     |
+| **Driver**             | CIP Explicit (Gen1.3)                    |
+| **Network Address**    | The device address you defined in Step 1 |
+| **Network Port&#x20;** | 44818                                    |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following tag parameters and available value types.
+
+Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Free Tags
+
+This driver doesn't have a list of available register names in the DeviceHub *Add Tag* form. To add tags, you must enter the case-sensitive register name exactly as it is defined in the PLC.
+
+A **Connected** status for the device won't display until a tag with a correct register name is created.
+
+## Available Value Types
+
+- `bool`
+- `byte`
+- `byteinarray`
+- `sint`
+- `sintinarray`
+- `usint`
+- `usintinarray`
+- `word`
+- `int`
+- `uint`
+- `uintinarray`
+- `dword`
+- `udint`
+- `udintinarray`

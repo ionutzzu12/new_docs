@@ -1,0 +1,33 @@
+---
+title: Install an Identity Certificate
+slug: product-features/system/network/certificates/install-identity-certificate
+description: If you need to authenticate with another service, you may need to install an identity certificate.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+If you need to authenticate a connection between Litmus Edge and another service, you may need to install an identity certificate.&#x20;
+
+You can install an identity certificate by navigating t&#x6F;**&#x20;System&#x20;**>**&#x20;Network > Certificates&#x20;**&#x61;nd reviewing the *Identity&#x20;*&#x73;ection.&#x20;
+
+# Before You Begin
+
+Submit the certificate signing request in Litmus Edge to a certificate authority so that you can receive the corresponding identity certificate. Make sure that the file uses X509 encoding. Follow up with your IT department for support. See [Manage Certificate Signing Requests](<Manage Certificate Signing Requests.mdx>) for details.&#x20;
+
+# Install an Identity Certificate&#x20;
+
+**To install an identity certificate:**
+
+1. Navigate to **System&#x20;**> **Network**.
+2. Click the **Certificates&#x20;**&#x74;ab.&#x20;
+3. Click th&#x65;**&#x20;Install certificate** icon. The *Install Identity Certificates&#x20;*&#x64;ialog box appears.
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/CiiTv3PeYBNWzAsisACih_install-identity-certificate.png)
+4. (Optional) Paste the CA certificate from the Certificate Authority in the **CA Chain&#xA0;**&#x66;ield.
+   To get this parameter, follow up with your IT department. Make sure that X509 encoding is used. This is an ordered list of certificates containing an end-user subscriber certificate and intermediate certificates (that represents the intermediate CA). This enables the receiver to verify that the sender and all intermediate certificates are trustworthy and confirms the ownership of the public key.
+5. Paste the SSL certificate in the **Identity Certificate&#xA0;**&#x66;ield.
+   An SSL certificate contains information of the owner/organization, such as its location, public key, and validity dates. The client makes sure that a valid certificate authority (CA) has validated the certificate.
+6. Click **Install**.&#x20;
+
+You can verify the identity certificate was successfully installed by the green checkmark under the valid column for the certificate.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/2e1rT75l2YP6nj_eHVy5n_image.png" size="80" width="1455" height="211" caption="Valid identity certificate icon" position="center" showCaption="true"></Image>

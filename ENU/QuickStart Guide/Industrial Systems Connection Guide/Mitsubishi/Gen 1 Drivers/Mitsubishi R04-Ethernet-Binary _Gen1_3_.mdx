@@ -1,0 +1,124 @@
+---
+title: Mitsubishi R04-Ethernet-Binary (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/mitsubishi/mitsubishi-r04-ethernet-binary-gen1
+description: Review the following information for setting up and configuring the Mitsubishi R04-Ethernet-Binary (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:00 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi R04-Ethernet-Binary (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                        |
+| ---------------------------- | --------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                                |
+| **Validated devices/series** | [MELSEC iQ-R](https://www.mitsubishielectric.com/fa/products/cnt/plcr/items/index.html) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Note**: Only one connection is allowed per port defined in the PLC. See the steps below to view and edit the open ports on the PLC.
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Mitsubishi R04CPU
+   - **Communication I/F**: Ethernet
+2. Connect the device to your PC using a USB.
+3. Launch GXWorks 3 v1.035M software.
+4. From the navigation panel, navigate to **System Parameters&#x20;**>**&#x20;Read Mounting status**, and then check for the CPU to display.
+5. From the navigation panel, click **Module Configuration&#xA0;**&#x74;o see if the base rack and CPU display.
+6. Click **Module Parameters&#xA0;**&#x61;nd enter the desired IP Address, Subnet Mask, and Default Gateway.
+7. If you want to write back to PLC tags with Litmus Edge, make sure the **Enable/Disable Online Change** setting is set to **Enable All (SLMP)**.
+8. Click **External Device Configuration (Detailed Setting)&#xA0;**&#x74;o set up the connection (Ethernet Built-in port).
+9. Draw SLMP Connection Module from the *Module list* to the left.
+10. Set up of the port number depends on how many devices need to connect with the PLC.
+11. Click **Close with Reflecting the Setting**, click **Apply**, and then click **Write to PLC**.&#x20;
+12. Power the PLC off and on again to activate the setting.&#x20;
+13. From the navigation panel, navigate to **Connection Destination&#x20;**>**&#x20;connection**, click **Find CPU (Built-in Ethernet port) on Network**, and then select the target device.
+14. Click **Connection Test**.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                    |
+| ------------------- | ---------------------------------------- |
+| **Type**            | Mitsubishi                               |
+| **Driver**          | Mitsubishi R04-Ethernet-Binary (Gen1.3)  |
+| **Network Address** | The device address you defined in Step 1 |
+| **Port**            | 5007                                     |
+| **Station ID**      | 255                                      |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Types** | **Address Format** | **Min Address** | **Max Address** | **Description**         |
+| -------- | --------------- | ------------------ | --------------- | --------------- | ----------------------- |
+| X        | bit             | HHHh               | 0               | 12287           | Input                   |
+| Y        | bit             | HHHh               | 0               | 12287           | Output                  |
+| M        | bit             | DDDDDDDD           | 0               | 16777215        | Internal Relay          |
+| L        | bit             | DDDDD              | 0               | 32767           | Latch Relay             |
+| B        | bit             | HHHHHHh            | 0               | 268435455       | Link Relay              |
+| F        | bit             | DDDDD              | 0               | 32767           | Annunciator             |
+| SB       | bit             | HHHHHHh            | 0               | 268435455       | Link Special Relay      |
+| V        | bit             | DDDDD              | 0               | 32767           | Edge Relay              |
+| TS       | bit             | DDDDDDD            | 0               | 8993439         | Timer Contact           |
+| TC       | bit             | DDDDDDD            | 0               | 8493439         | Timer Coil              |
+| SS       | bit             | DDDDDDD            | 0               | 8993439         | Retentive Timer         |
+| SC       | bit             | DDDDDDD            | 0               | 8993439         | Retentive Timer Coil    |
+| CS       | bit             | DDDDDDD            | 0               | 8993439         | Counter Contact         |
+| CC       | bit             | DDDDDDD            | 0               | 8993439         | Counter Coil            |
+| SM       | bit             | DDDD               | 0               | 4095            | Special Relay           |
+| TN       | word            | DDDDDDD            | 0               | 8993439         | Timer Current Value     |
+| SN       | word            | DDDDDDD            | 0               | 8993439         | Retentive Timer Current |
+| CN       | word            | DDDDDDD            | 0               | 8993439         | Counter Current Value   |
+| D        | word            | DDDDDDDD           | 0               | 10117631        | Data Register           |
+| W        | word            | HHHHHH             | 0               | 10117631        | Link Register           |
+| SW       | word            | HHHHHH             | 0               | 10117631        | Special Link Register   |
+| SD       | word            | DDDD               | 0               | 4095            | Special Register        |
+| Z        | word            | DD                 | 0               | 23              | Index Register          |
+| R        | word            | DDDDD              | 0               | 32767           | File Register           |
+| ZR       | word            | HHHH               | 0               | 65535           | File Register           |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. Available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. Available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to publish NATS messages only when the *value&#x20;*&#x70;arameter changes to a new one value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics are not affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

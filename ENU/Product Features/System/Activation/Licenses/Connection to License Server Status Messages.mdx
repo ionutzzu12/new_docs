@@ -1,0 +1,16 @@
+---
+title: Connection to License Server Status Messages
+slug: product-features/system/licenses/license-server-status-messages
+description: Review status messages when your edge device connects to a license server.
+docTags: 
+createdAt: Thu May 28 2026 23:47:05 GMT+0300 (Eastern European Summer Time)
+---
+
+The following table shows all the possible Status Messages when your Litmus Edge instance connects to a license server.
+
+| **Status Message** | **Details**                                                                                                                                                                                                                                                  |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **PINGING**        | The Litmus Edge instance is trying to query license server status.                                                                                                                                                                                           |
+| **UP**             | The Litmus Edge instance has successfully established a communication with the license server.                                                                                                                                                               |
+| **NO HEART BEAT**  | The Litmus Edge instance has lost its connection with the license server and is attempting a reconnection. This state can only occur after **UP**.                                                                                                           |
+| **DOWN**           | The Litmus Edge instance was not able to successfully establish a connection with the license server or has ceased in attempting a reconnection with the License Server. This state will occur after prolonged duration of **PINGING** or **NO HEART BEAT**. |

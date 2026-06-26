@@ -1,0 +1,135 @@
+---
+title: Mitsubishi FX5U-Ethernet ASCII (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/mitsubishi/mitsubishi-fx5u-ethernet-ascii-gen1
+description: Review the following information for setting up and configuring the Mitsubishi FX5U-Ethernet ASCII (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi FX5U-Ethernet ASCII (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                        |
+| ---------------------------- | --------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                                |
+| **Validated devices/series** | [MELSEC iQ-F](https://www.mitsubishielectric.com/fa/products/cnt/plcf/items/index.html) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Note**: Only one connection is allowed per port defined in the PLC. See the steps below to view and edit the open ports on the PLC.
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Mitsubishi FX5U Ethernet ASCII FX5U-32M
+   - **Communication I/F**: Ethernet. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/lTXYbKV5HwJLobE_-4nhQ_mitsubishi-fx5u-ethernet-binary-reference.png" size="80" width="955" height="588" position="flex-start" caption="Reference image of device" indent="2" showCaption="true"></Image>
+
+2. Launch GXWork3 V1.035M software, and then click **Online > Read from PLC**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Sw3n3iOUDE9NhWXoF5MjS_mitsubishi-fx5u-gx-online-read482x338.png" size="80" width="482" height="338" position="flex-start" caption="Read from PLC option" indent="2" showCaption="true"></Image>
+
+3. Select the series.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/VCGUFwGmsLbIgU9TSSMr9_mitsubishi-fx5u-ethernet-binary-series-select.png" size="70" width="323" height="111" position="flex-start" caption="Series Selection dialog box" indent="2" showCaption="true"></Image>
+
+4. Select the connection destination.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/6SBNb9RA0DbV-q7dU55w7_mitsubishi-fx5u-ethernet-binary-destination.png" size="80" width="820" height="429" position="flex-start" caption="Select Connection Destination dialog box" indent="2" showCaption="true"></Image>
+
+5. Double-click the PLC module icon, and click Find to browse the device on the network.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/MrFx2s2JWTYdvd5BZOph-_mitsubishi-fx5u-ethernet-binary-browse.png" size="80" width="1121" height="550" position="flex-start" caption="Network browse step" indent="2" showCaption="true"></Image>
+
+6. From the Navigation panel, click **Ethernet Port&#xA0;**&#x74;o set up communication parameters. Use **ASCII&#x20;**&#x66;or this device.&#x20;
+7. Double-click **External Device Configuration**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/z_GMbNgF_qKC9kS9laMs2_mitsubishi-fx5u-ethernet-binary-communication.png" size="80" width="1048" height="510" position="flex-start" caption="External Device Configuration option" indent="2" showCaption="true"></Image>
+
+8. Set up the connections. In this case, ports 4996 through 4999 are able to connect.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/SzbfndO0OvOkjsWGUqMu2_mitsubishi-fx5u-ethernet-binary-ports.png" size="80" width="975" height="185" position="flex-start" caption="Connection setup screen" indent="2" showCaption="true"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                    |
+| ------------------- | ---------------------------------------- |
+| **Type**            | Mitsubishi                               |
+| **Driver**          | Mitsubishi FX5U-Ethernet-ASCII (Gen1)    |
+| **Network Address** | The device address you defined in Step 1 |
+| **Port**            | 5002                                     |
+| **Station ID**      | 255                                      |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Type** | **Address Format** | **Min Address** | **Max Address** | **Description**               |
+| -------- | -------------- | ------------------ | --------------- | --------------- | ----------------------------- |
+| SM       | bit            | DDDD               | 0               | 9999            | Special Relay                 |
+| X        | bit            | HHHH               | 0               | 1023            | Input Relay                   |
+| Y        | bit            | HHHH               | 0               | 1023            | Output Relay                  |
+| M        | bit            | DDDDD              | 0               | 65535           | Internal Relay                |
+| L        | bit            | DDDDD              | 0               | 32237           | Latch Relay                   |
+| F        | bit            | DDDDD              | 0               | 32237           | Annunciator                   |
+| B        | bit            | DDDDD              | 0               | 32237           | Link Relay                    |
+| TS       | bit            | DDDD               | 0               | 1023            | Timer Contact                 |
+| TC       | bit            | DDDD               | 0               | 1023            | Timer Coil                    |
+| CS       | bit            | DDDD               | 0               | 1023            | Counter Contact               |
+| CC       | bit            | DDDD               | 0               | 1023            | Counter Coil                  |
+| SB       | bit            | DDDDD              | 0               | 32737           | Special Link Relay            |
+| S        | bit            | DDDD               | 0               | 4095            | Step Relay                    |
+| Z        | word           | DD                 | 0               | 19              | Index Register                |
+| SW       | word           | DDDDD              | 0               | 32767           | Special Link Register         |
+| CN       | word           | DDDD               | 0               | 1023            | Counter Current Value         |
+| SN       | word           | DDDD               | 0               | 1023            | Retentive Timer Current Value |
+| TN       | word           | DDDD               | 0               | 1023            | Timer current Value           |
+| W        | word           | DDDDD              | 0               | 32767           | Link Register                 |
+| R        | word           | DDDDD              | 0               | 32767           | File Register                 |
+| D        | word           | DDDD               | 0               | 7999            | Data Register                 |
+| SD       | word           | DDDDD              | 0               | 11999           | Special Register              |
+| LZ       | word           | D                  | 0               | 1               | Long Index Register           |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

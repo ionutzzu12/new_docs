@@ -1,0 +1,36 @@
+---
+title: REST API
+slug: product-features/integration/integration-connectors/other-providers/rest-api
+description: Review parameters for the REST API connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:00 GMT+0300 (Eastern European Summer Time)
+---
+
+## Overview
+
+REST API integration enables an Edge System to connect with RESTful API.
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to REST Server ) - Yes
+- Inbound (Subscribe data from REST Server to Edge) - No
+
+## Configurations
+
+| **Variable**            | **Detail**                                                                                                                                                                                            | **Required** |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Name                    | Enter a name for the connector                                                                                                                                                                        | Yes          |
+| Method                  | HTTP methods in REST APIs: GET, POST, PUT, and DELETE                                                                                                                                                 | Yes          |
+| Endpoint                | Endpoints are the entry points to interact with the API                                                                                                                                               | Yes          |
+| Headers                 | A request header is an HTTP header that can be used in an HTTP request to provide information about the request context                                                                               | Yes          |
+| Params                  | URL parameters (query strings) additional information for a given URL                                                                                                                                 | No           |
+| Mapping                 | Data from a payload could be mapped into a custom one. Example: \{"from": "to"} where "from" is a key from predefined payload, and "to" is a key from destination payload.                            | No           |
+| Parallel publish count  | Parallel publish count indicates how many data streams or data items are being sent from the edge system to a central system or cloud simultaneously.                                                 | Yes          |
+| Insecure skip verify    | InsecureSkipVerify controls whether a client verifies the server's certificate chain and host name. Select to disable verification                                                                    | No           |
+| OAuth2 - Token Endpoint | Token Endpoint URL                                                                                                                                                                                    | Yes          |
+| OAuth2 - Client Secret  | OAuth2 - Client Secret Key                                                                                                                                                                            | Yes          |
+| OAuth2 - Client ID      | Client ID                                                                                                                                                                                             | Yes          |
+| OAuth2 - Scope          | Scope (comma separated value)                                                                                                                                                                         | Yes          |
+| Throttling limit        | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                | No           |
+| Persistent storage      | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored. | No           |
+| Queue mode              | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.  | No           |

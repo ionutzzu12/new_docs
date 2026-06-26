@@ -1,0 +1,75 @@
+---
+title: Use the Simple Window Function
+slug: C9UZ-use-the-signal-decomposition-function
+docTags: 
+createdAt: Thu May 28 2026 23:47:04 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the Simple Window function to output a simple moving window. In the FIFO (first in, first out) algorithm, the first data point that enters the window is the first to be processed and removed as new data points come in. This function takes a single value as inputs.
+
+# User Scenario
+
+Review the following scenario for the Simple Window function. Then, you will simulate PLC data and calculate the trend in the data.
+
+In a manufacturing setting, the Simple Window function is used to analyze the real-time performance of a specific machine component. As new data points representing the component's performance are generated, the Simple Window function processes the data in a FIFO (first in, first out) manner, allowing the engineers to monitor the immediate impact of any changes or adjustments made to the component. This helps in quick identification of any anomalies or deviations from expected performance, facilitating timely maintenance or intervention.
+
+# Step 1: Add a Device
+
+Follow the steps to [Connect a Device](<./././Product Features/DeviceHub/Devices/Connect a Device.md>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# Step 2: Add Tags
+
+After connecting the device, add the following tag. See [Add Tags](#) to learn more.&#x20;
+
+## Tag 1: input1
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **1**
+- **Tag Name**: Enter **input1**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Simple Window Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" indent="2" showCaption="true"></Image>
+
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **input1&#x20;**&#x74;ag.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select th&#x65;**&#xA0; Simple Window&#x20;**&#x70;rocessor.
+   The *Edit a Processor* dialog box appears.
+   - **Value Type:** This parameter specifies the type of incoming value.
+     For example, if our *input1&#x20;*&#x74;ag generates *float64* values and we want *int* values for our window, we can select **int** from the drop-down menu.
+   - **Order:** This parameter specifies the desired order of output window.&#x20;
+     - **Oldest -> Newest**
+     - &#x20;**Newest -> Oldest**
+   - **Window Size**: This parameter specifies the window in which the values will be observed.
+   - Click **Save**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/SwReIrlZS59y_6XZrbHRt_image.png" size="70" width="1126" height="811" position="center" indent="3" showCaption="false"></Image>
+
+7. Connect the *DataHub Subscribe* processor (tag: *input1*) to the *Simple Window&#x20;*&#x70;rocessor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+   The configured analytics flows should look like the following:&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/uHVl-m4ry-ttzsWnqvgEW_image.png)
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Simple Window&#x20;*&#x70;rocessor to view the output values.
+
+The output shows a window of size 10 holding the incoming values from our *input1* tag.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/PgRDUaRJsdgwC3e44rOfD_image.png "Output of Simple Windowprocessor")

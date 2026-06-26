@@ -1,0 +1,108 @@
+---
+title: SDK Testing Script
+slug: resources/sdk-testing-script
+description: If there are multiple Litmus Edge instances, you can use our prepared VSCode-executable .http script to automate the initialization of the instances for SDK testing.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+In situations where there are multiple Litmus Edge instances, you can use our prepared VSCode-executable `.http` script to automate the initialization of the Litmus Edge instances for SDK testing.&#x20;
+
+## Before you begin
+
+Before completing the steps below, ensure you do the following:
+
+- Install [Visual Studio Code](https://code.visualstudio.com/Download) on your local computer.
+- Verify your installed Visual Studio Code has the [REST Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
+- Run at least one Virtual Machine with Litmus Edge already installed.
+- Run a second Virtual Machine with Litmus Edge Manager already installed.&#x20;
+
+## The `  .http  ` script
+
+<CodeblockTabs>
+  http
+
+  ```csp
+  #############################################################
+  # LE initialization script. Prepare new Litmus Edge (LE) instance to work with Litmus Edge Manager (LEM)
+  # Initialization steps:
+  # 1. Change default Litmus Edge password and confirm EULA
+  # 2. Set Litmus Edge Manager address and confirm SSL certificate 
+  # 3. Send activation request
+  #############################################################
+
+  ##### Variables ######
+  // LE ip address
+  @ip=YOUR_LE_IP_ADDRESS_HERE
+  // Default LE admin password
+  @defaultPassword=default_password
+  // New LE password
+  @newPassword=new_password
+  // LEM url
+  @lemUrl=YOUR_LEM_IP_ADDRESS_HERE
+  // Activation code from LEM (Project > Activation > Configuration)
+  @activationCode=ACTI-VATI-ONCO-NFIG
+  ######################
+
+  ##### Init steps ######
+  ### First login to LE
+  # @name login
+  POST https://{{ip}}/auth/v2/login
+
+  {"username":"admin","password":"{{defaultPassword}}","providerId":"00000000-0000-0000-0000-000000000000"}
+
+  ### Confirm EULA
+
+  PUT https://{{ip}}/auth/v2/eula 
+  Cookie: jwtAccess={{login.response.body.jwtAccess}}
+
+  {"agree":true,"version":"1.0"}
+
+  ### Change LE default password
+
+  # @name change
+  PUT https://{{ip}}/auth/v2/password?locale=en-US
+  Cookie: jwtAccess={{login.response.body.jwtAccess}}
+
+  {"newPassword":"{{newPassword}}","currentPassword":"{{defaultPassword}}"}
+
+  ### Change activation URL
+
+  # @name changeUrl
+  POST https://{{ip}}/dm/cloud/url?locale=en-US
+  Cookie: jwtAccess={{change.response.body.jwtAccess}}
+
+  {"url":"{{lemUrl}}"}
+
+  ### Confirm LEM certificate
+
+  PUT https://{{ip}}/dm/cloud/url/{{changeUrl.response.body.tx}}/confirm?locale=en-US
+  Cookie: jwtAccess={{change.response.body.jwtAccess}}
+
+  ### Send activation code to LEM
+
+  POST https://{{ip}}/dm/cloud?locale=en-US
+  Cookie: jwtAccess={{change.response.body.jwtAccess}}
+
+  {"code":"{{activationCode}}"}
+  ```
+</CodeblockTabs>
+
+## Using the script
+
+Visual Studio Code with REST Client Plugin is needed to execute the script. As indicated in the script, under `##### Variables ######`, modify the following values for variables as needed for your Litmus Edge and Litmus Edge Manager instances.
+
+- `@ip  `
+- `@defaultPassword  `
+- `@newPassword  `
+- `@lemUrl  `
+- `@activationCode`
+
+This script automates `PUT`/`POST` requests to a Litmus Edge instance to communicate with the Litmus Edge Manger instance.  As of right now, the script above is meant for manual Litmus Edge testing of common use cases such as the following:
+
+- password changes
+- confirming `EULA`&#x20;
+- changing cloud activation end points
+- sending activation request
+
+The script is also meant to be added with additional request as necessary to test for additional features.&#x20;

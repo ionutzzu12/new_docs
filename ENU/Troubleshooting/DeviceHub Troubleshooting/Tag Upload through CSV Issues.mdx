@@ -1,0 +1,17 @@
+---
+title: Tag Upload through CSV Issues
+slug: troubleshooting/devicehub-troublehsooting/tag-upload-csv-issues
+docTags: 
+createdAt: Thu May 28 2026 23:47:04 GMT+0300 (Eastern European Summer Time)
+---
+
+Depending on the region setting in Windows, you may have issues uploading tags with a CSV file because of the delimiter used. If CSV files are saved by using a semicolon as the delimiter instead of a comma, the tags won't be uploaded successfully. Refer to the table below.&#x20;
+
+| **Error message**                                                                                            | **Steps to resolve**                                                                 |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| **header field deviceId not exists**&#xA;The CSV file may use semicolons as the delimiter instead of commas. | 1. In Microsoft Excel, navigate to **File&#x20;**> **Options&#x20;**> **Advanced**.  |
+
+2. Unselect the checkbox fo&#x72;**&#x20;Use system separators**.&#x20;
+3. In the **Decimal separator** field, enter a period (.).&#x20;
+4. In the **Thousands separator** field, enter a comma (,).&#x20;
+   Learn more about [Advanced Options](https://support.microsoft.com/en-gb/office/advanced-options-33244b32-fe79-4579-91a6-48b3be0377c4) from the Microsoft documentation.  |

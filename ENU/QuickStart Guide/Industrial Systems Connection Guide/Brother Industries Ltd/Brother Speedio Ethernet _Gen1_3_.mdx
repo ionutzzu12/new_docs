@@ -1,0 +1,309 @@
+---
+title: Brother Speedio Ethernet (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/brother-industries/brother-speedio-ethernet-gen1
+description: Review the following information for setting up and configuring the Brother Speedio Ethernet (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Brother Speedio Ethernet (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                              |
+| ---------------------------- | ----------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                      |
+| **Validated devices/series** | [Brother CNC S700X2](https://machinetool.global.brother/en-ap/sx2/index.aspx) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+<hint type="info">
+  **Note:** If you encounter a 7554 error message or similar on the controller screen after setting up your device, set **Display Slave Command Alarms** to `0`  to remove future notifications.
+</hint>
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="info">
+  **Important**: When setting up the PLC device, you must activate **Remote Operation**.&#x20;
+</hint>
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                    |
+| ------------------- | ---------------------------------------- |
+| **Type**            | Brother Industries Ltd                   |
+| **Driver**          | Brother Speedio Ethernet (Gen1.3)        |
+| **Network Address** | The device address you defined in Step 1 |
+| **Port**            | 10000                                    |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name**                                         | **Value Types** | **Access Types** | **Address Format** | **Min Address** | **Max Address** | **Description**                                |
+| ------------------------------------------------ | --------------- | ---------------- | ------------------ | --------------- | --------------- | ---------------------------------------------- |
+| BDX                                              | word            | R/W              | DDD                | 0               | 255             |                                                |
+| BDY                                              | word            | R/W              | DDD                | 0               | 255             |                                                |
+| D                                                | word            | R/W              | DDDD               | 0               | 2047            |                                                |
+| LD\_HS1                                          | word            | R/W              | DDDD               | 0               | 2047            |                                                |
+| LT\_CV\_HS1                                      | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LT\_SV\_HS1                                      | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LD\_S1                                           | word            | R/W              | DDDD               | 0               | 2047            |                                                |
+| LT\_CV\_S1                                       | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LT\_SV\_S1                                       | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LC\_CV\_S1                                       | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LC\_SV\_S1                                       | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LD\_HS2                                          | word            | R/W              | DDDD               | 0               | 2047            |                                                |
+| LT\_CV\_HS2                                      | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LT\_SV\_HS2                                      | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LC\_CV\_HS2                                      | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LC\_SV\_HS2                                      | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LD\_S2                                           | word            | R/W              | DDDD               | 0               | 2047            |                                                |
+| LT\_CV\_S2                                       | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LT\_SV\_S2                                       | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LC\_CV\_S2                                       | word            | R/W              | DDD                | 0               | 255             |                                                |
+| LC\_SV\_S2                                       | word            | R/W              | DDD                | 0               | 255             |                                                |
+| X                                                | bit             | R/W              | HHH                | 0               | 1023            |                                                |
+| Y                                                | bit             | R/W              | HHH                | 0               | 1023            |                                                |
+| BX                                               | bit             | R/W              | HHH                | 0               | 1023            |                                                |
+| BY                                               | bit             | R/W              | HHH                | 0               | 1023            |                                                |
+| M                                                | bit             | R/W              | DDDD               | 0               | 8191            |                                                |
+| LM\_HS1                                          | bit             | R/W              | DDDD               | 0               | 1023            |                                                |
+| LM\_S1                                           | bit             | R/W              | DDDD               | 0               | 1023            |                                                |
+| LM\_HS2                                          | bit             | R/W              | DDDD               | 0               | 1023            |                                                |
+| LM\_S2                                           | bit             | R/W              | DDDD               | 0               | 1023            |                                                |
+| MONTR\_P\_Operation program number               | number          | R/W              | D                  | 1               | 1               | MONTR-P-Operation program number               |
+| MONTR\_P\_Edit program number                    | number          | R/W              | D                  | 1               | 1               | MONTR-P-Edit program number                    |
+| MONTR\_T\_Total operation time                   | number          | R/W              | D                  | 1               | 1               | MONTR-T-Total operation time                   |
+| MONTR\_T\_Power on time                          | number          | R/W              | D                  | 1               | 1               | MONTR-T-Power on time                          |
+| MONTR\_T\_Operation time                         | number          | R/W              | D                  | 1               | 1               | MONTR-T-Operation time                         |
+| CONTR\_C\_Count                                  | number          | R/W              | D                  | 1               | 4               | MONTR-C-Count                                  |
+| MONTR\_C\_Current value                          | number          | R/W              | D                  | 1               | 4               | MONTR-C-Current value                          |
+| MONTR\_C\_Target value                           | number D        | R/W              | D                  | 1               | 4               | MONTR-C-Target value                           |
+| MONTR\_C\_End signal value                       | number          | R/W              | D                  | 1               | 4               | MONTR-End-Signal value                         |
+| HEACM\_A\_no. of calculations                    | number          | R/W              | DDD                | 1               | 540             | HEACM-A-No. of calculations                    |
+| HEACM\_A\_Correction flag                        | number          | R/W              | DDD                | 1               | 540             | HEACM-A-Correction flag                        |
+| HEACM\_A\_Z axis travel sum                      | number          | R/W              | DDD                | 1               | 540             | HEACM-A-Z axis travel sum                      |
+| HEACM\_A\_Spindle rotation sum                   | number DDD      | R/W              | DDD                | 1               | 540             | HEACM-A-Spingle rotation sum                   |
+| HEACM\_A\_Z axis displacemen                     | number          | R/W              | DDD                | 1               | 540             | HEACM-A-Z axis displacemen                     |
+| HEACM\_A\_Spindle displacement                   | number          | R/W              | DDD                | 1               | 540             | HEACM-A-Spindle displacement                   |
+| HEACM\_A\_Z axis displacement sum                | number          | R/W              | DDD                | 1               | 540             | HEACM-A-Z axis displacement sum                |
+| HEACM\_B\_No. of calculations                    | number          | R/W              | DDD                | 1               | 540             | HEACM-B-No. of calculations                    |
+| HEACM\_B\_Correction flag                        | number          | R/W              | DDD                | 1               | 540             | HEACM-B-Correction flag                        |
+| HEACM\_B\_Z axis travel sum                      | number          | R/W              | DDD                | 1               | 540             | HEACM-B-Z axis travel sum                      |
+| HEACM\_B\_Spindle rotation sum                   | number          | R/W              | DDD                | 1               | 540             | HEACM-B-Spindle rotation sum                   |
+| HEACM\_B\_Z axis displacemen                     | number          | R/W              | DDD                | 1               | 540             | HEACM-B-Z axis displacemen                     |
+| HEACM\_B\_Spindle displacement                   | number          | R/W              | DDD                | 1               | 540             | HEACM-B-Spindle displacement                   |
+| HEACM\_B\_Z axis displacement sum                | number          | R/W              | DDD                | 1               | 540             | HEACM-B-Z axis displacement sum                |
+| HEACM\_B\_Spindle displacement sum               | number          | R/W              | DDD                | 1               | 540             | HEACM-B-Spindle displacement sum               |
+| HEACM\_C\_No. of calculations                    | number          | R/W              | DDD                | 1               | 540             | HEACM-C-No. of calculations                    |
+| HEACM\_C\_Correction flag                        | number          | R/W              | DDD                | 1               | 540             | HEACM-C-Correction flag                        |
+| HEACM-C\_Z axis travel sum                       | number          | R/W              | DDD                | 1               | 540             | HEACM-C-Z axis travel sum                      |
+| HEACM\_C\_Spindle rotation sum                   | number          | R/W              | DDD                | 1               | 540             | HEACM-C-Spindle rotation sum                   |
+| HEACM\_C\_Z axis displacemen                     | number          | R/W              | DDD                | 1               | 540             | HEACM-C-Z axis displacemen                     |
+| HEACM\_C\_Spindle displacement                   | number          | R/W              | DDD                | 1               | 540             | HEACM-C-Spindle displacement                   |
+| HEACM\_C\_Z axis displacement sum                | number          | R/W              | DDD                | 1               | 540             | HEACM-C-Z axis displacement sum                |
+| HEACM\_C\_Spindle displacement sum               | number          | R/W              | DDD                | 1               | 540             | HEACM-C-Spindle displacement sum               |
+| MEM\_A\_Operation program No                     | number          | R/W              | D                  | 1               | 1               | Mem-A-Operation program No                     |
+| MEM\_A\_Operation state                          | number          | R/W              | D                  | 1               | 1               | MEM-A-Operation state                          |
+| MEM\_A\_Inner pallet state                       | number          | R/W              | D                  | 1               | 1               | MEM-A-Inner pallet state                       |
+| MEM\_A\_Spare part usage                         | number          | R/W              | D                  | 1               | 1               | MEM-A-Spare part usage                         |
+| MEM\_A\_Mode                                     | number          | R/W              | D                  | 1               | 1               | MEM-A-Mode                                     |
+| MEM\_A\_Extended operation                       | number          | R/W              | D                  | 1               | 1               | MEM-A-Extended operation                       |
+| MEM\_E\_Alarm 1                                  | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 1                                  |
+| MEM\_E\_Alarm 2                                  | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 2                                  |
+| MEM\_E\_Alarm 3                                  | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 3                                  |
+| MEM\_E\_Alarm 4                                  | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 4                                  |
+| MEM\_E\_Alarm 5                                  | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 5                                  |
+| MEM\_E\_Alarm 6                                  | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 6                                  |
+| MEM\_E\_Alarm 7                                  | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 7                                  |
+| MEM\_E\_Alarm 8                                  | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 8                                  |
+| MEM\_E\_Alarm 9                                  | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 9                                  |
+| MEM\_E\_Alarm 10                                 | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 10                                 |
+| MEM\_E\_Alarm 11                                 | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 11                                 |
+| MEM\_E\_Alarm 12                                 | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 12                                 |
+| MEM\_E\_Alarm 13                                 | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 13                                 |
+| MEM\_E\_Alarm 14                                 | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 14                                 |
+| MEM\_E\_Alarm 15                                 | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 15                                 |
+| MEM\_E\_Alarm 16                                 | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 16                                 |
+| MEM\_E\_Alarm 17                                 | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 17                                 |
+| MEM\_E\_Alarm 18                                 | number          | R/W              | D                  | 1               | 1               | MEM-E-Alarm 18                                 |
+| PANEL\_D\_Outer (front) door state               | number          | R/W              | D                  | 1               | 1               | PANEL-D-Outer (front) door state               |
+| PANEL\_D\_Inner door state                       | number          | R/W              | D                  | 1               | 1               | PANEL-D-Inner door state                       |
+| PANEL\_D\_Side door state                        | number          | R/W              | D                  | 1               | 1               | PANEL-D-Side door state                        |
+| PANEL\_K\_Mode                                   | number          | R/W              | D                  | 1               | 1               | PANEL-K-Mode                                   |
+| PANEL\_K\_Screen                                 | number          | R/W              | D                  | 1               | 1               | PANEL-K-Screen                                 |
+| PANEL\_K\_Block skip                             | number          | R/W              | D                  | 1               | 1               | PANEL-K-Block skip                             |
+| PANEL\_K\_Optional stop                          | number          | R/W              | D                  | 1               | 1               | PANEL-K-Optional stop                          |
+| PANEL\_K\_Single operation                       | number          | R/W              | D                  | 1               | 1               | PANEL-K-Single operation                       |
+| PANEL\_K\_Dry run                                | number          | R/W              | D                  | 1               | 1               | PANEL-K-Dry run                                |
+| PANEL\_K\_Machine lock                           | number          | R/W              | D                  | 1               | 1               | PANEL-K-Machine lock                           |
+| PANEL\_K\_Coolant switch                         | number          | R/W              | D                  | 1               | 1               | PANEL-K-Coolant switch                         |
+| PANEL\_K\_Chip flow switch                       | number          | R/W              | D                  | 1               | 1               | PANEL-K-Chip flow switch                       |
+| PANEL\_K\_Machine light switch                   | number          | R/W              | D                  | 1               | 1               | PANEL-K-Machine light switch                   |
+| PANEL\_K\_Pallet select switch                   | number          | R/W              | D                  | 1               | 1               | PANEL-K-Pallet select switch                   |
+| PANEL\_S\_Rapid traverse override state          | number          | R/W              | D                  | 1               | 1               | PANEL-S-Rapid traverse override state          |
+| PANEL\_S\_Cutting feed override state            | number          | R/W              | D                  | 1               | 1               | PANEL-S-Cutting feed override state            |
+| PANEL\_S\_Spindle override state                 | number          | R/W              | D                  | 1               | 1               | PANEL-S-Spindle override state                 |
+| PANEL\_S\_Emergency stop                         | number          | R/W              | D                  | 1               | 1               | PANEL-S-Emergency stop                         |
+| PANEL\_S\_Door interlock state                   | number          | R/W              | D                  | 1               | 1               | PANEL-S-Door interlock state                   |
+| PANEL\_S\_Mode change                            | number          | R/W              | D                  | 1               | 1               | PANEL-S-Mode change                            |
+| PANEL\_S\_Data protection                        | number          | R/W              | D                  | 1               | 1               | PANEL-S-Data protection                        |
+| PDSP\_L01\_Language                              | number          | R/W              | D                  | 1               | 1               | PDSP-L01-Language                              |
+| PDSP\_G01\_G0 group                              | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G0 group                              |
+| PDSP\_G01\_G17 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G17 group                             |
+| PDSP\_G01\_G22 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G22 group                             |
+| PDSP\_G01\_G40 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G40 group                             |
+| PDSP\_G01\_G49 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G49 group                             |
+| PDSP\_G01\_G50 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G50 group                             |
+| PDSP\_G01\_G50.1 group                           | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G50.1 group                           |
+| PDSP\_G01\_G64 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G64 group                             |
+| PDSP\_G01\_G54 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G54 group                             |
+| PDSP\_G01\_G67 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G67 group                             |
+| PDSP\_G01\_G69 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G69 group                             |
+| PDSP\_G01\_G80 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G80 group                             |
+| PDSP\_G01\_G90 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G90 group                             |
+| PDSP\_G01\_G94 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G94 group                             |
+| PDSP\_G01\_G98 group                             | number          | R/W              | D                  | 1               | 1               | PDSP-G01-G98 group                             |
+| PDSP\_M01\_M5 group                              | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M5 group                              |
+| PDSP\_M01\_M9 group                              | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M9 group                              |
+| PDSP\_M01\_M221 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M221 group                            |
+| PDSP\_M01\_M222 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M222 group                            |
+| PDSP\_M01\_M223 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M223 group                            |
+| PDSP\_M01\_M224 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M224 group                            |
+| PDSP\_M01\_M230 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M230 group                            |
+| PDSP\_M01\_M269 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M269 group                            |
+| PDSP\_M01\_M401 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M401 group                            |
+| PDSP\_M01\_M495 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M495 group                            |
+| PDSP\_M01\_M239 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M239 group                            |
+| PDSP\_M01\_M250 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M250 group                            |
+| PDSP\_M01\_M403 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M403 group                            |
+| PDSP\_M01\_M405 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M405 group                            |
+| PDSP\_M01\_M407 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M407 group                            |
+| PDSP\_M01\_M409 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M409 group                            |
+| PDSP\_M01\_M431 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M431 group                            |
+| PDSP\_M01\_M441 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M441 group                            |
+| PDSP\_M01\_M443 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M443 group                            |
+| PDSP\_M01\_M459 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M459 group                            |
+| PDSP\_M01\_M481 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M481 group                            |
+| PDSP\_M01\_M483 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M483 group                            |
+| PDSP\_M01\_M485 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M485 group                            |
+| PDSP\_M01\_M487 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M487 group                            |
+| PDSP\_M01\_M270 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M270 group                            |
+| PDSP\_M01\_M435 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M435 group                            |
+| PDSP\_M01\_M419 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M419 group                            |
+| PDSP\_M01\_M290 group                            | number          | R/W              | D                  | 1               | 1               | PDSP-M01-M290 group                            |
+| PDSP\_P01\_Machine coordinate position X-axis    | number          | R/W              | D                  | 1               | 1               | PDSP-P01-Machine coordinate position X-axis    |
+| PDSP\_P01\_Machine coordinate position Y-axis    | number          | R/W              | D                  | 1               | 1               | PDSP-P01-Machine coordinate position Y-axis    |
+| PDSP\_P01\_Machine coordinate position Z-axis    | number          | R/W              | D                  | 1               | 1               | PDSP-P01-Machine coordinate position Z-axis    |
+| PDSP\_P01\_Machine coordinate position 4th-axis  | number          | R/W              | D                  | 1               | 1               | PDSP-P01-Machine coordinate position 4th-axis  |
+| PDSP\_P01\_Machine coordinate position 5th-axis  | number          | R/W              | D                  | 1               | 1               | PDSP-P01-Machine coordinate position 5th-axis  |
+| PDSP\_P01\_Machine coordinate position 6th-axis  | number          | R/W              | D                  | 1               | 1               | PDSP-P01-Machine coordinate position 6th-axis  |
+| PDSP\_P01\_Machine coordinate position 7th-axis  | number          | R/W              | D                  | 1               | 1               | PDSP-P01-Machine coordinate position 7th-axis  |
+| PDSP\_P01\_Machine coordinate position 8th-axis  | number          | R/W              | D                  | 1               | 1               | PDSP-P01-Machine coordinate position X8th-axis |
+| PDSP\_P02\_Relative coordinate position X-axis   | number          | R/W              | D                  | 1               | 1               | PDSP-P02-Relative coordinate position X-axis   |
+| PDSP\_P02\_Relative coordinate position Y-axis   | number          | R/W              | D                  | 1               | 1               | PDSP-P02-Relative coordinate position Y-axis   |
+| PDSP\_P02\_Relative coordinate position Z-axis   | number          | R/W              | D                  | 1               | 1               | PDSP-P02-Relative coordinate position Z-axis   |
+| PDSP\_P02\_Relative coordinate position 4th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P02-Relative coordinate position 4th-axis |
+| PDSP\_P02\_Relative coordinate position 5th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P02-Relative coordinate position 5th-axis |
+| PDSP\_P02\_Relative coordinate position 6th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P02-Relative coordinate position 6th-axis |
+| PDSP\_P02\_Relative coordinate position 7th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P02-Relative coordinate position 7th-axis |
+| PDSP\_P02\_Relative coordinate position 8th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P02-Relative coordinate position 8th-axis |
+| PDSP\_P03\_Absolute coordinate position X-axis   | number          | R/W              | D                  | 1               | 1               | PDSP-P03-Absolute coordinate position X-axis   |
+| PDSP\_P03\_Absolute coordinate position Y-axis   | number          | R/W              | D                  | 1               | 1               | PDSP-P03-Absolute coordinate position Y-axis   |
+| PDSP\_P03\_Absolute coordinate position Z-axis   | number          | R/W              | D                  | 1               | 1               | PDSP-P03-Absolute coordinate position Z-axis   |
+| PDSP\_P03\_Absolute coordinate position 4th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P03-Absolute coordinate position 4th-axis |
+| PDSP\_P03\_Absolute coordinate position 5th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P03-Absolute coordinate position 5th-axis |
+| PDSP\_P03\_Absolute coordinate position 6th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P03-Absolute coordinate position 6th-axis |
+| PDSP\_P03\_Absolute coordinate position 7th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P03-Absolute coordinate position 7th-axis |
+| PDSP\_P03\_Absolute coordinate position 8th-axis | number          | R/W              | D                  | 1               | 1               | PDSP-P03-Absolute coordinate position 8th-axis |
+| PDSP\_P04\_Remaining distance X-axis             | number          | R/W              | D                  | 1               | 1               | PDSP-P04-Remaining distance X-axis             |
+| PDSP\_P04\_Remaining distance Y-axis             | number          | R/W              | D                  | 1               | 1               | PDSP-P04-Remaining distance Y-axis             |
+| PDSP\_P04\_Remaining distance Z-axis             | number          | R/W              | D                  | 1               | 1               | PDSP-P04-Remaining distance Z-axis             |
+| PDSP\_P04\_Remaining distance 4th-axis           | number          | R/W              | D                  | 1               | 1               | PDSP-P04-Remaining distance 4th-axis           |
+| PDSP\_P04\_Remaining distance 5th-axis           | number          | R/W              | D                  | 1               | 1               | PDSP-P04-Remaining distance 5th-axis           |
+| PDSP\_P04\_Remaining distance 6th-axis           | number          | R/W              | D                  | 1               | 1               | PDSP-P04-Remaining distance 6th-axis           |
+| PDSP\_P04\_Remaining distance 7th-axis           | number          | R/W              | D                  | 1               | 1               | PDSP-P04-Remaining distance 7th-axis           |
+| PDSP\_P04\_Remaining distance 8th-axis           | number          | R/W              | D                  | 1               | 1               | PDSP-P04-Remaining distance 8th-axis           |
+| PDSP\_X01\_Feed rate                             | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Feed rate                             |
+| PDSP\_X01\_Spindle speed                         | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Spindle speed                         |
+| PDSP\_X01\_Inner pallet state                    | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Inner pallet state                    |
+| PDSP\_X01\_Spindle tool number                   | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Spindle tool number                   |
+| PDSP\_X01\_Next tool number                      | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Next tool number                      |
+| PDSP\_X01\_Magazine number                       | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Magazine number                       |
+| PDSP\_X01\_Door interlock state                  | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Door interlock state                  |
+| PDSP\_X01\_Outer/front door state                | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Outer/front door state                |
+| PDSP\_X01\_Inner door state                      | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Inner door state                      |
+| PDSP\_X01\_Slide door state                      | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Slide door state                      |
+| PDSP\_X01\_Rapid traverse override state         | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Rapid traverse override state         |
+| PDSP\_X01\_Cutting feed override state           | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Cutting feed override state           |
+| PDSP\_X01\_Spindle override state                | number          | R/W              | D                  | 1               | 1               | PDSP-X01-Spindle override state                |
+| VER\_M01\_Model                                  | number          | R/W              | D                  | 1               | 1               | VER-M01-Model                                  |
+| VER\_V01\_Main version                           | number          | R/W              | D                  | 1               | 1               | VER-V01-Main version                           |
+| VER\_V01\_Local version                          | number          | R/W              | D                  | 1               | 1               | VER-V01-Local version                          |
+| VER\_V01\_Slave version                          | number          | R/W              | D                  | 1               | 1               | VER-V01-Slave version                          |
+| VER\_V01\_Main (copy) version                    | number          | R/W              | D                  | 1               | 1               | VER-V01-Main (copy) version                    |
+| VER\_V01\_Slave (copy) version                   | number          | R/W              | D                  | 1               | 1               | VER-V01-Slave (copy) version                   |
+| VER\_V01\_PLC version                            | number          | R/W              | D                  | 1               | 1               | VER-V01-PLC version                            |
+| VER\_S01\_Machine number                         | number          | R/W              | D                  | 1               | 1               | VER-S01-Machine number                         |
+| LOG\_A01\_Status                                 | number          | R/W              | D                  | 1               | 1               | LOG-A01-Status                                 |
+| LOG\_A01\_Index                                  | number          | R/W              | D                  | 1               | 1               | LOG-A01-Index                                  |
+| LOG\_B\_yymmddhhmmss                             | number          | R/W              | D                  | 1               | 100             | LOG-B-yymmddhhmmss                             |
+| LOG\_B\_Alarm number                             | number          | R/W              | D                  | 1               | 100             | LOG-B-Alarm number                             |
+| LOG\_B\_Auxilliary number                        | number          | R/W              | D                  | 1               | 100             | LOG-B-Auxilliary number                        |
+| LOG\_B\_Attribute                                | number          | R/W              | D                  | 1               | 100             | LOG-B-Attribute                                |
+| LOG\_B\_Operation program number                 | number          | R/W              | D                  | 1               | 100             | LOG-B-Operation program number                 |
+| LOG\_B\_Edit program number                      | number          | R/W              | D                  | 1               | 100             | LOG-B-Edit program number                      |
+| LOG\_B\_Block number / Job number                | number          | R/W              | D                  | 1               | 100             | LOG-B-Block number / Job number                |
+| LOG\_B\_Mode                                     | number          | R/W              | D                  | 1               | 100             | LOG-B-Mode                                     |
+| LOG\_B\_Screen                                   | number          | R/W              | D                  | 1               | 100             | LOG-B-Screen                                   |
+| LOG\_B\_Extended operation                       | number          | R/W              | D                  | 1               | 100             | LOG-B-Extended operation                       |
+| LOG\_C\_Machine coordinate position X-axis       | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position X-axis       |
+| LOG\_C\_Machine coordinate position Y-axis       | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position Y-axis       |
+| LOG\_C\_Machine coordinate position Z-axis       | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position Z-axis       |
+| LOG\_C\_Machine coordinate position 4th-axis     | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position 4th-axis     |
+| LOG\_C\_Machine coordinate position 5th-axis     | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position 5th-axis     |
+| LOG\_C\_Machine coordinate position 6th-axis     | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position 6th-axis     |
+| LOG\_C\_Machine coordinate position 7th-axis     | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position 7th-axis     |
+| LOG\_C\_Machine coordinate position 8th-axis     | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position 8th-axis     |
+| LOG\_C\_Machine coordinate position 9th-axis     | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position 9th-axis     |
+| LOG\_C\_Machine coordinate position 10th-axis    | number          | R/W              | D                  | 1               | 100             | LOG-C-Machine coordinate position 10th-axis    |
+| LOG\_C\_Remaining distance X-axis                | number          | R/W              | D                  | 1               | 100             |                                                |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

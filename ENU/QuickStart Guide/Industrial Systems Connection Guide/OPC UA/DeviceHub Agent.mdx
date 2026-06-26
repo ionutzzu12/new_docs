@@ -1,0 +1,120 @@
+---
+title: DeviceHub Agent
+slug: quickstart-guide/industrial-systems-connection-guide/opc-ua/devicehub-agent
+description: Review the following use case for connecting and configuring the DeviceHub Agent.
+docTags: 
+createdAt: Thu May 28 2026 23:47:01 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the DeviceHub Agent driver.&#x20;
+
+<hint type="warning">
+  **Note:** DeviceHub Agent no longer supported.
+</hint>
+
+# Set Up the DeviceHub Agent
+
+See [Set Up the DeviceHub Agent](<././././How-To Guides/Set Up the DeviceHub Agent.md>) to review how to set up and configure the DeviceHub Agent driver.&#x20;
+
+# DeviceHub Agent Driver Settings in Litmus Edge
+
+If you review or edit the settings of the OSI Agent device, refer to the following parameters.&#x20;
+
+| Parameter                | Value                                         |
+| ------------------------ | --------------------------------------------- |
+| **Type**                 | OPC UA                                        |
+| **Driver**               | DeviceHub Agent                               |
+| **Network Address**      | If unsure, leave the default value of 0.0.0.0 |
+| **Network Port**         | 41250                                         |
+| **Data Validity Period** | 60                                            |
+
+If you [Add a Tag](#) in Litmus Edge, refer to the following supported data types and tag parameters. There isn't a list of available register names.
+
+## Supported Data Types
+
+- `Word`&#x20;
+- `StrArg`&#x20;
+- `Null`
+- `Single`
+- `Byte`
+- `RefToNull`
+- `Mask`
+- `ArrayOfDouble`
+- `ArrayOfString`
+- `RefToEmpty`
+- `RefToSmallInt`
+- `RefToMask`
+- `SmallInt`
+- `ShortInt`
+- `RefToDate`
+- `RefToDispatch`
+- `Date`
+- `Dispatch`
+- `ArrayOfNull`
+- `ArrayOfBoolean`
+- `RefToVariant`
+- `RefToString`
+- `LongWord`
+- `ArrayOfInteger`
+- `ArrayOfDispatch`
+- `Error`
+- `ArrayOfUnknown`
+- `ArrayOfLongWord`
+- `ArrayOfAny`
+- `String`
+- `Any`
+- `ArrayOfOleString`
+- `RefToSingle`
+- `RefToUnknown`
+- `Double`
+- `OleString`
+- `RefToOleString`
+- `Unknown`
+- `ArrayOfInt64`
+- `ArrayOfMask`
+- `RefToInteger`
+- `Currency`
+- `Variant`
+- `ArrayOfSmallInt`
+- `ArrayOfVariant`
+- `ArrayOfShortInt`
+- `ArrayOfWord`
+- `Empty`
+- `ArrayOfEmpty`
+- `ArrayOfStrArg`
+- `RefToByte`
+- `Integer`
+- `Boolean`
+- `ArrayOfDate`
+- `RefToError`
+- `RefToBoolean`
+- `ArrayOfSingle`
+- `ArrayOfCurrency`
+- `ArrayOfError`
+- `RefToDouble`
+- `RefToCurrency`
+- `UnknownType`
+- `Int64`
+- `ArrayOfByte`
+
+## Tag Parameters
+
+- **Name**: Enter the case-sensitive register name exactly as it is defined in the PLC.&#x20;
+- **Value Type**: Select a data type from the drop-down list.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

@@ -1,0 +1,138 @@
+---
+title: BacnetIP
+slug: quickstart-guide/industrial-systems-connection-guide/bacnet/bacnetip
+description: Review the following information for setting up and configuring the BacnetIP device.
+docTags: 
+createdAt: Thu May 28 2026 23:47:04 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the BacnetIP device.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items  |
+| ---------------------------- | ----------------- |
+| **Driver type**              | Ethernet          |
+| **Validated devices/series** | BACnet/IP devices |
+
+# Before You Begin
+
+- You will need to open UDP port 47808 on your firewall to successfully browse tags.&#x20;
+- If you are using the **Docker version** of Litmus Edge:
+  - You will need to use the `--net=host` option in the Docker run command for the [Asset Discovery Tool](<././././Product Features/DeviceHub/Devices/Asset Discovery Tool.md>) to successfully work.&#x20;
+  - When using the  [Asset Discovery Tool](<././././Product Features/DeviceHub/Devices/Asset Discovery Tool.md>), you will need to use the IP address 0.0.0.0. You can't use the IP address of the host machine.&#x20;
+  - If the `--net=host` option is not enabled:
+    - Device Discovery will not work.&#x20;
+    - Browse tags will not work **unless&#x20;**&#x79;ou map `47808:47808/UDP`.&#x20;
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<hint type="warning">
+  **Important**: When setting up the PLC device, the BACnet driver and your Litmus Edge instance must be on the same subnet. If they aren't on the same subnet, the BACnet driver won't be able to connect to Litmus Edge.&#x20;
+</hint>
+
+To find the network parameters of the driver, you have the option of using the [Device Discovery Tool](<././././Product Features/DeviceHub/Devices/Asset Discovery Tool.md>). Otherwise, set up the device for Ethernet access and collect the network parameters.&#x20;
+
+**To use the device discovery tool:**
+
+1. &#x20;Navigate to **DeviceHub&#x20;**> **Devices**.
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device&#x20;*&#x64;ialog box appears.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/EsdTOzwz08SbFyIjrMSkH_connectdevice.png" size="80" width="1046" height="528" caption="Connect a Device box" position="center" indent="2" showCaption="true"></Image>
+
+3. Click the **Device Type** drop-down list and select **BACnet**.
+4. Click the **Driver Name** drop-down list, and select **BacnetIP**.
+5. Click **Device Discovery**.&#x20;
+   Th&#x65;*&#x20;Device Discovery* dialog box appears.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/hhgwr9rUjmT4zyBcKvsDb_connectdevicebacnet.png" size="80" width="1170" height="608" caption="Device Discovery option" position="center" indent="2" showCaption="true"></Image>
+
+6. In th&#x65;**&#x20;Network address** field, open the drop-down list and select the appropriate ethernet port. The available options are based on the interfaces configured in Litmus Edge. To review interfaces, navigate to **System&#x20;**> **Network&#x20;**> **Interfaces**.&#x20;
+7. In the **Retry count** field, review the default value (5) and update it if needed. This configures the number of times Litmus Edge will attempt to discover devices.&#x20;
+8. In the **Timeout&#x20;**&#x66;ield, review the default value (2) and update it if needed.&#x20;
+9. Click **Start discovery**. When the search is complete, available devices will be listed with the following parameters:
+   - Device ID
+   - IP address
+   - Port
+10. Click the appropriate device, and then click **Update form with discovery results**.&#x20;
+    The *Connect Device* dialog box appears with *Network Address*, *Network Port*, and *Target Device ID* pre-filled based on the discovery results.&#x20;
+11. Move onto Step 2 and continue configuring the device with the remaining parameters.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                                                                                                         |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Type**               | BACnet                                                                                                        |
+| **Driver**             | BacnetIP                                                                                                      |
+| **Network Address**    | The device address you defined in Step 1                                                                      |
+| **Port**               | 47808                                                                                                         |
+| **Target Device ID**   | The Object ID of the device                                                                                   |
+| **Instance Device ID** | If the default value of 0 is configured, then a random instance ID will be generated. This ID must be unique. |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, see the following Register Table and Tag Parameters sections. You can also [Browse and Add Tags from a Device]() for the device.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+<hint type="info">
+  **Note**: When browsing for tags, only tags with the property of **Present\_Value** will be identified.&#x20;
+</hint>
+
+| **Name**    | **Value Types**                                              | **Access   Types&#x20;** | **Address Format** | **Min Address** | **Max Address** | **Description**               |
+| ----------- | ------------------------------------------------------------ | ------------------------ | ------------------ | --------------- | --------------- | ----------------------------- |
+| AI          | float32                                                      | R/W                      |                    | 0               | 2147483647      | Analog input                  |
+| AO          | float32                                                      | R/W                      |                    | 0               | 2147483647      | Analog output                 |
+| AV          | float32                                                      | R/W                      |                    | 0               | 2147483647      | Analog value                  |
+| BI          | uint32, bool                                                 | R/W                      |                    | 0               | 2147483647      | Binary input                  |
+| BO          | uint32, bool                                                 | R/W                      |                    | 0               | 2147483647      | Binary output                 |
+| BV          | uint32, bool                                                 | R/W                      |                    | 0               | 2147483647      | Binary value                  |
+| MSI         | int32                                                        | R/W                      |                    | 0               | 2147483647      | Multi state input             |
+| MSO         | int32                                                        | R/W                      |                    | 0               | 2147483647      | Multi state output            |
+| MSV         | int32                                                        | R/W                      |                    | 0               | 2147483647      | Multi state value             |
+| SCH         | float32                                                      | R/W                      |                    | 0               | 2147483647      | Schedule                      |
+| LFSP        | uint32                                                       | R/W                      |                    | 0               | 2147483647      | Life safety point             |
+| LOCTL       | float32                                                      | R/W                      |                    | 0               | 2147483647      | Local control                 |
+| OCTSTR      | octet\_string                                                | R/W                      |                    | 0               | 2147483647      | Octet string                  |
+| PINT        | uint32                                                       | R/W                      |                    | 0               | 2147483647      | Positive integer              |
+| CHV         | string                                                       | R/W                      |                    | 0               | 2147483647      | Object character string value |
+| F           | octet\_string                                                | R/W                      |                    | 0               | 2147483647      | File object                   |
+| PROPRIETARY | bool, int32, uint32, float32, float64, string, octet\_string | R/W                      |                    | 0               | 2147483647      | Proprietary                   |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. Available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. Available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to publish NATS messages only when the *value&#x20;*&#x70;arameter changes to a new one value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics are not affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

@@ -1,0 +1,54 @@
+---
+title: MQTT - Azure IoT Hub using SAS Key
+slug: product-features/integration/integration-connectors/message-brokers/mqtt-azure-iot-hub-using-sas-key
+description: Review parameters for the MQTT - Azure IoT Hub using SAS Key connector.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following guides: [Send Data to Azure IoT Hub with an SAS Key](<./././././How-To Guides/Integration Guides/Azure IoT Hub Guides/Send Data to Azure IoT Hub with an SAS Key.md>) and [Receive Data from Azure IoT Hub with an SAS Key](<./././././How-To Guides/Integration Guides/Azure IoT Hub Guides/Receive Data from Azure IoT Hub with an SAS Key.md>).&#x20;
+
+## Overview
+
+Azure IoT Hub SAS Key integration enables an Edge System to connect to an MQTT broker.
+
+## Supported Versions
+
+Compatible with MQTT Protocol version 3.1.0 and MQTT Protocol version 3.1.1
+
+## Supported Communication
+
+- Outbound (Publish data from Edge to MQTT Broker) - Yes
+- Inbound (Subscribe data from MQTT Broker to Edge) - Yes
+
+## Configurations
+
+| **Variable**           | **Detail**                                                                                                                                                                                                                                                                           | **Required** |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
+| Name                   | Enter a name for the connector                                                                                                                                                                                                                                                       | Yes          |
+| Hostname               | IP Address or Server FQDN of MQTT broker (Must be reachable from the Edge system)                                                                                                                                                                                                    | Yes          |
+| Port                   | MQTT broker port                                                                                                                                                                                                                                                                     | Yes          |
+| Device ID              | ID of the device as shown in your Azure IoT account.                                                                                                                                                                                                                                 | Yes          |
+| SAS Key                | The primary or secondary shared access key.                                                                                                                                                                                                                                          | Yes          |
+| Parallel publish count | It refers to the number of messages that can be simultaneously published or sent in parallel. It is a measure of how many messages can be transmitted at the same time.&#xA;As an example, in Mosquitto, you have the following settings:&#xA;\* max\_queued\_messages (default 100) |              |
+
+- max\_queued\_bytes (default 0)
+  As per the Mosquitto documentation, when this limit is reached, any additional messages are silently discarded. You have the option to either adjust the server configuration or specify this value based on the server settings. | Yes          |
+  \| Integration topic      | Default topic for publishing or subscribing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | No           |
+  \| Token TTL (minutes)    | The token expiry time in minutes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Yes          |
+  \| LWT topic              | It refers to the specific topic where the last will message will be published.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No           |
+  \| LWT payload            | It is the information or message that will be sent to the specified topic when the client disconnects unexpectedly or goes offline without sending a proper "goodbye" message.                                                                                                                                                                                                                                                                                                                                                                                | No           |
+  \| LWT payload type       | A payload type (raw string or base64 encoded bytes) for Last Will and Testament feature of MQTT                                                                                                                                                                                                                                                                                                                                                                                                                                                               | No           |
+  \| LWT QoS                | A QoS value for Last Will and Testament feature of MQTT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | No           |
+  \| LWT retained           | If enabled, the broker will store the LWT message, and any new subscribers to the LWT topic will immediately receive this retained LWT message.                                                                                                                                                                                                                                                                                                                                                                                                               | No           |
+  \| Throttling limit       | Set a limit on the number of outbound messages per second. If sending data to a server that has restrictions on the rate of incoming messages, this ensures that no messages are lost.                                                                                                                                                                                                                                                                                                                                                                        | No           |
+  \| Persistent storage     | If enabled, messages in the outbound queue are stored on disk. If there are interruptions in connection or power loss, messages will be retained and eventually sent when the connection is restored.                                                                                                                                                                                                                                                                                                                                                         | No           |
+  \| Queue mode             | Select the sequence of data transfer: FIFO or LIFO. Selecting FIFO (First In First Out) will send the earliest message first. Selecting LIFO (Last In First Out) will send the latest message first.                                                                                                                                                                                                                                                                                                                                                          | No           |
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+| Product        | Version |
+| -------------- | ------- |
+| Azure Services | N/A     |

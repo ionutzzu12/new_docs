@@ -1,0 +1,104 @@
+---
+title: AB ControlLogix FreeTag (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/allen-bradley/ab-controllogix-freetag-gen1
+description: Review the following information for setting up and configuring the AB ControlLogix FreeTag (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the AB ControlLogix FreeTag (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series
+
+| Compatibility parameter      | Compatible items                                                                                                                                                                                                                   |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Serial                                                                                                                                                                                                                             |
+| **Validated devices/series** | [ControlLogix](http://ab.rockwellautomation.com/)&#xA;When configuring tags for this driver, you must enter the case-sensitive register name exactly as it is defined in the PLC. See the *Free Tags* section below to learn more. |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+Record the serial communication parameters for the device. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it as needed.&#x20;
+   **Device**: AB ControlLogix FreeTag 1756-L55
+   **Communication I/F**: RS232. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/SSp4v8C87SjqfCgvoTLwD_ab-controllogix-freetag.png" size="100" width="864" height="279" position="flex-start" caption="AB ControlLogix FreeTag" indent="2" showCaption="true"></Image>
+
+2. Launch RSLinx Classic, and then click **Configure Drivers**.
+3. Add a new RS-232-DF1 driver.
+4. Set up the communication port and set up parameters as follows, and then click **Auto-Configure**.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/tqIEohWhk6dy_BhOWLt9g_ab-controllogix-freetag-auto-configure482x338.png" size="80" width="482" height="338" position="flex-start" caption="Configure parameters" indent="2" showCaption="true"></Image>
+
+5. Right-click the Ethernet communication module and select **Module Configuration&#xA0;**&#x74;o set up its network parameters.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                             |
+| ---------------------- | --------------------------------- |
+| **Type**               | Allen-Bradley                     |
+| **Driver**             | AB ControlLogix FreeTag (Gen1.3)  |
+| **Data Bits**          | 8                                 |
+| **Baud Rate**          | 19200                             |
+| **Parity**             | Even, Odd, None                   |
+| **Stop Bits**          | 1                                 |
+| **Slot**               | 0                                 |
+| **Communication Port** | Local Serial connection file path |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following tag parameters and available value types.
+
+Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Free Tags
+
+This driver doesn't have a list of available register names in the DeviceHub *Add Tag* form. To add tags, you must enter the case-sensitive register name exactly as it is defined in the PLC.
+
+A **Connected** status for the device won't display until a tag with a correct register name is created.
+
+## Available Value Types
+
+- `bool`
+- `sint`
+- `int`
+- `bit(int)`
+- `dint`
+- `real`
+- `lint`
+
+## Tag Parameters
+
+- **Name**: Enter the case-sensitive register name exactly as it is defined in the PLC.&#x20;
+- **Value Type**: Select a data type from the drop-down list.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

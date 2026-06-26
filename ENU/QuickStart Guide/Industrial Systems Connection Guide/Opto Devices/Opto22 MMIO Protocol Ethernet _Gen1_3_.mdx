@@ -1,0 +1,166 @@
+---
+title: Opto22 MMIO Protocol Ethernet (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/opto-devices/opto22-mmio-protocol-ethernet-gen1
+description: Review the following information for setting up and configuring the Opto22 MMIO Protocol Ethernet (Gen1)  driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:09 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Opto22 MMIO Protocol Ethernet (Gen1.3)&#x20;driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                 |
+| ---------------------------- | ------------------------------------------------ |
+| **Driver type**              | Ethernet                                         |
+| **Validated devices/series** | [OPTO22 SNAP PAC System](http://www.opto22.com/) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure your device for Ethernet access.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter           | Value                                        |
+| ------------------- | -------------------------------------------- |
+| **Type**            | Opto Devices&#xD;&#xA;&#xD;                  |
+| **Driver**          | Opto22 MMIO Protocol Ethernet (Gen1.3)       |
+| **Network Address** | The device address you defined during Step 1 |
+| **Port**            | 2001                                         |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, see the following Register Table and Tag Parameters sections. You can also [Browse and Add Tags from a Device]() for the device.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name**                | **Value Types** | **Address Format** | **Min Address** | **Max Address** |
+| ----------------------- | --------------- | ------------------ | --------------- | --------------- |
+| STATE                   | bit             | DD                 | 0               | 63              |
+| ONLATCH                 | bit             | DD                 | 0               | 63              |
+| OFFLATCH                | bit             | DD                 | 0               | 63              |
+| ACTIVECOUNTER           | bit             | DD                 | 0               | 63              |
+| ONLATCH\_READCLEAR      | bit             | DD                 | 0               | 63              |
+| OFFLATCH\_READCLEAR     | bit             | DD                 | 0               | 63              |
+| HDD\_STATE              | bit             | DDdd               | 0               | 1531            |
+| HDD\_ONLATCH            | bit             | DDdd               | 0               | 1531            |
+| HDD\_OFFLATCH           | bit             | DDdd               | 0               | 1531            |
+| HDD\_ONLATCH\_CLEAR     | bit             | DDdd               | 0               | 1531            |
+| HDD\_OFFLATCH\_CLEAR    | bit             | DDdd               | 0               | 1531            |
+| ALARM\_HI\_STATE        | bit             | DD                 | 0               | 63              |
+| ALARM\_HI\_ENABLE       | bit             | DD                 | 0               | 63              |
+| ALARM\_LO\_STATE        | bit             | DD                 | 0               | 63              |
+| ALARM\_LO\_ENABLE       | bit             | DD                 | 0               | 63              |
+| SP\_BIT                 | bit             | DD                 | 0               | 63              |
+| EU                      | dword           | DD                 | 0               | 63              |
+| COUNTS                  | dword           | DD                 | 0               | 63              |
+| MIN                     | dword           | DD                 | 0               | 63              |
+| MAX                     | dword           | DD                 | 0               | 63              |
+| MIN\_READCLEAR          | dword           | DD                 | 0               | 63              |
+| MAX\_READCLEAR          | dword           | DD                 | 0               | 63              |
+| EU\_4096                | dword           | DDDD               | 0               | 4095            |
+| COUNTS\_4096            | dword           | DDDD               | 0               | 4095            |
+| MIN\_4096               | dword           | DDDD               | 0               | 4095            |
+| MAX\_4096               | dword           | DDDD               | 0               | 4095            |
+| MIN\_READCLEAR\_4096    | dword           | DDDD               | 0               | 4095            |
+| MAX\_READCLEAR\_4096    | dword           | DDDD               | 0               | 4095            |
+| COUNTERDATA             | dword           | DD                 | 0               | 63              |
+| COUNTERDATA\_READCLEAR  | dword           | DD                 | 0               | 63              |
+| HDD\_COUNTER            | dword           | DD                 | 0               | 15              |
+| HDD\_COUNTER\_READCLEAR | dword           | DD                 | 0               | 15              |
+| HDD\_BANK\_STATE        | dword           | DD                 | 0               | 15              |
+| HDD\_BANK\_ONLATCH      | dword           | DD                 | 0               | 15              |
+| HDD\_BANK\_OFFLATCH     | dword           | DD                 | 0               | 15              |
+| MODULETYPE              | dword           | DD                 | 0               | 63              |
+| POINTTYPE               | dword           | DD                 | 0               | 63              |
+| FEATURE                 | dword           | DD                 | 0               | 63              |
+| OFFSET                  | dword           | DD                 | 0               | 63              |
+| GAIN                    | dword           | DD                 | 0               | 63              |
+| HISCALE                 | dword           | DD                 | 0               | 63              |
+| LOSCALE                 | dword           | DD                 | 0               | 63              |
+| MODULETYPE\_4096        | dword           | DDDD               | 0               | 4096            |
+| POINTTYPE\_4096         | dword           | DDDD               | 0               | 4096            |
+| FEATURE\_4096           | dword           | DDDD               | 0               | 4096            |
+| OFFSET\_4096            | dword           | DDDD               | 0               | 4096            |
+| GAIN\_4096              | dword           | DDDD               | 0               | 4096            |
+| MODUHISCALE\_4096       | dword           | DDDD               | 0               | 4096            |
+| LOSCALE\_4096           | dword           | DDDD               | 0               | 4096            |
+| ALARM\_HI\_SETPOINT     | dword           | DD                 | 0               | 63              |
+| ALARM\_HI\_DEADBAND     | dword           | DD                 | 0               | 63              |
+| ALARM\_LO\_SETPOINT     | dword           | DD                 | 0               | 63              |
+| ALARM\_LO\_DEADBAND     | dword           | DD                 | 0               | 63              |
+| SP\_INTEGER             | dword           | DDDDD              | 0               | 10239           |
+| SP\_FLOAT               | dword           | DDDDD              | 0               | 10239           |
+| SP\_STRING              | dword           | DDDD               | 0               | 6300            |
+| PID\_CV\_IN             | dword           | DDD                | 0               | 127             |
+| PID\_CV\_SP             | dword           | DDD                | 0               | 127             |
+| PID\_CV\_OUT            | dword           | DDD                | 0               | 127             |
+| PID\_CV\_FF             | dword           | DDD                | 0               | 127             |
+| PID\_CV\_ERROR          | dword           | DDD                | 0               | 127             |
+| PID\_CV\_P              | dword           | DDD                | 0               | 127             |
+| PID\_CV\_I              | dword           | DDD                | 0               | 127             |
+| PID\_CV\_D              | dword           | DDD                | 0               | 127             |
+| PID\_CV\_INTEGRAL       | dword           | DDD                | 0               | 127             |
+| PID\_LSV\_IN            | dword           | DDD                | 0               | 127             |
+| PID\_LSV\_SP            | dword           | DDD                | 0               | 127             |
+| PID\_STATUS             | dword           | DDD                | 0               | 127             |
+| PID\_STATUS\_ON         | dword           | DDD                | 0               | 127             |
+| PID\_STATUS\_OFF        | dword           | DDD                | 0               | 127             |
+| PID\_TUNE\_P            | dword           | DDD                | 0               | 127             |
+| PID\_TUNE\_I            | dword           | DDD                | 0               | 127             |
+| PID\_TUNE\_D            | dword           | DDD                | 0               | 127             |
+| PID\_TUNE\_FF           | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_MAX\_OUT      | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_MIN\_OUT      | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_SCAN\_TIME    | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_LOW\_RANGE    | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_HI\_RANGE     | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_ALG           | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_MAN\_MODE     | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_FLAGS         | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_FLAGS\_ON     | dword           | DDD                | 0               | 127             |
+| PID-CFG\_FLAGS\_OFF     | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_MM\_IN        | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_MM\_SP        | dword           | DDD                | 0               | 127             |
+| PID\_CFG\_MM\_OUT       | dword           | DDD                | 0               | 127             |
+| PID\_SCALE\_IN\_LOW     | dword           | DDD                | 0               | 127             |
+| PID\_SCALE\_IN\_HI      | dword           | DDD                | 0               | 127             |
+| PID\_SCALE\_OUT\_LOW    | dword           | DDD                | 0               | 127             |
+| PID\_SCALE\_OUT\_HI     | dword           | DDD                | 0               | 127             |
+| PID\_SCAN\_COUNTER      | dword           | DDD                | 0               | 127             |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

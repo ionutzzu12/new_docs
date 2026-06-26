@@ -1,0 +1,94 @@
+---
+title: Profinet Acyclic
+slug: quickstart-guide/industrial-systems-connection-guide/profinet/profinet-acyclic
+description: Review the following information for setting up and configuring the Profinet Acyclic driver.
+docTags: 
+createdAt: Thu May 28 2026 23:46:59 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Profinet Acyclic driver.
+
+# Litmus Edge Compatible Series
+
+| Compatibility parameter                    | Compatible items                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**                            | Ethernet                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Validated devices by PROFINET profiles** | [PROFIdrive](https://www.profinet.com/profinet-explained/profidrive) - [Siemens SINAMICS variable frequency drive](https://www.siemens.com/global/en/products/drives/sinamics.html)&#xA;[PROFIenergy ](https://www.profinet.com/profinet-explained/profienergy)- [Siemens SIMOCODE pro](https://www.siemens.com/us/en/products/automation/industrial-controls/sirius/sirius-monitor/simocode.html) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                                    |
+| ---------------------- | ---------------------------------------- |
+| **Type**               | Profinet                                 |
+| **Driver**             | Profinet Acyclic                         |
+| **Network Address**    | The device address you defined in Step 1 |
+| **Network Port&#x20;** | 34964                                    |
+| **Slot Number**        | 0                                        |
+| **Subslot**            | 1                                        |
+
+Refer to the following table for a description of the registers. The driver also supports two optional [application profiles](https://www.profinet.com/profinet-explained/profinet-application-profiles): `PROFIdrive` and `PROFIenergy`.&#x20;
+
+| Register Type        | Description                                                                                                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Generic Data Records | Reads Generic Data records. Enter the record index as the tag address.                                                                                                   |
+| I\&M Records         | Reads Identification & Maintenance records. Enter the I\&M record index as the tag address.                                                                              |
+| Profile: PROFIdrive  | PROFIdrive is the standard profile for drive technology in the connection of drives and encoders via PROFINET IO. Enter the PROFIdrive PNU parameter as the tag address. |
+| Profile: PROFIenergy | PROFIenergy is a manufacturer- and device-neutral profile for energy management with PROFINET. Enter the PROFIenergy measurement ID as the tag address.                  |
+
+<hint type="info">
+  This driver only supports reading tag values.
+</hint>
+
+# Step 3: Configure the List of Registers
+
+When you [Add Tags]() to the connected device, refer to the following register table and tag parameters.
+
+Refer to the following additional resources:
+
+- [Device and Tag Metadata Use Case]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name**    | **Value Types**                                                                                                                                   | **Address Format** | **Min Address** | **Max Address** | **Description**                        |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------- | --------------- | -------------------------------------- |
+| Record      | auto, json, hex, int8, int16, int32, uint8, uint16, uint32, float32, string                                                                       | DDDD               | 0               | 65535           | Data Records                           |
+| I\&M        | auto, json, hex                                                                                                                                   | DDDD               | 0               | 65535           | Identification & Maintenance&#xA;&#xA; |
+| PROFIdrive  | auto, hex, bool, int8, int16, int32, int64, uint8, uint16, uint32, float32, string, bool\[], int16\[], int32\[], uint16\[], uint32\[], float32\[] | DDDD               | 0               | 65535           | Acyclic access to parameters (PNU)     |
+| PROFIenergy | auto, float32                                                                                                                                     | DDDD               | 0               | 65535           | PROFIenergy                            |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. Available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. Available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to publish NATS messages only when the *value&#x20;*&#x70;arameter changes to a new one value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics are not affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

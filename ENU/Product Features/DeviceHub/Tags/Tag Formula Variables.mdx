@@ -1,0 +1,30 @@
+---
+title: Tag Formula Variables
+slug: product-features/devicehub/tags/tag-formula-variables
+description: When you add tags, you have the option of adding a formula to process the generated data.
+docTags: 
+createdAt: Thu May 28 2026 23:47:04 GMT+0300 (Eastern European Summer Time)
+---
+
+When you [Add a Tag](#), you have the option of adding a formula to process the generated data.&#x20;
+
+You can use the following variables:
+
+- `value`: The current tag value.&#x20;
+- `timestamp`: The time the tag value was generated represented in UNIX time in milliseconds.&#x20;
+
+You can use the following functions.
+
+<hint type="info">
+  **Note**: For additional functions on tag values such as rounding and data conversions, you can use [Analytics](./././Analytics.md) or the [Flows Manager](<./././Flows Manager.md>). See [Analytics Guides](<././././How-To Guides/Analytics Guides.md>) to learn more.&#x20;
+</hint>
+
+| **Function**           | **Description**                                                                                                                                                           | **Use**                                                                                                                              |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| sin&#xA;(sine)         | The ratio of the side opposite a given angle (in a right-angled triangle) to the hypotenuse.                                                                              | Analysis and control of periodic processes.                                                                                          |
+| cos&#xA;(cosine)       | The ratio of the side adjacent to an acute angle (in a right-angled triangle) to the hypotenuse.                                                                          | Analysis and control of periodic processes.                                                                                          |
+| sqrt&#xA;(square root) | The square root of a number is the factor that you can multiply by itself to get that number.                                                                             | Identify deviations from expected values or detect abnormal conditions.                                                              |
+| tan&#xA;(tangent)      | The ratio of the sine of an angle to the cosine of that angle.                                                                                                            | Used in calibration formulas to correct or compensate for non-linearities.                                                           |
+| power                  | A function with a single term that is the product of a real number, a coefficient, and a variable raised to a fixed real number. &#xA;power(`x`) is equivalent to `10^x`. | Perform exponentiation when converting values between different units or applying non-linear scaling.                                |
+| log&#xA;(logarithm)    | The inverse function to exponentiation.&#xA;log(`x`) is equivalent to the natural logarithm of `x` (a logarithm with base `e`).                                           | Perform logarithmic scaling or conversion when there is a non-linear relationship between the register value and the desired output. |
+| exp&#xA;(exponential)  | Calculates the exponential growth or decay of a given set of data.&#xA;exp(`x`) is equivalent to the exponential function `e^x`.                                          | Perform exponential scaling or conversion when there is a non-linear relationship between the register value and the desired output. |

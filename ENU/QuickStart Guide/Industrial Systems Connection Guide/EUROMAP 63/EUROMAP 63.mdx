@@ -1,0 +1,85 @@
+---
+title: EUROMAP 63
+slug: euromap63
+description: Review the following information for setting up and configuring the Euromap63 (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the EUROMAP 63 driver.
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                                                                                                                                                                                                                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | File-based                                                                                                                                                                                                                                                                                                                                          |
+| **Validated devices/series** | Engel Server Software&#xA;Kraussmaffei MC4 and MC5 Controllers&#xA;&#xA;The EUROMAP 63 standard defines the data exchange with injection molding machines through files.&#xA;When configuring tags for this driver, you must enter the case-sensitive register name exactly as defined in the PLC. See the *Free Tags* section below to learn more. |
+
+# Supported Commands
+
+The Euromap63 driver supports the following commands in the specification.&#x20;
+
+| **Euromap63 command** | **Use in Litmus Edge**                                   |
+| --------------------- | -------------------------------------------------------- |
+| GETID                 | Browse available tags.                                   |
+| REPORT                | Retrieves tag values from the injection molding machine. |
+
+# Set up and Configure the EUROMAP 63 Driver
+
+**To set up and configure th****e&#x20;****EUROMAP 63&#x20;****driver:**
+
+1. Create a shared folder. See [Create a Shared Folder in Windows 10](<././././Product Features/System/External Storage/Network Storage/Set up a CIFS Mount Point on Windows 10/Create a Shared Folder in Windows 10.md>) to learn more.&#x20;
+2. In Litmus Edge, follow the steps to [Mount External Storage](<././././Product Features/System/External Storage/Mount External Storage.md>) and configure the following parameters.&#x20;
+   - **Mount Point Name**: Enter the name of the shared folder you created previously.&#x20;
+   - **Share**: Enter the share name in the following format: `//[IP address of the PC running the simulator]/[shared folder name]`. For example: **//192.168.53.34/Euromap63folder**.&#x20;
+   - **Read Only**: Clear the checkbox.&#x20;
+   - **Username**: Enter the username you configured.&#x20;
+   - **Password**: Enter the password you configured.&#x20;
+3. In Litmus Edge, follow the steps to [Connect a Device](<././././Product Features/DeviceHub/Devices/Connect a Device.md>) and configure the following parameters. Configure other parameters as needed.&#x20;
+   - **Device Type**: Select **Euromap63**.
+   - **Driver Name**: Select **EUROMAP 63**.
+   - **Path**: Enter the path of the shared folder in the following format: `/data/[shared folder name]`—for example: **/data/Euromap63folder**.&#x20;
+4. Follow the steps to [Browse Tags](#) and add tags to the DeviceHub device.&#x20;
+
+If you need to manually [Add a Tag](<././././Product Features/DeviceHub/Tags/Add a Tag.md>) to the device, refer to the following tag parameters and available value types.&#x20;
+
+Refer to the following additional resources:
+
+- [Organize Device and Tag Data by Using Metadata](<././././How-To Guides/DeviceHub Guides/Organize Device and Tag Data by Using Metadata.md>)
+- [Tag Formula Variables](<././././Product Features/DeviceHub/Tags/Tag Formula Variables.md>)
+
+## Free Tags
+
+This driver doesn't have a list of available register names in the DeviceHub *Add Tag* form. To add tags, you must enter the case-sensitive register name exactly as it is defined in the PLC.
+
+A **Connected** status for the device won't display until a tag with a correct register name is created.
+
+## Available Value Types
+
+- `int`
+- `float`
+- `int64`
+- `float64`
+- `string`
+
+## Tag Parameters
+
+- **Name**: Enter the case-sensitive register name exactly as it is defined in the PLC.&#x20;
+- **Value Type**: Select a data type from the drop-down list.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

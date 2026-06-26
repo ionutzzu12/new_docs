@@ -1,0 +1,61 @@
+---
+title: Dashboard
+slug: product-features/dashboard
+description: The dashboard contains statistics about the whole system. This information is on the operational network and is completely offline.
+docTags: 
+createdAt: Thu May 28 2026 23:47:07 GMT+0300 (Eastern European Summer Time)
+---
+
+The dashboard contains statistics about the whole system. This information is on the operational network and is completely offline.
+
+# Dashboard Data
+
+Once you connect devices to Litmus Edge, you can use the dashboard for monitoring. Refer to the sections below.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Ve7Y2RP2Ri8NyeuALaVJY_image.png" size="80" width="1908" height="848" position="center" caption="The Litmus Edge dashboard" showCaption="true"></Image>
+
+| **Action**                           | **Details**                                                                                                                                                                                                                                                                      |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \[1] **Device Time** and **Up Time** | *Device Time* displays the time zone configured for the Litmus Edge instance. See [Set Timezone](<././QuickStart Guide/Access the Litmus Edge Web UI/Access the Terminal User Interface.md>). *Up Time* displays how long the instance has been running without a disconnection. |
+| \[2] **Devices & Tags**              | The number of connected devices and tags on your system.                                                                                                                                                                                                                         |
+| \[3] **Message Broker & Routing**    | Collected data is normalized or standardized and then published to the local message broker. This section displays the message rate of this process.                                                                                                                             |
+| \[4] **Data Processing & Analytics** | The number of flows, analytics flows, and groups that are running.                                                                                                                                                                                                               |
+| \[5] **Edge Applications**           | The number of installed applications. These applications are localized applications and containers.                                                                                                                                                                              |
+| \[6] **Integrations**                | The total number of integrations and remotely connected networks.                                                                                                                                                                                                                |
+
+# Dashboard Charts
+
+You can view preset charts that contain data about your system:
+
+## CPU Utilization
+
+Displays the usage of processing resources over time for the IUD Gateway, industrial PCs, all virtual machines, and the user.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/FOVSTWAfQlgxjOgZSSqKu_image.png" size="80" width="796" height="482" caption="CPU Utilization over last 5 minutes" position="center" showCaption="true"></Image>
+
+## Memory Load
+
+Displays the memory usage for the system over time.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/5QqGATtMHdhMUP9W7AcCf_image.png" size="80" width="773" height="475" caption="Memory Load over last 5 minutes" position="center" showCaption="true"></Image>
+
+## Network Utilization
+
+Displays the received and transmitted network speed in MBPS (MegaBits Per Second) over time.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/gapI9EwdKCVI5Z4sRmViV_image.png" size="80" width="775" height="469" caption="Network Utilization over last 5 minutes" position="center" showCaption="true"></Image>
+
+At the bottom of the Dashboard, you can find status indicators for the modules included in your plan. When you hover over each status indicator, the version of the selected module appears. Each indicator displays a colored circle reflecting the online status of the selected module:
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/3UI0IV9u42L7ERFWoN-pL_image.png" size="80" width="1747" height="218" position="center" caption="Hovering Flows Manager displays Version: 1.5.1" showCaption="true"></Image>
+
+| **Color** | **Health**        |
+| --------- | ----------------- |
+| Green     | Services are up   |
+| Red       | Services are down |
+
+Next to the indicators you can view your Storage utilization.
+
+<hint type="success">
+  **Tip:** You can move your cursor horizontally over the charts to view data for additional dates.
+</hint>

@@ -1,0 +1,83 @@
+---
+title: High Availability
+slug: 6VCp-hi
+docTags: 
+createdAt: Thu May 28 2026 23:47:04 GMT+0300 (Eastern European Summer Time)
+---
+
+High Availability (HA) provides a built-in backup node that keeps Litmus Edge running when the primary node goes down or is taken offline. The secondary node stays in sync and takes over automatically if the primary fails to protect your configuration and state. High Availability works reliably even with low bandwidth or uncertain connectivity. High Availability gives you continuous data collection with predictable recovery times and less unplanned downtime.
+
+After configuring HA, the system ensures that the backup node is not the same as the primary node (not the self) and checks for version compatibility and license status. HA also provides handling for:
+
+- Offline scenarios with either the primary node or backup node
+- Disabling and enabling High Availability again
+
+When enabled, high availability performs regular heartbeat checks at 2-second intervals. When the threshold for consecutive missed heartbeats is reached, the system initiates failover (3 missed heartbeats). Heartbeat activity, current role, rsync status, and&#x20;sync timestamps are recorded in log files.
+
+The following information displays on the primary node after you configure High Availability:&#x20;
+
+- **Last Sent**: Last heartbeat sent to the backup node
+- **Last Received**: Last heartbeat received from the backup node
+- **Consecutive Failures**: Number of consecutive missed heartbeats
+- **Peer Reachable**: Whether the backup is reachable from the primary.
+- **Interval**: Frequency of heartbeat signals in seconds.
+- **Failure Threshold**: Maximum number of missed heartbeats that trigger a backup.
+
+<hint type="warning">
+  **Note:** High availability is available as a beta feature only.
+</hint>
+
+# Enable High Availability
+
+First enable the primary node, then enable the backup node, and finally provide backup information to the primary.&#x20;
+
+To enable High Availability:
+
+1. On the instance that you will use as the backup node:
+   1. Navigate to **System** > **High Availability**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/eOpOm1zGpJ-T9OqsZvbVw_image.png" size="80" width="1378" height="561" position="flex-start" indent="3" showCaption="false"></Image>
+
+<Paragraph listStyleType="decimal" listStart="2" indent="2">
+  Enable **High Availability Configuration**.
+</Paragraph>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/41ZG4wF5Z93H_7R6IHXlF_image.png" size="80" width="1353" height="611" position="flex-start" indent="3" showCaption="false"></Image>
+
+<Paragraph listStyleType="decimal" listStart="3" indent="2">
+  Click **Configure as Backup**.
+</Paragraph>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/6unx32XcUOjTnbgxWRkYQ_image.png" size="80" width="1496" height="543" position="flex-start" indent="3" showCaption="false"></Image>
+
+<Paragraph listStyleType="decimal" listStart="4" indent="2">
+  Copy the hostname and token values to a text editor. These values will not display again after you close this page.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="5" indent="2">
+  Click **Close**.
+</Paragraph>
+
+2. On the instance that you will use as the primary node:
+   1. Navigate to **System** > **High Availability**.
+   2. Paste the hostname and token values from the backup node into the **Backup Hostname** and **Backup Token** fields.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/67aE-2DSRJF-2O0VZUsOH_image.png" size="80" width="1497" height="615" position="flex-start" indent="2" showCaption="false"></Image>
+
+<Paragraph listStyleType="decimal" listStart="4" indent="2">
+  Click **Save** to save the configuration.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="5" listRestartPolite="4" indent="2">
+  In the confirmation dialog, click **Enable**.
+</Paragraph>
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/uDhsq7xW62vFRNh_9hp3u_image.png" size="80" width="1500" height="445" position="flex-start" indent="3" showCaption="false"></Image>
+
+High availability is now enabled.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/xSFIGVSFLphk1iBFwf5qm_image.png" size="80" width="1222" height="618" position="flex-start" showCaption="false"></Image>
+
+Note that you have the option of downloading a support bundle from the backup node.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/SJ3S8gARIkKAZ3Up5tSw7_image.png" size="80" width="1366" height="403" position="flex-start" showCaption="false"></Image>

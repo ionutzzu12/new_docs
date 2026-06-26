@@ -1,0 +1,83 @@
+---
+title: Use the Manufacture Counter KPI
+slug: 0_-a-use-the-manufacture-counter-kpi
+docTags: 
+createdAt: Thu May 28 2026 23:47:08 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the **Manufacture Counter** KPI processor to count the total number of manufactured units in a period.&#x20;
+
+For this KPI, you need to add an input definition called `manufactureEnd` to the connecting wire, which is an event trigger, triggering whenever there is an end of a manufacturing cycle.
+
+# User Scenario
+
+Review the following scenario for the Manufacture Counter KPI processor. Then, using an input processor, you will simulate PLC data and monitor how much output is being produced compared to an ideal scenario.
+
+In an industrial setting, the Manufacture Counter KPI helps ensure quality control and maintain optimal production levels. With this KPI, plant engineers can compare actual output with ideal scenarios or identify anomalies that may indicate equipment maintenance needs. For instance, if a machine is supposed to produce 100 bottles per hour but is currently only producing 80 bottles per hour, it indicates that the machine is operating at 80% of its capacity. This analysis helps prevent overheating and potential breakdowns in machinery.
+
+# Step 1: Add a Device
+
+Follow the steps to [Connect a Device](<./././Product Features/DeviceHub/Devices/Connect a Device.md>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# Step 2: Add Tags
+
+After connecting the device, add the following tag. See [Add Tags](#) to learn more.&#x20;
+
+## Tag 1: tag1
+
+- **Name**: Select **S - Random value generator.**
+- **Value Type:** Select **int64.**
+- **Polling Interval**: Enter **1.**
+- **Tag Name**: Enter **tag1.**
+- **Min Value:&#x20;**&#x45;nter **10.**
+- **Max Value:** Enter **100.**
+
+# Step 3: Create Analytics Flow
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Manufacture Counter KPI Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" indent="2" showCaption="true"></Image>
+
+3. Select **DataHub Subscribe**.
+4. In the *Topic* field, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for *tag1*.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **Manufacture Counter** processor.
+   The following information defines this function:
+   - **Unit:** Enter the time unit in which you are entering the *Ideal Count&#x20;*&#x70;arameter.&#x20;
+   - **Ideal Count:&#x20;**&#x45;nter the total number of manufacturing units produced at regular intervals.
+   - **From Value:&#x20;**&#x53;tart a manufacturing unit when the value goes from this number.
+   - **To Value:&#x20;**&#x52;ecord a manufacturing unit when the value goes to this number.
+   - **Time Interval:** If the tag publishes at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/34edAri5rbWcMDKbAtBNS_image.png" size="80" width="571" height="657" position="center" caption="Edit a Processor dialog box" indent="3" showCaption="true"></Image>
+
+7. Connect the *DataHub Subscribe* processor (tag: *tag1*) to the *Manufacture Counter&#x20;*&#x70;rocessor with a wire. Use the **Events** connection and enter a definition of **manufactureEnd&#x20;**&#x66;or the connection.
+8. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/QLUvWWXlxf9V8IZBcv5vW_image.png" size="80" width="507" height="236" position="center" caption="Completed Flows Canvas" showCaption="true"></Image>
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Manufacture Counter&#x20;*&#x4B;PI processor to view the output values.
+
+The output displays a capacity utilization of **54%**, with a total number of **925** manufactured units at the given timestamp.&#x20;
+
+<hint type="info">
+  **Note:** Capacity utilization will be updated upon the occurrence of a manufacturing event. Otherwise, it will be updated when the threshold for the hour/day/week is reached (determined by the *Ideal Count&#x20;*&#x61;nd *Unit&#x20;*&#x70;arameter).
+</hint>
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/T-aoioW7cMemFeOjxn0z9_image.png "Output of Manufacture Counter processor")

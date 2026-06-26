@@ -1,0 +1,63 @@
+---
+title: Litmus Edge Appliance and Docker Models Compared
+slug: resources/le-appliance-docker-compared
+description: Compare the appliance model and Docker model.
+docTags: 
+createdAt: Thu May 28 2026 23:46:59 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the table below to see which components the Litmus Edge Docker model doesn't have compared to the standard Litmus Edge appliance version.&#x20;
+
+| **Feature**                | **Litmus Edge Appliance Version** | **Litmus Edge Docker Version** | **Notes**                                                                              |
+| -------------------------- | --------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------- |
+| Dashboard                  | Yes                               | Yes                            |                                                                                        |
+| Dashboard > Device Up Time | Yes                               | No                             |                                                                                        |
+| Dashboard > Service Status | Yes                               | Yes but limited (see note)     | For the Docker version, only the following services display a status:&#xA;\* DeviceHub |
+
+- Flows Manager
+- Analytics
+- Integrations
+- OPC UA
+- DM (Data Management) |
+  \| DeviceHub > Drivers                                                             | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| DeviceHub > Tags                                                                | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| DeviceHub > Device Discovery                                                    | Yes                               | No                             |                                                                                                                                                                   |
+  \| DeviceHub > Utilities                                                           | Yes                               | No                             |                                                                                                                                                                   |
+  \| Digital Twins > Models&#x20;
+  Digital Twins > Instances                          | Yes                               | Yes                            | Litmus Edge version 3.3.1 and later                                                                                                                               |
+  \| DataHub > Configurations
+  DataHub > DB Management
+  DataHub > DB Users   | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| Flows Manager                                                                   | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| Analytics > Instances&#x20;
+  Analytics > Instances Table&#x20;
+  Analytics Models  | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| Integrations                                                                    | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| Applications                                                                    | Yes                               | No                             |                                                                                                                                                                   |
+  \| OPC UA                                                                          | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| System > Info                                                                   | Yes                               | No                             |                                                                                                                                                                   |
+  \| System > Certificates                                                           | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| System > Network                                                                | Yes                               | No                             | For the Docker version this is managed at the host system.                                                                                                        |
+  \| System > Wifi                                                                   | Yes                               | No                             | For the Docker version this is managed at the host system.                                                                                                        |
+  \| System > Remote                                                                 | Yes                               | No                             | For the Docker version this is managed at the host system.                                                                                                        |
+  \| System > Device Management                                                      | Yes                               | Yes but limited (see note)     | The Docker version only has Cloud Activation, and doesn't have the following:
+  \* Reboot
+- Factory  Reset
+- Software Update                                    |
+  \| System > LDAP/AD                                                                | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| System > Users                                                                  | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| System > Tokens
+  \* NATS Proxy&#x20;
+- REST API Keys&#x20;
+- Access Accounts | Yes                               | Yes                            | NATS Proxy available for Litmus Edge 3.3.1 version and later                                                                                                      |
+  \| System > Services                                                               | Yes                               | No                             | For the Docker version, this is managed at the host system.                                                                                                       |
+  \| System > External Storage                                                       | Yes                               | No                             | For the Docker version, this is managed at the host system.                                                                                                       |
+  \| System > Policy Management                                                      | Yes                               | No                             |                                                                                                                                                                   |
+  \| System > Licenses                                                               | Yes                               | Yes but limited (see note)     | A 15-day trial license is available for the VM version but isn't available for the Docker version.                                                                |
+  \| System > Events                                                                 | Yes                               | Yes                            |                                                                                                                                                                   |
+  \| System > Zerotouch                                                              | Yes                               | No                             | Litmus Edge version 3.5.2 and later                                                                                                                               |
+  \| System > Support                                                                | Yes                               | Yes but limited (see note)     | The *File Downloads* section isn't available for the Docker version.                                                                                              |
+  \| System > Backup/Restore                                                         | Yes                               | No                             |                                                                                                                                                                   |
+  \| System > Template                                                               | Yes                               | Yes but limited (see note)     | Default connectors are not included in the VM and Docker versions.&#x20;
+  The Marketplace template component is not available in the Docker version.               |
+  \| User Profile                                                                    | Yes                               | Yes                            |                                                                                                                                                                   |

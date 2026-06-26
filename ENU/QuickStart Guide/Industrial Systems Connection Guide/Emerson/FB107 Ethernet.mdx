@@ -1,0 +1,128 @@
+---
+title: FB107 Ethernet
+slug: quickstart-guide/industrial-systems-connection-guide/emerson/fb-107-ethernet
+description: Review the following information for setting up and configuring the FB107 Ethernet driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:01 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the FB107 Ethernet driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                       |
+| ---------------------------- | -------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                               |
+| **Validated devices/series** | [FloBoss™ 107 Flow Manager](https://www.emerson.com/en-us/catalog/emerson-floboss-107) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                                    |
+| ---------------------- | ---------------------------------------- |
+| **Type**               | Emerson                                  |
+| **Driver**             | FB107 Ethernet                           |
+| **Network Address**    | The device address you defined in Step 1 |
+| **Network Port&#x20;** | 4000                                     |
+| **Operator ID**        | LOI                                      |
+| **Password**           | Enter your password                      |
+| **Device Address**     | 240                                      |
+| **Device Group**       | 240                                      |
+| **Host Address**       | 239                                      |
+| **Host Group**         | 1                                        |
+| **Next Request Delay** | 0                                        |
+| **Response Timeout**   | 3000                                     |
+| **Optimizations**      | Disable or Enable                        |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, see the following Register Table and Tag Parameters sections. You can also [Browse and Add Tags from a Device]() for the device.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Types**                                                                                                    |
+| -------- | ------------------------------------------------------------------------------------------------------------------ |
+| OP       | JSON, HEX                                                                                                          |
+| PT       | HEX, AC3, AC7, AC10, AC12, AC20, AC30, AC40, INT8, INT16, INT32, UINT8, UINT16, UINT32, FL, DOUBLE, TLP, TIME, DT6 |
+| History  | JSON                                                                                                               |
+| Alarms   | JSON                                                                                                               |
+| Events   | JSON                                                                                                               |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Opcode**: Select the Opcode to use. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>
+
+## Supported Opcodes
+
+- 0 - Obtain a general update of the current state for the physical input/output (I/O) points and the standard application-oriented points
+- 6 - System Configuration
+- 7 - Read Real-time Clock
+- 8 - Set Real-time Clock
+- 17 - Set an operator identification code for the communications port through which communications are occurring
+- 103 - Determine the current version of firmware residing in the ROC, as well as other device-specific information
+- 120 - Send current pointers for the Alarm and Event Logs
+- 121 - Request alarm data from the Alarm Log in the ROC
+- 122 - Request up to 10 events from the Event Log in the ROC
+- 123 - Read User Template Data. Up to seven template parameters may be requested.
+- 126 - Request the ROC unit’s minute data for a specified history point
+- 130 - Request a specified number of hourly or daily data values for a specified history point
+- 167 - Request Single Point Parameters
+- 180 - Request Parameters
+- 181 - Write Parameters
+
+## Supported Point Types
+
+- 0-5
+- 8
+- 12-17
+- 19-23
+- 25-28
+- 43-48
+- 55
+- 80
+- 86
+- 88
+- 89
+- 93
+- 94
+- 98
+- 117
+- 118
+- 120
+- 121
+- 122

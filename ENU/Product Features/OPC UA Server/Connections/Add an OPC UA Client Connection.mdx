@@ -1,0 +1,40 @@
+---
+title: Add an OPC UA Client Connection
+slug: product-features/opc-ua-server/certificates/add-opc-ua-client-connection
+description: Learn how to add an OPC UA client connection.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+You can connect a new client to the OPC UA server. The following procedure uses UAExpert on Windows 10 as the example client.
+
+If you are using the Docker version of Litmus Edge and having issues connecting to the OPC UA server, refer to [Issues Connecting to OPC UA Server](<././././Troubleshooting/OPC UA Troubleshooting/Issues Connecting to OPC UA Server.md>).&#x20;
+
+# Before You Begin
+
+Before completing the steps below, make sure you do the following:&#x20;
+
+- Add nodes to the OPC UA Hierarchy. See [Add a Node](<././Hierarchy/Add a Node.md>) or [Import Nodes](<././Hierarchy/Import Nodes.md>) for more information.
+- Start the OPC UA Server. See [Manage the OPC UA Server](<././Management/Manage the OPC UA Server.md>) for more information.
+- Run your server on port 4840. See [Manage the OPC UA Server](<././Management/Manage the OPC UA Server.md>) for more information.
+
+# Connect a Client with UAExpert
+
+**To connect a client with UAExpert:**
+
+1. [Download UAExpert from Unified Automation](https://www.unified-automation.com/downloads/opc-ua-clients.html).
+2. Open UAExpert. Click the **Add Server&#x20;**&#x62;utton at the top.&#x20;
+   The *Add Server* dialog box appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/pItcTf7srEnTvfiWoND-x_addserverconnectionuaexpert1.png" size="80" width="450" height="200" caption="Add server icon" position="center" indent="2" showCaption="true"></Image>
+
+3. From **Custom Discovery**, double click to add a server.
+4. From the **Enter URL&#xA0;**&#x64;ialog box, enter the Litmus Edge IP address with the ocp\:tcp\:// protocol on port 4840. For example: `ocp.tcp://192.168.1.130:4840`.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/J74x9M4JlryZPq9SIaReS_addcustomserver.png" size="80" width="872" height="425" caption="Enter URL dialog box" position="center" indent="2" showCaption="true"></Image>
+
+5. Click **OK**.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/JL6NcLBpEtWlWqzqGv4l2_finalclientconnection.png" size="80" width="966" height="723" caption="The OPC UA server listed in the Add Server dialog box" position="center" indent="2" showCaption="true"></Image>
+
+The UA Expert client should automatically discover your OPC UA server.

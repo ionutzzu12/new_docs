@@ -1,0 +1,77 @@
+---
+title: Configure the Timeseries DB
+slug: product-features/datahub/configure-the-timeseries-db
+description: Learn more about configuring the DataHub timeseries database.
+docTags: 
+createdAt: Thu May 28 2026 23:47:05 GMT+0300 (Eastern European Summer Time)
+---
+
+You can configure the timeseries database in Litmus Edge by navigating to **DataHub&#x20;**>**&#x20;Configuration**.&#x20;
+
+# Video
+
+<Iframe code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/SiZRHbFMpkU?si=O-aUovvyNQIu0VkJ&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>" iframeHeight="0">
+
+</Iframe>
+
+<hint type="info">
+  **Limitation**: When using DataHub for storing data polled from connected devices, it's important to note the following limitations:
+
+  - InfluxDB initialization for large databases takes a long time with high CPU utilization. Ensure the Litmus Edge device has sufficient computing resources.
+  - DataHub does not store custom-formatted driver output like JSON or arrays to ensure efficient NoSQL timeseries database handling.
+  - DataHub handles string values differently than integers. As a result, when querying stored data, the way string and integer values are handled can impact the structure and results of your query.
+    Sample Influx Query:
+    - **For String Values:&#x20;**`SELECT "value_str" FROM "temperature_readings" WHERE ("value_str"::field = 'pressure') AND $timeFilter`
+    - **For Integer Values:** `SELECT "value" FROM "temperature_readings" WHERE ("value"::field = 555) AND $timeFilter`
+</hint>
+
+You have the option of configuring an internal or external InfluxDB timeseries database.&#x20;
+
+DataHub's Configuration module offers the following functionalities:
+
+- Toggle the Timeseries DB
+- Select and Customize Timeseries DB Source type
+- Test Timeseries DB
+
+## Toggle the Timeseries DB
+
+You can enable or disable the Timeseries DB by using the **Timeseries DB disabled** or **Timeseries DB enabled** toggle.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/xc3BjqUGm6gHJZj5g-AaG_image.png "Timeseries DB toggle")
+
+## Select and Customize Timeseries DB Source Type
+
+You can change the Timeseries DB source type by using the Source type drop-down list and selecting internal or external.&#x20;
+
+<hint type="info">
+  **Important Notes**:&#x20;
+
+  - If you select internal, make sure to select the *Enable Data Store* option for the device you want to store data for. See [Enable Data Store](<././DeviceHub/Devices/Connect a Device.md>) to learn more.&#x20;
+  - In version 3.16.x and earlier, create a bucket called `tsdata` to *Enable Data Store* in DeviceHub.
+  - You may need to upgrade your Litmus  Edge version (3.16.x) if the database creation feature is not implemented immediately.
+</hint>
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/3CNZ9KY98h1kjp0GdDm6r_image.png "Source type drop-down list")
+
+If you select *external&#x20;*&#x65;nter the following details:
+
+- **DB uri**: The IP address and port of the externally deployed InfluxDB database. If the InfluxDB database is deployed on the same device as Litmus Edge, enter http\://localhost:8086.&#x20;
+- **DB username**: Enter the Influx DB v1.x username.&#x20;
+- **DB password**: Enter the Influx DB v1.x password.&#x20;
+- **Auth token**: Copy the token for the InfluxDB 2.x database. You can access the  database from a browser window and navigate to **Data&#x20;**> **Tokens**.&#x20;
+- **Organization name**: Enter the InfluxDB 2.x organization name configured for the database.&#x20;
+- **DB vendor**: The available vendors are
+  - InfluxDB v1.x
+  - InfluxDB v2.x
+- **Description&#x20;**(Optional): Enter a description for the externally deployed InfluxDB.&#x20;
+- **Name**: Enter a name for the externally deployed InfluxDB.&#x20;
+
+If you select *internal*, no further configurations are required.&#x20;
+
+## Test the Timeseries DB
+
+You can test the connectivity of the Timeseries DB by clicking **Test**.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/A4VU-0lQCBgXy9TxW4bgQ_image.png "The test Timeseries DB button")
+
+The connected status and response message displays.

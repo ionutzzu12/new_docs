@@ -1,0 +1,123 @@
+---
+title: JTEKT Toyopuc Serial (Gen1.3)
+slug: quickstart-guide/industrial-systems-connection-guide/jtekt-toyopuc/jtekt-toyopuc-serial-gen1
+description: Review the following information for setting up and configuring the JTEKT Toyopuc Serial (Gen1) driver.
+docTags: 
+createdAt: Thu May 28 2026 23:47:02 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the JTEKT Toyopuc Serial (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                            |
+| ---------------------------- | ------------------------------------------------------------------------------------------- |
+| **Driver type**              | Serial                                                                                      |
+| **Validated devices/series** | [JTEKT Toyopuc PCk06](https://toyoda.jtekt.co.jp/e/products/toyopuc/toyopuc-pck/index.html) |
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+Record the serial communication parameters for the device. Otherwise, follow the steps below.&#x20;
+
+**To configure your device:**
+
+1. Note down the following information and refer to it when needed.&#x20;
+   - **Device**: Jtekt PCk06-P-CPU
+   - **Communication I/F**: RS232C. Refer to the following figure.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/75rvim4cohXSEkXIgX1g4_jtekt-toyopuc-serial-pinout.png" size="80" width="419" height="468" position="flex-start" caption="JTEKT Toyopuc Serial reference" indent="2" showCaption="true"></Image>
+
+2. Use PCwin software on your computer to configure the device for Ethernet access. &#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+| Parameter              | Value                             |
+| ---------------------- | --------------------------------- |
+| **Type**               | JTEKT Toyopuc                     |
+| **Driver**             | JTEKT Toyopuc Serial (Gen1.3)     |
+| **Communication Port** | Local Serial connection file path |
+| **Baud Rate**          | 9600                              |
+| **Data Bits**          | 8                                 |
+| **Parity**             | Even, Odd, None                   |
+| **Stop Bits**          | 1                                 |
+
+# Step 3: Configure the List of Registers
+
+When you [Add a Tag]() to the connected device, refer to the following register table and tag parameters.
+
+See the following additional resources if necessary:&#x20;
+
+- [Organize Device and Tag Data by Using Metadata]()
+- [Tag Formula Variables]()
+
+## Register Table
+
+| **Name** | **Value Types** |     | **Address Format** | **Min Address** | **Max Address** |
+| -------- | --------------- | --- | ------------------ | --------------- | --------------- |
+| 1D\_Bit  | bit             | R/W | HHHdd              | 0               | 409515          |
+| D\_Bit   | bit             | R/W | HHHdd              | 0               | 332715          |
+| 1N\_Bit  | bit             | R/W | HHdd               | 0               | 12715           |
+| N\_Bit   | bit             | R/W | HHdd               | 0               | 25515           |
+| S\_Bit   | bit             | R/W | HHHdd              | 0               | 102315          |
+| 4M\_Bit  | bit             | R/W | Hdd                | 0               | 1515            |
+| 1M\_Bit  | bit             | R/W | Hdd                | 0               | 1515            |
+| M\_Bit   | bit             | R/W | Hdd                | 0               | 1515            |
+| 5Y\_Bit  | bit             | R/W | Hdd                | 0               | 1515            |
+| 4Y\_Bit  | bit             | R/W | Hdd                | 0               | 1515            |
+| 1X\_Bit  | bit             | R/W | Hdd                | 0               | 1515            |
+| X\_Bit   | bit             | R/W | Hdd                | 0               | 1515            |
+| I\_Bit   | bit             | R/W | HHdd               | 0               | 12715           |
+| 1C\_Bit  | bit             | R/W | Hdd                | 0               | 715             |
+| T\_Bit   | bit             | R/W | Hdd                | 0               | 1515            |
+| V\_Bit   | bit             | R/W | Hdd                | 0               | 1515            |
+| 1K\_Bit  | bit             | R/W | Hdd                | 0               | 1515            |
+| K\_Bit   | bit             | R/W | Hdd                | 0               | 1515            |
+| 1D       | word            | R/W | HHH                | 0               | 4095            |
+| D        | word            | R/W | HHH                | 0               | 3327            |
+| 1N       | word            | R/W | HH                 | 0               | 127             |
+| N        | word            | R/W | HH                 | 0               | 255             |
+| S        | word            | R/W | HHH                | 0               | 1023            |
+| 4M       | word            | R/W | H                  | 0               | 15              |
+| 1M       | word            | R/W | H                  | 0               | 15              |
+| M        | word            | R/W | H                  | 0               | 15              |
+| 5Y       | word            | R/W | H                  | 0               | 15              |
+| 4Y       | word            | R/W | H                  | 0               | 15              |
+| 1X       | word            | R/W | H                  | 0               | 15              |
+| X        | word            | R/W | H                  | 0               | 15              |
+| L        | word            | R/W | HH                 | 0               | 127             |
+| 1C       | word            | R/W | H                  | 0               | 7               |
+| T        | word            | R/W | H                  | 0               | 15              |
+| V        | word            | R/W | H                  | 0               | 15              |
+| 1K       | word            | R/W | H                  | 0               | 15              |
+| K        | word            | R/W | H                  | 0               | 15              |
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.&#x20;
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Address**: Enter a tag address. The value must in the decimal format, within the allowed min/max range. Omit the leading zeros. The device might use the decimal (D), hexadecimal (H), or octal (O) address format. See the Register Table at the bottom of the dialog box. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to only publish NATS messages when the *value&#x20;*&#x70;arameter changes to a new value. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. Metadata can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

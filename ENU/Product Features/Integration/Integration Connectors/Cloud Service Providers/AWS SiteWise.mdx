@@ -1,0 +1,38 @@
+---
+title: AWS SiteWise
+slug: product-features/integration/integration-connectors/cloud-service-providers/aws-sitewise
+description: Review parameters for the AWS SiteWise connector.
+docTags: 
+createdAt: Thu May 28 2026 23:47:03 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the [AWS SiteWise Integration Guide](<./././././How-To Guides/Integration Guides/AWS SiteWise Integration Guide.md>).&#x20;
+
+## Overview
+
+AWS SiteWise integration enables an Edge System to connect with Amazon AWS IoT SiteWise.
+
+## Supported Communication Directions
+
+- Outbound - Publish data from Edge to AWS IoT SiteWise
+- Inbound - Subscribe data from AWS IoT SiteWise
+
+## Variable Definitions
+
+| **Variable**             | **Details**                                                                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                     | Enter a name for the connector                                                                                                                    |
+| Region                   | Enter the AWS Region. See [AWS IoT SiteWise endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iot-sitewise.html) to learn more. |
+| Access Key               | Enter the AWS Access Key                                                                                                                          |
+| Secret Key Access        | Enter the AWS Secret Access Key                                                                                                                   |
+| Subscribe interval       | The time between fetching inbound messages (in seconds)                                                                                           |
+| Number of batch messages | Maximum amount of outbound messages sent in one batch                                                                                             |
+| Throttling limit         | Maximum throughput counted in messages per second                                                                                                 |
+
+## Compatibility Validation
+
+This information is just for reference. More products and versions may be supported provided they are compatible with the supported version as mentioned above.
+
+| **Product**    | **Version**                 | **Date**   |
+| -------------- | --------------------------- | ---------- |
+| aws.amazon.com | AWS SDK for Go v2 (v1.21.0) | 2023-07-31 |

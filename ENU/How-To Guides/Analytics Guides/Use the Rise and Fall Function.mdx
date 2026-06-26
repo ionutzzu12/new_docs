@@ -1,0 +1,134 @@
+---
+title: Use the Rise and Fall Function
+slug: how-to-guides/analytics-guides/rise-and-fall-function
+description: Learn how to use the Rise and Fall statistical function in Analytics.
+docTags: 
+createdAt: Thu May 28 2026 23:47:07 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the Rise and Fall function to calculate the difference in upper and lower thresholds between consecutive values from the PLCs.&#x20;
+
+# Understanding Different Rise and Fall Functions
+
+Use one of the following functions for your inputs:
+
+- **Rise:&#x20;**&#x4F;nce you enter a lower and upper threshold, this function will show you the timestamp at which the current value starts to rise from the upper threshold.
+- **Fall:&#x20;**&#x4F;nce you enter a lower and upper threshold, this function will show you the timestamp at which the current value starts to fall from the lower threshold.
+- **RiseAndFall:&#x20;**&#x4F;nce you enter a lower and upper threshold, this function will show you the timestamp at which the current value starts to rise from the upper threshold and fall from the lower threshold.
+
+# User Scenario
+
+Review the following scenario for the rise and fall processor function. Then, you will simulate PLC data and calculate KPIs using a single input processor function.
+
+Suppose you are monitoring a manufacturing process where a motor's temperature is being recorded by a PLC. You want to know when the temperature rises above 80 degrees Celsius and when it falls below 70 degrees Celsius. Using the RiseAndFall function with the appropriate thresholds, you can get the exact timestamps when the temperature rises above 80 degrees and falls below 70 degrees. This information can help you optimize the process and prevent any potential issues.
+
+# Step 1: Add a Device
+
+Follow the steps to [Connect a Device](<./././Product Features/DeviceHub/Devices/Connect a Device.md>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# Step 2: Add Tags
+
+After connecting the device, add the following tag. See [Add Tags](#) to learn more.&#x20;
+
+## Tag 1: temperature
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **5**
+- **Tag Name**: Enter **temperature**
+- **Min\_value**: Enter **60**
+- **Max\_value**: Enter **90**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the Rise and Fall function:**
+
+1. Navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" indent="2" showCaption="true"></Image>
+
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **temperature**.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+
+## Step 3a: Configure rise KPI&#x20;
+
+1. Click **Add processor** again and select **Rise and Fall&#x20;**&#x70;rocessor.
+   The following information defines this function\:v
+   - **KPI:** Select **rise**.
+   - **Tolerance:** Enter a value to determine the range of values considered acceptable.
+   - **Upper:** Enter **80** for upper threshold value.
+   - **Lower:** Enter **70** for lower threshold value.
+2. Click **Save**.
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/k5lwGS8Eg3HNhonWdka96_image.png "rise and fall dialog box")
+3. Connect the DataHub Subscribe processor (tag: *temperature*) to the Rise and Fall processor with a wire and use the **events** connection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/I4Ba-kd5BWQoSh4fgqSkB_image.png "Completed analytics flow canvas")
+
+## Step 3b: Configure fall KPI&#x20;
+
+1. Click **Add processor** again and select **Rise and Fall&#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **KPI:** Select **fall**.
+   - **Tolerance:** Enter a value to determine the range of values considered acceptable.
+   - **Upper:** Enter **80** for upper threshold value.
+   - **Lower:** Enter **70** for lower threshold value.
+2. Click **Save**.
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/UyqVy0lEmDwGpm7TXrvUe_image.png "rise and fall dialog box")
+3. Connect the DataHub Subscribe processor (tag: *temperature*) to the Rise and Fall processor with a wire and use the **events** connection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/95PWcyu4J_226gmVAvtql_image.png "Completed analytics flow canvas")
+
+## Step 3c: Configure riseAndFall KPI&#x20;
+
+1. Click **Add processor** again and select **Rise and Fall&#x20;**&#x70;rocessor.
+   The following information defines this function\:v
+   - **KPI:** Select **riseAndFall**.
+   - **Tolerance:** Enter a value to determine the range of values considered acceptable.
+   - **Upper:** Enter **80** for upper threshold value.
+   - **Lower:** Enter **70** for lower threshold value.
+2. Click **Save**.
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/LJ8udCR1F3nHal867cMTF_image.png "rise and fall dialog box")
+3. Connect the DataHub Subscribe processor (tag: *temperature*) to the Rise and Fall processor with a wire and use the **events** connection.
+4. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/E2ISHhq7Z4KZNpW4Z87oO_image.png "Completed analytics flow canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *Rise and Fall&#x20;*&#x70;rocessor to view the output values.
+
+## View rise KPI Output
+
+As the generated value is **82.664**, which is more than the upper threshold, the output shows the `riseEnd`, `riseStart` and `riseTime` fields.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/I7l-xFUGwOKrEb9fU7cn5_image.png "rise KPI Output")
+
+## View fall KPI Output
+
+As the generated value is **67.775**, which is less than the lower threshold, the output shows the `fallEnd`, `fallStart` and `fallTime` fields.&#x20;
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/5w0X3f6agPvTdYXGRWbLV_image.png "fall KPI Output")
+
+## View riseAndFall KPI Output
+
+After generating values of **68.557** and **83.003**, both falling outside the lower and upper thresholds, the corresponding fields are displayed.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/WTtJ_5QauoHGa1rB619bX_image.png "riseAndFall KPI Output")

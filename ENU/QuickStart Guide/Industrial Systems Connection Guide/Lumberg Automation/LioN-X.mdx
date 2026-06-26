@@ -1,0 +1,150 @@
+---
+title: LioN-X
+slug: quickstart-guide/industrial-systems-connection-guide/lumberg-automation/lion-x
+description: Review the following information for setting up and configuring the LioN-X driver.
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the LioN-X driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+| Compatibility parameter      | Compatible items                                                                                                                                                                                                                                                                                                                              |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Driver type**              | Ethernet                                                                                                                                                                                                                                                                                                                                      |
+| **Validated devices/series** | [Lumberg Automation LioN-X](https://www.belden.com/dfsmedia/f1e38517e0cd4caa8b1acb6619890f5e/12628-source/lion-x-product-bulletin-2021-03)&#xA;When configuring tags for this driver, you must enter the case-sensitive register name exactly as it is defined in the PLC. See *Step 3: Configure the List of Registers* below to learn more. |
+
+# Step 1: Set up and Configure the Driver
+
+To find the network parameters of the driver, you have the option of using the [Device Discovery Tool](<././././Product Features/DeviceHub/Devices/Asset Discovery Tool.md>). Otherwise, set up the device for Ethernet access and collect the network parameters.&#x20;
+
+**To use the device discovery tool:**
+
+1. &#x20;Navigate to **DeviceHub&#x20;**> **Devices**.
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device&#x20;*&#x64;ialog box appears.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/kWeqiHESLSAdRZjSpgRN0_connectdevice.png" size="80" width="1046" height="528" position="flex-start" caption="Connect a Device box" indent="2" showCaption="true"></Image>
+
+3. Click the **Device Type** drop-down list and select **Lumberg Automation**.
+4. Click the **Driver Name** drop-down list, and select **LioN-X**.
+5. Click **Device Discovery**.&#x20;
+6. The *Device Discovery* dialog box appears.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Yyb3SRNTlXOjTnIkJc5U3_lionxdevicediscovery.png" size="80" width="1161" height="777" position="flex-start" caption="Device Discovery option" indent="2" showCaption="true"></Image>
+
+7. Select only one of the following fields to use for discovering the device. &#x20;
+   - **Discovery Server URL (Servers and Endpoints Discovery)**: No prior setup/configuration is needed to use this field. Replace **localhost** with the appropriate IP address or domain name that will be used to search for the device. Ensure the correct port number is entered.&#x20;
+   - **Server URL (Endpoints Discovery)**: You'll need to enable/configure the server to use this field. Replace **localhost** with the appropriate IP address or domain name that will be used to search for the device. Ensure the correct port number is entered.
+8. Delete all text from the field not being used.&#x20;
+9. Click **Start discovery**. When the search is complete, available servers with corresponding security policies will be listed.&#x20;
+10. Click the appropriate server/security policy, and then click **Update form with discovery results**.
+    The *Connect Device* dialog box appears with *Server URL*, *Security Policy*, and *Security Mode* pre-filled based on the discovery results.&#x20;
+11. In the **Driver Mode** field, select either **Polling&#x20;**&#x6F;r **Subscription**.&#x20;
+12. Move onto Step 2 and continue configuring the driver with the remaining parameters.&#x20;
+
+# Step 2: Set up the Driver in Litmus Edge DeviceHub
+
+Configure the following parameters when you [Connect a Device]() with this driver. Update default values to the specific setup of your device.&#x20;
+
+## General Parameters
+
+| Parameter           | Value                                                   |
+| ------------------- | ------------------------------------------------------- |
+| **Type**            | Lumberg Automation                                      |
+| **Driver**          | LioN-X                                                  |
+| **Driver Mode**     | Select Polling or Subscription                          |
+| **Server URL**      | opc.tcp\://localhost:48010                              |
+| **Security Policy** | Select one of the following:&#xA;\* Aes128Sha256RsaOaep |
+
+- Aes256Sha256RsaPss
+- Basic128Rsa15
+- Basic256
+- Basic256Sha256
+- None                                             |
+  \| **Security Mode**                        | Select None, Sign, or SignAndEncrypt                                                                                                                                        |
+  \| **Session Certificate**                  | Auto-generated                                                                                                                                                              |
+  \| **Session Private Key**                  | Auto-generated                                                                                                                                                              |
+  \| **Auth Mode**                            | Select Anonymous, Certificate, or Username                                                                                                                                  |
+  \| **Default Root**                         | ns=0;i=84&#x20;
+  Start node to browse the server                                                                                                                             |
+  \| **Publishing Interval**                  | Cyclic rate in milliseconds at which the subscription is requested to return notifications to the client                                                                    |
+  \| **Lifetime Count**                       | Subscription lifetime count (LifetimeCount \* PublishingInterval)                                                                                                           |
+  \| **Max Keep Alive Count**                 | If the server has no notifications pending for the period of time defined by  (MaxKeepAliveCount \* PublishingInterval), the server send a keep alive message to the client |
+  \| **Max Notifications Per Publish**        | Maximum number of notifications the client can receive in a single publish response                                                                                         |
+  \| **Priority**                             | Relative priority of this subscription within the session                                                                                                                   |
+  \| **Override Registers Sampling Interval** | Select Enable or Disable to override the registers sampling interval                                                                                                        |
+  \| **Registers Sampling Interval**          | The interval in milliseconds that defines the fastest rate at which the MonitoredItem(s) should be accessed and evaluated (0 - fastest practical rate)                      |
+
+## Advanced Parameters
+
+| Parameter                                        | Value                                                                                                                                                                   |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Disable Error Certificate Host Name Invalid**  | Select true or false&#xA;Flag used to disable the check if the hostname the client connected to matches one of the hostnames or IP addresses in the server certificate. |
+| **Disable Application Uri Check**                | Select true or false&#xA;Flag used to disable the certificate ApplicationUri match check.                                                                               |
+| **Disable Encrypted Password Check**             | Select true or false&#xA;Flag used to disable the check if the password of a UserPassword identity token is encrypted properly.                                         |
+| **Disable Error Certificate Revocation Unknown** | Select true or false&#xA;Flag used to disable the BadCertificateRevocationUnknown client certificate validation error .                                                 |
+| **Disable Error Certificate Chain Incomplete**   | Select true or false&#xA;Flag used to disable the error BadCertificateChainIncomplete certificate validation .                                                          |
+| **Disable Error Certificate Untrusted**          | Select true or false&#xA;Flag used to disable the BadCertificateUntrusted certificate validation error.                                                                 |
+| **Disable Error Certificate Time Invalid**       | Select true or false&#xA;Flag used to disable the CertificateTimeInvalid certificate validation error .                                                                 |
+
+# Step 3: Configure the List of Registers
+
+Browse for tags to add to this FreeTag device. See [Browse Tags](#) to learn more.&#x20;
+
+Alternatively, when you [Add Tags](#), for **Name** map the LioN-X server tags to the client using this format, where the semicolon is significant: `ns=1;s=tagname`.
+
+Example: `ns=2;s=Demo.Static.Scalar.Boolean`
+
+The following value types are supported:&#x20;
+
+- `bool`
+- `sbyte`
+- `byte`
+- `int16`
+- `uint16`
+- `int32`
+- `uint32`
+- `int64`
+- `uint64`
+- `float32`
+- `float64`
+- `string`
+- `BLOB`
+- `bool[]`
+- `sbyte[]`
+- `byte[]`
+- `int16[]`
+- `uint16[]`
+- `int32[]`
+- `uint32[]`
+- `int64[]`
+- `uint64[]`
+- `float32[]`
+- `float64[]`
+- `string[]`
+- `BLOB[]`
+
+## Tag Parameters
+
+- **Name**: Enter a name based on this format: `ns=1;s=tagname`.
+  - Example: `ns=2;s=Demo.Static.Scalar.Boolean`
+- **Value Type**: Select a data type from the drop-down list.&#x20;
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.&#x20;
+- **Description** (Optional): Enter a description for the tag. &#x20;
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation `10^x`.
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`).&#x20;
+  - exp: exp(`x`) performs the operation `e^x`.
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the *value&#x20;*&#x70;arameter changes from a previous value to a new one. *Change of Value* only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by *Change of Value* settings. These topics will still only see a single message.&#x20;
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.&#x20;
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).&#x20;
+</hint>

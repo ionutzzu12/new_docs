@@ -1,0 +1,32 @@
+---
+title: Add an OIDC Provider
+slug: Kbhx-adding-a-new-oidc-provider
+docTags: 
+createdAt: Thu May 28 2026 23:46:58 GMT+0300 (Eastern European Summer Time)
+---
+
+Litmus Edge acts as an *OIDC client* that connects to a configured *OIDC provider*. Litmus Edge supporting both static and dynamic client registration.
+
+<hint type="info">
+  **Note:** When you configure your OIDC provider, set the scope to include `openid`, `email`, and `profile` which are required by Litmus Edge.
+</hint>
+
+**To add a new OIDC Provider:**
+
+1. Click **Add Provider** to configure a new provider.
+   The *Add OpenID Connect Provider* pane appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/zSRut5CQWvtoDcsRaRs44_image.png" size="100" width="1737" height="522" position="flex-start" caption="Add OpenID Connect Provider pane" indent="2" showCaption="true"></Image>
+
+2. Configure the following fields:
+   - **Provider Name:** Enter a name to identify this provider.
+   - **Client Name:** (Optional) Specify a client name if required by the provider.
+   - **Well-Known Endpoint:** Provide the URL where the OIDC provider's metadata can be retrieved (e.g., `https://<provider>/.well-known/openid-configuration`).
+   - **Add Groups:** Select user groups (`Administrator` & `Viewers`) that will have access via this provider.
+   - **Redirect URI:** Prepopulated with the callback URL required for authentication. Ensure that the URL matches the provider’s settings.
+   - **Use Dynamic Client Registration:** Enable this if the provider supports automatic registration of client credentials.
+     - **Client ID:** Enter the client ID obtained from the OIDC provider.
+     - **Client Secret:** Enter the secret key associated with the client ID.
+3. Click **Add&#x20;**&#x74;o save the configuration.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/IofdRmUZ1qZxsOEB68oTq_image.png" size="70" width="1091" height="694" position="flex-start" indent="2" showCaption="false"></Image>

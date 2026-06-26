@@ -1,0 +1,77 @@
+---
+title: Use the Uptime and Downtime by Value KPI
+slug: VUKo-use-the-uptime-and-downtime-by-value-kpi
+docTags: 
+createdAt: Thu May 28 2026 23:47:07 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use the **UpTime and DownTime by Value** KPI processor to compare your current value with a desired value. The KPI sorts them as either uptime or downtime based on the specified condition ( greater(>), less(\<), equal(==) or notEqual(!=) ) and a delta to round off mistakes.
+
+# User Scenario
+
+Review the following scenario for the uptime and downtime by Value KPI processor. Then, using an input processor, you will simulate PLC data and use this KPI to have more detailed knowledge of the time.
+
+In a manufacturing plant, the PLC monitors a critical component with an ideal value of 10.5. If the output drops below 5 or deviates by 0.5 value, it signifies potential issues, triggering downtime. For instance, if the output equals 0, it also means downtime. The plant manager can use the Uptime and Downtime KPI processor to analyze these conditions and gain insights into the production line's status. This scenario allows for proactive maintenance and operational decisions, ensuring real-time visibility and minimizing unplanned downtime.
+
+# Step 1: Add a Device
+
+Follow the steps to [Connect a Device](<./././Product Features/DeviceHub/Devices/Connect a Device.md>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# Step 2: Add Tags
+
+After connecting the device, add the following tag. See [Add Tags](#) to learn more.&#x20;
+
+## Tag 1: tag1
+
+- **Name**: Select **S - Random value generator.**
+- **Value Type:** Select **float64.**
+- **Polling Interval**: Enter **1.**
+- **Tag Name**: Enter **tag1.**
+- **Min Value:&#x20;**&#x45;nter **0.**
+- **Max Value:&#x20;**&#x45;nter **11.5.**
+
+# Step 3: Create Analytics Flow
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the UpTime and DownTime&#x20;****by Value&#x20;****Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" indent="2" showCaption="true"></Image>
+
+3. Select **DataHub Subscribe**.
+4. In the *Topic* field, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for **tag1**.&#x20;
+   ![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **UpTime and DownTime \*\*\*\*by Value &#x20;**&#x70;rocessor.
+   The following information defines this function:
+   - **Unit:&#x20;**&#x53;elect the time units from the drop-down menu to display the uptime/downtime status. Choose **seconds** for this user scenario.
+   - **Condition:&#x20;**&#x53;elect a condition from the drop-down menu for comparing the current value to the desired value. Choose the **less than (\<)&#x20;**&#x63;ondition for this user scenario.
+   - **Desired Value:&#x20;**&#x45;nter a desired value to check the current uptime/downtime status. Use **10.5** for this user scenario.
+   - **Delta of Tolerance:&#x20;**&#x45;nter a delta of **0.5&#x20;**&#x74;o allow for a tolerance of *+/- 0.5* from your desired value. If you input a delta of **0**, even the smallest change will be detected by this KPI.
+   - **TimeInterval:&#x20;**&#x49;f the tag publishes at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/KkZ2X2jn7dCHoOktYSfIy_image.png" size="80" width="840" height="726" position="center" caption="Edit a Processor dialog box" indent="3" showCaption="true"></Image>
+
+7. Connect the *DataHub Subscribe* processor (tag: *tag1*) to the *UpTime and DownTime by Value&#x20;*&#x70;rocessor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+
+The configured analytics flows should look like the following:
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/w4cVC9VZT8wizqQW-6UrG_image.png" size="80" width="618" height="272" position="center" caption="Completed Flows Canvas" showCaption="true"></Image>
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *UpTime and DownTime by Value* processor to view the output values.
+
+The output will display the message payload with the uptime and downtime value field, disregarding current values within *+/- 0.5* of your desired value.
+
+![](https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/wGLzlYv3ro4SEjuElXjD7_image.png "Output of UpTime and DownTime by Value processor")

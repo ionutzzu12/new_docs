@@ -1,0 +1,135 @@
+---
+title: Industrial OT Server
+slug: quickstart-guide/industrial-systems-connection-guide/mqtt/industrial-ot-server
+description: You can set up an MQTT Server through DeviceHub that supports MQTT generic and MQTT SSL v.5.
+docTags: 
+createdAt: Thu May 28 2026 23:47:07 GMT+0300 (Eastern European Summer Time)
+---
+
+You can set up an MQTT Server through DeviceHub that supports MQTT generic and MQTT SSL v.5.&#x20;
+
+# Authentication Options
+
+You can configure the server with the following authentication options when connecting to clients.&#x20;
+
+When configuring the server, can select to enable only **MQTT**, only **MQTT SSL**, or both **MQTT&#x20;**&#x61;nd **MQTT SSL**. You have the option of adding *User Credentials* or *Mutual TLS Authentication* to existing authentication configurations.&#x20;
+
+Learn more about [Certificates](<././././Product Features/System/Network/Certificates.md>).
+
+When considering authentication options, keep the following in mind:
+
+- You can't use any certificates used for your Litmus Edge instance for server authentication.&#x20;
+- The automatically generated self-signed certificates may not be compatible with third-party hostname verification.&#x20;
+- If using your own CA Chain, the client connecting to the server needs to be configured to trust the server or one of the server's CAs (certificate authorities).&#x20;
+- If the certificate files have no hostname defined, then you may need to disable hostname checking in the client to connect successfully to the server.&#x20;
+
+## User Credentials
+
+If you enable the **User Password** option, the client will have to provide a username and password to connect to the server.&#x20;
+
+## No TLS Authentication
+
+When you enable the **Enable MQTT** option, no authentication will be used to connect the client to the server.&#x20;
+
+## TLS Authentication Using Server Self-Signed Certificates
+
+When you enable the **Enable MQTT SSL** option, you have the option of using the automatically generated self-signed certificates for the server. Copy and paste the self-signed Server Certificate and Server Private Key in the appropriate certificate files when configuring the client.&#x20;
+
+You can also use your own self-signed certificates by replacing the automatically generated ones. If you'll be using your own certificates, you'll need to replace the Server Certificate and Server Private Key in the server configuration.&#x20;
+
+## TLS Authentication Using CA Chains
+
+When you enable the **Enable MQTT SSL** option, you can replace the automatically generated self-signed certificates with your own CA Chain. You will need to replace the self-signed Server Certificate and Server Private Key in the server configuration by copying and pasting or uploading the files. In the **Server Certificate** field, paste or upload the appropriate server "leaf" certificate associated with the CA Chain.&#x20;
+
+## Mutual TLS Authentication
+
+When you enable the Enable MQTT SSL option, you can also enable the **Require Client Certificate&#x20;**&#x6F;ption. This provides two-way authentication between the server and client. You will need to paste or upload the client certificate in the **Certificate Authority** field for the server.
+
+# Step 1: Add MQTT Server to DeviceHub
+
+**To add the MQTT Server to Device Hub:**
+
+1. In Litmus Edge, navigate to **DeviceHub**.&#x20;
+2. Click the **Connect a Device** box.&#x20;
+   The *Connect Device* dialog box appears.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/4WzJkTieEFwi1rirnct9O_adddevice.png" size="80" width="1046" height="528" caption="Conect a device icon" position="center" indent="2" showCaption="true"></Image>
+
+3. For *Driver Type*, select **MQTT**. Then, for *Driver Name*, select **MQTT Server**.&#x20;
+4. Enter a name for the server. Optionally, add a description.&#x20;
+
+Configure the server with the following options.&#x20;
+
+## User Password
+
+You can enable a required username and password for the client to connect to the server.
+
+If you enable this option, update the default values as needed for **User&#x20;**&#x61;nd **Password**.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/otBqkFAemo0q5HwXHp83u_image.png" size="80" width="1152" height="760" caption="User and Password fields" position="center" showCaption="true"></Image>
+
+## MQTT
+
+The MQTT generic option connects the server and client with no authentication.&#x20;
+
+If you enable this option, configure the port and interface.&#x20;
+
+**MQTT Port**: The default port is 1883.&#x20;
+
+**MQTT Interface**: The default value 0.0.0.0 means the server listens to all interfaces. If needed, update to a specific network interface.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/8zv8a-Uiw9gzPSK_AlK1S_image.png" size="80" width="1161" height="769" position="center" showCaption="false"></Image>
+
+## MQTT SSL
+
+The MQTT SSL option allows the client to connect to the server by providing the client configuration with certificates. Learn more about [Certificates](<././././Product Features/System/Network/Certificates.md>).
+
+If you enable MQTT SSL, configure the following parameters. Please review the *Authentication Options* section.&#x20;
+
+**MQTT SSL Port**: The default port value is 8883.&#x20;
+
+**MQTT SSL Interface**: The default value 0.0.0.0 means the server listens to all interfaces. If needed, update to a specific network interface.
+
+**Server Certificate**: A self-signed certificate is automatically generated. When configuring the MQTT client, copy and paste this value in the certificate file. If you are using your own certificate, replace the self-signed certificate by copying and pasting or uploading the certificate file. &#x20;
+
+**Server Private Key**: A self-signed private key is automatically generated. When configuring the MQTT client, copy and paste this value in the private key file. If you are using your own certificate, replace the self-signed certificate by copying and pasting or uploading the certificate file. &#x20;
+
+**Require Client Certificate**: If enabled, you will need to provide the client certificate that will be used by the server to authenticate the client. Paste or upload the certificate in the **Certificate Authority** field.
+
+**Advanced**: If you select **Show**, use the **Min TLS Version** drop-down list to select the minimum version of TLS to use for authentication.&#x20;
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/nT71NlLhA_dlySC6xUpTC_image.png" size="80" width="1150" height="756" caption="MQTT SSL fields" position="center" showCaption="true"></Image>
+
+## Additional Options
+
+See the [Define Optional Parameters](<././././Product Features/DeviceHub/Devices/Connect a Device.md>) section to learn more about additional options.&#x20;
+
+When done configuring the device, click **Add Device**.&#x20;
+
+<hint type="info">
+  **Note**: The server will show a disconnected status until an MQTT client connects to the server.&#x20;
+</hint>
+
+# Step 2: Connect MQTT Client
+
+Once you set up the server in DeviceHub, you can connect an MQTT Client to the server.&#x20;
+
+<hint type="info">
+  **Note**: You can't connect the DeviceHub [MQTT Client](<MQTT Client.mdx>) to the MQTT Server if they are using the same Litmus Edge instance. This includes connecting through the Flows Manager or through an Integration connector. If they are using different Litmus Edge instances, they can connect. &#x20;
+</hint>
+
+When connecting the client, configure the following:
+
+**Host**: Enter the IP address or domain name of your Litmus Edge instance. For example, if your Litmus Edge instance IP address is [https://192.168.0.26](https://192.168.0.26), ente&#x72;**&#x20;mqtt://192.168.0.26**.&#x20;
+
+**Port**: If connecting to MQTT generic, enter port 1883 or the port specific to your configuration. If connecting to MQTT SSL, enter port 8883 or the port specific to your configuration.&#x20;
+
+**Username**: If *User Password* is enabled, enter the **User&#x20;**&#x76;alue.&#x20;
+
+**Password**: If *User Password* is enabled, enter the **Password&#x20;**&#x76;alue.&#x20;
+
+**SSL Authentication**: If MQTT SSL is enabled, copy the *Server Certificate* and *Server Private Key* values from the MQTT Server configuration and paste them into the appropriate certificate files. Then, upload the files as needed in the client configuration.&#x20;
+
+# Step 3: Add Tags
+
+Once the client has published topics, you can add tags to the server based on the published topics. Follow the steps to [Browse Tags](#) to the server. The tags will be used as topics to receive data from MQTT clients.&#x20;

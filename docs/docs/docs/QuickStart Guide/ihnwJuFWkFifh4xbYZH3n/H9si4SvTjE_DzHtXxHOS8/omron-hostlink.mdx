@@ -1,0 +1,477 @@
+---
+title: Omron Hostlink
+slug: omron-hostlink
+docTags: 
+createdAt: Tue Jan 20 2026 21:48:05 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the Omron Hostlink driver.
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Serial
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      Omron
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left">
+      Omron-Peripheral (Gen1)
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+1. Verify the serial port connection between the Litmus Edge device and the Omron PLC.
+2. Identify the serial communication port (for example, /dev/ttyS0, /dev/ttyS1).
+3. Record the PLC's serial communication parameters:&#x20;
+   - Baud Rate
+   - Data Bits
+   - Stop Bits
+   - Parity
+4. Note the PLC's Destination Node ID (Station ID).
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you :Link[Connect a Device]{label="Connect a Device" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="_2EDTlzj-mOkIWGexTiF0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} with this driver. Update default values to the specific setup of your device.
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      Omron
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      Omron Hostlink
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Communication port**
+    </td>
+    <td align="left">
+      The serial port file path (for example, /dev/ttyS0, /dev/ttyS1)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Baud Rate**
+    </td>
+    <td align="left">
+      9600
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Data Bits**
+    </td>
+    <td align="left">
+      7
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Stop Bits**
+    </td>
+    <td align="left">
+      2
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Parity**
+    </td>
+    <td align="left">
+      Even
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Destination Node ID**
+    </td>
+    <td align="left">
+      0
+    </td>
+  </tr>
+</table>
+
+## Step 3: Configure the List of Registers
+
+When you :Link[Add a Tag]{label="Add a Tag" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="o9zZT3M74618ShS4oe6--" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- :Link[Organize Device and Tag Data by Using Metadata]{label="Organize Device and Tag Data by Using Metadata" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="M4PO6UqHSi10oLiBozZza" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Tag Formula Variables]{label="Tag Formula Variables" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="4Tr7K1KK6fSvJ6gF-GR8g" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="100,100,100,100,100,100,100">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Types
+    </td>
+    <td align="left">
+      Address Format
+    </td>
+    <td align="left">
+      Min Address
+    </td>
+    <td align="left">
+      Max Address
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      IR
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Internal Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      IR\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      409515
+    </td>
+    <td align="left">
+      Internal Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HR
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Hold Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      HR\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      409515
+    </td>
+    <td align="left">
+      Hold Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LR
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LR\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      409515
+    </td>
+    <td align="left">
+      Link Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AR
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AR\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      409515
+    </td>
+    <td align="left">
+      Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      flag, int, bcd, word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      flag, int, bcd, word
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DM
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Data Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM
+    </td>
+    <td align="left">
+      int, dint, lint, bcd, dbcd, lbcd, real, lreal, word, dword, lword, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Address**: Enter a tag address in decimal format, within the allowed min/max range. Omit the leading zeros. For Bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the Bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power (`x`) performs the operation `10^x`
+  - log: log (`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp (`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value** only applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

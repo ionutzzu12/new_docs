@@ -1,0 +1,1017 @@
+---
+title: Omron-Peripheral (Gen1.3)
+slug: 40I3ZY1bCKchcN4X0dS80
+description: Review the following information for setting up and configuring the Omron-Peripheral (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Omron-Peripheral (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="233,527" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[CJ1]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/cj1/index.html" newTab="true"}
+      :Link[CJ2]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/cj2/index.html" newTab="true"}
+      :Link[CS]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/cs1/index.html" newTab="true"}
+      :Link[NJ]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/controller-nj-series/index.html" newTab="true"}
+      :Link[NX1P]{href="https://www.ia.omron.com/products/category/automation-systems/programmable-controllers/controller-nx1p/index.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+<ContentSnippet docRefId="ZPTCmzo7MNjZIP6UvGpD8">
+
+</ContentSnippet>
+
+&#x20;**To configure your device:**
+
+1. Note down the following information and refer to it when needed.&#x20;
+   - **Device**: Omron NJ301-1100
+   - **Communication I/F**: RS232. Refer to the following figure.
+2. Connect the device with a USB cable.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/c2ZbyGeMDiWLkzNeB5gLB_omron-fins-ethernet.png" size="80" width="679" height="255" position="flex-start" caption="Reference image of device" showCaption="true" indent="2"></Image>
+
+3. Launch Sysmac Studio v1.20.1.0 Software, select **Controller > Communication Setup**, and then set up the IP address.
+4. Use a direct connection through **USB > USB Communication Test**.
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="199,617" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Omron
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Omron-Peripheral (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      7
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      9600
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Odd, None
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      2
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station**
+    </td>
+    <td>
+      0
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="106,106,135,108,112,174" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+    <td align="left">
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CIO\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Channel I/O (CIO)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Work Area (WR)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      H\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Holding Area (HR)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      A\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Auxiliary Relay (AR)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Timer (TIM)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Counter (CNT)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Data emory (DM)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LR\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      19915
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM0\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM1\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM2\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM3\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM4\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM5\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM6\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM7\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM8\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM9\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EMA\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EMB\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EMC\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      3276715
+    </td>
+    <td align="left">
+      Extended Memory bit
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CIO
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Channel I/O
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      W
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Work Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      H
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Holding Area
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      A
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Auxiliary Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Timer
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Counter
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Data Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LR
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      199
+    </td>
+    <td align="left">
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM0
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM1
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM2
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM3
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM4
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM5
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM6
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM7
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM8
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EM9
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EMA
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EMB
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EMC
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      32767
+    </td>
+    <td align="left">
+      Extend Memory
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="EUEmq1JxUoqWek0fKp56e">
+
+</ContentSnippet>
+

@@ -1,0 +1,73 @@
+---
+title: Linear Prediction
+slug: linear-prediction
+docTags: 
+createdAt: Tue Aug 06 2024 22:05:02 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Linear Prediction** processor forecast future data points by fitting a linear equation to collected data and using statistical techniques to identify the underlying trend.
+
+# Linear Prediction Overview
+
+- Once window values are full, the mean of values is subtracted from each element and squared (Y\_i - Mean\_Y)
+- Same is done for the time series elements (X\_i - Mean\_X)
+- The sum of squares is sum of (X\_i - Mean\_X)^2
+- The sum of products is sum of (Y\_i - Mean\_Y) \* (X\_i - Mean\_X)
+- The slope is obtained by the formula m = \{ Sum of products } / \{ Sum of Squares }
+- The intercept is obtained by the formula b = Mean\_Y - m \* Mean\_X
+- Finally, prediction is made by extrapolating the number of predictions in the simple formula y = m\*X + b
+- Residual Error is obtained by modeling for current value, and subtracting the ACTUAL current value.
+- The **timer interval** parameter is useful if the connected input tag is currently not polling, but you still want this KPI to publish a value every few seconds, defined by the aforementioned timer.
+  - If you know your input is going to publish at the expected interval, it is better to disable this timer by entering **0** in the field.
+
+# Linear Prediction Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Window Size
+    </td>
+    <td>
+      This parameter determines how many values the processor should observe before making each prediction.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Number of Predictions
+    </td>
+    <td>
+      This parameter specifies how many polling intervals into the future the processor should predict.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Polling Interval
+    </td>
+    <td>
+      This parameter defines the time interval, in seconds, between successive data polling or data collection.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Timer Interval
+    </td>
+    <td>
+      If no event is detected, this timer interval is used to keep displaying the output continually. Entering zero disables this timer, and the prediction model relies entirely on incoming data for updates.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-9GPQRiXC_ZzNs81neO80_image.png" size="80" width="943" height="451" caption="Linear Prediction parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Linear Prediction&#x20;*&#x70;rocessor, refer the :Link[Use the Linear Prediction Function]{label="Use the Linear Prediction Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="kD_pXH523xdKowzIS54UF" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

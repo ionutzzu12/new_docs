@@ -1,0 +1,52 @@
+---
+title: Use Custom Attributes in the Google Cloud Pub/Sub Connector
+slug: MZNb-upK_m6neum8MtvvZ
+docTags: 
+createdAt: Fri Oct 27 2023 21:34:59 GMT+0300 (Eastern European Summer Time)
+---
+
+When integrating the [Google Cloud Pub/Sub Integration Guide](<../../../../How-To Guides/qAgbQTXc0x67BDlQo-u-G/uP0QwSaFbV5cGqEynWaQn.mdx>) connector, you have the option to configure custom attributes. Review the following user scenario for using custom attributes.&#x20;
+
+# User Scenario Overview
+
+Consider a scenario where you have multiple manufacturing sites worldwide, and one Litmus Edge instance is connected to each site. Each Litmus Edge instance also has one Google Cloud Pub/Sub Connector integrated with an outbound connection. To categorize the data being sent from Litmus Edge to the Google Cloud Platform, you want to add custom attributes to each connector so that you know the origin of the data.&#x20;
+
+You will create the following key custom attributes:
+
+- Country
+- City
+- Site ID
+
+# Configure Custom Attributes
+
+To review the entire workflow for setting up an outbound connection with the Google Cloud Pub/Sub Connector, refer to [Google Cloud Pub/Sub Integration Guide](<../../../../How-To Guides/qAgbQTXc0x67BDlQo-u-G/uP0QwSaFbV5cGqEynWaQn.mdx>). The steps below focus on configuring the custom attributes for one of the Litmus Edge instances described in the user scenario above.&#x20;
+
+**To configure custom attributes:**
+
+1. Navigate to **Integration**.&#x20;
+2. From the *Integration&#x20;*&#x70;ane, click the **Add a connector** box.&#x20;
+   The *Add a Connector&#x20;*&#x64;ialog box appears.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/YTCrJ12hK_ZZi6h-r-Ue5_addconnector.png" size="80" width="795" height="520" position="center" caption="Add a connector icon" showCaption="true"></Image>
+3. Select **Google Cloud Pub/Sub Connector**.&#x20;
+4. Configure the connection parameters to set up a connection with the Google Service account. Refer to :Link[Google Cloud Pub/Sub Integration Guide]{label="Google Cloud Pub/Sub Integration Guide" spaceId docId="VcAcjW3Xg0wH13Vb4Xv0t" version="v2" docAnchorId="#step-4-add-the-google-cloud-pubsub-connector" loadingMethod="dynamic" overridedLabel href="../../../../How-To Guides/qAgbQTXc0x67BDlQo-u-G/uP0QwSaFbV5cGqEynWaQn.mdx"}.&#x20;
+5. Click the checkbox for **Show Custom Attributes**. The configuration section displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/udT-6gUxpd3dW4lUbNv_e_showcustomattributescheckbox.png" size="80" width="1177" height="759" position="center" caption="Show Custom Attributes checkbox" showCaption="true"></Image>
+6. Enter the following Key/Value pairs and click **+ Add&#x20;**&#x66;or each pair.&#x20;
+   - **Key**: Country **Value**: United States
+   - **Key**: City **Value**: Chicago
+   - **Key**: Site ID **Value**: 2463
+7. Review the configured custom attributes and all other connection parameters. Then, click **Add**.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/VANQIOlUK4931W9XWdaeh_customattributesconfigured.png" size="80" width="1178" height="762" position="center" caption="Custom Attributes Configured" showCaption="true"></Image>
+
+The connector displays in the *Integration&#x20;*&#x70;ane with the custom attributes in the connector configuration.&#x20;
+
+# Sample Payload with Custom Attributes
+
+Review the following payload with custom attributes configured.&#x20;
+
+- The *Attribute keys* column displays custom attributes that are created for the payload (*location&#x20;*&#x61;nd *source*).&#x20;
+- The *attribute.location* column displays the value for the *location&#x20;*&#x61;ttribute (Toronto).&#x20;
+- The *attribute.source* column displays the value for the *source&#x20;*&#x61;ttribute (mce).&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/OXFLvK3BPmUjAeF7mhw5Y_image.png" size="80" width="1417" height="555" position="center" showCaption="false"></Image>
+

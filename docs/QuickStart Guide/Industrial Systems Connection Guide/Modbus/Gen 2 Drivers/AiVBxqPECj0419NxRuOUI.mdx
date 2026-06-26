@@ -1,0 +1,289 @@
+---
+title: Modbus RTU over TCP
+slug: AiVBxqPECj0419NxRuOUI
+description: Review the following information for setting up and configuring the Modbus RTU over TCP driver. 
+docTags: 
+createdAt: Fri Feb 24 2023 15:51:35 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the Modbus RTU over TCP driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="199,412" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **When to use&#x20;**
+    </td>
+    <td>
+      TCP connection to a Modbus server which has one or more Modbus RTU connections
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use PLC software on your computer to configure the device for Ethernet access.&#x20;
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="195" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Modbus
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Modbus RTU over TCP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Port**
+    </td>
+    <td>
+      502
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Override Station ID**
+    </td>
+    <td>
+      Select Enable or Disable
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Zero-Based Addressing**
+    </td>
+    <td>
+      Select Enable or Disable
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Request Timeout**
+    </td>
+    <td>
+      Time in milliseconds for the driver to wait for a response from the Modbus server.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Retry Request Count**
+    </td>
+    <td>
+      Number of times for the driver to retry a request if the Modbus server did not respond to a request.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Pause Between Retries**
+    </td>
+    <td>
+      Time is milliseconds for the driver to wait before retrying a request. This setting is ignored if Retry Request Count is set to 0.
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+<table columnWidths="100,100,167,100,103,172" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      **Name**
+    </td>
+    <td>
+      **Value Types**
+    </td>
+    <td>
+      **Address Format**
+    </td>
+    <td>
+      **Min Address**
+    </td>
+    <td>
+      **Max Address**
+    </td>
+    <td>
+      **Description**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      D
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Discrete Input Contacts
+    </td>
+  </tr>
+  <tr>
+    <td>
+      C
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Discrete Output Coils
+    </td>
+  </tr>
+  <tr>
+    <td>
+      H
+    </td>
+    <td>
+      word, int16, int32, uint32, float32, float64
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Analog Output Holding Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I
+    </td>
+    <td>
+      word, int16, int32, uint32, float32, float64
+    </td>
+    <td>
+      DDDDD
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      65535
+    </td>
+    <td>
+      Analog Input Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      H\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      6553515
+    </td>
+    <td>
+      Analog Output Holding Registers
+    </td>
+  </tr>
+  <tr>
+    <td>
+      I\_bit
+    </td>
+    <td>
+      bit
+    </td>
+    <td>
+      DDDDDdd
+    </td>
+    <td>
+      0
+    </td>
+    <td>
+      6553515
+    </td>
+    <td>
+      Analog Input Re
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="VQjULCVUkCx2T4yToFxC4">
+
+</ContentSnippet>
+

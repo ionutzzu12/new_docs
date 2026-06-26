@@ -1,0 +1,444 @@
+---
+title: Sinumerik 808D Serial (Gen1.3)
+slug: U89zxaIqL59QNNBGFAAXm
+description: Review the following information for setting up and configuring the Sinumerik 808D Serial (Gen1) driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 19:09:33 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Sinumerik 808D Serial (Gen1.3) driver.&#x20;
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="235,263" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[Sinumerik]{href="https://www.siemens.com/global/en/products/automation/systems/cnc-sinumerik/automation-systems.html" newTab="true"}
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for serial access, find its parameters. Otherwise, follow the steps below for Toolbox v4.6.
+
+**To configure your device:**&#x20;
+
+1. Record the following information and refer to it when needed.&#x20;
+   - **Device**: Siemens 808D Advanced M
+   - **Communication I/F**: RS232
+2. Use D89 pin Female/Female cable and D89 pin Male/USB cable to connect device and PC.
+3. Press the **PLC&#x20;**&#x73;oft key.&#x20;
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/Knd4B4gOM5_ffP2cLrFwq_sinumerik-808d-serial-plc.png" size="80" width="554" height="436" position="flex-start" caption="PLC option" showCaption="true" indent="2"></Image>
+
+4. Press the **Step 7 connect&#x20;**&#x73;oft key, select *Baud rate* as **115200**, and then press the **Connect On** soft key.
+
+<Image src="https://app.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/aJYcBjKmuKz7JP5ifai6m_sinumerik-808d-serial-connect.png" size="80" width="541" height="425" position="flex-start" caption="Communication settings screen" showCaption="true" indent="2"></Image>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="214,294" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Siemens
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Sinumerik 808D Serial (Gen1.3)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Communication Port**
+    </td>
+    <td>
+      Local Serial connection file path
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Data Bits**
+    </td>
+    <td>
+      8
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Baud Rate**
+    </td>
+    <td>
+      115200
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Parity**
+    </td>
+    <td>
+      Even, Odd, None
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Stop Bits**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      2
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="NYYZPEyCZw3bpm4VPoaZo">
+
+</ContentSnippet>
+
+<table columnWidths="100,189,133,108,111,101" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td align="left">
+      **Name**
+    </td>
+    <td align="left">
+      **Value Types**
+    </td>
+    <td align="left">
+      **Address Format**
+    </td>
+    <td align="left">
+      **Min Address**
+    </td>
+    <td align="left">
+      **Max Address**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      I\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Q\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDDDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      100000007
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      40957
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2557
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_Bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      DDDo
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      2557
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10239
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10239
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SM
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10239
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      word
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      V
+    </td>
+    <td align="left">
+      byte, sint, word, int, dword, dint, real, string
+    </td>
+    <td align="left">
+      DDDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      10000000
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="A0mW7eFUiB6dsJkAOu4YV">
+
+</ContentSnippet>
+

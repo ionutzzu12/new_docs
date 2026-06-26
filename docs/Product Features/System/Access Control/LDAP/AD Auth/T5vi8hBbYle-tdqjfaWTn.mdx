@@ -1,0 +1,27 @@
+---
+title: Find LDAP Distinguished Names (DN)
+slug: T5vi8hBbYle-tdqjfaWTn
+description: To configure LDAP you must have the DN information from the LDAP server.
+docTags: 
+createdAt: Fri Sep 30 2022 16:47:53 GMT+0300 (Eastern European Summer Time)
+---
+
+To configure LDAP for Litmus Edge you must have the DN information from the LDAP server.
+
+An LDAP Bind DN supplies the user and the user location in the LDAP directory tree. The LDAP client configuration file contains this information. You can access it in the following directory:
+
+`/etc/ldap.conf`
+
+**To find the Bind DN:**
+
+1. Log in to the LDAP server connected to the Active Directory.
+2. Identify the domain to query. For example, **litmus.io**.
+3. At the Windows command prompt, type the following command to retrieve a specific user.
+   `dsquery user dc=<domain_name>,dc=<domain_extension> -name <user_name>`
+   - **dc**: Domain component or context.&#x20;
+   - **\<domain\_name>**: Replace this with your domain name, without the extension.
+   - **\<domain\_extension>**: Replace this with your domain's extension, such as **com**.
+   - **\<user\_name>**: Replace this with the user name to search.
+4. To retrieve *all* users, enter the following into the command prompt:
+   `dsquery user dc=<domain_name>,dc=<domain_extension>`
+

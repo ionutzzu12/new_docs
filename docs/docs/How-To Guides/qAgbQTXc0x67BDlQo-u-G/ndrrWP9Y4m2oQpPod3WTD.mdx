@@ -1,0 +1,159 @@
+---
+title: Microsoft SQL Server Integration Guide
+slug: ndrrWP9Y4m2oQpPod3WTD
+description: Learn how to set up the Microsoft SQL Server connector. 
+docTags: 
+createdAt: Fri Nov 25 2022 21:01:27 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and a Microsoft SQL database.&#x20;
+
+# Video
+
+<Iframe iframeHeight="0" code="<iframe width=&#x22;560&#x22; height=&#x22;315&#x22; src=&#x22;https://www.youtube.com/embed/3UzEKzVosAc?si=XHTcIgUvUAitYZ5Q&#x22; title=&#x22;YouTube video player&#x22; frameborder=&#x22;0&#x22; allow=&#x22;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#x22; allowfullscreen></iframe>">
+
+</Iframe>
+
+# User Scenario
+
+In this guide you will deploy a Microsoft SQL Server database container from Litmus Edge and then integrate with the database using the DB-Microsoft SQL Server connector. For your specific scenario you may use an external Microsoft SQL Server database to set up the integration.&#x20;
+
+For external Microsoft SQL Servers, refer to the following to learn more:
+
+- :Link[Microsoft SQL Server - Ubuntu based images]{href="https://hub.docker.com/_/microsoft-mssql-server" newTab="true"}
+- :Link[sqlcmd Utility]{href="https://learn.microsoft.com/en-us/sql/tools/sqlcmd-utility?view=sql-server-ver15" newTab="true"}
+- :Link[Deploy and connect to SQL Server Docker containers]{href="https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-deployment?view=sql-server-ver15&pivots=cs1-bash" newTab="true"}
+
+# Step 1: Add Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add Microsoft SQL Server Application
+
+<hint type="info">
+  **Note**: The version used in this guide for Microsoft SQL Server is `2017-latest`.
+</hint>
+
+**To add the Microsoft SQL Server Marketplace Application:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**> **Marketplace**.
+2. Click **Marketplace List** and select **Default Marketplace Catalog**.
+3. Click the **Microsoft SQL Server&#x20;**&#x61;pplication tile.&#x20;
+4. From the **Installation script version** drop-down list, select **2017-CU8-ubuntu**.&#x20;
+5. Enter **MSSQL&#x20;**&#x69;n the **Name&#x20;**&#x66;ield. &#x20;
+6. Copy the password from the **SA Password&#xA0;**&#x66;ield or create a new one and save it for use later.
+7. Click **Launch**.&#x20;
+8. Navigate to **Applications&#x20;**> **Catalog Apps**.&#x20;
+   The Microsoft SQL Server application appears, pulls the image, and then starts the application. The MSSQL application shows as running.
+9. Navigate to **Applications&#x20;**> **Containers**.&#x20;
+   The MSSQL application Container is running.
+10. Copy the IP address for the MSSQL application.
+
+# Step 4: Add the Microsoft SQL Server Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/GcX9UZAhKiYSz8LSe4xaJ.mdx>) and select the **DB - Microsoft SQL Server&#x20;**&#x70;rovider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: Enter a name for the connector.&#x20;
+- **Hostname**: Paste the IP address you copied in Step 3. &#x20;
+- **Port**: The MSSQL Server port. The default value is **1433**.&#x20;
+- **Username**: Enter **sa**.&#x20;
+- **Password&#x20;**(Optional): Enter the user password you copied in Step 3.&#x20;
+- **Database**: Enter **master**.&#x20;
+- **Table**: Enter **test\_table**. If you are sending data to an existing table, use the corresponding name.&#x20;
+- **Show Mapping**: If you want to send data to a custom table, select this check box and unselect *Create table*. See [Work with Tables in SQL Connectors (Create Table and Show Mapping)](FHQSWOSYHfgAMEjdBpdVv.mdx) to learn more. To add key/value pairs for the custom table, see :Link[Configure Key/Value Pairs]{docId="ZCWW9VIomOcZ8DFjGgCWU" label="Work with Tables in SQL Connectors (Create Table and Show Mapping)" spaceId version="v2" docAnchorId="#configure-keyvalue-pairs" loadingMethod="dynamic" overridedLabel="Configure Key/Value Pairs" href="FHQSWOSYHfgAMEjdBpdVv.mdx"}.&#x20;
+- **Create table**: If you want to send data to an existing table in the default format, or you want to create a new table in the default format, select this check box and unselect *Show Mapping*. See [Work with Tables in SQL Connectors (Create Table and Show Mapping)](FHQSWOSYHfgAMEjdBpdVv.mdx) to learn more.&#x20;
+- **Commit timeout**: Enter the transaction commit timeout in (ms).
+- **Max transaction size**: Enter the maximum number of messages before a transaction is committed, regardless of timeout parameter.&#x20;
+- **Bulk insert count**: To enable this option, enter the number of messages to group together and send as one bulk insert statement. Enabling this option can improve how quickly data is processed when dealing with high volumes of tags.&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+# Step 5: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6_zk06pk-JfrMMKbrDkbi_mssql.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="PvlzNrGBVl3QhocUrjZBZ" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/lBL7doO8dZVjlOPVnrAkz/o3YwIl-aYuomiu2keYIsw.mdx"} and relevant error messages.&#x20;
+
+# Step 6: Create Topics for Connector
+
+You will now need to import the tags created in Step 2 as topics for the Microsoft connector. The topics will be created as outbound topics.&#x20;
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+After adding all required topics, navigate to the Integration overview page and ensure the connector is not disabled and still shows a CONNECTED status.&#x20;
+
+# Step 7: Enable Topics
+
+To enable the topics, return to the *Topics* tab and click the **Enable all topics** icon.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Iq7BWYqGWueu4US73iBl3_image.png" size="80" width="1220" height="330" caption="Enable all topics icon" position="center" showCaption="true"></Image>
+
+# Step 8: Create Flow
+
+You can now create a flow in Litmus Edge to verify the connection.&#x20;
+
+**To create the flow:&#x20;**
+
+1. In Litmus Edge, navigate to **Flows Manager**.&#x20;
+2. Click the **Go To Flow Definition** icon for a selected **Flows Manager**.&#x20;
+   Th&#x65;*&#x20;Flow canvas&#x20;*&#x6F;pens in a new browser tab.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6PlxhptXn4xZ_4ZdrIAuf_gotoflowdefinition.png" size="80" width="944" height="366" caption="Go To Flow Definition icon" position="center" showCaption="true"></Image>
+3. From the node palette, drag the **DataHub Subscribe** node (DataConnector section) to the canvas.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/j2Sz7jq3aibQ0V56l3Cy8_datahubsubscribenode.png" size="80" width="1055" height="690" caption="DataHub Subscribe node" position="center" showCaption="true"></Image>
+4. Drag the **Debug&#xA0;**&#x6E;ode to the canvas and connect the two nodes.
+5. Double click the **DataHub Subscribe** node.&#x20;
+   The *Edit DataHub Subscribe Node&#x20;*&#x64;ialog box appears.
+6. In the **Topic&#x20;**&#x66;ield, paste the topic name copied in Step 6.
+7. Enter `tag imported to mssql db` in the **Name&#xA0;**&#x66;ield.
+8. If needed, configure the *Datahub Subscribe* connection. See the *Step 3: Configure Connector Nodes* section in :Link[Create a Flow]{docId="U2ZE0GLAydau4Z5agvqMV" label="Create a Flow" spaceId version="v2" docAnchorId="#step-3-configure-connector-nodes" href="../../Product Features/tAQ2y6xPYLoNqxyFDrrb-/EfWU7FhzSuuhmZvRB11Ad.mdx"} to learn more.&#x20;
+9. Click **Done**.&#x20;
+10. Click **Deploy**.&#x20;
+11. Expan&#x64;**&#xA0;**&#x74;he message window beneath the flow and click the **Debug&#xA0;**&#x69;con. Verify that messages are displaying.&#x20;
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/gPJk6NsW3loIyEUdOJWuM_debugicon.png" size="80" width="885" height="365" caption="Debug node messages" position="center" showCaption="true"></Image>
+
+# Step 9: Make Make Microsoft SQL Queries
+
+You can now verify that you can view data through the terminal command window.&#x20;
+
+Update credentials, the database name, and the table as needed for your specific configurations.
+
+**To make queries in the container terminal:**
+
+1. In Litmus Edge, navigate to **Applications&#x20;**>**&#x20;Containers**.
+2. Click the **Terminal&#xA0;**&#x69;con next to the MSSQL container.
+   The MSSQL shell opens.
+3. From the MSSQL container terminal, enter `/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <sa password>`**&#xA0;**, and then press **ENTER**.
+4. Enter `select DB_NAME ()`, and then press **ENTER**.
+5. Enter `go`, and then press **ENTER**.
+   The master database name appears.
+6. Enter `select name from sys.databases`, and then press ENTER.
+7. Enter `go`, and then press **ENTER**.
+   All database names appear.
+8. Enter `use master`, and then press **ENTER**
+9. Enter `go`, and then press **ENTER**.****
+   Changed database context to *master&#x20;*&#x61;ppears.
+10. Enter `select * from information_schema.tables;` and press **ENTER**.
+11. Enter `go`, and then press **ENTER**.
+    The *Table Catalog* for the master database appears.
+12. Enter `select * from test_table` , and then press **ENTER**.
+13. Enter `go`, and then press **ENTER**.
+    If you selected *Create table* in Step 4, identification messages from the topic appear, including the *deviceId&#x20;*&#x61;nd *registerId&#x20;*&#x61;t the end of each message.
+    If you selected *Show Mapping* in Step 4, the custom mapping you configured appears.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/o06WecDb_VJzgbQea7Z4f_image.png)
+

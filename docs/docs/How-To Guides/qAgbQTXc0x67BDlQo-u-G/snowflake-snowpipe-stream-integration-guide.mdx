@@ -1,0 +1,192 @@
+---
+title: Snowflake Snowpipe Stream Integration Guide
+slug: snowflake-snowpipe-stream-integration-guide
+docTags: 
+createdAt: Thu May 07 2026 22:48:29 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note:** This feature is available starting with Litmus Edge 4.1.x.
+</hint>
+
+This guide shows you how to set up an integration between Litmus Edge and Snowflake Snowpipe Streaming. Once the integration is set up, you can use it to publish data from Litmus Edge directly into Snowflake tables using the Snowpipe Streaming High-Performance REST API with low latency and no virtual warehouse required.
+
+<hint type="info">
+  **Note:** The Snowflake Snowpipe Stream connector only supports outbound (publish) data flows. Data travels from Litmus Edge to Snowflake. Inbound subscriptions are not supported by this connector.
+</hint>
+
+# Before You Begin
+
+Before configuring the connector in Litmus Edge, complete the following setup steps in Snowflake.
+
+<hint type="warning">
+  **Important:** Snowpipe Streaming requires a Snowflake account on Enterprise Edition or higher. Confirm your account type before proceeding.
+</hint>
+
+Refer to the following Snowflake resources to learn more about Snowpipe Streaming and configuring your account:
+
+- [Snowpipe Streaming overview](https://docs.snowflake.com/en/user-guide/snowpipe-streaming/data-load-snowpipe-streaming-overview)
+- [Snowpipe Streaming High-Performance REST API](https://docs.snowflake.com/en/user-guide/snowpipe-streaming/snowpipe-streaming-high-performance-rest-api)
+- [Key-pair authentication and key-pair rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth)
+
+## Step 1: Generate an RSA Key Pair
+
+<hint type="info">
+  **Note:** This guide uses DeviceHub tag data as an example for the Snowflake table schema and outbound topic configuration. Litmus Edge also supports streaming custom JSON structures produced by Analytics or Digital Twins to Snowflake. The steps are the same, but you will need to define your Snowflake table columns to match your custom payload structure.
+</hint>
+
+Litmus Edge uses RSA key pair (JWT) authentication to connect to Snowflake. Run the following commands to generate a private key and extract the corresponding public key. If you are on Windows or prefer a different tool, refer to Snowflake's [Key-pair authentication and key-pair rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth) guide for platform specific instructions.
+
+```bash
+# Generate a private key in PKCS#8 format
+openssl genrsa -out rsa_key.pem 2048
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in rsa_key.pem -out rsa_key_pkcs8.pem
+
+# Extract the public key
+openssl rsa -in rsa_key.pem -pubout -out rsa_key.pub
+```
+
+After running these commands, you will have:
+
+- `rsa_key_pkcs8.pem`: private key to enter in the Litmus Edge connector configuration
+- `rsa_key.pub`: public key to register with your Snowflake user in the next step
+
+<hint type="warning">
+  **Important:** Store the private key securely. It authenticates Litmus Edge with your Snowflake account.
+</hint>
+
+## Step 2: Register the Public Key with Snowflake
+
+Register the public key from Step 1 with the Snowflake user that Litmus Edge will authenticate as. Run the following SQL in your Snowflake worksheet, replacing:
+
+- `<username>` with your Snowflake username.
+- `<public_key>` with the contents of `rsa_key.pub`. Exclude the `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----` header and footer lines.
+
+```sql
+ALTER USER <username> SET RSA_PUBLIC_KEY='<public_key>';
+```
+
+After running this command, note the following values. You will need them when configuring the connector in Litmus Edge:
+
+- Account: Your Snowflake account identifier, in the format `<orgname>-<account_locator>` (for example `MYORG-ML890087`). Find this under **Admin** > **Accounts** in the Snowflake web interface.
+- Username: Snowflake username you registered the public key on (for example `LITMUS_SVC_USER`). Find this under **Admin** > **Users and Roles**.
+- Private Key: Full contents of `rsa_key_pkcs8.pem` including the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` lines.
+
+## Step 3: Create a Database
+
+In your Snowflake account, create a database to store the data streamed from Litmus Edge or use an existing database.
+
+```sql
+CREATE DATABASE IF NOT EXISTS <database>;
+```
+
+Replace `<database>` with the name you want to use.
+
+## Step 4: Create a Schema
+
+Within the database, create a schema or use the existing schema. Replace `<schema>` with the name you want to use.
+
+```sql
+CREATE SCHEMA IF NOT EXISTS <database>.<schema>;
+```
+
+## Step 5: Create a Table
+
+Create a table in the schema with columns that match the data fields Litmus Edge will publish. The following example creates a table compatible with the Litmus Edge DeviceHub tag payload. Replace `<database>`, `<schema>`, and `<table>` with the names you chose in Steps 3 and 4.
+
+```sql
+CREATE TABLE IF NOT EXISTS <database>.<schema>.<table> (
+    success         BOOLEAN,
+    datatype        STRING,
+    timestamp       TIMESTAMP_NTZ,
+    registerId      STRING,
+    value           NUMBER,
+    deviceID        STRING,
+    tagName         STRING,
+    deviceName      STRING,
+    description     STRING,
+    metadata        VARIANT
+);
+```
+
+<hint type="info">
+  **Note:** Column names are case-sensitive and must match the DeviceHub payload field names exactly as shown above. Additional columns may be added to the table. They will receive `NULL` for rows inserted by this connector.
+</hint>
+
+For more information on table creation syntax, see [CREATE TABLE](https://docs.snowflake.com/en/sql-reference/sql/create-table).
+
+# Set up the Outbound Connection (Publish to Snowflake)
+
+Follow the steps below to enable Litmus Edge to publish data to Snowflake.
+
+## Step 1: Add the Snowflake Snowpipe Stream Connector
+
+Follow the steps to [Add a Connector]() and select the **Snowflake Snowpipe Stream** connector provider.
+
+Configure the following parameters:
+
+- Name: Connector name which is also used internally as the Snowpipe identifier.
+- Account: Your Snowflake account identifier.
+- Username: The Snowflake username with the RSA public key registered.
+- Private Key: The RSA private key in PEM format (PKCS#8). Paste the full contents of `rsa_key_pkcs8.pem` or upload the file including the header and footer lines.
+- Private Key Passphrase (optional): The passphrase used when generating the private key. Leave empty if the key was generated without encryption.
+- Database: The name of the target Snowflake database.
+- Schema: The name of the target schema within the database.
+- Default Table: The name of the default target table. This table is used by all outbound topics that do not specify a **Remote Data Topic**.
+
+<hint type="warning">
+  **Important:** Store the private key securely. It is displayed as `<protected>` after saving and must be entered again if you need to update the connector credentials.
+</hint>
+
+## Step 2: Enable the Connector
+
+After adding the connector, use the toggle in the connector tile to enable it. The connector authenticates with Snowflake, discovers the Snowpipe Streaming ingest endpoint, and opens a streaming channel. The status transitions to **CONNECTED** on success.
+
+If you see a `Failed` status, review the [Manage Connectors]() page and relevant error messages. Common issues include:
+
+- The RSA public key is not registered on the Snowflake user. Run `ALTER USER <username> SET RSA_PUBLIC_KEY='...'` in Snowflake.
+- The account identifier is incorrect. Verify the format is `<orgname>-<account_locator>`.
+- The database, schema, or table does not exist. Confirm the resources were created in the :Link[Before You Begin]{label="Before You Begin" overridedLabel="Before You Begin" spaceId docId="ZnvzcS4uzvK2pjiRjLRtH" version="v2" docAnchorId="#38clP" loadingMethod="dynamic" newTab="false"} steps.
+
+## Step 3: Add an Outbound Topic
+
+After the connector is enabled, add one or more outbound topics to define which Litmus Edge tag data to publish to Snowflake.
+
+**To add an outbound topic:**
+
+1. Click the connector tile. The connector Dashboard appears.
+2. Click the **Topics** tab.
+3. Click the **Add a new topic** icon. The Data Integration dialog box appears.
+4. Configure the following parameters:
+   - Data Direction: Select **Local to Remote - Outbound**.
+   - Local Data Topic: Select the DeviceHub tag or topic from Litmus Edge that you want to publish.
+   - Remote Data Topic (optional): Enter the name of a Snowflake table to publish this topic's data to. If left empty, data is published to the **Default Table** defined at the connector level. The table must exist in the configured database and schema.
+   - Enable: Select the toggle to enable the topic.
+5. Click **OK** to add the topic.
+6. From the connector tile, verify that the connector shows a **CONNECTED** status and the topic shows an **Enabled** status.
+
+<hint type="info">
+  **Note:** You can route different device tags to separate Snowflake tables by specifying a different **Remote Data Topic** per outbound topic. Each unique target table gets its own dedicated streaming channel that is managed automatically by the connector.
+</hint>
+
+## Step 4: Verify Data in Snowflake
+
+To confirm that data is flowing from Litmus Edge into Snowflake:
+
+1. In your Snowflake account, open a worksheet and navigate to the target database and schema.
+2. Run a query against the table to view incoming rows:
+
+<CodeblockTabs indent="2">
+  ```sql
+  SELECT * FROM <database>.<schema>.<table>
+  ORDER BY timestamp DESC
+  LIMIT 100;
+  ```
+</CodeblockTabs>
+
+3. Confirm that rows appear with values from your Litmus Edge tags.
+
+<hint type="info">
+  **Tip:** You can also monitor ingestion from the Snowflake **Query History** view or by checking the table's row count after a short interval.
+</hint>
+

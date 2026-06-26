@@ -1,0 +1,192 @@
+---
+title: Litmus Edge with AWS IoT SiteWise
+slug: litmus-edge-with-aws-iot-sitewise
+docTags: 
+createdAt: Thu Aug 22 2024 22:18:57 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following guide to set up an integration between Litmus Edge and AWS IoT SiteWise to send data directly to the cloud.
+
+# Before You Begin
+
+Before completing these steps, make sure to do the following:
+
+- Have access to an AWS account with the appropriate user privileges.
+- Set up a :Link[SiteWise Edge gateways with AWS IoT Greengrass]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gw-self-host-gg2.html" newTab="true" hasDisabledNofollow="false"}.
+- A Litmus Edge Manger instance with an active configuration ready for deployment of an edge device. See :Link[Set Up an Activation Configuration]{label="Set Up an Activation Configuration" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="VbRFW-a0LLtuJmwdpuNNV" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details.
+- Refer to *Step 3: Add Template&#x20;*&#x69;n the :Link[Set Up an Activation Configuration]{label="Set Up an Activation Configuration" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="VbRFW-a0LLtuJmwdpuNNV" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} section to include the template file below. This JSON file contains the configuration for the AWS IoT SiteWise Edge Integration and should be uploaded to the activation config.
+
+<File src="https://archbee-doc-uploads.s3.amazonaws.com/Q116WJTAr1sefeVNvMCF9-hbKzLnfoColO-eBDQfPAi-20240905-161836.json" label="AWS_IoT_SiteWise_Edge_template.json">
+
+</File>
+
+# Set Up Integration in AWS
+
+## **Step 1:&#x20;**&#x44;eploying Litmus Edge From AWS IoT SiteWise Console&#x20;
+
+**To deploy litmus edge from your AWS IoT SiteWise console:**
+
+1. Open the *AWS IoT SiteWise* browser tab and navigate to **Data Sources&#x20;**&#x73;ection.
+   See :Link[Add a partner data source]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/cpa-add-source.html" newTab="true" hasDisabledNofollow="false"} and :Link[SiteWise Edge gateway partner data source option]{href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-partner-data-source.html#cp-litmus" newTab="true" hasDisabledNofollow="false"} for more details.
+2. Click **Add data source**.
+   The *Add data source* panel appears.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/F3LNZWbPGe542TO0Dc2Vj_image.png" size="100" width="1693" height="291" position="center" caption="Add data source panel" darkWidth="1693" darkHeight="291" showCaption="true" indent="2"></Image>
+
+3. Configure the following parameters to add data source and activate litmus edge.
+   - **Source type:&#x20;**&#x53;elect **Litmus Edge** from the drop-down list.
+   - **Source name:** Name your Litmus Edge instance.
+   - **Activation configuration:&#x20;**&#x54;his configuration is optional.&#x20;
+     - For this guide, select **Activate now using a code**.
+       - **Litmus Edge Manager Activation URL:&#x20;**&#x53;ee :Link[Step 8: Retrieve Activation Code/URL]{label="Set Up an Activation Configuration" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="VbRFW-a0LLtuJmwdpuNNV" version="v2" docAnchorId="#kmZ53" loadingMethod="dynamic" overridedLabel="Step 8: Retrieve Activation Code/URL"} to generate an activation URL.
+       - **Litmus Edge Manager activation code:&#x20;**&#x53;ee :Link[Step 8: Retrieve Activation Code/URL]{label="Set Up an Activation Configuration" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="VbRFW-a0LLtuJmwdpuNNV" version="v2" docAnchorId="#kmZ53" loadingMethod="dynamic" overridedLabel="Step 8: Retrieve Activation Code/URL"} to generate an activation code.
+       - **Litmus Edge Manager CA certificate:&#x20;**&#x53;ee :Link[Add a Custom CA Certificate]{label="Add a Custom CA Certificate" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="TTt4LhsdYPNd0siTfg2BY" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more details.
+     - To activate with Litmus Edge manager later, select **Activate later on Litmus Edge*****.***
+       - Litmus Edge will not be activated with Litmus Edge Manager and will require manual activation, licensing and configuration. See :Link[Activate an Edge Device]{label="Activate an Edge Device" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="tDJ648wJgATVqzyx79UwB" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details.
+   - Check the **Authorize** check box.
+   - Click **Save**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/GkDGhDaJp2oHXoyJTMyDS_image.png" size="80" width="887" height="831" position="center" darkWidth="887" darkHeight="831" showCaption="false" indent="3"></Image>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ye-8KbfmQrjMm8QbRwrNk_image.png" size="80" width="876" height="514" position="center" caption="Add data source dialog box" darkWidth="876" darkHeight="514" showCaption="true" indent="3"></Image>
+
+## Step 2: Monitor the Deployment
+
+**To monitor the deployment of edge devices:**
+
+1. Return to the *AWS IoT SiteWise Console.*&#x20;
+2. Click the **Greengrass core device name** under the *Edge gateways* section.
+   The *Overview&#x20;*&#x70;age for the Core Device appears.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/o1E0QcVJemGvm9zKci_GE_image.png" size="100" width="1700" height="743" position="center" caption="Overview page" darkWidth="1700" darkHeight="743" showCaption="true" indent="2"></Image>
+
+3. Click **Deployments&#x20;**&#x61;nd check the status of the latest deployment.
+   Allow a few minutes for the deployment to refresh.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/6RkMdejknHXJm7axq5PFL_image.png" size="100" width="1502" height="606" position="center" caption="Deployments page" darkWidth="1502" darkHeight="606" showCaption="true" indent="2"></Image>
+
+4. The Status on this device tab will change to **Succeeded**.
+   The deployment of the edge device is completed.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vJCdn1oenFc97ISDQx_75_image.png" size="100" width="1491" height="603" position="center" caption="Deployments page" darkWidth="1491" darkHeight="603" showCaption="true" indent="2"></Image>
+
+## Step 3: Approve Activation in Litmus Edge Manager
+
+<hint type="info">
+  **Notes:&#x20;**&#x45;nsure that the correct template is applied during the configuration, as this will provide the necessary connector setup.&#x20;
+
+  **See Step 3: Add Template** in :Link[Set Up an Activation Configuration]{label="Set Up an Activation Configuration" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="VbRFW-a0LLtuJmwdpuNNV" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details.
+
+  Download the template file below:
+
+  <File src="https://archbee-doc-uploads.s3.amazonaws.com/Q116WJTAr1sefeVNvMCF9-Ndi54T6Dz3bH6ViaeB0a6-20240905-162238.json" label="AWS_IoT_SiteWise_Edge_template.json">
+
+  </File>
+</hint>
+
+After deployment, go back to Litmus Edge Manager and approve the activation request. See :Link[Step 4: Approve the Activation Request in Litmus Edge Manager]{label="Step 4: Approve the Activation Request in Litmus Edge Manager" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="rdL1GO82TH_UOLBJRhaW3" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details.
+
+# Set Up Integration in Litmus Edge
+
+After setting up your AWS account, you will need to log in to the previously deployed Litmus Edge instance to complete the steps for integrating with AWS IoT SiteWise.
+
+You can access the Litmus Edge UI by directly accessing the AWS SiteWise Edge gateway.
+
+If direct access is not available, they can also remotely connect to the Litmus Edge instance from the Litmus Edge Manager from :Link[Open Edge Devices]{label="Open Edge Devices" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="XpURI-8b1QSviQEpNCvzD" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}.
+
+<hint type="info">
+  **Important:&#x20;**&#x54;o log in to your Litmus Edge instance, you need the IP of the gateway and port 8443. See :Link[Access the Litmus Edge Web UI]{label="Access the Litmus Edge Web UI" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="tGtrj9DEH1W_ro24kmbmQ" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more details.
+</hint>
+
+## Step 4: Add Device
+
+Follow the steps to :Link[Connect a Device]{docId="3eyAfPpweuVmBLCEy17sq" label="Connect a Device" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId}. The device will be used to store tags that will be eventually used to create outbound topics in the connector.
+
+## Step 5: Add Tag to Device
+
+After connecting the device in Litmus Edge, you can :Link[Add Tags]{docId="8sE7z3PmRfwL1nmzcwaLX" label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId} to the device. Create tags that you want to use to create outbound topics for the connector.&#x20;
+
+## Step 6: Add MQTT - AWS IoT SiteWise Edge Connector
+
+Follow the steps to :Link[Add a Connector]{docId="b7eMDh8AO2-NOqDHwPD7Y" label="Add a Connector" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId overridedLabel="Add a Connector"} and select the **MQTT - AWS IoT SiteWise Edge&#x20;**&#x70;rovider.
+
+Configure the following parameters.
+
+- **Name:&#x20;**&#x45;nter Connector Name.
+- **Client ID:&#x9;**&#x45;nter Unique client identity.
+- **Property Alias:** This can be static or use format directives, with the default being **/$D/$N** `(e.g., /<device_name>/<tag_name>)`. Ensure the Property Alias matches the AWS IoT SiteWise Asset Measurement Alias.
+- **Integration Topic:** AWS recommends that the default integration topic for publishing matches the Property Alias.
+- **Additional Alias Definition:&#x20;**(Optional) String to further define dynamic *Property Alias&#x20;*&#x61;nd *Integration Topic*.
+- Click **Save&#x20;**&#x6F;r **Update**.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SkD7TXX2hIiaiNeWtRimx_image.png" size="100" width="1107" height="681" position="center" caption="MQTT - AWS IoT SiteWise Edge dialog box" darkWidth="1107" darkHeight="681" showCaption="true" indent="2"></Image>
+
+## Step 7: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/GBc0HbwaV7_s7wCYQOVSF_image.png" size="50" width="402" height="346" position="center" caption="Enable the Connector" darkWidth="402" darkHeight="346" showCaption="true"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="5hctoRLhgaX3Ikh_lvi0A" version="v2" docAnchorId="#R2G2z" loadingMethod="dynamic" overridedLabel="Connector Logs"} and relevant error messages.&#x20;
+
+## Step 8: Create Topics for Connector
+
+You will now need to create topics for the connector. To create outbound topics, you have the option of importing the tag created in Step 5. To create inbound topics, you will have to manually create the topic.
+
+**To create outbound topics:**
+
+1. Click the connector tile.
+   The connector *Dashboard&#x20;*&#x61;ppears.&#x20;
+2. Click the **Topics&#x20;**&#x74;ab.&#x20;
+3. Click th&#x65;**&#x20;Import from DeviceHub&#x20;**&#x74;ags icon.
+   The *DeviceHub Import&#x20;*&#x64;ialog box appears.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ypZrUmB7ziVyI_86MQpP4_image.png" size="100" isUploading="false" width="1820" height="544" darkWidth="1820" darkHeight="544" showCaption="false" indent="2"></Image>
+
+4. Select all the tags to import and click **Import**.&#x20;
+
+## Step 9: Enable Topics
+
+Ensure the topics you imported are enabled by returning to the *Topics&#x20;*&#x74;ab and clicking the **Enable all topics** icon.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/7fNlyn-OodMfSH8N2szfW_image.png)
+
+## Step 10: Verify Outbound Data
+
+To verify that data is landing in AWS IoT SiteWise, you can check either the Data Streams or the specific Asset where the data is expected to publish.&#x20;
+
+You will need to log in to your AWS console to verify that outbound messages are being sent.
+
+### Step 10a: Verify Data from Data Streams
+
+**To verify outbound messages from data streams:&#x20;**
+
+1. Log in to your *AWS console*.&#x20;
+2. From the side menu, navigate to the **Data streams** pane.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/J_a5G9ysaINmjV_t2yr62_image.png" size="100" width="1920" height="427" position="center" caption="Data streams pane" darkWidth="1920" darkHeight="427" showCaption="true" indent="2"></Image>
+
+3. Click the **Refresh&#x20;**&#x62;utton to refresh the page.
+   The *Data streams info&#x20;*&#x74;able shows a new topic.
+4. Enable the topic and confirm that data is flowing correctly from Litmus Edge to AWS IoT SiteWise.
+   - The Data stream alias in AWS SiteWise Console will be the Integration Topic or Remote Data topic defined in the Litmus Edge AWS IoT SiteWise Edge Integration.
+
+The data was successfully sent from Litmus Edge to the broker AWS IoT Sitewise.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tpvjxjpW5tP6pVa8euj9v_image.png "Data streams page")
+
+### Step 10b: Verify Data from Asset’s Measurement&#x20;
+
+If the *Property Alias&#x20;*&#x63;onfigured in Litmus Edge matches what is set in AWS IoT SiteWise, the data will be visible in the Asset’s measurement section.&#x20;
+
+**To verify outbound messages from asset’s measurement: &#x20;**
+
+1. Log in to your *AWS console*.&#x20;
+2. From the side menu, navigate to the **Assets** pane.
+3. Click **Measurements** under the *Property Type*.
+4. Confirm that data is flowing correctly from Litmus Edge to AWS IoT SiteWise.
+
+The data was successfully sent from Litmus Edge to the broker AWS IoT Sitewise.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/zPSMGrnxn8wQ6GvHe7tCb_image.png "Asset’s Measurement Page")
+

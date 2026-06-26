@@ -1,0 +1,504 @@
+---
+title: Cutler-Hammer ELC Serial
+slug: cutler-hammer-elc-serial
+docTags: 
+createdAt: Tue Jan 20 2026 01:21:59 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following information for setting up and configuring the Cutler-Hammer ELC Serial driver.
+
+## Litmus Edge Compatible Series
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Compatibility parameter
+    </td>
+    <td align="left">
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver type**
+    </td>
+    <td align="left">
+      Serial
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Validated devices/series**
+    </td>
+    <td align="left">
+      Cutler-Hammer ELC PV28 Series
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td align="left">
+      [ELC Serial (Gen1.3)](iQ8j0Sq74oulJHmBu4PbG.mdx)
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+## Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Serial access, identify the serial port settings including:
+
+- Device file (for example, /dev/ttyS1)
+- Baud rate
+- Data bits
+- Parity
+- Stop bits
+- Station ID
+
+## Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+Configure the following parameters when you :Link[Connect a Device]{label="Connect a Device" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="_2EDTlzj-mOkIWGexTiF0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} with this driver. Update default values to the specific setup of your device.
+
+### Serial Connection Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="303,303">
+  <tr>
+    <td align="left">
+      Parameter
+    </td>
+    <td align="left">
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Type**
+    </td>
+    <td align="left">
+      Eaton
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Driver**
+    </td>
+    <td align="left">
+      Cutler-Hammer ELC Serial&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Device File**
+    </td>
+    <td align="left">
+      /dev/ttyS1 (or your serial port)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Baud Rate**
+    </td>
+    <td align="left">
+      Select appropriate baud rate
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Data Bits**
+    </td>
+    <td align="left">
+      7 or 8
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Parity**
+    </td>
+    <td align="left">
+      None, Odd, or Even
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Stop Bits**
+    </td>
+    <td align="left">
+      1 or 2
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Station ID**
+    </td>
+    <td align="left">
+      0 (default)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Zero-Based Addressing**
+    </td>
+    <td align="left">
+      Enabled (default)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Response Timeout**
+    </td>
+    <td align="left">
+      2000 (ms)
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      **Maximum Packet Size**
+    </td>
+    <td align="left">
+      512 (bytes)
+    </td>
+  </tr>
+</table>
+
+## Step 3: Configure the List of Registers
+
+When you :Link[Add a Tag]{label="Add a Tag" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="o9zZT3M74618ShS4oe6--" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to the connected device, refer to the following register table and tag parameters. Refer to the following additional resources:
+
+- :Link[Organize Device and Tag Data by Using Metadata]{label="Organize Device and Tag Data by Using Metadata" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="M4PO6UqHSi10oLiBozZza" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}
+- :Link[Tag Formula Variables]{label="Tag Formula Variables" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="4Tr7K1KK6fSvJ6gF-GR8g" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}&#x20;
+
+## Register Table
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="100,100,100,100,100,100,100">
+  <tr>
+    <td align="left">
+      Name
+    </td>
+    <td align="left">
+      Value Types
+    </td>
+    <td align="left">
+      Access Types
+    </td>
+    <td align="left">
+      Address Format
+    </td>
+    <td align="left">
+      Min Address
+    </td>
+    <td align="left">
+      Max Address
+    </td>
+    <td align="left">
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      X
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/O
+    </td>
+    <td align="left">
+      OOO
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Discrete Input
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Y
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      OOO
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Discrete Output
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      M
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      4095
+    </td>
+    <td align="left">
+      Main Relay
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      To
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Timer Status
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Co
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Counter Status
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      1023
+    </td>
+    <td align="left">
+      Step Point
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, int64, uint64, float32, float64
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Timer Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      T\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Timer Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, int64, uint64, float32, float64
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      255
+    </td>
+    <td align="left">
+      Counter Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      C\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      25515
+    </td>
+    <td align="left">
+      Counter Current Value
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D
+    </td>
+    <td align="left">
+      word, int16, int32, uint32, int64, uint64, float32, float64, string
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDD
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      9999
+    </td>
+    <td align="left">
+      Data Register
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      D\_bit
+    </td>
+    <td align="left">
+      bit
+    </td>
+    <td align="left">
+      R/W
+    </td>
+    <td align="left">
+      DDDDdd
+    </td>
+    <td align="left">
+      0
+    </td>
+    <td align="left">
+      999915
+    </td>
+    <td align="left">
+      Data Register
+    </td>
+  </tr>
+</table>
+
+## Tag Parameters
+
+- **Name**: Select a register name from the drop-down list. The available options depend on the names in the register table.
+- **Value Type**: Select a data type from the drop-down list. The available options depend on the register name selected.
+- **Polling Interval**: Enter a value in seconds. This determines how often the tag should poll the register for data.
+- **Tag Name**: Enter a name for the tag.
+- **Description** (Optional): Enter a description for the tag.
+- **Address**: Enter a tag address in decimal format, within the allowed min/max range. Omit the leading zeros. The address format uses `D` for decimal and `O` for octal. For bit tags, append the bit address without the bit separator. The lowercase letters in the address format indicate how many digits you should enter in the bit address.
+- **Count**: Enter the number of register values to read. A count higher than 1 will generate an array of values from the address value configured and respective subsequent address values.
+- **Length**: Available for String Data Registers. Enter the number of characters for tag values.
+- **Tag Formula**: Enter a formula for the tag to process the generated data. Two variables are permitted: `value` (current tag value) and `timestamp` (current tag UNIX time in milliseconds). The following math functions are available:&#x20;
+  - sin
+  - cos
+  - sqrt
+  - tan
+  - power: power(`x`) performs the operation` 10^x`
+  - log: log(`x`) is the natural logarithm (the logarithm is in base `e`)
+  - exp: exp(`x`) performs the operation `e^x`
+- **Only Publish on Change of Value**: Select the checkbox to customize NATS messages to be published only when the value parameter changes to a new one. **Change of Value&#x20;**&#x6F;nly applies to boolean, numeric (such as int or float), and simple string data types. It does not apply to complex types, such as JSON or array. Poll-once topics will not be affected by **Change of Value** settings. These topics will still only see a single message.
+- **Meta Data**: Metadata summarizes basic information about data. This feature allows you to define key-value pair data for the device output payload later on. It can then be used to find, use, and reuse particular instances of data.
+
+<hint type="info">
+  * **Note**: If you use special characters in meta data key names, the special characters are replaced with underscore characters in the payload. This can cause two key names to be combined into one. For example, configuring the key names a\*\*b and a&\&b will cause only one key name to be created (a\_\_b).
+</hint>
+

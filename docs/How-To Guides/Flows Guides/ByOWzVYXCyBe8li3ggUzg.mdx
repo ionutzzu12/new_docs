@@ -1,0 +1,69 @@
+---
+title: Use Access to Write to a Topic
+slug: ByOWzVYXCyBe8li3ggUzg
+description: You can use an Access Publish node to write to a topic through the local message broker by using flows.
+docTags: 
+createdAt: Tue Jun 06 2023 21:17:33 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use an **Access Publish&#x20;**&#x6E;ode to write to a topic through the local message broker by using flows. This guide uses the string message `Hi` to write to a topic.
+
+# &#x20;Before you Begin
+
+- Make sure you create an Access API account. See [Create an API Account](<../../docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/rTGtckK_MA0eTQyyxjSlT/zFCPawpruYbnlms4OyGRe.mdx>) and [Manage API Accounts](<../../docs/docs/Product Features/System/p7VvH_IUspONeYl_U0xR5/rTGtckK_MA0eTQyyxjSlT/6PfvbgfMMM5zDLNPZpuLE.mdx>) for more information.
+- Make sure you have created a flow to read from a topic. See :Link[Use Access to Read from a Topic]{label="Use Access to Read from a Topic" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="-mBU9zlOr0DHKi1TXJswN" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more information.
+
+**To write a topic using Access:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow.&#x20;
+   See [Create a Flow](<../../docs/Product Features/tAQ2y6xPYLoNqxyFDrrb-/EfWU7FhzSuuhmZvRB11Ad.mdx>) to learn more.&#x20;
+2. Drag the **Access Publish** and **Inject&#x20;**&#x6E;odes to the canvas and wire them together.
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/p8bDz90FNYOVUg5DqZMs0_image.png" size="70" width="707" height="148" position="center" caption="Access Publish node" showCaption="true"></Image>
+3. In Litmus Edge, navigate to **System&#x20;**> **Tokens.**
+4. Click the **Action menu&#x20;**&#x66;or the API account you created previously and select **Edit topics**.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/soVRVtUnE8YwNehhosaCr_image.png "System Tokens page")
+5. From the *Edit topics* dialog box, do the following:
+   - Enter `test-topic` in the **Write Topics** field, and click **Add Write Topic**.
+     The topic name appears below the *Topic Name* field.
+     Make sure that there are no spaces in the topic name.
+   - Enter the same topic name(`test-topic`) in the **Read Topics** field, and click **Add Read Topic**.
+     The topic name appears below the *Topic Name* field.
+     Make sure that there are no spaces in the topic name.
+   - Click **Update**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Tly-ldZWH1MpXmvcNmSZU_image.png" size="70" width="613" height="297" position="center" caption="Edit topics dialog box" showCaption="true"></Image>
+6. Return to the **Flows&#x20;**&#x62;rowser tab and double-click the **Access Publish&#x20;**&#x6E;ode. The *Edit Access Publish****&#xA0;****node* dialog box appears.
+   - **Topic Name**: Paste the topic name `test-topic` you added in the Access **Topic Name&#xA0;**&#x66;ield.
+   - Click the **Edit&#x20;**&#x69;con next to the *Access* field.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/rdajdjQFSdQw3uyOnGBNl_image.png" size="70" width="452" height="272" position="center" caption="Edit Access Publish node dialog box" showCaption="true"></Image>
+7. Return to the **System&#x20;**>**&#x20;Tokens&#xA0;**&#x62;rowser tab and do the following:
+   - Click the **Action menu&#x20;**&#x66;or the API account you created previously and select **View API Key.**
+   - Click the **Copy&#x20;**&#x69;con next to the *API Key*.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/LAq65EwxGzLPNXkXUcmWC_image.png "Access accounts table")
+8. Return to the *Edit Access Connect node* dialog box in the **Flows&#x20;**&#x62;rowser tab and do the following:
+   - **API Key:&#x20;**&#x50;aste the API key you copied.
+   - Click **Add&#x20;**&#x6F;r **Update**.
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/PiOh8zafHdCFB2yOF9_8E_image.png" size="70" width="456" height="247" position="center" caption="Edit Access Connect node dialog box" showCaption="true"></Image>
+9. Click **Done.**
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/tHCI3fhRQV6J7XAOzBWMu_image.png" size="70" width="450" height="298" position="center" caption="Edit access-publish node dialog box" showCaption="true"></Image>
+10. Double-click the **Inject&#xA0;**&#x6E;ode.
+    The *Edit inject node* dialog box appears.
+    - **msg.payload:** Select the **String&#xA0;**&#x6F;ption from the drop-down list and enter `Hi` message in the **Payload&#xA0;**&#x66;ield.
+    - **msg.topic:** Enter the name of the write topic (`test-topic`) you added in the *Access Write Topic* field.
+    - **Repeat:** Select **interval&#xA0;**&#x66;rom the drop-down list.
+    - **every:** Enter a value for how often to add a message.
+    - Click **Done.**
+      <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/0E8SUxV8GJKU1I1mbyixJ_image.png" size="70" width="777" height="885" position="center" caption="Edit inject node dialog box " showCaption="true"></Image>
+11. Drag an **Access Subscribe** node to the canvas and wire it to the **Debug&#xA0;**&#x6E;ode.
+    <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/HDePtjxGW2TzFk0UKG4bH_image.png" size="70" width="745" height="228" position="center" caption="Completed flows canvas" showCaption="true"></Image>
+12. Double-click the **Access Subscribe&#xA0;**&#x6E;ode.&#x20;
+    The *Edit access-subscribe node&#x20;*&#x64;ialog box appears.
+    - **Topic Name:&#x20;**&#x45;nter the name of the write topic you added in the *Access Write Topic* field.
+    - **Access:** From the drop-down list, select the **Access Connect** you defined in the *Access-Publish* node.
+    - Click **Done.**
+      <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/SqDQXeFYD0wwDlQVOrl09_image.png" size="70" width="452" height="293" position="center" caption="Edit access-subscribe node dialog box" showCaption="true"></Image>
+13. Click **Deploy**.
+14. Expand the message window beneath the flow and click the **Debug&#x20;**&#x69;con.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/wI_bbReMPplhSo_AuY11c_image.png "Flows canvas debug section")
+15. Click the **Debug&#x20;**&#x6E;ode button to view the output in the *Debug message* window.
+    ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9yiJJK7_PErFLTaXIK94f_image.png "View the flow output")
+

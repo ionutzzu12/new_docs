@@ -1,0 +1,193 @@
+---
+title: Litmus Edge Docker Deployment and Auto-Activation
+slug: Sb4N3zE3dyrDNHigvbj2C
+docTags: 
+createdAt: Wed Mar 18 2026 18:58:59 GMT+0200 (Eastern European Standard Time)
+---
+
+Auto-activation allows you to deploy Litmus Edge on Docker without any manual UI steps. By passing environment variables as command line arguments when you run the Docker container, Litmus Edge automatically connects to Litmus Edge Manager (LEM), receives a license, accepts the EULA, and applies a configuration template. This eliminates the need to manually activate each Litmus Edge instance through the web interface after deployment.
+
+The following image shows the Litmus Edge Manager UI for providing an activation code and URL.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/WZdACxWqS7s0ajm2lxjeC_image.png)
+
+## Why Auto-Activation Matters
+
+Auto-activation is designed for teams that need to deploy Litmus Edge at scale or on demand. It supports two primary scenarios:
+
+- **Mass deployment**: Automate the deployment of many Litmus Edge instances without touching each one individually.
+- **Sandbox environments**: Quickly spin up Litmus Edge instances for testing or development.
+
+## How Auto-Activation Works
+
+At container startup, Litmus Edge reads environment variables passed via `docker run`. If `AUTO_ACTIVATE_CONTAINER=true` and `ACCEPT_EULA=true` are present, Litmus Edge initiates an activation request to the LEM URL specified by `ACTIVATION_URL`, using the `ACTIVATION_CODE` to identify and authenticate the instance.
+
+If `COMPONENT_CONFIG` is provided, Litmus Edge reads all activation configuration from a base64-encoded JSON payload and ignores all other environment variables.
+
+Upon a successful activation request, LEM:
+
+1. Validates the activation code.
+2. Issues a license to the Litmus Edge instance.
+3. Applies system configurations, DeviceHub, flows, connectors, and analytics from an associated template.
+
+## What Happens During Activation
+
+1. The Docker container starts with the required environment variables.
+2. Litmus Edge detects `AUTO_ACTIVATE_CONTAINER=true` and begins the auto-activation sequence.
+3. If `CA_CERT` is provided, that certificate is installed. Otherwise, Litmus Edge downloads the certificate from LEM.
+4. Litmus Edge sends an activation request to LEM using `ACTIVATION_URL` and `ACTIVATION_CODE`.
+5. In Litmus Edge Manager, an administrator approves the activation request.&#x20;
+6. The EULA is acknowledged automatically via `ACCEPT_EULA=true`.
+7. Activation events are recorded in logs and the system.&#x20;
+
+## Environment Variables
+
+<table isTableHeaderOn="true" columnWidths="249,249,249,251" selectedColumns="" selectedRows="" selectedTable="false">
+  <tr>
+    <td align="left">
+      Variable
+    </td>
+    <td align="left">
+      Description
+    </td>
+    <td align="left">
+      Example Value
+    </td>
+    <td align="left">
+      Required
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `AUTO_ACTIVATE_CONTAINER`
+    </td>
+    <td align="left">
+      Set to `true` to enable auto-activation
+    </td>
+    <td align="left">
+      `true`
+    </td>
+    <td align="left">
+      Required
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `ACCEPT_EULA`
+    </td>
+    <td align="left">
+      Accepts the end user license agreement. Must be `true`.
+    </td>
+    <td align="left">
+      `true`
+    </td>
+    <td align="left">
+      Required
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `ACTIVATION_URL`
+    </td>
+    <td align="left">
+      URL endpoint for the LEM
+    </td>
+    <td align="left">
+      `"https://lem.production"`
+    </td>
+    <td align="left">
+      Required
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `ACTIVATION_CODE`
+    </td>
+    <td align="left">
+      Activation code
+    </td>
+    <td align="left">
+      `"SXZQE-DNK6W-YHA32-TD36N-KSAWY"`
+    </td>
+    <td align="left">
+      Required
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `CA_CERT`
+    </td>
+    <td align="left">
+      LEM CA certificate. When provided, this certificate is installed instead of downloading one from LEM. Protects against activating to a LEM with the wrong certificate.
+    </td>
+    <td align="left">
+      `"-----BEGIN CERTIFICATE-----MIIDMzC...-----END CERTIFICATE-----"`
+    </td>
+    <td align="left">
+      Optional
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      `COMPONENT_CONFIG`
+    </td>
+    <td align="left">
+      Passes all variables in a base64-encoded JSON payload. When specified, all other environment variables are ignored.
+    </td>
+    <td align="left">
+      `"eyJBVVRPX0FDVEl..."`
+    </td>
+    <td align="left">
+      Optional
+    </td>
+  </tr>
+</table>
+
+***
+
+## Deploying with Auto-Activation
+
+You can deploy in two ways. Deploy either by specifying variables directly in the command line or by passing variables in a JSON payload.
+
+### Deploy with Individual Variables
+
+Pass each activation variable separately in the `docker run` command:
+
+```bash
+docker run --rm --name <LE> -d \
+  --sysctl net.ipv6.conf.all.disable_ipv6=0 \
+  --cap-add=NET_ADMIN \
+  -p 8443:443 \
+  -e AUTO_ACTIVATE_CONTAINER=true \
+  -e ACCEPT_EULA=true \
+  -e ACTIVATION_URL="https://development.lem" \
+  -e ACTIVATION_CODE="5LN53-RRJYM-NXES9-J35L6-VNSC5" \
+  litmusedge-std-docker:4.04.0
+```
+
+### Deploy Using COMPONENT\_CONFIG
+
+Instead of passing variables individually, encode all variables in a base64-encoded JSON payload and pass them using `COMPONENT_CONFIG`. When `COMPONENT_CONFIG` is present, all other environment variables are ignored.
+
+The JSON payload before encoding:
+
+```bash
+{
+  "AUTO_ACTIVATE_CONTAINER": true,
+  "ACCEPT_EULA": true,
+  "ACTIVATION_URL": "https://sales.em.la2.space",
+  "ACTIVATION_CODE": "5LN53-RRJYM-NXES9-J35L6-VNSC5",
+  "CA_CERT": "-----BEGIN CERTIFICATE-----MIIDMzCCAhugAwIBAgIUPgCF448zrBswHvTATffHb+Rihw4wD… …Mc73if5ACwmaxFPueOGGJzEYymvkbj6R2byhVphhA==-----END CERTIFICATE-----"
+}
+```
+
+Pass the base64-encoded payload in the `docker run` command:
+
+```bash
+docker run --rm --name LE -d \
+  --cap-add=NET_ADMIN \
+  -p 8443:443 \
+  -e COMPONENT_CONFIG="eyJBVVRPX0FDVElWQVRFX0NPTlRBSU5FUiI6dHJ1ZSwiQUNDRVBUX0VVTEEiOnRydWUsIkFDVElWQVRJT05fVVJMIjoiaHR0cHM6Ly8xMC4xNy4xMC4yMTYiLCJBQ1RJVkFUSU9OX0NPREUiOiI1Q1FNNy1LSkU5Ti1QRVlHUy1YT0VXVS1NNTdOTiJ9" \
+  litmusedge-std-docker:latest
+```
+

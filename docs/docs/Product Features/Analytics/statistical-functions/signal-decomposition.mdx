@@ -1,0 +1,59 @@
+---
+title: Signal Decomposition
+slug: signal-decomposition
+docTags: 
+createdAt: Tue Aug 06 2024 21:58:20 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Signal Decomposition** processor separates signal components from composite signals related to semantic units. Examples for this are distinct objects in images or video, video shots, melody sequences in music, spoken words or sentences in speech signals.
+
+# Signal Decomposition Overview
+
+- Native version of signal decomposition.
+- **Additive model:&#x20;**&#x53;ignal = Trend + Seasonality + Residue
+- **Multiplicative model:** Signal = Trend \* Seasonality \* Residue
+- Trend is calculated by linear regression.
+- Seasonality is calculated by naive differencing.
+
+# Signal Decomposition Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="182">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Window Size
+    </td>
+    <td>
+      This parameter specifies how many values are included in the periodic interval for the signal decomposition process.    </td>
+  </tr>
+  <tr>
+    <td>
+      Model Type
+    </td>
+    <td>
+      This parameter defines the type of model to be used for the signal decomposition.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Periodicity
+    </td>
+    <td>
+      This parameter determines the periodic interval for the signal decomposition, providing the frequency at which the seasonal components are expected to repeat in the data.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/707xbvJn6tDHFLVqY0Zmm_image.png" size="80" width="945" height="376" caption="Signal Decomposition parameters" position="center" showCaption="true"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Signal Decomposition&#x20;*&#x70;rocessor, refer the :Link[Use the Signal Decomposition Function]{label="Use the Signal Decomposition Function" spaceId="7QvCN5MYpwobQXnPvWc7V" docId="Vw95USEK-E_g9MFBzYEAj" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}  guide for more details.
+</hint>
+

@@ -1,0 +1,91 @@
+---
+title: Use the XMR Chart Function
+slug: YZR1L8esy7RRPhAB_bWzE
+description: Learn how to use the XMR Chart function in Analytics. 
+docTags: 
+createdAt: Thu Feb 29 2024 23:32:29 GMT+0200 (Eastern European Standard Time)
+---
+
+You can use the XMR Chart function to calculate a central line that remains constant. &#x20;
+
+The central line is utilized to monitor the consistency and fluctuation of a process over a period of time. It comprises two distinct charts:&#x20;
+
+- **Individual (X) Chart:** Used to trace individual values.
+- **Moving Range (MR) chart:** Used to observe the variation between consecutive measurements.
+
+# User Scenario
+
+Review the following scenario for the XMR Chart function. Then, you will simulate PLC data and calculate the central line.
+
+In a pharmaceutical production plant, consistent dosage in pill manufacturing is paramount for patient safety and regulatory compliance. High-precision scales measure the weight of individual pills, with data points collected at regular intervals.&#x20;
+
+The XMR Chart function is integral to this process, providing real-time monitoring of dosage weights. By establishing a central line from initial measurements and calculating moving ranges, the plant ensures each pill is within the stringent weight specifications.&#x20;
+
+# **Step 1: Add a Device**
+
+Follow the steps to [Connect a Device](<../../Product Features/DeviceHub/gp4Hx5suHimGbwANR-nBs/FbhaHiALYdPY4aeQGjHB0.mdx>) and configure the following parameters:
+
+- **Device Type**: Simulator
+- **Driver Name**: Generator
+- **Enable Alias Topics**: Select the checkbox.&#x20;
+
+# **Step 2: Add Tags**
+
+After connecting the device, add the following tag. See :Link[Add Tags]{label="Add Tags" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="XgWOkQbTPevII7OR82LL0" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn more.&#x20;
+
+## **Tag 1: input1**
+
+- **Name**: Select **S - Random value generator**
+- **Value Type:** Select **float64**
+- **Polling Interval**: Enter **1**
+- **Tag Name**: Enter **input1**
+- **Min\_value**: Enter **101**
+- **Max\_value**: Enter **199**
+
+# Step 3: Create Analytics Flows
+
+You can now create the analytics flows using data from the device and tag you previously created.&#x20;
+
+**To create an analytics flow with the XMR Chart Processor function:**
+
+1. In Litmus Edge, navigate to **Analytics**.&#x20;
+2. On the analytics canvas, clic&#x6B;**&#x20;Add processor**.&#x20;
+   The *Create a processor* dialog box displays.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ZdcpDTjKPrLwdKeFw6LWq_base-conversionadd-processor.png" size="80" width="1244" height="452" caption="The Add processor option" position="center" showCaption="true"></Image>
+3. Select **DataHub Subscribe**.
+4. In the **Topic&#x20;**&#x66;ield, click the **Search&#x20;**&#x69;con, select the device you previously created, and then select the alias topic for the **input1&#x20;**&#x74;ag.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AdCgZcKlrYLXkOnUTBkWY_a.png "Create a Processor dialog box")
+5. Click **Save**.
+6. Click **Add processor** again and select the **XMR Chart&#x20;**&#x70;rocessor.
+   The *Edit a Processor&#x20;*&#x64;ialog box appears.
+   - **Window Size:** Enter a value that represents the range to apply the XMR chart function. For this example, we input a value of **100**.
+   - **Process Limit Multiplier:** It is used to calculate the upper and lower process limits. For this example, we input a value of **2.66**.
+   - **TimeInterval:&#x20;**&#x49;f you know your input is going to publish at the expected interval, it is better to disable this timer by entering **0** in the field.
+   - Click **Save**.
+     ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/0t7cNz2vV0LU00N-I-N8O_image.png "Edit a Processor dialog box")
+7. Connect the *DataHub Subscribe* processor (tag: *input1*) to the *XMR Chart* processor with a wire and use the **events&#x20;**&#x63;onnection.
+8. On the analytics canvas, click **Save**.
+   The configured analytics flows should look like the following:&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qA7pWRHmPxdYhH0ildw83_image.png "Completed Flows Canvas")
+
+# Step 4: View Output of Processor
+
+Click the **View&#x20;**&#x69;con in the *XMR Chart&#x20;*&#x70;rocessor to view the output values.
+
+The output of the XMR Chart function shows a central line at **150.29**, with an upper process limit of **229.14** and a lower process limit of **71.44**. ​
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/vlBXHn-Uj8VYX2idzx077_image.png "Output of XMR Chart")
+
+Once the window is filled, other fields that are calculated as follows:&#x20;
+
+- **Moving Ranges:** Difference of successive values.
+- **Average Moving Range:&#x20;**&#x41;verage of the moving ranges.
+- **Process Limit Multiplier:** Calculates the upper and lower process limits.
+- **Upper and Lower Natural Process limit:&#x20;**&#x43;alculated by taking the product of process limit multiplier and average moving range, and adding/subtracting it from the central line.
+
+In some cases, the central line is adjusted. Here are the cases:
+
+- If current value is outside the process limits multiple times in a row.
+- If the multiple values in a row are closer to either limit than they are to the central line.
+

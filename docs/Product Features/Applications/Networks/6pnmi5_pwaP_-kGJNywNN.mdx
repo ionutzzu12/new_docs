@@ -1,0 +1,69 @@
+---
+title: Create a Network
+slug: 6pnmi5_pwaP_-kGJNywNN
+description: Learn how to create a network. 
+docTags: 
+createdAt: Fri Sep 23 2022 20:14:47 GMT+0300 (Eastern European Summer Time)
+---
+
+You can add networks from the *Networks&#xA0;*&#x70;ane of the *Applications&#x20;*&#x6D;odule. You can then use these networks to run specific application containers.
+
+# Create a Network
+
+**To add a network:**
+
+1. Navigate to **Applications&#x20;**> **Networks**.
+   The *Networks&#x20;*&#x70;ane appears.
+2. Click the **Create a Network&#x20;**&#x69;con. The *Create Network* dialog box appears.&#x20;
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/r4U6N0ynR82JlVxhXs4f5_createnetworkicon.png "The Create a Network icon")
+3. Enter a name for the network in the **Name** field.
+
+## Step 1: Network Configuration
+
+Enter the details in the *Network configuration* section.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/_iS2mD5pJ5WJYMfOcf4w5_image.png "Network configuration section")
+
+- **Driver**: Use the drop-down list to select a network type. The options are: bridge, ipvlan, or macvlan.&#x20;
+- **Driver Options** (Optional): Click **Driver Options**, enter key-value values in the **Key&#x20;**&#x61;nd **Value&#x20;**&#x66;ields, and click **Add**. Repeat adding key-value pairs as needed.&#x20;
+
+## Step 2: IPV4 Network Configuration
+
+Enter the details in the *IPV4 Network configuration* section.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/9aEDx64ibMa92wiTFnWIf_image.png "IPV4 Network configuration section")
+
+- **Subnet**: Enter a subnet value.&#x20;
+- **Gateway**: Enter the gateway address.&#x20;
+- **IP Range**: Enter the network's IP range.&#x20;
+- **Add Excluded IP** (Optional): Click **Add Excluded IP**, enter key-value values in the **Key&#x20;**&#x61;nd **Value&#x20;**&#x66;ields, and click **Add**. Repeat adding key-value pairs as needed.&#x20;
+
+<hint type="info">
+  **Note**: If you enter no information in this section, the Docker assigns the IPv4 range automatically.
+</hint>
+
+## Step 3: Define IPV6 Network Configuration
+
+Enter the details in the *IPV6 Network configuration* section.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/2pVTQrpqdpoyzPOWpwmUl_image.png "IPV6 Network configuration section")
+
+- **Subnet**: Enter a subnet value.&#x20;
+- **Gateway**: Enter the gateway address.&#x20;
+- **IP Range**: Enter the network's IP range.&#x20;
+- **Add Excluded IP** (Optional): Click **Add Excluded IP**, enter key-value values in the **Key&#x20;**&#x61;nd **Value&#x20;**&#x66;ields, and click **Add**. Repeat adding key-value pairs as needed.&#x20;
+
+## Step 4: Advanced Configuration
+
+Enter the details in the *Advanced configuration* section.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/MIxbjClP5hCuzHjvD_EWr_image.png "Advanced configuration section")
+
+- **Isolated network**: Select the check box to restrict containers created on this network to this network only, with no inbound or outbound connectivity.
+
+- **Enable manual container attachment**: Select the check box to enable users to attach the network to running containers.
+
+- **Labels&#x20;**(Optional): Click **Labels**, enter key-value values in the **Key&#x20;**&#x61;nd **Value&#x20;**&#x66;ields, and click **Add**. Repeat adding key-value pairs as needed.&#x20;
+
+When done defining the network configuration, click **Create**.&#x20;
+

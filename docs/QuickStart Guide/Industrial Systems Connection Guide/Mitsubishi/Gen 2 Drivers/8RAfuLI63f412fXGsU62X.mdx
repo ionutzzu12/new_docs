@@ -1,0 +1,160 @@
+---
+title: Mitsubishi QJ71E71
+slug: 8RAfuLI63f412fXGsU62X
+description: Review the following information for setting up and configuring the Mitsubishi QJ71E71 driver. 
+docTags: 
+createdAt: Mon Jul 04 2022 18:45:45 GMT+0300 (Eastern European Summer Time)
+---
+
+Review the following information for setting up and configuring the Mitsubishi QJ71E71 driver.
+
+<hint type="info">
+  **Note**: We recommend the [Mitsubishi Q/L Ethernet](yOmnqQT0JTSZKSiSTCFwD.mdx) driver to connect to QJ71E71 modules, because it has more efficient communication with the PLC and supports more data types.
+</hint>
+
+# Litmus Edge Compatible Series&#x20;
+
+<table columnWidths="252,336" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Compatibility parameter
+    </td>
+    <td>
+      Compatible items
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver type**
+    </td>
+    <td>
+      Ethernet
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Validated devices/series**
+    </td>
+    <td>
+      :Link[MELSEC-Q]{href="https://www.mitsubishielectric.com/fa/products/cnt/plcq/items/index.html" newTab="true"}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Replaces Gen 1 driver(s)**
+    </td>
+    <td>
+      [Mitsubishi QJ71E71 (Gen1)](<../Gen 1 Drivers/SPHoh8O2IEoPuotZUHVYK.mdx>)
+    </td>
+  </tr>
+</table>
+
+To set up and configure this device in Litmus Edge, you will need to do the following:
+
+- Step 1: Set up and Configure the PLC Device
+- Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+- Step 3: Configure the List of Registers
+
+# Step 1: Set up and Configure the PLC Device
+
+If the device is configured for Ethernet access, find its network parameters. Otherwise, use GX Works2 v1.560J software on your computer to configure the device for Ethernet access.&#x20;
+
+<hint type="info">
+  **Note**: Only one connection is allowed per port defined in the PLC.&#x20;
+</hint>
+
+# Step 2: Set up the PLC Device in Litmus Edge DeviceHub
+
+<ContentSnippet docRefId="EwnqWvIDp-Rlb8_FKefcx">
+
+</ContentSnippet>
+
+<table columnWidths="170,618" selectedRows="" selectedTable="false" isTableHeaderOn="true" selectedColumns="">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Value
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Type**
+    </td>
+    <td>
+      Mitsubishi
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Driver**
+    </td>
+    <td>
+      Mitsubishi QJ71E71
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Network Address**
+    </td>
+    <td>
+      The device address you defined in Step 1
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Port**
+    </td>
+    <td>
+      5002
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Station ID**
+    </td>
+    <td>
+      1
+    </td>
+  </tr>
+</table>
+
+<ContentSnippet docRefId="JAU4fehcyyBGZQqT9e3UF">
+
+</ContentSnippet>
+
+| **Name** | **Value Types** | **Address Format** | **Min Address** | **Max Address** | **Description**               |
+| -------- | --------------- | ------------------ | --------------- | --------------- | ----------------------------- |
+| B        | bit             | DDDDD              | 0               | 32237           | Link Relay                    |
+| CC       | bit             | DDDDD              | 0               | 25471           | Counter Coil                  |
+| CS       | bit             | DDDDD              | 0               | 25471           | Counter Contact               |
+| DX       | bit             | DDDD               | 0               | 8191            | Direct Input                  |
+| DY       | bit             | DDDD               | 0               | 8191            | Direct Output                 |
+| F        | bit             | DDDDD              | 0               | 32237           | Annunciator                   |
+| L        | bit             | DDDDD              | 0               | 32237           | Latch Relay                   |
+| M        | bit             | DDDDD              | 0               | 65535           | Internal Relay                |
+| S        | bit             | DDDD               | 0               | 8191            | Step Relay                    |
+| SB       | bit             | DDDDD              | 0               | 32237           | Special Link Relay            |
+| SM       | bit             | DDDD               | 0               | 2047            | Special Relay                 |
+| STC      | bit             | DDDDD              | 0               | 25471           | Retentive Timer Coil          |
+| STS      |                 | DDDDD              | 0               | 25471           | Retentive Timer Current Value |
+| TC       | bit             | DDDDD              | 0               | 25471           | Timer Coil                    |
+| TS       | bit             | DDDDD              | 0               | 25471           | Timer Contact                 |
+| V        | bit             | DDDDD              | 0               | 32237           | Edge Relay                    |
+| X        | bit             | DDDDD              | 0               | 65535           | Input Relay                   |
+| Y        | bit             | DDDDD              | 0               | 65535           | Output Relay                  |
+| CN       | word            | DDDD               | 0               | 1023            | Counter current               |
+| D        | word            | DDDD               | 0               | 9999            | Data Register                 |
+| R        | word            | DDDD               | 0               | 9999            | File Register                 |
+| SD       | word            | DDDD               | 0               | 2047            | Special Register              |
+| STN      | word            | DDDDD              | 0               | 25471           | Retentive Timer Current Value |
+| TN       | word            | DDDDD              | 0               | 25471           | Timer Current Value           |
+| W        | word            | DDDD               | 0               | 8191            | Link Register                 |
+| Z        | word            | DD                 | 0               | 20              | Index Register                |
+| ZR       | word            | DDDDDD             | 0               | 999999          | File Register                 |
+
+<ContentSnippet docRefId="A0mW7eFUiB6dsJkAOu4YV">
+
+</ContentSnippet>
+

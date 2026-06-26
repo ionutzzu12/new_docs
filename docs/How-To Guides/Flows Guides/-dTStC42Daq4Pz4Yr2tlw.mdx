@@ -1,0 +1,34 @@
+---
+title: Ping a Host
+slug: -dTStC42Daq4Pz4Yr2tlw
+description: You can use Flows to ping a host.
+docTags: 
+createdAt: Wed Jun 07 2023 21:45:58 GMT+0300 (Eastern European Summer Time)
+---
+
+You can use Flows to ping a host or an IP address that belongs to the network where your Edge device resides.
+
+**To ping a host:**
+
+1. In Litmus Edge, navigate to the **Flows Manager&#x20;**&#x61;nd create a new flow.&#x20;
+   See [Create a Flow](<../../docs/Product Features/tAQ2y6xPYLoNqxyFDrrb-/EfWU7FhzSuuhmZvRB11Ad.mdx>) to learn more.&#x20;
+2. Drag an **Inject&#xA0;**&#x6E;ode, a **Ping&#xA0;**&#x6E;ode, and a **Debug** node to the canvas.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/82kHSSF4Fdu8Pp8T61SYm_image.png "Flows canvas with ing node")
+3. Double-click the **Ping&#xA0;**&#x6E;ode.
+   The *Edit ping node* dialog box appears.
+   - **Target:** Enter `www.google.com, <PLC IP Address>`.
+   - **Protocol:** Select **Automatic&#x20;**&#x66;rom the drop-down menu.
+   - **Mode:** Select **Triggered&#xA0;**&#x66;rom the drop-down menu.
+   - **Name:&#x20;**&#x45;nter `Ping PLC`.
+   - Click **Done.**
+     <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/pIj_pm8U-xerAsHDl4GUx_image.png" size="70" width="558" height="458" position="center" caption="Edit ping node dialog box " showCaption="true"></Image>
+4. Connect the nodes together.
+   You cannot connect the *Inject* node to the *Ping&#x20;*&#x6E;ode unless you select **Triggered&#x20;**&#x69;n the *Edit ping node&#x20;*&#x64;ialog box. If you select Timed in the Edit ping node dialog box, the *Ping* node sends the messages to the Debug pane every 20 seconds by default.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/nis9s3ZjZfB5bblPpLSKx_image.png "Flows canvas with connected nodes")
+5. Click **Deploy**.
+6. Drag the **Sidebar&#x20;**&#x75;p from the bottom of the canvas and select the **Debug&#x20;**&#x69;con.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/38wHjOYMlPnph8LF082KW_wibbrempplhsoauy11cimage.png "Flows canvas debug section")
+7. Click the **Inject&#x20;**&#x6E;ode button to return the *trip time* to ping the address in milliseconds (ms).
+   The messages return a boolean `false` if no response is received or if the host is unresolved.
+   ![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ni-ZF0xEysdCAbVeg_sld_image.png "Completed flow canvas with output")
+

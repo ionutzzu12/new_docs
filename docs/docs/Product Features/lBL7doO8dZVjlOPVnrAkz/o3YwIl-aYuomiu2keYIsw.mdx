@@ -1,0 +1,285 @@
+---
+title: Manage Connectors
+slug: o3YwIl-aYuomiu2keYIsw
+description: Learn how to manage connectors you've added. 
+docTags: 
+createdAt: Fri Aug 19 2022 01:54:16 GMT+0300 (Eastern European Summer Time)
+---
+
+After you add connectors to Litmus Edge, you can navigate to the **Integration&#x20;**&#x70;ane to manage them.
+
+<hint type="warning">
+  **Important:&#x20;**&#x45;diting or updating connector configuration is disabled while in connecting, disconnecting, or polling states. Users must disable the connector to make edits.
+</hint>
+
+# Filter and Search Connectors
+
+You can filter and search for connectors from the *Integration&#x20;*&#x70;ane by clicking the **Toggle Connector Filter** icon.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qXbhlZWSiQ5ZmN0rU6Id7_image.png)
+
+# Manage Individual Connectors
+
+Refer to the image and callouts below for management options for connectors.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Ij6WmvoltKW4NnQeaEq4__image.png" size="60" width="390" height="351" position="center" caption="Management options for connectors" darkWidth="390" darkHeight="351" showCaption="true"></Image>
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="206,100">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1] **Logs Enabled**
+    </td>
+    <td>
+      Indicates that logging is enabled for the connector.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2] **Enable/Disable connector**
+    </td>
+    <td>
+      Use the toggle to enable or disable the connector. The status will update to one of the following: `Connected`, `Failed`, or `Disabled`.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3] **Copy Instance identifier**
+    </td>
+    <td>
+      Copy the Instance, Provider Identifier, and Instance Identifier.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4]**&#x20;Edit connector**
+    </td>
+    <td>
+      Update the fields for the connector.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[5] **Purge connector**
+    </td>
+    <td>
+      &#x20;In the course of its operation, a connector persists inbound and outbound data. You might need to periodically purge the connector's data storage to avoid excessive use of disk space. Select this option to empty the connector's data storage.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[6] **Remove connector**
+    </td>
+    <td>
+      Remove the connector from the *Integration&#x20;*&#x70;ane.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[7] **Manage Topics**
+    </td>
+    <td>
+      Navigate to the Topics tab for the connector.&#x20;
+    </td>
+  </tr>
+</table>
+
+# Enable Logging
+
+When you enable logging for a connector, the log displays connection and publish-based error messages. This can increase CPU usage. Therefore, it is preferable to use logging only for debugging.
+
+<hint type="info">
+  **Notes**:
+
+  - The connector must be added and connected before logging can be enabled.
+  - With the exception of the default connector, all connectors have logging capability.
+  - Clicking the connector tile shows the details of the connector. You can view the logs section from there.
+  - You can download and refresh log files from the *Details&#x20;*&#x70;ane.
+</hint>
+
+**To enable logging:**
+
+1. From a connector tile within an *Integration&#x20;*&#x70;ane, click the **Edit** icon.
+   The *Edit Connector* dialog box appears.
+2. Select the **Enable logging** check box, and then click **Update**.
+   The *Logging&#x20;*&#x69;con appears on the connector tile indicating that logging is active.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/M_vCw3vXIoJOOhNjaOiEx_image.png" size="60" width="376" height="350" position="center" caption="The enable logging icon" darkWidth="376" darkHeight="350" showCaption="true"></Image>
+
+# Access Connector Information
+
+You can access device information and edit options by clicking the connector tile.&#x20;
+
+## Connector Dashboard
+
+After clicking a connector tile, the dashboard for the connector displays.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Hm2VhFNCRZly5VT8VzYbp_image.png "The connector dashboard")
+
+The dashboard displays the following information for the connector:
+
+- Size on Disk
+- Disk Usage
+- Persistence Size
+
+For *Disk Usage* and *Persistence Size*, you can use the icons to manipulate the charts and also download the charts in SVG, PNG, or CSV format.&#x20;
+
+## Connector Configuration
+
+The *Configuration&#x20;*&#x74;ab allows you to review and update the fields for the connector.&#x20;
+
+Make updates as needed and click **Update**.&#x20;
+
+## Connector Topics
+
+The *Topics&#x20;*&#x74;ab allows you to add and manage topics for the connector.&#x20;
+
+Refer to the image and callouts below for options in the *Topics&#x20;*&#x74;ab.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/-R0Tqr4tAXEDF37MKVGcl_image.png" size="80" width="1173" height="465" position="center" caption="Connector Topic options" darkWidth="1173" darkHeight="465" showCaption="true"></Image>
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="206,100">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1] **Show filter**
+    </td>
+    <td>
+      Search for topics.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2]&#x20;
+    </td>
+    <td>
+      The **Add&#x20;**&#x69;con allows you to add topics individually or by CSV upload (as of Litmus Edge 3.11.0).&#x20;
+      - **Add a new subscription**: Add a topic to the connector. See the "Add a Topic to a Connector" section below to learn more.&#x20;
+      - **Upload CSV**: You can upload a csv file of topics.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3]&#x20;
+    </td>
+    <td>
+      The **Download&#x20;**&#x69;con allows you to download a CSV file of current topics in the connector or a sample of a CSV file you can use to upload.&#x20;
+      - **Download a sample**: Download a sample file that you can use to upload a number of topics for the connector.&#x20;
+      - **Download CSV**: Download a file of current topics in the connector.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4] **Import from DeviceHub tags**
+    </td>
+    <td>
+      &#x20;Import outbound topics to a connector from the DeviceHub tags. If you import DeviceHub tags for a `CONNECTED` connector, the connector will need to restart. All topics will be disabled upon initial import.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[5] **Enable all topics**
+    </td>
+    <td>
+      Enable all topics listed in the pane.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[6] **Disable all topics**
+    </td>
+    <td>
+      Disable all topics listed in the pane.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[7] **Delete all topics**
+    </td>
+    <td>
+      Delete all tags in the pane.&#x20;
+    </td>
+  </tr>
+</table>
+
+## Connector Logs
+
+To view the *Logs&#x20;*&#x74;ab, you must enable logging for the connector. To enable logging, edit the connector and select the **Enable logging** checkbox.&#x20;
+
+Refer to the following actions you can take from the *Logs&#x20;*&#x74;ab.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/g3Fn0qbV0qXLMOtIf9Cst_image.png)
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="75,100">
+  <tr>
+    <td>
+      **Action**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[1]&#x20;
+    </td>
+    <td>
+      Filter log messages by the last 24 hours, last 4 hours, last hour, and last 10 minutes.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[2]&#x20;
+    </td>
+    <td>
+      Download a file of the log.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[3]&#x20;
+    </td>
+    <td>
+      Refresh the log messages window.&#x20;
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \[4]&#x20;
+    </td>
+    <td>
+      Delete all the current messages from the log message window.&#x20;
+    </td>
+  </tr>
+</table>
+
+# Add a Topic to a Connector&#x20;
+
+See :Link[Add Topics to Connectors]{label="Add Topics to Connectors" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="peBcVmbma1qUezfYZUXFB" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} to learn about the different ways to add topics.&#x20;
+
+# Manage Connector Topics
+
+You can manage connector topics from the *Topics&#x20;*&#x74;ab.&#x20;
+
+To manage a topic, click the **Action menu** for the topic.&#x20;
+
+![](https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/qGNCwTyRuus9Zk-GiMBPx_image.png "The action menu for a connector topic")
+
+- **Edit**: Update the parameters for the topic. You can also click the topic name to update parameters.&#x20;
+- **Remove**: Remove the topic from the connector.&#x20;
+- **Enable/Disable**: Enable or disable the topic for the connector.&#x20;
+

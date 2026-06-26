@@ -1,0 +1,196 @@
+---
+title: Zerotouch Installation
+slug: F9leHUqYPpBreoO7sCxES
+docTags: 
+createdAt: Fri Sep 13 2024 20:20:02 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  **Note**: Zerotouch Installation is available for Litmus Edge version 3.16.1 and later.&#x20;
+</hint>
+
+Zerotouch provisioning allows you to pre-define a Litmus Edge configuration and use it to deploy edge devices on-site with no additional human input. This provides an efficient and reliable strategy to install hundreds or thousands of edge devices in production environments.&#x20;
+
+# Zerotouch Provisioning in Litmus Edge
+
+The zerotouch provisioning process automates the deployment, activation, and configuration of multiple Litmus Edge devices, including network settings, marketplace applications, and connectivity to Litmus Edge Manager (LEM).&#x20;
+
+This eliminates the need for any manual configuration, reducing the chance of human error and ensuring consistency across large-scale deployments. It also enables a seamless experience for on-site users, ensuring that devices are fully configured and operational upon first boot.&#x20;
+
+**The zerotouch installation involves three stages:**&#x20;
+
+1. **Pre-configuration to set up USB drive:&#x20;**&#x50;repare a bootable USB drive with the archive of zerotouch configuration files.
+2. **Factory Installation:** Install and configure the Litmus Edge instance using the USB drive to apply configurations automatically to devices in a production environment.
+3. **Post-installation boot up:** Verify the setup to ensure that all configurations are automatically applied and the devices are ready to run.&#x20;
+
+# Before You Begin
+
+To start using zerotouch provisioning, ensure you have the following:
+
+- The edge-zerotouch command-line interface (CLI) tool for generating zerotouch files.
+  - This tool is required to create the zerotouch configuration archive.
+  - Download it by logging in to Litmus Edge, navigating to **System** > **Support** and scrolling to the **Files** section.
+- A Linux computer running Ubuntu 20.04 or higher, with Docker installed. An internet connection is necessary for signing the zerotouch files.
+- A secure and private signing key, which you can request from Litmus customer support. This key is required to authenticate and sign the zerotouch configuration files.
+- A USB drive formatted in NTFS, EXT4, or FAT32. This drive will store the installer and configuration files.
+
+# Prepare USB installer with Zerotouch Configuration
+
+By following these steps, you can ensure that Litmus Edge devices are automatically configured upon boot-up without requiring any manual intervention.&#x20;
+
+## Step 1: Create Zerotouch Configuration File
+
+To begin, you will need to create a JSON configuration file. This file defines all the elements that will be pre-configured during the zerotouch provisioning process.
+
+This JSON file includes information such as Litmus Edge Manager activation details, network settings (static IP), and any containerized applications that should run on the edge device.
+
+When creating the file, keep the following in mind:
+
+- `"activation"` includes details for activating the device to the Litmus Edge Manager. This ensures that the device is fully integrated with LEM, which manages licenses and deployments.&#x20;
+  - This section includes the **LEM URL**, **activation code**, and an optional **certificate**. The certificate ensures that the connection is secure and authentic. See :Link[Activate an Edge Device]{label="Activate an Edge Device" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="tDJ648wJgATVqzyx79UwB" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for details.
+- `"staticip"` allows Litmus Edge devices to configure their network interfaces automatically.&#x20;
+  - The edge device will configure the `eth1` interface with a static IP and gateway.&#x20;
+- `"containers"` allows you to specify which containerized applications will be deployed to the device. The parameters `{{.ApiKey}}` and `{{.ImageName}}`, if defined, will be automatically populated at run time.&#x20;
+  - `{{.ApiKey}}`will be automatically populated with a REST API token of the Litmus Edge. This allows your application to access the Litmus Edge's REST API.&#x20;
+  - `{{.ImageName}}` will be automatically populated with the value defined for **name**.&#x20;
+
+Refer to the following sample file.&#x20;
+
+```json
+{
+    "version": "1.0",
+    "activation": 
+    {
+          "url": "https://[www.lem-url.com]",
+          "code": "xxxxx-xxxxx-xxxxx-xxxxx-xxxxx",
+          "cert": "-----BEGIN CERTIFICATE-----MIIDMzCCAhugAwIBAgIUPg..."
+    },
+    "staticIP" : 
+    {
+          "interface": "eth1",
+          "ip": "10.7.3.105/22"
+    },
+    "containers": [
+    {
+          "name": "redis",
+          "run-cmd": "docker run -d -e \"WebApi:ApiKey\"=\"{{.ApiKey}}\" {{.ImageName}}"
+    },
+    {
+          "name": "mongo",
+          "run-cmd": "docker run -d -e \"WebApi:ApiKey\"=\"{{.ApiKey}}\" {{.ImageName}}"
+    }
+    ]
+  }
+```
+
+## Step 2: Generate the Zerotouch Configuration Archive&#x20;
+
+After creating the JSON file with all the necessary configurations, use the **edge-zerotouch CLI tool** to generate a zerotouch configuration archive.&#x20;
+
+This tool takes the JSON file as input, verifies its contents, and creates a compressed and signed archive that will be used during the provisioning process.&#x20;
+
+**Command to Generate Zerotouch Archive**
+
+This command points to the configuration JSON file (cfg-sample.json) and uses the signing key to authenticate and sign the archive.&#x20;
+
+<hint type="info">
+  **Note:** You can request the Signing Key from Litmus customer support.
+</hint>
+
+```none
+./edge-zerotouch-amd64-linux generate -cfg=files/cfg-sample.json -sign-key=${signing_apikey}
+```
+
+**Sample Output of Command**
+
+<BlockQuote>
+  INFO\[02-14|23:06:27] using config file                     cfg=files/cfg-sample.json
+  INFO\[02-14|23:06:27] output directory is not specified&#x20;
+  INFO\[02-14|23:06:27] using output directory                output=/tmp/zerotouch
+  INFO\[02-14|23:06:40] Done!&#x20;
+</BlockQuote>
+
+**Sample Output of File and Directory Structure**
+
+After the command is executed, the tool creates a signed `.tar.gz` archive, which contains all necessary configurations, including static IP settings, LEM activation, and container images.&#x20;
+
+The final file structure may look like this:&#x20;
+
+<BlockQuote>
+  $ tree /tmp/zerotouch
+  /tmp/zerotouch
+  ├── zerotouch-1.0.0.tar.gz&#x20;
+</BlockQuote>
+
+## Step 3: Copying Zerotouch Configuration to the USB Drive&#x20;
+
+Once the zerotouch configuration file has been generated and signed, the next step is to copy it onto the appropriate folder on the USB drive that will be used for installation.&#x20;
+
+- Copy the file `zerotouch-1.0.0.tar.gz` into the USB drive under the folder `zerotouch`.
+
+The USB drive is now ready to be used for installing Litmus Edge on a device. This configuration includes everything the device needs for setup – activation, network configurations, signing key, and container images – even if the device lacks public internet access.
+
+# Install Litmus Edge from USB with Zerotouch Configuration
+
+Within your production or assembly facility, use the USB drive (prepared above) to install Litmus Edge on hundreds or thousands of edge devices. The installer will also copy the custom zerotouch configurations from the USB drive into the edge device.&#x20;
+
+After installation, the edge device is powered off and ready to be shipped for on-site deployment.
+
+**To install Litmus Edge from the USB:**
+
+1. Insert the USB drive into the device you want to install Litmus Edge.
+2. Power on the device.
+3. After the device initiates the installer, respond to the questions in the terminal user interface (TUI).
+   `Welcome to Operating System Installer. Are you installing over Serial (for advanced users)? Yes/No :`
+4. Enter `No`, and then press **ENTER**.
+   The Zerotouch Preboot message displays.
+5. Press **ENTER&#x20;**&#x66;or **Ok**.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/ClAD28DyO8QoF8qGtzOIA_screenmessage.png" size="80" width="838" height="213" caption="Zerotouch Preboot message" position="center" showCaption="true" indent="2"></Image>
+
+6. Select **Install Operating System**, and then select **OK**.&#x20;
+7. Use the arrow keys to navigate to selections.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/395VPsfgtSOO8Z2ZuEU7V_main-menu.png" size="70" width="384" height="212" caption="Install Operating System option" position="center" showCaption="true" indent="2"></Image>
+
+8. From the *Select Partition and Install&#x20;*&#x64;ialog box, select the correct installation location, navigate to **Ok**, and press **ENTER**.&#x20;
+9. Confirm the selected location and select **Yes**.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/Z02XZxZZCPztVP2fOXYlu_confirm-location.png" size="70" width="332" height="182" caption="Confirm selected location" position="center" showCaption="true" indent="2"></Image>
+
+10. Confirm that the selected device will be erased during the formatting process. Select **Yes**.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/19JrUTwW0iNNU7J3mQz82_format-devices.png" size="70" width="526" height="170" position="center" caption="Warning message for installation" showCaption="true" indent="2"></Image>
+
+11. Select **Yes&#x20;**&#x74;o power off the device.
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/MxaaYafOJp1Cpr2ba70I0_power-off.png" size="100" width="700" height="189" caption="Power off notification" position="center" showCaption="true" indent="2"></Image>
+
+The device is now ready to be shipped for deployment.
+
+# On-site Bootup
+
+Once the device is deployed to the end-user’s site, the final step is to boot the device and verify that the zerotouch configurations are applied correctly.&#x20;
+
+## Step 1: **Power On the Device**
+
+The end-user can simply power on the device. No additional setup is required at this point, as the configurations have already been pre-defined in the zerotouch file.&#x20;
+
+Litmus Edge will start running. The terminal window displays the URL that must be used to access the device using the Web UI.&#x20;
+
+If several URLs are displayed, use the first one. See :Link[Access the Litmus Edge Web UI]{docId="jnrxGGLrNt1vDJNOlBslk" label="Access the Litmus Edge Web UI" spaceId="JWQMp_kvm0WsA_Fpjt1v_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more information.&#x20;
+
+## Step 2: Verifying the Configuration&#x20;
+
+After boot-up, the device will automatically apply all the settings stored in the zerotouch configuration file. The end-user can log into the Litmus Edge Web UI to verify that the following are set up correctly:
+
+- The device has been successfully activated to LEM and is showing as connected. See :Link[Activate an Edge Device]{label="Activate an Edge Device" spaceId="VAKj8ZK5Bi9ApnYcgeYQr" docId="tDJ648wJgATVqzyx79UwB" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} for more details.
+- The static IP has been applied to the correct network interface.
+- The containers are running, and any specified integrations (such as device hubs or connectors) are properly configured.
+
+![](https://archbee-image-uploads.s3.amazonaws.com/Q116WJTAr1sefeVNvMCF9-ikjMBtajoOTxmWStwDiWt-20240916-205751.gif "Verifying the Configuration on Litmus Edge Device")
+
+<hint type="info">
+  **Note**: After the first boot, any docker images and associated containers specified in the zerotouch configuration file may take some time to display in the Litmus Edge UI.&#x20;
+</hint>
+

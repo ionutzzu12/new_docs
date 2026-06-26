@@ -1,0 +1,85 @@
+---
+title: Azure Event Hub Integration Guide
+slug: I2-T1esHEhHcW2hgAZ4Vs
+description: Learn how to set up the Azure Event Hub connector. 
+docTags: 
+createdAt: Thu Nov 24 2022 20:23:50 GMT+0200 (Eastern European Standard Time)
+---
+
+Review the following guide for setting up an integration between Litmus Edge and [Azure Event Hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about).
+
+The Azure Event Hub connector is based on the [Azure official SDK](https://github.com/Azure/azure-event-hubs-go).
+
+# Before You Begin
+
+You must have an Azure account.&#x20;
+
+# Step 1: Add a Device
+
+<ContentSnippet docRefId="4BJscZZuOa_vq_2mMaT9_">
+
+</ContentSnippet>
+
+# Step 2: Add Tags
+
+<ContentSnippet docRefId="WypbP7NZeCWlNxyPc0CG_">
+
+</ContentSnippet>
+
+# Step 3: Add the Azure Event Hubs Connector
+
+Follow the steps to [Add a Connector](<../../../Product Features/Integration/GcX9UZAhKiYSz8LSe4xaJ.mdx>) and select the **Azure Event Hubs** provider.&#x20;
+
+Configure the following parameters.&#x20;
+
+- **Name**: A recognizable name to identify the connector.&#x20;
+- **Connection String**: Copy the string from your Azure SAS Policy and paste it here.
+- **Maximum Message Size**: The maximum message size in KB. The default value is 256.&#x20;
+- **Parallel Connections Count**: The maximum number of parallel connections from your edge device to Azure Event Hub. The default value is 50.&#x20;
+- **Combine Messages**: Select the checkbox to combine messages (thus reducing the number of parallel connections).&#x20;
+- **Throttling limit**: The maximum number of messages per second to be processed. The default value is zero, which means that there is no limit.&#x20;
+- **Persistent storage**: When enabled, this will cause messages to undergo a store-and-forward procedure. Messages will be stored within Litmus Edge when cloud providers are online. &#x20;
+- **Queue Mode**: Select the queue mode as **lifo&#x20;**(last in first out) or **fifo&#x20;**(first in first out). Selecting **lifo&#x20;**&#x6D;eans that the last data entry is processed first, and selecting **fifo&#x20;**&#x6D;eans the first data entry is processed first.&#x20;
+
+<hint type="info">
+  **Note:&#x20;**&#x45;nsure that you enter the connection string for the Event Hub entity and not the namespace. Using the wrong connection string will result in connection failures. Additionally, verify that the *Send&#x20;*&#x61;nd *Listen* claims are enabled for the SAS policy.
+
+  The connection string format should look like this:
+
+  ```none
+  Endpoint=sb://<your-event-hub-name>.servicebus.windows.net/;SharedAccessKeyName=<your-policy-name>;SharedAccessKey=<your-access-key>;EntityPath=<your-entity-name>
+  ```
+</hint>
+
+# Step 4: Enable the Connector
+
+After adding the connector, click the toggle in the connector tile to enable it.&#x20;
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/RfS2qA0T3Wa13MG-ghHFF_azureeventhubs.png" size="60" width="388" height="358" position="center" showCaption="false"></Image>
+
+If you see a *Failed&#x20;*&#x73;tatus, you can review the :Link[Connector Logs]{label="Manage Connectors" spaceId docId="PvlzNrGBVl3QhocUrjZBZ" version="v2" docAnchorId="#connector-logs" loadingMethod="dynamic" overridedLabel="Connector Logs" href="../../Product Features/lBL7doO8dZVjlOPVnrAkz/o3YwIl-aYuomiu2keYIsw.mdx"} and relevant error messages.&#x20;
+
+# Step 5: Add Outbound Topics for Connector
+
+You will now need to create outbound topics for the connector from the tags created in Step 2.
+
+<ContentSnippet docRefId="IFvGjz8wQDN5qgSojCte8">
+
+</ContentSnippet>
+
+**After importing the tag(s), do the following:**
+
+1. Edit the tag and configure the **Remote Data Topic**. Copy and paste the name of your Azure Event Hub.&#x20;
+2. Click the **Enable&#x20;**&#x74;oggle to enable the topic.&#x20;
+3. Make sure the connector has a CONNECTED status.&#x20;
+
+# Step 6: Verify Connection in Azure
+
+**To verify the connection in Azure:&#x20;**
+
+1. Open the Azure portal.&#x20;
+2. Open the Event Hub you have connected to and see statistics on the messages it receives from the Litmus Edge outbound topic.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/PFUAlTjXqElSfTZ8yklmF_azure-event-hub-11000x350.png" size="80" width="1000" height="350" caption="Azure Event Hub" position="center" showCaption="true"></Image>
+3. Navigate to **Process Data > Explore** to see the messages in a tabular form.&#x20;
+   <Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/AKN5ZJuCRyFfeNkiX5xOU_azure-event-hub-21000x379.png" size="80" width="1000" height="379" caption="Explorer view in Azure" position="center" showCaption="true"></Image>
+

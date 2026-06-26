@@ -1,0 +1,110 @@
+---
+title: Change
+slug: change
+docTags: 
+createdAt: Mon Oct 21 2024 20:11:42 GMT+0300 (Eastern European Summer Time)
+---
+
+The **Change** processor enables the modification of incoming messages based on specific parameters.&#x20;
+
+- It is useful for both direct value assignments and complex string manipulations.&#x20;
+- With various operating modes, you can customize updates to meet your unique requirements, enhancing data handling and organization.
+
+## Change Overview
+
+- Modifies content of incoming message.
+- If *Change mode* field is set to **"set"**, this processor will assign **Value** to message's **Field.**
+- If *Change mode* field is set to **"change"**:
+  - If Field is of type string or JSON both Value and Replace Value will be converted to string and processor will look for Value substrings in Field and replace all occurrences of them with Replace Value string.
+  -    For all other types processor will look for complete match between Value and Field. If match found Replace Value will be set to Field.
+- If *Update timestamp* option is set processor will add current timestamp to a message. It will happen after change-processing.
+
+## Change Parameters
+
+<table isTableHeaderOn="true" selectedColumns="" selectedRows="" selectedTable="false" columnWidths="135">
+  <tr>
+    <td>
+      **Parameters**
+    </td>
+    <td>
+      **Details**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Mode
+    </td>
+    <td>
+      This parameter determines the method of modification, specifying whether to set a new value or change an existing one. Options includes:
+      - set
+      - change
+      - delete
+      - move
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Input Field
+    </td>
+    <td>
+      This parameter specifies the message field that will be targeted for modification.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Input Value Type
+    </td>
+    <td>
+      This defines the data type of the value that is being inputted.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Input Value
+    </td>
+    <td>
+      This parameter contains the actual value that will be used as the basis for changes or replacements.
+      - In **set&#x20;***Mode,&#x20;*&#x69;ts value to set.
+      - In **change&#x20;***Mode*, its value to search.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Replace With Value Type
+    </td>
+    <td>
+      This indicates the data type of the value that will replace the existing content within the input field.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Replace With Value
+    </td>
+    <td>
+      This parameter specifies the new value that will replace the designated content if a match is found.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Move To Field
+    </td>
+    <td>
+      This parameter allows the processor to relocate the modified content to a different specified field within the message.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Update Timestamp
+    </td>
+    <td>
+      This option enables the addition of the current timestamp to the message, documenting when the changes were made.
+    </td>
+  </tr>
+</table>
+
+<Image src="https://archbee-image-uploads.s3.amazonaws.com/SSUUxKZUk9bFTEPNn_6Zo/S2jRNShasOJnOrVOuxT3e_image.png" size="80" width="758" height="790" position="center" showCaption="false"></Image>
+
+<hint type="info">
+  **Note:&#x20;**&#x57;hen creating an analytics flow with *Change&#x20;*&#x70;rocessor, refer the :Link[Use the Change Processor Function]{label="Use the Change Processor Function" spaceId="SuELLqhxHnnKWA4eA6SOc" docId="Lfg_mvX52WJ3mzgTwbl4F" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel} guide for more details.
+</hint>
+

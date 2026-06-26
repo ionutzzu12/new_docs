@@ -1,0 +1,56 @@
+---
+title: DeviceHub
+slug: UeMlHt5tdnpQAOmR99fVv
+description: The DeviceHub module allows you to connect devices, as well as add register values as tags for data polling.
+docTags: 
+createdAt: Thu Mar 31 2022 00:11:10 GMT+0300 (Eastern European Summer Time)
+---
+
+Industrial devices such as PLCs store data in registers using proprietary protocols. That data is not accessible to modern systems without a translation layer. DeviceHub is that translation layer. It connects your devices to Litmus Edge, maps registers to named tags, and publishes tag values to the internal Message Broker.
+
+DeviceHub supports devices from most major manufacturers, such as Siemens, Allen Bradley, and Hitachi, through device-specific drivers for serial, Ethernet, Socketcan, and file-based protocols. For the full list of supported devices and drivers, see the [Industrial Systems Connection Guide](<../QuickStart Guide/ihnwJuFWkFifh4xbYZH3n.mdx>).
+
+﻿How DeviceHub connects industrial devices
+
+
+Industrial devices such as PLCs use proprietary protocols and register-based memory. Without a translation layer, that data stays locked on the device. DeviceHub bridges the gap:
+
+- **Centralized connection management**
+  Add, configure, and monitor all your devices from one place.
+- **Protocol flexibility**
+  Connect to devices over serial, Ethernet, Socketcan, or file-based interfaces without writing custom code.
+- **Asset discovery**
+  Scan the network to find devices connected to Litmus Edge before you configure them.
+- **Network diagnostics**
+  Test IP connectivity and port accessibility for a device before adding it.
+- **Tag browsing**
+  Browse predefined tags on a connected device and add them directly, without manually entering register addresses.
+- **Bulk tag import**
+  Upload multiple tags at once from a CSV file to configure data collection in bulk.
+- **Scheduled data collection**
+  Define how often each tag is polled so you get the right data at the right cadence.
+- **Down****stream flexibility**
+  Once data is on the Message Broker, any subscriber, such as a dashboard, analytics pipeline, or alerting system, can use it.
+
+## How it works
+
+Drivers form a two-way connection with PLC hardware devices and other industrial assets and collect register information from them. Each register is mapped to a Litmus Edge tag. Register information is stored in tags and the tags are published as topics to the internal Message Broker. You can save data to the internal Datastore by enabling the **Enable Data Store&#x20;**&#x6F;ption and setting a retention time.
+
+When you add a tag to a connected device, Litmus Edge polls that tag for data at the frequency you select. The system normalizes the polled data and posts it to the internal Message Broker. You can then subscribe to the data from the Message Broker for processing, visualization, and analysis.
+
+<Image src="https://api.archbee.com/api/optimize/SSUUxKZUk9bFTEPNn_6Zo/jy8ddsW3JBLzNZHDse1f9_devicehub-high-level-architecture.png" size="80" width="14065" height="9204" position="flex-start" darkWidth="14065" darkHeight="9204" showCaption="false"></Image>
+
+## What's next
+
+### Set up and manage devices and tags
+
+- [Devices](DeviceHub/gp4Hx5suHimGbwANR-nBs.mdx): Add and connect devices. Edit, refresh, and start and stop connections. Add metadata as key value pairs.
+- :Link[Tags]{label="Tags" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="DcYhq-w4mXm6BUMlARgsI" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}: Add tags individually, in bulk, or by browsing a connected device. Modify, view, and copy tags.
+- :Link[Asset Discovery]{label="Asset Discovery" spaceId="dNcA0qsaQMoh10_hl6ySs" docId="AotPUVtJx_9dPTi-GASoc" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}: Discover devices on the network that Litmus Edge is connected to.
+- [Utilities](DeviceHub/qgj28Umngl33QWda2wA1L.mdx): Test IP connectivity and port accessibility.
+
+### Guides and reference
+
+- [Industrial Systems Connection Guide](<../QuickStart Guide/ihnwJuFWkFifh4xbYZH3n.mdx>): Full list of supported devices and drivers.
+- :Link[DeviceHub Guides]{label="DeviceHub Guides" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="FUSWKdAFCK7ZN4wyLvbrO" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}: Step-by-step how-to guides.
+- :Link[DeviceHub Troubleshooting]{label="DeviceHub Troubleshooting" spaceId="JWQMp_kvm0WsA_Fpjt1v_" docId="V8SLnFzOaPMoLM9QcrXc_" version="v2" docAnchorId loadingMethod="dynamic" overridedLabel}: Troubleshoot connectivity and tag issues.

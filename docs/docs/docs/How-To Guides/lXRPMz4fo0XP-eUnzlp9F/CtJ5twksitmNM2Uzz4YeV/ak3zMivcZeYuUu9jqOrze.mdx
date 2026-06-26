@@ -1,0 +1,971 @@
+---
+title: Tag Data Type Conversions
+slug: ak3zMivcZeYuUu9jqOrze
+description: Learn more about tag data type conversions when using the Siemens S7 Browse Agent. 
+docTags: 
+createdAt: Fri Sep 30 2022 16:25:47 GMT+0300 (Eastern European Summer Time)
+---
+
+Tag Data Type conversion is converted as follows:
+
+- TIA Portal Tag Table Data Types
+- TIA Portal Program Block Data Types
+
+<hint type="info">
+  **Notes**:
+
+  - Arrays are automatically expanded. For each array, a tag is created for the entire array as well as each index in the array.
+  - Tags cannot be created for User Data Types or Strings placed in the InOut section of a function block.
+  - User-defined types in tag tables cannot be expanded. The address of the start of the UDT will be provided as a tag.&#x20;
+</hint>
+
+# TIA Portal Tag Table Data Types
+
+*TIA Portal tag table* *data types* are converted to *Server data types* as follows:
+
+<table columnWidths="306,334" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **TIA Portal Data Type**
+    </td>
+    <td align="left">
+      **Server Data Type**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Bool
+    </td>
+    <td align="left">
+      Boolean
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Byte
+    </td>
+    <td align="left">
+      Byte
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Char
+    </td>
+    <td align="left">
+      Char
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Counter
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Date
+    </td>
+    <td align="left">
+      String
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Dint
+    </td>
+    <td align="left">
+      Long
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DWord
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Int
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Real
+    </td>
+    <td align="left">
+      Float
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S5Time
+    </td>
+    <td align="left">
+      Long
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Time
+    </td>
+    <td align="left">
+      String
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Timer
+    </td>
+    <td align="left">
+      Long
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Time Of Day
+    </td>
+    <td align="left">
+      String
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Word
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Aom\_Ident
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Conn\_Any
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Conn\_Ouc
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Conn\_Prg
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Conn\_R\_Id
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB\_ANY
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB\_DYN
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB\_WWW
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Event\_Any
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Event\_Att
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Event\_HwInt
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Any
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Device
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_DpMaster
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_DpSlave
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Hsc
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Interface
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_IEPort
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Io
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_IoSystem
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Module
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Pto
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Pwm
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_SubModule
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LReal
+    </td>
+    <td align="left">
+      Double
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Any
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Att
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Cyclic
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Delay
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_DIAG
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_HWINT
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_PCYCLE
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_STARTUP
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_TIMEERROR
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Tod
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Pip
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Port
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rtm
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SInt
+    </td>
+    <td align="left">
+      Char
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      UDInt
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      UInt
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      USInt
+    </td>
+    <td align="left">
+      Byte
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WChar
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+</table>
+
+# TIA Portal Program Block Data Types
+
+*TIA Portal program block data types&#x20;*&#x61;re converted to *Server data types&#x20;*&#x61;s follows:
+
+<table columnWidths="310,334" isTableHeaderOn="true">
+  <tr>
+    <td align="left">
+      **TIA Portal Data Type**
+    </td>
+    <td align="left">
+      **Server Data Type**
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Bool
+    </td>
+    <td align="left">
+      Boolean
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Byte
+    </td>
+    <td align="left">
+      Byte
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Char
+    </td>
+    <td align="left">
+      Char
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Counter
+    </td>
+    <td align="left">
+      Char
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Date
+    </td>
+    <td align="left">
+      String
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Dint
+    </td>
+    <td align="left">
+      Long
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DWord
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Int
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Real
+    </td>
+    <td align="left">
+      Float
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      S5Time
+    </td>
+    <td align="left">
+      Long
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Time
+    </td>
+    <td align="left">
+      String
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Timer
+    </td>
+    <td align="left">
+      String
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Time Of Day
+    </td>
+    <td align="left">
+      String
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Word
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Date and Time
+    </td>
+    <td align="left">
+      String
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      AOM\_IDENT
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CONN\_ANY
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CONN\_OUC
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CONN\_PRG
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      CONN\_R\_ID
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB\_ANY
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB\_DYN
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      DB\_WWW
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EVENT\_ANY
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EVENT\_ATT
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      EVENT\_HWINT
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Any
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Device
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_DPMaster
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_DPSlave
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_HSC
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Interface
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_IEPort
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Io
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_IoSystem
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Module
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Pto
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_Pwm
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Hw\_SubModule
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      LReal
+    </td>
+    <td align="left">
+      Double
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Any
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Att
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Cyclic
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Delay
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_DIAG
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_HWINT
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_PCYCLE
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_STARTUP
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_TIMEERROR
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      OB\_Tod
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Pip
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Port
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      Rtm
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      SInt
+    </td>
+    <td align="left">
+      Char
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      UDInt
+    </td>
+    <td align="left">
+      DWord
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      UInt
+    </td>
+    <td align="left">
+      Word
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      USInt
+    </td>
+    <td align="left">
+      Byte
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+      WChar
+    </td>
+    <td align="left">
+      Short
+    </td>
+  </tr>
+</table>
+

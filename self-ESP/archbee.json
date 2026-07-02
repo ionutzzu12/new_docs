@@ -2,7 +2,14 @@
   "docsPath": "self-ESP/",
   "structure": {
     "assets": "assets/",
-    "docsTree": []
+    "docsTree": [
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
+      }
+    ]
   },
   "shadowDocs": []
 }

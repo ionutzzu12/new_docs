@@ -10,7 +10,12 @@
       {
         "categoryName": "Shadow Docs",
         "isCategory": true,
-        "children": [],
+        "children": [
+          {
+            "path": "shadow-docs/blabla.mdx",
+            "children": []
+          }
+        ],
         "isShadowDocs": true
       }
     ]

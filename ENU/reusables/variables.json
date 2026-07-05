@@ -1,1 +1,16 @@
-{}
+{
+  "FRS_VARS.ProductName": {
+    "contentVariableId": "CIPNzOkKGyAjMLfT02Qys",
+    "name": "FRS_VARS.ProductName",
+    "content": "Neurons for ITSM",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_ITSM_-_Administrator-Administrator.": {
+    "contentVariableId": "s46yE-QjB5BvsvZp5Y0kN",
+    "name": "FRS_VARS.Neurons_ITSM_-_Administrator-Administrator.",
+    "content": "Administrator",
+    "type": "variable",
+    "scope": "global"
+  }
+}

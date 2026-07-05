@@ -1,18 +1,12 @@
-{ 
+{
   "$schema": "https://api.archbee.com/git-config-schema",
   "docsPath": "ENU/",
   "structure": {
     "assets": "assets",
     "docsTree": [
       {
-        "path": "FKHI737zKXtYq5EYBS5nu.mdx",
+        "path": "aaa.mdx",
         "children": []
-      },
-      {
-        "categoryName": "Shadow Docs",
-        "isCategory": true,
-        "children": [],
-        "isShadowDocs": true
       }
     ]
   },

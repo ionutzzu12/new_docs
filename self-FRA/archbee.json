@@ -23,55 +23,6 @@
         "children": []
       },
       {
-        "categoryName": "Utilisation des espaces de travail",
-        "isCategory": false,
-        "path": "Content/Self-Service/Using-the-Workspaces.mdx",
-        "children": [
-          {
-            "categoryName": "Mes éléments",
-            "isCategory": false,
-            "path": "Content/Self-Service/my-items.mdx",
-            "children": []
-          },
-          {
-            "categoryName": "Demandes de service et incidents",
-            "isCategory": false,
-            "path": "Content/Self-Service/service-requests-and-incidents.mdx",
-            "children": []
-          },
-          {
-            "categoryName": "Centre de connaissances",
-            "isCategory": false,
-            "path": "Content/Self-Service/knowledge-center.mdx",
-            "children": []
-          },
-          {
-            "categoryName": "Annonces, FAQ et alertes",
-            "isCategory": false,
-            "path": "Content/Self-Service/announcements-FAQs-and-alerts.mdx",
-            "children": []
-          },
-          {
-            "categoryName": "Messages de la console des réseaux sociaux",
-            "isCategory": false,
-            "path": "Content/Self-Service/social-board-messages.mdx",
-            "children": []
-          },
-          {
-            "categoryName": "Zone de chat",
-            "isCategory": false,
-            "path": "Content/Self-Service/chat-zone.mdx",
-            "children": []
-          },
-          {
-            "categoryName": "Utilisation des favoris",
-            "isCategory": false,
-            "path": "Content/Self-Service/Working-with-Favorite.mdx",
-            "children": []
-          }
-        ]
-      },
-      {
         "categoryName": "Ivanti Neurons for Facilities - Utilisateur Self Service",
         "isCategory": false,
         "path": "Content/Self-Service/Neurons-for-Facitities-Self-Service-User.mdx",

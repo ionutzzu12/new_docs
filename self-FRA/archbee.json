@@ -4,12 +4,6 @@
     "assets": "assets/",
     "docsTree": [
       {
-        "categoryName": "Vue d'ensemble",
-        "isCategory": false,
-        "path": "Content/Self-Service/Getting-Started-with-Self-Service.mdx",
-        "children": []
-      },
-      {
         "categoryName": "Premiers pas dans le portail Self Service",
         "isCategory": false,
         "path": "Content/Self-Service/Getting-Started-with-Self-Service.mdx",

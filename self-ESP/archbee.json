@@ -4,21 +4,11 @@
     "assets": "assets/",
     "docsTree": [
       {
-        "path": "ohvspKlT5x85qYzZsbvsh.mdx",
+        "path": "aa.mdx",
         "children": []
-      },
-      {
-        "categoryName": "Shadow Docs",
-        "isCategory": true,
-        "children": [
-          {
-            "path": "shadow-docs/blabla.mdx",
-            "children": []
-          }
-        ],
-        "isShadowDocs": true
       }
     ]
   },
-  "shadowDocs": []
+  "shadowDocs": [],
+  "autoMerge": false
 }
